@@ -1,0 +1,151 @@
+=== test_kbase3: KBASE_IOCTL_GET_GPUPROPS ===
+sizeof(struct kbase_ioctl_get_gpuprops) = 16 (harus 16)
+KBASE_IOCTL_GET_GPUPROPS = 0x40108003 (harus 0x40108003)
+
+[1] open /dev/mali0
+    ok, fd=3
+
+[2] PROBE A: GET_GPUPROPS(size=0) SEBELUM VERSION_CHECK
+    JALAN, required size = 749 byte
+
+[3] VERSION_CHECK
+    UAPI driver = 11.46
+
+[4] PROBE B: GET_GPUPROPS(size=0) SEBELUM SET_FLAGS (tanpa context)
+    JALAN, required size = 749 byte
+    -> props bisa dibaca TANPA context. Bagus buat enumerasi.
+
+[5] SET_FLAGS(create_flags=0)
+    ok, context kebentuk
+
+[6] GET_GPUPROPS(size=0) sesudah context ada
+    required size = 749 byte
+
+[7] Tes negatif (mastiin offset field bener)
+    [7a] flags=1 -> harusnya EINVAL (asm: cbnz w8 di offset 12)
+         ok, ditolak EINVAL
+    [7b] size=1 (kurang dari 749) -> harusnya EINVAL (asm: b.cs)
+         ok, ditolak EINVAL
+
+[8] GET_GPUPROPS pass-2: ambil 749 byte beneran
+    ok, kernel nulis 749 byte
+
+[9] Decode key/value
+    id     nama                             tipe nilai
+    ---------------------------------------------------------------
+    1      PRODUCT_ID                       u32  0x0000000000009093  (37011)
+    2      VERSION_STATUS                   u16  0x0000000000000000  (0)
+    3      MINOR_REVISION                   u16  0x0000000000000001  (1)
+    4      MAJOR_REVISION                   u16  0x0000000000000000  (0)
+    6      GPU_FREQ_KHZ_MAX                 u32  0x0000000000001388  (5000)
+    8      LOG2_PROGRAM_COUNTER_SIZE        u32  0x0000000000000018  (24)
+    9      TEXTURE_FEATURES_0               u32  0x00000000f7fe03fe  (4160619518)
+    10     TEXTURE_FEATURES_1               u32  0x00000000c3fff7ff  (3288332287)
+    11     TEXTURE_FEATURES_2               u32  0x00000000bfe1ff9f  (3219259295)
+    80     TEXTURE_FEATURES_3               u32  0x000000000000020e  (526)
+    12     GPU_AVAILABLE_MEMORY_SIZE        u64  0x00000001de834000  (8028110848)
+    82     NUM_EXEC_ENGINES                 u8   0x0000000000000000  (0)
+    13     L2_LOG2_LINE_SIZE                u8   0x0000000000000006  (6)
+    14     L2_LOG2_CACHE_SIZE               u8   0x0000000000000012  (18)
+    15     L2_NUM_L2_SLICES                 u8   0x0000000000000001  (1)
+    16     TILER_BIN_SIZE_BYTES             u32  0x0000000000000200  (512)
+    17     TILER_MAX_ACTIVE_LEVELS          u32  0x0000000000000008  (8)
+    18     MAX_THREADS                      u32  0x0000000000000400  (1024)
+    19     MAX_WORKGROUP_SIZE               u32  0x0000000000000200  (512)
+    20     MAX_BARRIER_SIZE                 u32  0x0000000000000200  (512)
+    21     MAX_REGISTERS                    u32  0x0000000000008000  (32768)
+    22     MAX_TASK_QUEUE                   u8   0x0000000000000004  (4)
+    23     MAX_THREAD_GROUP_SPLIT           u8   0x0000000000000000  (0)
+    24     IMPL_TECH                        u8   0x0000000000000000  (0)
+    84     TLS_ALLOC                        u32  0x0000000000000400  (1024)
+    25     RAW_SHADER_PRESENT               u64  0x0000000000000005  (5)
+    26     RAW_TILER_PRESENT                u64  0x0000000000000001  (1)
+    27     RAW_L2_PRESENT                   u64  0x0000000000000001  (1)
+    28     RAW_STACK_PRESENT                u64  0x0000000000000005  (5)
+    29     RAW_L2_FEATURES                  u64  0x0000000008120206  (135397894)
+    30     RAW_CORE_FEATURES                u64  0x0000000000000000  (0)
+    31     RAW_MEM_FEATURES                 u64  0x0000000000000001  (1)
+    32     RAW_MMU_FEATURES                 u64  0x0000000000002830  (10288)
+    33     RAW_AS_PRESENT                   u32  0x00000000000000ff  (255)
+    34     RAW_JS_PRESENT                   u32  0x0000000000000007  (7)
+    35     RAW_JS_FEATURES_0                u32  0x000000000000020e  (526)
+    36     RAW_JS_FEATURES_1                u32  0x0000000000001c9e  (7326)
+    37     RAW_JS_FEATURES_2                u32  0x000000000000001e  (30)
+    38     RAW_JS_FEATURES_3                u32  0x0000000000000000  (0)
+    39     RAW_JS_FEATURES_4                u32  0x0000000000000000  (0)
+    40     RAW_JS_FEATURES_5                u32  0x0000000000000000  (0)
+    41     RAW_JS_FEATURES_6                u32  0x0000000000000000  (0)
+    42     RAW_JS_FEATURES_7                u32  0x0000000000000000  (0)
+    43     RAW_JS_FEATURES_8                u32  0x0000000000000000  (0)
+    44     RAW_JS_FEATURES_9                u32  0x0000000000000000  (0)
+    45     RAW_JS_FEATURES_10               u32  0x0000000000000000  (0)
+    46     RAW_JS_FEATURES_11               u32  0x0000000000000000  (0)
+    47     RAW_JS_FEATURES_12               u32  0x0000000000000000  (0)
+    48     RAW_JS_FEATURES_13               u32  0x0000000000000000  (0)
+    49     RAW_JS_FEATURES_14               u32  0x0000000000000000  (0)
+    50     RAW_JS_FEATURES_15               u32  0x0000000000000000  (0)
+    51     RAW_TILER_FEATURES               u64  0x0000000000000809  (2057)
+    52     RAW_TEXTURE_FEATURES_0           u32  0x00000000f7fe03fe  (4160619518)
+    53     RAW_TEXTURE_FEATURES_1           u32  0x00000000c3fff7ff  (3288332287)
+    54     RAW_TEXTURE_FEATURES_2           u32  0x00000000bfe1ff9f  (3219259295)
+    81     RAW_TEXTURE_FEATURES_3           u32  0x000000000000020e  (526)
+    55     RAW_GPU_ID                       u64  0x0000000090930010  (2425552912)
+    56     RAW_THREAD_MAX_THREADS           u32  0x0000000000000400  (1024)
+    57     RAW_THREAD_MAX_WORKGROUP_SIZE    u32  0x0000000000000200  (512)
+    58     RAW_THREAD_MAX_BARRIER_SIZE      u32  0x0000000000000200  (512)
+    59     RAW_THREAD_FEATURES              u32  0x0000000000048000  (294912)
+    60     RAW_COHERENCY_MODE               u32  0x000000000000001f  (31)
+    83     RAW_THREAD_TLS_ALLOC             u32  0x0000000000000000  (0)
+    85     RAW_GPU_FEATURES                 u64  0x0000000000000000  (0)
+    61     COHERENCY_NUM_GROUPS             u32  0x0000000000000001  (1)
+    62     COHERENCY_NUM_CORE_GROUPS        u32  0x0000000000000001  (1)
+    63     COHERENCY_COHERENCY              u32  0x0000000000000001  (1)
+    64     COHERENCY_GROUP_0                u64  0x0000000000000005  (5)
+    65     COHERENCY_GROUP_1                u64  0x0000000000000000  (0)
+    66     COHERENCY_GROUP_2                u64  0x0000000000000000  (0)
+    67     COHERENCY_GROUP_3                u64  0x0000000000000000  (0)
+    68     COHERENCY_GROUP_4                u64  0x0000000000000000  (0)
+    69     COHERENCY_GROUP_5                u64  0x0000000000000000  (0)
+    70     COHERENCY_GROUP_6                u64  0x0000000000000000  (0)
+    71     COHERENCY_GROUP_7                u64  0x0000000000000000  (0)
+    72     COHERENCY_GROUP_8                u64  0x0000000000000000  (0)
+    73     COHERENCY_GROUP_9                u64  0x0000000000000000  (0)
+    74     COHERENCY_GROUP_10               u64  0x0000000000000000  (0)
+    75     COHERENCY_GROUP_11               u64  0x0000000000000000  (0)
+    76     COHERENCY_GROUP_12               u64  0x0000000000000000  (0)
+    77     COHERENCY_GROUP_13               u64  0x0000000000000000  (0)
+    78     COHERENCY_GROUP_14               u64  0x0000000000000000  (0)
+    79     COHERENCY_GROUP_15               u64  0x0000000000000000  (0)
+    total 83 prop, 749 byte kebaca habis
+
+[10] Ringkasan buat pan_kmod_dev_props
+     (pemetaan dari DRM_PANFROST_PARAM_* ke KBASE_GPUPROP_*)
+
+     gpu_id                       <- RAW_GPU_ID                   0x90930010
+     shader_present               <- RAW_SHADER_PRESENT           0x5
+     tiler_features               <- RAW_TILER_FEATURES           0x809
+     mem_features                 <- RAW_MEM_FEATURES             0x1
+     mmu_features                 <- RAW_MMU_FEATURES             0x2830
+     l2_features                  <- RAW_L2_FEATURES              0x8120206
+     texture_features[0]          <- RAW_TEXTURE_FEATURES_0       0xf7fe03fe
+     texture_features[1]          <- RAW_TEXTURE_FEATURES_1       0xc3fff7ff
+     texture_features[2]          <- RAW_TEXTURE_FEATURES_2       0xbfe1ff9f
+     texture_features[3]          <- RAW_TEXTURE_FEATURES_3       0x20e
+     max_threads_per_core         <- RAW_THREAD_MAX_THREADS       0x400
+     max_threads_per_wg           <- RAW_THREAD_MAX_WORKGROUP_SIZE 0x200
+     (thread_features)            <- RAW_THREAD_FEATURES          0x48000
+     max_tls_instance_per_core    <- RAW_THREAD_TLS_ALLOC         0x0
+
+     turunan dari RAW_THREAD_FEATURES 0x00048000:
+       max_tasks_per_core      = 1  (tf >> 24, min 1)
+       num_registers_per_core  = 32768  (tf & 0xffff)
+
+     GPU_ID 0x90930010 -> product 0x9093, arch v9
+
+     CATATAN: afbc_features dan timestamp_frequency TIDAK punya
+     KBASE_GPUPROP_* padanan. panfrost_kmod.c ngambil keduanya lewat
+     DRM_PANFROST_PARAM_AFBC_FEATURES / _SYSTEM_TIMESTAMP_FREQUENCY.
+     Di kbase, timestamp ada di KBASE_IOCTL_GET_CPU_GPU_TIMEINFO (nr 50);
+     AFBC belum ketemu sumbernya — masih terbuka.
+
+=== SEMUA CEK LULUS ===
