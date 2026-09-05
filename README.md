@@ -8,7 +8,12 @@ Most public PanVK testing/builds so far target **CSF** chips (G610/G615/G710/G72
 
 ---
 
-## Status: kernel driver confirmed working. PanVK userspace enumeration is the blocker.
+## Status: kernel driver confirmed working. For v9 there is no PanVK userspace to enumerate *with* — see §4.
+
+Two separate things were suspected to be the blocker; they turned out to be different problems:
+
+1. **Kernel side — not a blocker.** `/dev/mali0` responds correctly to the full ioctl chain, and the GPU property table is readable with no context at all (§1, §1b).
+2. **Userspace side — the actual blocker for v9.** PanVK has no v9 backend. Not "v9 wasn't packaged", but "v9 was never implemented" — the `jm/` backend is Bifrost-only (§4). Separately, LukeValen's v7 build *is* compiled in and still enumerates 0 devices (§3), which is a second, independent bug — `pan_kmod` has no kbase backend at all, only `panfrost_kmod.c` and `panthor_kmod.c`, so enumeration goes through `drmGetDevices2` on `/dev/dri/*` and never touches `/dev/mali0`.
 
 ## 1. Raw kbase ioctl test — ✅ fully working
 
@@ -25,6 +30,23 @@ write 0xAB × 16384 bytes, read back → matches            ✅ (CPU↔GPU coher
 ```
 
 **Conclusion: the kernel-side JM driver is fully responsive and correct.** Version check, context activation, memory allocation, mmap, and read/write coherency all work exactly as expected. Whatever's blocking PanVK is not a kernel/device compatibility problem.
+
+### 1b. `GET_GPUPROPS` works with **no context** — ✅ the enumeration path is viable
+
+Follow-up probe ([`tests/test_kbase3.c`](tests/test_kbase3.c), full output in [`results/gpuprops-g57-r54p1.txt`](results/gpuprops-g57-r54p1.txt), writeup in [`docs/gpuprops-without-context.md`](docs/gpuprops-without-context.md)):
+
+```
+KBASE_IOCTL_GET_GPUPROPS before VERSION_CHECK  → 749 bytes, 83 props   ✅
+KBASE_IOCTL_GET_GPUPROPS before SET_FLAGS      → 749 bytes, 83 props   ✅
+KBASE_IOCTL_GET_GPUPROPS with context          → 749 bytes, 83 props   ✅ (identical)
+flags != 0 → EINVAL, size < required → EINVAL                          ✅ (both as predicted)
+```
+
+This matters because it is exactly the state `vkEnumeratePhysicalDevices` runs in. The handler sits in kbase's *pre-setup* ioctl group (`mali_kbase_core_linux.c:1855-1894`, above the `setup_state == KBASE_FILE_COMPLETE` gate at :1896), so **a `kbase_kmod.c` backend can fill `pan_kmod_dev_props` with no context, no allocation, and no job submission.** The writeup includes the full `KBASE_GPUPROP_* → pan_kmod_dev_props` mapping and the field offsets verified against this device's own disassembly.
+
+Two gotchas worth repeating here: `SHADER_PRESENT` is `0x5` on this MC2 part (bits 0 and 2, **not** contiguous — use popcount, not `mask + 1`), and `GPU_FREQ_KHZ_MAX` is a hardcoded default in the kernel, not a real value.
+
+Also mapped the whole ioctl surface while in there — [`docs/kbase-uapi-r54p1.md`](docs/kbase-uapi-r54p1.md): 33 ioctls, all 33 matching ARM's public GPL header by name *and* direction, zero MediaTek-custom ones. So `kbase_kmod.c` can be written against ARM's public headers with no struct reverse-engineering.
 
 ## 2. PanVK-G720 (wonderkast02) test result — ❌ 0 extensions
 
@@ -49,7 +71,13 @@ This is a different arch bucket (v7 is compiled in for G52, unlike v9 for G57) b
 - [Mesa/Panfrost docs](https://docs.mesa3d.org/drivers/panfrost.html) — PanVK is "conformant on Mali-G610, non-conformant on other GPUs" (not "unsupported").
 - [DeepWiki PanVK architecture overview](https://deepwiki.com/bminor/mesa-mesa/2.4-panvk-(arm-mali-vulkan-driver)) — lists Bifrost/Valhall-JM (v9) as one of the supported generation groups in the arch-dispatch design.
 
-v9 is being actively worked on upstream; its absence from the G720 build looks like scope choice for that specific build, not a gap in Mesa itself.
+~~v9 is being actively worked on upstream; its absence from the G720 build looks like scope choice for that specific build, not a gap in Mesa itself.~~
+
+**Correction (2026-09-05) — that guess was wrong, and this is the main finding of the repo so far.** It *is* a gap in Mesa itself, not a packaging choice. In stock Mesa `src/panfrost/vulkan/meson.build`, `jm_archs = [6, 7]` and the build loop is `foreach arch : [6, 7, 10, 11, 12, 13, 14]` — v9 is excluded on purpose, because **PanVK's `jm/` command-buffer backend is Bifrost-only, written entirely against `PAN_ARCH < 9`**. It is not a JM-generic backend that merely forgot v9.
+
+Adding v9 to both lists compiles 19 of 24 objects and then fails with 69 errors: the `jm/` sources reach for struct members and helpers that the shared headers gate behind `#if PAN_ARCH < 9`, and for genxml descriptors (`Renderer State`, `Attribute Buffer`, `Invocation`) that **do not exist at v9** — Valhall replaced them with `Shader Program`/SPD and `Resource` tables, and changed the Compute/Tiler job section layouts outright.
+
+Full evidence, error breakdown, and the two-line patch: [`docs/why-v9-is-a-port.md`](docs/why-v9-is-a-port.md).
 
 ## 5. Kernel driver source
 
@@ -66,16 +94,48 @@ mali_kbase_mt6789_a16w_jm.ko   → version=r54p1-12eac0 (UK version 11.46)
 ```
 (companion modules: `mali_mgm_mt6789_a16w_jm.ko`, `mali_prot_alloc_mt6789_a16w_jm.ko`)
 
-## 6. Attempting a native Mesa build via Termux (in progress)
+## 6. Native Mesa build via Termux — ✅ builds, and it answers the v9 question
 
-Following Luke's approach (native on-device build, no PC/NDK), using his [Termux/Android detection patch](https://github.com/LukeValen/panvk-mali-g52/blob/main/patches/termux-android-detection-fixes.patch). Currently working through `meson setup` dependency issues (libdrm, cutils/WSI, Python packaging/mako, LLVMSPIRVLib) on a fresh Mesa clone. Will update here once it builds — the goal is to see whether a from-source build (not arch-trimmed like the G720 binary) surfaces v9 automatically and whether it hits the same enumeration wall Luke found on v7.
+Following Luke's approach (native on-device build, no PC/NDK), using his [Termux/Android detection patch](https://github.com/LukeValen/panvk-mali-g52/blob/main/patches/termux-android-detection-fixes.patch). The `meson setup` dependency issues (libdrm, cutils/WSI, Python packaging/mako, LLVMSPIRVLib) are all resolved; Mesa 26.3.0-devel now builds on-device with clang 21.1.8 / NDK r29 (`aarch64-unknown-linux-android24`), producing a ~20 MB unstripped `libvulkan_panfrost.so`.
+
+The question this was meant to settle — *does a from-source build, not arch-trimmed like the G720 binary, surface v9 automatically?* — **No.**
+
+```
+$ for v in 6 7 9 10 11 12 13 14; do
+    printf 'panvk_v%-2s : %s\n' $v \
+      "$(nm --defined-only libvulkan_panfrost.so | grep -c "panvk_v${v}_")"
+  done
+panvk_v6  : 106     panvk_v10 : 128     panvk_v13 : 128
+panvk_v7  : 106     panvk_v11 : 128     panvk_v14 : 126
+panvk_v9  :   0     panvk_v12 : 128
+```
+
+⚠️ Use `nm --defined-only`, **not** `nm -D`. Per-arch libs are built with `gnu_symbol_visibility : 'hidden'` (`src/panfrost/vulkan/meson.build:239`), so `nm -D` reports zero for *every* arch and tells you nothing.
+
+Trying to force v9 in is what produced the finding in §4 — see [`docs/why-v9-is-a-port.md`](docs/why-v9-is-a-port.md). Consequence: the enumeration wall Luke hit on v7 can't be compared against v9 yet, because there is no v9 build to hit it with.
+
+**Toolchain trap for anyone building on Termux + proot:** if you configure the build under Termux (Termux clang, bionic) and then run `ninja` from inside a proot distro, `cc` resolves to the distro's glibc gcc and you silently mix ABIs — `/usr/bin` precedes `/data/data/com.termux/files/usr/bin` in PATH there. Prefix every invocation with `PATH=/data/data/com.termux/files/usr/bin:$PATH`. Termux clang itself runs fine under proot.
 
 ---
 
 ## Open questions / help wanted
 
-- Does the `vkEnumeratePhysicalDevices` → 0 devices issue reproduce on **any** JM-arch PanVK build (v6/v7/v9), or is it specific to something in how each of us built/packaged it?
-- If v9 gets added to a future PanVK-G720-style build, does it hit the same wall?
-- Anyone with a Mali-G31/G51/G57/G68/G77/G78 device (Bifrost or Valhall-JM) willing to run the same raw-ioctl test + a PanVK build, to compare notes?
+- Does the `vkEnumeratePhysicalDevices` → 0 devices issue reproduce on **any** JM-arch PanVK build (v6/v7), or is it specific to something in how each of us built/packaged it? (v9 is out of the running until someone ports it — §4.)
+- ~~If v9 gets added to a future PanVK-G720-style build, does it hit the same wall?~~ **Answered: v9 can't simply "be added".** It needs a Valhall-JM command-buffer backend written from scratch, using gallium's `pan_cmdstream.c` v9 paths as the reference. See [`docs/why-v9-is-a-port.md`](docs/why-v9-is-a-port.md).
+- Is anyone already working on a PanVK v9 `jm/` backend upstream? Igalia's extension sprint is scoped to "v9+", but that phrasing may only mean v10+ in practice — worth confirming before duplicating effort.
+- `pan_kmod_dev_props.afbc_features` has no `KBASE_GPUPROP_*` equivalent that I could find. `panfrost_kmod.c` gets it from `DRM_PANFROST_PARAM_AFBC_FEATURES`. Where does kbase expose it — or is it meant to be derived from the GPU ID?
+- Anyone with a Mali-G31/G51/G57/G68/G77/G78 device (Bifrost or Valhall-JM) willing to run the same raw-ioctl tests + a PanVK build, to compare notes?
+
+## Repo layout
+
+```
+docs/kbase-uapi-r54p1.md          33 dispatched ioctls, method, version negotiation
+docs/gpuprops-without-context.md  GET_GPUPROPS w/o a context + pan_kmod_dev_props mapping
+docs/why-v9-is-a-port.md          why the 2-line meson patch isn't enough
+tests/test_kbase2.c               version check, set_flags, mem_alloc, mmap, coherency
+tests/test_kbase3.c               GET_GPUPROPS probe (incl. negative tests)
+results/gpuprops-g57-r54p1.txt    raw output of test_kbase3 on this device
+patches/0001-panvk-add-v9-...     the meson patch (necessary, not sufficient)
+```
 
 Related: [wonderkast02/panvk-g720-kbase-csf](https://github.com/wonderkast02/panvk-g720-kbase-csf), [LukeValen/panvk-mali-g52](https://github.com/LukeValen/panvk-mali-g52)
