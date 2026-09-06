@@ -6,6 +6,8 @@ Investigation & testing notes: getting **PanVK** (Mesa's open-source Vulkan driv
 
 Most public PanVK testing/builds so far target **CSF** chips (G610/G615/G710/G720 — arch v10+). This repo tracks the v9/JM side specifically, since it's a different frontend (Job Manager, not Command Stream Frontend) and gets far less testing.
 
+> ⚠️ Experimental reverse-engineering / bring-up project. No claim of Vulkan conformance or game compatibility is made anywhere in this repo unless explicitly marked as such with hardware evidence.
+
 ---
 
 ## Status: kernel driver confirmed working. For v9 there is no PanVK userspace to enumerate *with* — see §4.
@@ -57,13 +59,15 @@ Tested `wonderkast02`'s `PanVK-G720-0.1.0-alpha.2` build (Mesa 26.3.0-devel) as 
 
 Binary analysis of `libvulkan_panfrost.so` shows compiled arch buckets: `v6, v7, v10, v12, v13, v14, v19` — **v9 is not compiled in**. Both `jm/` and `csf/` command-buffer backends exist in the binary, but with no v9 entry-point table, GPU ID `9093` has nothing to bind to → falls back to the "Unknown gpu_id" path.
 
+wonderkast02's own repo ([`panvk-g720-kbase-csf`](https://github.com/wonderkast02/panvk-g720-kbase-csf)) has since moved much further on the **CSF** side — native `kbase_kmod.c` against real Kbase/CSF (not a wrapper), full graphics pipeline, MSAA, tessellation, even Wine/Box64/DXVK bring-up. Worth reading end to end: it's the clearest public example of what a *complete* bring-up on this general family (kbase → pan_kmod → PanVK) looks like, and its "Próximos passos" / PoC-milestone structure is what §Roadmap below is modeled on. The CSF/JM split means none of that command-buffer work transfers to v9 directly, but the kbase-bring-up methodology (ioctl validation → GPUPROPS → context → memory → job/queue submission → PanVK) transfers exactly.
+
 ## 3. Cross-reference: LukeValen's native G52 (v7) build — same failure shape
 
 [`LukeValen/panvk-mali-g52`](https://github.com/LukeValen/panvk-mali-g52) — native on-device Termux build of the same Mesa 26.3.0-devel, on a Mali-G52 MC2 (Bifrost/JM, v7, same kbase UAPI generation — 11.38 there vs 11.46 here).
 
 Result: `vkCreateInstance` succeeds, but **`vkEnumeratePhysicalDevices` returns 0 devices**, even with `PAN_I_WANT_A_BROKEN_VULKAN_DRIVER=1` set.
 
-This is a different arch bucket (v7 is compiled in for G52, unlike v9 for G57) but hits the **same enumeration failure shape**. Combined with the kernel-level test above, this points toward a shared PanVK **userspace enumeration bug** affecting JM architectures generally — not a per-device or per-arch-bucket issue.
+This is a different arch bucket (v7 is compiled in for G52, unlike v9 for G57) but hits the **same enumeration failure shape**. As §Status above notes, this isn't a v7-specific bug either — `pan_kmod` simply has no kbase backend at all yet, on any arch, so `vkEnumeratePhysicalDevices` never looks at `/dev/mali0` in stock Mesa. Building `kbase_kmod.c` (§Roadmap, Phase 2) should fix Luke's v7 case immediately, independent of the v9 command-buffer work.
 
 ## 4. Upstream Mesa status for v9
 
@@ -114,7 +118,28 @@ panvk_v9  :   0     panvk_v12 : 128
 
 Trying to force v9 in is what produced the finding in §4 — see [`docs/why-v9-is-a-port.md`](docs/why-v9-is-a-port.md). Consequence: the enumeration wall Luke hit on v7 can't be compared against v9 yet, because there is no v9 build to hit it with.
 
+An alternative build path worth trying if the Termux route stalls: `leegao`'s [`mesa-funnymdzz`](https://github.com/leegao/mesa-funnymdzz) (forked from [`funnymdzz/mesa`](https://github.com/funnymdzz/mesa), and the base wonderkast02 built from) cross-compiles from a PC with the real Android NDK instead of building natively on-device. Its [`setup.sh`](https://github.com/leegao/mesa-funnymdzz/blob/ci/setup.sh) takes a different approach to the same libcutils/liblog/WSI problem Luke's patch solves by editing source: it generates **stub `.pc` files** for `cutils`, `hardware`, `log`, `sync`, `nativewindow`, `ui`, etc. via `pkg-config`, builds host-side codegen tools first (`mesa_clc`, `vtn_bindgen2`, `panfrost_compile` — these must run on the *build* machine, not the target), then cross-compiles the real target build against a `--cross-file`. Its explicit option `-Dpanfrost-kmds=kbase,panthor` is the flag that selects which `pan_kmod` backend(s) get built — that's the option Phase 2 below needs once `kbase_kmod.c` exists.
+
 **Toolchain trap for anyone building on Termux + proot:** if you configure the build under Termux (Termux clang, bionic) and then run `ninja` from inside a proot distro, `cc` resolves to the distro's glibc gcc and you silently mix ABIs — `/usr/bin` precedes `/data/data/com.termux/files/usr/bin` in PATH there. Prefix every invocation with `PATH=/data/data/com.termux/files/usr/bin:$PATH`. Termux clang itself runs fine under proot.
+
+---
+
+## Roadmap
+
+Modeled on wonderkast02's PoC-milestone structure — small, independently checkable claims, no "it works" until there's a specific test proving it. Each phase lists what would falsify it.
+
+- [x] **Phase 0 — Kbase/JM bring-up (raw ioctl, no Mesa).** `/dev/mali0` open, version check, `SET_FLAGS`, `MEM_ALLOC`, `mmap`, CPU↔GPU coherency, `GET_GPUPROPS` with and without a context. *(§1, §1b — done)*
+- [x] **Phase 1 — Understand why v9 has no backend.** Not a missing meson entry; `jm/` is structurally Bifrost-only (genxml descriptors that don't exist at v9, gated helpers). *(§4 — done)*
+- [ ] **Phase 2 — `pan_kmod` kbase backend (`kbase_kmod.c`).** Wire `GET_GPUPROPS` → `pan_kmod_dev_props` (mapping already done in §1b) so `pan_kmod_dev_create()` can open `/dev/mali0` and populate device props with *no* v9 command-buffer code involved yet. **Falsifiable target:** `vkEnumeratePhysicalDevices` returns 1 device (name, ID, memory heaps correct) on both this G57 (v9) and Luke's G52 (v7) — extensions can still legitimately be 0 past this point, since no command-buffer backend exists for either arch to advertise real capability against.
+  - `afbc_features` mapping is still open (see below) — may need a fallback default rather than blocking this phase.
+- [ ] **Phase 3 — Minimal v9 command-buffer backend.** Port only what's needed for `vkCreateDevice` + a trivial compute dispatch: Shader Program/SPD descriptors, Resource tables, v9 Compute job layout. Reference: gallium's `pan_cmdstream.c` v9 paths (Panfrost OpenGL already solved this for compute/3D on this exact arch — porting known-working reference code, not reverse-engineering from scratch).
+  - **Falsifiable target:** one compute shader dispatches and produces a verifiable result via readback, matching the pattern in wonderkast02's own compute milestone.
+- [ ] **Phase 4 — Graphics pipeline.** Vertex + fragment, offscreen render target, readback — the v9 equivalent of wonderkast02's "triângulo offscreen + readback" milestone.
+- [ ] **Phase 5 — Texture sampling, depth/stencil, blending, MSAA.** Same shape as wonderkast02 §"PanVK nativo", ported to v9's descriptor layout.
+- [ ] **Phase 6 — WSI / swapchain.** Termux:X11 or native Android surface, vkcube-equivalent, sustained frame test.
+- [ ] **Phase 7 — Wine/Box64/DXVK bring-up (optional, stretch).** Only after Phase 4 is solid — wonderkast02's G720 LAB findings on missing features (`geometryShader`, `textureCompressionBC`, etc.) likely apply here too and are worth re-checking against this hardware's real feature bits rather than assumed.
+
+No phase here claims Vulkan conformance or "games will run" — that would need CTS, which is out of scope until well past Phase 5.
 
 ---
 
@@ -137,5 +162,12 @@ tests/test_kbase3.c               GET_GPUPROPS probe (incl. negative tests)
 results/gpuprops-g57-r54p1.txt    raw output of test_kbase3 on this device
 patches/0001-panvk-add-v9-...     the meson patch (necessary, not sufficient)
 ```
+
+## Credits / prior art
+
+- [wonderkast02/panvk-g720-kbase-csf](https://github.com/wonderkast02/panvk-g720-kbase-csf) — CSF/G720 bring-up this repo's methodology and roadmap structure is modeled on.
+- [LukeValen/panvk-mali-g52](https://github.com/LukeValen/panvk-mali-g52) — native Termux build + Android-detection patch used in §6; the v7/G52 cross-reference in §3.
+- [leegao/mesa-funnymdzz](https://github.com/leegao/mesa-funnymdzz) (forked from [funnymdzz/mesa](https://github.com/funnymdzz/mesa)) — cross-compile tooling and stub-`.pc` approach referenced in §6; the base wonderkast02 built from.
+- Icecream95 and the Panfrost/PanVK contributors — the underlying reverse-engineering and driver work all of this sits on top of.
 
 Related: [wonderkast02/panvk-g720-kbase-csf](https://github.com/wonderkast02/panvk-g720-kbase-csf), [LukeValen/panvk-mali-g52](https://github.com/LukeValen/panvk-mali-g52)
