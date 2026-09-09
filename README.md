@@ -10,12 +10,12 @@ Most public PanVK testing/builds so far target **CSF** chips (G610/G615/G710/G72
 
 ---
 
-## Status: kernel driver confirmed working. For v9 there is no PanVK userspace to enumerate *with* — see §4.
+## Status (2026-09-09): native compute dispatch working and validated on v9. Graphics not yet ported.
 
-Two separate things were suspected to be the blocker; they turned out to be different problems:
+Where things stood before vs. now:
 
-1. **Kernel side — not a blocker.** `/dev/mali0` responds correctly to the full ioctl chain, and the GPU property table is readable with no context at all (§1, §1b).
-2. **Userspace side — the actual blocker for v9.** PanVK has no v9 backend. Not "v9 wasn't packaged", but "v9 was never implemented" — the `jm/` backend is Bifrost-only (§4). Separately, LukeValen's v7 build *is* compiled in and still enumerates 0 devices (§3), which is a second, independent bug — `pan_kmod` has no kbase backend at all, only `panfrost_kmod.c` and `panthor_kmod.c`, so enumeration goes through `drmGetDevices2` on `/dev/dri/*` and never touches `/dev/mali0`.
+1. **Kernel side — not a blocker, was already confirmed working.** `/dev/mali0` responds correctly to the full ioctl chain, and the GPU property table is readable with no context at all (§1, §1b).
+2. **Userspace side — was the blocker, now largely resolved for compute.** PanVK had no v9 backend at all as of the first finding in this repo (§4). Since then, a v9 `jm/` command-buffer path has been built out far enough that **a real compute shader now dispatches through PanVK and produces a correct, reproducible GPU result** — see §7. This clears Phase 3's falsifiable target from the Roadmap below. **Graphics (draw calls) is still unimplemented** — see §7 for exactly what's stubbed.
 
 ## 1. Raw kbase ioctl test — ✅ fully working
 
@@ -61,13 +61,13 @@ Binary analysis of `libvulkan_panfrost.so` shows compiled arch buckets: `v6, v7,
 
 wonderkast02's own repo ([`panvk-g720-kbase-csf`](https://github.com/wonderkast02/panvk-g720-kbase-csf)) has since moved much further on the **CSF** side — native `kbase_kmod.c` against real Kbase/CSF (not a wrapper), full graphics pipeline, MSAA, tessellation, even Wine/Box64/DXVK bring-up. Worth reading end to end: it's the clearest public example of what a *complete* bring-up on this general family (kbase → pan_kmod → PanVK) looks like, and its "Próximos passos" / PoC-milestone structure is what §Roadmap below is modeled on. The CSF/JM split means none of that command-buffer work transfers to v9 directly, but the kbase-bring-up methodology (ioctl validation → GPUPROPS → context → memory → job/queue submission → PanVK) transfers exactly.
 
-## 3. Cross-reference: LukeValen's native G52 (v7) build — same failure shape
+## 3. Cross-reference: LukeValen's native G52 (v7) build — same failure shape (at the time)
 
 [`LukeValen/panvk-mali-g52`](https://github.com/LukeValen/panvk-mali-g52) — native on-device Termux build of the same Mesa 26.3.0-devel, on a Mali-G52 MC2 (Bifrost/JM, v7, same kbase UAPI generation — 11.38 there vs 11.46 here).
 
-Result: `vkCreateInstance` succeeds, but **`vkEnumeratePhysicalDevices` returns 0 devices**, even with `PAN_I_WANT_A_BROKEN_VULKAN_DRIVER=1` set.
+At the time this was tested: `vkCreateInstance` succeeded, but **`vkEnumeratePhysicalDevices` returned 0 devices**, even with `PAN_I_WANT_A_BROKEN_VULKAN_DRIVER=1` set. Luke's own repo has since progressed well past this point (raw JM job-submission harness, order-of-operations fix for `EXEC_INIT` also independently found there — see §7).
 
-This is a different arch bucket (v7 is compiled in for G52, unlike v9 for G57) but hits the **same enumeration failure shape**. As §Status above notes, this isn't a v7-specific bug either — `pan_kmod` simply has no kbase backend at all yet, on any arch, so `vkEnumeratePhysicalDevices` never looks at `/dev/mali0` in stock Mesa. Building `kbase_kmod.c` (§Roadmap, Phase 2) should fix Luke's v7 case immediately, independent of the v9 command-buffer work.
+As §Status above notes, this wasn't a v7-specific bug — `pan_kmod` simply had no kbase backend at all, on any arch, so `vkEnumeratePhysicalDevices` never looked at `/dev/mali0` in stock Mesa.
 
 ## 4. Upstream Mesa status for v9
 
@@ -77,11 +77,11 @@ This is a different arch bucket (v7 is compiled in for G52, unlike v9 for G57) b
 
 ~~v9 is being actively worked on upstream; its absence from the G720 build looks like scope choice for that specific build, not a gap in Mesa itself.~~
 
-**Correction (2026-09-05) — that guess was wrong, and this is the main finding of the repo so far.** It *is* a gap in Mesa itself, not a packaging choice. In stock Mesa `src/panfrost/vulkan/meson.build`, `jm_archs = [6, 7]` and the build loop is `foreach arch : [6, 7, 10, 11, 12, 13, 14]` — v9 is excluded on purpose, because **PanVK's `jm/` command-buffer backend is Bifrost-only, written entirely against `PAN_ARCH < 9`**. It is not a JM-generic backend that merely forgot v9.
+**Correction (2026-09-05):** that guess was wrong. It *is* a gap in Mesa itself, not a packaging choice. In stock Mesa `src/panfrost/vulkan/meson.build`, `jm_archs = [6, 7]` and the build loop is `foreach arch : [6, 7, 10, 11, 12, 13, 14]` — v9 is excluded on purpose, because **PanVK's `jm/` command-buffer backend is Bifrost-only, written entirely against `PAN_ARCH < 9`**. It is not a JM-generic backend that merely forgot v9.
 
 Adding v9 to both lists compiles 19 of 24 objects and then fails with 69 errors: the `jm/` sources reach for struct members and helpers that the shared headers gate behind `#if PAN_ARCH < 9`, and for genxml descriptors (`Renderer State`, `Attribute Buffer`, `Invocation`) that **do not exist at v9** — Valhall replaced them with `Shader Program`/SPD and `Resource` tables, and changed the Compute/Tiler job section layouts outright.
 
-Full evidence, error breakdown, and the two-line patch: [`docs/why-v9-is-a-port.md`](docs/why-v9-is-a-port.md).
+Full evidence, error breakdown, and the two-line patch: [`docs/why-v9-is-a-port.md`](docs/why-v9-is-a-port.md). **Update:** the 69-error wall above has since been worked through far enough for compute to work — see §7.
 
 ## 5. Kernel driver source
 
@@ -102,7 +102,7 @@ mali_kbase_mt6789_a16w_jm.ko   → version=r54p1-12eac0 (UK version 11.46)
 
 Following Luke's approach (native on-device build, no PC/NDK), using his [Termux/Android detection patch](https://github.com/LukeValen/panvk-mali-g52/blob/main/patches/termux-android-detection-fixes.patch). The `meson setup` dependency issues (libdrm, cutils/WSI, Python packaging/mako, LLVMSPIRVLib) are all resolved; Mesa 26.3.0-devel now builds on-device with clang 21.1.8 / NDK r29 (`aarch64-unknown-linux-android24`), producing a ~20 MB unstripped `libvulkan_panfrost.so`.
 
-The question this was meant to settle — *does a from-source build, not arch-trimmed like the G720 binary, surface v9 automatically?* — **No.**
+The question this was meant to settle — *does a from-source build, not arch-trimmed like the G720 binary, surface v9 automatically?* — **No, not without the patches in §7.**
 
 ```
 $ for v in 6 7 9 10 11 12 13 14; do
@@ -116,11 +116,23 @@ panvk_v9  :   0     panvk_v12 : 128
 
 ⚠️ Use `nm --defined-only`, **not** `nm -D`. Per-arch libs are built with `gnu_symbol_visibility : 'hidden'` (`src/panfrost/vulkan/meson.build:239`), so `nm -D` reports zero for *every* arch and tells you nothing.
 
-Trying to force v9 in is what produced the finding in §4 — see [`docs/why-v9-is-a-port.md`](docs/why-v9-is-a-port.md). Consequence: the enumeration wall Luke hit on v7 can't be compared against v9 yet, because there is no v9 build to hit it with.
+Trying to force v9 in is what produced the finding in §4 — see [`docs/why-v9-is-a-port.md`](docs/why-v9-is-a-port.md). That work has since progressed to a working compute path — see §7.
 
-An alternative build path worth trying if the Termux route stalls: `leegao`'s [`mesa-funnymdzz`](https://github.com/leegao/mesa-funnymdzz) (forked from [`funnymdzz/mesa`](https://github.com/funnymdzz/mesa), and the base wonderkast02 built from) cross-compiles from a PC with the real Android NDK instead of building natively on-device. Its [`setup.sh`](https://github.com/leegao/mesa-funnymdzz/blob/ci/setup.sh) takes a different approach to the same libcutils/liblog/WSI problem Luke's patch solves by editing source: it generates **stub `.pc` files** for `cutils`, `hardware`, `log`, `sync`, `nativewindow`, `ui`, etc. via `pkg-config`, builds host-side codegen tools first (`mesa_clc`, `vtn_bindgen2`, `panfrost_compile` — these must run on the *build* machine, not the target), then cross-compiles the real target build against a `--cross-file`. Its explicit option `-Dpanfrost-kmds=kbase,panthor` is the flag that selects which `pan_kmod` backend(s) get built — that's the option Phase 2 below needs once `kbase_kmod.c` exists.
+An alternative build path worth trying if the Termux route stalls: `leegao`'s [`mesa-funnymdzz`](https://github.com/leegao/mesa-funnymdzz) (forked from [`funnymdzz/mesa`](https://github.com/funnymdzz/mesa), and the base wonderkast02 built from) cross-compiles from a PC with the real Android NDK instead of building natively on-device. Its [`setup.sh`](https://github.com/leegao/mesa-funnymdzz/blob/ci/setup.sh) takes a different approach to the same libcutils/liblog/WSI problem Luke's patch solves by editing source: it generates **stub `.pc` files** for `cutils`, `hardware`, `log`, `sync`, `nativewindow`, `ui`, etc. via `pkg-config`, builds host-side codegen tools first (`mesa_clc`, `vtn_bindgen2`, `panfrost_compile` — these must run on the *build* machine, not the target), then cross-compiles the real target build against a `--cross-file`. Its explicit option `-Dpanfrost-kmds=kbase,panthor` is the flag that selects which `pan_kmod` backend(s) get built — this is the base the working v9 backend in §7 is built on.
 
 **Toolchain trap for anyone building on Termux + proot:** if you configure the build under Termux (Termux clang, bionic) and then run `ninja` from inside a proot distro, `cc` resolves to the distro's glibc gcc and you silently mix ABIs — `/usr/bin` precedes `/data/data/com.termux/files/usr/bin` in PATH there. Prefix every invocation with `PATH=/data/data/com.termux/files/usr/bin:$PATH`. Termux clang itself runs fine under proot.
+
+## 7. v9 command-buffer backend — native compute dispatch validated (2026-09-09)
+
+Full writeup, exact bugs found (with patches), and validation output: [`docs/v9-compute-dispatch-validated.md`](docs/v9-compute-dispatch-validated.md).
+
+Short version: on top of the `jm_archs`/build-matrix fix in `docs/why-v9-is-a-port.md`, physical-device enumeration was wired up for v9, the top-level `panvk_arch_dispatch`/`panvk_arch_dispatch_ret` routing was fixed (was hitting `UNREACHABLE`/UB for v9, not a clean failure), several `PAN_ARCH` boundary-condition gaps were patched, and a native v9 compute-dispatch path was written using v9's own `Compute Job`/`Compute Payload` genxml struct (simpler than Bifrost's split layout). Graphics (`CmdDraw*`) is stubbed as a no-op for v9 for now — not yet ported.
+
+Two bugs specific to this session, both with exact patches in `patches/`:
+- `panvk_physical_device.c` was missing the v9 prototype declaration (`patches/0002-...patch`) — definitions compiled fine, but the generic file couldn't see them.
+- `KBASE_IOCTL_MEM_EXEC_INIT`'s `va_pages` was hardcoded to `4` (16 KB) — that's the *entire* EXEC_VA zone size, not a per-allocation value, so it filled up on the first real shader-binary allocation. Raised to `1024` (4 MB) (`patches/0003-...patch`).
+
+**Falsifiable claim:** a compute shader (`data[0] = 777u`) dispatched via `vkCmdDispatch`, submitted via `vkQueueSubmit`, waited on via `vkQueueWaitIdle`, and read back correctly via mapped memory — reproduced 3 times in a row with byte-identical output, including the full intermediate `kbase MEM_ALLOC` request sequence. Not a raw-ioctl harness result — this goes through real PanVK end to end.
 
 ---
 
@@ -130,44 +142,46 @@ Modeled on wonderkast02's PoC-milestone structure — small, independently check
 
 - [x] **Phase 0 — Kbase/JM bring-up (raw ioctl, no Mesa).** `/dev/mali0` open, version check, `SET_FLAGS`, `MEM_ALLOC`, `mmap`, CPU↔GPU coherency, `GET_GPUPROPS` with and without a context. *(§1, §1b — done)*
 - [x] **Phase 1 — Understand why v9 has no backend.** Not a missing meson entry; `jm/` is structurally Bifrost-only (genxml descriptors that don't exist at v9, gated helpers). *(§4 — done)*
-- [ ] **Phase 2 — `pan_kmod` kbase backend (`kbase_kmod.c`).** Wire `GET_GPUPROPS` → `pan_kmod_dev_props` (mapping already done in §1b) so `pan_kmod_dev_create()` can open `/dev/mali0` and populate device props with *no* v9 command-buffer code involved yet. **Falsifiable target:** `vkEnumeratePhysicalDevices` returns 1 device (name, ID, memory heaps correct) on both this G57 (v9) and Luke's G52 (v7) — extensions can still legitimately be 0 past this point, since no command-buffer backend exists for either arch to advertise real capability against.
-  - `afbc_features` mapping is still open (see below) — may need a fallback default rather than blocking this phase.
-- [ ] **Phase 3 — Minimal v9 command-buffer backend.** Port only what's needed for `vkCreateDevice` + a trivial compute dispatch: Shader Program/SPD descriptors, Resource tables, v9 Compute job layout. Reference: gallium's `pan_cmdstream.c` v9 paths (Panfrost OpenGL already solved this for compute/3D on this exact arch — porting known-working reference code, not reverse-engineering from scratch).
-  - **Falsifiable target:** one compute shader dispatches and produces a verifiable result via readback, matching the pattern in wonderkast02's own compute milestone.
-- [ ] **Phase 4 — Graphics pipeline.** Vertex + fragment, offscreen render target, readback — the v9 equivalent of wonderkast02's "triângulo offscreen + readback" milestone.
+- [x] **Phase 2 — `pan_kmod` kbase backend (`kbase_kmod.c`).** `vkEnumeratePhysicalDevices` returns 1 device on this G57 (v9) with correct name/ID/memory heaps. *(done, folded into §7's fixes — the arch-dispatch/EXEC_INIT bugs found there were blocking this too)*
+- [x] **Phase 3 — Minimal v9 command-buffer backend.** **Falsifiable target met:** one compute shader dispatches and produces a verifiable result via readback, reproduced 3x. *(§7 — done)*
+- [ ] **Phase 4 — Graphics pipeline.** Vertex + fragment, offscreen render target, readback — the v9 equivalent of wonderkast02's "triângulo offscreen + readback" milestone. Currently all draw entrypoints are stubbed no-ops for v9 (§7).
 - [ ] **Phase 5 — Texture sampling, depth/stencil, blending, MSAA.** Same shape as wonderkast02 §"PanVK nativo", ported to v9's descriptor layout.
 - [ ] **Phase 6 — WSI / swapchain.** Termux:X11 or native Android surface, vkcube-equivalent, sustained frame test.
 - [ ] **Phase 7 — Wine/Box64/DXVK bring-up (optional, stretch).** Only after Phase 4 is solid — wonderkast02's G720 LAB findings on missing features (`geometryShader`, `textureCompressionBC`, etc.) likely apply here too and are worth re-checking against this hardware's real feature bits rather than assumed.
 
 No phase here claims Vulkan conformance or "games will run" — that would need CTS, which is out of scope until well past Phase 5.
 
+Also still open, not yet on this list: `vkCmdDispatchIndirect` for v9 (direct dispatch only so far), and the practical size ceiling of the 4 MB EXEC_VA zone for larger/more complex shaders than the single-buffer test in §7.
+
 ---
 
 ## Open questions / help wanted
 
-- Does the `vkEnumeratePhysicalDevices` → 0 devices issue reproduce on **any** JM-arch PanVK build (v6/v7), or is it specific to something in how each of us built/packaged it? (v9 is out of the running until someone ports it — §4.)
-- ~~If v9 gets added to a future PanVK-G720-style build, does it hit the same wall?~~ **Answered: v9 can't simply "be added".** It needs a Valhall-JM command-buffer backend written from scratch, using gallium's `pan_cmdstream.c` v9 paths as the reference. See [`docs/why-v9-is-a-port.md`](docs/why-v9-is-a-port.md).
-- Is anyone already working on a PanVK v9 `jm/` backend upstream? Igalia's extension sprint is scoped to "v9+", but that phrasing may only mean v10+ in practice — worth confirming before duplicating effort.
+- Does the `vkEnumeratePhysicalDevices` → 0 devices issue reproduce on **any** JM-arch PanVK build (v6/v7) using stock upstream Mesa (no kbase backend), or is it specific to something in how each of us built/packaged it? *(Resolved for this repo's own build — see §7 — but worth confirming against other builds.)*
+- Is anyone already working on a PanVK v9 `jm/` backend upstream (graphics, not just compute)? Igalia's extension sprint is scoped to "v9+", but that phrasing may only mean v10+ in practice — worth confirming before duplicating the draw-call porting effort.
 - `pan_kmod_dev_props.afbc_features` has no `KBASE_GPUPROP_*` equivalent that I could find. `panfrost_kmod.c` gets it from `DRM_PANFROST_PARAM_AFBC_FEATURES`. Where does kbase expose it — or is it meant to be derived from the GPU ID?
-- Anyone with a Mali-G31/G51/G57/G68/G77/G78 device (Bifrost or Valhall-JM) willing to run the same raw-ioctl tests + a PanVK build, to compare notes?
+- Anyone with a Mali-G31/G51/G57/G68/G77/G78 device (Bifrost or Valhall-JM) willing to run the same raw-ioctl tests + a PanVK build, to compare notes, especially on the graphics-path porting work ahead?
 
 ## Repo layout
 
 ```
-docs/kbase-uapi-r54p1.md          33 dispatched ioctls, method, version negotiation
-docs/gpuprops-without-context.md  GET_GPUPROPS w/o a context + pan_kmod_dev_props mapping
-docs/why-v9-is-a-port.md          why the 2-line meson patch isn't enough
-tests/test_kbase2.c               version check, set_flags, mem_alloc, mmap, coherency
-tests/test_kbase3.c               GET_GPUPROPS probe (incl. negative tests)
-results/gpuprops-g57-r54p1.txt    raw output of test_kbase3 on this device
-patches/0001-panvk-add-v9-...     the meson patch (necessary, not sufficient)
+docs/kbase-uapi-r54p1.md                33 dispatched ioctls, method, version negotiation
+docs/gpuprops-without-context.md        GET_GPUPROPS w/o a context + pan_kmod_dev_props mapping
+docs/why-v9-is-a-port.md                why the 2-line meson patch isn't enough
+docs/v9-compute-dispatch-validated.md   full v9 compute-dispatch writeup, bugs found, validation
+tests/test_kbase2.c                     version check, set_flags, mem_alloc, mmap, coherency
+tests/test_kbase3.c                     GET_GPUPROPS probe (incl. negative tests)
+results/gpuprops-g57-r54p1.txt          raw output of test_kbase3 on this device
+patches/0001-panvk-add-v9-...           the meson patch (necessary, not sufficient)
+patches/0002-panvk-physical-device-...  v9 per-arch prototype declaration fix
+patches/0003-kbase-exec-va-pages.patch  EXEC_VA zone size fix (16KB -> 4MB)
 ```
 
 ## Credits / prior art
 
 - [wonderkast02/panvk-g720-kbase-csf](https://github.com/wonderkast02/panvk-g720-kbase-csf) — CSF/G720 bring-up this repo's methodology and roadmap structure is modeled on.
-- [LukeValen/panvk-mali-g52](https://github.com/LukeValen/panvk-mali-g52) — native Termux build + Android-detection patch used in §6; the v7/G52 cross-reference in §3.
-- [leegao/mesa-funnymdzz](https://github.com/leegao/mesa-funnymdzz) (forked from [funnymdzz/mesa](https://github.com/funnymdzz/mesa)) — cross-compile tooling and stub-`.pc` approach referenced in §6; the base wonderkast02 built from.
+- [LukeValen/panvk-mali-g52](https://github.com/LukeValen/panvk-mali-g52) — native Termux build + Android-detection patch used in §6; the v7/G52 cross-reference in §3; independently found the same `EXEC_INIT`-before-`JIT_INIT` ordering fix referenced in §7.
+- [leegao/mesa-funnymdzz](https://github.com/leegao/mesa-funnymdzz) (forked from [funnymdzz/mesa](https://github.com/funnymdzz/mesa)) — cross-compile tooling and stub-`.pc` approach referenced in §6; the base wonderkast02 built from, and the base the §7 work is built on.
 - Icecream95 and the Panfrost/PanVK contributors — the underlying reverse-engineering and driver work all of this sits on top of.
 
 Related: [wonderkast02/panvk-g720-kbase-csf](https://github.com/wonderkast02/panvk-g720-kbase-csf), [LukeValen/panvk-mali-g52](https://github.com/LukeValen/panvk-mali-g52)
