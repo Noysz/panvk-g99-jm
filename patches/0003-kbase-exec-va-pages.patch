@@ -1,0 +1,17 @@
+--- kbase_kmod.c.pre-exec-va-fix	2026-09-09
++++ kbase_kmod.c	2026-09-09
+@@ -1180,7 +1180,10 @@
+    /* PATCH: EXEC_INIT dipindah SEBELUM JIT_INIT -- di device ini EXEC_INIT
+     * gagal EPERM kalau ada operasi memori (termasuk JIT_INIT) yang jalan
+     * duluan. */
+-   struct kbase_ioctl_mem_exec_init exec_init = { .va_pages = 4 };
++   /* PATCH: va_pages=4 (16KB) was the minimum that passed EXEC_INIT itself,
++    * found by trial-and-error after 0x100000 (~4GB) was rejected. Turns out
++    * that's the *total* size of the EXEC_VA zone for all future executable
++    * allocations, not just the init call -- 16KB was immediately exhausted
++    * by the first real compiled-shader allocation (ENOMEM on
++    * KBASE_IOCTL_MEM_ALLOC with GPU_EX flag). Raised to 4MB. */
++   struct kbase_ioctl_mem_exec_init exec_init = { .va_pages = 1024 };
+    if (ioctl(fd, KBASE_IOCTL_MEM_EXEC_INIT, &exec_init)) {
+       mesa_logw("kbase: KBASE_IOCTL_MEM_EXEC_INIT failed: %s "
+                 "(executable BO allocation will not work)", strerror(errno));
