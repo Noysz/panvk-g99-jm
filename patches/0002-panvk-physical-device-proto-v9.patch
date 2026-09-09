@@ -1,0 +1,10 @@
+--- panvk_physical_device.c.pre-v9-proto	2026-09-09
++++ panvk_physical_device.c	2026-09-09
+@@ -73,6 +73,7 @@
+ 
+ PER_ARCH_FUNCS(6);
+ PER_ARCH_FUNCS(7);
++PER_ARCH_FUNCS(9);
+ PER_ARCH_FUNCS(10);
+ PER_ARCH_FUNCS(12);
+ PER_ARCH_FUNCS(13);
