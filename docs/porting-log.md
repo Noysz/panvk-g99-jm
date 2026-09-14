@@ -1,275 +1,260 @@
-# Valhall-JM (v9) draw port — working log
+# Valhall-JM (v9) graphics bring-up — working log
 
-Running log of the actual port work: what was built, what broke, which unit of
-work owns each breakage, and what has *not* been verified.
+Running log of the graphics (draw) side of the v9 port: what was built, what
+broke, which hypotheses were tested and **eliminated**, and what is still open.
 
-The port itself lives in a local Mesa checkout, not in this repo. This document
-records state and evidence so the work is resumable.
+Compute is done and validated separately — see
+[`v9-compute-dispatch-validated.md`](v9-compute-dispatch-validated.md). This
+file covers the draw path only, which is still **not working**.
 
-- Mesa checkout HEAD: `23373e9fce2af674bd61a2501548be2ed035880b` (Mesa 26.3.0-devel)
-- Build logs and pre-edit file copies are kept in a local checkpoint directory,
-  not committed here.
-
-> Why a port is needed at all — rather than a build-matrix entry — is in
-> [`why-v9-is-a-port.md`](why-v9-is-a-port.md). This file is the log of doing it.
-
----
-
-## 1. Baseline build (2026-09-05)
-
-Purpose: reproduce the current failure with the correct toolchain, from a clean
-out-of-tree build directory, without changing any source. Establishes what the
-existing local v9 work does and does not achieve.
-
-**Toolchain** — Termux clang 21.1.8, target `aarch64-unknown-linux-android24`,
-Meson 1.12.0, Ninja 1.13.2, `llvm-ar`, Termux `pkg-config`, Termux-first `PATH`
-(see the toolchain trap in README §6), `--wrap-mode=nodownload`.
-
-Original options retained: `-Dvulkan-drivers=panfrost -Dgallium-drivers=
--Dplatforms=x11 -Dbuildtype=release -Dandroid-libbacktrace=disabled
--Dc_link_args=-landroid-shmem -Dcpp_link_args=-landroid-shmem`.
-
-**Target**
-
-```
-ninja -C <fresh-build-dir> -j1 -k0 src/panfrost/vulkan/libpanvk_v9.a
-```
-
-**Result — exit 1.**
-
-| | |
-|---|---|
-| v9 objects produced | **28** |
-| v9 objects required | 29 |
-| only missing object | `libpanvk_v9.a.p/jm_panvk_vX_cmd_draw.c.o` |
-| `libpanvk_v9.a` | not produced |
-| new `libvulkan_panfrost.so` | not produced (link never attempted) |
-
-So every v9 translation unit compiles **except** the JM draw path. Notably
-`panvk_vX_cmd_desc_state.c.o`, `jm_panvk_vX_cmd_dispatch.c.o` and
-`jm_panvk_vX_cmd_precomp.c.o` are among the 28 — meaning the Valhall
-resource-table helpers (`cmd_prepare_shader_res_table`, `cmd_fill_dyn_bufs`)
-and the v9 `COMPUTE_JOB/PAYLOAD` compute path already build for v9.
-
-### ⚠️ Do not read the error count as progress
-
-The run ended with:
-
-```
-fatal error: too many errors emitted, stopping now [-ferror-limit=]
-20 errors generated.
-```
-
-`20` is clang's cap, not a count of remaining problems. An earlier
-configuration (README §4) reported `69 errors` over `19 of 24` objects. These
-numbers are **not comparable** — different file list in `meson.build`, and one
-run was truncated by the error limit. Neither number measures how much of the
-port is done.
-
-### ⚠️ What compiling proves
-
-Only that the C is well-formed for those translation units. It does **not**
-demonstrate: Vulkan enumeration, device discovery, job submission,
-synchronisation, CPU/GPU coherency, rendering, or Winlator compatibility. No
-GPU execution of any kind has been performed against this build.
+> Everything below is either a command that was run and its raw output, or a
+> file/line reference. Claims that were later disproven are kept, marked as
+> disproven, because knowing which explanations are already ruled out is the
+> most useful part of this document.
 
 ---
 
-## 2. Blocker inventory (from the baseline run)
+## Current status: draw executes on the GPU and renders nothing
 
-All 20 reported diagnostics are in `src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c`.
-Line numbers are pre-edit baseline lines.
+A minimal offscreen triangle test ([`../tests/triangle_draw_test_v2.c`](../tests/triangle_draw_test_v2.c))
+reaches the GPU end to end:
 
-| Line | Diagnostic | Root cause | Owning unit |
+```
+vkCmdDraw returned (no crash)
+vkQueueSubmit ok
+vkQueueWaitIdle ok
+--- ringkasan pixel image 64x64 (rowPitch=256) ---
+total piksel non-hitam: 0 dari 4096
+CLEAR-ONLY: image ke-clear (hitam) tapi triangle nggak ke-render
+```
+
+The image is cleared (the 0xAA sentinel written before submit is gone), so the
+fragment job runs. The triangle never appears. No crash, no hang, no fault.
+
+Raw job status read back **after** the GPU ran each job
+([`../results/triangle-draw-jobstatus-2026-09-13.log`](../results/triangle-draw-jobstatus-2026-09-13.log)):
+
+```
+[PANVK_DEBUG_SUBMIT]    vtc_jc ret=0
+[PANVK_DEBUG_JOBSTATUS] vtc_jc  job[0] type=11 exception_status=0x00000001 fault_pointer=0x0
+[PANVK_DEBUG_JOBSTATUS] vtc_jc  job[1] type=9  exception_status=0x00000000 fault_pointer=0x0
+[PANVK_DEBUG_SUBMIT]    frag_jc ret=0
+[PANVK_DEBUG_JOBSTATUS] frag_jc job[0] type=11 exception_status=0x00000001 fault_pointer=0x0
+[PANVK_DEBUG_JOBSTATUS] frag_jc job[1] type=9  exception_status=0x00000001 fault_pointer=0x0
+```
+
+`type=11` is `MALI_JOB_TYPE_MALLOC_VERTEX`, `type=9` is `FRAGMENT`.
+`exception_status=0x1` is **DONE**, not an error — see the exception table
+section below. `fault_pointer=0x0` everywhere.
+
+And the tiler heap, read back after both submits:
+
+```
+[PANVK_DEBUG_HEAP] SESUDAH vtc_jc  bo->flags=0x2 dev=0x7470400000 size=134217728
+                   mincore=absent -- UNREADABLE (I/O error)
+[PANVK_DEBUG_HEAP] SESUDAH frag_jc bo->flags=0x2 dev=0x7470400000 size=134217728
+                   mincore=absent -- UNREADABLE (I/O error)
+```
+
+The heap is allocated `ALLOC_ON_FAULT` (`commit_pages=0`), so pages only exist
+once the GPU faults them in. **Zero pages were ever committed.** The GPU
+executed the job, reported DONE, and never touched the tiler heap.
+
+On v9 the vertex packet buffer is allocated *by the tiler, from this heap* —
+that is what "Malloc Vertex" means. An untouched heap therefore means no vertex
+packets were allocated either: the job did nothing at all, successfully.
+
+---
+
+## Hypotheses tested and DISPROVEN
+
+Listed so nobody re-runs these.
+
+### ❌ `core_req` wrong in the kbase atom
+
+Suspected because a wrong `core_req` produces exactly this shape (atom accepted,
+completes instantly, GPU idle) — a known failure mode. Disproven: the job
+reports `type=11` correctly and `exception_status=DONE`, meaning the GPU
+genuinely executed it. Current values: `0x16` for `vtc_jc`, `0x01` for
+`frag_jc`.
+
+### ❌ Atom `stride` wrong
+
+Verified against the shipping kernel module
+(`mali_kbase_mt6789_a16w_jm.ko`, `r54p1-12eac0`, UAPI 11.46) by disassembly:
+
+```asm
+kbase_jd_submit+0x44:
+  and  w8, w3, #0xfffffff7   ; w3 = stride, clear bit 3
+  cmp  w8, #0x40             ; == 64 ?
+  b.ne <error>
+```
+
+Only `(stride & ~8) == 64` is accepted, i.e. 64 or 72. We pass 64
+(`base_jd_atom_v2`); 72 is the v3 variant with `seq_nr` (UAPI 11.22). Valid.
+
+### ❌ Job header malformed
+
+The MVJ dump was originally taken *inside* the job-encoding function, i.e.
+before `pan_jc_add_job()` writes the header, so bytes +000..+031 were always
+zero and it looked like `Type=0` (Not started). Moving the dump after
+`pan_jc_add_job()` shows:
+
+```
+header: type=11 (MALLOC_VERTEX) index=1 dep1=0 dep2=0
+jc state: first_job=0x7711155500 job_index=1 tiler_dep=1
+```
+
+Correct. `first_job` matches the job's own GPU address.
+
+### ❌ `Tiler Context.Polygon List` not set
+
+Suspected because the field exists in `v9.xml` and we never write it.
+Disproven: `grep polygon_list src/gallium/drivers/panfrost/pan_jm.c` returns
+**nothing** — Gallium never sets it on v9 either. The only writer is
+`pan_emit_midgard_tiler()`, gated `#if PAN_ARCH <= 5`. On Valhall the tiler
+allocates the polygon list itself out of `Heap`.
+
+### ❌ Hierarchy mask computed as 0
+
+Device reports `RAW_TILER_FEATURES = 0x809` →
+`max_levels = (0x809 >> 8) & 0xF = 8`. Since `max_levels >= 8`,
+`pan_select_tiler_hierarchy_mask()` takes the `BITFIELD_MASK(max_levels)`
+branch, not the `default_mask[]` table, giving **0xFF**. With a 64×64 FB and a
+128 MB budget the shrink loop never runs. Mask is valid.
+
+### ❌ `poly_heap` should be used instead of `tiler_heap`
+
+`dev->poly_heap` is allocated and initialised in `panvk_vX_device.c`, but every
+consumer is under `csf/`. CSF uses a driver-written `{base, bottom, size}`
+struct the GPU reads directly — a different mechanism from the JM `TILER_HEAP`
+descriptor. Our JM path points `TILER_CONTEXT.heap` at a `TILER_HEAP`
+descriptor describing `dev->tiler_heap`, which is exactly what
+`jm_emit_tiler_desc()` does for v9 in Gallium.
+
+### ⚠️ Note on the exception table
+
+`exception_status=0x1` was initially misread as an error. String table in the
+kernel module resolves it:
+
+```
+NOT_STARTED/IDLE/OK   0x00
+DONE                  0x01
+...
+JOB_CONFIG_FAULT, JOB_READ_FAULT, JOB_WRITE_FAULT, JOB_BUS_FAULT,
+DATA_INVALID_FAULT, TILE_RANGE_FAULT, ADDR_RANGE_FAULT, INSTR_INVALID_PC,
+OUT_OF_MEMORY, JOB_POWER_FAULT, JOB_AFFINITY_FAULT
+```
+
+All real faults have distinct names at higher codes. `0x1` is success.
+
+---
+
+## What is verified correct
+
+Decoded by hand from the 384-byte `MALLOC_VERTEX_JOB` dump against the
+`v9.xml` aggregate layout (offsets in bytes):
+
+| Offset | Section | Value | Verdict |
 |---|---|---|---|
-| 48 | `field has incomplete type 'struct mali_invocation_packed'` | Bifrost `INVOCATION` embedded in `struct panvk_draw_data` | Unit 3 |
-| 233, 391, 392 | `no member named 'rsd'` | `gfx.fs.rsd` is gated `#if PAN_ARCH < 9` | Unit 2 |
-| 266, 271 | `MALI_RENDERER_STATE_LENGTH` / `_ALIGN` undeclared | v9 has no `RENDERER_STATE` descriptor | Unit 2 |
-| 287 | `struct MALI_RENDERER_STATE` incomplete, `MALI_RENDERER_STATE_pack` / `_header` undeclared | same | Unit 2 |
-| 291 | `pan_shader_prepare_rsd` undeclared | RSD helper does not exist at v9 | Unit 2 |
-| 402 | `no member named 'layer_id' in 'struct panvk_draw_info'` | `layer_id` gated `#if PAN_ARCH < 9` | Unit 4 |
-| 417 | `no member named 'link'` | `gfx.link` (`panvk_shader_link`) gated `< 9` | Unit 5 |
-| 418 | `MALI_ATTRIBUTE_BUFFER_LENGTH` / `_ALIGN` undeclared | v9 has no `ATTRIBUTE_BUFFER` descriptor | Unit 5 |
-| 432, 439 | `no member named 'indirect_varying_bufs_infos'` | gated `< 9` | Unit 6 |
-| 434, 443 | `struct libpan_draw_helper_varying_buf_info` incomplete | libpan draw-helper structs are Bifrost-shaped | Unit 6 |
+| +000 | Job Header | `type=11`, `index=1` | ✅ |
+| +032 | Primitive | `draw_mode=0x08`, `index_type=0`, `index_count=3`, `allow_rotating=1`, `low/high_depth_cull=1`, `secondary_shader=0` | ✅ |
+| +048 | Instance Count | `1` | ✅ |
+| +052 | Allocation | `vertex_packet_stride=16`, `vertex_attribute_stride=0` | ✅ (no-varyings path) |
+| +056 | Tiler | non-null pointer to `TILER_CONTEXT` | ✅ |
+| +104 | Scissor | `min 0,0  max 63,63` | ✅ (64×64 FB) |
+| +112 | Primitive Size | `1.0f` | ✅ |
+| +120 | Indices | `0` | ✅ (non-indexed) |
+| +128 | Draw.Flags 0 | `0x00010000` → `front_face_ccw=1`, both cull bits **0** | ✅ nothing is culled |
+| +132 | Draw.Flags 1 | `0x0001ffff` → `sample_mask=0xffff`, `render_target_mask=0x1` | ✅ |
+| +136 | Draw.Vertex array | `packet=1` | ✅ |
+| +152 | Draw.Minimum Z | `0.0f` | ✅ |
+| +156 | Draw.Maximum Z | `1.0f` | ✅ |
+| +168 | Draw.Depth/stencil | non-null | ✅ |
+| +176 | Draw.Blend | `blend_count=1`, non-null address | ✅ |
+| +192 | Draw.Shader (FS env) | resources / shader / thread_storage / fau all non-null | ✅ |
+| +256 | Position (VS env) | resources / shader / thread_storage / fau all non-null | ✅ |
+| +320 | Varying | all zero | consistent with `secondary_shader=0` |
 
-### The list is a floor, not a complete inventory
-
-Every reported diagnostic sits at line **≤ 443**. Clang hit its error limit
-there and stopped, so it never reached:
-
-- the Bifrost vertex attribute/attribute-buffer emitters (~line 500-714),
-- `panvk_emit_vertex_dcd` / `panvk_emit_tiler_dcd` and the Bifrost `DRAW`
-  sections (~line 805-1000),
-- the `COMPUTE_JOB` / `TILER_JOB` / `INDEXED_VERTEX_JOB` payloads,
-- the descriptor-table calls and FS copy-descriptor job in `prepare_draw`
-  (~line 1224+),
-- the indirect-draw helper argument structs (~line 1660+).
-
-Those are known-broken for v9 by inspection, but they were never *reported*.
-Any future comparison must re-run with `-ferror-limit=0` to get a real
-inventory.
+Resource tables carry a table count of 4 in their low bits, as
+`cmd_prepare_shader_res_table()` encodes.
 
 ---
 
-## 3. Why the descriptor model has to change (not just the guards)
+## Still open
 
-Bifrost and Valhall do not describe a draw the same way, so widening
-`#if PAN_ARCH < 9` guards cannot work. Verified against
-`src/panfrost/genxml/v9.xml`:
+1. **Is the position shader actually producing positions?**
+   The `POSITION` shader environment points at `vs->spds.pos_triangles`, but
+   the SPD contents have never been dumped or verified to contain real code.
+   If position comes out degenerate, every primitive is discarded before
+   tiling — which matches the symptom exactly, with no fault.
+   Note `spd` is a union alias for `spds.pos_points` (first member), so
+   `vs->spd` silently means *points* — easy to get wrong.
 
-| Bifrost (v6/v7) | v9 (Valhall-JM) |
-|---|---|
-| `INVOCATION` section | **absent** — folded into `Compute Payload` |
-| `RENDERER_STATE` / RSD | **absent** — replaced by `Shader Program` (SPD) + `Shader Environment` |
-| `ATTRIBUTE_BUFFER` | **absent** — vertex buffers are `BUFFER` descriptors inside the driver set |
-| UBO / texture / sampler / image tables | single `Resource` table; entry 0 is the driver set |
-| descriptor-copy pilot job | none — sets are referenced in place |
-| `CONSTANT` pixel format (used to zero-fill unbound attributes) | **absent** from v9.xml |
+2. **`Vertex Array` semantics on v9 IDVS.**
+   ```xml
+   <struct name="Vertex Array" size="3">
+     <field name="Packet" size="1" start="0:0" type="bool"/>
+     <!-- Written by hardware in MallocVertexShader job mode -->
+     <field name="Pointer" size="58" start="0:6" type="address" modifier="shr(6)"/>
+     <field name="Vertex packet stride" size="16" start="2:0" type="uint"/>
+     <field name="Vertex attribute stride" size="16" start="2:16" type="uint"/>
+   </struct>
+   ```
+   We set `packet=1` and leave `Pointer` / the strides at zero, on the reading
+   that the hardware fills them ("Written by hardware in MallocVertexShader job
+   mode"). The same strides also appear in the separate `ALLOCATION` section,
+   which we *do* fill. Whether both are required, and whether `Pointer` must be
+   pre-seeded, is unconfirmed.
 
-Also confirmed present at v9: `Shader Program`, `Shader Environment`,
-`Resource`, `Compute Payload`, `Compute Job`, `Attribute`, `Null Descriptor`,
-and the `Attribute Type` / `Attribute Frequency` enums.
+3. **Does anything need to initialise the tiler heap before first use?**
+   `pan_jc_initialize_tiler()` emits a `WRITE_VALUE` job for that purpose but
+   early-returns on `PAN_ARCH >= 6`. Whether v9 + `ALLOC_ON_FAULT` needs an
+   equivalent warm-up is untested.
 
-Reference implementations used (all in-tree, no reverse engineering):
-
-- `src/gallium/drivers/panfrost/pan_jm.c` — the only in-tree **Valhall + JM**
-  submission path. `jm_emit_shader_env()`, `jm_launch_grid()`,
-  `jm_emit_malloc_vertex_job()`. Shows v9 IDVS uses `MALLOC_VERTEX_JOB`, not
-  Bifrost's `INDEXED_VERTEX_JOB`.
-- `src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c` — PanVK's Valhall descriptor
-  construction. Reusable for descriptor layout; its submission model (command
-  stream) is **not** applicable to JM.
-- `src/panfrost/vulkan/jm/panvk_vX_cmd_dispatch.c` — already-ported v9 compute
-  path in this very backend; proves the `driver_set → res_table →
-  COMPUTE_JOB/PAYLOAD` pattern works under JM.
-- `src/panfrost/vulkan/panvk_vX_nir_lower_descriptors.c` — **dictates** the
-  driver-set layout for `PAN_ARCH >= 9` (see Unit 1).
-
----
-
-## 4. Port plan — one unit at a time
-
-Each unit is meant to be independently reviewable and revertible. Bifrost
-(v6/v7) behaviour must be preserved exactly; the v9 path is added beside it,
-never on top of it.
-
-| Unit | Scope | Status |
-|---|---|---|
-| 1 | Vertex-stage descriptors: driver set + resource table | **edited, not yet compiled** |
-| 2 | Fragment state: `RENDERER_STATE`/RSD → SPD + `Shader Environment` | not started |
-| 3 | Job payloads: `INVOCATION`/`PARAMETERS`/`DRAW` → `COMPUTE_JOB/PAYLOAD`; `struct panvk_draw_data` cleanup | not started |
-| 4 | Layer handling (`layer_id` → tiler context) | not started |
-| 5 | Varyings: `panvk_shader_link` + `ATTRIBUTE_BUFFER` → v9 varying descriptors | not started |
-| 6 | Indirect draws + libpan draw-helper structs | not started |
-| 7 | IDVS: `INDEXED_VERTEX_JOB` → `MALLOC_VERTEX_JOB` | not started |
-
-Explicitly **out of scope** for all of the above: the missing `kbase` backend in
-`pan_kmod`. That is a separate, independent blocker (README §1b, §3) — `pan_kmod`
-registers only `panfrost_kmod` and `panthor_kmod`, so enumeration never touches
-`/dev/mali0`. Fixing the draw port does not make the driver enumerate, and
-fixing enumeration does not make it draw.
+4. **`first_provoking_vertex` was missing** and is now set in
+   `cmd_prepare_tiler_context()` (Gallium sets it under `#if PAN_ARCH >= 9`;
+   PanVK's JM path did not). This alone should only affect winding, not make
+   geometry vanish, and the run above already includes the fix — the result
+   did not change.
 
 ---
 
-## 5. Unit 1 — vertex-stage driver set + resource table
+## Not yet implemented in the v9 draw path
 
-**Status: source edited. Not compiled. Not run. No claim of correctness.**
+Not bugs; simply unwritten:
 
-File touched: `src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c`
-Diff: **193 insertions, 0 deletions** — no pre-existing line was modified or
-removed. The Bifrost code is byte-identical, only wrapped in `#if PAN_ARCH < 9`.
-A pre-edit copy of the file is kept outside the build tree.
+- `CmdDrawIndirect` / `CmdDrawIndexedIndirect` — still empty stubs
+- Multi-layer / multiview — only layer 0 is encoded
+- Transform feedback, tessellation
 
-### Added, for `PAN_ARCH >= 9` only
+## Debug instrumentation
 
-- `panvk_draw_emit_vs_attrib()` — packs a v9 `ATTRIBUTE` descriptor pointing at
-  a `BUFFER` descriptor in the driver set (`cfg.table = 0`).
-- `panvk_draw_prepare_vs_driver_set()` — builds the driver set.
-- `panvk_draw_prepare_vs_desc()` — driver set, then
-  `cmd_prepare_shader_res_table(..., repeat_count = 1)`.
+[`../patches/0005-panvk-v9-kbase-jm-submit-and-debug.patch`](../patches/0005-panvk-v9-kbase-jm-submit-and-debug.patch)
+contains the kbase JM submission path plus the debug hooks used above:
 
-### Gated to `PAN_ARCH < 9`
+- `PANVK_HEAP_LOG=<path>` — send `[PANVK_DEBUG_HEAP]` / `[PANVK_DEBUG_SUBMIT]` /
+  `[PANVK_DEBUG_JOBSTATUS]` to a file. Without it they go to stderr, which is
+  lost inside a container.
+- Tiler-heap dump reads through `pread()` on `/proc/self/mem` rather than
+  dereferencing the mapping, so an uncommitted `ALLOC_ON_FAULT` page reports
+  `EIO` instead of raising `SIGSEGV` — the SIGSEGV case is precisely the one
+  being diagnosed.
+- Job headers are read back after the wait, with the descriptor pool
+  invalidated first, so `Exception Status` / `Fault Pointer` reflect what the
+  GPU wrote.
 
-`panvk_draw_emit_attrib_buf()`, `panvk_draw_emit_attrib()`,
-`panvk_draw_prepare_vs_attribs()`, `panvk_draw_prepare_attributes()`,
-`panvk_draw_prepare_vs_copy_desc_job()`, and in `prepare_draw()` the
-`cmd_prepare_shader_desc_tables` / `cmd_prepare_dyn_ssbos` calls for the vertex
-stage.
+Two temporary hacks in that patch must be reverted before it is anything but a
+debug build: `NO_MMAP` is dropped from the tiler heap allocation so the CPU can
+read it, and the debug prints are unconditional rather than gated behind a
+`PANVK_DEBUG` flag.
 
-### The driver-set layout is not a free choice
+## Build note
 
-Worth writing down, because getting it wrong is silent corruption rather than a
-compile error. `panvk_vX_nir_lower_descriptors.c` hardcodes the layout for
-`PAN_ARCH >= 9` in `create_copy_table()`:
-
-```
-vertex stage:  dummy_sampler_idx = 16          (== MAX_VS_ATTRIBS)
-fragment:      dummy_sampler_idx = num_varying_attr_descs
-compute:       dummy_sampler_idx = 0
-               dyn_bufs_start    = dummy_sampler_idx + 1
-```
-
-and dynamic-buffer handles are emitted as
-`pan_res_handle(0, dyn_bufs_start + idx)` — resource table **0**, i.e. the
-driver set. So for the vertex stage the driver set must be:
+`ninja` with no target fails in this tree on the Gallium DRI target
+(`_mesa_glapi_tls_Context` version-script error — a known bionic TLS/glapi
+dead end, unrelated to Panfrost). Build the Vulkan target explicitly:
 
 ```
-[0 .. 15]                       ATTRIBUTE   (MAX_VS_ATTRIBS = 16)
-[16]                            SAMPLER     (dummy)
-[17 .. 17+dyn_bufs.count-1]     BUFFER      (dynamic buffers)
-[17+dyn_bufs.count .. ]         BUFFER      (vertex buffers) / NULL_DESCRIPTOR
+ninja -C build src/panfrost/vulkan/libvulkan_panfrost.so
 ```
-
-This is shader-side ABI in shared per-arch code — not a CSF convention. The
-same layout appears in `csf/panvk_vX_cmd_draw.c`, which is why that file is a
-valid reference here.
-
-### Two deliberate JM-vs-CSF differences
-
-1. **Base instance is folded into the descriptor offset.** CSF keeps the base
-   instance in a command-stream register and patches the descriptor when it
-   changes (`attribs_changing_on_base_instance`, `desc_repeat_count`). JM has no
-   such register and cannot patch a recorded job, so the offset is baked in from
-   `draw->info.instance.base`, exactly as the Bifrost path already does. The
-   driver set is therefore rebuilt every draw and `repeat_count` is always 1.
-2. **Unbound attributes use the OOB-table trick.** Bifrost fills them with
-   `MALI_PACK_FMT(CONSTANT, 0000, L)`; v9.xml has no `CONSTANT` format, so that
-   is unavailable. Following CSF, the descriptor is pointed at an invalid
-   resource table (`cfg.table = 17`) to get the zero default.
-   **Caveat:** this relies on out-of-bounds resource reads returning zero. That
-   behaviour is inherited from the CSF (v10+) path and has **not** been
-   confirmed on v9 hardware.
-
-### Verification status — and why the error count will not improve
-
-Nothing has been compiled since the edit:
-
-- Bifrost regression check (rebuild v6 + v7 `jm_panvk_vX_cmd_draw.c.o`): **not run**.
-- v9 diagnostic check: **not run**.
-
-When it is run, the v9 error output is expected to look *unchanged*, because the
-first diagnostic is the `struct mali_invocation_packed` field at line 48 —
-before any code this unit touched. Unit 1 removes none of the 20 reported
-diagnostics.
-
-The correct verification for this unit is therefore **not** an error count:
-
-1. v6 and v7 objects still build → Bifrost preserved.
-2. v9 compiled with `-ferror-limit=0`, then confirm **zero** diagnostics fall
-   inside the newly added functions — the remaining errors must all map to
-   Units 2-7 in the table above.
-
----
-
-## 6. Standing non-claims
-
-Stated explicitly so nothing here gets over-read:
-
-- No v9 `libpanvk_v9.a` has ever been produced.
-- No v9-capable `libvulkan_panfrost.so` has ever been produced.
-- No PanVK build has enumerated this GPU. No Winlator test has been run against
-  any v9 build, because no v9 build exists.
-- No GPU job has been submitted by any of this code.
-- The existing v9 compute/dispatch/precomp code compiles, and that is all that
-  is currently known about it.

@@ -1,0 +1,9 @@
+[PANVK_DEBUG_HEAP] --- log dibuka, pid=21258 ---
+[PANVK_DEBUG_SUBMIT] vtc_jc ret=0
+[PANVK_DEBUG_JOBSTATUS] vtc_jc job[0] type=11 exception_status=0x00000001 first_incomplete_task=0 fault_pointer=0x0  <== GPU LAPOR ERROR
+[PANVK_DEBUG_JOBSTATUS] vtc_jc job[1] type=9 exception_status=0x00000000 first_incomplete_task=0 fault_pointer=0x0
+[PANVK_DEBUG_HEAP] SESUDAH vtc_jc (vertex+tiler) bo->flags=0x2 dev=0x7470400000 size=134217728 host=0x7470400000 mincore=absent -- UNREADABLE (I/O error) => halaman belum ter-commit, tiler tidak menulis apa pun
+[PANVK_DEBUG_SUBMIT] frag_jc ret=0
+[PANVK_DEBUG_JOBSTATUS] frag_jc job[0] type=11 exception_status=0x00000001 first_incomplete_task=0 fault_pointer=0x0  <== GPU LAPOR ERROR
+[PANVK_DEBUG_JOBSTATUS] frag_jc job[1] type=9 exception_status=0x00000001 first_incomplete_task=0 fault_pointer=0x0  <== GPU LAPOR ERROR
+[PANVK_DEBUG_HEAP] SESUDAH frag_jc (fragment) bo->flags=0x2 dev=0x7470400000 size=134217728 host=0x7470400000 mincore=absent -- UNREADABLE (I/O error) => halaman belum ter-commit, tiler tidak menulis apa pun
