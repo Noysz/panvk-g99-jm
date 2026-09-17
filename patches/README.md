@@ -22,7 +22,7 @@ not a guess:
 | `0013-panfrost-lib-kbase-and-fb-fixes` | ✅ yes | **current** — contains the EXEC_VA fix |
 | `0014-panvk-v9-arch-enablement-common` | ✅ yes | **current** — contains `jm_archs`, `foreach`, `PER_ARCH_FUNCS(9)` |
 | `0015-termux-android-build-fixes` | ✅ yes | **current** |
-| `0020-panvk-v9-fau-count-from-shader-metadata` | ❌ by design | Applies to the **post-`0010`** tree, not to bare upstream — the code it patches does not exist until `0010` lands. Verified to apply cleanly to `panvk_vX_cmd_draw.c.ab_fau_off`. Already contained in `0010`. |
+| `0020-panvk-v9-fau-count-from-shader-metadata` | ❌ by design | Applies to **exactly one** tree state: the side-A source `panvk_vX_cmd_draw.c.ab_fau_off`, i.e. the post-`0010` draw path with these two lines removed. Verified to apply cleanly there. It does **not** apply to bare upstream (the code does not exist until `0010`) and does **not** apply to the current tree either (the change is already present, so the hunk context fails). Already contained in `0010`. |
 | `9001-termux-android-detection-fixes.UPSTREAM-THIRDPARTY` | ✅ yes | third-party, from LukeValen/panvk-mali-g52 |
 
 ## The set that actually reproduces the current driver
