@@ -30,12 +30,12 @@ Read this before quoting anything from this repo.
 | Area | Note |
 |---|---|
 | WSI / swapchain / present | no code path |
-| Application descriptor sets | **unexercised** — `used_set_mask = 0x0` at runtime; only the driver set (entry 0) is ever populated |
-| `vkCmdDispatchIndirect` (v9) | direct dispatch only |
-| Indexed draws | `is_indirect_draw()` exists; not validated |
-| Indirect draws | not validated |
+| Application descriptor sets | **VERIFIED-HW** for uniform buffers across 1, 2 and 4 sets plus non-contiguous sets 0 and 3. Other descriptor types untested — see [phase4-open-questions.md](phase4-open-questions.md) §3.2 |
+| `vkCmdDispatchIndirect` (v9) | **VERIFIED-HW**. Was faulting the GPU before `dispatch_precomp` was ported to v9 |
+| Indexed draws | **VERIFIED-HW** including `firstIndex` and `vertexOffset`. `firstIndex` was silently ignored until fixed |
+| Indirect draws | **VERIFIED-HW** for `vkCmdDrawIndirect` and `vkCmdDrawIndexedIndirect`, software-emulated. `firstInstance` still ignored; varying/vertex-buffer workloads out of scope |
 | MSAA | `multisample_enable` emitted false; untested |
-| Multiple render targets | `rt_count = 1` only |
+| Multiple render targets | **VERIFIED-HW** for 2 attachments, square and circle, against a CPU reference rasterizer. 3–8 attachments and mixed formats untested |
 | Depth/stencil testing | descriptors emitted, never validated by a test |
 | Tiled / AFBC image layouts | linear only |
 | Queries / occlusion | `Occlusion query: Disabled` |
@@ -53,6 +53,14 @@ used as reference and are left at their genxml defaults rather than invented:
 
 If depth behaviour turns out wrong on v9, these are the first place to look. They
 are **UNVERIFIED**, not correct-by-construction.
+
+## Self-audit for false positives
+
+Every Phase 4 sub-phase was re-examined afterwards specifically looking for
+results that could be right by accident. Two genuine misreadings were found and
+corrected during the work, and several gaps remain open. Read
+[phase4-open-questions.md](phase4-open-questions.md) before quoting any Phase 4
+result.
 
 ## Numbers that must not be hardcoded
 

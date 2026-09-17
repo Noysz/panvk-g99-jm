@@ -1,0 +1,286 @@
+# Open questions and false-positive risks — Phase 4.1 to 4.4
+
+Written after the fact, deliberately looking for ways the published results could
+be wrong rather than for reasons to trust them. Every entry says what was
+actually measured, what the measurement cannot distinguish, and whether it was
+followed up.
+
+Labels: **RESOLVED** means it was chased down and settled. **OPEN** means it is a
+real gap. **ACCEPTED** means it is a known limit that is not worth closing now
+and is documented as scope rather than as a finding.
+
+---
+
+## 1. Cross-cutting: the instrumentation is ours
+
+Almost every number in 4.2 and much of 4.4 was read from debug prints added by
+this project (`PANVK_DEBUG_RESTAB`, `PANVK_DEBUG_MVJ`, the job-status dump). If a
+print reads the wrong variable, the log agrees with itself and the error is
+invisible.
+
+Mitigation actually applied: the descriptor-level claims that matter were
+cross-checked against something the instrumentation does not control — the
+framebuffer contents. `res_count = 8` for four sets is a printed number, but the
+four colour channels arriving correctly is not.
+
+**Where that mitigation does not reach:** the two-preparations-per-draw
+observation and the 544/32-byte driver-set sizes in 4.2 rest on the print alone.
+Nothing in the pixel output would change if those numbers were misreported.
+**Status: OPEN**, low consequence.
+
+---
+
+## 2. Phase 4.1, indexed draws
+
+### 2.1 The original 4.1 conclusion was incomplete — RESOLVED, and it mattered
+
+4.1 was closed claiming indexed draws work, on the strength of `a16`, `a32`,
+`b16`, `voffset`, `degen` and `zero`. **`firstIndex` was never tested.** When it
+was finally tested during 4.4, it turned out to be **broken** — ignored
+entirely, because the INDICES section was pointed at the index buffer base
+without folding in `firstIndex * index_size`.
+
+So the honest reading is that 4.1 as originally published overstated its scope.
+It validated index *fetch*, `vertexOffset`, and degenerate handling. It did not
+validate `firstIndex`, and `firstIndex` did not work.
+
+Fixed and now tested (`firstidx` case, 253 px). The lesson is the general one:
+"indexed draws work" was a claim about a feature, while the tests only covered
+some of its parameters.
+
+### 2.2 Would `a16` pass even if the index buffer were ignored? — RESOLVED
+
+Yes, and this is worth stating because it is the obvious trap. Indices `{0,1,2}`
+are the same as the default vertex order, so a driver that ignored the index
+buffer entirely would still produce the reference image for `a16`.
+
+That is exactly why `b16` exists: indices `{3,4,5}` select a different triangle,
+and it rendered the different triangle. Together with `voffset` landing
+byte-identically on `b16` through a different API route, the index path is
+genuinely exercised. `a16` alone would have proved nothing.
+
+### 2.3 Out-of-range indices — ACCEPTED
+
+v9 has no index-buffer size field. Upstream's own comment
+(`panvk_vX_cmd_draw.c`, the `CmdBindIndexBuffer2` NullDescriptor path) works
+around this only for v10+. Out-of-range index behaviour is therefore undefined by
+construction on this hardware and was deliberately not tested. Nothing here
+claims otherwise.
+
+### 2.4 Only UINT16 and UINT32, only triangle lists — ACCEPTED
+
+`VK_INDEX_TYPE_UINT8` untested. Primitive restart untested despite the field
+being emitted. Strips and fans untested.
+
+---
+
+## 3. Phase 4.2, resource table
+
+### 3.1 Could the UBO reads be constant-folded? — RESOLVED
+
+If the compiler had folded the uniform values into the shader, the pixels would
+be right for the wrong reason and no descriptor would be read.
+
+`2sets_alt` rules that out: same shader binary, same bindings, different buffer
+contents, and the centre pixel moved from `191,128,0` to `64,255,0`. The values
+are read at runtime.
+
+### 3.2 Only one descriptor type was ever tested — OPEN
+
+Every 4.2 test used `VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER`, one binding per set.
+Untested: storage buffers, combined image samplers, dynamic uniform/storage
+buffers, input attachments, multiple bindings within one set, arrays of
+descriptors.
+
+The resource-table plumbing is shared, so those probably work, but "probably"
+is the operative word. The published claim should be read as *uniform buffers
+across multiple sets work*, not *descriptor sets work*.
+
+### 3.3 The T4.2.4 conclusion was misread once — RESOLVED, worth recording
+
+The first reading of the `res_table = 0` control was that geometry died, because
+the framebuffer came back 0/4096. That was wrong. The triangle was rasterizing
+the whole time and painting `0,0,0` because all three of its colour channels
+came from zeroed descriptors, which is indistinguishable from the clear colour.
+
+T4.2.6 caught it by making one channel a shader constant. Without that follow-up
+a false statement would have entered the record as a verified finding.
+
+**Generalisation worth keeping:** any test whose failure mode is "the expected
+colour is absent" cannot distinguish *not drawn* from *drawn in the background
+colour*. At least one channel must be independent of the thing under test.
+
+### 3.4 Stage attribution rests on one workload — OPEN
+
+The 544 B driver set was attributed to vertex and the 32 B one to fragment
+because the UBOs were declared fragment-only, so the stage reporting
+`used_set_mask = 0x3` had to be the fragment stage. That reasoning is sound but
+it is a single workload. A shader with vertex-stage descriptors would confirm or
+break it, and was not run.
+
+---
+
+## 4. Phase 4.3, multiple render targets
+
+### 4.1 The aliasing check has a real hole — OPEN
+
+The test asserts RT0 and RT1 are not byte-identical. **Partial** aliasing would
+pass it: if the two attachments overlapped in only part of their memory, the
+buffers would still differ somewhere and the check would report PASS.
+
+What would close it: write a known pattern into RT1, draw only to RT0, and verify
+RT1 is unchanged byte for byte outside the drawn region. The `sq2only0` case is
+close to this but not the same — it checks RT1 contains no blue, not that RT1 is
+bit-for-bit what it was before the draw.
+
+Not closed. The claim "attachments are independent" should be read as *not fully
+aliased*.
+
+### 4.2 Excluded pixels are not scored — ACCEPTED, with a caveat
+
+64 pixels for the square and 128 for the circle were classified ambiguous and
+excluded from mismatch scoring. If the GPU were wrong on exactly those pixels,
+the test would not notice.
+
+Their treatment was reported rather than scored, and it looked correct — for the
+square, 32 drawn along the shared diagonal and 32 clear on the diagonal's
+extension outside the shape. But "looked correct on inspection" is weaker than
+"scored".
+
+The ambiguity metric is also conservative in a way that costs coverage: it
+measures distance to the infinite edge *line*, not the edge *segment*, so pixels
+far from the triangle but near the line's extension get flagged. That direction
+is safe — nothing wrong is scored as right — but it means fewer pixels are
+checked than could be.
+
+### 4.3 Two attachments only — ACCEPTED
+
+The device reports `maxColorAttachments = 8`. Only 2 were tested. Mixed formats,
+per-attachment blend state, and 3 through 8 attachments are all untested.
+
+### 4.4 The circle result is a bound, not an equality — ACCEPTED
+
+The square has an exact arithmetic answer (1024) and hit it. The circle has no
+closed form, so the check is `1504 <= 1568 <= 1632` plus zero per-pixel
+mismatches on scored pixels. That is weaker than the square's check. A
+systematic error affecting only ambiguous boundary pixels would fit inside the
+bound.
+
+---
+
+## 5. Phase 4.4, indirect draw and dispatch
+
+### 5.1 The survey's prediction was wrong — RESOLVED
+
+The survey predicted `vkCmdDispatchIndirect` would silently do nothing. Measured,
+it **faulted the GPU** (`exception_status = 0x10258`, job `type = 0`).
+
+The mechanism reasoning was right — the job is parked as `NOT_STARTED` and the
+never-dispatched helper would have promoted it — but the predicted observable was
+wrong. Recorded as a correction in the survey rather than quietly adjusted.
+
+### 5.2 Placeholder sizing: the biggest false-positive risk — RESOLVED
+
+The entry points record `vertex.count = 1` as a placeholder, and every early test
+used `vertexCount = 3`. If anything inside `prepare_draw_v9()` were sized from
+the placeholder, a small count could work by luck and a real workload would
+break.
+
+Followed up rather than left as a caveat. With a shader whose coverage scales
+with vertex count:
+
+| vertexCount | placeholder | direct | indirect | framebuffer sha256 |
+|---|---|---|---|---|
+| 3 | 1 | 2 px | 2 px | `c9e3a37288d9` both |
+| 30 | 1 | 20 px | 20 px | `31d64ea896ea` both |
+| 90 | 1 | 60 px | 60 px | `180df7ab58a1` both |
+
+Byte-identical at every count, up to 90× the placeholder, zero faults. Also
+`vcount6` and `idx_count6` at 6× via the two-triangle shader.
+
+**What this still does not cover:** counts in the thousands, and any workload with
+varyings or vertex buffers, where record-time sizing genuinely does depend on the
+count. Those remain OPEN and are documented as scope.
+
+### 5.3 `twodraws` could in principle be one draw — RESOLVED
+
+765 non-black could be a single draw covering 765 pixels rather than two draws of
+512 and 253. The quadrant breakdown settles it: `445,192,64,64`, where
+445 = 192 + 253 in the top-left. Two distinct shapes in distinct places.
+
+### 5.4 firstInstance is not implemented — ACCEPTED, and deliberately
+
+The helper does not patch `PRIMITIVE.instance_offset`, because the direct path
+does not write it either. Patching it would have made indirect behave
+*differently* from direct, which would break the byte-identity property that all
+the other evidence rests on.
+
+This means `firstInstance` is ignored on v9 for both direct and indirect draws.
+That is a pre-existing gap in the direct path and should be fixed there first.
+Untested either way, since no test used a non-zero `firstInstance`.
+
+### 5.5 Instancing barely exercised — OPEN
+
+`instanceCount` was only ever 1 or 0. An `instanceCount` of 2 or more was never
+run, on any path. The instance-count patching in the helper is therefore
+unverified for values above 1, even though it is the same 32-bit field write.
+
+### 5.6 Indexed indirect skips the min/max index scan — ACCEPTED
+
+Bifrost runs an index min/max search before an indexed indirect draw. That scan
+exists to size varying and attribute buffers from the range of vertices the
+indices reference. The v9 path here does not do it.
+
+That is fine for workloads with neither varyings nor vertex buffers, which is
+what was tested. It is not fine in general, and no test would currently catch the
+difference. Directly connected to 5.2's remaining gap.
+
+### 5.7 The compute FAU fix has an untested edge — OPEN
+
+`cfg.compute.fau_count = cs->fau.total_count` was verified by a constant that
+previously read as zero and now reads correctly. The field is 8 bits wide
+(`v9_pack.h`, bits 0..7), so a shader needing more than 255 FAU words would
+silently truncate. No check was added and no such shader was tried.
+
+### 5.8 `dispatch_precomp` values were copied from the CSF path — OPEN
+
+Three values in the new v9 `dispatch_precomp` were taken from the CSF
+implementation rather than derived independently: resource table 0, FAU count
+from `DIV_ROUND_UP(sysvals + data_size, 8)`, and program from `shader->spd`.
+
+They work for the two helpers now exercised (indirect dispatch, indirect draw).
+Whether they are right for the other precomp users — query copy, query clear,
+blit, tessellation — is untested. Those paths now reach real code instead of an
+empty stub, so a wrong value there has gone from "does nothing" to "does
+something unverified".
+
+**This is the most consequential open item in 4.4**, because it changed behaviour
+for code paths nothing in this phase tests.
+
+---
+
+## 6. Things that apply to all four sub-phases
+
+### 6.1 One workload shape, over and over — OPEN
+
+Nearly everything was validated with a 64×64 linear `R8G8B8A8_UNORM` offscreen
+target, no depth, no blending, no MSAA, single layer, and shaders that avoid
+vertex buffers by indexing a hardcoded array. That shape was chosen to isolate
+variables and it did its job, but it means the results generalise less than the
+number of passing tests suggests.
+
+### 6.2 Nothing was displayed — ACCEPTED
+
+Every image in this phase is a `vkMapMemory` readback of an offscreen buffer.
+This driver has still never presented a frame. WSI is Phase 6.
+
+### 6.3 Three-times repetition catches flakes, not systematic error — ACCEPTED
+
+The 3× rule detects nondeterminism. It does nothing against a consistent
+misunderstanding: a wrong expectation reproduces perfectly. The protection
+against that is the negative controls and the byte-identity comparisons, not the
+repetition.
+
+### 6.4 No conformance testing — ACCEPTED
+
+No CTS was run. "Works for this test" is the ceiling of every claim here.

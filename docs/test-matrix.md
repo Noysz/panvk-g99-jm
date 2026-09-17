@@ -10,7 +10,18 @@ actually produced, with the artifact that shows it.
 | [`tests/compute/panvk_compute_test_g57.c`](../tests/compute/panvk_compute_test_g57.c) | SPIR-V compute, `data[0] = 777u`, readback | **VERIFIED** `0x309` = 777, 3x identical | [v9-compute-dispatch-validated.md](v9-compute-dispatch-validated.md) |
 | [`tests/compute/panvk_spd_readback_test.c`](../tests/compute/panvk_spd_readback_test.c) | Shader Program Descriptor readback | **VERIFIED** | [`evidence/descriptors/shader_dump.txt`](../evidence/descriptors/shader_dump.txt) |
 | [`tests/compute/panvk_spd_readback_test_fixed.c`](../tests/compute/panvk_spd_readback_test_fixed.c) | SPD readback, corrected variant | **VERIFIED** | [`evidence/descriptors/shader_dump2.txt`](../evidence/descriptors/shader_dump2.txt) |
-| [`tests/compute/indirect_dispatch_test.c`](../tests/compute/indirect_dispatch_test.c) | `vkCmdDispatchIndirect` | **NOT IMPLEMENTED** on v9 | — |
+| [`tests/compute/indirect_dispatch_test.c`](../tests/compute/indirect_dispatch_test.c) | `vkCmdDispatchIndirect`, earlier harness | superseded by the one below | — |
+| [`tests/compute/dispatch_indirect_test.c`](../tests/compute/dispatch_indirect_test.c) | `vkCmdDispatchIndirect` on v9 | **VERIFIED-HW** | `evidence/logs/T4.4.3_after_*` |
+
+## Phase 4 sub-phases
+
+| Test | What it covers | Status | Evidence |
+|---|---|---|---|
+| [`tests/graphics/indexed_draw_test.c`](../tests/graphics/indexed_draw_test.c) | 4.1 indexed draws, `firstIndex`, `vertexOffset` | **VERIFIED-HW** | `evidence/logs/T4.1_*` |
+| [`tests/graphics/restab_descset_test.c`](../tests/graphics/restab_descset_test.c) | 4.2 resource table, 1/2/4 and sparse descriptor sets | **VERIFIED-HW** | `evidence/logs/T4.2_*` |
+| [`tests/graphics/mrt_shape_test.c`](../tests/graphics/mrt_shape_test.c) | 4.3 two render targets, square and circle vs CPU reference | **VERIFIED-HW** | `evidence/logs/T4.3_*` |
+| [`tests/graphics/draw_indirect_test.c`](../tests/graphics/draw_indirect_test.c) | 4.4 indirect and indexed-indirect draw | **VERIFIED-HW** | `evidence/logs/T4.4.4_*`, `T4.4.5_*` |
+| [`tests/graphics/indirect_probe_test.c`](../tests/graphics/indirect_probe_test.c) | 4.4 gate probe, recorded the pre-fix behaviour | **VERIFIED-HW** | `evidence/logs/indirect_T4.4.0_*` |
 
 ## Graphics — through PanVK
 
