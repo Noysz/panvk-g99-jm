@@ -1,0 +1,41 @@
+Phase 4.1 — indexed draws on Mali-G57 MC2 (v9/JM)
+date        : 2026-09-17T04:45:14+00:00
+ICD sha256  : 45504723524e386e66701b48b3a4012778217fdcfe3f9bd19169ef977c62813c
+test sha256 : e81b2e067b295f9f6dc9d75b3e2fa40188fa4751648c15944caa866c573fb952
+shader      : triangle6.vert (verts 0-2 = triangle A, 3-5 = triangle B)
+runs        : 3 per case, FINGERPRINT line identical across runs
+
+case      n      centre       quadrants TL,TR,BL,BR verdict  sha256
+a16       512    255,0,0      192,192,64,64        verified 57ddb7b669f1
+a32       512    255,0,0      192,192,64,64        verified 57ddb7b669f1
+b16       253    0,0,0        253,0,0,0            verified 010c54cd0cff
+voffset   253    0,0,0        253,0,0,0            verified 010c54cd0cff
+degen     0      0,0,0        0,0,0,0              control  3cf730e8f850
+zero      0      0,0,0        0,0,0,0              control  3cf730e8f850
+
+ENTRY POINTS observed at runtime:
+  vkCmdDrawIndexed       present
+  vkCmdBindIndexBuffer   present   <- the one actually used
+  vkCmdBindIndexBuffer2  NULL      <- implemented in source, not exposed
+
+BYTE-IDENTITY (sha256 of the raw framebuffer, not a tolerance check):
+  oracle (vkCmdDraw) == a16 == a32    57ddb7b669f1
+  b16 == voffset                      010c54cd0cff
+  a16 != b16                          indices genuinely select vertices
+
+The load-bearing case is 'voffset': indices {0,1,2} with vertexOffset=3
+produced a byte-identical image to indices {3,4,5} with vertexOffset=0.
+Two different API inputs, one image, so both the index fetch and the
+vertexOffset addition are honoured.
+
+'degen' {0,0,0} gave 0/4096, the negative control. 'zero' with
+indexCount=0 emitted no vertex/tiler job at all and did not hang.
+
+Zero GPU faults across 18 runs; every job exception_status = 0x01 (DONE).
+
+SCOPE LIMIT: no vertex buffers are involved. The vertex shader indexes a
+hardcoded position array with gl_VertexIndex, so this validates index
+fetch and vertexOffset, NOT vertex attribute fetch. Also note v9 has no
+index-buffer size field (see the upstream comment at
+panvk_vX_cmd_draw.c:1044), so out-of-range index behaviour is undefined
+by construction on this hardware and was deliberately not tested.

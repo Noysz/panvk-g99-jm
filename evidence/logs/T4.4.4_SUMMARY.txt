@@ -1,0 +1,75 @@
+T4.4.4 — graphics indirect draw on Mali-G57 MC2 (v9/JM)
+date        : 2026-09-17T06:43:40+00:00
+ICD sha256  : cc54e73010f1053479ca9555c3ee9d3cac05a22e0fee3cdf2f457a89f1acf377
+test sha256 : 300fd7cca52d29909b41d260a158887684a1db6f5d6e708d7290d166402fab59
+runs        : 3 per case, fingerprints identical, zero GPU faults in 18 runs
+
+WHAT WAS BUILT. Job Manager has no indirect-draw descriptor on any
+generation (see the survey), so this is a software emulation:
+  1. the CPU builds a complete MALLOC_VERTEX job with placeholder counts
+  2. it is queued as MALI_JOB_TYPE_NOT_STARTED so the GPU cannot run it
+  3. a helper compute kernel overwrites the count fields from the
+     application's buffer and promotes the header to MALLOC_VERTEX
+  4. the draw job depends on the helper job
+
+Fields the helper patches, and nothing else, so that indirect and direct
+produce the same descriptor for the same inputs:
+  PRIMITIVE.index_count        <- vertexCount     (byte 44)
+  PRIMITIVE.base_vertex_offset <- firstVertex      (byte 36)
+  INSTANCE_COUNT.count         <- instanceCount    (byte 48)
+Offsets verified three ways: v9.xml field definitions, generated pack
+header section offsets, and a live descriptor dump with known inputs.
+
+case       n      centre         quadrants              sha256
+direct     512    255,0,0        192,192,64,64          57ddb7b669f1
+same       512    255,0,0        192,192,64,64          57ddb7b669f1
+firstvtx   253    0,0,0          253,0,0,0              010c54cd0cff
+twodraws   765    255,0,0        445,192,64,64          6bf94daa08f4
+vcount0    0      0,0,0          0,0,0,0                3cf730e8f850
+icount0    0      0,0,0          0,0,0,0                3cf730e8f850
+
+BYTE-IDENTITY: reference (vkCmdDraw) and 'same' (vkCmdDrawIndirect with
+the same parameters) both hash to 57ddb7b669f1. Not similar - identical.
+That same hash is also the Phase 4.1 indexed-draw oracle, so all three
+paths land on the same framebuffer.
+
+LOAD-BEARING CASE, firstvtx: the CPU writes firstVertex=0 as its
+placeholder, so triangle B (253 px, centre black) can only appear if the
+helper actually read firstVertex=3 out of the buffer. It did.
+
+twodraws: drawCount=2 with {3,1,0,0} then {3,1,3,0} gave 765 non-black
+= 512 + 253 exactly, and TL quadrant 445 = 192 + 253. Both shapes
+composited, so the unrolled multi-draw loop works.
+
+=== PRE-EXISTING BUG FIXED ALONG THE WAY ===
+vkCmdDraw ignored firstVertex on v9 for non-indexed draws:
+panvk_draw_prepare_malloc_vertex_job() hardcoded base_vertex_offset = 0
+and only set it for indexed draws. Measured before the fix: firstVertex=0
+and firstVertex=3 both rendered triangle A (512). After feeding
+vertex.base in both cases: firstVertex=3 renders triangle B (253), and
+every indexed test is unchanged.
+
+=== REGRESSION, all against this one build ===
+  compute Phase 3 write_value : 0x00000309 (777)              PASS
+  graphics baseline           : 512/4096                      PASS
+  4.1 indexed a16             : n=512 q=192,192,64,64         PASS
+  4.1 indexed voffset         : n=253 q=253,0,0,0             PASS
+  4.2 four descriptor sets    : SUCCESS                       PASS
+  4.3 MRT circle 2 targets    : SUCCESS                       PASS
+  4.4 dispatch indirect x=37  : 37 correct, 0 beyond          PASS
+  4.4 compute FAU constant    : CORRECT                       PASS
+
+=== SCOPE, what is NOT covered ===
+  - vkCmdDrawIndexedIndirect is still NOT IMPLEMENTED. It additionally
+    needs the index buffer scanned for min/max index, which on Bifrost is
+    a second helper kernel with no v9 port.
+  - firstInstance is not patched. The direct path does not write
+    PRIMITIVE.instance_offset either, so patching it would make indirect
+    behave differently from direct rather than the same. That gap belongs
+    to the direct path.
+  - Workloads with varyings or vertex buffers are UNTESTED and expected
+    to be wrong: those buffers are still sized at record time from the
+    placeholder count, not the real one. The tested shader uses
+    gl_VertexIndex against a hardcoded position array, so it needs no
+    vertex buffer and emits no varyings.
+  - No instancing was exercised beyond instanceCount = 1 and 0.

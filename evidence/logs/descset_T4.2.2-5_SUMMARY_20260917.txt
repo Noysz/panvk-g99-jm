@@ -1,0 +1,24 @@
+T4.2.2 / T4.2.3 / T4.2.5 — application descriptor sets on Mali-G57 MC2 (v9/JM)
+date        : 2026-09-17T04:07:06+00:00
+ICD sha256  : d7777618b9cee3dd6321e44b973e89ceed079ae8a15801dac99b2d0085fcfe8d
+test sha256 : bb5025197ed76cabbd0922021f2e2f662766dea2b59a7caced20b07b535a1a15
+runs        : 3 per config, identical after GPU-address normalisation
+
+config     mask   f_unused  count  bytes  centre             status
+2sets      0x3    2         4      64     191,128,0,255      SUCCESS
+2sets_alt  0x3    2         4      64     64,255,0,255       SUCCESS
+4sets      0xf    4         8      128    191,128,64,255     SUCCESS
+sparse     0x9    4         8      128    191,0,64,255       SUCCESS
+
+Stage attribution, now resolved: the UBOs are FRAGMENT-only, so the stage
+reporting used_set_mask=0x3 is the fragment stage. That stage carries the
+32 B driver set; the stage reporting mask=0x0 carries the 544 B driver set
+and is therefore the vertex stage. Previously INFERENCE, now VERIFIED-HW.
+
+Negative control: 2sets vs 2sets_alt use the same shader and the same
+bindings and differ only in UBO contents. The centre pixel moved from
+191,128,0 to 64,255,0 exactly as predicted, so the buffer contents
+genuinely reach the shader.
+
+Sparse case exercises the previously-unexercised else-branch: entries for
+unused sets 1 and 2 are explicitly zeroed rather than skipped.

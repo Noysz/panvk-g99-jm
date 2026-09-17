@@ -1,0 +1,113 @@
+=== case: ind0 ===
+shader          : wg_small.comp.spv
+value rule      : idplus1
+API path        : vkCmdDispatchIndirect
+workgroups asked: 0
+slots in SSBO   : 64
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: error: kbase: MEM_ALLOC req: va_pages=32768 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x2
+MESA: error: kbase: MEM_ALLOC req: va_pages=35157 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x6
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x280f kmod_flags=0x0
+vkCmdDispatch         : present
+vkCmdDispatchIndirect : present
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x280f kmod_flags=0x0
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x280f kmod_flags=0x0
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x1817 kmod_flags=0x41
+[PANVK_DEBUG_SHADERBIN] stage=OTHER bin_size=128 bytes:
+  79 80 00 00 00 c0 a8 00 00 01 00 00 00 c1 10 01
+  40 c8 c0 19 01 c0 b4 00 40 c4 00 00 04 82 6b 08
+  42 00 00 58 02 41 61 78 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+[PANVK_DEBUG_SHADERBIN] stage=OTHER bin_size=1024 bytes:
+  86 00 00 30 e6 80 60 08 00 01 0a 00 00 c3 a0 00
+  43 02 0a 00 00 c3 a0 00 43 c0 c0 80 00 c3 f0 00
+  c0 08 00 00 00 c4 10 01 c0 02 00 00 00 c5 10 01
+  03 c0 44 45 00 c4 50 01 8c 00 00 78 f8 86 60 10
+  8c 00 00 b8 08 46 61 00 8c 00 00 00 00 c6 91 00
+  8d 00 00 00 00 c7 91 00 c0 10 00 00 00 c5 10 01
+  45 00 00 00 00 c8 91 00 c0 00 00 00 00 c9 91 00
+  06 08 07 00 00 c6 ab 21 06 00 00 38 f8 88 60 08
+  48 c0 44 11 01 c4 b4 00 44 00 00 00 00 c8 91 00
+  46 00 00 00 00 c4 91 00 47 00 00 00 00 c5 91 00
+  44 00 00 78 08 48 61 00 c0 c0 43 11 09 c3 b4 00
+  43 5c 00 00 30 c0 1f 50 c0 20 00 00 00 c3 10 01
+  43 00 00 00 00 c4 91 00 c0 00 00 00 00 c5 91 00
+  8c 00 00 00 00 c6 91 00 8d 00 00 00 00 c7 91 00
+  06 44 07 00 00 c4 ab 11 04 00 00 a8 f4 88 60 00
+  c0 30 00 00 00 c3 10 01 43 00 00 00 00 ca 91 00
+  c0 00 00 00 00 cb 91 00 4a 06 07 00 00 ca ab 21
+  0a 00 00 38 f8 8c 60 00 c0 40 00 00 00 c3 10 01
+  43 00 00 00 00 d0 91 00 c0 00 00 00 00 d1 91 00
+  50 06 07 00 00 d0 ab 09 10 00 00 68 f4 92 60 00
+  c0 60 00 00 00 c3 10 01 43 00 00 00 00 d4 91 00
+  c0 00 00 00 00 d5 91 00 54 06 07 00 00 d4 ab 11
+  14 00 00 b8 f8 96 60 00 c0 70 00 00 00 c3 10 01
+  43 00 00 00 00 da 91 00 c0 00 00 00 00 db 91 00
+  5a 06 07 00 00 da ab 21 1a 00 00 38 f8 9c 60 00
+  c0 01 00 00 00 c3 10 01 08 d0 c0 1d 00 cc b4 00
+  4c c0 43 10 01 c3 b4 00 c0 01 01 01 01 cc 10 01
+  43 c0 4c 10 41 c3 b6 00 c0 ff 03 00 00 cc 10 01
+  08 ca c0 19 00 e0 b4 00 60 c0 0c 10 01 e0 b4 00
+  08 cd c0 11 00 e1 b4 00 48 c0 0c 10 01 c8 b4 00
+  61 c0 4c 10 01 cc b4 00 60 ca c0 19 01 e0 b4 00
+  48 c0 60 11 01 c8 b4 00 c0 03 00 00 00 e0 10 01
+  09 cb c0 19 00 e1 b4 00 61 c0 60 10 01 e0 b4 00
+  c0 ff 3f 00 00 e1 10 01 49 c0 61 10 01 c9 b4 00
+  43 c0 c0 11 41 c3 b6 00 43 c0 c0 80 03 c3 f2 00
+  43 00 00 00 00 c3 90 00 c0 00 00 00 80 e1 10 01
+  43 c0 c0 61 00 c3 50 01 4c cd c0 11 01 cc b4 00
+  48 c0 4c 11 01 c8 b4 00 60 cb c0 19 01 cc b4 00
+  49 c0 4c 11 01 c9 b4 00 48 c0 43 11 01 c3 b4 00
+  43 00 00 00 00 e0 91 00 49 00 00 00 00 e1 91 00
+  00 00 00 00 00 e2 91 00 01 00 00 00 00 e3 91 08
+  44 00 00 78 08 60 61 00 4d 00 00 00 00 c3 91 00
+  4e 00 00 00 00 c4 91 00 4f 00 00 00 00 c5 91 00
+  4a 00 00 00 00 c8 91 00 4b 00 00 00 00 c9 91 10
+  48 00 00 b8 08 42 61 00 53 00 10 00 00 c3 90 00
+  52 00 00 00 00 c8 91 00 03 00 00 00 00 c9 91 00
+  c0 00 00 00 00 ca 91 00 c0 00 00 00 00 cb 91 00
+  50 00 00 00 00 c4 91 00 51 00 00 00 00 c5 91 20
+  44 00 00 38 08 48 61 00 c0 50 00 00 00 c3 10 01
+  43 00 00 00 00 c4 91 00 c0 00 00 00 00 c5 91 00
+  44 46 07 00 00 c4 ab 01 c0 00 00 00 00 c6 91 00
+  c0 00 00 00 00 c7 91 00 c0 00 00 00 00 c8 91 00
+  c0 00 00 00 00 c9 91 08 44 00 00 78 08 46 61 00
+  54 00 00 00 00 c4 91 00 55 00 00 00 00 c5 91 10
+  44 00 00 b8 08 56 61 00 5a 00 00 00 00 c4 91 00
+  5b 00 00 00 00 c5 91 20 44 00 00 38 08 5c 61 08
+  8e 00 00 58 02 40 61 10 90 00 00 98 02 41 61 20
+  92 00 00 18 02 42 61 50 00 00 00 00 00 c0 00 78
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ssbo zero-filled: 256 bytes
+indirect command written: x=0 y=1 z=1
+calling vkCmdDispatchIndirect(offset=0)
+[PANVK_DEBUG_SUBMIT] vtc_jc ret=0
+[PANVK_DEBUG_JOBSTATUS] vtc_jc job[0] type=1 exception_status=0x01 (DONE) first_incomplete_task=0 fault_pointer=0x0
+[PANVK_DEBUG_JOBSTATUS] vtc_jc job[1] type=4 exception_status=0x01 (DONE) first_incomplete_task=0 fault_pointer=0x0
+[PANVK_DEBUG_JOBSTATUS] vtc_jc job[2] type=1 exception_status=0x01 (DONE) first_incomplete_task=0 fault_pointer=0x0
+[PANVK_DEBUG_HEAP] SESUDAH vtc_jc (vertex+tiler) bo->flags=0x2 dev=0x76cbc00000 size=134217728 host=0x76cbc00000 mincore=absent -- UNREADABLE (I/O error) => halaman belum ter-commit, tiler tidak menulis apa pun
+vkQueueWaitIdle returned (no hang)
+
+--- result: ind0 ---
+slots stamped        : 0
+correct within count : 0   (expect 0)
+rule applied         : idplus1
+stamped beyond count : 0   (must be 0)
+wrong value in range : 0   (must be 0)
+first 12 slots       : 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+verdict              : CORRECT
+FINGERPRINT ind0 stamped=0 correct=0 beyond=0 wrong=0 ok=1

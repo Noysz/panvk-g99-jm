@@ -1,0 +1,34 @@
+T4.2.4 / T4.2.6 — res_table=0 negative control, Mali-G57 MC2 (v9/JM)
+date        : 2026-09-17T04:18:59+00:00
+ICD sha256  : 45504723524e386e66701b48b3a4012778217fdcfe3f9bd19169ef977c62813c
+test sha256 : 81570596c0d73081e4f74ed3fc6a464b7e9251114b4380df4bde666ad810f846
+runs        : 3 per variant, identical after address normalisation
+
+RESULT (VERIFIED-HW):
+  res_table = 0 makes every descriptor read return ZERO, with
+  exception_status = 0x01 (DONE) and fault_pointer = 0x0 on every job.
+  No GPU fault of any kind, in any of 18 runs across both tests.
+
+  T4.2.4, shader ubo2.frag (all three colour channels descriptor-fed):
+    skip=1     -> 0/4096 non-black, centre 0,0,0,255
+
+  T4.2.6, shader ubo2_const.frag (BLUE is a shader constant):
+    no skip    -> 512/4096, centre 191,128,128,255   SUCCESS
+    skip=frag  -> 512/4096, centre   0,  0,128,255   descriptors zeroed
+    skip=1     -> 512/4096, centre   0,  0,128,255   descriptors zeroed
+
+CORRECTION to the first reading of T4.2.4:
+  The 0/4096 was initially read as 'geometry died'. That was wrong.
+  T4.2.6 shows 512/4096 under the same skip=1 condition once one channel
+  is descriptor-independent. The triangle rasterizes normally in both
+  cases; in T4.2.4 all three of its colour channels came from zeroed
+  descriptors, so it painted 0,0,0,255 - identical to the clear colour and
+  therefore invisible to a non-black pixel counter.
+  The constant channel is what makes the two failure modes separable.
+
+SCOPE LIMIT:
+  Geometry survives here because this vertex shader uses gl_VertexIndex
+  with a hardcoded position array - no vertex attributes, no vertex
+  buffers - so it needs nothing from its resource table, and its viewport
+  constants arrive via FAU push uniforms instead. A workload with real
+  vertex buffers is NOT covered by this result.

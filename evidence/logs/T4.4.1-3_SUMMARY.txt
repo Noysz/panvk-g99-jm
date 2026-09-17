@@ -1,0 +1,61 @@
+T4.4.1 / T4.4.2 / T4.4.3 — v9 compute FAU count + dispatch_precomp port
+date        : 2026-09-17T06:15:16+00:00
+ICD sha256  : d40eafed324dc5c9c6f8503905929409a28779f89df6219596085e30d60a7ef0
+test sha256 : 911b1296764529b323659fb92385da9d69ddb8d850be0d477298c4136e7355ec
+
+=== T4.4.1: prediction test, BEFORE any change ===
+The survey predicted vkCmdDispatchIndirect would silently do nothing.
+THE PREDICTION WAS WRONG. Measured, 3 runs per case, identical:
+  direct  type=4 DONE, 7 slots correct              control OK
+  ind7    type=0 exception_status=0x10258 (FAULT)    0 slots
+  ind37   type=0 exception_status=0x10258 (FAULT)    0 slots
+  ind0    type=0 exception_status=0x10258 (FAULT)    0 slots
+It does not no-op, it FAULTS THE GPU. The mechanism was right - the job
+is parked at type 0 (NOT_STARTED) by cmd_dispatch.c:256 and the precomp
+shader that would promote it to COMPUTE never ran - but the observable
+was not what the survey said. Corrected in the survey.
+
+=== T4.4.2: separate bug found while building the control ===
+The first control shader used 'data[id] = 0xA5A50000u | id' and returned
+plain 'id'. Isolated with three shaders, direct dispatch:
+  data[id] = id + 1u          -> correct
+  data[id] = 0xDEADBEEFu      -> correct
+  data[id] = 0xA5A50000u | id -> WRONG, constant read as zero
+
+Root cause, same defect class as the Phase 4 graphics FAU finding:
+jm/panvk_vX_cmd_dispatch.c set cfg.compute.fau (the pointer) but never
+cfg.compute.fau_count, so the hardware uploaded no fast-access uniforms
+and any FAU-resident constant read back as zero. The graphics path sets it
+(cmd_draw.c:2301, :2533) and CSF sets it for compute
+(csf/panvk_vX_cmd_dispatch.c:229). Fix is one line, from shader metadata:
+  cfg.compute.fau_count = cs->fau.total_count;
+
+A/B on the same shader, 3 runs each:
+  before: 00000000 00000001 00000002 ... 00000006
+  after : a5a50000 a5a50001 a5a50002 ... a5a50006
+
+=== T4.4.3: dispatch_precomp ported to v9, AFTER ===
+case     stamped   correct   beyond   wrong   verdict
+direct   7         7         0        0       CORRECT
+ind7     7         7         0        0       CORRECT
+ind37    37        37        0        0       CORRECT
+ind0     0         0         0        0       CORRECT
+
+12 runs, zero GPU faults. ind37 is the load-bearing case: exactly 37
+slots stamped and nothing beyond slot 36. 37 is not a round number and
+differs from ind7, so a cached or hardcoded count cannot produce it.
+ind0 shows job type=1 (NULL) - the is_no_op branch of
+indirect_dispatch.cl:30 rewrote the header, which before the port left
+type=0 and faulted.
+
+=== REGRESSION CHECKS, all against this one build ===
+  compute Phase 3 write_value  : 0x00000309 (777)   PASS
+  graphics baseline triangle   : 512/4096           PASS
+  4.1 indexed a16              : n=512 q=192,192,64,64  PASS
+  4.2 sparse descriptor sets   : SUCCESS            PASS
+  4.3 MRT sq2                  : SUCCESS            PASS
+  4.4.0 draw_indirect          : still 0 pixels, unchanged as expected
+
+SCOPE: vkCmdDispatchIndirect only. vkCmdDrawIndirect is still NOT
+IMPLEMENTED - it needs the draw_helper.cl kernels that are not built for
+v9 at all. See the survey, item 2 of the work list.

@@ -1,0 +1,54 @@
+Phase 4.3 — multiple render targets, square and circle, Mali-G57 MC2 (v9/JM)
+date        : 2026-09-17T05:03:13+00:00
+ICD sha256  : 45504723524e386e66701b48b3a4012778217fdcfe3f9bd19169ef977c62813c
+test sha256 : ca2639103d71bf8ace22969f7492ab2ea7542486ae594ceb7b729291fa666a60
+runs        : 3 per case, identical
+maxColorAttachments reported by device: 8 (queried at runtime)
+
+HOW CORRECTNESS WAS DECIDED - no expected pixel count was hand-written.
+  square: arithmetic. NDC +/-0.5 maps to pixel 16.0 and 48.0 in a 64x64
+          viewport, so covered pixel centres are 16.5..47.5 = 32x32 = 1024.
+  circle: no closed form, so a CPU rasterizer walks the same 64 triangles
+          the shader builds and applies Vulkan's own coverage rule (pixel
+          covered iff its centre is inside). GPU is compared per pixel.
+
+  Pixel centres lying on an edge are UNDECIDABLE from one triangle at a
+  time, so they are counted and reported, never scored. Measured, not
+  assumed away: the smallest margin among scored pixels was 0.500000 px
+  for the square and 0.002667 px for the circle, both far above float
+  noise, so the scored comparison is unambiguous.
+
+case         shape    targets  drawn   predicted verdict
+sq1          square   1        1024    1024 exact PASS
+sq2/RT0      square   2        1024    1024 exact PASS
+sq2/RT1      square   2        1024    1024 exact PASS
+ci1          circle   1        1568    1504..1632 PASS
+ci2/RT0      circle   2        1568    1504..1632 PASS
+ci2/RT1      circle   2        1568    1504..1632 PASS
+sq2only0/RT0 square   2        1024    1024 exact PASS
+sq2only0/RT1 square   2        0       0 blue   PASS
+
+Every case: mismatch-inside 0, mismatch-outside 0, wrong-colour 0.
+Zero GPU faults across 15 runs.
+
+ALIASING: RT0 clears to 0,0,0 and draws red; RT1 clears to 0,64,0 and
+draws blue. Distinct in both the drawn and untouched regions, so aliasing
+would be visible either way. RT0 and RT1 were never byte-identical.
+
+NEGATIVE CONTROL sq2only0: two attachments bound but the fragment shader
+writes location 0 only. RT1 came back as 4096 pixels of 0,64,0 - entirely
+its own clear colour, zero blue. Note the assertion is one-sided (no blue)
+because unwritten attachment contents are undefined per spec; the fully
+clear result is stronger than required and is reported, not relied on.
+
+DRIVER-SIDE: bd_count=2 and rt_count=2 observed for both 2-target cases,
+so the blend-descriptor count tracks the attachment count.
+
+RT0 IS UNPERTURBED BY THE SECOND ATTACHMENT (sha256 of the framebuffer):
+  square  sq1_rt0 = sq2_rt0 = sq2only0_rt0 = e872c9d23bc6
+  circle  ci1_rt0 = ci2_rt0                = fd562c2a81aa
+Adding a second render target changed RT0 by zero bytes.
+
+SCOPE LIMIT: two attachments only, both R8G8B8A8_UNORM, both LINEAR, no
+blending, no depth, no MSAA, single draw. 3..8 attachments, mixed formats
+and per-attachment blend state are UNTESTED.

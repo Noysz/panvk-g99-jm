@@ -1,0 +1,47 @@
+=== case: ind7 ===
+shader          : wg_small.comp.spv
+value rule      : idplus1
+API path        : vkCmdDispatchIndirect
+workgroups asked: 7
+slots in SSBO   : 64
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: error: kbase: MEM_ALLOC req: va_pages=32768 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x2
+MESA: error: kbase: MEM_ALLOC req: va_pages=35157 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x6
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x280f kmod_flags=0x0
+vkCmdDispatch         : present
+vkCmdDispatchIndirect : present
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x280f kmod_flags=0x0
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x280f kmod_flags=0x0
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x1817 kmod_flags=0x41
+[PANVK_DEBUG_SHADERBIN] stage=OTHER bin_size=128 bytes:
+  79 80 00 00 00 c0 a8 00 00 01 00 00 00 c1 10 01
+  40 c8 c0 19 01 c0 b4 00 40 c4 00 00 04 82 6b 08
+  42 00 00 58 02 41 61 78 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+ssbo zero-filled: 256 bytes
+indirect command written: x=7 y=1 z=1
+calling vkCmdDispatchIndirect(offset=0)
+[PANVK_DEBUG_SUBMIT] vtc_jc ret=-88
+[PANVK_DEBUG_JOBSTATUS] vtc_jc job[0] type=0 exception_status=0x10258 (FAULT) first_incomplete_task=0 fault_pointer=0x7658517100  <== GPU FAULT
+[PANVK_DEBUG_JOBSTATUS] vtc_jc job[1] type=0 exception_status=0x10258 (FAULT) first_incomplete_task=0 fault_pointer=0x7658517100  <== GPU FAULT
+[PANVK_DEBUG_HEAP] SESUDAH vtc_jc (vertex+tiler) bo->flags=0x2 dev=0x73b2e00000 size=134217728 host=0x73b2e00000 mincore=absent -- UNREADABLE (I/O error) => halaman belum ter-commit, tiler tidak menulis apa pun
+vkQueueWaitIdle returned (no hang)
+
+--- result: ind7 ---
+slots stamped        : 0
+correct within count : 0   (expect 7)
+rule applied         : idplus1
+stamped beyond count : 0   (must be 0)
+wrong value in range : 7   (must be 0)
+first 12 slots       : 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+verdict              : not as expected
+FINGERPRINT ind7 stamped=0 correct=0 beyond=0 wrong=7 ok=0

@@ -1,0 +1,59 @@
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: error: kbase: MEM_ALLOC req: va_pages=32768 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x2
+MESA: error: kbase: MEM_ALLOC req: va_pages=35157 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x6
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x280f kmod_flags=0x0
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x280f kmod_flags=0x0
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x280f kmod_flags=0x0
+[PANVK_DEBUG_BIND] image plane bind (non-sparse) base=0x705e36f000 (mem->addr.dev=0x705e36f000 offset=0)
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x1817 kmod_flags=0x41
+[PANVK_DEBUG_SHADERBIN] stage=VERTEX bin_size=256 bytes:
+  7b 0d 00 00 04 80 5e 00 3c c8 c0 98 04 c2 f8 00
+  7c c4 c0 9c 04 c3 f8 00 87 00 00 00 00 c4 91 00
+  03 c0 02 11 01 c5 b4 00 45 c0 86 44 00 c4 50 01
+  42 c0 c0 86 00 c2 50 01 43 c0 42 87 00 c2 50 01
+  84 00 00 00 00 c3 91 00 44 81 43 00 00 c3 b2 00
+  83 00 00 00 00 c4 91 00 42 80 44 00 00 c2 b2 00
+  85 00 00 00 00 c4 91 00 d0 00 00 00 00 c5 91 08
+  40 00 00 79 08 42 61 78 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_SHADERBIN] stage=FRAGMENT bin_size=128 bytes:
+  00 00 00 00 00 c0 00 40 7c d0 ea 00 02 bc 7d 08
+  d0 00 00 00 00 c0 91 68 c0 00 00 00 00 c1 91 00
+  c0 00 00 00 00 c2 91 00 d0 00 00 00 00 c3 91 48
+  84 00 3c 32 08 40 7f 78 c0 00 00 00 00 f0 10 01
+  c0 85 00 00 10 c1 2f 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+[PANVK_DEBUG_TILERCTX] 192 byte Tiler Context desc: 00 00 00 00 00 00 00 00 ff 00 00 00 3f 00 3f 00 00 00 00 00 00 00 00 00 c0 00 16 5e 70 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_TILERHEAP] 32 byte Tiler Heap desc: 29 03 00 00 00 00 00 08 00 00 40 bc 6d 00 00 00 00 00 40 bc 6d 00 00 00 00 00 40 c4 6d 00 00 00
+[PANVK_DEBUG_RTFMT] rt=0 fmt=84 rt_count=1
+[PANVK_DEBUG_RT] linear color attachment base=0x705e36f000 row_stride=256 surf_stride=16384
+[PANVK_DEBUG_FBD] gpu=0x705e160000 size=192\n[PANVK_DEBUG_FBD] +000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n[PANVK_DEBUG_FBD] +016: 00 70 80 5f 70 00 00 00 00 00 00 00 00 00 00 00\n[PANVK_DEBUG_FBD] +032: 3f 00 3f 00 00 00 00 00 3f 00 3f 00 80 50 00 01\n[PANVK_DEBUG_FBD] +048: 00 00 01 00 00 00 00 00 00 01 16 5e 70 00 00 00\n[PANVK_DEBUG_FBD] +064: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n[PANVK_DEBUG_FBD] +080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n[PANVK_DEBUG_FBD] +096: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n[PANVK_DEBUG_FBD] +112: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n[PANVK_DEBUG_FBD] +128: 00 00 00 04 99 82 88 86 00 00 00 00 00 00 00 00\n[PANVK_DEBUG_FBD] +144: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n[PANVK_DEBUG_FBD] +160: 00 f0 36 5e 70 00 00 00 00 01 00 00 00 40 00 00\n[PANVK_DEBUG_FBD] +176: 00 00 00 ff 00 00 00 ff 00 00 00 ff 00 00 00 ff\n[PANVK_DEBUG_FBD] tagged_ptr=0x705e160001 stride=192
+[PANVK_DEBUG_FRAGJOB] gpu=0x705e160200 size=64\n[PANVK_DEBUG_FRAGJOB] +000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n[PANVK_DEBUG_FRAGJOB] +016: 12 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00\n[PANVK_DEBUG_FRAGJOB] +032: 00 00 00 00 03 00 03 00 01 00 16 5e 70 00 00 00\n[PANVK_DEBUG_FRAGJOB] +048: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n[PANVK_DEBUG_SUBMIT] frag_jc ret=0
+[PANVK_DEBUG_JOBSTATUS] frag_jc job[0] type=9 exception_status=0x01 (DONE) first_incomplete_task=0 fault_pointer=0x0
+[PANVK_DEBUG_HEAP] SESUDAH frag_jc (fragment) bo->flags=0x2 dev=0x6dbc400000 size=134217728 host=0x6dbc400000 mincore=absent -- UNREADABLE (I/O error) => halaman belum ter-commit, tiler tidak menulis apa pun
+=== case: draw_indirect ===
+path under test : vkCmdDrawIndirect
+prediction      : 0 pixels, no error, no GPU fault (empty stub at v9)
+vkCmdDrawIndirect entry point : present
+indirect command written : vertexCount=3 instanceCount=1
+calling vkCmdDrawIndirect(drawCount=1, stride=16)
+
+--- result: draw_indirect ---
+non-black      : 0 / 4096
+centre (32,32) = 0,0,0,255
+prediction was : 0 non-black (empty stub)
+verdict        : PREDICTION HELD - vkCmdDrawIndirect is a no-op on v9
+FINGERPRINT draw_indirect n=0 c=0,0,0 ok=1
