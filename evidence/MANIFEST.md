@@ -3,7 +3,7 @@
 SHA-256 of every evidence artifact, so a reader can confirm the file they
 are looking at is the one the documentation refers to.
 
-Generated: 2026-09-17T10:08:44Z
+Generated: 2026-09-17T10:13:08Z
 
 ```
 069a8b63bdb78bac3243de1cc09ea1a52b2a73eea64c3cac1b4d9a836aeda807  evidence/builds/ab_A2_build.log
@@ -250,6 +250,18 @@ d802aa3b6fec5539c752a6a243db67ce396c548da0c12b27fc711a14a9ef927f  evidence/logs/
 f99b86e74b2526b896b9e59238f02e4c5284d66c53e947a74a656f297965a1d8  evidence/logs/T4.4.9_nodep_same_run1.log
 dfaa460c11e13cd51d31a6a79cc35a4ee4abab0f0b6d81c5eb10e5f8a05818d2  evidence/logs/T4.4.9_nodep_same_run2.log
 34eceb206a2bac69ab4dff57851b718f8d1e5b00571271131cf268d12efc6b2b  evidence/logs/T4.4.9_nodep_same_run3.log
+bffdcef1053bc407015359131be2a9af567ca99b7ee3fde367cd1f456a0b5400  evidence/logs/T4.5.10_mask.log
+576ba3cc44794b30286035fbf5c6aab59ffbafbefabbf04c606d91be3d51506c  evidence/logs/T4.5.10_selfcheck.log
+b3282b831666aad29bfe1df55279601a7ec6fe479b5abb46adc668e613e09adb  evidence/logs/T4.5.10_solo.log
+51b76607032e76ed6708119e999e1ece107d6d64ae3c321580df2fe46cd70892  evidence/logs/T4.5.11_mask_run1.log
+8fe36f1117cf532b3b74a9b242ea7df75876df5ad9d617229f11592ac8aeb0d7  evidence/logs/T4.5.11_mask_run2.log
+b817841b470addeef34b75e6c49d5b81ad69ac75a26ace53cf64cc5a364a94c3  evidence/logs/T4.5.11_mask_run3.log
+1480d3fd2225a75923cfc5196d40a14ac2b488e4a10615728e61849faed1b82b  evidence/logs/T4.5.11_selfcheck_run1.log
+96804a533bf97ddc6ddd637d74bce2c2675663336a532b999f866ab88999a8f7  evidence/logs/T4.5.11_selfcheck_run2.log
+eaa9b5f59df097ee8adef468c32092dbecc54fc6237ae31c9c2240e95380930a  evidence/logs/T4.5.11_selfcheck_run3.log
+0ec5d1097ff278e337d54d94b0a83c943d8ce125e438089cac4256294aadd510  evidence/logs/T4.5.11_solo_run1.log
+3ce66de476ea853a4a05770a5d708f212ef73167026f094f81853da716f210e2  evidence/logs/T4.5.11_solo_run2.log
+c7288d1dec5bb9d5e462504ae416faa2557c1c1471ce9819bbc11bed7a052652  evidence/logs/T4.5.11_solo_run3.log
 95540a3c77b89502e31b9587e27c5e1d43cdc8ebd4c611c37144a3acf922a57b  evidence/logs/T4.5.1_middle.log
 98ceab37fec2a0af935fce3dc6f959db22339c31931ab41e10d0dee7331f686c  evidence/logs/T4.5.1_nop.log
 4595734da29eb2753216d0e9910e894101aa0dceeae0f7cde6c7e378075afd81  evidence/logs/T4.5.1_sc_bulk.log

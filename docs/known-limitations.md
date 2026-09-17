@@ -35,7 +35,7 @@ Read this before quoting anything from this repo.
 | Indexed draws | **VERIFIED-HW** including `firstIndex` and `vertexOffset`. `firstIndex` was silently ignored until fixed |
 | Indirect draws | **VERIFIED-HW** for `vkCmdDrawIndirect` and `vkCmdDrawIndexedIndirect`, software-emulated. `firstInstance` still ignored; varying/vertex-buffer workloads out of scope |
 | MSAA | `multisample_enable` emitted false; untested |
-| Multiple render targets | **VERIFIED-HW** for 2 attachments, square and circle, against a CPU reference rasterizer. 3–8 attachments and mixed formats untested |
+| Multiple render targets | **VERIFIED-HW** for 2 attachments, square and circle, against a CPU reference rasterizer, plus byte-exact attachment independence over the whole allocation. 3–8 attachments and mixed formats untested |
 | Depth/stencil testing | descriptors emitted, never validated by a test |
 | Tiled / AFBC image layouts | linear only |
 | Queries / occlusion | `Occlusion query: Disabled` |

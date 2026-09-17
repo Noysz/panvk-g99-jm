@@ -122,19 +122,52 @@ break it, and was not run.
 
 ## 4. Phase 4.3, multiple render targets
 
-### 4.1 The aliasing check has a real hole — OPEN
+### 4.1 The aliasing check had a real hole — RESOLVED
 
-The test asserts RT0 and RT1 are not byte-identical. **Partial** aliasing would
-pass it: if the two attachments overlapped in only part of their memory, the
-buffers would still differ somewhere and the check would report PASS.
+`mrt_shape_test.c` asserts RT0 and RT1 are not byte-identical. That catches full
+aliasing and nothing else. **Partial** aliasing would pass it: if the two
+attachments overlapped in only part of their memory the buffers would still differ
+somewhere, and the check would report PASS. The claim it supported was "not fully
+aliased", not "independent".
 
-What would close it: write a known pattern into RT1, draw only to RT0, and verify
-RT1 is unchanged byte for byte outside the drawn region. The `sq2only0` case is
-close to this but not the same — it checks RT1 contains no blue, not that RT1 is
-bit-for-bit what it was before the draw.
+Closed by `mrt_alias_test.c`, which establishes a known prior state for RT1, draws
+to RT0, and requires RT1 to be unchanged byte for byte. Two details do the work:
 
-Not closed. The claim "attachments are independent" should be read as *not fully
-aliased*.
+**RT1 is preloaded with a per-offset pseudorandom pattern**, not a flat colour. A
+flat fill would hide an overwrite that happened to write the value already there.
+The images are `VK_IMAGE_TILING_LINEAR` and host visible, so the mapping is the
+real backing store and the pattern is written straight through it. The comparison
+covers the whole allocation the driver reported, 16384 bytes at a row pitch of
+256, so row-stride slack and padding are compared too rather than only the visible
+64×64.
+
+**RT1 is attached with `colorWriteMask = 0`**, plus `loadOp = LOAD` and
+`storeOp = STORE`. This is what makes the assertion two-sided. Vulkan leaves an
+attachment's contents undefined when the fragment shader does not write its
+location, which is exactly why the older `sq2only0` case could only assert "no
+blue appeared". A zero write mask instead *guarantees* no writes occur, so RT1 is
+required to come back exactly as it went in.
+
+| case | RT0 pixels | RT1 bytes compared | differing | verdict |
+|---|---|---|---|---|
+| `mask` (2 attachments, RT1 mask 0) | 1024 | 16384 | **0** | PASS |
+| `solo` (RT1 not attached) | 1024 | 16384 | **0** | PASS |
+| `selfcheck` (negative control) | 1024 | 16384 | **1** | PASS |
+
+3x each, identical, zero faults.
+
+**`selfcheck` is the load-bearing control.** It flips one byte in RT1's mapping
+after the snapshot is taken, so the comparison *must* report exactly one
+difference. Zero would mean the comparison is not reading the memory it believes it
+is, and no other number in this test would mean anything.
+
+**The MRT path is confirmed to be active in the `mask` case**, rather than the
+driver quietly dropping a zero-masked attachment and degenerating into `solo`:
+`rt_count=2`, `bd_count=2`, `bound_attachments=0x3`, `render_target_mask=0x3`.
+`solo` correctly reports 1 and `0x1`.
+
+RT0 coverage is asserted at 1024 as well, because "RT1 unchanged" is trivially
+true if no draw happened.
 
 ### 4.2 Excluded pixels are not scored — ACCEPTED, with a caveat
 
