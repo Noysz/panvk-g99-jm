@@ -1,0 +1,51 @@
+--- a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+@@ -231,19 +231,28 @@
+ 
+    util_dynarray_foreach(&batch->jobs, void *, job) {
+       const uint8_t *bytes = *job;
+-      uint32_t exception_status, first_incomplete_task, word4;
+-      uint64_t fault_pointer;
++      uint32_t exception_status, first_incomplete_task, word4, word5;
++      uint64_t fault_pointer, next_job;
+ 
+       memcpy(&exception_status, bytes + 0, sizeof(exception_status));
+       memcpy(&first_incomplete_task, bytes + 4, sizeof(first_incomplete_task));
+       memcpy(&fault_pointer, bytes + 8, sizeof(fault_pointer));
+       memcpy(&word4, bytes + 16, sizeof(word4));
++      /* Job Header, v9.xml: Index is word 4 bits 16..31, Dependency 1 and 2 are
++       * word 5 low and high halves, Next is the 64-bit word 6. Reading these
++       * back tells us the dependency graph the hardware was actually given,
++       * which the job type alone does not. */
++      memcpy(&word5, bytes + 20, sizeof(word5));
++      memcpy(&next_job, bytes + 24, sizeof(next_job));
+ 
+       fprintf(out,
+               "[PANVK_DEBUG_JOBSTATUS] %s job[%u] type=%u"
++              " index=%u dep1=%u dep2=%u next=0x%" PRIx64
+               " exception_status=0x%02x (%s) first_incomplete_task=%u"
+               " fault_pointer=0x%" PRIx64 "%s\n",
+-              label, idx, (word4 >> 1) & BITFIELD_MASK(7), exception_status,
++              label, idx, (word4 >> 1) & BITFIELD_MASK(7),
++              (word4 >> 16) & 0xffff, word5 & 0xffff, (word5 >> 16) & 0xffff,
++              next_job, exception_status,
+               panvk_jd_event_str(exception_status), first_incomplete_task,
+               fault_pointer,
+               exception_status >= PANVK_JD_EVENT_FAULT_START
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -2983,6 +2983,14 @@
+       }
+ 
+       indirect_dep = batch->vtc_jc.job_index;
++
++      /* Negative control, T4.4.9. Dropping the dependency leaves the helper and
++       * the draw job unordered. If the correct output still appears, then the
++       * ordering was never coming from this dependency and every indirect
++       * result would be a race that happens to resolve favourably. Env-gated so
++       * the shipped path is untouched. */
++      if (getenv("PANVK_INDIRECT_NODEP"))
++         indirect_dep = 0;
+    }
+ 
+    pan_jc_add_job(&batch->vtc_jc,

@@ -202,7 +202,71 @@ Byte-identical at every count, up to 90× the placeholder, zero faults. Also
 varyings or vertex buffers, where record-time sizing genuinely does depend on the
 count. Those remain OPEN and are documented as scope.
 
-### 5.3 `twodraws` could in principle be one draw — RESOLVED
+### 5.3 The job ordering claim was reached the wrong way — RESOLVED, then re-opened
+
+Two separate things were conflated here and they need pulling apart.
+
+**What was claimed at first, and how, was wrong.** An early note recorded "job
+order observed: type 4 helper, then type 11 draw, then type 9 fragment". That
+sentence describes execution order and was read off the job-status dump. The dump
+iterates `batch->jobs`, a dynarray appended to by hand at each call site
+(`panvk_vX_cmd_buffer.c`, `panvk_vX_cmd_dispatch.c` and others). It reports the
+order pointers were *recorded*, not the order the GPU *ran* them. The real dump
+shows the opposite listing anyway — `job[0] type=11`, `job[1] type=4` — because
+the draw job's pointer is appended before the helper is dispatched.
+
+That claim never reached this repository, which was checked before writing this.
+But the method was unsound: execution order was inferred from a dump that does
+not report execution order.
+
+**What is now properly established.** The dump was extended to decode `Index`,
+`Dependency 1`, `Dependency 2` and `Next` from the job header
+(`v9.xml` "Job Header": index at word 4 bits 16..31, the two dependencies in the
+halves of word 5). Read back from real descriptors:
+
+| case | helper | draw job | dependency |
+|---|---|---|---|
+| direct | none | `index=1` | `dep1=0 dep2=0` |
+| indirect | `index=1` | `index=2` | **`dep2=1`**, pointing at the helper |
+| `twodraws` | `index=1`, `index=3` | `index=2`, `index=4` | `dep2=1` and `dep2=3` |
+
+So the dependency is explicit, points the right way, and each draw in a
+multi-draw batch depends on its own helper.
+
+**Ordering demonstrably holds**, and this does not depend on the dump at all. The
+CPU placeholder is `vertexCount = 1`, which is degenerate and covers no pixels.
+Every load-bearing case comes back with the helper's value instead. The draw job
+therefore always read the patched descriptor, never the placeholder, in every run
+recorded here.
+
+**What is NOT established, and this is the re-opened part.** That the explicit
+dependency is what enforces the ordering. An env-gated control
+(`PANVK_INDIRECT_NODEP=1`) sets the dependency to 0 while leaving everything else
+alone, confirmed in the dump as `dep1=0 dep2=0`. The output stays correct:
+
+| case | with dependency | dependency removed |
+|---|---|---|
+| `firstvtx` | 253 px | 253 px, 15/15 runs |
+| `twodraws` | 765 px | 765 px, 15/15 runs |
+| `many90i` | 60 px | 60 px, 10/10 runs |
+
+40 runs, one unique fingerprint per case, zero faults. **The negative control
+failed to fail.** Ordering on this hardware for these workloads is sufficiently
+guaranteed by chain-order serialisation — the helper sits earlier in the job
+chain's `next` list — so the dependency is not the thing making it work.
+
+The dependency is kept regardless, because expressing the constraint is the
+architecturally correct thing to do and matches what Bifrost does. But it is
+retained on principle, not because a test demonstrates it. **If a future change
+reordered the chain, no test here would catch the regression.**
+
+The experiment that would separate the two hypotheses is to add the draw job to
+the chain *before* the helper while keeping the dependency: if ordering survives,
+the dependency is doing the work; if it breaks, chain order was. That requires
+restructuring the submission path, because the dependency needs an index that
+does not exist until the helper is added, and it was not done.
+
+### 5.3a `twodraws` could in principle be one draw — RESOLVED
 
 765 non-black could be a single draw covering 765 pixels rather than two draws of
 512 and 253. The quadrant breakdown settles it: `445,192,64,64`, where
