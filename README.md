@@ -158,6 +158,8 @@ Adding v9 to both lists compiles 19 of 24 objects and then fails with 69 errors:
 
 Full evidence, error breakdown, and the two-line patch: [`docs/why-v9-is-a-port.md`](docs/why-v9-is-a-port.md). **Update:** the 69-error wall above has since been worked through far enough for compute to work — see §7.
 
+> **Provenance note on "19 of 24 objects / 69 errors":** these figures come from the original 2026-09-05 build attempt, whose log was not retained. The build logs that *are* published measure something different and should not be read as the source of those numbers: [`evidence/historical/build_v9_full.HISTORICAL.log`](evidence/historical/build_v9_full.HISTORICAL.log) contains **100 unique `error:` messages** and stops at `[842/1029]`, and [`evidence/historical/build_v9_check.HISTORICAL.log`](evidence/historical/build_v9_check.HISTORICAL.log) contains **16**. The qualitative conclusion — `jm/` is Bifrost-only and v9 needs a port — is unaffected and is what the logs do support. See [`docs/INVENTORY.md`](docs/INVENTORY.md).
+
 ## 5. Kernel driver source
 
 The kernel-side `mali_kbase` driver is released by ARM under **GPLv2** (separate from the closed userspace blob) — this is not reverse-engineered.

@@ -41,6 +41,23 @@ print is itself the stale conclusion, still emitted by the driver. **Treat that
 sentence as a comment from a past hypothesis, not as a measurement.** The
 measurement is only `mincore=absent` / `I/O error`.
 
+Exact location, for anyone who wants to remove it: the Indonesian original
+`" tiler tidak menulis apa pun\n"` is at
+`src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c:148` in the driver work tree, and is
+therefore carried inside patches
+[`0005`](../patches/0005-panvk-v9-kbase-jm-submit-and-debug.patch) and
+[`0012`](../patches/0012-panvk-v9-jm-queue-submit-and-raw-capture.patch). The
+code comment immediately above it repeats the same false reasoning —
+
+```c
+/* EIO here means the page is mapped but not backed: the GPU never
+ * faulted it in, i.e. nothing wrote to the heap. */
+```
+
+— so both the comment and the printed string need correcting together. Both are
+left in place deliberately so the published patches match the binary that
+produced the published logs; changing them now would desynchronise the two.
+
 **Superseded by:** [fau-root-cause.md](fau-root-cause.md).
 
 ---
