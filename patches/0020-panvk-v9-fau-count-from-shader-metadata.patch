@@ -1,0 +1,42 @@
+From: PANVK G57 / Helio G99 JM port
+Subject: [PATCH] panvk/v9: program Shader Environment FAU count from shader metadata
+
+Root cause of the "clear-only" v9 graphics result.
+
+On Valhall v9 the Shader Environment descriptor carries BOTH the FAU
+pointer and an FAU *count*. The port previously programmed only
+`cfg.fau` (the pointer) and left `fau_count` at 0. With a zero count the
+hardware uploads no fast-access uniforms, so the vertex shader receives
+no viewport/position uniforms and the fragment shader receives no blend
+descriptor pointer. The job chain still completes (exception_status 0x01
+DONE on both MALLOC_VERTEX and FRAGMENT) but nothing is rasterized.
+
+Counts MUST come from the compiled shader metadata (`fau.total_count`).
+They are not architectural constants: the captured 64x64 triangle
+workload reports VS count=4 and FS count=3, so hardcoding either value
+would break any other shader.
+
+A/B evidence (identical binary except these two lines):
+  A (fau_count absent) : 0 / 4096 non-black  -> CLEAR-ONLY
+  B (fau_count present): 4096 / 4096 non-black, all 255,0,0,255
+Repeated as ab_A2 (0/4096) and b_final (4096/4096).
+
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -2298,6 +2298,7 @@
+                    : panvk_priv_mem_dev_addr(vs->spds.pos_triangles);
+       cfg.thread_storage = draw->tls;
+       cfg.fau = cmdbuf->state.gfx.vs.push_uniforms;
++      cfg.fau_count = vs->fau.total_count;
+    }
+ }
+ 
+@@ -2529,6 +2530,8 @@
+          panvk_shader_only_variant(get_fs(cmdbuf))->spd);
+       cfg.shader.thread_storage = draw->tls;
+       cfg.shader.fau = cmdbuf->state.gfx.fs.push_uniforms;
++      cfg.shader.fau_count =
++         panvk_shader_only_variant(get_fs(cmdbuf))->fau.total_count;
+    }
+ 
+    return VK_SUCCESS;

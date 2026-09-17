@@ -1,0 +1,230 @@
+diff --git a/src/panfrost/vulkan/meson.build b/src/panfrost/vulkan/meson.build
+index 3658923..a458982 100644
+--- a/src/panfrost/vulkan/meson.build
++++ b/src/panfrost/vulkan/meson.build
+@@ -85,7 +85,7 @@ fifthgen_archs = [12, 13, 14]
+ fifthgen_inc_dir = ['fifthgen']
+ fifthgen_files = []
+ 
+-jm_archs = [6, 7]
++jm_archs = [6, 7, 9]  # PATCH: v9 (Mali-G57, Valhall) pakai submission JM, bukan CSF
+ jm_inc_dir = ['jm']
+ jm_files = [
+   'jm/panvk_vX_cmd_buffer.c',
+@@ -142,7 +142,7 @@ common_per_arch_files = [
+   sha1_h,
+ ]
+ 
+-foreach arch : [6, 7, 10, 12, 13, 14]
++foreach arch : [6, 7, 9, 10, 12, 13, 14]  # PATCH: tambah 9 (Mali-G57)
+   per_arch_files = common_per_arch_files
+   inc_panvk_per_arch = []
+ 
+diff --git a/src/panfrost/vulkan/panvk_cmd_draw.h b/src/panfrost/vulkan/panvk_cmd_draw.h
+index c1fd870..4ff898b 100644
+--- a/src/panfrost/vulkan/panvk_cmd_draw.h
++++ b/src/panfrost/vulkan/panvk_cmd_draw.h
+@@ -94,7 +94,7 @@ struct panvk_rendering_state {
+       /* nr_samples to be used before framebuffer / tiler descriptor are emitted */
+       uint32_t nr_samples;
+ 
+-#if PAN_ARCH < 9
++#if PAN_ARCH < 10  /* PATCH: off-by-one -- v9 (JM) masih butuh field-field ini, batas seharusnya <10 */
+       uint32_t bo_count;
+       struct pan_kmod_bo *bos[(MAX_RTS * PANVK_MAX_PLANES) + 2];
+       bool needs_load;
+@@ -235,7 +235,7 @@ struct panvk_cmd_graphics_state {
+       unsigned count;
+    } vb;
+ 
+-#if PAN_ARCH >= 10
++#if PAN_ARCH >= 9  /* PATCH: off-by-one, sama pola seperti tsd -- harusnya >=9 bukan >=10 */
+    struct {
+       uint32_t base_instance;
+       uint32_t attribs_changing_on_base_instance;
+@@ -261,7 +261,7 @@ struct panvk_cmd_graphics_state {
+    uint64_t vpd;
+ #endif
+ 
+-#if PAN_ARCH >= 10
++#if PAN_ARCH >= 9  /* PATCH: off-by-one -- v9 (Mali-G57) jatuh di celah, harusnya >= 9 bukan >= 10 */
+    uint64_t tsd;
+ #endif
+ 
+diff --git a/src/panfrost/vulkan/panvk_image.c b/src/panfrost/vulkan/panvk_image.c
+index 892f301..7b582f7 100644
+--- a/src/panfrost/vulkan/panvk_image.c
++++ b/src/panfrost/vulkan/panvk_image.c
+@@ -658,6 +658,8 @@ panvk_image_plane_bind_mem(struct panvk_device *dev,
+    plane->plane.base = mem->addr.dev + offset;
+    plane->mem = mem;
+    plane->mem_offset = offset;
++   fprintf(stderr, "[PANVK_DEBUG_BIND] image plane bind (non-sparse) base=0x%lx (mem->addr.dev=0x%lx offset=%lu)\n",
++           (unsigned long)plane->plane.base, (unsigned long)mem->addr.dev, (unsigned long)offset);
+ }
+ 
+ static void
+@@ -666,6 +668,7 @@ panvk_image_plane_bind_addr(struct panvk_device *dev,
+                             uint64_t addr)
+ {
+    plane->plane.base = addr;
++   fprintf(stderr, "[PANVK_DEBUG_BIND] image plane bind addr=0x%lx\n", (unsigned long)addr);
+ }
+ 
+ static void
+diff --git a/src/panfrost/vulkan/panvk_macros.h b/src/panfrost/vulkan/panvk_macros.h
+index 09253ff..1267d06 100644
+--- a/src/panfrost/vulkan/panvk_macros.h
++++ b/src/panfrost/vulkan/panvk_macros.h
+@@ -52,6 +52,9 @@ panvk_catch_indirect_alloc_failure(VkResult error)
+       case 7:                                                                  \
+          panvk_arch_name(name, v7)(__VA_ARGS__);                               \
+          break;                                                                \
++      case 9:                                                                  \
++         panvk_arch_name(name, v9)(__VA_ARGS__);                               \
++         break;                                                                \
+       case 10:                                                                 \
+          panvk_arch_name(name, v10)(__VA_ARGS__);                              \
+          break;                                                                \
+@@ -78,6 +81,9 @@ panvk_catch_indirect_alloc_failure(VkResult error)
+       case 7:                                                                  \
+          ret = panvk_arch_name(name, v7)(__VA_ARGS__);                         \
+          break;                                                                \
++      case 9:                                                                  \
++         ret = panvk_arch_name(name, v9)(__VA_ARGS__);                         \
++         break;                                                                \
+       case 10:                                                                 \
+          ret = panvk_arch_name(name, v10)(__VA_ARGS__);                        \
+          break;                                                                \
+diff --git a/src/panfrost/vulkan/panvk_physical_device.c b/src/panfrost/vulkan/panvk_physical_device.c
+index 8293e04..67b768c 100644
+--- a/src/panfrost/vulkan/panvk_physical_device.c
++++ b/src/panfrost/vulkan/panvk_physical_device.c
+@@ -74,6 +74,7 @@
+ 
+ PER_ARCH_FUNCS(6);
+ PER_ARCH_FUNCS(7);
++PER_ARCH_FUNCS(9);
+ PER_ARCH_FUNCS(10);
+ PER_ARCH_FUNCS(12);
+ PER_ARCH_FUNCS(13);
+@@ -1131,6 +1132,7 @@ panvk_physical_device_init_kbase(struct panvk_physical_device *device,
+    switch (arch) {
+    case 6:
+    case 7:
++   case 9:  /* PATCH: v9/Valhall (Mali-G57 MC2) ditambahkan ke grup ini */
+    case 14:
+       if (!os_get_option("PAN_I_WANT_A_BROKEN_VULKAN_DRIVER")) {
+          result = panvk_errorf(instance, VK_ERROR_INCOMPATIBLE_DRIVER,
+diff --git a/src/panfrost/vulkan/panvk_vX_blend.c b/src/panfrost/vulkan/panvk_vX_blend.c
+index 0dc7296..a38a57c 100644
+--- a/src/panfrost/vulkan/panvk_vX_blend.c
++++ b/src/panfrost/vulkan/panvk_vX_blend.c
+@@ -320,14 +320,23 @@ panvk_per_arch(blend_emit_descs)(struct panvk_cmd_buffer *cmdbuf,
+       rt_loc[i] = loc;
+       loc_rt[loc] = i;
+ 
+-      if (!(cb->color_write_enables & BITFIELD_BIT(i)))
++      fprintf(stderr, "[PANVK_DEBUG_BLEND] rt=%u color_write_enables=0x%x fmt=%u write_mask=0x%x\n",
++              i, cb->color_write_enables, color_attachment_formats[i], cb->attachments[i].write_mask);
++
++      if (!(cb->color_write_enables & BITFIELD_BIT(i))) {
++         fprintf(stderr, "[PANVK_DEBUG_BLEND] rt=%u SKIP: color_write_enables\n", i);
+          continue;
++      }
+ 
+-      if (color_attachment_formats[i] == VK_FORMAT_UNDEFINED)
++      if (color_attachment_formats[i] == VK_FORMAT_UNDEFINED) {
++         fprintf(stderr, "[PANVK_DEBUG_BLEND] rt=%u SKIP: format undefined\n", i);
+          continue;
++      }
+ 
+-      if (!cb->attachments[i].write_mask)
++      if (!cb->attachments[i].write_mask) {
++         fprintf(stderr, "[PANVK_DEBUG_BLEND] rt=%u SKIP: write_mask zero\n", i);
+          continue;
++      }
+ 
+       rt->format = vk_format_to_pipe_format(color_attachment_formats[i]);
+ 
+diff --git a/src/panfrost/vulkan/panvk_vX_cmd_draw.c b/src/panfrost/vulkan/panvk_vX_cmd_draw.c
+index 11f03dd..053fd53 100644
+--- a/src/panfrost/vulkan/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/panvk_vX_cmd_draw.c
+@@ -909,6 +909,20 @@ panvk_per_arch(cmd_prepare_draw_sysvals)(struct panvk_cmd_buffer *cmdbuf,
+                      (0.5f * viewport->width) + viewport->x);
+       set_gfx_sysval(cmdbuf, dirty_sysvals, viewport.offset.y,
+                      (0.5f * viewport->height) + viewport->y);
++
++      /* PATCH DEBUG v9 (sementara, buat diagnosis triangle invisible) --
++       * cetak nilai VkViewport mentah dan hasil scale/offset yang
++       * BENERAN kesimpen di cmdbuf->state.gfx.sysvals, bukan tebak dari
++       * dump hex. HAPUS setelah bug ketemu. */
++      fprintf(stderr,
++              "[PANVK_DEBUG_VP] VkViewport: w=%f h=%f x=%f y=%f\n"
++              "[PANVK_DEBUG_VP] computed scale: x=%f y=%f\n"
++              "[PANVK_DEBUG_VP] computed offset: x=%f y=%f\n",
++              viewport->width, viewport->height, viewport->x, viewport->y,
++              cmdbuf->state.gfx.sysvals.viewport.scale.x,
++              cmdbuf->state.gfx.sysvals.viewport.scale.y,
++              cmdbuf->state.gfx.sysvals.viewport.offset.x,
++              cmdbuf->state.gfx.sysvals.viewport.offset.y);
+       set_gfx_sysval(cmdbuf, dirty_sysvals, viewport.offset.z,
+                      vp->depth_clip_negative_one_to_one ?
+                         0.5f * (z_min + z_max) : z_min);
+diff --git a/src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c b/src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c
+index f21b423..9395d65 100644
+--- a/src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c
++++ b/src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c
+@@ -753,8 +753,10 @@ cmd_emit_dcd(struct panvk_cmd_buffer *cmdbuf,
+       cfg.shader.fau_count = sizeof(struct panvk_fb_sysvals) / FAU_WORD_SIZE;
+       cfg.shader.fau = faus.gpu;
+ #endif
++#if PAN_ARCH >= 10  /* PATCH: struct "DCD Flags 2" tidak ada di hardware v9 */
+       cfg.flags_2.write_mask = rt_written;
+       cfg.flags_2.read_mask = rt_read;
++#endif
+ #if PAN_ARCH >= 11
+       cfg.flags_2.no_shader_depth_read =
+          !(locations_read & BITFIELD_BIT(FRAG_RESULT_DEPTH));
+diff --git a/src/panfrost/vulkan/panvk_vX_device.c b/src/panfrost/vulkan/panvk_vX_device.c
+index f4f5c7f..6835aa6 100644
+--- a/src/panfrost/vulkan/panvk_vX_device.c
++++ b/src/panfrost/vulkan/panvk_vX_device.c
+@@ -595,9 +595,12 @@ panvk_per_arch(create_device)(struct panvk_physical_device *physical_device,
+ #endif
+ 
+ #if PAN_ARCH <= 9
++   /* PATCH DEBUG v9 (SEMENTARA -- revert setelah investigasi tiler_heap
++    * selesai): buang NO_MMAP biar CPU bisa baca isi tiler_heap langsung
++    * buat diff sebelum/sesudah submit. */
+    result = panvk_priv_bo_create(
+       device, 128 * 1024 * 1024,
+-      PAN_KMOD_BO_FLAG_NO_MMAP | PAN_KMOD_BO_FLAG_ALLOC_ON_FAULT,
++      PAN_KMOD_BO_FLAG_ALLOC_ON_FAULT,
+       VK_SYSTEM_ALLOCATION_SCOPE_DEVICE, &device->tiler_heap);
+    if (result != VK_SUCCESS)
+       goto err_free_priv_bos;
+diff --git a/src/panfrost/vulkan/panvk_vX_shader.c b/src/panfrost/vulkan/panvk_vX_shader.c
+index 36a8b06..c4c5dd1 100644
+--- a/src/panfrost/vulkan/panvk_vX_shader.c
++++ b/src/panfrost/vulkan/panvk_vX_shader.c
+@@ -1239,6 +1239,18 @@ panvk_shader_upload(struct panvk_device *dev,
+    if (!panvk_priv_mem_check_alloc(shader->code_mem))
+       return panvk_error(dev, VK_ERROR_OUT_OF_DEVICE_MEMORY);
+ 
++   {
++      const char *stage_name =
++         shader->info.stage == MESA_SHADER_VERTEX ? "VERTEX" :
++         shader->info.stage == MESA_SHADER_FRAGMENT ? "FRAGMENT" : "OTHER";
++      fprintf(stderr, "[PANVK_DEBUG_SHADERBIN] stage=%s bin_size=%u bytes:",
++              stage_name, shader->bin_size);
++      const uint8_t *b = shader->bin_ptr;
++      for (uint32_t i = 0; i < shader->bin_size; i++)
++         fprintf(stderr, "%s%02x", (i % 16 == 0) ? "\n  " : " ", b[i]);
++      fprintf(stderr, "\n");
++   }
++
+ #if PAN_ARCH < 9
+    if (shader->info.stage == MESA_SHADER_FRAGMENT)
+       return VK_SUCCESS;

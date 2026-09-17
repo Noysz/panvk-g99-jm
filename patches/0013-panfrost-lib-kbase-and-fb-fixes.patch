@@ -1,0 +1,76 @@
+diff --git a/src/panfrost/lib/kmod/kbase_kmod.c b/src/panfrost/lib/kmod/kbase_kmod.c
+index 9dfcb25..8bcc390 100644
+--- a/src/panfrost/lib/kmod/kbase_kmod.c
++++ b/src/panfrost/lib/kmod/kbase_kmod.c
+@@ -1177,27 +1177,25 @@ kbase_kmod_dev_create(int fd, uint32_t flags,
+     * KBASE_IOCTL_CS_TILER_HEAP_INIT fails with ENOMEM.  Parameters match
+     * panfork's.  Failure is non-fatal for enumeration but breaks tiler
+     * heaps, so warn. */
++   /* PATCH: EXEC_INIT dipindah SEBELUM JIT_INIT -- di device ini EXEC_INIT
++    * gagal EPERM kalau ada operasi memori (termasuk JIT_INIT) yang jalan
++    * duluan. */
++   struct kbase_ioctl_mem_exec_init exec_init = { .va_pages = 1024 };
++   if (ioctl(fd, KBASE_IOCTL_MEM_EXEC_INIT, &exec_init)) {
++      mesa_logw("kbase: KBASE_IOCTL_MEM_EXEC_INIT failed: %s "
++                "(executable BO allocation will not work)", strerror(errno));
++   }
++
+    struct kbase_ioctl_mem_jit_init jit_init = {
+-      .va_pages = 1ull << 25,
++      .va_pages = 1ull << 20,
+       .max_allocations = 255,
+-      .phys_pages = 1ull << 25,
++      .phys_pages = 1ull << 20,
+    };
+    if (ioctl(fd, KBASE_IOCTL_MEM_JIT_INIT, &jit_init)) {
+       mesa_logw("kbase: KBASE_IOCTL_MEM_JIT_INIT failed: %s "
+                 "(tiler heap creation will not work)", strerror(errno));
+    }
+ 
+-   /* Initialise the EXEC_VA zone so that GPU-executable allocations
+-    * (shader BOs) are possible.  4G of executable VA (0x100000 pages)
+-    * matches what panfork uses.  On CSF uAPI >= 1.9 the zone is set up
+-    * automatically and this is a no-op.  Failure is not fatal for
+-    * enumeration, but executable allocations will fail later, so warn. */
+-   struct kbase_ioctl_mem_exec_init exec_init = { .va_pages = 0x100000 };
+-   if (ioctl(fd, KBASE_IOCTL_MEM_EXEC_INIT, &exec_init)) {
+-      mesa_logw("kbase: KBASE_IOCTL_MEM_EXEC_INIT failed: %s "
+-                "(executable BO allocation will not work)", strerror(errno));
+-   }
+-
+    struct kbase_kmod_dev *kbase_dev =
+       pan_kmod_alloc(allocator, sizeof(*kbase_dev));
+    if (!kbase_dev) {
+@@ -1599,6 +1597,7 @@ kbase_kmod_bo_alloc(struct pan_kmod_dev *dev,
+          },
+       };
+ 
++      mesa_loge("kbase: MEM_ALLOC req: va_pages=%llu commit_pages=%llu extension=%llu flags=0x%llx kmod_flags=0x%x", (unsigned long long)va_pages, (unsigned long long)commit_pages, (unsigned long long)extension, (unsigned long long)alloc_flags, kmod_flags);
+       if (ioctl(dev->fd, KBASE_IOCTL_MEM_ALLOC, &req)) {
+          mesa_loge("kbase: KBASE_IOCTL_MEM_ALLOC failed: %s", strerror(errno));
+          goto err_free_bo;
+diff --git a/src/panfrost/lib/pan_desc.c b/src/panfrost/lib/pan_desc.c
+index 2f04927..f94403c 100644
+--- a/src/panfrost/lib/pan_desc.c
++++ b/src/panfrost/lib/pan_desc.c
+@@ -840,6 +840,8 @@ GENX(pan_emit_linear_color_attachment)(const struct pan_attachment_info *att,
+       cfg.writeback_buffer.base = base;
+       cfg.writeback_buffer.row_stride = row_stride;
+       cfg.writeback_buffer.surface_stride = surf_stride;
++      fprintf(stderr, "[PANVK_DEBUG_RT] linear color attachment base=0x%lx row_stride=%lu surf_stride=%lu\n",
++              (unsigned long)base, (unsigned long)row_stride, (unsigned long)surf_stride);
+    }
+ }
+ 
+diff --git a/src/panfrost/lib/pan_fb.c b/src/panfrost/lib/pan_fb.c
+index cb8e17b..92d6cfc 100644
+--- a/src/panfrost/lib/pan_fb.c
++++ b/src/panfrost/lib/pan_fb.c
+@@ -632,6 +632,7 @@ emit_rts(const struct pan_fb_desc_info *info,
+ 
+    uint32_t tile_rt_offset_B = 0;
+    for (unsigned rt = 0; rt < fb->rt_count; rt++) {
++      fprintf(stderr, "[PANVK_DEBUG_RTFMT] rt=%u fmt=%d rt_count=%u\n", rt, fb->rt_formats[rt], fb->rt_count);
+       emit_rgb_rt_desc(info, ct, rt, tile_rt_offset_B, rts);
+       rts++;
+ 
