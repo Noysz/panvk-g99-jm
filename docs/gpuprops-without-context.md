@@ -6,7 +6,7 @@ That is precisely the state `vkEnumeratePhysicalDevices` runs in, so a
 `kbase_kmod.c` backend for `pan_kmod` can fill `pan_kmod_dev_props` there with
 no context, no allocation, and no job submission.
 
-Test program: [`tests/test_kbase3.c`](../tests/test_kbase3.c).
+Test program: [`tests/test_kbase3.c`](../tests/raw-jm/test_kbase3.c).
 Full run output: [`results/gpuprops-g57-r54p1.txt`](../results/gpuprops-g57-r54p1.txt).
 Device: Mali-G57 MC2, MT6789U, kbase r54p1 / UAPI 11.46. Exit code 0, all checks passed.
 

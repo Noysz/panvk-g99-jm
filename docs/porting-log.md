@@ -16,7 +16,7 @@ file covers the draw path only, which is still **not working**.
 
 ## Current status: draw executes on the GPU and renders nothing
 
-A minimal offscreen triangle test ([`../tests/triangle_draw_test_v2.c`](../tests/triangle_draw_test_v2.c))
+A minimal offscreen triangle test ([`../tests/triangle_draw_test_v2.c`](../tests/graphics/triangle_draw_test_v2.c))
 reaches the GPU end to end:
 
 ```

@@ -10,9 +10,83 @@ Most public PanVK testing/builds so far target **CSF** chips (G610/G615/G710/G72
 
 ---
 
-## Status (2026-09-09): native compute dispatch working and validated on v9. Graphics not yet ported.
+## Status (2026-09-17): compute **and** offscreen graphics execute on v9. No WSI/present.
 
-Where things stood before vs. now:
+**Full labelled status: [`docs/STATUS.md`](docs/STATUS.md).**
+
+| Area | State |
+|---|---|
+| Kernel / kbase surface | ✅ **VERIFIED** |
+| Native v9/JM compute dispatch + readback | ✅ **VERIFIED** |
+| Native v9/JM MALLOC_VERTEX + FRAGMENT execution | ✅ **VERIFIED** |
+| Offscreen partial-triangle rasterization + readback | ✅ **VERIFIED** |
+| FAU count root cause for that workload | ✅ **VERIFIED** |
+| Raw-JM `WRITE_VALUE` atom submission | ✅ **VERIFIED** |
+| Descriptor / resource-table audit | 🚧 **IN PROGRESS** |
+| WSI / present / swapchain | ❌ **NOT IMPLEMENTED** |
+| General application / game support | ❌ **NOT IMPLEMENTED** |
+| Vulkan conformance | ❌ **NOT IMPLEMENTED** |
+
+### The headline result
+
+A draw call submitted through PanVK rasterizes a **partial** triangle into a
+64x64 offscreen `VkImage`, read back correctly on the CPU:
+
+```
+total non-black pixels: 512 / 4096      <- 12.5% coverage, a real shape
+corner (0,0)   = 0,0,0,255              <- still clear
+center (32,32) = 255,0,0,255            <- triangle
+```
+
+Evidence: [`evidence/logs/PANVK_G57_triangle_fresh_20260917-004051.log`](evidence/logs/PANVK_G57_triangle_fresh_20260917-004051.log),
+framebuffer [`evidence/framebuffer/panvk_triangle.ppm`](evidence/framebuffer/panvk_triangle.ppm).
+
+> **This proves offscreen rasterization and readback. It does NOT prove WSI,
+> present, or general application support.** The partial coverage matters: a
+> fullscreen result cannot be distinguished from a mis-scaled clear or a blit.
+> See [`docs/known-limitations.md`](docs/known-limitations.md).
+
+### Root cause of the previous "clear-only" result
+
+The v9 **Shader Environment FAU count** was left at zero. The job chain reported
+`DONE` on both MALLOC_VERTEX and FRAGMENT, but the shaders received no
+fast-access uniforms. A/B with a single-line delta:
+
+| `fau_count` | non-black pixels |
+|---|---|
+| absent | **0 / 4096** |
+| from shader metadata | **4096 / 4096** |
+
+Counts come from `fau.total_count` — this workload reports VS `4` / FS `3`, so
+**never hardcode 4 and 3**. Full analysis incl. descriptor-level stage
+attribution: [`docs/fau-root-cause.md`](docs/fau-root-cause.md).
+
+### Documentation index
+
+| Doc | Contents |
+|---|---|
+| [`docs/STATUS.md`](docs/STATUS.md) | labelled status of everything |
+| [`docs/hardware-runtime.md`](docs/hardware-runtime.md) | GPU ID, gpuprops, kbase, EXEC_VA |
+| [`docs/compute-progress.md`](docs/compute-progress.md) | compute path + enablement fixes |
+| [`docs/graphics-progress.md`](docs/graphics-progress.md) | draw path, job chain, captured descriptors |
+| [`docs/raw-jm-progress.md`](docs/raw-jm-progress.md) | raw ioctl, atom size/stride, event codes |
+| [`docs/fau-root-cause.md`](docs/fau-root-cause.md) | the causal FAU-count defect |
+| [`docs/resource-table-findings.md`](docs/resource-table-findings.md) | `res_count`, `RESOURCE` layout |
+| [`docs/test-matrix.md`](docs/test-matrix.md) | every test and its result |
+| [`docs/known-limitations.md`](docs/known-limitations.md) | **read before quoting anything** |
+| [`docs/reproduction.md`](docs/reproduction.md) | exact build and run commands |
+| [`docs/historical-superseded.md`](docs/historical-superseded.md) | wrong turns, kept with corrections |
+
+Earlier sections §1–§7 below are the original chronological investigation log and
+are kept as written. Where a conclusion in them has since been overturned, the
+correction is in
+[`docs/historical-superseded.md`](docs/historical-superseded.md).
+
+---
+
+## Status as of 2026-09-09 (historical): native compute dispatch working, graphics not yet ported
+
+Where things stood before vs. then:
 
 1. **Kernel side — not a blocker, was already confirmed working.** `/dev/mali0` responds correctly to the full ioctl chain, and the GPU property table is readable with no context at all (§1, §1b).
 2. **Userspace side — was the blocker, now largely resolved for compute.** PanVK had no v9 backend at all as of the first finding in this repo (§4). Since then, a v9 `jm/` command-buffer path has been built out far enough that **a real compute shader now dispatches through PanVK and produces a correct, reproducible GPU result** — see §7. This clears Phase 3's falsifiable target from the Roadmap below. **Graphics (draw calls) is still unimplemented** — see §7 for exactly what's stubbed.
@@ -35,7 +109,7 @@ write 0xAB × 16384 bytes, read back → matches            ✅ (CPU↔GPU coher
 
 ### 1b. `GET_GPUPROPS` works with **no context** — ✅ the enumeration path is viable
 
-Follow-up probe ([`tests/test_kbase3.c`](tests/test_kbase3.c), full output in [`results/gpuprops-g57-r54p1.txt`](results/gpuprops-g57-r54p1.txt), writeup in [`docs/gpuprops-without-context.md`](docs/gpuprops-without-context.md)):
+Follow-up probe ([`tests/test_kbase3.c`](tests/raw-jm/test_kbase3.c), full output in [`results/gpuprops-g57-r54p1.txt`](results/gpuprops-g57-r54p1.txt), writeup in [`docs/gpuprops-without-context.md`](docs/gpuprops-without-context.md)):
 
 ```
 KBASE_IOCTL_GET_GPUPROPS before VERSION_CHECK  → 749 bytes, 83 props   ✅
@@ -144,8 +218,9 @@ Modeled on wonderkast02's PoC-milestone structure — small, independently check
 - [x] **Phase 1 — Understand why v9 has no backend.** Not a missing meson entry; `jm/` is structurally Bifrost-only (genxml descriptors that don't exist at v9, gated helpers). *(§4 — done)*
 - [x] **Phase 2 — `pan_kmod` kbase backend (`kbase_kmod.c`).** `vkEnumeratePhysicalDevices` returns 1 device on this G57 (v9) with correct name/ID/memory heaps. *(done, folded into §7's fixes — the arch-dispatch/EXEC_INIT bugs found there were blocking this too)*
 - [x] **Phase 3 — Minimal v9 command-buffer backend.** **Falsifiable target met:** one compute shader dispatches and produces a verifiable result via readback, reproduced 3x. *(§7 — done)*
-- [ ] **Phase 4 — Graphics pipeline.** Vertex + fragment, offscreen render target, readback — the v9 equivalent of wonderkast02's "triângulo offscreen + readback" milestone. Currently all draw entrypoints are stubbed no-ops for v9 (§7).
-- [ ] **Phase 5 — Texture sampling, depth/stencil, blending, MSAA.** Same shape as wonderkast02 §"PanVK nativo", ported to v9's descriptor layout.
+- [x] **Phase 4 — Graphics pipeline (partial).** **Falsifiable target met:** vertex + fragment on an offscreen render target with CPU readback — a 64x64 partial triangle, 512/4096 non-black, centre red, corner clear. The v9 equivalent of wonderkast02's "triângulo offscreen + readback" milestone. Draw entry points are **no longer stubs**. Root cause of the preceding clear-only result was the missing v9 Shader Environment FAU count. *([`docs/graphics-progress.md`](docs/graphics-progress.md), [`docs/fau-root-cause.md`](docs/fau-root-cause.md) — done for this workload)*
+  - Still open within Phase 4: indexed draws, indirect draws, multiple render targets, multi-descriptor-set resource tables.
+- [ ] **Phase 5 — Texture sampling, depth/stencil, blending, MSAA.** Same shape as wonderkast02 §"PanVK nativo", ported to v9's descriptor layout. Depth/stencil and blend *descriptors* are emitted and captured today, but nothing validates their behaviour — see [`docs/known-limitations.md`](docs/known-limitations.md).
 - [ ] **Phase 6 — WSI / swapchain.** Termux:X11 or native Android surface, vkcube-equivalent, sustained frame test.
 - [ ] **Phase 7 — Wine/Box64/DXVK bring-up (optional, stretch).** Only after Phase 4 is solid — wonderkast02's G720 LAB findings on missing features (`geometryShader`, `textureCompressionBC`, etc.) likely apply here too and are worth re-checking against this hardware's real feature bits rather than assumed.
 
@@ -165,16 +240,41 @@ Also still open, not yet on this list: `vkCmdDispatchIndirect` for v9 (direct di
 ## Repo layout
 
 ```
+docs/STATUS.md                          labelled status of everything  <- start here
+docs/hardware-runtime.md                GPU ID, gpuprops, kbase, EXEC_VA sizing
+docs/compute-progress.md                v9 compute path + enablement fixes
+docs/graphics-progress.md               v9 draw path, job chain, captured descriptors
+docs/raw-jm-progress.md                 raw ioctl, atom size/stride, event codes
+docs/fau-root-cause.md                  the causal FAU-count defect + A/B evidence
+docs/resource-table-findings.md          res_count / RESOURCE layout / table packing
+docs/test-matrix.md                     every test and its hardware result
+docs/known-limitations.md               read before quoting anything from this repo
+docs/reproduction.md                    exact build and run commands
+docs/historical-superseded.md           wrong turns, kept with explicit corrections
 docs/kbase-uapi-r54p1.md                33 dispatched ioctls, method, version negotiation
 docs/gpuprops-without-context.md        GET_GPUPROPS w/o a context + pan_kmod_dev_props mapping
 docs/why-v9-is-a-port.md                why the 2-line meson patch isn't enough
-docs/v9-compute-dispatch-validated.md   full v9 compute-dispatch writeup, bugs found, validation
-tests/test_kbase2.c                     version check, set_flags, mem_alloc, mmap, coherency
-tests/test_kbase3.c                     GET_GPUPROPS probe (incl. negative tests)
+docs/v9-compute-dispatch-validated.md   original v9 compute-dispatch writeup
+docs/porting-log.md                     chronological working log
+
+tests/compute/                          compute harnesses (dispatch, SPD readback, indirect)
+tests/graphics/                         triangle draw + begin/end rendering harnesses
+tests/raw-jm/                           direct /dev/mali0 ioctl harnesses
+tests/shaders/                          GLSL + prebuilt SPIR-V used by the harnesses
+tests/test_kbase2.c, test_kbase3.c      early ioctl / GET_GPUPROPS probes
+
+evidence/logs/                          run logs incl. the full FAU A/B series
+evidence/descriptors/                   pandecode dumps + raw descriptor hex captures
+evidence/framebuffer/                   panvk_triangle.ppm (real output) + PNG upscale
+evidence/schema/                        resource-table / genxml audit output
 results/gpuprops-g57-r54p1.txt          raw output of test_kbase3 on this device
-patches/0001-panvk-add-v9-...           the meson patch (necessary, not sufficient)
-patches/0002-panvk-physical-device-...  v9 per-arch prototype declaration fix
-patches/0003-kbase-exec-va-pages.patch  EXEC_VA zone size fix (16KB -> 4MB)
+
+patches/0001..0003                      enablement: meson arch, v9 prototypes, EXEC_VA
+patches/0004..0005                      HISTORICAL WIP draw path (superseded by 0010/0012)
+patches/0010..0015                      current v9 JM draw/compute/queue/arch/build patches
+patches/0020                            the FAU-count fix in isolation
+
+tools/                                  bring-up scripts; NOT a supported build path
 ```
 
 ## Credits / prior art
