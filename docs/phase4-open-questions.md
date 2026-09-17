@@ -251,20 +251,52 @@ alone, confirmed in the dump as `dep1=0 dep2=0`. The output stays correct:
 | `many90i` | 60 px | 60 px, 10/10 runs |
 
 40 runs, one unique fingerprint per case, zero faults. **The negative control
-failed to fail.** Ordering on this hardware for these workloads is sufficiently
-guaranteed by chain-order serialisation — the helper sits earlier in the job
-chain's `next` list — so the dependency is not the thing making it work.
+failed to fail.**
 
-The dependency is kept regardless, because expressing the constraint is the
-architecturally correct thing to do and matches what Bifrost does. But it is
-retained on principle, not because a test demonstrates it. **If a future change
-reordered the chain, no test here would catch the regression.**
+**The discriminating experiment was then run, and it settles it.**
+`PANVK_INDIRECT_CHAIN_REVERSE=1` queues the draw job *first*, so it sits earlier
+in the `next`-pointer chain, and points its dependency at the helper that has not
+been added yet. Since `pan_jc_add_job` assigns `index = ++jc->job_index`, the
+helper's index is deterministically two past the current value; the code asserts
+that prediction at runtime and logs a miss rather than trusting it.
 
-The experiment that would separate the two hypotheses is to add the draw job to
-the chain *before* the helper while keeping the dependency: if ordering survives,
-the dependency is doing the work; if it breaks, chain order was. That requires
-restructuring the submission path, because the dependency needs an index that
-does not exist until the helper is added, and it was not done.
+This makes the dependency a *forward* reference, which is the whole point: the
+chain order now says draw-then-helper while the dependency says
+helper-then-draw. Whichever the hardware obeys is the mechanism.
+
+Result, three cases, 3x each, identical:
+
+| | value |
+|---|---|
+| pixels | **0** (was 512 or 253) |
+| draw job | `type=0` NOT_STARTED, `index=1`, `dep2=2`, `exception_status=0x10258 FAULT` |
+| helper job | `type=4`, `index=2`, `exception_status=0x00` — **never ran** |
+| fragment job | `type=9`, `exception_status=0x00` — never ran |
+
+The hardware took the first job in the chain, found a reserved job type, and
+faulted. It did not defer that job on account of the dependency, and the helper
+never executed at all. Returning to the shipped path afterwards produces 512, 253,
+765 and 512 as before, so nothing was permanently damaged.
+
+**Conclusion.** Chain order is what enforces the ordering. A forward dependency is
+definitively not honoured. Taken with the `NODEP` result, the backward dependency
+in the shipped path is redundant with chain order on this hardware for these
+workloads.
+
+The dependency is kept anyway: it costs nothing, it expresses the constraint
+correctly, it matches what Bifrost does, and it is consistent with chain order
+rather than fighting it. What has changed is the justification. It is no longer
+described as the thing that makes indirect draw correct.
+
+**What this does not prove.** That a *backward* dependency is inert. `NODEP`
+removed the dependency while leaving chain order intact, so the two were never
+tested in opposition for the backward case. Whether a backward dependency would
+matter under concurrency the shipped workloads never generate is still unknown.
+
+**The practical consequence, and it is a real one.** The correctness of indirect
+draw rests on the helper being queued before the draw. That is exactly what
+`panvk_cmd_draw_v9` does, and it now has a test that fails loudly if it ever
+stops doing it.
 
 ### 5.3a `twodraws` could in principle be one draw — RESOLVED
 

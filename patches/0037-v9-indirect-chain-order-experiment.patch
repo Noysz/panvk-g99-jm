@@ -1,0 +1,69 @@
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -2967,6 +2967,58 @@
+    const bool is_indirect = draw->info.indirect.buffer_dev_addr != 0;
+    unsigned indirect_dep = 0;
+ 
++   /* T4.5.8 experiment. Removing the dependency entirely (PANVK_INDIRECT_NODEP)
++    * changed nothing observable in 40 runs, which means the ordering could have
++    * been coming from chain-order serialisation rather than from the dependency.
++    * Those two hypotheses are separated by reversing the chain while KEEPING the
++    * dependency: queue the draw first, so it sits earlier in the next-pointer
++    * chain, and point its dependency at the helper that has not been added yet.
++    *
++    * pan_jc_add_job assigns index = ++jc->job_index, so with the draw added
++    * first the helper is deterministically two past the current value. This is a
++    * forward dependency, which is the point: if the hardware honours it the
++    * output stays correct and the dependency is doing real work, and if it does
++    * not the draw reads the CPU placeholder and the output collapses to the
++    * degenerate case.
++    */
++   const bool chain_reverse = is_indirect && getenv("PANVK_INDIRECT_CHAIN_REVERSE");
++
++   if (chain_reverse) {
++      const unsigned predicted_helper_index = batch->vtc_jc.job_index + 2;
++
++      pan_jc_add_job(&batch->vtc_jc, MALI_JOB_TYPE_NOT_STARTED, false, false, 0,
++                     predicted_helper_index, &draw->jobs.idvs, false);
++
++      struct panvk_precomp_ctx precomp_ctx = panvk_per_arch(precomp_cs)(cmdbuf);
++      if (draw->info.index.index_size) {
++         panlib_draw_indexed_indirect_helper(
++            &precomp_ctx, panlib_1d(1), PANLIB_BARRIER_JM_SUPPRESS_PREFETCH,
++            draw->info.indirect.buffer_dev_addr, draw->jobs.idvs.gpu,
++            draw->info.index.buffer_dev_addr, draw->info.index.index_size);
++      } else {
++         panlib_draw_indirect_helper(&precomp_ctx, panlib_1d(1),
++                                     PANLIB_BARRIER_JM_SUPPRESS_PREFETCH,
++                                     draw->info.indirect.buffer_dev_addr,
++                                     draw->jobs.idvs.gpu);
++      }
++
++      /* Confirm the prediction rather than trusting it. If the helper did not
++       * land on the predicted index the experiment is measuring the wrong thing
++       * and the log has to say so. */
++      if (batch->vtc_jc.job_index != predicted_helper_index) {
++         fprintf(stderr,
++                 "[PANVK_DEBUG_CHAINREV] prediction MISSED: expected helper "
++                 "index %u, got %u\n",
++                 predicted_helper_index, batch->vtc_jc.job_index);
++      } else {
++         fprintf(stderr,
++                 "[PANVK_DEBUG_CHAINREV] draw queued first, forward dep on "
++                 "helper index %u (confirmed)\n",
++                 predicted_helper_index);
++      }
++      goto indirect_chain_done;
++   }
++
+    if (is_indirect) {
+       struct panvk_precomp_ctx precomp_ctx = panvk_per_arch(precomp_cs)(cmdbuf);
+ 
+@@ -2998,6 +3050,7 @@
+                               : MALI_JOB_TYPE_MALLOC_VERTEX,
+                   false, false, 0, indirect_dep, &draw->jobs.idvs, false);
+ 
++indirect_chain_done:
+ 
+    /* PATCH DEBUG v9 (sementara): sesudah pan_jc_add_job, jadi Job Header
+     * sudah terisi. Lihat komentar di panvk_debug_dump_malloc_vertex_job(). */

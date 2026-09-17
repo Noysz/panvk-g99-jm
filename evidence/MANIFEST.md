@@ -3,7 +3,7 @@
 SHA-256 of every evidence artifact, so a reader can confirm the file they
 are looking at is the one the documentation refers to.
 
-Generated: 2026-09-17T10:00:26Z
+Generated: 2026-09-17T10:08:44Z
 
 ```
 069a8b63bdb78bac3243de1cc09ea1a52b2a73eea64c3cac1b4d9a836aeda807  evidence/builds/ab_A2_build.log
@@ -301,6 +301,21 @@ f946d47bfe44ff8c8e80bb2a9ae0cc589f31dc4fccc6cc2d49e0843466fbcce2  evidence/logs/
 02b3416949a6e8d78b7809eb0f4aae71580eb89b3eea941aef78f855aa29b6f6  evidence/logs/T4.5.7_zero_run1.log
 cb544cba7d756de707cb8b45ee77ef5a5a5acda8b6a91e19741917ebe70bdc54  evidence/logs/T4.5.7_zero_run2.log
 0b6b6f325c3c26748d959140b289bbdb0fb91ee356d4da3da09ea836504537db  evidence/logs/T4.5.7_zero_run3.log
+ff9037f591d74ce34562f987f3df2d32533306546bd798dfc897555d19728b0e  evidence/logs/T4.5.8_chainrev_firstvtx.log
+f55203433f485d3fa4071c0b40b97f316076095d85867f3a4eeafbdd6c95b739  evidence/logs/T4.5.8_chainrev_same.log
+17b78d4700140e1ebd5fd5d13ec0e0bd31ca514f4fd5e1146f2ebd728bb1c449  evidence/logs/T4.5.8_nodep_firstvtx.log
+49fe1fe6d2ab2ed9d0d844b1c513b2bfd9e1e45170926742388cdc299fd50418  evidence/logs/T4.5.8_nodep_same.log
+9a48c7d6e157180b4beca4db6d1813a6cc051e14464eccb0993240a46ffc8970  evidence/logs/T4.5.8_normal_firstvtx.log
+bf66abb618ef69d682ee348331a2185652e746c203b4a7cd2ce2c6ace223334f  evidence/logs/T4.5.8_normal_same.log
+030b6caffe50032f61d67934e7e69d74e61640f87703284d354aeedfb9d61602  evidence/logs/T4.5.9_chainrev_firstvtx_run1.log
+aea59977abf0be42e2eca4fbff0b6a4377eac1e5e7960c68b38daae8a9d1678b  evidence/logs/T4.5.9_chainrev_firstvtx_run2.log
+071803a02125fd025a43bd04fa123f2e915a6a691a913925eaf1678192dcaf1e  evidence/logs/T4.5.9_chainrev_firstvtx_run3.log
+7da9926fbedb49f49704cbf8c31afdf7c4689e8a3d45ece575da24f53f64b2d3  evidence/logs/T4.5.9_chainrev_idx_same_run1.log
+35395d6116b7fe4547aa2841c9fc57282481ab5fac78c8633a52424d2d26d98b  evidence/logs/T4.5.9_chainrev_idx_same_run2.log
+acba6f738cb7ce0a6ab4171c72318124453d0a0148725e03e2dd3e0029863a99  evidence/logs/T4.5.9_chainrev_idx_same_run3.log
+9c2090988101332d87f5f37503c9d2e19a6e742501b563b2fc80bcc81bf1f961  evidence/logs/T4.5.9_chainrev_same_run1.log
+a22b8a8df7457f41fbb9e51fa1c573f67177972cec6cbf75c7965a6eac2d1ab2  evidence/logs/T4.5.9_chainrev_same_run2.log
+84779f90637890537e4f88f7647b94fe2a45e872a036bdf63c0869cf649c77da  evidence/logs/T4.5.9_chainrev_same_run3.log
 f128230ff467162266adec566887383af746ab6a42e53909ccd3d1ea784bfc5f  evidence/logs/ab_A2_run.log
 913cb28643c1c46d1db6f46bd3d89c33f7c883b49e01d529f2280b08ee5ef4a7  evidence/logs/ab_A_run.log
 49ad3a5c3c9cd0eb7833a7af3b06cfdee55e879aa171d9e7de50b3000cc3e342  evidence/logs/ab_A_sha256.txt
