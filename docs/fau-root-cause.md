@@ -93,17 +93,29 @@ Both A/B sides also carry pandecode descriptor dumps for byte-level comparison:
 Two further runs each programmed only one stage's count. The framebuffer results
 disagree, and the pandecode dumps say why.
 
-First, stage attribution of the two FAU blocks. Two independent sources agree:
+First, stage attribution of the two FAU blocks:
 
 | FAU block | stage | count | bytes |
 |---|---|---|---|
 | `...3d0` | vertex | 4 | 32 |
 | `...3f0` | fragment | 3 | 24 |
 
-* driver debug print — `[PANVK_DEBUG_VSFAU] gpu=0x7ca09713d0 count=4 bytes=32`,
-  `[PANVK_DEBUG_FSFAU] gpu=0x7ca09713f0 count=3 bytes=24`
-* pandecode of run B — `FAU @71e7ee73f0` decodes **3** words (u0..u2),
-  `FAU @71e7ee73d0` decodes **4** words (u0..u3)
+Evidence for each side, stated at its real strength:
+
+* **Fragment (`...3f0`) — structurally established.** The `Draw:` descriptor
+  contains `Shader: FAU: 0x...3f0` alongside `Blend`, `Depth/stencil` and the
+  render-target mask, so that Shader Environment is the fragment one by position
+  in the descriptor, independent of any naming. Pandecode independently decodes
+  **3** words at `...3f0`, matching `FAU count: 3`.
+* **Vertex (`...3d0`) — established by naming plus corroboration, not by an
+  independent structural label.** The driver print
+  `[PANVK_DEBUG_VSFAU] gpu=0x7ca09713d0 count=4 bytes=32` names it, pandecode
+  decodes **4** words at that address (consistent with count=4), the contents are
+  viewport/position constants rather than a blend pointer, and it is the only
+  remaining Shader Environment once the fragment one is accounted for. That is
+  strong, but it is corroboration and elimination — treat "the `...3d0` block is
+  the vertex position Shader Environment" as **well-supported rather than
+  independently proven**.
 
 The `Draw:` descriptor's `Shader: FAU: 0x...3f0` therefore identifies
 `Draw.Shader.FAU count` as the **fragment** Shader Environment. The vertex count
