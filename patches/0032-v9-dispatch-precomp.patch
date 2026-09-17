@@ -1,0 +1,128 @@
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_precomp.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_precomp.c
+index db44a82..e0a1870 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_precomp.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_precomp.c
+@@ -13,6 +13,15 @@
+ #include "panvk_mempool.h"
+ #include "panvk_precomp_cache.h"
+ 
++/* Both arches are implemented. The PAN_ARCH < 9 path below is the original
++ * Bifrost one using the separate INVOCATION/PARAMETERS/DRAW sections; the
++ * PAN_ARCH >= 9 path uses v9's single flat "Compute Payload" section. See the
++ * comment above the v9 function for what differs and why.
++ *
++ * This function backs the internal precompiled shaders - indirect dispatch,
++ * blit, query copy - and is NOT on the direct compute dispatch path. */
++#if PAN_ARCH < 9
++
+ void
+ panvk_per_arch(dispatch_precomp)(struct panvk_precomp_ctx *ctx,
+                                  struct panlib_precomp_grid grid,
+@@ -89,3 +98,107 @@ panvk_per_arch(dispatch_precomp)(struct panvk_precomp_ctx *ctx,
+                   suppress_prefetch, grid.jm.local_dep, grid.jm.global_dep,
+                   &job, false);
+ }
++
++#else /* PAN_ARCH >= 9 */
++
++/* v9 port. Structurally the same as the Bifrost path above: allocate a
++ * COMPUTE_JOB, fill it, queue it. The difference is the descriptor. Bifrost
++ * spreads the payload over three sections (INVOCATION at byte 32, PARAMETERS at
++ * 40, DRAW at 64, total 192 bytes); v9 has a single PAYLOAD section at byte 32
++ * and a 128-byte job. INVOCATION and PARAMETERS do not exist at v9 at all.
++ *
++ * Values that are specific to precompiled helper kernels rather than to
++ * application shaders follow the CSF implementation in
++ * csf/panvk_vX_cmd_precomp.c, which solves the same problem for v10+:
++ *
++ *   - no resource table. These kernels receive their arguments through FAU,
++ *     not descriptor sets (csf/panvk_vX_cmd_precomp.c:77-78).
++ *   - the FAU count is derived from the sysvals plus argument size, NOT from
++ *     shader->fau.total_count (csf/panvk_vX_cmd_precomp.c:80-81). Getting this
++ *     wrong is silent: the pointer would be valid, the count zero, and the
++ *     kernel would read all-zero arguments with no fault.
++ *   - the program comes from shader->spd. v9 has no rsd.
++ *
++ * allow_merging_workgroups and attribute_offset are deliberately left at their
++ * genxml defaults, matching the validated direct-dispatch path in
++ * jm/panvk_vX_cmd_dispatch.c rather than inventing values.
++ */
++void
++panvk_per_arch(dispatch_precomp)(struct panvk_precomp_ctx *ctx,
++                                 struct panlib_precomp_grid grid,
++                                 enum panlib_barrier barrier,
++                                 enum libpan_shaders_program idx, void *data,
++                                 size_t data_size)
++{
++   ASSERTED enum panlib_barrier supported_barriers =
++      PANLIB_BARRIER_JM_BARRIER | PANLIB_BARRIER_JM_SUPPRESS_PREFETCH;
++   assert(!(barrier & ~supported_barriers) && "Unsupported barrier flags");
++
++   struct panvk_cmd_buffer *cmdbuf = ctx->cmdbuf;
++
++   /* Make sure we have a batch opened to queue our COMPUTE job to. */
++   if (!cmdbuf->cur_batch)
++      panvk_per_arch(cmd_open_batch)(cmdbuf);
++
++   struct panvk_batch *batch = cmdbuf->cur_batch;
++   struct panvk_device *dev = to_panvk_device(cmdbuf->vk.base.device);
++   const struct panvk_shader_variant *shader =
++      panvk_per_arch(precomp_cache_get)(dev->precomp_cache, idx);
++
++   assert(shader);
++   assert(batch && "Need current batch to be present!");
++
++   struct pan_ptr push_uniforms = panvk_cmd_alloc_dev_mem(
++      cmdbuf, desc, BIFROST_PRECOMPILED_KERNEL_SYSVALS_SIZE + data_size, 16);
++
++   assert(push_uniforms.gpu);
++
++   struct bifrost_precompiled_kernel_sysvals sysvals;
++   sysvals.num_workgroups.x = grid.count[0];
++   sysvals.num_workgroups.y = grid.count[1];
++   sysvals.num_workgroups.z = grid.count[2];
++   sysvals.printf_buffer_address = dev->printf.bo->addr.dev;
++
++   bifrost_precompiled_kernel_prepare_push_uniforms(push_uniforms.cpu, data,
++                                                    data_size, &sysvals);
++
++   struct pan_compute_dim dim = {.x = grid.count[0],
++                                 .y = grid.count[1],
++                                 .z = grid.count[2]};
++   uint64_t tsd =
++      panvk_per_arch(cmd_dispatch_prepare_tls)(cmdbuf, shader, &dim, false);
++   assert(tsd);
++
++   struct pan_ptr job = panvk_cmd_alloc_desc(cmdbuf, COMPUTE_JOB);
++   assert(job.gpu);
++
++   uint32_t fau_count =
++      DIV_ROUND_UP(BIFROST_PRECOMPILED_KERNEL_SYSVALS_SIZE + data_size, 8);
++
++   pan_section_pack(job.cpu, COMPUTE_JOB, PAYLOAD, cfg) {
++      cfg.workgroup_size_x = shader->cs.local_size.x;
++      cfg.workgroup_size_y = shader->cs.local_size.y;
++      cfg.workgroup_size_z = shader->cs.local_size.z;
++      cfg.workgroup_count_x = grid.count[0];
++      cfg.workgroup_count_y = grid.count[1];
++      cfg.workgroup_count_z = grid.count[2];
++
++      cfg.compute.resources = 0;
++      cfg.compute.shader = panvk_priv_mem_dev_addr(shader->spd);
++      cfg.compute.thread_storage = tsd;
++      cfg.compute.fau = push_uniforms.gpu;
++      cfg.compute.fau_count = fau_count;
++   }
++
++   util_dynarray_append(&batch->jobs, job.cpu);
++
++   bool job_barrier = (barrier & PANLIB_BARRIER_JM_BARRIER) != 0;
++   bool suppress_prefetch =
++      (barrier & PANLIB_BARRIER_JM_SUPPRESS_PREFETCH) != 0;
++
++   pan_jc_add_job(&batch->vtc_jc, MALI_JOB_TYPE_COMPUTE, job_barrier,
++                  suppress_prefetch, grid.jm.local_dep, grid.jm.global_dep,
++                  &job, false);
++}
++
++#endif /* PAN_ARCH >= 9 */
