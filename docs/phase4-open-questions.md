@@ -364,12 +364,57 @@ counts real bytes.
 The `nop` control passing in *both* columns is the point of it: nothing is
 dispatched either way, so a failure there would mean the harness was wrong.
 
-**Still open:** the two query paths. `vkCmdResetQueryPool` and
-`vkCmdCopyQueryPoolResults` reach precomp kernels that have never been executed
-on this hardware. Occlusion queries would make a strong test because the answer
-is independently known — the validated triangle covers exactly 512 pixels, a
-number established four separate ways in Phase 4 — so a query reporting 512
-samples would be checkable against something other than itself.
+**The two query paths are now tested as well.** Occlusion queries were the right
+vehicle because the answer is independently known: the validated triangle covers
+exactly 512 pixels and its sibling 253, numbers established four separate ways in
+Phase 4. With no depth or stencil attachment and one sample per pixel, a precise
+occlusion query counts exactly the covered pixels, so the query is checked against
+something outside the query machinery. `VK_QUERY_CONTROL_PRECISE_BIT` is required
+for this; without it the driver selects `MALI_OCCLUSION_MODE_PREDICATE` and any
+non-zero value would be conformant.
+
+Three numbers are collected per case. Framebuffer coverage involves no query at
+all. `vkGetQueryPoolResults` reads report memory directly on the host with no
+kernel (`panvk_vX_query_pool.c:234`). `vkCmdCopyQueryPoolResults` goes through
+`panlib_copy_query_result`. The middle one isolates the copy kernel, since only
+the third runs it.
+
+| case | pixels | host | device copy | verdict |
+|---|---|---|---|---|
+| `tri_a` | 512 | 512 | 512 | PASS |
+| `tri_b` | 253 | 253 | 253 | PASS |
+| `both` | 765 | 512 + 253 | matches host | PASS |
+| `zero` | 0 | 0 | 0 | PASS |
+| `reset_clears` | 512 | n/a | 512 | PASS |
+
+All six cases pass, 3x each, identical fingerprints, zero faults. `both` summing
+to 765 independently reproduces the `twodraws` figure from 4.4.
+
+**The copy destination is poisoned with `0xDEADBEEFDEADBEEF` before submission.**
+Without that, "the kernel wrote zero" and "the kernel did not write" would be
+indistinguishable, which matters because the `zero` case legitimately expects 0.
+Under `PANVK_PRECOMP_STUB=1` the poison survives untouched in every case, while
+the host read still returns the right value — a direct demonstration that the two
+readback paths are independent.
+
+**A trap this test initially fell into.** The first five cases all passed *without*
+`vkCmdResetQueryPool`, so they did not test `panlib_clear_query_result` at all.
+The reason is that `CmdBeginQuery` zeroes the counter itself with `WRITE_VALUE`
+jobs, to satisfy the spec requirement that a query starts at zero. A completely
+broken clear kernel would still have produced correct sample counts. What
+`vkCmdResetQueryPool` actually owns is *availability*.
+
+The `reset_clears` case was added to target it: run a query and copy it, then
+reset, then copy again without `WAIT_BIT`, since waiting on a query just made
+unavailable would never return. Availability goes `1` then `0` with precomp
+active. Under the stub the second copy never writes at all, which the case
+reports as "cannot judge" rather than as a pass.
+
+A second self-inflicted error is recorded in the harness comments: the host read
+happens after the whole command buffer has run, so for `reset_clears` the query
+is legitimately unavailable and zeroed by then. Asserting the host value there was
+testing the test, and the assertion is now skipped for that case while the device
+copy recorded before the reset is still checked.
 
 ### 5.8a Other precomp users beyond the reachable three — OPEN
 
