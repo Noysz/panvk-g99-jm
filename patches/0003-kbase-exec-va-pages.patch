@@ -1,6 +1,28 @@
---- kbase_kmod.c.pre-exec-va-fix	2026-09-09
-+++ kbase_kmod.c	2026-09-09
-@@ -1180,7 +1180,10 @@
+Subject: [PATCH] kbase: raise EXEC_VA zone from 16KB to 4MB
+
+STATUS: HISTORICAL / ILLUSTRATIVE — see note below before trying to apply.
+
+This diff was written by hand against an intermediate working state of
+src/panfrost/lib/kmod/kbase_kmod.c (the file was saved as
+"kbase_kmod.c.pre-exec-va-fix"), not against upstream Mesa. Its context
+therefore does not match a clean checkout of the base commit
+6598829019c0746aa8e473b4ae1c980cbfa6ea4b, and `git apply` will reject it there.
+
+It is kept because it is the clearest single-purpose statement of the EXEC_VA
+finding. **The applicable patch is
+0013-panfrost-lib-kbase-and-fb-fixes.patch**, which contains this same
+`va_pages = 1024` change against upstream, together with the EXEC_INIT/JIT_INIT
+reordering it depends on.
+
+The finding: KBASE_IOCTL_MEM_EXEC_INIT's va_pages is the size of the *entire*
+EXEC_VA zone for all future executable allocations, not a per-call amount.
+0x100000 was rejected EPERM on this device; 4 (16KB) passed EXEC_INIT but was
+exhausted by internal overhead before the first compiled-shader allocation,
+which then failed ENOMEM; 1024 (4MB) works.
+
+--- a/src/panfrost/lib/kmod/kbase_kmod.c
++++ b/src/panfrost/lib/kmod/kbase_kmod.c
+@@ -1180,7 +1180,13 @@
     /* PATCH: EXEC_INIT dipindah SEBELUM JIT_INIT -- di device ini EXEC_INIT
      * gagal EPERM kalau ada operasi memori (termasuk JIT_INIT) yang jalan
      * duluan. */

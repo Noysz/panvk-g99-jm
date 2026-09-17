@@ -24,21 +24,37 @@ Upstream base commit for the patches: `6598829019c0746aa8e473b4ae1c980cbfa6ea4b`
 
 ## 1. Apply the patches
 
+Six patches reproduce the current driver. **Do not use a `patches/00*.patch`
+glob** — it sweeps in historical patches that either do not apply or conflict.
+
 ```sh
 cd ~/panvk-g57/mesa
 git checkout 6598829019c0746aa8e473b4ae1c980cbfa6ea4b
-for p in /path/to/panvk-g99-jm/patches/00*.patch; do
-  git apply "$p" || echo "FAILED: $p"
-done
+
+P=/path/to/panvk-g99-jm/patches
+git apply $P/0015-termux-android-build-fixes.patch
+git apply $P/0014-panvk-v9-arch-enablement-common.patch
+git apply $P/0013-panfrost-lib-kbase-and-fb-fixes.patch
+git apply $P/0011-panvk-v9-jm-compute-dispatch.patch
+git apply $P/0012-panvk-v9-jm-queue-submit-and-raw-capture.patch
+git apply $P/0010-panvk-v9-jm-graphics-draw-path.patch
 ```
 
-Suggested order — `0001`, `0002`, `0003` (enablement), then `0013`, `0014`,
-`0015` (arch + build), then `0010`, `0011`, `0012` (the v9 JM paths). `0020` is
-the FAU-count fix in isolation and is already contained in `0010`; apply it only
-if you want to reproduce the A/B experiment.
+This sequence was replayed against pristine base-commit copies of all 23 target
+files: all six applied without conflict, and the result then matched the live
+driver work tree exactly — `identical: 23, differing: 0`.
 
-`0004` and `0005` are the earlier WIP snapshots of the draw path and are
-superseded by `0010`/`0012`. Do not apply them together.
+Excluded on purpose:
+
+* `0001`, `0002`, `0003` — HISTORICAL, they **do not apply** to this base commit
+  (bare filename paths, or context from a different Mesa revision). Their content
+  is carried by `0014` and `0013`.
+* `0004`, `0005` — earlier drafts of the same files as `0010`/`0012`; applying
+  both conflicts.
+* `0020` — the FAU-count fix in isolation, already inside `0010`. Only needed for
+  the A/B experiment, and the preserved source variants are easier — see step 5.
+
+Full per-patch apply matrix: [`../patches/README.md`](../patches/README.md).
 
 ## 2. Build the driver
 

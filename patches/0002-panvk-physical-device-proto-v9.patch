@@ -1,3 +1,21 @@
+Subject: [PATCH] panvk: declare v9 per-arch prototypes in panvk_physical_device.c
+
+STATUS: HISTORICAL / ILLUSTRATIVE - does not apply to the base commit.
+
+The ---/+++ paths are bare filenames ("panvk_physical_device.c") rather than
+"a/"-prefixed repo-relative paths, so `git apply` from the repo root cannot
+locate the target. The real file is
+src/panfrost/vulkan/panvk_physical_device.c, and at base commit
+6598829019c0746aa8e473b4ae1c980cbfa6ea4b the PER_ARCH_FUNCS block starts at
+line 75, not 73.
+
+Kept because it isolates one specific bug: PER_ARCH_FUNCS is a macro generator
+invoked manually per arch, and 9 was simply missing from the list, so
+libpanvk_v9.a compiled while panvk_physical_device.c failed with
+implicit-function-declaration. **The applicable patch is
+0014-panvk-v9-arch-enablement-common.patch**, which adds PER_ARCH_FUNCS(9)
+against the correct base.
+
 --- panvk_physical_device.c.pre-v9-proto	2026-09-09
 +++ panvk_physical_device.c	2026-09-09
 @@ -73,6 +73,7 @@

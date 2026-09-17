@@ -1,3 +1,23 @@
+Subject: [PATCH] panvk: add v9 to the build matrix
+
+STATUS: HISTORICAL / ILLUSTRATIVE - does not apply to the base commit.
+
+Two reasons it will not apply with `git apply` from the repo root:
+
+  1. The ---/+++ paths are bare filenames ("meson.build"), not "a/"-prefixed
+     repo-relative paths. The real file is src/panfrost/vulkan/meson.build.
+  2. It was authored against a different Mesa revision. Its context expects
+     `foreach arch : [6, 7, 10, 11, 12, 13, 14]`, but base commit
+     6598829019c0746aa8e473b4ae1c980cbfa6ea4b has
+     `foreach arch : [6, 7, 10, 12, 13, 14]` - no arch 11.
+
+Kept because it is the clearest minimal statement of "v9 was excluded from the
+build matrix on purpose". **The applicable patch is
+0014-panvk-v9-arch-enablement-common.patch**, which makes the same two changes
+(jm_archs and the foreach list) against the correct base.
+
+This patch is necessary but nowhere near sufficient - see docs/why-v9-is-a-port.md.
+
 --- meson.build.pre-v9	2026-09-05 10:59:49.024750504 +0000
 +++ meson.build	2026-09-05 11:01:57.304750512 +0000
 @@ -86,7 +86,7 @@
