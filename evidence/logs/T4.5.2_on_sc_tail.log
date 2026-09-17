@@ -1,0 +1,41 @@
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: error: kbase: MEM_ALLOC req: va_pages=32768 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x2
+MESA: error: kbase: MEM_ALLOC req: va_pages=35157 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x6
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x280f kmod_flags=0x0
+MESA: error: kbase: MEM_ALLOC req: va_pages=2 commit_pages=2 extension=0 flags=0x280f kmod_flags=0x0
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x1817 kmod_flags=0x41
+[PANVK_DEBUG_SHADERBIN] stage=OTHER bin_size=128 bytes:
+  3c cf c0 19 00 c0 b4 00 7c c8 c0 19 01 c1 b4 00
+  41 00 00 00 00 c2 91 00 40 00 00 00 00 c3 91 00
+  86 00 00 00 00 c0 91 00 87 00 00 00 00 c1 91 00
+  40 42 07 00 00 c0 ab 01 88 00 00 00 00 c2 91 00
+  40 00 00 18 02 42 61 78 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+[PANVK_DEBUG_SHADERBIN] stage=OTHER bin_size=128 bytes:
+  3c cf c0 19 00 c0 b4 00 7c c8 c0 19 01 c1 b4 00
+  41 00 00 00 00 c2 91 00 40 00 00 00 00 c3 91 00
+  86 00 00 00 00 c0 91 00 87 00 00 00 00 c1 91 00
+  40 42 07 00 00 c0 ab 01 88 00 00 00 00 c2 91 00
+  40 00 00 18 02 42 61 78 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_SUBMIT] vtc_jc ret=0
+[PANVK_DEBUG_JOBSTATUS] vtc_jc job[0] type=4 index=1 dep1=0 dep2=0 next=0x7d062cb180 exception_status=0x01 (DONE) first_incomplete_task=0 fault_pointer=0x0
+[PANVK_DEBUG_JOBSTATUS] vtc_jc job[1] type=4 index=2 dep1=0 dep2=0 next=0x0 exception_status=0x01 (DONE) first_incomplete_task=0 fault_pointer=0x0
+[PANVK_DEBUG_HEAP] SESUDAH vtc_jc (vertex+tiler) bo->flags=0x2 dev=0x7a63c00000 size=134217728 host=0x7a63c00000 mincore=absent -- UNREADABLE (I/O error) => halaman belum ter-commit, tiler tidak menulis apa pun
+case      : sc_tail
+path      : panlib_fill + panlib_fill_scalar
+request   : offset=4 size=136 data=0x5a5a1234
+effective : 136 bytes (size rounded down to a multiple of 4)
+filled    : 136 / 136 expected
+preserved : 4 before + 8052 after = 8056 of 8056 outside bytes
+bad_fill  : 0
+overrun   : 0 before, 0 after
+FILLFP sc_tail eff=136 filled=136 bad=0 ovr=0 verdict=PASS

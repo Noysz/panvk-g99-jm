@@ -3,7 +3,7 @@
 SHA-256 of every evidence artifact, so a reader can confirm the file they
 are looking at is the one the documentation refers to.
 
-Generated: 2026-09-17T09:23:19Z
+Generated: 2026-09-17T09:48:14Z
 
 ```
 069a8b63bdb78bac3243de1cc09ea1a52b2a73eea64c3cac1b4d9a836aeda807  evidence/builds/ab_A2_build.log
@@ -250,6 +250,22 @@ d802aa3b6fec5539c752a6a243db67ce396c548da0c12b27fc711a14a9ef927f  evidence/logs/
 f99b86e74b2526b896b9e59238f02e4c5284d66c53e947a74a656f297965a1d8  evidence/logs/T4.4.9_nodep_same_run1.log
 dfaa460c11e13cd51d31a6a79cc35a4ee4abab0f0b6d81c5eb10e5f8a05818d2  evidence/logs/T4.4.9_nodep_same_run2.log
 34eceb206a2bac69ab4dff57851b718f8d1e5b00571271131cf268d12efc6b2b  evidence/logs/T4.4.9_nodep_same_run3.log
+95540a3c77b89502e31b9587e27c5e1d43cdc8ebd4c611c37144a3acf922a57b  evidence/logs/T4.5.1_middle.log
+98ceab37fec2a0af935fce3dc6f959db22339c31931ab41e10d0dee7331f686c  evidence/logs/T4.5.1_nop.log
+4595734da29eb2753216d0e9910e894101aa0dceeae0f7cde6c7e378075afd81  evidence/logs/T4.5.1_sc_bulk.log
+1565e13a37b9d529f2b09516054b422fa68a95d9524fe3d072cf278afd2dd774  evidence/logs/T4.5.1_sc_small.log
+f59e3b9a3207dee074310e9f7122945a073f5b0e61873eeb6c1985a80897244b  evidence/logs/T4.5.1_sc_tail.log
+35457c9d3b65b3446531cc29fd4ef666458bdcbde1c190bddb2dd001deeb9f81  evidence/logs/T4.5.1_u4_bulk.log
+36b9b54c04c4b8d31255abe2545e8924bfd8529f460b4d9cb4c98e140db21ad8  evidence/logs/T4.5.1_u4_small.log
+071157627f7f3c27bae2d81785e867c652cf1053f65b2ac302f696e0589c4e4e  evidence/logs/T4.5.1_u4_tail.log
+ca7e3dfd912a1ebcbc57eb419a5f1701ed25adc3831e959efd3f7f1740809f76  evidence/logs/T4.5.2_on_middle.log
+98ceab37fec2a0af935fce3dc6f959db22339c31931ab41e10d0dee7331f686c  evidence/logs/T4.5.2_on_nop.log
+40752b4c1761fcbba2982b4f7e954ae9f3488400ccb3a6d6b1972fae723b84a5  evidence/logs/T4.5.2_on_sc_tail.log
+b444f0ffa4e40b71319e650e5d707315859ce2ea8656bc1714feafb2993d5fc4  evidence/logs/T4.5.2_on_u4_bulk.log
+6e64dfda998b51494cb646101c969b7995d8412a023dbc531ccef55e6a36c653  evidence/logs/T4.5.2_stub_middle.log
+98ceab37fec2a0af935fce3dc6f959db22339c31931ab41e10d0dee7331f686c  evidence/logs/T4.5.2_stub_nop.log
+9b05cfcd13cc5fcbd171b3d3f8e9342196e343a4775919878cf4842980fbfc9e  evidence/logs/T4.5.2_stub_sc_tail.log
+4fe263b21d99c745bce6c59f0e92b9bfad0312f35e0d3e448bfec9f88b829694  evidence/logs/T4.5.2_stub_u4_bulk.log
 f128230ff467162266adec566887383af746ab6a42e53909ccd3d1ea784bfc5f  evidence/logs/ab_A2_run.log
 913cb28643c1c46d1db6f46bd3d89c33f7c883b49e01d529f2280b08ee5ef4a7  evidence/logs/ab_A_run.log
 49ad3a5c3c9cd0eb7833a7af3b06cfdee55e879aa171d9e7de50b3000cc3e342  evidence/logs/ab_A_sha256.txt

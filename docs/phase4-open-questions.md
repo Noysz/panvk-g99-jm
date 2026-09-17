@@ -306,20 +306,75 @@ previously read as zero and now reads correctly. The field is 8 bits wide
 (`v9_pack.h`, bits 0..7), so a shader needing more than 255 FAU words would
 silently truncate. No check was added and no such shader was tried.
 
-### 5.8 `dispatch_precomp` values were copied from the CSF path — OPEN
+### 5.8 `dispatch_precomp` values were copied from the CSF path — PARTLY RESOLVED
 
 Three values in the new v9 `dispatch_precomp` were taken from the CSF
 implementation rather than derived independently: resource table 0, FAU count
 from `DIV_ROUND_UP(sysvals + data_size, 8)`, and program from `shader->spd`.
 
-They work for the two helpers now exercised (indirect dispatch, indirect draw).
-Whether they are right for the other precomp users — query copy, query clear,
-blit, tessellation — is untested. Those paths now reach real code instead of an
-empty stub, so a wrong value there has gone from "does nothing" to "does
-something unverified".
+**First, a correction to how this was described.** Earlier notes said v9's
+`dispatch_precomp` "was an empty stub", which implied the stub came from
+upstream. It did not. Upstream Mesa does not build a v9 Job Manager target at
+all: `src/panfrost/vulkan/meson.build` has `jm_archs = [6, 7]` and the arch loop
+is `[6, 7, 10, 12, 13, 14]`. This project added arch 9 to both, and having done
+so, its own patch `0011` stubbed `dispatch_precomp` to an empty body for
+`PAN_ARCH >= 9` so the shared object would link. Its comment said as much. The
+stub was this project's scaffolding, not an upstream property.
 
-**This is the most consequential open item in 4.4**, because it changed behaviour
-for code paths nothing in this phase tests.
+**Why this matters more than a wording fix.** Because the stub was empty, every
+precompiled-kernel path on v9 silently did nothing. Porting the function made
+those paths reach real code, so a wrong value would have moved from "does
+nothing" to "does something unverified". Three call sites are reachable from
+ordinary API calls:
+
+| kernel | reached from | before patch 0032 | after |
+|---|---|---|---|
+| `panlib_fill*` | `vkCmdFillBuffer` | silently did nothing | **VERIFIED-HW** |
+| `panlib_clear_query_result` | `vkCmdResetQueryPool` | silently did nothing | still untested |
+| `panlib_copy_query_result` | `vkCmdCopyQueryPoolResults` | silently did nothing | still untested |
+
+**`vkCmdFillBuffer` is now tested.** `cmd_meta.c` picks one of four paths by
+alignment and size, and all four are covered deliberately rather than
+incidentally: `panlib_fill_uint4` and `panlib_fill_uint4_scalar` when address and
+range are both 16-byte aligned, `panlib_fill` and `panlib_fill_scalar` otherwise.
+Workgroups cover 32 elements, so cases are sized against a 512-byte or 128-byte
+workgroup as appropriate.
+
+The buffer is preloaded with a pattern that is a function of the byte offset, so
+an untouched byte holds a known value rather than merely "not the fill value".
+Each case verifies the region before the fill, the fill range, and the region
+after, so **overrun is caught in both directions**, not only underrun.
+
+A/B against a single build via `PANVK_PRECOMP_STUB=1`, which reproduces the
+patch-0011 stub exactly:
+
+| case | precomp active | stub |
+|---|---|---|
+| `u4_bulk` | 1024/1024, PASS | 4/1024, 1020 wrong, FAIL |
+| `sc_tail` | 136/136, PASS | 1/136, 135 wrong, FAIL |
+| `middle` | 512/512, PASS | 0/512, 512 wrong, FAIL |
+| `nop` control | PASS | PASS |
+
+All eight cases pass with precomp active, zero faults. The small non-zero counts
+in the stub column are coincidental matches, since roughly 1 byte in 256 of a
+pseudorandom pattern equals the expected fill byte, and 1024/256 = 4 exactly.
+That the coincidence rate matches prediction is itself a check that the harness
+counts real bytes.
+
+The `nop` control passing in *both* columns is the point of it: nothing is
+dispatched either way, so a failure there would mean the harness was wrong.
+
+**Still open:** the two query paths. `vkCmdResetQueryPool` and
+`vkCmdCopyQueryPoolResults` reach precomp kernels that have never been executed
+on this hardware. Occlusion queries would make a strong test because the answer
+is independently known — the validated triangle covers exactly 512 pixels, a
+number established four separate ways in Phase 4 — so a query reporting 512
+samples would be checkable against something other than itself.
+
+### 5.8a Other precomp users beyond the reachable three — OPEN
+
+`libpan_shaders_v9.h` also registers `PANLIB_PREFIX_SUM_TESS = 15`. Tessellation
+is not exposed by this driver, so that kernel is unreachable today and untested.
 
 ---
 

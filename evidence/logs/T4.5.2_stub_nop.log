@@ -1,0 +1,16 @@
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: error: kbase: MEM_ALLOC req: va_pages=32768 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x2
+MESA: error: kbase: MEM_ALLOC req: va_pages=35157 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x6
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x280f kmod_flags=0x0
+MESA: error: kbase: MEM_ALLOC req: va_pages=2 commit_pages=2 extension=0 flags=0x280f kmod_flags=0x0
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+case      : nop
+path      : no dispatch at all, buffer must be untouched
+request   : offset=0 size=0 data=0xffffffff
+effective : 0 bytes (size rounded down to a multiple of 4)
+filled    : 0 / 0 expected
+preserved : 0 before + 8192 after = 8192 of 8192 outside bytes
+bad_fill  : 0
+overrun   : 0 before, 0 after
+FILLFP nop eff=0 filled=0 bad=0 ovr=0 verdict=PASS

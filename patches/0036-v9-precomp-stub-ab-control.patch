@@ -1,0 +1,17 @@
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_precomp.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_precomp.c
+@@ -130,6 +130,14 @@
+                                  enum libpan_shaders_program idx, void *data,
+                                  size_t data_size)
+ {
++   /* T4.5.2 A/B control. Patch 0011 of this project stubbed this function to an
++    * empty body for PAN_ARCH >= 9 so the shared object would link, with the note
++    * that it was only needed for precompiled internal kernels. Returning here
++    * reproduces that stub exactly, which lets the before and after states be
++    * compared against one build instead of two. */
++   if (getenv("PANVK_PRECOMP_STUB"))
++      return;
++
+    ASSERTED enum panlib_barrier supported_barriers =
+       PANLIB_BARRIER_JM_BARRIER | PANLIB_BARRIER_JM_SUPPRESS_PREFETCH;
+    assert(!(barrier & ~supported_barriers) && "Unsupported barrier flags");
