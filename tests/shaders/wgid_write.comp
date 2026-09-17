@@ -1,0 +1,18 @@
+#version 450
+/* Each workgroup stamps its own slot, so the SSBO afterwards is a record of
+ * exactly which workgroups ran. That makes two things checkable that a single
+ * scalar output could not distinguish:
+ *   - how many workgroups ran
+ *   - that slots beyond the requested count were never touched, which is what
+ *     proves the count came from the indirect buffer at dispatch time rather
+ *     than from something baked in at record time
+ * The stamp embeds the id so a shifted or duplicated write is visible too. */
+layout(local_size_x = 1, local_size_y = 1, local_size_z = 1) in;
+
+layout(set = 0, binding = 0, std430) buffer Buf {
+    uint data[];
+};
+
+void main() {
+    data[gl_WorkGroupID.x] = 0xA5A50000u | gl_WorkGroupID.x;
+}
