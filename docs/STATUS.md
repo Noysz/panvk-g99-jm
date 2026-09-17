@@ -83,9 +83,17 @@ See [graphics-progress.md](graphics-progress.md) and
 
 ## Resource table — IN PROGRESS
 
-`res_count = 4`, `RESOURCE` = 16 B, so the table is **64 B per stage** for the
-current single-descriptor-set workload. `res_count` is derived, not fixed.
-Details and the derivation: [resource-table-findings.md](resource-table-findings.md).
+`res_count = 4`, `RESOURCE` = 16 B, so the table is **64 B per stage**, and the
+driver prepares **two** tables per draw (one per shader stage). All four figures
+are runtime-confirmed on this device across 3 identical runs.
+
+The workload binds **zero application descriptor sets** — `used_set_mask = 0x0`,
+so entry 0 is the driver set and entries 1–3 are padding. `res_count` is derived,
+not fixed. An earlier statement here described this as a *single*-descriptor-set
+workload; that was wrong and is corrected in the findings page.
+
+Details, derivation, and the correction:
+[resource-table-findings.md](resource-table-findings.md).
 
 ## Raw JM — VERIFIED
 

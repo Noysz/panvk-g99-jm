@@ -16,7 +16,10 @@ Read this before quoting anything from this repo.
   in `evidence/framebuffer/` is an upscale of a CPU-read buffer, not a
   screenshot.
 * **General application support.** One hand-written test with one triangle, one
-  linear render target, one descriptor set, no textures, no depth testing.
+  linear render target, **zero application descriptor sets**, no textures, no
+  depth testing. Runtime measurement shows `used_set_mask = 0x0`, so the
+  descriptor-set binding path is not exercised at all by this test — see
+  [resource-table-findings.md](resource-table-findings.md).
 * **Vulkan conformance.** No CTS run of any kind.
 * **Game or emulator compatibility.** Not attempted.
 * **Performance.** Never measured.
@@ -27,6 +30,7 @@ Read this before quoting anything from this repo.
 | Area | Note |
 |---|---|
 | WSI / swapchain / present | no code path |
+| Application descriptor sets | **unexercised** — `used_set_mask = 0x0` at runtime; only the driver set (entry 0) is ever populated |
 | `vkCmdDispatchIndirect` (v9) | direct dispatch only |
 | Indexed draws | `is_indirect_draw()` exists; not validated |
 | Indirect draws | not validated |
