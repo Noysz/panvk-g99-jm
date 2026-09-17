@@ -66,6 +66,7 @@ attribution: [`docs/fau-root-cause.md`](docs/fau-root-cause.md).
 | Doc | Contents |
 |---|---|
 | [`docs/STATUS.md`](docs/STATUS.md) | labelled status of everything |
+| [`docs/INVENTORY.md`](docs/INVENTORY.md) | what was examined, published, and deliberately excluded |
 | [`docs/hardware-runtime.md`](docs/hardware-runtime.md) | GPU ID, gpuprops, kbase, EXEC_VA |
 | [`docs/compute-progress.md`](docs/compute-progress.md) | compute path + enablement fixes |
 | [`docs/graphics-progress.md`](docs/graphics-progress.md) | draw path, job chain, captured descriptors |
@@ -241,6 +242,7 @@ Also still open, not yet on this list: `vkCmdDispatchIndirect` for v9 (direct di
 
 ```
 docs/STATUS.md                          labelled status of everything  <- start here
+docs/INVENTORY.md                       what was examined / published / excluded
 docs/hardware-runtime.md                GPU ID, gpuprops, kbase, EXEC_VA sizing
 docs/compute-progress.md                v9 compute path + enablement fixes
 docs/graphics-progress.md               v9 draw path, job chain, captured descriptors
@@ -267,12 +269,16 @@ evidence/logs/                          run logs incl. the full FAU A/B series
 evidence/descriptors/                   pandecode dumps + raw descriptor hex captures
 evidence/framebuffer/                   panvk_triangle.ppm (real output) + PNG upscale
 evidence/schema/                        resource-table / genxml audit output
+evidence/builds/                        build provenance for each FAU A/B side
+evidence/historical/                    pre-port build failures, early draw attempts
+evidence/MANIFEST.md                    SHA-256 of every evidence artifact
 results/gpuprops-g57-r54p1.txt          raw output of test_kbase3 on this device
 
 patches/0001..0003                      enablement: meson arch, v9 prototypes, EXEC_VA
 patches/0004..0005                      HISTORICAL WIP draw path (superseded by 0010/0012)
 patches/0010..0015                      current v9 JM draw/compute/queue/arch/build patches
 patches/0020                            the FAU-count fix in isolation
+patches/9001                            third-party Termux/Android detection fixes
 
 tools/                                  bring-up scripts; NOT a supported build path
 ```
