@@ -1,0 +1,381 @@
+ninja: Entering directory `build'
+[1/399] Generating src/git_sha1.h with a custom command
+[2/399] Generating src/util/driconf_static.h with a custom command
+[3/399] Generating src/vulkan/runtime/vk_physical_device_spirv_caps with a custom command
+[4/399] Generating src/vulkan/runtime/vk_dispatch_trampolines with a custom command
+[5/399] Generating src/vulkan/runtime/vk_synchronization_helpers with a custom command
+[6/399] Compiling C object src/x11/libloader_x11.a.p/x11_display.c.o
+[7/399] Compiling C object src/util/libxmlconfig.a.p/xmlconfig.c.o
+[8/399] Compiling C object src/x11/libloader_x11.a.p/x11_dri3.c.o
+[9/399] Generating src/panfrost/libpan/libpan_v13.spv with a custom command
+[10/399] Generating src/panfrost/libpan/libpan_v13.cpp with a custom command
+[11/399] Compiling C object src/loader/libloader.a.p/loader_dri_helper.c.o
+[12/399] Generating src/panfrost/libpan/libpan_v12.spv with a custom command
+[13/399] Generating src/panfrost/libpan/libpan_v12.cpp with a custom command
+[14/399] Compiling C object src/loader/libloader.a.p/loader.c.o
+[15/399] Generating src/panfrost/libpan/libpan_v11.spv with a custom command
+[16/399] Generating src/panfrost/libpan/libpan_v11.cpp with a custom command
+[17/399] Generating src/panfrost/libpan/libpan_v10.spv with a custom command
+[18/399] Generating src/panfrost/libpan/libpan_v10.cpp with a custom command
+[19/399] Generating src/panfrost/libpan/libpan_shaders_v13.h with a custom command
+[20/399] Generating src/panfrost/libpan/libpan_v14.spv with a custom command
+[21/399] Generating src/panfrost/libpan/libpan_shaders_v12.h with a custom command
+[22/399] Generating src/panfrost/libpan/libpan_v14.cpp with a custom command
+[23/399] Generating src/panfrost/libpan/libpan_v6.spv with a custom command
+[24/399] Generating src/panfrost/libpan/libpan_v6.cpp with a custom command
+[25/399] Compiling C object src/vulkan/util/libvulkan_util.a.p/meson-generated_.._vk_extensions.c.o
+[26/399] Generating src/panfrost/libpan/libpan_shaders_v10.h with a custom command
+[27/399] Compiling C object src/vulkan/util/libvulkan_util.a.p/vk_alloc.c.o
+[28/399] Generating src/panfrost/libpan/libpan_shaders_v11.h with a custom command
+[29/399] Generating src/panfrost/libpan/libpan_shaders_v14.h with a custom command
+[30/399] Generating src/panfrost/libpan/libpan_v7.spv with a custom command
+[31/399] Generating src/panfrost/libpan/libpan_v7.cpp with a custom command
+[32/399] Compiling C object src/vulkan/util/libvulkan_util.a.p/vk_util.c.o
+[33/399] Compiling C object src/vulkan/wsi/libvulkan_wsi.a.p/meson-generated_.._wsi_common_entrypoints.c.o
+[34/399] Compiling C object src/vulkan/util/libvulkan_util.a.p/vk_format.c.o
+[35/399] Compiling C object src/panfrost/shared/libpanfrost_shared.a.p/pan_minmax_cache.c.o
+[36/399] Compiling C object src/vulkan/wsi/libvulkan_wsi.a.p/wsi_common_drm.c.o
+[37/399] Compiling C object src/vulkan/wsi/libvulkan_wsi.a.p/wsi_common_headless.c.o
+[38/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/meson-generated_.._.._libpan_libpan_shaders_v9.c.o
+[39/399] Compiling C object src/panfrost/shared/libpanfrost_shared.a.p/pan_tiling.c.o
+[40/399] Compiling C object src/vulkan/util/libvulkan_util.a.p/meson-generated_.._vk_enum_to_str.c.o
+[41/399] Compiling C object src/vulkan/wsi/libvulkan_wsi.a.p/wsi_common.c.o
+[42/399] Compiling C object src/vulkan/util/libvulkan_util.a.p/meson-generated_.._vk_dispatch_table.c.o
+[43/399] Compiling C object src/vulkan/wsi/libvulkan_wsi.a.p/wsi_common_x11.c.o
+[44/399] Generating src/panfrost/libpan/libpan_shaders_v6.h with a custom command
+[45/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/meson-generated_.._.._libpan_libpan_shaders_v6.c.o
+[46/399] Compiling C++ object src/panfrost/vulkan/libpanvk_v9.a.p/meson-generated_.._.._libpan_libpan_v9.cpp.o
+[47/399] Generating src/panfrost/libpan/libpan_shaders_v7.h with a custom command
+[48/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_cmd_dispatch.c.o
+[49/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_cmd_desc_state.c.o
+[50/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_buffer_view.c.o
+[51/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_cmd_frame_shaders.c.o
+[52/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_blend.c.o
+[53/399] Compiling C++ object src/panfrost/vulkan/libpanvk_v6.a.p/meson-generated_.._.._libpan_libpan_v6.cpp.o
+[54/399] Generating src/vulkan/runtime/vk_format_info with a custom command
+[55/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_buffer_view.c.o
+[56/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_cmd_draw.c.o
+[57/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_cmd_dispatch.c.o
+[58/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_blend.c.o
+[59/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/meson-generated_.._vk_common_entrypoints.c.o
+[60/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/meson-generated_.._vk_cmd_enqueue_entrypoints.c.o
+[61/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_cmd_desc_state.c.o
+[62/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_cmd_push_constant.c.o
+[63/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/meson-generated_.._vk_format_info.c.o
+[64/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/meson-generated_.._vk_physical_device_spirv_caps.c.o
+[65/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_cmd_frame_shaders.c.o
+[66/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/meson-generated_.._vk_synchronization_helpers.c.o
+[67/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_blend.c.o
+[68/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_cmd_draw.c.o
+[69/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/rmv_vk_rmv_common.c.o
+[70/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_buffer.c.o
+[71/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/rmv_vk_rmv_exporter.c.o
+[72/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/meson-generated_.._vk_dispatch_trampolines.c.o
+[73/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_buffer_view.c.o
+[74/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_cmd_enqueue.c.o
+[75/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_cmd_copy.c.o
+[76/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_debug_report.c.o
+[77/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_deferred_operation.c.o
+[78/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_command_pool.c.o
+[79/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_cmd_meta.c.o
+[80/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_command_buffer.c.o
+[81/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_debug_utils.c.o
+[82/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/meson-generated_.._vk_physical_device_properties.c.o
+[83/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_descriptor_set_layout.c.o
+[84/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_descriptors.c.o
+[85/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_device_generated_commands.c.o
+[86/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_descriptor_update_template.c.o
+[87/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_device_memory.c.o
+[88/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_fence.c.o
+[89/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_device.c.o
+[90/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_framebuffer.c.o
+[91/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_meta_object_list.c.o
+[92/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_object.c.o
+[93/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_log.c.o
+[94/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_query_pool.c.o
+[95/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_pipeline_layout.c.o
+[96/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_image.c.o
+[97/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_standard_sample_locations.c.o
+[98/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_physical_device.c.o
+[99/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_sync_dummy.c.o
+[100/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_semaphore.c.o
+[101/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_sync.c.o
+[102/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_sampler.c.o
+[103/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_sync_binary.c.o
+[104/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_queue.c.o
+[105/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_sync_timeline.c.o
+[106/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_synchronization.c.o
+[107/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_ycbcr_conversion.c.o
+[108/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_drm_syncobj.c.o
+[109/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/meson-generated_.._vk_cmd_queue.c.o
+[110/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_render_pass.c.o
+[111/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_graphics_state.c.o
+[112/399] Compiling C object src/vulkan/runtime/libvulkan_runtime.a.p/vk_meta.c.o
+[113/399] Compiling C object src/vulkan/runtime/libvulkan_runtime.a.p/vk_nir.c.o
+[114/399] Compiling C object src/vulkan/runtime/libvulkan_runtime.a.p/vk_meta_draw_rects.c.o
+[115/399] Compiling C object src/vulkan/runtime/libvulkan_runtime.a.p/vk_meta_clear.c.o
+[116/399] Compiling C object src/vulkan/runtime/libvulkan_runtime.a.p/vk_nir_lower_descriptor_heaps.c.o
+[117/399] Compiling C object src/vulkan/runtime/libvulkan_runtime.a.p/vk_meta_blit_resolve.c.o
+[118/399] Compiling C object src/vulkan/runtime/libvulkan_runtime.a.p/vk_nir_convert_ycbcr.c.o
+[119/399] Compiling C object src/vulkan/runtime/libvulkan_runtime.a.p/vk_shader_module.c.o
+[120/399] Compiling C object src/vulkan/runtime/libvulkan_runtime.a.p/vk_pipeline_cache.c.o
+[121/399] Compiling C object src/vulkan/runtime/libvulkan_instance.a.p/vk_instance.c.o
+[122/399] Compiling C object src/vulkan/runtime/libvulkan_runtime.a.p/vk_shader.c.o
+[123/399] Compiling C object src/vulkan/runtime/libvulkan_runtime.a.p/vk_meta_copy_fill_update.c.o
+[124/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_descriptor_set_layout.c.o
+[125/399] Compiling C object src/vulkan/runtime/libvulkan_runtime.a.p/vk_texcompress_etc2.c.o
+[126/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_descriptor_set.c.o
+[127/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_device.c.o
+[128/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_physical_device.c.o
+[129/399] Compiling C object src/vulkan/runtime/libvulkan_runtime.a.p/vk_pipeline.c.o
+[130/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_precomp_cache.c.o
+[131/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_query_pool.c.o
+[132/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_image_view.c.o
+[133/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_sampler.c.o
+[134/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_nir_lower_input_attachment_loads.c.o
+[135/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_nir_lower_descriptors.c.o
+[136/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_cmd_buffer.c.o
+[137/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/bifrost_panvk_vX_meta_desc_copy.c.o
+[138/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_cmd_dispatch.c.o
+[139/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/meson-generated_.._vk_physical_device_features.c.o
+[140/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/meson-generated_.._.._libpan_libpan_shaders_v7.c.o
+[141/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_cmd_event.c.o
+[142/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_event.c.o
+[143/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_gpu_queue.c.o
+[144/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_shader.c.o
+[145/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_cmd_query.c.o
+[146/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_buffer_view.c.o
+[147/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_cmd_precomp.c.o
+[148/399] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_cmd_draw.c.o
+[149/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_cmd_desc_state.c.o
+[150/399] Compiling C++ object src/panfrost/vulkan/libpanvk_v7.a.p/meson-generated_.._.._libpan_libpan_v7.cpp.o
+[151/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_blend.c.o
+[152/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_cmd_draw.c.o
+[153/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_cmd_push_constant.c.o
+[154/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_cmd_dispatch.c.o
+[155/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_descriptor_set.c.o
+[156/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_descriptor_set_layout.c.o
+[157/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_cmd_meta.c.o
+[158/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_cmd_frame_shaders.c.o
+[159/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_query_pool.c.o
+[160/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_device.c.o
+[161/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_precomp_cache.c.o
+[162/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_image_view.c.o
+[163/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_sampler.c.o
+[164/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_nir_lower_input_attachment_loads.c.o
+[165/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_physical_device.c.o
+[166/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_nir_lower_descriptors.c.o
+[167/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_cmd_buffer.c.o
+[168/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_cmd_event.c.o
+[169/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_event.c.o
+[170/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/bifrost_panvk_vX_meta_desc_copy.c.o
+[171/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_cmd_dispatch.c.o
+[172/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_cmd_query.c.o
+[173/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_gpu_queue.c.o
+[174/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_shader.c.o
+[175/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_cmd_draw.c.o
+[176/399] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_cmd_precomp.c.o
+[177/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_cmd_push_constant.c.o
+[178/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_cmd_meta.c.o
+[179/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_descriptor_set_layout.c.o
+[180/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_precomp_cache.c.o
+[181/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_query_pool.c.o
+[182/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_descriptor_set.c.o
+[183/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_image_view.c.o
+[184/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_sampler.c.o
+[185/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_device.c.o
+[186/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_nir_lower_input_attachment_loads.c.o
+[187/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_nir_lower_descriptors.c.o
+[188/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_physical_device.c.o
+[189/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_buffer.c.o
+[190/399] Compiling C object src/panfrost/vulkan/libpanvk_v10.a.p/meson-generated_.._.._libpan_libpan_shaders_v10.c.o
+[191/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_event.c.o
+[192/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_query.c.o
+[193/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_dispatch.c.o
+[194/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_draw.c.o
+FAILED: [code=1] src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_draw.c.o 
+cc -Isrc/panfrost/vulkan/libpanvk_v9.a.p -Isrc/panfrost/vulkan -I../src/panfrost/vulkan -Iinclude -I../include -Isrc -I../src -Isrc/panfrost -I../src/panfrost -Isrc/panfrost/shared -I../src/panfrost/shared -Isrc/panfrost/compiler -I../src/panfrost/compiler -Isrc/panfrost/lib -I../src/panfrost/lib -Isrc/panfrost/libpan -I../src/panfrost/libpan -Isrc/panfrost/model -I../src/panfrost/model -I../src/panfrost/vulkan/valhall -I../src/panfrost/vulkan/jm -Isrc/compiler/nir -I../src/compiler/nir -Isrc/compiler -I../src/compiler -Isrc/panfrost/genxml -I../src/panfrost/genxml -Isrc/vulkan/util -I../src/vulkan/util -Isrc/vulkan/runtime -I../src/vulkan/runtime -I../src/vulkan/runtime/bvh -Isrc/vulkan/wsi -I../src/vulkan/wsi -Isrc/compiler/spirv -Isrc/util -Isrc/util/format -I/data/data/com.termux/files/usr/include -I/data/data/com.termux/files/usr/include/libdrm -fvisibility=hidden -fdiagnostics-color=always -DNDEBUG -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c11 -O3 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS '-DPACKAGE_VERSION="26.3.0-devel"' -DHAVE_OPENGL=1 -DHAVE_OPENGL_ES_1=1 -DHAVE_OPENGL_ES_2=1 -DMESA_SYSTEM_HAS_KMS_DRM=1 -DVIDEO_CODEC_VC1DEC=0 -DVIDEO_CODEC_H264DEC=0 -DVIDEO_CODEC_H264ENC=0 -DVIDEO_CODEC_H265DEC=0 -DVIDEO_CODEC_H265ENC=0 -DVIDEO_CODEC_AV1DEC=1 -DVIDEO_CODEC_AV1ENC=1 -DVIDEO_CODEC_VP9DEC=1 -DVIDEO_CODEC_MPEG12DEC=1 -DVIDEO_CODEC_JPEGDEC=1 -DHAVE_X11_PLATFORM -DHAVE_XCB_PLATFORM -DUSE_LIBGLVND=0 -DHAVE_LIBDRM -DHAVE_GFX_COMPUTE -DGLX_INDIRECT_RENDERING -DGLX_DIRECT_RENDERING -DGLX_USE_DRM -DGLAPI_EXPORT_PROTO_ENTRY_POINTS=0 -DALLOW_KCMP -DMESA_DEBUG=0 -DENABLE_SHADER_CACHE -DHAVE___BUILTIN_BSWAP32 -DHAVE___BUILTIN_BSWAP64 -DHAVE___BUILTIN_CLZ -DHAVE___BUILTIN_CLZLL -DHAVE___BUILTIN_CTZ -DHAVE___BUILTIN_EXPECT -DHAVE___BUILTIN_FFS -DHAVE___BUILTIN_FFSLL -DHAVE___BUILTIN_POPCOUNT -DHAVE___BUILTIN_POPCOUNTLL -DHAVE___BUILTIN_UNREACHABLE -DHAVE___BUILTIN_TYPES_COMPATIBLE_P -DHAVE___BUILTIN_ADD_OVERFLOW -DHAVE_FUNC_ATTRIBUTE_CONST -DHAVE_FUNC_ATTRIBUTE_FLATTEN -DHAVE_FUNC_ATTRIBUTE_MALLOC -DHAVE_FUNC_ATTRIBUTE_PURE -DHAVE_FUNC_ATTRIBUTE_UNUSED -DHAVE_FUNC_ATTRIBUTE_WARN_UNUSED_RESULT -DHAVE_FUNC_ATTRIBUTE_WEAK -DHAVE_FUNC_ATTRIBUTE_FORMAT -DHAVE_FUNC_ATTRIBUTE_PACKED -DHAVE_FUNC_ATTRIBUTE_RETURNS_NONNULL -DHAVE_FUNC_ATTRIBUTE_ALIAS -DHAVE_FUNC_ATTRIBUTE_NORETURN -DHAVE_FUNC_ATTRIBUTE_COLD -DHAVE_FUNC_ATTRIBUTE_VISIBILITY -DHAVE_UINT128 -DHAVE_REALLOCARRAY -DHAVE_FMEMOPEN -D_GNU_SOURCE -DUSE_GCC_ATOMIC_BUILTINS -DMAJOR_IN_SYSMACROS -DHAS_SCHED_H -DHAS_SCHED_GETAFFINITY -DHAVE_XLOCALE_H -DHAVE_LINUX_FUTEX_H -DHAVE_ENDIAN_H -DHAVE_DLFCN_H -DHAVE_SYS_SHM_H -DHAVE_CET_H -DHAVE_POLL_H -DHAVE_SYS_INOTIFY_H -DHAVE_LINUX_UDMABUF_H -DHAVE_STRTOF -DHAVE_MKOSTEMP -DHAVE_FLOCK -DHAVE_STRTOK_R -DHAVE_POSIX_FALLOCATE -DHAVE_SYSCONF -DHAVE_STRUCT_TIMESPEC -DHAVE_POSIX_MEMALIGN -DHAVE_DIRENT_D_TYPE -DHAVE_STRTOD_L -DHAVE_DLADDR -DHAVE_DL_ITERATE_PHDR -DHAVE_ZLIB -DHAVE_ZSTD -DHAVE_COMPRESSION -DHAVE_PTHREAD '-DMESA_LLVM_VERSION_STRING="21.1.8"' -DLLVM_IS_SHARED=1 -DDRAW_LLVM_AVAILABLE=1 -DAMD_LLVM_AVAILABLE=1 -DGALLIVM_USE_ORCJIT=0 -DHAVE_SPIRV_TOOLS -DUSE_LIBELF -DTHREAD_SANITIZER=0 -DHAVE_X11_DRM -DHAVE_DRI2 -DHAVE_DRI3_EXPLICIT_SYNC -DHAVE_RENDERDOC_INTEGRATION=1 -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=return-type -Werror=empty-body -Werror=incompatible-pointer-types -Werror=int-conversion -Wimplicit-fallthrough -Wmisleading-indentation -Wno-missing-field-initializers -Wno-format-truncation -fno-math-errno -fno-trapping-math -Qunused-arguments -fno-common -Wno-unknown-pragmas -Wno-microsoft-enum-value -Wno-unused-function -Werror=format -Wformat-security -Werror=thread-safety -ffunction-sections -fdata-sections -Wno-unused-variable -Wno-unused-but-set-variable -fPIC -pthread -DXXH_FORCE_ALIGN_CHECK=0 -DXXH_FORCE_MEMORY_ACCESS=0 -DVK_USE_PLATFORM_XCB_KHR -DVK_USE_PLATFORM_XLIB_KHR -DVK_USE_PLATFORM_XLIB_XRANDR_EXT -Wno-override-init -Wno-initializer-overrides -Werror=date-time -Werror=gnu-alignof-expression -Werror=ignored-qualifiers -Werror=implicit-fallthrough -Werror=int-conversion -Werror=missing-prototypes -Werror=pragma-pack -Werror=pragma-pack-suspicious-include -Werror=sizeof-array-div -Werror=string-plus-int -Werror=unreachable-code-loop-increment -DPAN_ARCH=9 -MD -MQ src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_draw.c.o -MF src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_draw.c.o.d -o src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_draw.c.o -c ../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:48:34: error: field has incomplete type 'struct mali_invocation_packed'
+   48 |    struct mali_invocation_packed invocation;
+      |                                  ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:48:11: note: forward declaration of 'struct mali_invocation_packed'
+   48 |    struct mali_invocation_packed invocation;
+      |           ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:233:43: error: no member named 'rsd' in 'struct panvk_cmd_graphics_state::(unnamed at ../src/panfrost/vulkan/panvk_cmd_draw.h:180:4)'
+  233 |       draw->fs.rsd = cmdbuf->state.gfx.fs.rsd;
+      |                      ~~~~~~~~~~~~~~~~~~~~ ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:266:15: error: use of undeclared identifier 'MALI_RENDERER_STATE_LENGTH'
+  266 |       cmdbuf, PAN_DESC(RENDERER_STATE), PAN_DESC_ARRAY(bd_count, BLEND));
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/lib/pan_pool.h:86:24: note: expanded from macro 'PAN_DESC'
+   86 | #define PAN_DESC(name) PAN_DESC_ARRAY(1, name)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/lib/pan_pool.h:83:15: note: expanded from macro 'PAN_DESC_ARRAY'
+   83 |       .size = pan_size(name), .align = pan_alignment(name), .nelems = count,   \
+      |               ^~~~~~~~~~~~~~
+../src/panfrost/genxml/pan_pack_helpers.h:115:26: note: expanded from macro 'pan_size'
+  115 | #define pan_size(T)      PREFIX2(T, LENGTH)
+      |                          ^~~~~~~~~~~~~~~~~~
+../src/panfrost/genxml/pan_pack_helpers.h:91:29: note: expanded from macro 'PREFIX2'
+   91 | #define PREFIX2(A, B)       MALI_##A##_##B
+      |                             ^~~~~~~~~~~~~~
+<scratch space>:182:1: note: expanded from here
+  182 | MALI_RENDERER_STATE_LENGTH
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:266:15: error: use of undeclared identifier 'MALI_RENDERER_STATE_ALIGN'
+  266 |       cmdbuf, PAN_DESC(RENDERER_STATE), PAN_DESC_ARRAY(bd_count, BLEND));
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/lib/pan_pool.h:86:24: note: expanded from macro 'PAN_DESC'
+   86 | #define PAN_DESC(name) PAN_DESC_ARRAY(1, name)
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/lib/pan_pool.h:83:40: note: expanded from macro 'PAN_DESC_ARRAY'
+   83 |       .size = pan_size(name), .align = pan_alignment(name), .nelems = count,   \
+      |                                        ^~~~~~~~~~~~~~~~~~~
+../src/panfrost/genxml/pan_pack_helpers.h:116:26: note: expanded from macro 'pan_alignment'
+  116 | #define pan_alignment(T) PREFIX2(T, ALIGN)
+      |                          ^~~~~~~~~~~~~~~~~
+../src/panfrost/genxml/pan_pack_helpers.h:91:29: note: expanded from macro 'PREFIX2'
+   91 | #define PREFIX2(A, B)       MALI_##A##_##B
+      |                             ^~~~~~~~~~~~~~
+<scratch space>:185:1: note: expanded from here
+  185 | MALI_RENDERER_STATE_ALIGN
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:271:46: error: use of undeclared identifier 'MALI_RENDERER_STATE_LENGTH'
+  271 |    struct mali_blend_packed *bds = ptr.cpu + pan_size(RENDERER_STATE);
+      |                                              ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/genxml/pan_pack_helpers.h:115:26: note: expanded from macro 'pan_size'
+  115 | #define pan_size(T)      PREFIX2(T, LENGTH)
+      |                          ^~~~~~~~~~~~~~~~~~
+../src/panfrost/genxml/pan_pack_helpers.h:91:29: note: expanded from macro 'PREFIX2'
+   91 | #define PREFIX2(A, B)       MALI_##A##_##B
+      |                             ^~~~~~~~~~~~~~
+<scratch space>:4:1: note: expanded from here
+    4 | MALI_RENDERER_STATE_LENGTH
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:287:4: error: use of undeclared identifier 'MALI_RENDERER_STATE_header'
+  287 |    pan_pack(rsd, RENDERER_STATE, cfg) {
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/genxml/pan_pack_helpers.h:95:42: note: expanded from macro 'pan_pack'
+   95 |    for (UNUSED struct PREFIX1(T) name = {PREFIX2(T, header)},                  \
+      |                                          ^~~~~~~~~~~~~~~~~~
+../src/panfrost/genxml/pan_pack_helpers.h:91:29: note: expanded from macro 'PREFIX2'
+   91 | #define PREFIX2(A, B)       MALI_##A##_##B
+      |                             ^~~~~~~~~~~~~~
+<scratch space>:18:1: note: expanded from here
+   18 | MALI_RENDERER_STATE_header
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:287:34: error: variable has incomplete type 'struct MALI_RENDERER_STATE'
+  287 |    pan_pack(rsd, RENDERER_STATE, cfg) {
+      |                                  ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:287:4: note: forward declaration of 'struct MALI_RENDERER_STATE'
+  287 |    pan_pack(rsd, RENDERER_STATE, cfg) {
+      |    ^
+../src/panfrost/genxml/pan_pack_helpers.h:95:23: note: expanded from macro 'pan_pack'
+   95 |    for (UNUSED struct PREFIX1(T) name = {PREFIX2(T, header)},                  \
+      |                       ^
+../src/panfrost/genxml/pan_pack_helpers.h:90:29: note: expanded from macro 'PREFIX1'
+   90 | #define PREFIX1(A)          MALI_##A
+      |                             ^
+<scratch space>:15:1: note: expanded from here
+   15 | MALI_RENDERER_STATE
+      | ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:287:4: error: call to undeclared function 'MALI_RENDERER_STATE_pack'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  287 |    pan_pack(rsd, RENDERER_STATE, cfg) {
+      |    ^
+../src/panfrost/genxml/pan_pack_helpers.h:98:12: note: expanded from macro 'pan_pack'
+   98 |            PREFIX2(T, pack)((dst), &name);                                     \
+      |            ^
+../src/panfrost/genxml/pan_pack_helpers.h:91:29: note: expanded from macro 'PREFIX2'
+   91 | #define PREFIX2(A, B)       MALI_##A##_##B
+      |                             ^
+<scratch space>:21:1: note: expanded from here
+   21 | MALI_RENDERER_STATE_pack
+      | ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:291:10: error: call to undeclared function 'pan_shader_prepare_rsd'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  291 |          pan_shader_prepare_rsd(fs_info, fs_code, &cfg);
+      |          ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:391:25: error: no member named 'rsd' in 'struct panvk_cmd_graphics_state::(unnamed at ../src/panfrost/vulkan/panvk_cmd_draw.h:180:4)'
+  391 |    cmdbuf->state.gfx.fs.rsd = ptr.gpu;
+      |    ~~~~~~~~~~~~~~~~~~~~ ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:392:40: error: no member named 'rsd' in 'struct panvk_cmd_graphics_state::(unnamed at ../src/panfrost/vulkan/panvk_cmd_draw.h:180:4)'
+  392 |    draw->fs.rsd = cmdbuf->state.gfx.fs.rsd;
+      |                   ~~~~~~~~~~~~~~~~~~~~ ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:402:68: error: no member named 'layer_id' in 'struct panvk_draw_info'
+  402 |       panvk_per_arch(cmd_prepare_tiler_context)(cmdbuf, draw->info.layer_id);
+      |                                                         ~~~~~~~~~~ ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:417:62: error: no member named 'link' in 'struct panvk_cmd_graphics_state'
+  417 |    const struct panvk_shader_link *link = &cmdbuf->state.gfx.link;
+      |                                            ~~~~~~~~~~~~~~~~~ ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:418:26: error: use of undeclared identifier 'MALI_ATTRIBUTE_BUFFER_LENGTH'
+  418 |    struct pan_ptr bufs = panvk_cmd_alloc_desc_array(
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+  419 |       cmdbuf, PANVK_VARY_BUF_MAX + 1, ATTRIBUTE_BUFFER);
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/vulkan/panvk_cmd_alloc.h:68:45: note: expanded from macro 'panvk_cmd_alloc_desc_array'
+   68 |    panvk_cmd_alloc_desc_aggregate(__cmdbuf, PAN_DESC_ARRAY(__count, __desc))
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/lib/pan_pool.h:83:15: note: expanded from macro 'PAN_DESC_ARRAY'
+   83 |       .size = pan_size(name), .align = pan_alignment(name), .nelems = count,   \
+      |               ^~~~~~~~~~~~~~
+../src/panfrost/genxml/pan_pack_helpers.h:115:26: note: expanded from macro 'pan_size'
+  115 | #define pan_size(T)      PREFIX2(T, LENGTH)
+      |                          ^~~~~~~~~~~~~~~~~~
+../src/panfrost/genxml/pan_pack_helpers.h:91:29: note: expanded from macro 'PREFIX2'
+   91 | #define PREFIX2(A, B)       MALI_##A##_##B
+      |                             ^~~~~~~~~~~~~~
+<scratch space>:27:1: note: expanded from here
+   27 | MALI_ATTRIBUTE_BUFFER_LENGTH
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:418:26: error: use of undeclared identifier 'MALI_ATTRIBUTE_BUFFER_ALIGN'
+  418 |    struct pan_ptr bufs = panvk_cmd_alloc_desc_array(
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+  419 |       cmdbuf, PANVK_VARY_BUF_MAX + 1, ATTRIBUTE_BUFFER);
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/vulkan/panvk_cmd_alloc.h:68:45: note: expanded from macro 'panvk_cmd_alloc_desc_array'
+   68 |    panvk_cmd_alloc_desc_aggregate(__cmdbuf, PAN_DESC_ARRAY(__count, __desc))
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/lib/pan_pool.h:83:40: note: expanded from macro 'PAN_DESC_ARRAY'
+   83 |       .size = pan_size(name), .align = pan_alignment(name), .nelems = count,   \
+      |                                        ^~~~~~~~~~~~~~~~~~~
+../src/panfrost/genxml/pan_pack_helpers.h:116:26: note: expanded from macro 'pan_alignment'
+  116 | #define pan_alignment(T) PREFIX2(T, ALIGN)
+      |                          ^~~~~~~~~~~~~~~~~
+../src/panfrost/genxml/pan_pack_helpers.h:91:29: note: expanded from macro 'PREFIX2'
+   91 | #define PREFIX2(A, B)       MALI_##A##_##B
+      |                             ^~~~~~~~~~~~~~
+<scratch space>:30:1: note: expanded from here
+   30 | MALI_ATTRIBUTE_BUFFER_ALIGN
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:432:30: error: no member named 'indirect_varying_bufs_infos' in 'struct panvk_cmd_graphics_state::(unnamed at ../src/panfrost/vulkan/panvk_cmd_draw.h:196:4)'
+  432 |        !cmdbuf->state.gfx.vs.indirect_varying_bufs_infos) {
+      |         ~~~~~~~~~~~~~~~~~~~~ ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:434:24: error: invalid application of 'sizeof' to an incomplete type 'struct libpan_draw_helper_varying_buf_info'
+  434 |          cmdbuf, desc, sizeof(struct libpan_draw_helper_varying_buf_info), 8);
+      |                        ^     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/panfrost/vulkan/panvk_cmd_alloc.h:36:41: note: expanded from macro 'panvk_cmd_alloc_dev_mem'
+   36 |                                 .size = __sz,                                  \
+      |                                         ^~~~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:434:38: note: forward declaration of 'struct libpan_draw_helper_varying_buf_info'
+  434 |          cmdbuf, desc, sizeof(struct libpan_draw_helper_varying_buf_info), 8);
+      |                                      ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:439:28: error: no member named 'indirect_varying_bufs_infos' in 'struct panvk_cmd_graphics_state::(unnamed at ../src/panfrost/vulkan/panvk_cmd_draw.h:196:4)'
+  439 |       cmdbuf->state.gfx.vs.indirect_varying_bufs_infos = bufs_info_storage.gpu;
+      |       ~~~~~~~~~~~~~~~~~~~~ ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:443:21: error: incomplete definition of type 'struct libpan_draw_helper_varying_buf_info'
+  443 |       vary_bufs_info->address = dev->indirect_varying_buffer->addr.dev;
+      |       ~~~~~~~~~~~~~~^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:434:38: note: forward declaration of 'struct libpan_draw_helper_varying_buf_info'
+  434 |          cmdbuf, desc, sizeof(struct libpan_draw_helper_varying_buf_info), 8);
+      |                                      ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+[195/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_event.c.o
+[196/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_shader.c.o
+[197/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_precomp.c.o
+[198/399] Compiling C object src/panfrost/vulkan/libpanvk_v10.a.p/panvk_vX_buffer_view.c.o
+[199/399] Compiling C++ object src/panfrost/vulkan/libpanvk_v10.a.p/meson-generated_.._.._libpan_libpan_v10.cpp.o
+[200/399] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_gpu_queue.c.o
+[201/399] Compiling C object src/panfrost/vulkan/libpanvk_v10.a.p/panvk_vX_cmd_desc_state.c.o
+[202/399] Compiling C object src/panfrost/vulkan/libpanvk_v10.a.p/panvk_vX_blend.c.o
+[203/399] Compiling C object src/vulkan/runtime/libvulkan_lite_runtime.a.p/vk_video.c.o
+ninja: build stopped: subcommand failed.

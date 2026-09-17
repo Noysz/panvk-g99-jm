@@ -1,0 +1,84 @@
+[1/37] Generating src/git_sha1.h with a custom command
+[2/17] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_cmd_dispatch.c.o
+[3/17] Linking target src/gallium/targets/dri/libgallium-26.3.0-devel.so
+FAILED: [code=1] src/gallium/targets/dri/libgallium-26.3.0-devel.so 
+clang++  -o src/gallium/targets/dri/libgallium-26.3.0-devel.so src/gallium/targets/dri/libgallium-26.3.0-devel.so.p/dri_target.c.o -Wl,--as-needed -Wl,--no-undefined -shared -fPIC -Wl,-soname,libgallium-26.3.0-devel.so -Wl,--whole-archive -Wl,--start-group src/gallium/frontends/dri/libdri.a -Wl,--no-whole-archive src/mesa/libmesa.a src/compiler/glsl/libglsl.a src/compiler/glsl/glcpp/libglcpp.a src/util/libmesa_util.a src/util/libmesa_util_simd.a src/util/blake3/libblake3.a src/c11/impl/libmesa_util_c11.a src/compiler/nir/libnir.a src/compiler/libcompiler.a src/compiler/spirv/libvtn.a src/gallium/auxiliary/libgalliumvl.a src/gallium/auxiliary/libgallium.a src/mesa/glapi/shared-glapi/libglapi.a src/gallium/auxiliary/pipe-loader/libpipe_loader_static.a src/loader/libloader.a src/util/libxmlconfig.a src/gallium/winsys/sw/null/libws_null.a src/gallium/winsys/sw/wrapper/libwsw.a src/gallium/winsys/sw/dri/libswdri.a src/gallium/winsys/sw/kms-dri/libswkmsdri.a src/gallium/winsys/kmsro/drm/libkmsrowinsys.a src/gallium/drivers/panfrost/libpanfrost.a src/gallium/drivers/panfrost/libpanfrost-v4.a src/gallium/drivers/panfrost/libpanfrost-v5.a src/gallium/drivers/panfrost/libpanfrost-v6.a src/gallium/drivers/panfrost/libpanfrost-v7.a src/gallium/drivers/panfrost/libpanfrost-v9.a src/gallium/drivers/panfrost/libpanfrost-v10.a src/gallium/drivers/panfrost/libpanfrost-v12.a src/gallium/drivers/panfrost/libpanfrost-v13.a src/gallium/drivers/panfrost/libpanfrost-v14.a src/gallium/winsys/panfrost/drm/libpanfrostwinsys.a src/panfrost/shared/libpanfrost_shared.a src/panfrost/compiler/libpanfrost_compiler.a src/panfrost/compiler/midgard/libpanfrost_midgard.a src/panfrost/compiler/midgard/libpanfrost_midgard_disasm.a src/panfrost/compiler/bifrost/libpanfrost_bifrost.a src/panfrost/compiler/bifrost/libpanfrost_bifrost_disasm.a src/panfrost/compiler/bifrost/valhall/libpanfrost_valhall_disasm.a src/panfrost/model/libpanfrost_model_lib.a src/panfrost/genxml/libpanfrost_decode.a src/panfrost/genxml/libpandecode-arch-v4.a src/panfrost/genxml/libpandecode-arch-v5.a src/panfrost/genxml/libpandecode-arch-v6.a src/panfrost/genxml/libpandecode-arch-v7.a src/panfrost/genxml/libpandecode-arch-v9.a src/panfrost/genxml/libpandecode-arch-v10.a src/panfrost/genxml/libpandecode-arch-v12.a src/panfrost/genxml/libpandecode-arch-v13.a src/panfrost/genxml/libpandecode-arch-v14.a src/panfrost/lib/libpanfrost_lib.a src/panfrost/lib/libpan-format-v5.a src/panfrost/lib/libpan-format-v6.a src/panfrost/lib/libpan-format-v7.a src/panfrost/lib/libpan-format-v9.a src/panfrost/lib/libpan-format-v10.a src/panfrost/lib/libpan-format-v12.a src/panfrost/lib/libpan-format-v13.a src/panfrost/lib/libpan-format-v14.a src/panfrost/lib/libpan-arch-v4.a src/panfrost/lib/libpan-arch-v5.a src/panfrost/lib/libpan-arch-v6.a src/panfrost/lib/libpan-arch-v7.a src/panfrost/lib/libpan-arch-v9.a src/panfrost/lib/libpan-arch-v10.a src/panfrost/lib/libpan-arch-v12.a src/panfrost/lib/libpan-arch-v13.a src/panfrost/lib/libpan-arch-v14.a src/panfrost/lib/kmod/libpankmod_lib.a -Wl,--build-id=sha1 -Wl,--gc-sections -Wl,--version-script /data/data/com.termux/files/home/panvk-g57/mesa/build/src/gallium/targets/dri/dri.sym -Wl,--dynamic-list /data/data/com.termux/files/home/panvk-g57/mesa/src/gallium/targets/dri/../dri.dyn /data/data/com.termux/files/usr/lib/libdrm.so -lLLVM-21 -pthread /data/data/com.termux/files/usr/lib/libexpat.so /data/data/com.termux/files/usr/lib/libz.so -lm /data/data/com.termux/files/usr/lib/libzstd.so /data/data/com.termux/files/usr/lib/libSPIRV-Tools-opt.a /data/data/com.termux/files/usr/lib/libSPIRV-Tools.a /data/data/com.termux/files/usr/lib/libSPIRV-Tools-link.a -lLLVM-21 -Wl,--end-group
+ld.lld: error: version script assignment of 'global' to symbol '_mesa_glapi_tls_Context' failed: symbol not defined
+ld.lld: error: version script assignment of 'global' to symbol '_mesa_glapi_tls_Dispatch' failed: symbol not defined
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+[4/17] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_gpu_queue.c.o
+../src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c:583:1: warning: unused label 'err_finish_queue' [-Wunused-label]
+  583 | err_finish_queue:
+      | ^~~~~~~~~~~~~~~~~
+1 warning generated.
+[5/17] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_gpu_queue.c.o
+../src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c:583:1: warning: unused label 'err_finish_queue' [-Wunused-label]
+  583 | err_finish_queue:
+      | ^~~~~~~~~~~~~~~~~
+1 warning generated.
+[6/17] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_draw.c.o
+FAILED: [code=1] src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_draw.c.o 
+clang -Isrc/panfrost/vulkan/libpanvk_v9.a.p -Isrc/panfrost/vulkan -I../src/panfrost/vulkan -Iinclude -I../include -Isrc -I../src -Isrc/panfrost -I../src/panfrost -Isrc/panfrost/shared -I../src/panfrost/shared -Isrc/panfrost/compiler -I../src/panfrost/compiler -Isrc/panfrost/lib -I../src/panfrost/lib -Isrc/panfrost/libpan -I../src/panfrost/libpan -Isrc/panfrost/model -I../src/panfrost/model -Isrc/poly -I../src/poly -Isrc/poly/nir -I../src/poly/nir -I../src/panfrost/vulkan/valhall -I../src/panfrost/vulkan/jm -Isrc/compiler/nir -I../src/compiler/nir -Isrc/compiler -I../src/compiler -Isrc/panfrost/genxml -I../src/panfrost/genxml -Isrc/vulkan/util -I../src/vulkan/util -Isrc/vulkan/runtime -I../src/vulkan/runtime -I../src/vulkan/runtime/bvh -Isrc/vulkan/wsi -I../src/vulkan/wsi -Isrc/compiler/spirv -Isrc/util -Isrc/util/format -I/data/data/com.termux/files/usr/include -I/data/data/com.termux/files/usr/include/libdrm -fvisibility=hidden -fdiagnostics-color=always -DNDEBUG -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c11 -O2 -g -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS '-DPACKAGE_VERSION="26.3.0-devel"' -DHAVE_OPENGL=0 -DHAVE_OPENGL_ES_1=1 -DHAVE_OPENGL_ES_2=1 -DHAVE_PANFROST -DHAVE_PAN_KMOD_PANTHOR -DHAVE_PAN_KMOD_KBASE -DMESA_SYSTEM_HAS_KMS_DRM=1 -DVIDEO_CODEC_VC1DEC=0 -DVIDEO_CODEC_H264DEC=0 -DVIDEO_CODEC_H264ENC=0 -DVIDEO_CODEC_H265DEC=0 -DVIDEO_CODEC_H265ENC=0 -DVIDEO_CODEC_AV1DEC=1 -DVIDEO_CODEC_AV1ENC=1 -DVIDEO_CODEC_VP9DEC=1 -DVIDEO_CODEC_MPEG12DEC=1 -DVIDEO_CODEC_JPEGDEC=1 -DHAVE_SURFACELESS_PLATFORM -DUSE_LIBGLVND=0 -DHAVE_GFX_COMPUTE -DGLAPI_EXPORT_PROTO_ENTRY_POINTS=1 -DALLOW_KCMP -DMESA_DEBUG=0 -DENABLE_SHADER_CACHE -DHAVE___BUILTIN_BSWAP32 -DHAVE___BUILTIN_BSWAP64 -DHAVE___BUILTIN_CLZ -DHAVE___BUILTIN_CLZLL -DHAVE___BUILTIN_CTZ -DHAVE___BUILTIN_EXPECT -DHAVE___BUILTIN_FFS -DHAVE___BUILTIN_FFSLL -DHAVE___BUILTIN_POPCOUNT -DHAVE___BUILTIN_POPCOUNTLL -DHAVE___BUILTIN_UNREACHABLE -DHAVE___BUILTIN_TYPES_COMPATIBLE_P -DHAVE___BUILTIN_ADD_OVERFLOW -DHAVE_FUNC_ATTRIBUTE_CONST -DHAVE_FUNC_ATTRIBUTE_FLATTEN -DHAVE_FUNC_ATTRIBUTE_MALLOC -DHAVE_FUNC_ATTRIBUTE_PURE -DHAVE_FUNC_ATTRIBUTE_UNUSED -DHAVE_FUNC_ATTRIBUTE_WARN_UNUSED_RESULT -DHAVE_FUNC_ATTRIBUTE_WEAK -DHAVE_FUNC_ATTRIBUTE_FORMAT -DHAVE_FUNC_ATTRIBUTE_PACKED -DHAVE_FUNC_ATTRIBUTE_RETURNS_NONNULL -DHAVE_FUNC_ATTRIBUTE_ALIAS -DHAVE_FUNC_ATTRIBUTE_NORETURN -DHAVE_FUNC_ATTRIBUTE_COLD -DHAVE_FUNC_ATTRIBUTE_VISIBILITY -DHAVE_UINT128 -DHAVE_REALLOCARRAY -DHAVE_FMEMOPEN -D_GNU_SOURCE -DUSE_GCC_ATOMIC_BUILTINS -DMAJOR_IN_SYSMACROS -DHAS_SCHED_H -DHAS_SCHED_GETAFFINITY -DHAVE_XLOCALE_H -DHAVE_LINUX_FUTEX_H -DHAVE_ENDIAN_H -DHAVE_DLFCN_H -DHAVE_SYS_SHM_H -DHAVE_CET_H -DHAVE_POLL_H -DHAVE_SYS_INOTIFY_H -DHAVE_LINUX_UDMABUF_H -DHAVE_STRTOF -DHAVE_MKOSTEMP -DHAVE_FLOCK -DHAVE_STRTOK_R -DHAVE_POSIX_FALLOCATE -DHAVE_SYSCONF -DHAVE_STRUCT_TIMESPEC -DHAVE_POSIX_MEMALIGN -DHAVE_DIRENT_D_TYPE -DHAVE_STRTOD_L -DHAVE_DLADDR -DHAVE_DL_ITERATE_PHDR -DHAVE_ZLIB -DHAVE_ZSTD -DHAVE_COMPRESSION -DHAVE_PTHREAD -DHAVE_LIBDRM '-DMESA_LLVM_VERSION_STRING="21.1.8"' -DLLVM_IS_SHARED=1 -DDRAW_LLVM_AVAILABLE=1 -DAMD_LLVM_AVAILABLE=1 -DGALLIVM_USE_ORCJIT=0 -DHAVE_SPIRV_TOOLS -DUSE_LIBELF -DTHREAD_SANITIZER=0 -DHAVE_DRI -DHAVE_DRI2 -DHAVE_DRISW_KMS -DHAVE_RENDERDOC_INTEGRATION=1 -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=return-type -Werror=empty-body -Werror=incompatible-pointer-types -Werror=int-conversion -Wimplicit-fallthrough -Wmisleading-indentation -Wno-missing-field-initializers -Wno-format-truncation -fno-math-errno -fno-trapping-math -Qunused-arguments -fno-common -Wno-unknown-pragmas -Wno-microsoft-enum-value -Wno-unused-function -Werror=format -Wformat-security -Werror=thread-safety -ffunction-sections -fdata-sections -Wno-unused-variable -Wno-unused-but-set-variable -fPIC -pthread -DXXH_FORCE_ALIGN_CHECK=0 -DXXH_FORCE_MEMORY_ACCESS=0 -Wno-override-init -Wno-initializer-overrides -Werror=date-time -Werror=gnu-alignof-expression -Werror=ignored-qualifiers -Werror=implicit-fallthrough -Werror=int-conversion -Werror=missing-prototypes -Werror=pragma-pack -Werror=pragma-pack-suspicious-include -Werror=sizeof-array-div -Werror=string-plus-int -Werror=unreachable-code-loop-increment -DPAN_ARCH=9 -MD -MQ src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_draw.c.o -MF src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_draw.c.o.d -o src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_draw.c.o -c ../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2485:11: error: use of undeclared identifier 'fs'
+ 2485 |       if (fs) {
+      |           ^~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2487:32: error: use of undeclared identifier 'fs'
+ 2487 |             (z_attachment_read(fs, &dyns->ial) ||
+      |                                ^~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2487:37: error: use of undeclared identifier 'dyns'
+ 2487 |             (z_attachment_read(fs, &dyns->ial) ||
+      |                                     ^~~~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2488:32: error: use of undeclared identifier 'fs'
+ 2488 |              s_attachment_read(fs, &dyns->ial))
+      |                                ^~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2488:37: error: use of undeclared identifier 'dyns'
+ 2488 |              s_attachment_read(fs, &dyns->ial))
+      |                                     ^~~~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2493:61: error: use of undeclared identifier 'fs'
+ 2493 |          uint8_t rt_written = color_attachment_written_mask(fs, &dyns->cal);
+      |                                                             ^~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2493:66: error: use of undeclared identifier 'dyns'
+ 2493 |          uint8_t rt_written = color_attachment_written_mask(fs, &dyns->cal);
+      |                                                                  ^~~~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2494:55: error: use of undeclared identifier 'fs'
+ 2494 |          uint8_t rt_read = color_attachment_read_mask(fs, &dyns->ial, rt_mask);
+      |                                                       ^~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2494:60: error: use of undeclared identifier 'dyns'
+ 2494 |          uint8_t rt_read = color_attachment_read_mask(fs, &dyns->ial, rt_mask);
+      |                                                            ^~~~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2495:35: error: use of undeclared identifier 'dyns'
+ 2495 |          bool alpha_to_coverage = dyns->ms.alpha_to_coverage_enable;
+      |                                   ^~~~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2496:39: error: call to undeclared function 'writes_stencil_v9'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+ 2496 |          bool writes_zs = writes_z || writes_stencil_v9(cmdbuf);
+      |                                       ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2501:29: error: use of undeclared identifier 'fs'
+ 2501 |             pan_earlyzs_get(fs->fs.earlyzs_lut, writes_zs || oq,
+      |                             ^~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2502:48: error: call to undeclared function 'ds_test_always_passes_v9'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+ 2502 |                             alpha_to_coverage, ds_test_always_passes_v9(cmdbuf),
+      |                                                ^
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2511:13: error: use of undeclared identifier 'fs'
+ 2511 |             fs->info.fs.can_fpk && !(rt_mask & ~rt_written) &&
+      |             ^~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2515:14: error: use of undeclared identifier 'fs'
+ 2515 |             !fs->info.writes_global;
+      |              ^~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2518:14: error: use of undeclared identifier 'fs'
+ 2518 |             (fs->info.fs.sample_shading ||
+      |              ^~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2520:14: error: use of undeclared identifier 'dyns'
+ 2520 |             (dyns->ms.rasterization_samples > 1);
+      |              ^~~~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2523:13: error: use of undeclared identifier 'fs'
+ 2523 |             fs->info.fs.writes_coverage || fs->info.fs.can_discard ||
+      |             ^~
+../src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2523:44: error: use of undeclared identifier 'fs'
+ 2523 |             fs->info.fs.writes_coverage || fs->info.fs.can_discard ||
+      |                                            ^~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+[7/17] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_cmd_dispatch.c.o
+[8/17] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_cmd_draw.c.o
+[9/17] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_cmd_draw.c.o
+ninja: build stopped: subcommand failed.
