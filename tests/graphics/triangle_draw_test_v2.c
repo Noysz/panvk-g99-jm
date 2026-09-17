@@ -1,3 +1,4 @@
+#include <stdbool.h>
 /* triangle_draw_test_v2.c
  *
  * Sama seperti triangle_draw_test.c, TAPI skip vkCmdCopyImageToBuffer sama
@@ -52,7 +53,8 @@ static char *read_file(const char *path, size_t *out_size) {
 /* The ICD is dlopen()ed directly rather than going through the Vulkan loader,
  * so VK_ICD_FILENAMES has no effect on this test. Point PANVK_ICD_SO at the
  * libvulkan_panfrost.so you actually want to exercise; the default below is
- * only the path this was developed against. */
+ * the path the committed evidence was produced against, so leaving it unset
+ * reproduces that run exactly. */
 #ifndef PANVK_DEFAULT_ICD_SO
 #define PANVK_DEFAULT_ICD_SO \
     "/data/data/com.termux/files/home/panvk-g57/mesa/build/src/panfrost/vulkan/libvulkan_panfrost.so"
@@ -429,15 +431,59 @@ int main(void) {
         printf("\n");
     }
 
-    uint8_t *p0 = base;
-    if (p0[0] == 255 && p0[1] == 0 && p0[2] == 0 && p0[3] == 255) {
-        printf("\nSUCCESS: pixel (0,0) merah -- CmdDraw v9 beneran nge-render!\n");
-    } else if (p0[0] == 170 && p0[1] == 170) {
-        printf("\nSENTINEL UTUH: GPU sama sekali nggak nyentuh image ini -- draw/clear v9 nggak jalan.\n");
-    } else if (p0[0] == 0 && p0[1] == 0 && p0[2] == 0) {
-        printf("\nCLEAR-ONLY: image ke-clear (hitam) tapi triangle nggak ke-render -- draw doang yang gagal.\n");
+    uint8_t *corner = base;
+    uint8_t *center =
+        base + (H / 2) * layout.rowPitch + (W / 2) * 4;
+
+    printf("\n--- targeted validation ---\n");
+    printf("corner (0,0)   = %u,%u,%u,%u\n",
+           corner[0], corner[1], corner[2], corner[3]);
+    printf("center (32,32)= %u,%u,%u,%u\n",
+           center[0], center[1], center[2], center[3]);
+
+    bool corner_black =
+        corner[0] == 0 &&
+        corner[1] == 0 &&
+        corner[2] == 0 &&
+        corner[3] == 255;
+
+    bool center_red =
+        center[0] == 255 &&
+        center[1] == 0 &&
+        center[2] == 0 &&
+        center[3] == 255;
+
+    if (corner_black && center_red) {
+        printf("\nSUCCESS: partial triangle rasterized -- center merah, corner tetap clear.\n");
+    } else if (corner[0] == 170 && corner[1] == 170 &&
+               center[0] == 170 && center[1] == 170) {
+        printf("\nSENTINEL UTUH: GPU tidak menyentuh image.\n");
+    } else if (corner_black &&
+               center[0] == 0 &&
+               center[1] == 0 &&
+               center[2] == 0) {
+        printf("\nCLEAR-ONLY: image clear berhasil, triangle tidak merender center.\n");
     } else {
-        printf("\nUNEXPECTED: cek dump di atas.\n");
+        printf("\nUNEXPECTED: targeted validation gagal; cek pixel dump.\n");
+    }
+
+    FILE *ppm = fopen("panvk_triangle.ppm", "wb");
+    if (!ppm) {
+        perror("fopen panvk_triangle.ppm");
+    } else {
+        fprintf(ppm, "P6\n%u %u\n255\n", W, H);
+
+        for (uint32_t y = 0; y < H; y++) {
+            uint8_t *row = base + y * layout.rowPitch;
+
+            for (uint32_t x = 0; x < W; x++) {
+                uint8_t *px = &row[x * 4];
+                fwrite(px, 1, 3, ppm);
+            }
+        }
+
+        fclose(ppm);
+        printf("VISUAL_DUMP: panvk_triangle.ppm\\n");
     }
 
     return 0;

@@ -1,0 +1,17 @@
+# Build artifacts — this repo holds sources and evidence, never build output.
+build/
+*.o
+*.a
+*.so
+*.so.*
+
+# Compiled test harnesses (the .c files are the deliverable, not the binaries).
+tests/**/*_test
+tests/**/*_test_*
+!tests/**/*_test*.c
+!tests/**/*_test*.c.*
+
+# Editor / OS noise
+*~
+*.swp
+.DS_Store
