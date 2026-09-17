@@ -23,6 +23,7 @@ not a guess:
 | `0014-panvk-v9-arch-enablement-common` | ✅ yes | **current** — contains `jm_archs`, `foreach`, `PER_ARCH_FUNCS(9)` |
 | `0015-termux-android-build-fixes` | ✅ yes | **current** |
 | `0020-panvk-v9-fau-count-from-shader-metadata` | ❌ by design | Applies to **exactly one** tree state: the side-A source `panvk_vX_cmd_draw.c.ab_fau_off`, i.e. the post-`0010` draw path with these two lines removed. Verified to apply cleanly there. It does **not** apply to bare upstream (the code does not exist until `0010`) and does **not** apply to the current tree either (the change is already present, so the hunk context fails). Already contained in `0010`. |
+| `0030-phase4-restab-instrumentation` | ✅ yes | **current** — observation only. Adds an env-gated `PANVK_DEBUG_RESTAB` dump of `used_set_mask`, `first_unused_set`, `res_count`, `entry_bytes`, and every resource-table entry. Emits nothing and changes no descriptor when the variable is unset, so the validated baseline is unaffected — confirmed by an unchanged 512/4096 pixel result. Applies cleanly to the pristine base file; does **not** apply to the active tree because it is already present there. |
 | `9001-termux-android-detection-fixes.UPSTREAM-THIRDPARTY` | ✅ yes | third-party, from LukeValen/panvk-mali-g52 |
 
 ## The set that actually reproduces the current driver

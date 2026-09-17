@@ -1,0 +1,28 @@
+T4.2.1 — runtime resource-table observation, current triangle workload
+date        : 2026-09-17T03:44:36+00:00
+device      : Mali-G57 MC2, PRODUCT_ID 0x9093, v9/JM, kbase r54p1, UAPI 11.46
+ICD sha256  : d7777618b9cee3dd6321e44b973e89ceed079ae8a15801dac99b2d0085fcfe8d
+test sha256 : 30e1acc95091ee4709810e3ce44d257cdb454af3ed24ac0db44b8fa69c379f23
+instrumented: src/panfrost/vulkan/panvk_vX_cmd_desc_state.c (PANVK_DEBUG_RESTAB, gated)
+runs        : 3, identical after GPU-address normalisation
+
+OBSERVED (VERIFIED-HW):
+  used_set_mask    = 0x0
+  first_unused_set = 0
+  res_count        = 4    <- ALIGN_POT(1+0, 4)
+  entry_bytes      = 16   <- RESOURCE descriptor size, now runtime-confirmed
+  table_bytes      = 64
+  res_table        = ptr.gpu | 4
+  two res_table preparations per draw:
+    stage A: driver_set size = 544 bytes
+    stage B: driver_set size = 32 bytes
+  entries 1..3     = PAD (zeroed), no application set present
+  pixels           = 512/4096 all three runs (baseline unregressed)
+
+CORRECTION to docs/resource-table-findings.md:
+  Doc states used_set_mask = 0b1 and first_unused_set = 1, giving
+  ALIGN_POT(2,4) = 4. Runtime shows mask = 0x0 and first_unused_set = 0,
+  so the true derivation is ALIGN_POT(1,4) = 4. Both arrive at 4, which is
+  why the error was invisible. The workload binds NO application
+  descriptor set at all; only the driver set (entry 0) is populated.
+  The earlier audit was a SOURCE dump, never a runtime measurement.

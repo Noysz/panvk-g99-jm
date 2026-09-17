@@ -1,0 +1,86 @@
+diff --git a/src/panfrost/vulkan/panvk_vX_cmd_desc_state.c b/src/panfrost/vulkan/panvk_vX_cmd_desc_state.c
+index 6beab5f..8df520a 100644
+--- a/src/panfrost/vulkan/panvk_vX_cmd_desc_state.c
++++ b/src/panfrost/vulkan/panvk_vX_cmd_desc_state.c
+@@ -11,6 +11,9 @@
+ 
+ #include "genxml/gen_macros.h"
+ 
++#include <stdio.h>
++#include <stdlib.h>
++
+ #include "panvk_buffer.h"
+ #include "panvk_cmd_alloc.h"
+ #include "panvk_cmd_buffer.h"
+@@ -268,6 +271,25 @@ panvk_per_arch(cmd_prepare_shader_res_table)(
+    if (!ptr.gpu)
+       return VK_ERROR_OUT_OF_DEVICE_MEMORY;
+ 
++   /* PHASE4-RESTAB: observation only, gated on PANVK_DEBUG_RESTAB.
++    * Emits nothing and changes no descriptor when the variable is unset, so
++    * the validated baseline is bit-identical without it. */
++   static int restab_dbg = -1;
++   if (restab_dbg < 0)
++      restab_dbg = getenv("PANVK_DEBUG_RESTAB") ? 1 : 0;
++   if (restab_dbg)
++      fprintf(stderr,
++              "[PANVK_DEBUG_RESTAB] used_set_mask=0x%x first_unused_set=%u "
++              "res_count=%u align=%u repeat=%u ptr.gpu=0x%llx "
++              "res_table=0x%llx entry_bytes=%u table_bytes=%u\n",
++              desc_info->used_set_mask, first_unused_set, res_count,
++              (unsigned)MALI_RESOURCE_TABLE_SIZE_ALIGNMENT, repeat_count,
++              (unsigned long long)ptr.gpu,
++              (unsigned long long)(ptr.gpu | res_count),
++              (unsigned)sizeof(struct mali_resource_packed),
++              (unsigned)(res_count * repeat_count *
++                         sizeof(struct mali_resource_packed)));
++
+    struct mali_resource_packed *res_table = ptr.cpu;
+ 
+    for (uint32_t r = 0; r < repeat_count; r++) {
+@@ -281,6 +303,13 @@ panvk_per_arch(cmd_prepare_shader_res_table)(
+          cfg.size = shader_desc_state->driver_set.size;
+          cfg.contains_descriptors = cfg.size > 0;
+       }
++      if (restab_dbg)
++         fprintf(stderr,
++                 "[PANVK_DEBUG_RESTAB]   r=%u entry[0] DRIVER_SET "
++                 "addr=0x%llx size=%u contains_desc=%d\n",
++                 r, (unsigned long long)drv_set_addr,
++                 shader_desc_state->driver_set.size,
++                 shader_desc_state->driver_set.size > 0);
+ 
+       for (uint32_t i = 0; i < first_unused_set; i++) {
+          const struct panvk_descriptor_set *set = desc_state->sets[i];
+@@ -296,6 +325,20 @@ panvk_per_arch(cmd_prepare_shader_res_table)(
+                cfg.size = 0;
+             }
+          }
++         if (restab_dbg) {
++            if (desc_info->used_set_mask & BITFIELD_BIT(i))
++               fprintf(stderr,
++                       "[PANVK_DEBUG_RESTAB]   r=%u entry[%u] SET%u "
++                       "addr=0x%llx size=%u desc_count=%u\n",
++                       r, i + 1, i, (unsigned long long)set->descs.dev,
++                       set->desc_count * PANVK_DESCRIPTOR_SIZE,
++                       set->desc_count);
++            else
++               fprintf(stderr,
++                       "[PANVK_DEBUG_RESTAB]   r=%u entry[%u] SET%u "
++                       "UNUSED (zeroed)\n",
++                       r, i + 1, i);
++         }
+       }
+       for (uint32_t i = first_unused_set + 1; i < res_count; i++) {
+          pan_pack(&res_table[i], RESOURCE, cfg) {
+@@ -303,6 +346,10 @@ panvk_per_arch(cmd_prepare_shader_res_table)(
+             cfg.contains_descriptors = false;
+             cfg.size = 0;
+          }
++         if (restab_dbg)
++            fprintf(stderr,
++                    "[PANVK_DEBUG_RESTAB]   r=%u entry[%u] PAD (zeroed)\n",
++                    r, i);
+       }
+ 
+       res_table += res_count;
