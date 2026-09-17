@@ -7,7 +7,9 @@ way. Sources: [`tests/raw-jm/`](../tests/raw-jm/).
 ## `WRITE_VALUE` atom executes — VERIFIED
 
 Harness: [`tests/raw-jm/kbase_write_value_core_req_test.c`](../tests/raw-jm/kbase_write_value_core_req_test.c).
-Live output, re-run while writing this document:
+Committed artifact: [`evidence/logs/raw_jm_write_value_20260917-004008.log`](../evidence/logs/raw_jm_write_value_20260917-004008.log) — three
+consecutive runs, with the source and rebuilt-binary SHA-256 recorded in the same
+file. Output:
 
 ```
 tgt_gpu=0x41000 cpu_va=0x77a971b000

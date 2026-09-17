@@ -3,7 +3,7 @@
 SHA-256 of every evidence artifact, so a reader can confirm the file they
 are looking at is the one the documentation refers to.
 
-Generated: 2026-09-17T00:20:37Z
+Generated: 2026-09-17T00:42:35Z
 
 ```
 069a8b63bdb78bac3243de1cc09ea1a52b2a73eea64c3cac1b4d9a836aeda807  evidence/builds/ab_A2_build.log
@@ -47,6 +47,7 @@ e16b341b7fb45534d05cc9926a92797973672ec7a2a8c85bdbf7db6f5a46932b  evidence/logs/
 d6a9dd88f63794e13d0432e8685c0249263d4a33b4603223c50844e7d157a592  evidence/logs/ab_B_run3.log
 f54f187c4512da6b16b64d6ed2c1fdc22b4c8b3a401cfac059fb632da46898a8  evidence/logs/b_final_run.log
 a07a8f3b443bae547a98563802563808e91a30ddc2ba25f8ce810ed4b7bd9e13  evidence/logs/fs_only_run.log
+d31a49c489edb0392ab02096128877a5bf29d1fcaa3f2a3677f946a2a7cf3b86  evidence/logs/raw_jm_write_value_20260917-004008.log
 0bbb78e0ed7ac021e16cde1a14dfe6dba1b18f7c1e361161627f686606f1a74b  evidence/logs/vs_only_run.log
 a1f63a220970b38742622cd351c7aec61f76f9c36b4c99f484c27dd7f144ad43  evidence/schema/PANVK_G57_resource_table_audit_20260917-013808.log
 1d9cf25dbc723d3936afe0614d874886ffb774edb172faf3bb0df4c2e28ad8ce  results/gpuprops-g57-r54p1.txt

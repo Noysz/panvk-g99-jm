@@ -55,7 +55,7 @@ Descriptor-level confirmation:
 | [`tests/test_kbase3.c`](../tests/raw-jm/test_kbase3.c) | `GET_GPUPROPS`, 83 props, no-context path | **VERIFIED** 749 B |
 | [`tests/raw-jm/kbase_gpuprops_test.c`](../tests/raw-jm/kbase_gpuprops_test.c) | gpuprops decode | **VERIFIED** |
 | [`tests/raw-jm/kbase_submit_test.c`](../tests/raw-jm/kbase_submit_test.c) | atom submission | **VERIFIED** |
-| [`tests/raw-jm/kbase_write_value_core_req_test.c`](../tests/raw-jm/kbase_write_value_core_req_test.c) | `WRITE_VALUE` atom, stride 64 | **VERIFIED** `event=0x4`, `target=0x2a2a2a2a` |
+| [`tests/raw-jm/kbase_write_value_core_req_test.c`](../tests/raw-jm/kbase_write_value_core_req_test.c) | `WRITE_VALUE` atom, stride 64 | **VERIFIED** `event=0x4`, `target=0x2a2a2a2a` — [log](../evidence/logs/raw_jm_write_value_20260917-004008.log) |
 | [`tests/raw-jm/kbase_write_value_core_req_test_stride56.c`](../tests/raw-jm/kbase_write_value_core_req_test_stride56.c) | stride 56 | **HISTORICAL-SUPERSEDED** |
 | [`tests/raw-jm/verify_atom_size.c`](../tests/raw-jm/verify_atom_size.c) | `sizeof(base_jd_atom_v2)` | **VERIFIED** 56 |
 | [`tests/raw-jm/verify_atom_size_v2.c`](../tests/raw-jm/verify_atom_size_v2.c) | same, refined | **VERIFIED** 56 |

@@ -1,0 +1,31 @@
+=== raw-JM WRITE_VALUE atom test — captured runtime output ===
+date_utc      : 2026-09-17T00:40:08Z
+host          : Linux 6.17.0-PRoot-Distro aarch64
+device        : Infinix X6853 / mt6789 / Android 16
+mali node     : crw-rw-rw-. 10, 97
+source        : tests/raw-jm/kbase_write_value_core_req_test.c
+source sha256 : c69e4d30f719e8e5cf009873c69942aad71081b2059b2619f1cceb3e90a7dea4
+
+--- rebuilt from source for this capture ---
+compile exit  : 0
+binary sha256 : 448ed1a11ef1de377c33c46760d051a2b190f98ae04e943b11d1355f1f5e2735
+
+--- run 1 ---
+tgt_gpu=0x41000 cpu_va=0x78b90db000
+WRITE_VALUE core_req=0x2 submitted, atom_size=56 stride=64
+event=0x4, target=0x2a2a2a2a
+--- run 2 ---
+tgt_gpu=0x41000 cpu_va=0x7174833000
+WRITE_VALUE core_req=0x2 submitted, atom_size=56 stride=64
+event=0x4, target=0x2a2a2a2a
+--- run 3 ---
+tgt_gpu=0x41000 cpu_va=0x7a80828000
+WRITE_VALUE core_req=0x2 submitted, atom_size=56 stride=64
+event=0x4, target=0x2a2a2a2a
+
+=== interpretation ===
+atom_size=56 is sizeof(struct base_jd_atom_v2), enforced by _Static_assert.
+stride=64 is what KBASE_IOCTL_JOB_SUBMIT requires; 56 misbehaves.
+event=0x4 is BASE_JD_EVENT_TERMINATED (DONE is 0x01), yet target shows
+0x2a2a2a2a, i.e. the atom's write DID reach memory. Why a completed write
+reports TERMINATED is NOT RESOLVED.

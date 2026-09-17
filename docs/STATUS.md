@@ -98,6 +98,7 @@ event=0x4, target=0x2a2a2a2a
 
 `sizeof(base_jd_atom_v2) == 56` but `JOB_SUBMIT.stride` must be **64**.
 `event_code 0x4` is `BASE_JD_EVENT_TERMINATED`, **not** `DONE` (`DONE` = `0x01`).
+Artifact: [`evidence/logs/raw_jm_write_value_20260917-004008.log`](../evidence/logs/raw_jm_write_value_20260917-004008.log).
 Details: [raw-jm-progress.md](raw-jm-progress.md).
 
 ## Corrected earlier conclusions
