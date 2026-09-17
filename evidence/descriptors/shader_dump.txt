@@ -1,0 +1,81 @@
+vkCreateInstance ok
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+EnumeratePhysicalDevices(count) ok
+EnumeratePhysicalDevices(fetch) ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=32768 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x2
+MESA: error: kbase: MEM_ALLOC req: va_pages=35157 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x6
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x280f kmod_flags=0x0
+vkCreateDevice ok
+vkCreateImage ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x280f kmod_flags=0x0
+vkAllocateMemory(image) ok
+[PANVK_DEBUG_BIND] image plane bind (non-sparse) base=0x7b55c25000 (mem->addr.dev=0x7b55c25000 offset=0)
+vkBindImageMemory ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x380f kmod_flags=0x40
+vkCreateImageView ok
+vkMapMemory(sentinel-fill) ok
+sentinel 0xAA ditulis ke image memory (row pitch=256) sebelum submit
+vkCreateShaderModule(vert) ok
+vkCreateShaderModule(frag) ok
+vkCreatePipelineLayout ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x1817 kmod_flags=0x41
+vkCreateGraphicsPipelines ok
+vkCreateCommandPool ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+vkAllocateCommandBuffers ok
+vkBeginCommandBuffer ok
+calling vkCmdBeginRendering (with color attachment)...
+calling vkCmdDraw(3,1,0,0) -- ini yang exercise Malloc Vertex Job v9...
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+[PANVK_DEBUG_VP] VkViewport: w=64.000000 h=64.000000 x=0.000000 y=0.000000
+[PANVK_DEBUG_VP] computed scale: x=32.000000 y=32.000000
+[PANVK_DEBUG_VP] computed offset: x=32.000000 y=32.000000
+[PANVK_DEBUG_FLAGS1] sample_mask=0xffff render_target_mask=0x1 bound_attachments=0x1
+[PANVK_DEBUG_MVJ] dump 384 byte job descriptor:
+[PANVK_DEBUG_MVJ] +000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +016: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +032: 08 80 03 00 00 00 00 00 00 00 00 00 03 00 00 00
+[PANVK_DEBUG_MVJ] +048: 01 00 00 00 10 00 00 00 40 64 5a 54 7b 00 00 00
+[PANVK_DEBUG_MVJ] +064: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +096: 00 00 00 00 00 00 00 00 00 00 00 00 3f 00 3f 00
+[PANVK_DEBUG_MVJ] +112: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +128: 00 00 01 00 ff ff 01 00 01 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +144: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f
+[PANVK_DEBUG_MVJ] +160: 00 00 00 00 00 00 00 00 a0 66 5a 54 7b 00 00 00
+[PANVK_DEBUG_MVJ] +176: 81 66 5a 54 7b 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +192: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +208: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +224: 84 63 5a 54 7b 00 00 00 c0 10 c2 55 7b 00 00 00
+[PANVK_DEBUG_MVJ] +240: c0 60 5a 54 7b 00 00 00 e0 63 5a 54 7b 00 00 00
+[PANVK_DEBUG_MVJ] +256: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +272: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +288: 04 63 5a 54 7b 00 00 00 80 10 c2 55 7b 00 00 00
+[PANVK_DEBUG_MVJ] +304: c0 60 5a 54 7b 00 00 00 c0 63 5a 54 7b 00 00 00
+[PANVK_DEBUG_MVJ] +320: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +336: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +352: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +368: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+vkCmdDraw returned (no crash)
+[PANVK_DEBUG_RT] linear color attachment base=0x7b55c25000 row_stride=256 surf_stride=16384
+vkCmdEndRendering returned (no crash)
+vkEndCommandBuffer ok
+calling vkQueueSubmit...
+[PANVK_DEBUG_SUBMIT] vtc_jc ret=0
+[PANVK_DEBUG_HEAP] SESUDAH vtc_jc (vertex+tiler) bo->flags=0x2 first64: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_SUBMIT] frag_jc ret=0
+[PANVK_DEBUG_HEAP] SESUDAH frag_jc (fragment) bo->flags=0x2 first64: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+vkQueueSubmit ok
+calling vkQueueWaitIdle...
+vkQueueWaitIdle ok
+vkMapMemory(image-direct) ok
+
+--- ringkasan pixel image 64x64 (rowPitch=256) ---
+total piksel non-hitam: 0 dari 4096
+(8,8)=  0,  0,  0,255  (24,8)=  0,  0,  0,255  (40,8)=  0,  0,  0,255  (56,8)=  0,  0,  0,255  
+(8,24)=  0,  0,  0,255  (24,24)=  0,  0,  0,255  (40,24)=  0,  0,  0,255  (56,24)=  0,  0,  0,255  
+(8,40)=  0,  0,  0,255  (24,40)=  0,  0,  0,255  (40,40)=  0,  0,  0,255  (56,40)=  0,  0,  0,255  
+(8,56)=  0,  0,  0,255  (24,56)=  0,  0,  0,255  (40,56)=  0,  0,  0,255  (56,56)=  0,  0,  0,255  
+
+CLEAR-ONLY: image ke-clear (hitam) tapi triangle nggak ke-render -- draw doang yang gagal.

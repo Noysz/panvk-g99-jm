@@ -1,0 +1,120 @@
+vkCreateInstance ok
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+EnumeratePhysicalDevices(count) ok
+EnumeratePhysicalDevices(fetch) ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=32768 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x2
+MESA: error: kbase: MEM_ALLOC req: va_pages=35157 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x6
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x280f kmod_flags=0x0
+vkCreateDevice ok
+vkCreateImage ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x280f kmod_flags=0x0
+vkAllocateMemory(image) ok
+[PANVK_DEBUG_BIND] image plane bind (non-sparse) base=0x761320c000 (mem->addr.dev=0x761320c000 offset=0)
+vkBindImageMemory ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x380f kmod_flags=0x40
+vkCreateImageView ok
+vkMapMemory(sentinel-fill) ok
+sentinel 0xAA ditulis ke image memory (row pitch=256) sebelum submit
+vkCreateShaderModule(vert) ok
+vkCreateShaderModule(frag) ok
+vkCreatePipelineLayout ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x1817 kmod_flags=0x41
+[PANVK_DEBUG_SHADERBIN] stage=VERTEX bin_size=256 bytes:
+  7b 0d 00 00 04 80 5e 00 3c c4 c0 9c 04 c2 f8 00
+  7c c8 c0 98 04 c3 f8 00 c0 c0 02 11 09 c4 b4 00
+  42 c0 03 11 01 c2 b4 00 43 c0 44 10 01 c3 b4 00
+  86 00 00 00 00 c4 91 00 42 c0 87 44 00 c2 50 01
+  87 00 00 00 00 c4 91 00 43 c0 86 44 00 c3 50 01
+  84 00 00 00 00 c4 91 00 42 81 44 00 00 c2 b2 00
+  83 00 00 00 00 c4 91 00 43 80 44 00 00 c3 b2 00
+  43 00 00 00 00 c4 91 00 42 00 00 00 00 c5 91 00
+  85 00 00 00 00 c6 91 00 d0 00 00 00 00 c7 91 08
+  40 00 00 79 08 44 61 78 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_SHADERBIN] stage=FRAGMENT bin_size=128 bytes:
+  00 00 00 00 00 c0 00 40 7c d0 ea 00 02 bc 7d 08
+  d0 00 00 00 00 c0 91 68 c0 00 00 00 00 c1 91 00
+  c0 00 00 00 00 c2 91 00 d0 00 00 00 00 c3 91 48
+  84 00 3c 32 08 40 7f 78 c0 00 00 00 00 f0 10 01
+  c0 85 00 00 10 c1 2f 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+vkCreateGraphicsPipelines ok
+vkCreateCommandPool ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+vkAllocateCommandBuffers ok
+vkBeginCommandBuffer ok
+calling vkCmdBeginRendering (with color attachment)...
+calling vkCmdDraw(3,1,0,0) -- ini yang exercise Malloc Vertex Job v9...
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+[PANVK_DEBUG_BLEND] rt=0 color_write_enables=0xff fmt=37 write_mask=0xf
+[PANVK_DEBUG_BLENDFIX] blend_ptr.gpu=0x7611b963c0 bd_count=1 state.blend_descs[0]=0xed00000000019
+[PANVK_DEBUG_VP] VkViewport: w=64.000000 h=64.000000 x=0.000000 y=0.000000
+[PANVK_DEBUG_VP] computed scale: x=32.000000 y=32.000000
+[PANVK_DEBUG_VP] computed offset: x=32.000000 y=32.000000
+[PANVK_DEBUG_TILERCTX] 192 byte Tiler Context desc: 00 00 00 00 00 00 00 00 ff 00 04 00 3f 00 3f 00 00 00 00 00 00 00 00 00 20 64 b9 11 76 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_TILERHEAP] 32 byte Tiler Heap desc: 29 03 00 00 00 00 00 08 00 00 e0 6b 73 00 00 00 00 00 e0 6b 73 00 00 00 00 00 e0 73 73 00 00 00
+[PANVK_DEBUG_FLAGS1] sample_mask=0xffff render_target_mask=0x1 bound_attachments=0x1
+[PANVK_DEBUG_DS] 32 byte Depth/stencil desc: 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 c0 e4 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_BLENDRAW] 16 byte Blend desc(s): 00 0a 00 00 22 21 12 f0 19 00 00 00 00 d0 0e 00
+[PANVK_DEBUG_MVJ] sesudah pan_jc_add_job gpu=0x7611b96500 header: type=11 (MALLOC_VERTEX == BENAR) index=1 dep1=0 dep2=0
+[PANVK_DEBUG_MVJ] dump 384 byte job descriptor:
+[PANVK_DEBUG_MVJ] +000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +016: 16 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +032: 08 80 03 00 00 00 00 00 00 00 00 00 03 00 00 00
+[PANVK_DEBUG_MVJ] +048: 01 00 00 00 10 00 00 00 40 64 b9 11 76 00 00 00
+[PANVK_DEBUG_MVJ] +064: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +096: 00 00 00 00 00 00 00 00 00 00 00 00 3f 00 3f 00
+[PANVK_DEBUG_MVJ] +112: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +128: 00 00 81 00 ff ff 01 00 01 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +144: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f
+[PANVK_DEBUG_MVJ] +160: 00 00 00 00 00 00 00 00 80 66 b9 11 76 00 00 00
+[PANVK_DEBUG_MVJ] +176: c1 63 b9 11 76 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +192: 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +208: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +224: 84 63 b9 11 76 00 00 00 c0 80 20 13 76 00 00 00
+[PANVK_DEBUG_MVJ] +240: c0 60 b9 11 76 00 00 00 f0 63 b9 11 76 00 00 00
+[PANVK_DEBUG_MVJ] +256: 00 00 00 00 04 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +272: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +288: 04 63 b9 11 76 00 00 00 80 80 20 13 76 00 00 00
+[PANVK_DEBUG_MVJ] +304: c0 60 b9 11 76 00 00 00 d0 63 b9 11 76 00 00 00
+[PANVK_DEBUG_MVJ] +320: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +336: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +352: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +368: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] jc state: first_job=0x7611b96500 job_index=1 tiler_dep=1
+vkCmdDraw returned (no crash)
+[PANVK_DEBUG_RTFMT] rt=0 fmt=84 rt_count=1
+[PANVK_DEBUG_RT] linear color attachment base=0x761320c000 row_stride=256 surf_stride=16384
+vkCmdEndRendering returned (no crash)
+vkEndCommandBuffer ok
+calling vkQueueSubmit...
+[PANVK_DEBUG_SUBMIT] vtc_jc ret=0
+[PANVK_DEBUG_JOBSTATUS] vtc_jc job[0] type=11 exception_status=0x01 (DONE) first_incomplete_task=0 fault_pointer=0x0
+[PANVK_DEBUG_JOBSTATUS] vtc_jc job[1] type=9 exception_status=0x00 (NOT_STARTED) first_incomplete_task=0 fault_pointer=0x0
+[PANVK_DEBUG_HEAP] SESUDAH vtc_jc (vertex+tiler) bo->flags=0x2 dev=0x736be00000 size=134217728 host=0x736be00000 mincore=absent -- UNREADABLE (I/O error) => halaman belum ter-commit, tiler tidak menulis apa pun
+[PANVK_DEBUG_SUBMIT] frag_jc ret=0
+[PANVK_DEBUG_JOBSTATUS] frag_jc job[0] type=11 exception_status=0x01 (DONE) first_incomplete_task=0 fault_pointer=0x0
+[PANVK_DEBUG_JOBSTATUS] frag_jc job[1] type=9 exception_status=0x01 (DONE) first_incomplete_task=0 fault_pointer=0x0
+[PANVK_DEBUG_HEAP] SESUDAH frag_jc (fragment) bo->flags=0x2 dev=0x736be00000 size=134217728 host=0x736be00000 mincore=absent -- UNREADABLE (I/O error) => halaman belum ter-commit, tiler tidak menulis apa pun
+vkQueueSubmit ok
+calling vkQueueWaitIdle...
+vkQueueWaitIdle ok
+vkMapMemory(image-direct) ok
+
+--- ringkasan pixel image 64x64 (rowPitch=256) ---
+total piksel non-hitam: 4096 dari 4096
+(8,8)=255,  0,  0,255  (24,8)=255,  0,  0,255  (40,8)=255,  0,  0,255  (56,8)=255,  0,  0,255  
+(8,24)=255,  0,  0,255  (24,24)=255,  0,  0,255  (40,24)=255,  0,  0,255  (56,24)=255,  0,  0,255  
+(8,40)=255,  0,  0,255  (24,40)=255,  0,  0,255  (40,40)=255,  0,  0,255  (56,40)=255,  0,  0,255  
+(8,56)=255,  0,  0,255  (24,56)=255,  0,  0,255  (40,56)=255,  0,  0,255  (56,56)=255,  0,  0,255  
+
+SUCCESS: pixel (0,0) merah -- CmdDraw v9 beneran nge-render!

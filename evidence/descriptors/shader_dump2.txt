@@ -1,0 +1,305 @@
+vkCreateInstance ok
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+EnumeratePhysicalDevices(count) ok
+EnumeratePhysicalDevices(fetch) ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=32768 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x2
+MESA: error: kbase: MEM_ALLOC req: va_pages=35157 commit_pages=0 extension=512 flags=0x2a0f kmod_flags=0x6
+MESA: error: kbase: MEM_ALLOC req: va_pages=1 commit_pages=1 extension=0 flags=0x380f kmod_flags=0x40
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x280f kmod_flags=0x0
+vkCreateDevice ok
+vkCreateImage ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x280f kmod_flags=0x0
+vkAllocateMemory(image) ok
+[PANVK_DEBUG_BIND] image plane bind (non-sparse) base=0x7ec217b000 (mem->addr.dev=0x7ec217b000 offset=0)
+vkBindImageMemory ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x380f kmod_flags=0x40
+vkCreateImageView ok
+vkMapMemory(sentinel-fill) ok
+sentinel 0xAA ditulis ke image memory (row pitch=256) sebelum submit
+vkCreateShaderModule(vert) ok
+vkCreateShaderModule(frag) ok
+vkCreatePipelineLayout ok
+shader: MESA_SHADER_VERTEX
+source_blake3: {0x1087e2ef, 0x31611aa5, 0x5ddd3d3c, 0xc81cd670, 0xd6d83f30, 0xb7b7bfe6, 0x94e87de6, 0xc24ea381}
+name: 
+outputs_written: 0
+system_values_read: 0x00000000'00000000'00000000'00000200
+api_subgroup_size: 16
+max_subgroup_size: 16
+min_subgroup_size: 16
+bit_sizes_int: 0x20
+flrp_lowered: true
+outputs: 1
+decl_var shader_out INTERP_MODE_NONE none vec4 .gl_Position (VARYING_SLOT_POS.xyzw, 0, 0)
+decl_function main () (entrypoint)
+
+impl main {
+    block b0:   // preds:
+    32     %0 = @load_vertex_id
+    32     %1 = load_const (0x00000001)
+    32     %2 = ilt_pan %0, %1 (0x1)
+    32     %3 = inot %2
+    32     %4 = load_const (0x00000002)
+    32     %5 = ilt_pan %0, %4 (0x2)
+    32     %6 = iand %5, %3
+    32     %7 = ior %2, %5
+    32     %8 = load_const (0x00000000)
+    32x2   %9 = @load_push_constant (%8 (0x0)) (base=0, range=0, align_mul=4, align_offset=0)
+    32    %10 = load_const (0x0000000c = 12)
+    32x3  %11 = @load_push_constant (%10 (0xc)) (base=0, range=0, align_mul=4, align_offset=0)
+    32    %12 = load_const (0xbf800000 = -1082130432 = 3212836864)
+    32    %13 = load_const (0x40400000 = 1077936128)
+    32    %14 = bcsel_pan %6, %13 (0x40400000), %12 (0xbf800000)
+    32    %15 = bcsel_pan %7, %12 (0xbf800000), %13 (0x40400000)
+    32    %16 = ffma %14, %9.x, %11.x
+    32    %17 = ffma %15, %9.y, %11.y
+    32    %18 = @load_idvs_output_buf_index_pan
+    32    %19 = load_const (0x3d000000 = 0.031250 = 1023410176)
+    32x2  %20 = @lea_buf_pan (%19 (0x3d000000), %18)
+    64    %21 = pack_64_2x32 %20
+    32    %22 = load_const (0x3f800000 = 1.000000)
+    32x4  %23 = vec4 %16, %17, %11.z, %22 (0x3f800000)
+                @store_global (%23, %21) (wrmask=xyzw, access=istream-pan, align_mul=4, align_offset=0)
+                // succs: b1
+    block b1:
+}
+
+block0 {
+32      %31 = MOV.i32 r59
+32      %24 = MOV.i32 r60
+32      %2 = ICMP_OR.s32.lt.m1 %24, u258.b3, u256
+32      %3 = LSHIFT_OR.i32 u256, %2.neg, u256.b0
+32      %5 = ICMP_OR.s32.lt.m1 %24, u260.b2, u256
+32      %6 = LSHIFT_AND.i32 %5, %3, u256.b0
+32      %7 = LSHIFT_OR.i32 %2, %5, u256.b0
+32      %36 = MOV.i32 u3[1]
+32      %14 = CSEL.u32.eq %6, u256, u3, %36
+32      %37 = MOV.i32 u3
+32      %15 = CSEL.u32.eq %7, u256, u3[1], %37
+32      %38 = MOV.i32 u1[1]
+32      %16 = FMA.f32 %14, u0, %38
+32      %39 = MOV.i32 u2
+32      %17 = FMA.f32 %15, u0[1], %39
+32x2    %20 = LEA_BUF_IMM.table13 %31
+32      %33, %34 = SPLIT.i32 %20
+32x4    %23 = COLLECT.i32 %16, %17, u2[1], u264 
+        STORE.i128 %23, %33, %34, byte_offset:0
+}
+
+block0 {
+        r0:r1 = LEA_BUF_IMM.table13 r59
+        r2 = ICMP_OR.s32.lt.m1 r60, u258.b3, u256
+        r3 = ICMP_OR.s32.lt.m1 r60, u260.b2, u256
+        r4 = LSHIFT_OR.i32 u256, r2.neg, u256.b0
+        r2 = LSHIFT_OR.i32 r2, r3, u256.b0
+        r3 = LSHIFT_AND.i32 r3, r4, u256.b0
+        r4 = MOV.i32 u3
+        r2 = CSEL.u32.eq r2, u256, u3[1], r4
+        r4 = MOV.i32 u3[1]
+        r3 = CSEL.u32.eq r3, u256, u3, r4
+        r4 = MOV.i32 u2
+        r2 = FMA.f32 r2, u0[1], r4
+        r4 = MOV.i32 u1[1]
+        r3 = FMA.f32 r3, u0, r4
+        r4 = MOV.i32 r3
+        r5 = MOV.i32 r2
+        r6 = MOV.i32 u2[1]
+        r7 = MOV.i32 u264
+        STORE.i128 r4:r5:r6:r7, r0, r1, byte_offset:0
+}
+
+block0 {
+        r0:r1 = LEA_BUF_IMM.table13 r59^
+        r2 = ICMP_OR.s32.lt.m1 r60, u258.b3, u256
+        r3 = ICMP_OR.s32.lt.m1 r60^, u260.b2, u256
+        r4 = LSHIFT_OR.i32 u256, r2.neg, u256.b0
+        r2 = LSHIFT_OR.i32 r2^, r3, u256.b0
+        r3 = LSHIFT_AND.i32 r3^, r4^, u256.b0
+        r4 = MOV.i32 u3
+        r2 = CSEL.u32.eq r2^, u256, u3[1], r4^
+        r4 = MOV.i32 u3[1]
+        r3 = CSEL.u32.eq r3^, u256, u3, r4^
+        r4 = MOV.i32 u2
+        r2 = FMA.f32 r2^, u0[1], r4^
+        r4 = MOV.i32 u1[1]
+        r3 = FMA.f32 r3^, u0, r4^
+        r4 = MOV.i32 r3^
+        r5 = MOV.i32 r2^
+        r6 = MOV.i32 u2[1]
+        r7 = MOV.i32.flow1 u264
+        STORE.i128.flow15 r4:r5:r6:r7, r0^, r1^, byte_offset:0
+}
+
+   LEA_BUF_IMM.slot0 @r0:r1, r59^, table:0xD, index:0x0
+   ICMP_OR.s32.lt.m1 r2, r60, 0x1000000.b3, 0x0
+   ICMP_OR.s32.lt.m1 r3, r60^, 0x3020100.b2, 0x0
+   LSHIFT_OR.i32 r4, 0x0, 0x0.b00, r2.not
+   LSHIFT_OR.i32 r2, r2^, 0x0.b00, r3
+   LSHIFT_AND.i32 r3, r3^, 0x0.b00, r4^
+   MOV.i32 r4, u3.w0
+   CSEL.u32.eq r2, r2^, 0x0, u3.w1, r4^
+   MOV.i32 r4, u3.w1
+   CSEL.u32.eq r3, r3^, 0x0, u3.w0, r4^
+   MOV.i32 r4, u2.w0
+   FMA.f32 r2, r2^, u0.w1, r4^
+   MOV.i32 r4, u1.w1
+   FMA.f32 r3, r3^, u0.w0, r4^
+   MOV.i32 r4, r3^
+   MOV.i32 r5, r2^
+   MOV.i32 r6, u2.w1
+   MOV.i32.wait0 r7, 0x3F800000
+   STORE.i128.istream.slot1.end @r4:r5:r6:r7, [r0^:r1^], offset:0
+
+shader: MESA_SHADER_VERTEX
+source_blake3: {0x1087e2ef, 0x31611aa5, 0x5ddd3d3c, 0xc81cd670, 0xd6d83f30, 0xb7b7bfe6, 0x94e87de6, 0xc24ea381}
+name: 
+outputs_written: 0
+system_values_read: 0x00000000'00000000'00000000'00000200
+api_subgroup_size: 16
+max_subgroup_size: 16
+min_subgroup_size: 16
+bit_sizes_int: 0x20
+flrp_lowered: true
+outputs: 1
+decl_var shader_out INTERP_MODE_NONE none vec4 .gl_Position (VARYING_SLOT_POS.xyzw, 0, 0)
+decl_function main () (entrypoint)
+
+impl main {
+    block b0:  // preds:, succs: b1
+    block b1:
+}
+
+block0 {
+}
+
+block0 {
+}
+
+block0 {
+}
+
+
+MESA: error: kbase: MEM_ALLOC req: va_pages=4 commit_pages=4 extension=0 flags=0x1817 kmod_flags=0x41
+shader: MESA_SHADER_FRAGMENT
+source_blake3: {0xfea8773b, 0xafa93f19, 0x39ed98dc, 0xc3adf6fb, 0x189e1675, 0x2fb429e8, 0xf67d34af, 0xe6bbc81f}
+name: 
+outputs_written: 4
+api_subgroup_size: 16
+max_subgroup_size: 16
+min_subgroup_size: 16
+known_interpolation_qualifiers: true
+flrp_lowered: true
+origin_upper_left: true
+outputs: 1
+decl_var shader_out INTERP_MODE_NONE none vec4 outColor (FRAG_RESULT_DATA0.xyzw, 0, 0)
+decl_function main () (entrypoint)
+
+impl main {
+    block b0:  // preds:
+    32    %0 = @load_cumulative_coverage_pan
+    32    %1 = load_const (0x3f800000 = 1.000000 = 1065353216)
+    32    %2 = @atest_pan (%0, %1 (0x3f800000))
+    32    %3 = load_const (0x00000010 = 16)
+    64    %4 = @load_push_constant (%3 (0x10)) (base=0, range=0, align_mul=8, align_offset=0)
+    32x4  %5 = load_const (0x3f800000, 0x00000000, 0x00000000, 0x3f800000) = (1.000000, 0.000000, 0.000000, 1.000000) = (1065353216, 0, 0, 1065353216)
+               @blend_pan (%2, %4, %5 (0x3f800000, 0x0, 0x0, 0x3f800000)) (io location=FRAG_RESULT_DATA0 slots=1, src_type=float32)
+               // succs: b1
+    block b1:
+}
+
+block0 {
+32      %6 = MOV.i32 r60
+32      %2 = ATEST %6, u264, atest-param
+32x4    %5 = COLLECT.i32 u264, u256, u256, u264 
+32      %13 = BLEND.f32 %5, %2, u2, u2[1], _.h00, sr_count:4, sr_count_2:2
+}
+
+block0 {
+        r60 = ATEST r60, u264, atest-param
+        r0 = MOV.i32 u264
+        r1 = MOV.i32 u256
+        r2 = MOV.i32 u256
+        r3 = MOV.i32 u264
+        r48 = BLEND.f32 r0:r1:r2:r3, r60, u2, u2[1], _.h00, sr_count:4, sr_count_2:2
+}
+
+block0 {
+        NOP.flow8 
+        r60 = ATEST.flow1 r60^, u264, atest-param
+        r0 = MOV.i32.flow13 u264
+        r1 = MOV.i32 u256
+        r2 = MOV.i32 u256
+        r3 = MOV.i32.flow9 u264
+        r48 = BLEND.flow15.f32 r0:r1:r2:r3, r60^, u2, u2[1], _.h00, sr_count:4, sr_count_2:2
+}
+
+   NOP.wait0126 
+   ATEST.wait0 @r60, r60^, 0x3F800000, atest_datum.w0
+   MOV.i32.discard r0, 0x3F800000
+   MOV.i32 r1, 0x0
+   MOV.i32 r2, 0x0
+   MOV.i32.wait r3, 0x3F800000
+   BLEND.slot0.v4.f32.end @r0:r1:r2:r3, u2, r60, target:0x0
+   IADD_IMM.i32 r48, 0x0, #0x0
+   BRANCHZI.eq.absolute 0x0, u2.w1
+
+
+vkCreateGraphicsPipelines ok
+vkCreateCommandPool ok
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+vkAllocateCommandBuffers ok
+vkBeginCommandBuffer ok
+calling vkCmdBeginRendering (with color attachment)...
+calling vkCmdDraw(3,1,0,0) -- ini yang exercise Malloc Vertex Job v9...
+MESA: error: kbase: MEM_ALLOC req: va_pages=16 commit_pages=16 extension=0 flags=0x380f kmod_flags=0x40
+[PANVK_DEBUG_VP] VkViewport: w=64.000000 h=64.000000 x=0.000000 y=0.000000
+[PANVK_DEBUG_VP] computed scale: x=32.000000 y=32.000000
+[PANVK_DEBUG_VP] computed offset: x=32.000000 y=32.000000
+[PANVK_DEBUG_FLAGS1] sample_mask=0xffff render_target_mask=0x1 bound_attachments=0x1
+[PANVK_DEBUG_MVJ] dump 384 byte job descriptor:
+[PANVK_DEBUG_MVJ] +000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +016: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +032: 08 80 03 00 00 00 00 00 00 00 00 00 03 00 00 00
+[PANVK_DEBUG_MVJ] +048: 01 00 00 00 10 00 00 00 40 b4 f8 c1 7e 00 00 00
+[PANVK_DEBUG_MVJ] +064: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +096: 00 00 00 00 00 00 00 00 00 00 00 00 3f 00 3f 00
+[PANVK_DEBUG_MVJ] +112: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +128: 00 00 01 00 ff ff 01 00 01 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +144: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 3f
+[PANVK_DEBUG_MVJ] +160: 00 00 00 00 00 00 00 00 a0 b6 f8 c1 7e 00 00 00
+[PANVK_DEBUG_MVJ] +176: 81 b6 f8 c1 7e 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +192: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +208: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +224: 84 b3 f8 c1 7e 00 00 00 c0 70 17 c2 7e 00 00 00
+[PANVK_DEBUG_MVJ] +240: c0 b0 f8 c1 7e 00 00 00 e0 b3 f8 c1 7e 00 00 00
+[PANVK_DEBUG_MVJ] +256: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +272: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +288: 04 b3 f8 c1 7e 00 00 00 80 70 17 c2 7e 00 00 00
+[PANVK_DEBUG_MVJ] +304: c0 b0 f8 c1 7e 00 00 00 c0 b3 f8 c1 7e 00 00 00
+[PANVK_DEBUG_MVJ] +320: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +336: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +352: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_MVJ] +368: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+vkCmdDraw returned (no crash)
+[PANVK_DEBUG_RT] linear color attachment base=0x7ec217b000 row_stride=256 surf_stride=16384
+vkCmdEndRendering returned (no crash)
+vkEndCommandBuffer ok
+calling vkQueueSubmit...
+[PANVK_DEBUG_SUBMIT] vtc_jc ret=0
+[PANVK_DEBUG_HEAP] SESUDAH vtc_jc (vertex+tiler) bo->flags=0x2 first64: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[PANVK_DEBUG_SUBMIT] frag_jc ret=0
+[PANVK_DEBUG_HEAP] SESUDAH frag_jc (fragment) bo->flags=0x2 first64: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+vkQueueSubmit ok
+calling vkQueueWaitIdle...
+vkQueueWaitIdle ok
+vkMapMemory(image-direct) ok
+
+--- ringkasan pixel image 64x64 (rowPitch=256) ---
+total piksel non-hitam: 0 dari 4096
+(8,8)=  0,  0,  0,255  (24,8)=  0,  0,  0,255  (40,8)=  0,  0,  0,255  (56,8)=  0,  0,  0,255  
+(8,24)=  0,  0,  0,255  (24,24)=  0,  0,  0,255  (40,24)=  0,  0,  0,255  (56,24)=  0,  0,  0,255  
+(8,40)=  0,  0,  0,255  (24,40)=  0,  0,  0,255  (40,40)=  0,  0,  0,255  (56,40)=  0,  0,  0,255  
+(8,56)=  0,  0,  0,255  (24,56)=  0,  0,  0,255  (40,56)=  0,  0,  0,255  (56,56)=  0,  0,  0,255  
+
+CLEAR-ONLY: image ke-clear (hitam) tapi triangle nggak ke-render -- draw doang yang gagal.

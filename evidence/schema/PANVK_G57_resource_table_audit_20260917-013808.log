@@ -1,0 +1,533 @@
+=== cmd_prepare_shader_res_table FULL AREA ===
+void
+panvk_per_arch(cmd_fill_dyn_bufs)(
+   const struct panvk_descriptor_state *desc_state,
+   const struct panvk_shader_desc_info *desc_info,
+   struct mali_buffer_packed *buffers)
+{
+   for (uint32_t i = 0; i < desc_info->dyn_bufs.count; i++) {
+      uint32_t src_handle = desc_info->dyn_bufs.map[i];
+      uint32_t set_idx = COPY_DESC_HANDLE_EXTRACT_TABLE(src_handle);
+      uint32_t dyn_buf_idx = COPY_DESC_HANDLE_EXTRACT_INDEX(src_handle);
+      const struct panvk_descriptor_set *set = desc_state->sets[set_idx];
+      const uint32_t dyn_buf_offset =
+         desc_state->dyn_buf_offsets[set_idx][dyn_buf_idx];
+      const bool is_ssbo =
+         desc_state->dyn_ssbos[set_idx] & BITFIELD_BIT(dyn_buf_idx);
+
+      assert(set_idx < MAX_SETS);
+      assert(set);
+
+      pan_pack(&buffers[i], BUFFER, cfg) {
+         cfg.size = align(set->dyn_bufs[dyn_buf_idx].size, is_ssbo ? 4 : 16);
+         cfg.address = set->dyn_bufs[dyn_buf_idx].dev_addr + dyn_buf_offset;
+      }
+   }
+}
+
+VkResult
+panvk_per_arch(cmd_prepare_shader_res_table)(
+   struct panvk_cmd_buffer *cmdbuf,
+   const struct panvk_descriptor_state *desc_state,
+   const struct panvk_shader_desc_info *desc_info,
+   struct panvk_shader_desc_state *shader_desc_state, uint32_t repeat_count)
+{
+   uint32_t first_unused_set = util_last_bit(desc_info->used_set_mask);
+   uint32_t res_count =
+      ALIGN_POT(1 + first_unused_set, MALI_RESOURCE_TABLE_SIZE_ALIGNMENT);
+   struct pan_ptr ptr =
+      panvk_cmd_alloc_desc_array(cmdbuf, res_count * repeat_count, RESOURCE);
+   if (!ptr.gpu)
+      return VK_ERROR_OUT_OF_DEVICE_MEMORY;
+
+   struct mali_resource_packed *res_table = ptr.cpu;
+
+   for (uint32_t r = 0; r < repeat_count; r++) {
+      uint64_t drv_set_addr = shader_desc_state->driver_set.dev_addr +
+                              (r * shader_desc_state->driver_set.size);
+      /* First entry is the driver set table, where we store the vertex
+       * attributes, the dummy sampler, the dynamic buffers and the vertex
+       * buffers. */
+      pan_pack(&res_table[0], RESOURCE, cfg) {
+         cfg.address = drv_set_addr;
+         cfg.size = shader_desc_state->driver_set.size;
+         cfg.contains_descriptors = cfg.size > 0;
+      }
+
+      for (uint32_t i = 0; i < first_unused_set; i++) {
+         const struct panvk_descriptor_set *set = desc_state->sets[i];
+
+         pan_pack(&res_table[i + 1], RESOURCE, cfg) {
+            if (desc_info->used_set_mask & BITFIELD_BIT(i)) {
+               cfg.address = set->descs.dev;
+               cfg.contains_descriptors = true;
+               cfg.size = set->desc_count * PANVK_DESCRIPTOR_SIZE;
+            } else {
+               cfg.address = 0;
+               cfg.contains_descriptors = false;
+               cfg.size = 0;
+            }
+         }
+      }
+      for (uint32_t i = first_unused_set + 1; i < res_count; i++) {
+         pan_pack(&res_table[i], RESOURCE, cfg) {
+            cfg.address = 0;
+            cfg.contains_descriptors = false;
+            cfg.size = 0;
+         }
+      }
+
+      res_table += res_count;
+   }
+
+   shader_desc_state->res_table = ptr.gpu | res_count;
+   return VK_SUCCESS;
+}
+#endif
+
+VkResult
+panvk_per_arch(cmd_prepare_push_descs)(struct panvk_cmd_buffer *cmdbuf,
+                                       struct panvk_descriptor_state *desc_state,
+                                       uint32_t used_set_mask)
+{
+   for (unsigned i = 0; i < ARRAY_SIZE(desc_state->push_sets); i++) {
+      struct panvk_descriptor_set *push_set = desc_state->push_sets[i];
+
+      if (!(used_set_mask & BITFIELD_BIT(i)) || !push_set ||
+          desc_state->sets[i] != push_set || push_set->descs.dev ||
+          !BITSET_TEST(desc_state->dirty_push_sets, i))
+         continue;
+
+      struct pan_ptr ptr = panvk_cmd_alloc_dev_mem(
+         cmdbuf, desc, push_set->desc_count * PANVK_DESCRIPTOR_SIZE,
+         PANVK_DESCRIPTOR_SIZE);
+      if (!ptr.gpu)
+         return VK_ERROR_OUT_OF_DEVICE_MEMORY;
+
+      memcpy(ptr.cpu, push_set->descs.host,
+             push_set->desc_count * PANVK_DESCRIPTOR_SIZE);
+      push_set->descs.dev = ptr.gpu;
+
+      BITSET_CLEAR(desc_state->dirty_push_sets, i);
+   }
+
+   return VK_SUCCESS;
+}
+
+VKAPI_ATTR void VKAPI_CALL
+panvk_per_arch(CmdBindDescriptorSets2KHR)(
+   VkCommandBuffer commandBuffer,
+   const VkBindDescriptorSetsInfoKHR *pBindDescriptorSetsInfo)
+{
+   VK_FROM_HANDLE(panvk_cmd_buffer, cmdbuf, commandBuffer);
+
+   /* TODO: Invalidate only if the shader tables are disturbed */
+   if (pBindDescriptorSetsInfo->stageFlags & VK_SHADER_STAGE_ALL_GRAPHICS) {
+      cmd_desc_state_bind_sets(&cmdbuf->state.gfx.desc_state,
+                               pBindDescriptorSetsInfo);
+
+      gfx_state_set_dirty(cmdbuf, DESC_STATE);
+   }
+
+   if (pBindDescriptorSetsInfo->stageFlags & VK_SHADER_STAGE_COMPUTE_BIT) {
+
+=== ACTIVE V9 DRAW RESOURCE SETUP ===
+               ;
+         }
+      }
+
+      /* Dummy sampler always comes right after the vertex attribs. */
+      pan_cast_and_pack(&descs[MAX_VS_ATTRIBS], SAMPLER, cfg) {
+         cfg.clamp_integer_array_indices = false;
+      }
+
+      panvk_per_arch(cmd_fill_dyn_bufs)(
+         desc_state, vs_desc_info,
+         (struct mali_buffer_packed *)(&descs[MAX_VS_ATTRIBS + 1]));
+
+      for (uint32_t i = 0; i < vb_count; i++) {
+         const struct panvk_attrib_buf *vb = &cmdbuf->state.gfx.vb.bufs[i];
+         const bool nulldesc = (vb->address == 0 && vb->size == 0);
+
+         if ((vi->bindings_valid & BITFIELD_BIT(i)) && !nulldesc) {
+            pan_cast_and_pack(&descs[vb_offset + i], BUFFER, cfg) {
+               cfg.address = vb->address;
+               cfg.size = vb->size;
+            }
+         } else {
+            /* Write a NullDescriptor and rely on OOB behavior */
+            pan_cast_and_pack(&descs[vb_offset + i], NULL_DESCRIPTOR, cfg)
+               ;
+         }
+      }
+
+      descs += desc_count;
+   }
+
+   shader_desc_state->driver_set.dev_addr = driver_set.gpu;
+   shader_desc_state->driver_set.size = desc_count * PANVK_DESCRIPTOR_SIZE;
+   gfx_state_set_dirty(cmdbuf, DESC_STATE);
+   return VK_SUCCESS;
+}
+
+/* PATCH v9 -- BAGIAN 1b: sisi fragment dari driver set, plus pengisi
+ * res_table.
+ *
+ * prepare_vs_driver_set() di atas hanya mengisi driver_set.{dev_addr,size}.
+ * Yang dibaca job adalah res_table (lihat cfg.resources /
+ * cfg.shader.resources di BAGIAN 2), dan res_table HANYA diisi oleh
+ * panvk_per_arch(cmd_prepare_shader_res_table)(). Tanpa pemanggil itu,
+ * res_table tetap 0 dan GPU membaca resource table dari alamat nol.
+ *
+ * emit_varying_descs() dan prepare_fs_driver_set() disalin verbatim dari
+ * csf/panvk_vX_cmd_draw.c (v10+), sama seperti BAGIAN 1. Keduanya CPU-only,
+ * nol dependensi cs_*. Layout driver set fragment dipaksa oleh
+ * panvk_vX_nir_lower_descriptors.c (create_copy_table(): untuk stage
+ * fragment dummy_sampler_idx = num_varying_attr_descs, lalu
+ * dyn_bufs_start = dummy_sampler_idx + 1), jadi urutan
+ * varyings -> dummy sampler -> dynamic buffers bukan pilihan bebas. */
+
+static void
+emit_varying_descs(const struct panvk_cmd_buffer *cmdbuf,
+                   struct mali_attribute_packed *descs)
+{
+   const struct panvk_shader_variant *vs =
+      panvk_shader_hw_variant(cmdbuf->state.gfx.vs.shader);
+   const struct panvk_shader_variant *fs =
+      panvk_shader_only_variant(get_fs(cmdbuf));
+
+   const struct pan_varying_layout *vs_layout = &vs->info.varyings.formats;
+   const struct pan_varying_layout *fs_format = &fs->info.varyings.formats;
+   pan_varying_layout_require_layout(vs_layout);
+   pan_varying_layout_require_format(fs_format);
+
+   for (uint32_t i = 0; i < fs_format->count; i++) {
+      const struct pan_varying_slot *fs_slot =
+         pan_varying_layout_slot_at(fs_format, i);
+
+      /* Skip empty slots and special varyings. */
+      if (!fs_slot || fs_slot->section != PAN_VARYING_SECTION_GENERIC)
+         continue;
+
+      unsigned offset = 0;
+      enum pipe_format format = PIPE_FORMAT_NONE;
+
+      const struct pan_varying_slot *vs_slot =
+         pan_varying_layout_find_slot(vs_layout, fs_slot->location);
+      if (vs_slot) {
+         nir_alu_type base_type = nir_alu_type_get_base_type(fs_slot->alu_type);
+         nir_alu_type bit_size = nir_alu_type_get_type_size(vs_slot->alu_type);
+
+         offset = vs_slot->offset;
+         format = pan_varying_format(base_type | bit_size, vs_slot->ncomps);
+      }
+
+      pan_pack(&descs[i], ATTRIBUTE, cfg) {
+         cfg.attribute_type = MALI_ATTRIBUTE_TYPE_VERTEX_PACKET;
+         cfg.offset_enable = false;
+         cfg.format = GENX(pan_format_from_pipe_format)(format)->hw;
+         cfg.table = 61;
+         cfg.frequency = MALI_ATTRIBUTE_FREQUENCY_VERTEX;
+         cfg.offset = 1024 + offset;
+         /* v9 has no hardware-controlled varying buffer index (that is v12+),
+          * so the buffer index stays 0 here. */
+         cfg.buffer_index = 0;
+         cfg.attribute_stride = vs_layout->generic_size_B;
+         cfg.packet_stride = vs_layout->generic_size_B + 16;
+      }
+   }
+}
+
+static VkResult
+prepare_fs_driver_set(struct panvk_cmd_buffer *cmdbuf)
+{
+   const struct panvk_shader_desc_info *fs_desc_info =
+      &cmdbuf->state.gfx.fs.shader->desc_info;
+   struct panvk_shader_desc_state *fs_desc_state = &cmdbuf->state.gfx.fs.desc;
+   const struct panvk_descriptor_state *desc_state =
+      &cmdbuf->state.gfx.desc_state;
+   /* If the shader is using LD_VAR_BUF[_IMM], we do not have to set up
+    * Attribute Descriptors for varying loads. */
+   const uint32_t desc_count = fs_desc_info->fs_varying_attr_desc_count +
+                               fs_desc_info->dyn_bufs.count + 1;
+   struct pan_ptr driver_set = panvk_cmd_alloc_dev_mem(
+      cmdbuf, desc, desc_count * PANVK_DESCRIPTOR_SIZE, PANVK_DESCRIPTOR_SIZE);
+   struct panvk_opaque_desc *descs = driver_set.cpu;
+
+   if (desc_count && !driver_set.gpu)
+      return VK_ERROR_OUT_OF_DEVICE_MEMORY;
+
+   if (fs_desc_info->fs_varying_attr_desc_count > 0)
+      emit_varying_descs(cmdbuf, (struct mali_attribute_packed *)(&descs[0]));
+
+   /* Dummy sampler always comes right after the varyings. */
+   const uint32_t sampler_idx = fs_desc_info->fs_varying_attr_desc_count;
+   pan_cast_and_pack(&descs[sampler_idx], SAMPLER, cfg) {
+      cfg.clamp_integer_array_indices = false;
+   }
+
+   panvk_per_arch(cmd_fill_dyn_bufs)(
+      desc_state, fs_desc_info,
+      (struct mali_buffer_packed *)(&descs[sampler_idx + 1]));
+
+   fs_desc_state->driver_set.dev_addr = driver_set.gpu;
+   fs_desc_state->driver_set.size = desc_count * PANVK_DESCRIPTOR_SIZE;
+   gfx_state_set_dirty(cmdbuf, DESC_STATE);
+   return VK_SUCCESS;
+}
+
+/*
+ * Builds the driver set AND the resource table for both stages.
+ *
+ * repeat_count is 1 for the vertex stage: CSF keeps the base instance in a
+ * command stream register and re-emits the descriptor when it changes, but JM
+ * has no such register and cannot patch a job after it has been recorded, so
+ * emit_vs_attrib() folds the base instance into the descriptor offset and the
+ * driver set is rebuilt per draw instead of repeated.
+ */
+static VkResult
+prepare_gfx_desc(struct panvk_cmd_buffer *cmdbuf)
+{
+   const struct panvk_shader *vs = cmdbuf->state.gfx.vs.shader;
+   const struct panvk_shader_variant *fs =
+      panvk_shader_only_variant(get_fs(cmdbuf));
+   const struct panvk_descriptor_state *desc_state =
+      &cmdbuf->state.gfx.desc_state;
+   struct panvk_shader_desc_state *vs_desc_state = &cmdbuf->state.gfx.vs.desc;
+   struct panvk_shader_desc_state *fs_desc_state = &cmdbuf->state.gfx.fs.desc;
+   VkResult result;
+
+   result = prepare_vs_driver_set(cmdbuf, vs, vs_desc_state, 1);
+   if (result != VK_SUCCESS)
+      return result;
+
+   /* Must come after the driver set: this is what fills res_table[0]. */
+   result = panvk_per_arch(cmd_prepare_shader_res_table)(
+      cmdbuf, desc_state, &vs->desc_info, vs_desc_state, 1);
+   if (result != VK_SUCCESS)
+      return result;
+
+   if (fs == NULL) {
+      /* No fragment shader means no fragment resources to point at. Zero it
+       * so a stale res_table from an earlier draw is not reused. */
+      memset(fs_desc_state, 0, sizeof(*fs_desc_state));
+      return VK_SUCCESS;
+   }
+
+   result = prepare_fs_driver_set(cmdbuf);
+   if (result != VK_SUCCESS)
+      return result;
+
+   return panvk_per_arch(cmd_prepare_shader_res_table)(
+      cmdbuf, desc_state, &cmdbuf->state.gfx.fs.shader->desc_info,
+      fs_desc_state, 1);
+}
+
+/* PATCH v9 -- BAGIAN 2: isi state vertex (POSITION, Shader Environment) dan
+ * fragment (DRAW, struct Draw pendek v9) untuk Malloc Vertex Job.
+ * ADAPTASI dari panvk_emit_vertex_dcd/panvk_emit_tiler_dcd Bifrost --
+ * nama field genxml v9 dari riset kita sendiri (compute + genxml grep),
+ * BELUM tervalidasi compile. Belum dipanggil dari mana pun. */
+
+static void
+panvk_emit_vs_position_v9(struct panvk_cmd_buffer *cmdbuf,
+                          const struct panvk_draw_data *draw,
+                          struct mali_shader_environment_packed *position_section)
+{
+   const struct panvk_shader_variant *vs =
+      panvk_shader_hw_variant(cmdbuf->state.gfx.vs.shader);
+   const struct panvk_shader_desc_state *vs_desc_state =
+      &cmdbuf->state.gfx.vs.desc;
+
+   pan_pack(position_section, SHADER_ENVIRONMENT, cfg) {
+      cfg.resources = vs_desc_state->res_table;
+   /* PATCH v9: vs->spd itu alias union ke vs->spds.pos_points (field
+    * pertama union), BUKAN alamat generic yang aman dipakai selalu.
+    * Harus pilih variant SPD sesuai topology, sama seperti csf/ (baris
+    * ~1958): titik pakai pos_points, selain itu (termasuk segitiga)
+    * pakai pos_triangles. Sebelum patch ini, draw non-titik salah baca
+    * SPD dari pos_points yang kemungkinan besar tidak pernah
+    * dialokasikan -> silent wrong render, bukan crash. */
+   cfg.shader = draw->info.prim == MESA_PRIM_POINTS
+                   ? panvk_priv_mem_dev_addr(vs->spds.pos_points)
+                   : panvk_priv_mem_dev_addr(vs->spds.pos_triangles);
+      cfg.thread_storage = draw->tls;
+      cfg.fau = cmdbuf->state.gfx.vs.push_uniforms;
+
+=== RESOURCE GENXML ===
+1525-  <aggregate name="Compute Job" align="128">
+1526-    <section name="Header" offset="0" type="Job Header"/>
+1527-    <section name="Payload" offset="32" type="Compute Payload"/>
+1528-  </aggregate>
+1529-
+1530:  <struct name="Resource" size="4" align="64">
+1531-    <field name="Address" start="0:0" size="56" type="address"/>
+1532-    <field name="Contains descriptors" start="1:24" size="1" type="bool" default="true"/>
+1533-    <field name="Size" start="2:0" size="64" type="uint"/> <!-- bytes -->
+1534-  </struct>
+1535-
+1536-  <struct name="Depth/stencil" size="8" align="32">
+1537-    <field name="Type" size="4" start="0:0" type="Descriptor Type" default="Depth/stencil"/>
+1538-    <field name="Front compare function" size="3" start="0:4" type="Func"/>
+1539-    <field name="Front stencil fail" size="3" start="0:7" type="Stencil Op"/>
+1540-    <field name="Front depth fail" size="3" start="0:10" type="Stencil Op"/>
+1541-    <field name="Front depth pass" size="3" start="0:13" type="Stencil Op"/>
+1542-    <field name="Back compare function" size="3" start="0:16" type="Func"/>
+1543-    <field name="Back stencil fail" size="3" start="0:19" type="Stencil Op"/>
+1544-    <field name="Back depth fail" size="3" start="0:22" type="Stencil Op"/>
+1545-    <field name="Back depth pass" size="3" start="0:25" type="Stencil Op"/>
+1546-    <field name="Stencil from shader" size="1" start="0:30" type="bool"/>
+1547-    <field name="Stencil test enable" size="1" start="0:31" type="bool"/>
+1548-    <field name="Front write mask" size="8" start="1:0" type="hex"/>
+1549-    <field name="Back write mask" size="8" start="1:8" type="hex"/>
+1550-    <field name="Front value mask" size="8" start="1:16" type="hex"/>
+
+=== RESOURCE TABLE CONSTANTS ===
+src/panfrost/vulkan/panvk_vX_shader.c:678:   nir_def *res_table = nir_ior_imm(b, table_idx, pan_res_handle(62, 0));
+src/panfrost/vulkan/panvk_vX_shader.c:682:      b, 1, 32, res_table, nir_iadd_imm(b, desc_offset, 4), .range = ~0u,
+src/panfrost/vulkan/panvk_cmd_desc_state.h:40:   uint64_t res_table;
+src/panfrost/vulkan/panvk_cmd_desc_state.h:46:panvk_shader_res_table_count(struct panvk_shader_desc_state *shader_desc_state)
+src/panfrost/vulkan/panvk_cmd_desc_state.h:48:   uint32_t count = (shader_desc_state->res_table & BITFIELD_MASK(6));
+src/panfrost/vulkan/panvk_cmd_desc_state.h:49:   assert(count % MALI_RESOURCE_TABLE_SIZE_ALIGNMENT == 0);
+src/panfrost/vulkan/panvk_cmd_desc_state.h:88:VkResult panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/panvk_vX_cmd_meta.c:211:   cmdbuf->state.gfx.fs.desc.res_table = 0;
+src/panfrost/vulkan/panvk_vX_cmd_meta.c:212:   cmdbuf->state.gfx.vs.desc.res_table = 0;
+src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c:653:   const uint32_t res_table_size = MALI_RESOURCE_TABLE_SIZE_ALIGNMENT;
+src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c:654:   struct pan_ptr res_table =
+src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c:655:      panvk_cmd_alloc_desc_array(cmdbuf, res_table_size, RESOURCE);
+src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c:656:   if (!res_table.cpu)
+src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c:658:   memset(res_table.cpu, 0, pan_size(RESOURCE) * res_table_size);
+src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c:660:   pan_cast_and_pack(res_table.cpu, RESOURCE, cfg) {
+src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c:743:      cfg.fragment_resources = res_table.gpu | res_table_size;
+src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c:750:      cfg.shader.resources = res_table.gpu | res_table_size;
+src/panfrost/vulkan/panvk_vX_cmd_desc_state.c:257:panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/panvk_vX_cmd_desc_state.c:265:      ALIGN_POT(1 + first_unused_set, MALI_RESOURCE_TABLE_SIZE_ALIGNMENT);
+src/panfrost/vulkan/panvk_vX_cmd_desc_state.c:271:   struct mali_resource_packed *res_table = ptr.cpu;
+src/panfrost/vulkan/panvk_vX_cmd_desc_state.c:279:      pan_pack(&res_table[0], RESOURCE, cfg) {
+src/panfrost/vulkan/panvk_vX_cmd_desc_state.c:282:         cfg.contains_descriptors = cfg.size > 0;
+src/panfrost/vulkan/panvk_vX_cmd_desc_state.c:288:         pan_pack(&res_table[i + 1], RESOURCE, cfg) {
+src/panfrost/vulkan/panvk_vX_cmd_desc_state.c:291:               cfg.contains_descriptors = true;
+src/panfrost/vulkan/panvk_vX_cmd_desc_state.c:295:               cfg.contains_descriptors = false;
+src/panfrost/vulkan/panvk_vX_cmd_desc_state.c:301:         pan_pack(&res_table[i], RESOURCE, cfg) {
+src/panfrost/vulkan/panvk_vX_cmd_desc_state.c:303:            cfg.contains_descriptors = false;
+src/panfrost/vulkan/panvk_vX_cmd_desc_state.c:308:      res_table += res_count;
+src/panfrost/vulkan/panvk_vX_cmd_desc_state.c:311:   shader_desc_state->res_table = ptr.gpu | res_count;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2119: * res_table.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2122: * Yang dibaca job adalah res_table (lihat cfg.resources /
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2123: * cfg.shader.resources di BAGIAN 2), dan res_table HANYA diisi oleh
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2124: * panvk_per_arch(cmd_prepare_shader_res_table)(). Tanpa pemanggil itu,
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2125: * res_table tetap 0 dan GPU membaca resource table dari alamat nol.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2249:   /* Must come after the driver set: this is what fills res_table[0]. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2250:   result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2257:       * so a stale res_table from an earlier draw is not reused. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2266:   return panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2288:      cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2528:      cfg.shader.resources = fs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c:2719:         cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_dispatch.c:82: * Without this, cmd_prepare_shader_res_table() below still runs, but
+src/panfrost/vulkan/jm/panvk_vX_cmd_dispatch.c:83: * driver_set.dev_addr / .size stay zero, so res_table[0] is emitted with
+src/panfrost/vulkan/jm/panvk_vX_cmd_dispatch.c:84: * contains_descriptors = false and table 0 is empty. Any texelFetch the
+src/panfrost/vulkan/jm/panvk_vX_cmd_dispatch.c:164:      /* Must run before cmd_prepare_shader_res_table(): that function reads
+src/panfrost/vulkan/jm/panvk_vX_cmd_dispatch.c:165:       * driver_set.{dev_addr,size} to emit res_table[0]. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_dispatch.c:172:      result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_dispatch.c:178:       * (lihat panvk_meta.h) -- cmd_prepare_shader_res_table sudah
+src/panfrost/vulkan/jm/panvk_vX_cmd_dispatch.c:208:      cfg.compute.resources = cs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_dump:2119: * res_table.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_dump:2122: * Yang dibaca job adalah res_table (lihat cfg.resources /
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_dump:2123: * cfg.shader.resources di BAGIAN 2), dan res_table HANYA diisi oleh
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_dump:2124: * panvk_per_arch(cmd_prepare_shader_res_table)(). Tanpa pemanggil itu,
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_dump:2125: * res_table tetap 0 dan GPU membaca resource table dari alamat nol.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_dump:2249:   /* Must come after the driver set: this is what fills res_table[0]. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_dump:2250:   result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_dump:2257:       * so a stale res_table from an earlier draw is not reused. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_dump:2266:   return panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_dump:2288:      cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_dump:2528:      cfg.shader.resources = fs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_dump:2719:         cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_off:2119: * res_table.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_off:2122: * Yang dibaca job adalah res_table (lihat cfg.resources /
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_off:2123: * cfg.shader.resources di BAGIAN 2), dan res_table HANYA diisi oleh
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_off:2124: * panvk_per_arch(cmd_prepare_shader_res_table)(). Tanpa pemanggil itu,
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_off:2125: * res_table tetap 0 dan GPU membaca resource table dari alamat nol.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_off:2249:   /* Must come after the driver set: this is what fills res_table[0]. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_off:2250:   result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_off:2257:       * so a stale res_table from an earlier draw is not reused. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_off:2266:   return panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_off:2288:      cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_off:2527:      cfg.shader.resources = fs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_off:2716:         cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_vs_only:2119: * res_table.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_vs_only:2122: * Yang dibaca job adalah res_table (lihat cfg.resources /
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_vs_only:2123: * cfg.shader.resources di BAGIAN 2), dan res_table HANYA diisi oleh
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_vs_only:2124: * panvk_per_arch(cmd_prepare_shader_res_table)(). Tanpa pemanggil itu,
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_vs_only:2125: * res_table tetap 0 dan GPU membaca resource table dari alamat nol.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_vs_only:2249:   /* Must come after the driver set: this is what fills res_table[0]. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_vs_only:2250:   result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_vs_only:2257:       * so a stale res_table from an earlier draw is not reused. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_vs_only:2266:   return panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_vs_only:2288:      cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_vs_only:2527:      cfg.shader.resources = fs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_vs_only:2716:         cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_on:2119: * res_table.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_on:2122: * Yang dibaca job adalah res_table (lihat cfg.resources /
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_on:2123: * cfg.shader.resources di BAGIAN 2), dan res_table HANYA diisi oleh
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_on:2124: * panvk_per_arch(cmd_prepare_shader_res_table)(). Tanpa pemanggil itu,
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_on:2125: * res_table tetap 0 dan GPU membaca resource table dari alamat nol.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_on:2249:   /* Must come after the driver set: this is what fills res_table[0]. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_on:2250:   result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_on:2257:       * so a stale res_table from an earlier draw is not reused. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_on:2266:   return panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_on:2288:      cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_on:2528:      cfg.shader.resources = fs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.ab_fau_on:2719:         cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/csf/panvk_vX_cmd_dispatch.c:225:                      cs_desc_state->res_table);
+src/panfrost/vulkan/csf/panvk_vX_cmd_dispatch.c:403:      result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.with_dcd_experiment_and_fau:2119: * res_table.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.with_dcd_experiment_and_fau:2122: * Yang dibaca job adalah res_table (lihat cfg.resources /
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.with_dcd_experiment_and_fau:2123: * cfg.shader.resources di BAGIAN 2), dan res_table HANYA diisi oleh
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.with_dcd_experiment_and_fau:2124: * panvk_per_arch(cmd_prepare_shader_res_table)(). Tanpa pemanggil itu,
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.with_dcd_experiment_and_fau:2125: * res_table tetap 0 dan GPU membaca resource table dari alamat nol.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.with_dcd_experiment_and_fau:2249:   /* Must come after the driver set: this is what fills res_table[0]. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.with_dcd_experiment_and_fau:2250:   result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.with_dcd_experiment_and_fau:2257:       * so a stale res_table from an earlier draw is not reused. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.with_dcd_experiment_and_fau:2266:   return panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.with_dcd_experiment_and_fau:2288:      cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.with_dcd_experiment_and_fau:2599:      cfg.shader.resources = fs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.with_dcd_experiment_and_fau:2790:         cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_dyns_exact_fix:2119: * res_table.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_dyns_exact_fix:2122: * Yang dibaca job adalah res_table (lihat cfg.resources /
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_dyns_exact_fix:2123: * cfg.shader.resources di BAGIAN 2), dan res_table HANYA diisi oleh
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_dyns_exact_fix:2124: * panvk_per_arch(cmd_prepare_shader_res_table)(). Tanpa pemanggil itu,
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_dyns_exact_fix:2125: * res_table tetap 0 dan GPU membaca resource table dari alamat nol.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_dyns_exact_fix:2249:   /* Must come after the driver set: this is what fills res_table[0]. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_dyns_exact_fix:2250:   result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_dyns_exact_fix:2257:       * so a stale res_table from an earlier draw is not reused. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_dyns_exact_fix:2266:   return panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_dyns_exact_fix:2288:      cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_dyns_exact_fix:2528:      cfg.shader.resources = fs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_dyns_exact_fix:2719:         cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c:447:   result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c:573:   result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c:662:   result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c:673:   return panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c:1942:                      vs_desc_state->res_table);
+src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c:1981:                      fs ? fs_desc_state->res_table : 0);
+src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c:2862:   result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c:2874:                   gfx->xfb.desc.res_table);
+src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c:3474:   uint32_t vs_res_table_size =
+src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c:3475:      panvk_shader_res_table_count(&cmdbuf->state.gfx.vs.desc) *
+src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c:3565:                         cs_sr_reg64(b, IDVS, VERTEX_SRT), vs_res_table_size);
+src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c:4992:            cfg.fragment_resources = cmdbuf->state.gfx.fs.desc.res_table;
+src/panfrost/vulkan/csf/panvk_vX_cmd_draw.c:5002:            cfg.shader.resources = cmdbuf->state.gfx.fs.desc.res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_count_test:2119: * res_table.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_count_test:2122: * Yang dibaca job adalah res_table (lihat cfg.resources /
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_count_test:2123: * cfg.shader.resources di BAGIAN 2), dan res_table HANYA diisi oleh
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_count_test:2124: * panvk_per_arch(cmd_prepare_shader_res_table)(). Tanpa pemanggil itu,
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_count_test:2125: * res_table tetap 0 dan GPU membaca resource table dari alamat nol.
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_count_test:2249:   /* Must come after the driver set: this is what fills res_table[0]. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_count_test:2250:   result = panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_count_test:2257:       * so a stale res_table from an earlier draw is not reused. */
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_count_test:2266:   return panvk_per_arch(cmd_prepare_shader_res_table)(
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_count_test:2288:      cfg.resources = vs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_count_test:2598:      cfg.shader.resources = fs_desc_state->res_table;
+src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c.before_fau_count_test:2787:         cfg.resources = vs_desc_state->res_table;
