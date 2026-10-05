@@ -1,0 +1,4 @@
+group rT1_syncbasic: 19 cases, 1 process run(s)
+  Pass                   16
+  NotSupported           3
+  pass rate of supported: 16/16 = 100.0%

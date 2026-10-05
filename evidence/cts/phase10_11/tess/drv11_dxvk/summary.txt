@@ -1,0 +1,4 @@
+drv11 1.10.3 rc=1 
+drv11 pandxvk-9 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3185ms fps=47.1 verdict=PASS
+drv11 1.12.1-sarek rc=0 D3D11SUM frames=150 checked=5 bad=0 time=4125ms fps=36.4 verdict=PASS
+drv11 v2.3.1-stripped rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3021ms fps=49.7 verdict=PASS

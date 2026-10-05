@@ -1,0 +1,3 @@
+dEQP-VK.tessellation.shader_input_output.barrier
+fix (default) 6x: Pass Pass Pass Pass Pass Pass
+PANVK_V9_TCS_SUBGROUP_BARRIER=1 3x: Fail Fail Fail

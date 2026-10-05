@@ -1,0 +1,62 @@
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_all_remaining_layers	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_all_remaining_layers_r64_uint	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_all_remaining_layers_r8_unorm	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_all_remaining_layers_r8_unorm_linear	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_all_remaining_layers_rgba8_uint	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_larger_buffer	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_larger_buffer_r64_uint	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_larger_buffer_r8_unorm	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_larger_buffer_r8_unorm_linear	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_larger_buffer_rgba8_uint	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_not_all_remaining_layers	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_not_all_remaining_layers_r64_uint	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_not_all_remaining_layers_r8_unorm	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_not_all_remaining_layers_r8_unorm_linear	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_not_all_remaining_layers_rgba8_uint	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_r64_uint	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_r8_unorm	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_r8_unorm_linear	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_rgba8_uint	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_tightly_sized_buffer	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_tightly_sized_buffer_r64_uint	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_tightly_sized_buffer_r8_unorm	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_tightly_sized_buffer_r8_unorm_linear	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.buffer_to_image.2d_images.array_tightly_sized_buffer_rgba8_uint	Pass	CopiesAndBlitting test
+dEQP-VK.api.copy_and_blit.core.image_to_image.3d_images.2d_to_3d_by_layers	Pass	CopiesAndBlitting test
+dEQP-VK.api.image_clearing.core.clear_color_attachment.multiple_layers.r8g8b8a8_unorm	Pass	cmdClearAttachments passed
+dEQP-VK.api.image_clearing.core.clear_color_attachment.multiple_layers.r8g8b8a8_unorm_1x33	Pass	cmdClearAttachments passed
+dEQP-VK.api.image_clearing.core.clear_color_attachment.multiple_layers.r8g8b8a8_unorm_1x33_clamp_input	Pass	cmdClearAttachments passed
+dEQP-VK.api.image_clearing.core.clear_color_attachment.multiple_layers.r8g8b8a8_unorm_200x180	Pass	cmdClearAttachments passed
+dEQP-VK.api.image_clearing.core.clear_color_attachment.multiple_layers.r8g8b8a8_unorm_200x180_clamp_input	Pass	cmdClearAttachments passed
+dEQP-VK.api.image_clearing.core.clear_color_attachment.multiple_layers.r8g8b8a8_unorm_200x180_clamp_input_sample_count_16	Pass	cmdClearAttachments passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_1x33	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_1x33_clamp_input	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_1x33_clamp_input_multiple_subresourcerange	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_1x33_multiple_subresourcerange	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_200x180	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_200x180_clamp_input	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_200x180_clamp_input_multiple_subresourcerange	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_200x180_multiple_subresourcerange	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_33x128	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_33x128_clamp_input	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_33x128_clamp_input_multiple_subresourcerange	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_33x128_multiple_subresourcerange	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_64x11	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_64x11_clamp_input	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_64x11_clamp_input_multiple_subresourcerange	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_64x11_multiple_subresourcerange	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_clamp_input	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_clamp_input_multiple_subresourcerange	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_clamp_input_sample_count_4	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_multiple_subresourcerange	Pass	cmdClearColorImage passed
+dEQP-VK.api.image_clearing.core.clear_color_image.2d.optimal.multiple_layers.r8g8b8a8_unorm_sample_count_4	Pass	cmdClearColorImage passed
+dEQP-VK.multiview.masks.no_queries.15	Pass	Pass
+dEQP-VK.multiview.masks.no_queries.15_15_15_15	Pass	Pass
+dEQP-VK.multiview.masks.no_queries.1_2_4_8	Pass	Pass
+dEQP-VK.multiview.masks.no_queries.1_2_4_8_16_32	Pass	Pass
+dEQP-VK.multiview.masks.no_queries.5_10_5_10	Pass	Pass
+dEQP-VK.multiview.masks.no_queries.8	Pass	Pass
+dEQP-VK.multiview.masks.no_queries.8_1_1_8	Pass	Pass
+dEQP-VK.multiview.masks.no_queries.max_multi_view_view_count	Pass	Pass

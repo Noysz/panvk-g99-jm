@@ -1,0 +1,3 @@
+group rT1_layers: 62 cases, 1 process run(s)
+  Pass                   62
+  pass rate of supported: 62/62 = 100.0%

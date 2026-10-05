@@ -1,0 +1,90 @@
+diff --git a/src/panfrost/compiler/bifrost/bifrost_compile.c b/src/panfrost/compiler/bifrost/bifrost_compile.c
+--- a/src/panfrost/compiler/bifrost/bifrost_compile.c
++++ b/src/panfrost/compiler/bifrost/bifrost_compile.c
+@@ -2623,6 +2623,66 @@
+    return true;
+ }
+ 
++/* 64-bit shifts are lowered by nir_lower_int64, but on Valhall the late
++ * algebraic passes can still produce a 64-bit shift by a constant (for
++ * example the generic pointer -> scratch offset math in OpenCL kernels).
++ * The shift builders have no 64-bit variant and silently pick the per-byte
++ * v4i8 form, which corrupts the address. Split constant 64-bit shifts into
++ * 32-bit operations. Returns false if the shift amount is not constant. */
++static bool
++bi_emit_shift64(bi_builder *b, nir_alu_instr *instr, bi_index dst, bi_index s0)
++{
++   if (!nir_src_is_const(instr->src[1].src) ||
++       instr->def.num_components != 1 || getenv("PAN_NO_SHIFT64_SPLIT"))
++      return false;
++
++   unsigned c = nir_alu_src_as_uint(instr->src[1]) & 63;
++   bi_index w[4] = {bi_null(), bi_null(), bi_null(), bi_null()};
++   bi_emit_split_i32(b, w, s0, 2);
++   bi_index lo = w[0], hi = w[1], zero = bi_zero();
++   bi_index out[2];
++
++   switch (instr->op) {
++   case nir_op_ishl:
++      if (c == 0) {
++         out[0] = lo;
++         out[1] = hi;
++      } else if (c < 32) {
++         out[0] = bi_lshift_or_i32(b, lo, zero, bi_imm_u8(c));
++         out[1] = bi_lshift_or_i32(
++            b, hi, bi_rshift_or_i32(b, lo, zero, bi_imm_u8(32 - c), false),
++            bi_imm_u8(c));
++      } else {
++         out[0] = bi_mov_i32(b, zero);
++         out[1] = bi_lshift_or_i32(b, lo, zero, bi_imm_u8(c - 32));
++      }
++      break;
++   case nir_op_ushr:
++   case nir_op_ishr: {
++      bool arith = instr->op == nir_op_ishr;
++      if (c == 0) {
++         out[0] = lo;
++         out[1] = hi;
++      } else if (c < 32) {
++         out[0] = bi_rshift_or_i32(
++            b, lo, bi_lshift_or_i32(b, hi, zero, bi_imm_u8(32 - c)),
++            bi_imm_u8(c), false);
++         out[1] = bi_rshift_or_i32(b, hi, zero, bi_imm_u8(c), arith);
++      } else {
++         out[0] = bi_rshift_or_i32(b, hi, zero, bi_imm_u8(c - 32), arith);
++         out[1] = arith ? bi_rshift_or_i32(b, hi, zero, bi_imm_u8(31), true)
++                        : bi_mov_i32(b, zero);
++      }
++      break;
++   }
++   default:
++      UNREACHABLE("not a shift");
++   }
++
++   bi_emit_collect_to(b, dst, out, 2);
++   return true;
++}
++
+ static void
+ bi_emit_alu(bi_builder *b, nir_alu_instr *instr)
+ {
+@@ -3051,13 +3111,19 @@
+       break;
+ 
+    case nir_op_ishl:
++      if (sz == 64 && bi_emit_shift64(b, instr, dst, s0))
++         break;
+       bi_lshift_or_to(b, sz, dst, s0, bi_zero(), bi_byte(s1, 0));
+       break;
+    case nir_op_ushr:
++      if (sz == 64 && bi_emit_shift64(b, instr, dst, s0))
++         break;
+       bi_rshift_or_to(b, sz, dst, s0, bi_zero(), bi_byte(s1, 0), false);
+       break;
+ 
+    case nir_op_ishr:
++      if (sz == 64 && bi_emit_shift64(b, instr, dst, s0))
++         break;
+       if (b->shader->arch >= 9)
+          bi_rshift_or_to(b, sz, dst, s0, bi_zero(), bi_byte(s1, 0), true);
+       else

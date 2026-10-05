@@ -15,6 +15,15 @@ test, 3 runs and a negative control. Every v9-only emulation is
 | 1.12.1-sarek | ✅ FL 11_1 | ✅ | runs degraded without `geometryShader`, `tessellationShader`, `transformFeedback`, `depthBounds` |
 | 2.3.1 | ❌ (Winlator build still starts at FL 10_1) | | `geometryShader`, `transformFeedback`, `geometryStreams` |
 
+Update after `0060` + `0062` (drv11, 2026-10-05): `transformFeedback` and
+`tessellationShader` are no longer missing.
+
+| DXVK | missing now |
+|---|---|
+| 1.10.3 | `geometryShader`, `geometryStreams`, `variableMultisampleRate`, `vertexPipelineStoresAndAtomics` |
+| 1.11.1-sarek | `geometryShader`, `variableMultisampleRate`, `vertexPipelineStoresAndAtomics` |
+| 2.3.1 | `geometryShader`, `geometryStreams` (d3d11_tri passes at FL 10_1) |
+
 Clip/cull distance, `multiViewport` and BC textures are supplied by the
 Winlator Wrapper, so they are not on this list, but they are also missing in
 the driver itself.
@@ -63,10 +72,12 @@ has a working reference only for tessellation, so the build order is:
    (patch `0060`). CTS `transform_feedback.simple.*` 7899 cases: 187 pass,
    7712 not supported (geometry shader, streams, clip/cull distance,
    `transformFeedbackDraw`), 0 fail. Subset of 143 3x: 82 pass, 0 fail.
-2. Poly heap on JM, allocated lazily and smaller than the CSF 128 MiB
-   (RAM budget, see Phase 12).
-3. Tessellation on v9 (Phase 10): compile the SW VS / TCS / TES variants on
-   v9, port `launch_tess`, lift the 0057 guard for tess. CTS `tessellation.*`.
+2. [x] Poly heap on JM, allocated lazily (patch `0062`): 128 MiB of VA,
+   `ALLOC_ON_FAULT`, so physical pages only on use (RAM budget, see Phase 12).
+3. [x] Tessellation on v9 (Phase 10, patches `0061` + `0062`). CTS
+   `tessellation.*` 1114 3x: 148 pass, 16 fail (all `*_indirect`, indirect
+   tess draws not implemented), 950 not supported (mostly `multiViewport`,
+   vertex-pipeline stores, geometry shader). AIO "Tessellation" renders.
 4. Geometry shader (Phase 11a): `poly_nir_lower_gs` in the PanVK compile,
    geometry kernels in libpan, port of the Honeykrisp GS sequence, then
    `geometryStreams`. CTS `geometry.*`, AIO "GS Exploder".

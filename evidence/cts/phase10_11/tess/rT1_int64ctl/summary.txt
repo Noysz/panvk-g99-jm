@@ -1,0 +1,4 @@
+group rT1_int64ctl: 1143 cases, 12 process run(s)
+  Pass                   271
+  NotSupported           872
+  pass rate of supported: 271/271 = 100.0%

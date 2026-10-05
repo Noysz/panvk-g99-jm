@@ -1,0 +1,4 @@
+group rT1_syncfd: 28 cases, 1 process run(s)
+  Pass                   26
+  NotSupported           2
+  pass rate of supported: 26/26 = 100.0%

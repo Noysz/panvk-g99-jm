@@ -1,0 +1,1143 @@
+dEQP-VK.glsl.shader_expect_assume.compute.expect.storagebuffer_int64	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.compute.expect.storagebuffer_int64_vec2	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.compute.expect.storagebuffer_int64_vec2_wrong_expected	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.compute.expect.storagebuffer_int64_vec3	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.compute.expect.storagebuffer_int64_vec3_wrong_expected	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.compute.expect.storagebuffer_int64_vec4	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.compute.expect.storagebuffer_int64_vec4_wrong_expected	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.compute.expect.storagebuffer_int64_wrong_expected	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.fragment.expect.storagebuffer_int64	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.fragment.expect.storagebuffer_int64_vec2	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.fragment.expect.storagebuffer_int64_vec2_wrong_expected	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.fragment.expect.storagebuffer_int64_vec3	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.fragment.expect.storagebuffer_int64_vec3_wrong_expected	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.fragment.expect.storagebuffer_int64_vec4	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.fragment.expect.storagebuffer_int64_vec4_wrong_expected	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.fragment.expect.storagebuffer_int64_wrong_expected	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.vertex.expect.storagebuffer_int64	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.vertex.expect.storagebuffer_int64_vec2	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.vertex.expect.storagebuffer_int64_vec2_wrong_expected	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.vertex.expect.storagebuffer_int64_vec3	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.vertex.expect.storagebuffer_int64_vec3_wrong_expected	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.vertex.expect.storagebuffer_int64_vec4	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.vertex.expect.storagebuffer_int64_vec4_wrong_expected	Pass	Pass
+dEQP-VK.glsl.shader_expect_assume.vertex.expect.storagebuffer_int64_wrong_expected	Pass	Pass
+dEQP-VK.spirv_assembly.instruction.compute.convertftos.float16_to_int64_m0	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftos.float16_to_int64_m1234	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftos.float16_to_int64_m159rtz	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftos.float16_to_int64_max	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftos.float16_to_int64_min	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftos.float16_to_int64_p0	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftos.float16_to_int64_p159rtz	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftos.float32_to_int64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertftos.float32_to_int64_largeneg	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertftos.float32_to_int64_largepos	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertftos.float32_to_int64_rtz	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertftos.float64_to_int64	NotSupported	At least following requested feature is not supported: shaderFloat64 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftos.float64_to_int64_rtz	NotSupported	At least following requested feature is not supported: shaderFloat64 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftou.float16_to_uint64_1234	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftou.float16_to_uint64_m0	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftou.float16_to_uint64_max	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftou.float16_to_uint64_p0	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftou.float16_to_uint64_p159rtz	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftou.float32_to_uint64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertftou.float32_to_uint64_large	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertftou.float32_to_uint64_rtz	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertftou.float64_to_uint64	NotSupported	At least following requested feature is not supported: shaderFloat64 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertftou.float64_to_uint64_rtz	NotSupported	At least following requested feature is not supported: shaderFloat64 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float16_m1234	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float16_m32768	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float16_max	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float16_min	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float16_p32768	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float32	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float32_large	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float32_m4294967296	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float32_max	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float32_min	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float32_p4294967296	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float64	NotSupported	At least following requested feature is not supported: shaderFloat64 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float64_m4294967296	NotSupported	At least following requested feature is not supported: shaderFloat64 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertstof.int64_to_float64_p4294967296	NotSupported	At least following requested feature is not supported: shaderFloat64 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertutof.uint64_to_float16_1234	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertutof.uint64_to_float16_max	NotSupported	At least following requested feature is not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertutof.uint64_to_float32	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertutof.uint64_to_float32_4294967296	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertutof.uint64_to_float32_large	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertutof.uint64_to_float32_max	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.convertutof.uint64_to_float64	NotSupported	At least following requested feature is not supported: shaderFloat64 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.convertutof.uint64_to_float64_4294967296	NotSupported	At least following requested feature is not supported: shaderFloat64 at vktSpvAsmComputeShaderCase.cpp:491
+dEQP-VK.spirv_assembly.instruction.compute.opspecconstantop.shiftleftlogical_i64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.opspecconstantop.shiftleftlogical_s_i64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.opspecconstantop.shiftrightarithmetic_i64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.opspecconstantop.shiftrightarithmetic_s_i64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.opspecconstantop.shiftrightlogical_i64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.opspecconstantop.shiftrightlogical_s_i64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.int16_to_int64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.int16_to_uint64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.int32_to_int64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.int32_to_uint64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.int64_to_int16	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.int64_to_int32	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.int64_to_int8	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.int64_to_uint16	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.int64_to_uint32	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.int64_to_uint8	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.int8_to_int64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.int8_to_uint64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.uint16_to_int64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.uint32_to_int64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.uint64_to_int16	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.uint64_to_int32	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.uint64_to_int8	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.sconvert.uint8_to_int64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.uconvert.int16_to_uint64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.uconvert.int32_to_uint64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.uconvert.int64_to_uint16	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.uconvert.int64_to_uint32	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.uconvert.int64_to_uint8	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.uconvert.int8_to_uint64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.uconvert.uint16_to_uint64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.uconvert.uint32_to_uint64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.uconvert.uint64_to_uint16	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.uconvert.uint64_to_uint32	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.uconvert.uint64_to_uint8	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.compute.uconvert.uint8_to_uint64	Pass	Output match with expected
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m0_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m0_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m0_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m0_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m0_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m1234_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m1234_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m1234_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m1234_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m1234_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m159rtz_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m159rtz_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m159rtz_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m159rtz_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_m159rtz_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_max_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_max_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_max_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_max_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_max_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_min_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_min_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_min_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_min_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_min_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_p0_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_p0_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_p0_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_p0_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_p0_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_p159rtz_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_p159rtz_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_p159rtz_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_p159rtz_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float16_to_int64_p159rtz_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_largeneg_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_largeneg_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_largeneg_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_largeneg_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_largeneg_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_largepos_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_largepos_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_largepos_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_largepos_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_largepos_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_rtz_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_rtz_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_rtz_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_rtz_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_rtz_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float32_to_int64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float64_to_int64_frag	NotSupported	At least following requested feature not supported: shaderFloat64 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float64_to_int64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float64_to_int64_rtz_frag	NotSupported	At least following requested feature not supported: shaderFloat64 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float64_to_int64_rtz_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float64_to_int64_rtz_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float64_to_int64_rtz_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float64_to_int64_rtz_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float64_to_int64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float64_to_int64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftos.float64_to_int64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_1234_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_1234_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_1234_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_1234_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_1234_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_m0_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_m0_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_m0_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_m0_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_m0_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_max_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_max_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_max_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_max_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_max_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_p0_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_p0_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_p0_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_p0_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_p0_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_p159rtz_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_p159rtz_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_p159rtz_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_p159rtz_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float16_to_uint64_p159rtz_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_large_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_large_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_large_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_large_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_large_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_rtz_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_rtz_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_rtz_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_rtz_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_rtz_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float32_to_uint64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float64_to_uint64_frag	NotSupported	At least following requested feature not supported: shaderFloat64 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float64_to_uint64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float64_to_uint64_rtz_frag	NotSupported	At least following requested feature not supported: shaderFloat64 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float64_to_uint64_rtz_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float64_to_uint64_rtz_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float64_to_uint64_rtz_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float64_to_uint64_rtz_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float64_to_uint64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float64_to_uint64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertftou.float64_to_uint64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_m1234_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_m1234_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_m1234_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_m1234_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_m1234_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_m32768_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_m32768_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_m32768_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_m32768_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_m32768_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_max_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_max_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_max_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_max_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_max_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_min_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_min_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_min_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_min_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_min_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_p32768_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_p32768_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_p32768_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_p32768_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float16_p32768_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_large_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_large_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_large_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_large_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_large_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_m4294967296_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_m4294967296_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_m4294967296_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_m4294967296_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_m4294967296_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_max_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_max_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_max_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_max_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_max_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_min_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_min_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_min_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_min_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_min_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_p4294967296_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_p4294967296_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_p4294967296_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_p4294967296_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_p4294967296_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_frag	NotSupported	At least following requested feature not supported: shaderFloat64 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_m4294967296_frag	NotSupported	At least following requested feature not supported: shaderFloat64 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_m4294967296_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_m4294967296_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_m4294967296_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_m4294967296_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_p4294967296_frag	NotSupported	At least following requested feature not supported: shaderFloat64 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_p4294967296_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_p4294967296_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_p4294967296_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_p4294967296_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertstof.int64_to_float64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float16_1234_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float16_1234_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float16_1234_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float16_1234_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float16_1234_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float16_max_frag	NotSupported	At least following requested feature not supported: ShaderFloat16Int8.shaderFloat16 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float16_max_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float16_max_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float16_max_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float16_max_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_4294967296_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_4294967296_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_4294967296_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_4294967296_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_4294967296_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_large_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_large_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_large_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_large_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_large_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_max_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_max_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_max_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_max_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_max_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float64_4294967296_frag	NotSupported	At least following requested feature not supported: shaderFloat64 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float64_4294967296_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float64_4294967296_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float64_4294967296_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float64_4294967296_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float64_frag	NotSupported	At least following requested feature not supported: shaderFloat64 at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.convertutof.uint64_to_float64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftleftlogical_i64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftleftlogical_i64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftleftlogical_i64_tessc	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftleftlogical_i64_tesse	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftleftlogical_i64_vert	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftleftlogical_s_i64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftleftlogical_s_i64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftleftlogical_s_i64_tessc	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftleftlogical_s_i64_tesse	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftleftlogical_s_i64_vert	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightarithmetic_i64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightarithmetic_i64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightarithmetic_i64_tessc	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightarithmetic_i64_tesse	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightarithmetic_i64_vert	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightarithmetic_s_i64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightarithmetic_s_i64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightarithmetic_s_i64_tessc	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightarithmetic_s_i64_tesse	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightarithmetic_s_i64_vert	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightlogical_i64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightlogical_i64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightlogical_i64_tessc	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightlogical_i64_tesse	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightlogical_i64_vert	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightlogical_s_i64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightlogical_s_i64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightlogical_s_i64_tessc	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightlogical_s_i64_tesse	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.opspecconstantop.shiftrightlogical_s_i64_vert	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int16_to_int64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int16_to_int64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int16_to_int64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int16_to_int64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int16_to_int64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int16_to_uint64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int16_to_uint64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int16_to_uint64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int16_to_uint64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int16_to_uint64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int32_to_int64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int32_to_int64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int32_to_int64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int32_to_int64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int32_to_int64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int32_to_uint64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int32_to_uint64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int32_to_uint64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int32_to_uint64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int32_to_uint64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_int8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int64_to_uint8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int8_to_int64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int8_to_int64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int8_to_int64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int8_to_int64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int8_to_int64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int8_to_uint64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int8_to_uint64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int8_to_uint64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int8_to_uint64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.int8_to_uint64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint16_to_int64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint16_to_int64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint16_to_int64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint16_to_int64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint16_to_int64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint32_to_int64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint32_to_int64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint32_to_int64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint32_to_int64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint32_to_int64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint64_to_int8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint8_to_int64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint8_to_int64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint8_to_int64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint8_to_int64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.sconvert.uint8_to_int64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int16_to_uint64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int16_to_uint64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int16_to_uint64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int16_to_uint64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int16_to_uint64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int32_to_uint64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int32_to_uint64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int32_to_uint64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int32_to_uint64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int32_to_uint64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int64_to_uint8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int8_to_uint64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int8_to_uint64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int8_to_uint64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int8_to_uint64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.int8_to_uint64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint16_to_uint64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint16_to_uint64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint16_to_uint64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint16_to_uint64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint16_to_uint64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint32_to_uint64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint32_to_uint64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint32_to_uint64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint32_to_uint64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint32_to_uint64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint64_to_uint8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint8_to_uint64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint8_to_uint64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint8_to_uint64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint8_to_uint64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.graphics.uconvert.uint8_to_uint64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.instruction.spirv1p4.uconvert.spec_const_opt_extend_16_64_bit	Pass	Pass
+dEQP-VK.spirv_assembly.instruction.spirv1p4.uconvert.spec_const_opt_extend_251658240_64_bits	Pass	Pass
+dEQP-VK.spirv_assembly.instruction.spirv1p4.uconvert.spec_const_opt_truncate_16_64_bit	Pass	Pass
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_and_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_and_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_and_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_and_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_and_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_and_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_or_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_or_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_or_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_or_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_or_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_or_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_xor_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_xor_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_xor_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_xor_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_xor_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.bitwise_xor_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift16_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift32_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift64_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift8_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_left_logical_shift8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift16_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift32_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift64_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift8_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_arithmetic_shift8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift16_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift32_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift64_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift8_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.scalar.i64.shift_right_logical_shift8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_and_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_and_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_and_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_and_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_and_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_and_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_or_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_or_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_or_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_or_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_or_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_or_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_xor_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_xor_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_xor_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_xor_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_xor_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.bitwise_xor_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift16_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift16_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift16_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift16_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift16_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift32_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift32_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift32_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift32_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift32_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift64_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift64_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift64_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift64_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift64_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift8_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift8_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift8_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift8_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_left_logical_shift8_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift16_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift16_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift16_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift16_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift16_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift32_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift32_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift32_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift32_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift32_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift64_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift64_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift64_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift64_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift64_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift8_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift8_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift8_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift8_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_arithmetic_shift8_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift16_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift16_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift16_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift16_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift16_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift32_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift32_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift32_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift32_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift32_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift64_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift64_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift64_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift64_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift64_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift8_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift8_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift8_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift8_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec1.i64.shift_right_logical_shift8_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_and_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_and_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_and_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_and_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_and_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_and_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_or_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_or_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_or_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_or_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_or_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_or_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_xor_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_xor_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_xor_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_xor_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_xor_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.bitwise_xor_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift16_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift16_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift16_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift16_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift16_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift32_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift32_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift32_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift32_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift32_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift64_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift64_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift64_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift64_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift64_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift8_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift8_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift8_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift8_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_left_logical_shift8_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift16_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift16_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift16_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift16_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift16_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift32_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift32_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift32_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift32_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift32_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift64_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift64_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift64_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift64_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift64_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift8_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift8_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift8_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift8_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_arithmetic_shift8_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift16_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift16_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift16_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift16_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift16_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift32_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift32_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift32_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift32_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift32_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift64_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift64_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift64_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift64_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift64_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift8_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift8_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift8_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift8_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec12.i64.shift_right_logical_shift8_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_and_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_and_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_and_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_and_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_and_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_and_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_or_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_or_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_or_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_or_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_or_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_or_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_xor_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_xor_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_xor_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_xor_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_xor_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.bitwise_xor_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift16_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift32_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift64_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift8_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_left_logical_shift8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift16_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift32_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift64_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift8_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_arithmetic_shift8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift16_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift32_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift64_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift8_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec2.i64.shift_right_logical_shift8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_and_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_and_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_and_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_and_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_and_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_and_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_or_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_or_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_or_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_or_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_or_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_or_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_xor_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_xor_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_xor_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_xor_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_xor_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.bitwise_xor_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift16_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift32_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift64_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift8_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_left_logical_shift8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift16_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift32_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift64_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift8_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_arithmetic_shift8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift16_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift32_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift64_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift8_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec3.i64.shift_right_logical_shift8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_and_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_and_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_and_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_and_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_and_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_and_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_or_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_or_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_or_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_or_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_or_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_or_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_xor_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_xor_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_xor_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_xor_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_xor_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.bitwise_xor_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift16_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift32_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift64_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift8_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_left_logical_shift8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift16_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift32_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift64_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift8_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_arithmetic_shift8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift16_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift16_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift16_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift16_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift16_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift32_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift32_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift32_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift32_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift32_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift64_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift64_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift64_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift64_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift64_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift8_comp	Pass	Output match with expected
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift8_frag	Pass	Rendered output matches input
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift8_tessc	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift8_tesse	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec4.i64.shift_right_logical_shift8_vert	NotSupported	At least following requested feature not supported: vertexPipelineStoresAndAtomics at vktSpvAsmGraphicsShaderTestUtil.cpp:3219
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_and_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_and_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_and_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_and_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_and_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_and_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_or_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_or_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_or_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_or_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_or_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_or_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_xor_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_xor_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_xor_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_xor_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_xor_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.bitwise_xor_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift16_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift16_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift16_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift16_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift16_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift32_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift32_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift32_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift32_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift32_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift64_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift64_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift64_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift64_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift64_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift8_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift8_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift8_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift8_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_left_logical_shift8_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift16_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift16_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift16_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift16_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift16_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift32_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift32_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift32_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift32_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift32_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift64_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift64_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift64_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift64_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift64_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift8_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift8_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift8_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift8_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_arithmetic_shift8_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift16_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift16_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift16_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift16_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift16_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift16_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift32_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift32_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift32_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift32_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift32_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift32_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift64_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift64_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift64_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift64_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift64_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift64_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift8_comp	NotSupported	longVector not supported at vktSpvAsmComputeShaderCase.cpp:504
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift8_frag	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift8_geom	NotSupported	Geometry not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3148
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift8_tessc	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift8_tesse	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165
+dEQP-VK.spirv_assembly.type.vec8.i64.shift_right_logical_shift8_vert	NotSupported	longVector not supported at vktSpvAsmGraphicsShaderTestUtil.cpp:3165

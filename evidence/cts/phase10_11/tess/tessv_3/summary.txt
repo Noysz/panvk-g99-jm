@@ -1,0 +1,5 @@
+group tessv_3: 1114 cases, 23 process run(s)
+  Pass                   148
+  Fail                   16
+  NotSupported           950
+  pass rate of supported: 148/164 = 90.2%

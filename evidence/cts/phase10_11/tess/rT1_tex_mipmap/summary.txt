@@ -1,0 +1,4 @@
+group rT1_tex_mipmap: 72 cases, 1 process run(s)
+  Pass                   36
+  NotSupported           36
+  pass rate of supported: 36/36 = 100.0%

@@ -1,0 +1,4 @@
+group rT1_secondary: 19 cases, 1 process run(s)
+  Pass                   17
+  NotSupported           2
+  pass rate of supported: 17/17 = 100.0%

@@ -1,0 +1,5 @@
+info:  D3D11CoreCreateDevice: Probing D3D_FEATURE_LEVEL_11_1
+info:  D3D11CoreCreateDevice: Probing D3D_FEATURE_LEVEL_11_0
+info:  D3D11CoreCreateDevice: Probing D3D_FEATURE_LEVEL_10_1
+info:  D3D11CoreCreateDevice: Probing D3D_FEATURE_LEVEL_10_0
+err:   D3D11CoreCreateDevice: Requested feature level not supported

@@ -1,0 +1,5 @@
+group tess_r3: 217 cases, 5 process run(s)
+  Pass                   104
+  Fail                   16
+  NotSupported           97
+  pass rate of supported: 104/120 = 86.7%

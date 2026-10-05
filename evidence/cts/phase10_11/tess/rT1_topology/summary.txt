@@ -1,0 +1,4 @@
+group rT1_topology: 198 cases, 2 process run(s)
+  Pass                   113
+  NotSupported           85
+  pass rate of supported: 113/113 = 100.0%

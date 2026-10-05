@@ -1,0 +1,1 @@
+AIOCLICK scene=gs status=ALIVE segv=0 guard_msgs=2 unhandled=0

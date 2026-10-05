@@ -1,0 +1,14 @@
+case: dEQP-VK.tessellation.misc_draw.fill_cover_triangles_equal_spacing_draw (levels 9/9,9,9)
+readback of the WITH_COUNTS index buffer, triangle slots never written by the tessellator
+--- before 0061 (/tmp/t14, build with a TLS-carry experiment that had no effect; same result as /tmp/t13 without it):
+TESSDUMP zero-tris: 8 9 10 11 12 13 14 15 24 25 26 27 28 29 30 31 40 41 42 43 44 45 46 47
+TESSDUMP zero-tris: 8 9 10 11 12 13 14 15 26 27 28 29 30 31 46 47
+TESSDUMP zero-tris:
+--- after 0061 (/tmp/t18):
+TESSDUMP zero-tris:
+TESSDUMP zero-tris:
+TESSDUMP zero-tris:
+  Pass (OK)
+--- backend IR of the stitch-loop load before 0061:
+%1301 = RSHIFT_OR.v4i8 %1300, u256, u260.b2   (64-bit ushr by 2 packed as per-byte shift)
+%4467 = IADD.u32 tls_ptr, %1303 ; LOAD.i32.tl  -> offset 0xe4 instead of 0x1e4

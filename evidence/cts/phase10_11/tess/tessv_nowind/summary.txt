@@ -1,0 +1,5 @@
+group tessv_nowind: 217 cases, 5 process run(s)
+  Pass                   80
+  Fail                   40
+  NotSupported           97
+  pass rate of supported: 80/120 = 66.7%
