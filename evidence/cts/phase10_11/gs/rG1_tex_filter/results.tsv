@@ -1,0 +1,18 @@
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.cubic	NotSupported	VK_EXT_filter_cubic is not supported at vktTestCase.cpp:1394
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.cubic_compute	NotSupported	VK_EXT_filter_cubic is not supported at vktTestCase.cpp:1394
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.cubic_mipmap_linear	NotSupported	VK_EXT_filter_cubic is not supported at vktTestCase.cpp:1394
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.cubic_mipmap_linear_compute	NotSupported	VK_EXT_filter_cubic is not supported at vktTestCase.cpp:1394
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.cubic_mipmap_nearest	NotSupported	VK_EXT_filter_cubic is not supported at vktTestCase.cpp:1394
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.cubic_mipmap_nearest_compute	NotSupported	VK_EXT_filter_cubic is not supported at vktTestCase.cpp:1394
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.linear	Pass	Pass
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.linear_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.linear_mipmap_linear	Pass	Pass
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.linear_mipmap_linear_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.linear_mipmap_nearest	Pass	Pass
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.linear_mipmap_nearest_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.nearest	Pass	Pass
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.nearest_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.nearest_mipmap_linear	Pass	Pass
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.nearest_mipmap_linear_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.nearest_mipmap_nearest	Pass	Pass
+dEQP-VK.texture.filtering.2d.formats.r8g8b8a8_unorm.nearest_mipmap_nearest_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766

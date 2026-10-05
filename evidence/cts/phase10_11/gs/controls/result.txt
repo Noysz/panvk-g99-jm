@@ -1,0 +1,7 @@
+render_to_default_layer (10 cases, /tmp/dl.txt):
+  default: Passed 10/10
+  PANVK_V9_ALL_LAYERS=1: Failed 10/10
+geometry smoke list l_gs_s (10 cases):
+  default: 10 Pass, rc=0
+  PANVK_V9_GS_RAST_BASE0=1: 2 Fail, 1 Pass, then SIGSEGV in the backend (rc=139)
+full geometry.* with PANVK_V9_NO_GS=1: see rG1_gsctl (190 Fail, 10 NS)

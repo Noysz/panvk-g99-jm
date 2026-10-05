@@ -24,6 +24,10 @@ Update after `0060` + `0062` (drv11, 2026-10-05): `transformFeedback` and
 | 1.11.1-sarek | `geometryShader`, `variableMultisampleRate`, `vertexPipelineStoresAndAtomics` |
 | 2.3.1 | `geometryShader`, `geometryStreams` (d3d11_tri passes at FL 10_1) |
 
+Update after `0063` (drv12/drv13, 2026-10-05): `geometryShader` is no longer
+missing. DXVK 1.10.3 D3D11 and D3D9 start (d3d11_tri FL 11_0), 1.11.1-sarek
+FL 11_0, 2.3.1 FL 11_0 and only `geometryStreams` is missing for it.
+
 Clip/cull distance, `multiViewport` and BC textures are supplied by the
 Winlator Wrapper, so they are not on this list, but they are also missing in
 the driver itself.
@@ -78,9 +82,13 @@ has a working reference only for tessellation, so the build order is:
    `tessellation.*` 1114 3x: 148 pass, 16 fail (all `*_indirect`, indirect
    tess draws not implemented), 950 not supported (mostly `multiViewport`,
    vertex-pipeline stores, geometry shader). AIO "Tessellation" renders.
-4. Geometry shader (Phase 11a): `poly_nir_lower_gs` in the PanVK compile,
-   geometry kernels in libpan, port of the Honeykrisp GS sequence, then
-   `geometryStreams`. CTS `geometry.*`, AIO "GS Exploder".
+4. [x] Geometry shader (Phase 11a, patch `0063`): `poly_nir_lower_gs` in the
+   PanVK compile, port of the Honeykrisp GS sequence for direct draws. CTS
+   `geometry.*` 200 4x: 179 pass, 11 fail, 10 not supported. AIO "GS
+   Exploder" renders.
+   Next (11b): `geometryStreams` and XFB from a GS (needs the libpan
+   geometry prefix-sum kernel), GS after tessellation, indirect draws with a
+   GS, `primitive_id` to the FS, cube layered rendering.
 5. Expose the features, DXVK 1.10.3 / 1.11 / 2.3.1 through the Wrapper.
 
 ## Phase 8 — close the open Phase 4-6 items

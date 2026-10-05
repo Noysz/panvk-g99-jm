@@ -1,0 +1,10 @@
+dEQP-VK.geometry.basic.output_10
+dEQP-VK.geometry.basic.output_128
+dEQP-VK.geometry.emit.line_strip_emit_1_end_1
+dEQP-VK.geometry.emit.points_emit_1_end_1
+dEQP-VK.geometry.emit.triangle_strip_emit_1_end_1
+dEQP-VK.geometry.input.basic_primitive.line_strip
+dEQP-VK.geometry.input.basic_primitive.lines
+dEQP-VK.geometry.input.basic_primitive.points
+dEQP-VK.geometry.input.basic_primitive.triangle_strip
+dEQP-VK.geometry.input.basic_primitive.triangles
