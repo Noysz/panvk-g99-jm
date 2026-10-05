@@ -1,0 +1,3 @@
+group rX1_simple_draw: 4 cases, 1 process run(s)
+  Pass                   4
+  pass rate of supported: 4/4 = 100.0%

@@ -1,0 +1,4 @@
+group rX1_event: 32 cases, 1 process run(s)
+  Pass                   19
+  NotSupported           13
+  pass rate of supported: 19/19 = 100.0%

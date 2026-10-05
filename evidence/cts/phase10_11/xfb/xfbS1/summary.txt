@@ -1,0 +1,4 @@
+group xfbS1: 7899 cases, 40 process run(s)
+  Pass                   187
+  NotSupported           7712
+  pass rate of supported: 187/187 = 100.0%

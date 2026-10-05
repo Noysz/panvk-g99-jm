@@ -53,6 +53,7 @@ not a guess:
 | `0057-v9-EXPERIMENTAL-reject-tess-gs-pipelines` | ✅ on `0046` state | 🧪 **EXPERIMENTAL**. v9 refuses pipelines with tessellation/geometry stages, and the runtime refuses links with a `VK_NULL_HANDLE` library. Fixes the AIO-Graphics-Test "GS Exploder" crash (3/3, controls crash). Control `PANVK_V9_ALLOW_TESS_GS=1`. |
 | `0058-v9-dcd-no-fs-earlyzs-and-batch-split` | ✅ on `0057` state | **current**, 3 bug fixes from CTS. (1) No fragment shader: the v9 DCD dereferenced a NULL FS (SIGSEGV, `occlusion_query.*no_attachments*`). (2) Early-ZS kill/update and `shader_modifies_coverage` were never set on v9, so `discard`ed samples were counted by precise occlusion queries; control `PANVK_V9_DCD_NO_EARLYZS=1` 28 fail. (3) After a batch split inside a render pass the draw went to the closed batch (`record_many_draws_secondary_2`); control `PANVK_V9_STALE_BATCH=1`. Test knob `PANVK_V9_SPLIT_AT=n`. |
 | `0059-v9-msaa-per-sample-a2c-and-shader-depth` | ✅ on `0058` state | **current**, 3 MSAA bugs from CTS. (1) `evaluate_per_sample` was never set on v9: shaders reading `gl_SampleID` / `gl_SamplePosition` / `interpolateAtSample` or `sampleShadingEnable` ran once per pixel. (2) `alpha_to_coverage` was never enabled. Control for both `PANVK_V9_NO_PER_SAMPLE=1` (86 fail). (3) The v9 depth/stencil descriptor never set `depth_source`, `stencil_from_shader`, depth clip or depth clamp: shader-written depth was lost with per-sample shading, `depthClamp`/`depthClipEnable` ignored. Control `PANVK_V9_ZSD_OLD=1` (8 fail). Test knob `PANVK_V9_NO_TILE_RESOLVE=1` (Z/S resolve through store + meta instead of the tile resolve shader). |
+| `0060-v9-transform-feedback` | ✅ on `0059` state | **current**, 🧪 EXPERIMENTAL. `VK_EXT_transform_feedback` / `transformFeedback` on v9. The XFB variant of the vertex shader runs as a COMPUTE job in the batch's vertex/tiler chain (like gallium `jm_launch_xfb` on v9 and CSF `launch_xfb`). New libpan kernels `panlib_xfb_begin/add/end` do the counter loads, offset adds and stores that CSF does in the command stream, and `panlib_xfb_expand` rewrites line strips, triangle strips and fans into independent primitives. A vertex shader whose only outputs are XFB captures compiles to an empty hardware variant; the capture still runs. Limits as CSF: indirect draws are not captured, indexed draws are captured in linear order, 1 stream, no `transformFeedbackDraw` / queries. Control `PANVK_V9_XFB_SKIP=1` (81 of 82 fail). |
 | `9001-termux-android-detection-fixes.UPSTREAM-THIRDPARTY` | ✅ yes | third-party, from LukeValen/panvk-mali-g52 |
 
 ## The set that actually reproduces the current driver
@@ -89,10 +90,10 @@ Never use a `patches/*.patch` glob — it sweeps in the historical ones.
 
 ## Patches 0047-0057: a real stack
 
-Unlike the earlier working-tree extracts, `0047`-`0059` were generated
+Unlike the earlier working-tree extracts, `0047`-`0060` were generated
 per change from timestamped backups and **stack in order** on the tree that
 `0041`-`0046` describe (the driver state of commit `c080268`). Checked: that
-state plus `0047`..`0057` applied (and `0058`, `0059` on top; checked 44/44 identical again after `0059`) in order equals the live driver tree,
+state plus `0047`..`0057` applied (and `0058`-`0060` on top; checked 48/48 identical again after `0060`) in order equals the live driver tree,
 `identical: 44  differing: 0  (of 44)`. Generator:
 [`../tools/winlator/mkstagepatches.py`](../tools/winlator/mkstagepatches.py).
 

@@ -1,0 +1,4 @@
+group xfbR3: 143 cases, 2 process run(s)
+  Pass                   82
+  NotSupported           61
+  pass rate of supported: 82/82 = 100.0%

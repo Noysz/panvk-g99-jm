@@ -1,0 +1,4 @@
+group rX1_occlusion: 441 cases, 5 process run(s)
+  Pass                   434
+  NotSupported           7
+  pass rate of supported: 434/434 = 100.0%

@@ -1,0 +1,4 @@
+group rX1_sampler: 170 cases, 2 process run(s)
+  Pass                   55
+  NotSupported           115
+  pass rate of supported: 55/55 = 100.0%

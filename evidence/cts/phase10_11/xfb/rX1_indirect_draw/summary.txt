@@ -1,0 +1,3 @@
+group rX1_indirect_draw: 372 cases, 4 process run(s)
+  Pass                   372
+  pass rate of supported: 372/372 = 100.0%

@@ -19,6 +19,59 @@ Clip/cull distance, `multiViewport` and BC textures are supplied by the
 Winlator Wrapper, so they are not on this list, but they are also missing in
 the driver itself.
 
+## DXVK 1.x requirements (VERIFIED-SRC, `d3d11_device.cpp` / `d3d9_device.cpp` GetDeviceFeatures, tags v1.0-v1.10.3)
+
+| Required by | DXVK 1.0-1.7 | DXVK 1.8-1.10.3 | Phase |
+|---|---|---|---|
+| `geometryShader`, every feature level, D3D11 and D3D9 (1.5+) | yes | yes | 11a |
+| `transformFeedback` + `geometryStreams`, FL >= 10_0 | optional | yes | 11b |
+| `tessellationShader`, FL >= 11_0 | yes | yes | 10 |
+| `variableMultisampleRate`, `vertexPipelineStoresAndAtomics`, FL 11_1 | yes | yes | 9 |
+
+So no DXVK 1.x version starts at all without geometry shaders. Order is
+therefore 11a first, then 11b, 10 and 9:
+
+- after 11a: DXVK 1.0-1.7 D3D9 and D3D11 FL 10_x
+- after 11b: DXVK 1.8-1.10.3 D3D9 and D3D11 FL 10_x
+- after 10: FL 11_0 (most D3D11 games)
+- after 9: FL 11_1, and DXVK-Sarek 1.11 complete (it needs GS, tessellation,
+  `variableMultisampleRate`, `vertexPipelineStoresAndAtomics`)
+
+## Phase 10/11 plan (VERIFIED-SRC, Mesa tree at `6598829`)
+
+What already exists in the tree:
+- PanVK CSF (v10+) has tessellation and transform feedback, both done in
+  software through libpoly: VS/TCS run as compute, a tessellator kernel,
+  then an indirect draw with TES as the hardware VS
+  (`csf/panvk_vX_cmd_draw.c`: `launch_tess`, `launch_xfb`, `launch_gfx_cs`).
+  Features are gated `PAN_ARCH >= 10`.
+- `geometryShader` and `geometryStreams` are false on every Mali arch.
+  The only GS reference is Asahi/Honeykrisp (`hk_cmd_draw.c`), on top of
+  `src/poly/nir/poly_nir_lower_gs.c`.
+- libpan for v9 already contains the libpoly tessellator kernels
+  (`PANLIB_TESS_*`, `PANLIB_PREFIX_SUM_TESS`). There are no geometry kernels
+  in libpan yet.
+- JM can already queue precompiled compute jobs in the current batch
+  (`jm/panvk_vX_cmd_precomp.c`), without splitting the render pass.
+
+GS needs the same base as tessellation (graphics shaders run as compute
+inside the render pass, poly heap, GPU-generated indirect draw). That base
+has a working reference only for tessellation, so the build order is:
+
+1. [x] JM gfx-compute helper: a graphics-stage shader variant as a COMPUTE
+   job in the batch's vertex/tiler chain. First user: transform feedback
+   (patch `0060`). CTS `transform_feedback.simple.*` 7899 cases: 187 pass,
+   7712 not supported (geometry shader, streams, clip/cull distance,
+   `transformFeedbackDraw`), 0 fail. Subset of 143 3x: 82 pass, 0 fail.
+2. Poly heap on JM, allocated lazily and smaller than the CSF 128 MiB
+   (RAM budget, see Phase 12).
+3. Tessellation on v9 (Phase 10): compile the SW VS / TCS / TES variants on
+   v9, port `launch_tess`, lift the 0057 guard for tess. CTS `tessellation.*`.
+4. Geometry shader (Phase 11a): `poly_nir_lower_gs` in the PanVK compile,
+   geometry kernels in libpan, port of the Honeykrisp GS sequence, then
+   `geometryStreams`. CTS `geometry.*`, AIO "GS Exploder".
+5. Expose the features, DXVK 1.10.3 / 1.11 / 2.3.1 through the Wrapper.
+
 ## Phase 8 — close the open Phase 4-6 items
 
 - [x] 8.1 Occlusion queries: no-colour-attachment crash, precise count with

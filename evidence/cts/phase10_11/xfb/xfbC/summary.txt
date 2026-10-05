@@ -1,0 +1,5 @@
+group xfbC: 143 cases, 2 process run(s)
+  Pass                   1
+  Fail                   81
+  NotSupported           61
+  pass rate of supported: 1/82 = 1.2%

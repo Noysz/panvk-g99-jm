@@ -1,0 +1,628 @@
+diff --git a/src/panfrost/vulkan/panvk_vX_shader.c b/src/panfrost/vulkan/panvk_vX_shader.c
+--- a/src/panfrost/vulkan/panvk_vX_shader.c
++++ b/src/panfrost/vulkan/panvk_vX_shader.c
+@@ -155,6 +155,17 @@
+       val = load_sysval(b, graphics, bit_size, vs.noperspective_varyings);
+       break;
+ 
++#if PAN_ARCH == 9
++   case nir_intrinsic_load_raw_vertex_offset:
++      /* PATCH v9: only the XFB variant emits this (nir_lower_xfb_to_stores
++       * makes gl_VertexIndex raw_vertex_id + raw_vertex_offset). Its compute
++       * job counts vertices from 0 (attribute_offset moves the attribute
++       * fetch only), so the offset is firstVertex, like gallium's
++       * PAN_SYSVAL_VERTEX_INSTANCE_OFFSETS = offset_start. */
++      val = load_sysval(b, graphics, bit_size, vs.first_vertex);
++      break;
++#endif
++
+ #if PAN_ARCH < 9
+    case nir_intrinsic_load_raw_vertex_offset:
+       val = load_sysval(b, graphics, bit_size, vs.raw_vertex_offset);
+@@ -1519,8 +1530,10 @@
+          const enum panvk_vs_variant v = compile_order[pass];
+          struct panvk_shader_variant *variant = &shader->variants[v];
+ 
++         /* PATCH v9: the JM path runs the XFB variant as a compute job too
++          * (jm/panvk_vX_cmd_xfb.c, launch_xfb_v9). */
+          if (v == PANVK_VS_VARIANT_XFB &&
+-             (PAN_ARCH < 10 || info->nir->xfb_info == NULL))
++             (PAN_ARCH < 9 || info->nir->xfb_info == NULL))
+             continue;
+ 
+          if (v == PANVK_VS_VARIANT_SW &&
+diff --git a/src/panfrost/vulkan/panvk_vX_physical_device.c b/src/panfrost/vulkan/panvk_vX_physical_device.c
+--- a/src/panfrost/vulkan/panvk_vX_physical_device.c
++++ b/src/panfrost/vulkan/panvk_vX_physical_device.c
+@@ -224,7 +224,7 @@
+       .EXT_swapchain_maintenance1 = true,
+ #endif
+       .EXT_texel_buffer_alignment = true,
+-      .EXT_transform_feedback = PAN_ARCH >= 10,
++      .EXT_transform_feedback = PAN_ARCH >= 9, /* PATCH v9: JM XFB */
+       .EXT_astc_decode_mode = PAN_ARCH >= 9,
+       .EXT_texture_compression_astc_hdr = true,
+       .EXT_tooling_info = true,
+@@ -593,7 +593,7 @@
+       .inheritedConditionalRendering = PAN_ARCH >= 10,
+ 
+       /* VK_EXT_transform_feedback */
+-      .transformFeedback = PAN_ARCH >= 10,
++      .transformFeedback = PAN_ARCH >= 9, /* PATCH v9: JM XFB */
+       .geometryStreams = false,
+ 
+       /* VK_EXT_custom_border_color */
+diff --git a/src/panfrost/vulkan/meson.build b/src/panfrost/vulkan/meson.build
+--- a/src/panfrost/vulkan/meson.build
++++ b/src/panfrost/vulkan/meson.build
+@@ -94,6 +94,7 @@
+   'jm/panvk_vX_cmd_event.c',
+   'jm/panvk_vX_cmd_query.c',
+   'jm/panvk_vX_cmd_precomp.c',
++  'jm/panvk_vX_cmd_xfb.c',  # PATCH v9: transform feedback
+   'jm/panvk_vX_event.c',
+   'jm/panvk_vX_gpu_queue.c',
+ ]
+diff --git a/src/panfrost/libpan/meson.build b/src/panfrost/libpan/meson.build
+--- a/src/panfrost/libpan/meson.build
++++ b/src/panfrost/libpan/meson.build
+@@ -8,6 +8,7 @@
+   'draw_helper.cl',
+   'indirect_dispatch.cl',
+   'tessellation.cl',
++  'xfb_helper.cl',  # PATCH v9: JM transform feedback offsets
+ )
+ 
+ idep_libpan_per_arch = {}
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -20,6 +20,7 @@
+ #include "panvk_cmd_draw.h"
+ #include "panvk_cmd_meta.h"
+ #include "panvk_cmd_precomp.h"
++#include "xfb_helper.h" /* PATCH v9: JM transform feedback */
+ #include "panvk_device.h"
+ #include "panvk_entrypoints.h"
+ #include "panvk_image.h"
+@@ -3112,6 +3113,228 @@
+ static void panvk_cmd_draw_v9_layer(struct panvk_cmd_buffer *cmdbuf,
+                                     struct panvk_draw_data *draw);
+ 
++/* PATCH v9: transform feedback. The XFB variant of the vertex shader (built
++ * with no IDVS, xfb outputs lowered to global stores) runs as one COMPUTE job
++ * per draw in the batch's vertex/tiler chain, one invocation per vertex and
++ * instance, like gallium jm_launch_xfb() on v9 and CSF launch_xfb(). The
++ * job barrier orders it after the previous XFB job, then panlib_xfb_add
++ * advances the per-buffer offsets on the GPU (CSF does that in the command
++ * stream). Same limits as CSF: indirect draws are skipped, indexed draws
++ * capture vertices in linear order. 🧪 EXPERIMENTAL. */
++static VkResult
++launch_xfb_v9(struct panvk_cmd_buffer *cmdbuf,
++              const struct panvk_draw_data *draw)
++{
++   struct panvk_cmd_graphics_state *gfx = &cmdbuf->state.gfx;
++   const struct panvk_shader_variant *xfb =
++      panvk_shader_xfb_variant(gfx->vs.shader);
++
++   /* PANVK_V9_XFB_SKIP=1: no capture (negative control). */
++   static int xfb_skip = -1;
++   if (xfb_skip < 0)
++      xfb_skip = getenv("PANVK_V9_XFB_SKIP") != NULL;
++
++   if (xfb_skip || !gfx->xfb.enabled || !xfb || !gfx->xfb.offsets.gpu)
++      return VK_SUCCESS;
++
++   /* The variant only exists when the VS has xfb outputs. */
++   if (!panvk_priv_mem_check_alloc(xfb->spds.pos_triangles))
++      return VK_SUCCESS;
++
++   if (draw->info.indirect.buffer_dev_addr)
++      return VK_SUCCESS;
++
++   const uint32_t n = draw->info.vertex.count;
++   const uint32_t instance_count = draw->info.instance.count;
++   if (!n || !instance_count)
++      return VK_SUCCESS;
++
++   /* XFB stores independent primitives. Lists only drop an incomplete last
++    * primitive; strips and fans are captured linearly into scratch memory
++    * and rewritten by panlib_xfb_expand. Points, adjacency and patches stay
++    * linear. */
++   int topo = -1;
++   uint32_t out_count = n;
++   switch (draw->info.prim) {
++   case MESA_PRIM_LINES:
++      out_count = n / 2 * 2;
++      break;
++   case MESA_PRIM_TRIANGLES:
++      out_count = n / 3 * 3;
++      break;
++   case MESA_PRIM_LINE_STRIP:
++      topo = PANLIB_XFB_LINE_STRIP;
++      out_count = n >= 2 ? 2 * (n - 1) : 0;
++      break;
++   case MESA_PRIM_TRIANGLE_STRIP:
++      topo = PANLIB_XFB_TRIANGLE_STRIP;
++      out_count = n >= 3 ? 3 * (n - 2) : 0;
++      break;
++   case MESA_PRIM_TRIANGLE_FAN:
++      topo = PANLIB_XFB_TRIANGLE_FAN;
++      out_count = n >= 3 ? 3 * (n - 2) : 0;
++      break;
++   default:
++      break;
++   }
++   if (!out_count)
++      return VK_SUCCESS;
++
++   /* Vertices shaded per instance by the XFB job. */
++   const uint32_t vertex_count = topo >= 0 ? n : out_count;
++
++   struct panvk_batch *batch = cmdbuf->cur_batch;
++   assert(batch);
++
++   struct pan_ptr expand = {0};
++   if (topo >= 0) {
++      expand = panvk_cmd_alloc_dev_mem(
++         cmdbuf, desc, sizeof(struct panlib_xfb_expand_params), 64);
++      if (!expand.gpu)
++         return VK_ERROR_OUT_OF_DEVICE_MEMORY;
++
++      struct panlib_xfb_expand_params *p = expand.cpu;
++      memset(p, 0, sizeof(*p));
++
++      uint64_t scratch_size = 0;
++      for (uint32_t i = 0; i < PANVK_MAX_XFB_BUFFERS; i++)
++         scratch_size += ALIGN_POT((uint64_t)vertex_count * instance_count *
++                                      xfb->xfb_stride[i], 64);
++
++      struct pan_ptr scratch =
++         panvk_cmd_alloc_dev_mem(cmdbuf, varying, scratch_size, 64);
++      if (!scratch.gpu)
++         return VK_ERROR_OUT_OF_DEVICE_MEMORY;
++
++      uint64_t addr = scratch.gpu;
++      for (uint32_t i = 0; i < PANVK_MAX_XFB_BUFFERS; i++) {
++         p->src[i] = addr;
++         p->dst[i] = gfx->xfb.buffers[i].address;
++         p->stride[i] = xfb->xfb_stride[i];
++         addr += ALIGN_POT((uint64_t)vertex_count * instance_count *
++                              xfb->xfb_stride[i], 64);
++      }
++      p->offsets = gfx->xfb.offsets.gpu;
++      p->in_vertices = vertex_count;
++      p->out_vertices = out_count;
++      p->instances = instance_count;
++      p->topology = topo;
++   }
++
++   for (uint32_t i = 0; i < PANVK_MAX_XFB_BUFFERS; i++) {
++      if (topo >= 0) {
++         const struct panlib_xfb_expand_params *p = expand.cpu;
++         gfx->sysvals.xfb.base[i] = p->src[i];
++         gfx->sysvals.xfb.offset_ptr[i] =
++            expand.gpu + offsetof(struct panlib_xfb_expand_params, zero) +
++            i * sizeof(uint32_t);
++      } else {
++         gfx->sysvals.xfb.base[i] = gfx->xfb.buffers[i].address;
++         gfx->sysvals.xfb.offset_ptr[i] =
++            gfx->xfb.offsets.gpu + i * sizeof(uint32_t);
++      }
++   }
++   gfx->sysvals.xfb.num_vertices = vertex_count;
++
++   struct pan_ptr xfb_push_uniforms;
++   VkResult result = panvk_per_arch(cmd_prepare_gfx_push_uniforms)(
++      cmdbuf, xfb, &xfb_push_uniforms, 1);
++   if (result != VK_SUCCESS)
++      return result;
++   gfx->xfb.push_uniforms = xfb_push_uniforms.gpu;
++
++   gfx->xfb.desc.driver_set = gfx->vs.desc.driver_set;
++   result = panvk_per_arch(cmd_prepare_shader_res_table)(
++      cmdbuf, &gfx->desc_state, &gfx->vs.shader->desc_info, &gfx->xfb.desc,
++      1);
++   if (result != VK_SUCCESS)
++      return result;
++
++   batch->tlsinfo.tls.size =
++      MAX2(xfb->info.tls_size, batch->tlsinfo.tls.size);
++
++   struct pan_ptr job = panvk_cmd_alloc_desc(cmdbuf, COMPUTE_JOB);
++   if (!job.gpu)
++      return VK_ERROR_OUT_OF_DEVICE_MEMORY;
++
++   pan_section_pack(job.cpu, COMPUTE_JOB, PAYLOAD, cfg) {
++      cfg.workgroup_size_x = 1;
++      cfg.workgroup_size_y = 1;
++      cfg.workgroup_size_z = 1;
++      cfg.workgroup_count_x = vertex_count;
++      cfg.workgroup_count_y = instance_count;
++      cfg.workgroup_count_z = 1;
++      cfg.compute.resources = gfx->xfb.desc.res_table;
++      cfg.compute.shader = panvk_priv_mem_dev_addr(xfb->spds.pos_triangles);
++      cfg.compute.thread_storage = draw->tls;
++      cfg.compute.fau = gfx->xfb.push_uniforms;
++      cfg.compute.fau_count = xfb->fau.total_count;
++      cfg.compute.attribute_offset = draw->info.vertex.base;
++      /* No barriers or shared memory in the XFB variant. */
++      cfg.allow_merging_workgroups = true;
++      cfg.task_increment = 1;
++      cfg.task_axis = MALI_TASK_AXIS_Z;
++   }
++
++   util_dynarray_append(&batch->jobs, job.cpu);
++   pan_jc_add_job(&batch->vtc_jc, MALI_JOB_TYPE_COMPUTE, true, false, 0, 0,
++                  &job, false);
++
++   struct panvk_precomp_ctx precomp_ctx = panvk_per_arch(precomp_cs)(cmdbuf);
++
++   if (topo >= 0)
++      panlib_xfb_expand(&precomp_ctx, panlib_1d(out_count * instance_count),
++                        PANLIB_BARRIER_JM_BARRIER, expand.gpu);
++
++   uint32_t inc[PANVK_MAX_XFB_BUFFERS] = {0};
++   for (uint32_t i = 0; i < PANVK_MAX_XFB_BUFFERS; i++)
++      inc[i] = out_count * instance_count * xfb->xfb_stride[i];
++
++   panlib_xfb_add(&precomp_ctx, panlib_1d(1), PANLIB_BARRIER_JM_BARRIER,
++                  gfx->xfb.offsets.gpu, inc[0], inc[1], inc[2], inc[3]);
++
++   return VK_SUCCESS;
++}
++
++/* PATCH v9: a vertex shader whose only outputs are XFB captures (no
++ * gl_Position, no point size) compiles to an empty hardware variant, so the
++ * draw has nothing to rasterize and is skipped. The capture must still run:
++ * prepare only what the XFB compute job reads (TLS, sysvals, push and VS
++ * descriptors), then launch it. */
++static void
++launch_xfb_only_v9(struct panvk_cmd_buffer *cmdbuf,
++                   struct panvk_draw_data *draw)
++{
++   struct panvk_cmd_graphics_state *gfx = &cmdbuf->state.gfx;
++
++   if (!gfx->xfb.enabled || !panvk_shader_xfb_variant(gfx->vs.shader))
++      return;
++
++   if (!cmdbuf->cur_batch)
++      panvk_per_arch(cmd_open_batch)(cmdbuf);
++
++   struct panvk_batch *batch = cmdbuf->cur_batch;
++   if (panvk_per_arch(cmd_alloc_tls_desc)(cmdbuf, true) != VK_SUCCESS)
++      return;
++   draw->tls = batch->tls.gpu;
++
++   panvk_per_arch(cmd_prepare_draw_sysvals)(cmdbuf, &draw->info, NULL);
++
++   if (panvk_per_arch(cmd_prepare_push_descs)(
++          cmdbuf, &gfx->desc_state, gfx->vs.shader->desc_info.used_set_mask) !=
++       VK_SUCCESS)
++      return;
++
++   if (prepare_vs_driver_set(cmdbuf, gfx->vs.shader, &gfx->vs.desc, 1) !=
++       VK_SUCCESS)
++      return;
++
++   /* The next real draw must rebuild its VS descriptors. */
++   gfx_state_set_dirty(cmdbuf, DESC_STATE);
++
++   launch_xfb_v9(cmdbuf, draw);
++}
++
+ /* Layered rendering and multiview on v9 JM, same scheme as the Bifrost path
+  * (prepare_draw_layer): every draw is recorded once per framebuffer layer (or
+  * per view in the view mask) with its own tiler context and layer_id sysval.
+@@ -3158,8 +3381,11 @@
+    const bool pos_spd_alloc = draw->info.prim == MESA_PRIM_POINTS
+                                  ? panvk_priv_mem_check_alloc(vs->spds.pos_points)
+                                  : panvk_priv_mem_check_alloc(vs->spds.pos_triangles);
+-   if (!pos_spd_alloc)
++   if (!pos_spd_alloc) {
++      if (draw->info.layer_id == 0)
++         launch_xfb_only_v9(cmdbuf, draw);
+       return;
++   }
+ 
+    assert(batch);
+ 
+@@ -3186,6 +3412,11 @@
+    if (!stale_batch)
+       batch = cmdbuf->cur_batch;
+ 
++   /* Transform feedback runs once per draw, not once per layer
++    * (multiview with transform feedback is not allowed). */
++   if (draw->info.layer_id == 0 && launch_xfb_v9(cmdbuf, draw) != VK_SUCCESS)
++      return;
++
+    /* Indirect draws: the counts are not known at record time, so the job is
+     * built with placeholders, parked as NOT_STARTED so the hardware cannot run
+     * it yet, and a helper kernel then overwrites the count fields from the
+diff --git a/src/panfrost/libpan/xfb_helper.cl b/src/panfrost/libpan/xfb_helper.cl
+new file mode 100644
+--- /dev/null
++++ b/src/panfrost/libpan/xfb_helper.cl
+@@ -0,0 +1,105 @@
++/*
++ * Copyright 2026 NoyszFourFect
++ * SPDX-License-Identifier: MIT
++ */
++
++#include "compiler/libcl/libcl.h"
++#include "xfb_helper.h"
++
++#if PAN_ARCH == 9
++
++/*
++ * Transform feedback offset bookkeeping for the v9 Job Manager path.
++ *
++ * The XFB variant of the vertex shader reads the current byte offset of each
++ * XFB buffer from a small array in GPU memory. CSF loads, adds and stores
++ * those offsets with command stream instructions. The Job Manager has no such
++ * instructions, so these single-invocation kernels are queued in the
++ * vertex/tiler/compute chain instead. Bit i of the mask selects buffer i.
++ */
++
++KERNEL(1)
++panlib_xfb_begin(global uint32_t *offsets, uint32_t mask,
++                 global uint32_t *src0, global uint32_t *src1,
++                 global uint32_t *src2, global uint32_t *src3)
++{
++   offsets[0] = (mask & 1) ? *src0 : 0;
++   offsets[1] = (mask & 2) ? *src1 : 0;
++   offsets[2] = (mask & 4) ? *src2 : 0;
++   offsets[3] = (mask & 8) ? *src3 : 0;
++}
++
++KERNEL(1)
++panlib_xfb_add(global uint32_t *offsets, uint32_t inc0, uint32_t inc1,
++               uint32_t inc2, uint32_t inc3)
++{
++   offsets[0] += inc0;
++   offsets[1] += inc1;
++   offsets[2] += inc2;
++   offsets[3] += inc3;
++}
++
++KERNEL(1)
++panlib_xfb_end(global uint32_t *offsets, uint32_t mask,
++               global uint32_t *dst0, global uint32_t *dst1,
++               global uint32_t *dst2, global uint32_t *dst3)
++{
++   if (mask & 1)
++      *dst0 = offsets[0];
++   if (mask & 2)
++      *dst1 = offsets[1];
++   if (mask & 4)
++      *dst2 = offsets[2];
++   if (mask & 8)
++      *dst3 = offsets[3];
++}
++
++/* Input vertex of output vertex j, Vulkan spec order for independent
++ * primitives (transformFeedbackPreservesProvokingVertex is false). */
++static uint32_t
++panlib_xfb_map_vertex(uint32_t topology, uint32_t j)
++{
++   switch (topology) {
++   case PANLIB_XFB_LINE_STRIP:
++      return j / 2 + j % 2;
++   case PANLIB_XFB_TRIANGLE_STRIP: {
++      /* Triangle i is i, i + (1 + i % 2), i + (2 - i % 2). */
++      uint32_t i = j / 3, k = j % 3;
++      return k == 0 ? i : (k == 1 ? i + 1 + (i & 1) : i + 2 - (i & 1));
++   }
++   default: {
++      /* Triangle fan: triangle i is i + 1, i + 2, 0. */
++      uint32_t i = j / 3, k = j % 3;
++      return k == 2 ? 0 : i + 1 + k;
++   }
++   }
++}
++
++KERNEL(64)
++panlib_xfb_expand(constant struct panlib_xfb_expand_params *p)
++{
++   uint32_t id = cl_global_id.x;
++   if (id >= p->out_vertices * p->instances)
++      return;
++
++   uint32_t inst = id / p->out_vertices;
++   uint32_t v = panlib_xfb_map_vertex(p->topology, id % p->out_vertices);
++   global uint32_t *offsets = (global uint32_t *)p->offsets;
++
++   for (uint32_t b = 0; b < 4; b++) {
++      uint32_t stride = p->stride[b];
++      if (!stride)
++         continue;
++
++      global uint32_t *src =
++         (global uint32_t *)(p->src[b] +
++                             (uint64_t)(inst * p->in_vertices + v) * stride);
++      global uint32_t *dst =
++         (global uint32_t *)(p->dst[b] + offsets[b] + (uint64_t)id * stride);
++
++      for (uint32_t w = 0; w < stride / 4; w++)
++         dst[w] = src[w];
++   }
++}
++
++#endif
+diff --git a/src/panfrost/libpan/xfb_helper.h b/src/panfrost/libpan/xfb_helper.h
+new file mode 100644
+--- /dev/null
++++ b/src/panfrost/libpan/xfb_helper.h
+@@ -0,0 +1,37 @@
++/*
++ * Copyright 2026 NoyszFourFect
++ * SPDX-License-Identifier: MIT
++ */
++
++#pragma once
++
++#include <stdint.h>
++#include "compiler/libcl/libcl.h"
++
++/* Topologies that need their vertices rewritten into independent primitives
++ * before they land in the XFB buffers. Lists and points are captured
++ * directly. */
++enum panlib_xfb_topology {
++   PANLIB_XFB_LINE_STRIP = 0,
++   PANLIB_XFB_TRIANGLE_STRIP = 1,
++   PANLIB_XFB_TRIANGLE_FAN = 2,
++};
++
++/* Parameters of panlib_xfb_expand(), written by the CPU per draw. */
++struct panlib_xfb_expand_params {
++   /* Linear per-vertex capture written by the XFB vertex shader variant. */
++   uint64_t src[4];
++   /* Application XFB buffers. */
++   uint64_t dst[4];
++   /* u32[4] current byte offset of each XFB buffer. */
++   uint64_t offsets;
++   /* Bytes per vertex, 0 when the buffer is not written. */
++   uint32_t stride[4];
++   /* Vertices per instance in the draw and in the captured output. */
++   uint32_t in_vertices;
++   uint32_t out_vertices;
++   uint32_t instances;
++   uint32_t topology;
++   /* Zero offsets read by the XFB variant while it writes src[]. */
++   uint32_t zero[4];
++};
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_xfb.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_xfb.c
+new file mode 100644
+--- /dev/null
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_xfb.c
+@@ -0,0 +1,130 @@
++/*
++ * Copyright © 2026 Mesa contributors
++ * Copyright 2026 NoyszFourFect
++ * SPDX-License-Identifier: MIT
++ *
++ * PATCH v9: transform feedback for the Job Manager path. Same state and
++ * shader variant as csf/panvk_vX_cmd_xfb.c. The counter loads and stores
++ * that CSF does in the command stream are done by the panlib_xfb_* kernels
++ * (libpan/xfb_helper.cl), queued in the current batch.
++ */
++
++#include "genxml/gen_macros.h"
++
++#include "panvk_cmd_alloc.h"
++#include "panvk_cmd_buffer.h"
++#include "panvk_cmd_precomp.h"
++#include "panvk_entrypoints.h"
++
++#include "libpan.h"
++
++#if PAN_ARCH == 9
++
++static bool
++ensure_xfb_offsets(struct panvk_cmd_buffer *cmdbuf)
++{
++   if (cmdbuf->state.gfx.xfb.offsets.gpu)
++      return true;
++
++   cmdbuf->state.gfx.xfb.offsets = panvk_cmd_alloc_dev_mem(
++      cmdbuf, desc, PANVK_MAX_XFB_BUFFERS * sizeof(uint32_t),
++      sizeof(uint64_t));
++
++   return cmdbuf->state.gfx.xfb.offsets.gpu != 0;
++}
++
++static bool
++counter_valid(const VkBindTransformFeedbackBuffer2InfoEXT *info)
++{
++   return info && info->addressRange.address && info->addressRange.size;
++}
++
++VKAPI_ATTR void VKAPI_CALL
++panvk_per_arch(CmdBindTransformFeedbackBuffers2EXT)(
++   VkCommandBuffer commandBuffer, uint32_t firstBinding,
++   uint32_t bindingCount,
++   const VkBindTransformFeedbackBuffer2InfoEXT *pBindingInfos)
++{
++   VK_FROM_HANDLE(panvk_cmd_buffer, cmdbuf, commandBuffer);
++
++   assert(firstBinding + bindingCount <= PANVK_MAX_XFB_BUFFERS);
++
++   for (uint32_t i = 0; i < bindingCount; i++) {
++      const uint32_t binding = firstBinding + i;
++
++      cmdbuf->state.gfx.xfb.buffers[binding].address =
++         pBindingInfos[i].addressRange.address;
++      cmdbuf->state.gfx.xfb.buffers[binding].size =
++         pBindingInfos[i].addressRange.size;
++   }
++}
++
++VKAPI_ATTR void VKAPI_CALL
++panvk_per_arch(CmdBeginTransformFeedback2EXT)(
++   VkCommandBuffer commandBuffer, uint32_t firstCounterRange,
++   uint32_t counterRangeCount,
++   const VkBindTransformFeedbackBuffer2InfoEXT *pCounterInfos)
++{
++   VK_FROM_HANDLE(panvk_cmd_buffer, cmdbuf, commandBuffer);
++
++   assert(!cmdbuf->state.gfx.xfb.enabled);
++   assert(firstCounterRange + counterRangeCount <= PANVK_MAX_XFB_BUFFERS);
++
++   if (!ensure_xfb_offsets(cmdbuf))
++      return;
++
++   /* Buffer i resumes from its counter when one is given, else from 0. */
++   uint64_t src[PANVK_MAX_XFB_BUFFERS] = {0};
++   uint32_t mask = 0;
++   for (uint32_t i = 0; i < PANVK_MAX_XFB_BUFFERS; i++) {
++      const int32_t counter = (int32_t)i - (int32_t)firstCounterRange;
++
++      if (counter >= 0 && counter < (int32_t)counterRangeCount &&
++          pCounterInfos && counter_valid(&pCounterInfos[counter])) {
++         src[i] = pCounterInfos[counter].addressRange.address;
++         mask |= BITFIELD_BIT(i);
++      }
++   }
++
++   struct panvk_precomp_ctx precomp_ctx = panvk_per_arch(precomp_cs)(cmdbuf);
++   panlib_xfb_begin(&precomp_ctx, panlib_1d(1), PANLIB_BARRIER_JM_BARRIER,
++                    cmdbuf->state.gfx.xfb.offsets.gpu, mask, src[0], src[1],
++                    src[2], src[3]);
++
++   cmdbuf->state.gfx.xfb.enabled = true;
++}
++
++VKAPI_ATTR void VKAPI_CALL
++panvk_per_arch(CmdEndTransformFeedback2EXT)(
++   VkCommandBuffer commandBuffer, uint32_t firstCounterRange,
++   uint32_t counterRangeCount,
++   const VkBindTransformFeedbackBuffer2InfoEXT *pCounterInfos)
++{
++   VK_FROM_HANDLE(panvk_cmd_buffer, cmdbuf, commandBuffer);
++
++   assert(cmdbuf->state.gfx.xfb.enabled);
++   assert(firstCounterRange + counterRangeCount <= PANVK_MAX_XFB_BUFFERS);
++
++   uint64_t dst[PANVK_MAX_XFB_BUFFERS] = {0};
++   uint32_t mask = 0;
++   for (uint32_t i = 0; i < counterRangeCount; i++) {
++      if (!pCounterInfos || !counter_valid(&pCounterInfos[i]))
++         continue;
++
++      const uint32_t buf = firstCounterRange + i;
++      dst[buf] = pCounterInfos[i].addressRange.address;
++      mask |= BITFIELD_BIT(buf);
++   }
++
++   if (mask) {
++      struct panvk_precomp_ctx precomp_ctx =
++         panvk_per_arch(precomp_cs)(cmdbuf);
++      panlib_xfb_end(&precomp_ctx, panlib_1d(1), PANLIB_BARRIER_JM_BARRIER,
++                     cmdbuf->state.gfx.xfb.offsets.gpu, mask, dst[0], dst[1],
++                     dst[2], dst[3]);
++   }
++
++   cmdbuf->state.gfx.xfb.enabled = false;
++}
++
++#endif

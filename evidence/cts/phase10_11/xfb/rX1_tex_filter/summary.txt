@@ -1,0 +1,4 @@
+group rX1_tex_filter: 18 cases, 1 process run(s)
+  Pass                   6
+  NotSupported           12
+  pass rate of supported: 6/6 = 100.0%

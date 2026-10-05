@@ -1,0 +1,5 @@
+group xfb2: 143 cases, 3 process run(s)
+  Pass                   58
+  Fail                   24
+  NotSupported           61
+  pass rate of supported: 58/82 = 70.7%

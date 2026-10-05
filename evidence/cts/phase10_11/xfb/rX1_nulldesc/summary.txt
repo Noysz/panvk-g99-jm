@@ -1,0 +1,4 @@
+group rX1_nulldesc: 25 cases, 1 process run(s)
+  Pass                   16
+  NotSupported           9
+  pass rate of supported: 16/16 = 100.0%

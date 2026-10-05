@@ -1,0 +1,3 @@
+group rX1_blend: 100 cases, 1 process run(s)
+  Pass                   100
+  pass rate of supported: 100/100 = 100.0%
