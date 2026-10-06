@@ -1,0 +1,10 @@
+Negative controls (each knob restores the old behaviour, the fixed cases fail again)
+
+PANVK_V9_GS_NO_XFB=1, l_xfb_streams: 20 Fail, 39 NotSupported, 11 Pass,   (fix: 39 NotSupported, 31 Pass, )
+PANVK_V9_GS_NO_XFB=1, l_xfb_s: 40 Fail, 19 NotSupported, 84 Pass,   (fix: 38 Fail, 19 NotSupported, 86 Pass, )
+PANVK_V9_XFB_NO_ADJ=1, l_xfb_s: 38 Fail, 19 NotSupported, 86 Pass,   (fix: 8 Fail, 19 NotSupported, 116 Pass, )
+PANVK_V9_TESS_NO_INDIRECT=1, l_tess_ind: 16 Fail,   (fix: 16 Pass, )
+PANVK_V9_FORCE_INDIRECT=1 + PANVK_V9_GS_NO_INDIRECT=1, l_gs_s: 8 Fail, 2 Pass, 
+PANVK_V9_FORCE_INDIRECT=1 + PANVK_V9_TESS_NO_INDIRECT=1, l_tess_s: 15 Fail, 17 NotSupported, 8 Pass, 
+PANVK_V9_TESS_KEEP_IA=1, point_size.evaluation_set + vertex_set_evaluation_set: Fail Fail (fix: Pass Pass)
+PANVK_V9_NO_TES_GS=1, l_tesgs: 37 Fail, 12 NotSupported, 5 Pass  (fix: 42 Pass, 12 NotSupported)

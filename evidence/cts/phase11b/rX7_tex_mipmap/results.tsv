@@ -1,0 +1,72 @@
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_clamp	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_clamp_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_clamp_non_square	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_clamp_non_square_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_clamp_npot	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_clamp_npot_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_mirror	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_mirror_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_mirror_non_square	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_mirror_non_square_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_mirror_npot	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_mirror_npot_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_repeat	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_repeat_non_square	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_repeat_non_square_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_repeat_npot	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_linear_repeat_npot_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_clamp	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_clamp_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_clamp_non_square	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_clamp_non_square_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_clamp_npot	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_clamp_npot_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_mirror	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_mirror_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_mirror_non_square	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_mirror_non_square_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_mirror_npot	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_mirror_npot_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_repeat	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_repeat_non_square	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_repeat_non_square_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_repeat_npot	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.linear_nearest_repeat_npot_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_clamp	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_clamp_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_clamp_non_square	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_clamp_non_square_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_clamp_npot	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_clamp_npot_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_mirror	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_mirror_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_mirror_non_square	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_mirror_non_square_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_mirror_npot	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_mirror_npot_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_repeat	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_repeat_non_square	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_repeat_non_square_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_repeat_npot	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_linear_repeat_npot_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_clamp	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_clamp_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_clamp_non_square	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_clamp_non_square_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_clamp_npot	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_clamp_npot_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_mirror	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_mirror_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_mirror_non_square	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_mirror_non_square_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_mirror_npot	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_mirror_npot_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_repeat	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_repeat_non_square	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_repeat_non_square_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_repeat_npot	Pass	pass
+dEQP-VK.texture.mipmap.2d.basic.nearest_nearest_repeat_npot_compute	NotSupported	Exclusive compute queue not supported. at vktTextureTestUtil.cpp:766

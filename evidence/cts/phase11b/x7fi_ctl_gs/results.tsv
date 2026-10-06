@@ -1,0 +1,10 @@
+dEQP-VK.geometry.basic.output_10	Fail	Fail
+dEQP-VK.geometry.basic.output_128	Fail	Fail
+dEQP-VK.geometry.emit.line_strip_emit_1_end_1	Pass	Pass
+dEQP-VK.geometry.emit.points_emit_1_end_1	Fail	Fail
+dEQP-VK.geometry.emit.triangle_strip_emit_1_end_1	Pass	Pass
+dEQP-VK.geometry.input.basic_primitive.line_strip	Fail	Fail
+dEQP-VK.geometry.input.basic_primitive.lines	Fail	Fail
+dEQP-VK.geometry.input.basic_primitive.points	Fail	Fail
+dEQP-VK.geometry.input.basic_primitive.triangle_strip	Fail	Fail
+dEQP-VK.geometry.input.basic_primitive.triangles	Fail	Fail

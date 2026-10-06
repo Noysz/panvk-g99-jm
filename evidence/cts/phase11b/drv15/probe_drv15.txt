@@ -1,0 +1,4 @@
+PROFILE dxvk-1.10.3        D3D11 OK maxFL=b_0 | D3D9 OK
+PROFILE dxvk-1.11.1-sarek  D3D11 OK maxFL=b_0 | D3D9 OK
+PROFILE dxvk-1.12.1-sarek  D3D11 OK maxFL=b_1 | D3D9 OK
+PROFILE dxvk-v2.3.1        D3D11 OK maxFL=b_1

@@ -1,0 +1,143 @@
+dEQP-VK.transform_feedback.simple.basic_1_131072	Pass	Pass
+dEQP-VK.transform_feedback.simple.basic_1_256	Pass	Pass
+dEQP-VK.transform_feedback.simple.basic_1_512	Pass	Pass
+dEQP-VK.transform_feedback.simple.basic_2_131072	Pass	Pass
+dEQP-VK.transform_feedback.simple.basic_2_256	Pass	Pass
+dEQP-VK.transform_feedback.simple.basic_2_256_device_address	NotSupported	VK_KHR_device_address_commands is not supported at vktTestCase.cpp:1394
+dEQP-VK.transform_feedback.simple.basic_2_512	Pass	Pass
+dEQP-VK.transform_feedback.simple.basic_4_131072	Pass	Pass
+dEQP-VK.transform_feedback.simple.basic_4_256	Pass	Pass
+dEQP-VK.transform_feedback.simple.basic_4_512	Pass	Pass
+dEQP-VK.transform_feedback.simple.basic_8_131072	Pass	Pass
+dEQP-VK.transform_feedback.simple.basic_8_256	Pass	Pass
+dEQP-VK.transform_feedback.simple.basic_8_512	Pass	Pass
+dEQP-VK.transform_feedback.simple.basic_triangles	Pass	Pass
+dEQP-VK.transform_feedback.simple.holes_extra_draw_geom	Pass	Pass
+dEQP-VK.transform_feedback.simple.holes_extra_draw_vert	Pass	Pass
+dEQP-VK.transform_feedback.simple.holes_geom	Pass	Pass
+dEQP-VK.transform_feedback.simple.holes_vert	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_1_131072	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_1_131072_null_counter_buffers	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_1_131072_null_ptrs_end_xfb	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_1_256	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_1_256_null_counter_buffers	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_1_256_null_ptrs_end_xfb	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_1_512	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_1_512_null_counter_buffers	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_1_512_null_ptrs_end_xfb	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_2_131072	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_2_256	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_2_256_device_address	NotSupported	VK_KHR_device_address_commands is not supported at vktTestCase.cpp:1394
+dEQP-VK.transform_feedback.simple.resume_2_512	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_4_131072	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_4_256	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_4_512	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_8_131072	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_8_256	Pass	Pass
+dEQP-VK.transform_feedback.simple.resume_8_512	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_10	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_10_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_12	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_12_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_6	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_6_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_8	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_8_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_with_adjacency_10	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_with_adjacency_10_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_with_adjacency_12	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_with_adjacency_12_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_with_adjacency_6	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_with_adjacency_6_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_with_adjacency_8	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_list_with_adjacency_8_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_10	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_10_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_12	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_12_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_6	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_6_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_8	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_8_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_10	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_10_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_12	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_12_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_6	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_6_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_8	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_8_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_patch_list_10	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.winding_patch_list_10_ptsz	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.winding_patch_list_12	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.winding_patch_list_12_ptsz	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.winding_patch_list_6	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.winding_patch_list_6_ptsz	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.winding_patch_list_8	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.winding_patch_list_8_ptsz	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.winding_triangle_fan_10	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_fan_10_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_fan_12	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_fan_12_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_fan_6	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_fan_6_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_fan_8	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_fan_8_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_10	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_10_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_12	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_12_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_6	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_6_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_8	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_8_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_with_adjacency_10	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_with_adjacency_10_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_with_adjacency_12	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_with_adjacency_12_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_with_adjacency_6	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_with_adjacency_6_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_with_adjacency_8	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_list_with_adjacency_8_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_10	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_10_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_12	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_12_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_6	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_6_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_8	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_8_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_with_adjacency_10	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_with_adjacency_10_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_with_adjacency_12	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_with_adjacency_12_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_with_adjacency_6	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_with_adjacency_6_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_with_adjacency_8	Pass	Pass
+dEQP-VK.transform_feedback.simple.winding_triangle_strip_with_adjacency_8_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_2_256_device_address	NotSupported	VK_KHR_device_address_commands is not supported at vktTestCase.cpp:1394
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_pointsize_1_131072	Pass	Pass
+dEQP-VK.transform_feedback.simple.xfb_pointsize_1_256	Pass	Pass
+dEQP-VK.transform_feedback.simple.xfb_pointsize_1_512	Pass	Pass
+dEQP-VK.transform_feedback.simple.xfb_pointsize_2_131072	Pass	Pass
+dEQP-VK.transform_feedback.simple.xfb_pointsize_2_256	Pass	Pass
+dEQP-VK.transform_feedback.simple.xfb_pointsize_2_256_device_address	NotSupported	VK_KHR_device_address_commands is not supported at vktTestCase.cpp:1394
+dEQP-VK.transform_feedback.simple.xfb_pointsize_2_512	Pass	Pass
+dEQP-VK.transform_feedback.simple.xfb_pointsize_4_131072	Pass	Pass
+dEQP-VK.transform_feedback.simple.xfb_pointsize_4_256	Pass	Pass
+dEQP-VK.transform_feedback.simple.xfb_pointsize_4_512	Pass	Pass
+dEQP-VK.transform_feedback.simple.xfb_pointsize_8_131072	NotSupported	maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811
+dEQP-VK.transform_feedback.simple.xfb_pointsize_8_256	NotSupported	maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811
+dEQP-VK.transform_feedback.simple.xfb_pointsize_8_512	NotSupported	maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811

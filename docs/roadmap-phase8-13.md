@@ -24,6 +24,10 @@ Update after `0060` + `0062` (drv11, 2026-10-05): `transformFeedback` and
 | 1.11.1-sarek | `geometryShader`, `variableMultisampleRate`, `vertexPipelineStoresAndAtomics` |
 | 2.3.1 | `geometryShader`, `geometryStreams` (d3d11_tri passes at FL 10_1) |
 
+Update after `0065` (drv15, 2026-10-06): `geometryStreams` is exposed, every
+`dxvk_probe` profile is OK (1.10.3 and 1.11.1 FL 11_0, 1.12.1 and 2.3.1
+FL 11_1).
+
 Update after `0063` (drv12/drv13, 2026-10-05): `geometryShader` is no longer
 missing. DXVK 1.10.3 D3D11 and D3D9 start (d3d11_tri FL 11_0), 1.11.1-sarek
 FL 11_0, 2.3.1 FL 11_0 and only `geometryStreams` is missing for it.
@@ -86,9 +90,15 @@ has a working reference only for tessellation, so the build order is:
    PanVK compile, port of the Honeykrisp GS sequence for direct draws. CTS
    `geometry.*` 200 4x: 179 pass, 11 fail, 10 not supported. AIO "GS
    Exploder" renders.
-   Next (11b): `geometryStreams` and XFB from a GS (needs the libpan
-   geometry prefix-sum kernel), GS after tessellation, indirect draws with a
-   GS, `primitive_id` to the FS, cube layered rendering.
+4b. [x] Phase 11b (patches `0064`, `0065`): `geometryStreams` and XFB from
+   a GS (GS XFB compute variant, serial `panlib_prefix_sum_geom`), GS after
+   tessellation (TES SW variant), indirect draws with tessellation or a GS
+   (`panlib_tess_setup_indirect`, `panlib_gs_setup_indirect`), XFB of
+   adjacency topologies, TES point size. CTS `tessellation.*` 1114 3x:
+   206 pass, 0 fail; XFB streams 31 pass, 0 fail; `geometry.*` unchanged.
+   DXVK 2.3.1 passes `dxvk_probe` at FL 11_1.
+   Next: `primitive_id` to the FS, cube layered rendering, XFB from a TES
+   without a GS (8 `winding_patch_list` fails).
 5. Expose the features, DXVK 1.10.3 / 1.11 / 2.3.1 through the Wrapper.
 
 ## Phase 8 — close the open Phase 4-6 items

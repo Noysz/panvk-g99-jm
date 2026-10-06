@@ -1,0 +1,19 @@
+dEQP-VK.api.command_buffers.allocate_many_secondary	Crash	process rc=-9 before any result
+dEQP-VK.api.command_buffers.allocate_single_secondary	Pass	Buffer was created correctly.
+dEQP-VK.api.command_buffers.many_indirect_disps_on_secondary	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.many_indirect_draws_on_secondary	Pass	Pass
+dEQP-VK.api.command_buffers.record_many_draws_secondary_1	Pass	Pass
+dEQP-VK.api.command_buffers.record_many_draws_secondary_2	Pass	Pass
+dEQP-VK.api.command_buffers.record_many_secondary	Pass	hugeTest succeeded
+dEQP-VK.api.command_buffers.record_one_time_submit_secondary	Pass	oneTimeSubmitFlagSecondaryBufferTest succeeded
+dEQP-VK.api.command_buffers.record_simul_use_secondary_one_primary	Pass	Simultaneous Secondary Command Buffer Execution succeeded
+dEQP-VK.api.command_buffers.record_simul_use_secondary_two_primary	Pass	Simultaneous Secondary Command Buffer Execution succeeded
+dEQP-VK.api.command_buffers.record_single_secondary	Pass	Secondary buffer recorded successfully.
+dEQP-VK.api.command_buffers.secondary_execute	Pass	executeSecondaryBufferTest succeeded
+dEQP-VK.api.command_buffers.secondary_execute_twice	Pass	executeSecondaryBufferTwiceTest succeeded
+dEQP-VK.api.command_buffers.secondary_on_transfer_queue	NotSupported	Exclusive transfer queue not supported. at vktTestCase.cpp:988
+dEQP-VK.api.command_buffers.secondary_push_constants_2	Pass	Pass
+dEQP-VK.api.command_buffers.secondary_push_descriptor_set_2	Pass	Pass
+dEQP-VK.api.command_buffers.secondary_push_descriptor_set_with_template	Pass	Pass
+dEQP-VK.api.command_buffers.submit_twice_secondary	Pass	Submit Twice Secondary Command Buffer succeeded
+dEQP-VK.api.command_buffers.trim_command_pool_secondary	Pass	Pass

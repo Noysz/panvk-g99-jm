@@ -1,0 +1,25 @@
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.1d.comp	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.1d.frag	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.1d.vert	NotSupported	Vertex pipeline stores and atomics not supported at vktRobustnessExtsTests.cpp:630
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.2d.comp	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.2d.frag	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.2d.vert	NotSupported	Vertex pipeline stores and atomics not supported at vktRobustnessExtsTests.cpp:630
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.1d.comp	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.1d.frag	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.1d.vert	NotSupported	Vertex pipeline stores and atomics not supported at vktRobustnessExtsTests.cpp:630
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.2d.comp	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.2d.frag	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.2d.vert	NotSupported	Vertex pipeline stores and atomics not supported at vktRobustnessExtsTests.cpp:630
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.comp	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.frag	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.vert	NotSupported	Vertex pipeline stores and atomics not supported at vktRobustnessExtsTests.cpp:630
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer.no_fmt_qual.null_descriptor.samples_1.1d.comp	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer.no_fmt_qual.null_descriptor.samples_1.1d.frag	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer.no_fmt_qual.null_descriptor.samples_1.1d.vert	NotSupported	Vertex pipeline stores and atomics not supported at vktRobustnessExtsTests.cpp:630
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer_dynamic.no_fmt_qual.null_descriptor.samples_1.1d.comp	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer_dynamic.no_fmt_qual.null_descriptor.samples_1.1d.frag	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer_dynamic.no_fmt_qual.null_descriptor.samples_1.1d.vert	NotSupported	Vertex pipeline stores and atomics not supported at vktRobustnessExtsTests.cpp:630
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.comp	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.frag	Pass	Pass
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.vert	NotSupported	Vertex pipeline stores and atomics not supported at vktRobustnessExtsTests.cpp:630
+dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.vertex_attribute_fetch.no_fmt_qual.null_descriptor.samples_1.1d.vert	NotSupported	Vertex pipeline stores and atomics not supported at vktRobustnessExtsTests.cpp:630

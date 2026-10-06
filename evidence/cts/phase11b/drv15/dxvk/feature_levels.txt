@@ -1,0 +1,4 @@
+1.10.3 Using feature level D3D_FEATURE_LEVEL_11_0
+pandxvk-9 Using feature level D3D_FEATURE_LEVEL_11_0
+1.12.1-sarek Using feature level D3D_FEATURE_LEVEL_11_1
+v2.3.1-stripped Using feature level D3D_FEATURE_LEVEL_11_0

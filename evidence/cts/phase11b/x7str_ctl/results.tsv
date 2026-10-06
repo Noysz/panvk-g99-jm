@@ -1,0 +1,70 @@
+dEQP-VK.transform_feedback.simple.holes_extra_draw_geom	Fail	Invalid data found for vertex 0: expected (10, 0, 30) and found (0, 0, 0) at vktTransformFeedbackSimpleTests.cpp:4203
+dEQP-VK.transform_feedback.simple.holes_extra_draw_vert	Pass	Pass
+dEQP-VK.transform_feedback.simple.holes_geom	Fail	Invalid data found for vertex 0: expected (10, 0, 30) and found (0, 0, 0) at vktTransformFeedbackSimpleTests.cpp:4203
+dEQP-VK.transform_feedback.simple.holes_vert	Pass	Pass
+dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_1	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:3737
+dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_14_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:3737
+dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_1_ptsz	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_3	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_3_ptsz	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:3737
+dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_6_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:3737
+dEQP-VK.transform_feedback.simple.lines_or_triangles_triangle_strip_1	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.lines_or_triangles_triangle_strip_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:3737
+dEQP-VK.transform_feedback.simple.lines_or_triangles_triangle_strip_14_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:3737
+dEQP-VK.transform_feedback.simple.lines_or_triangles_triangle_strip_1_ptsz	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.lines_or_triangles_triangle_strip_3	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.lines_or_triangles_triangle_strip_3_ptsz	Fail	Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749
+dEQP-VK.transform_feedback.simple.lines_or_triangles_triangle_strip_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:3737
+dEQP-VK.transform_feedback.simple.lines_or_triangles_triangle_strip_6_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:3737
+dEQP-VK.transform_feedback.simple.maintenance5	Pass	Pass
+dEQP-VK.transform_feedback.simple.max_output_components_128	Pass	Pass
+dEQP-VK.transform_feedback.simple.max_output_components_64	Pass	Pass
+dEQP-VK.transform_feedback.simple.multi_stream_single_raster	Fail	Unexpected results in transform feedback buffers; check log for details -- at vktTransformFeedbackSimpleTests.cpp:6403
+dEQP-VK.transform_feedback.simple.multi_stream_single_raster_non_zero	Fail	Unexpected results in transform feedback buffers; check log for details -- at vktTransformFeedbackSimpleTests.cpp:6403
+dEQP-VK.transform_feedback.simple.multistreams_1	Fail	Failed at item 1 received:0 expected:1 at vktTransformFeedbackSimpleTests.cpp:2225
+dEQP-VK.transform_feedback.simple.multistreams_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2172
+dEQP-VK.transform_feedback.simple.multistreams_14_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2172
+dEQP-VK.transform_feedback.simple.multistreams_1_ptsz	Fail	Failed at item 1 received:0 expected:1 at vktTransformFeedbackSimpleTests.cpp:2225
+dEQP-VK.transform_feedback.simple.multistreams_3	Fail	Failed at item 1 received:0 expected:1 at vktTransformFeedbackSimpleTests.cpp:2225
+dEQP-VK.transform_feedback.simple.multistreams_3_ptsz	Fail	Failed at item 1 received:0 expected:1 at vktTransformFeedbackSimpleTests.cpp:2225
+dEQP-VK.transform_feedback.simple.multistreams_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2172
+dEQP-VK.transform_feedback.simple.multistreams_6_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2172
+dEQP-VK.transform_feedback.simple.multistreams_same_location_1	Fail	Failed at item 1 received:0 expected:1 at vktTransformFeedbackSimpleTests.cpp:2321
+dEQP-VK.transform_feedback.simple.multistreams_same_location_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2353
+dEQP-VK.transform_feedback.simple.multistreams_same_location_14_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2353
+dEQP-VK.transform_feedback.simple.multistreams_same_location_1_ptsz	Fail	Failed at item 0 received:192 expected:0 at vktTransformFeedbackSimpleTests.cpp:2321
+dEQP-VK.transform_feedback.simple.multistreams_same_location_3	Fail	Failed at item 1 received:0 expected:1 at vktTransformFeedbackSimpleTests.cpp:2321
+dEQP-VK.transform_feedback.simple.multistreams_same_location_3_ptsz	Fail	Failed at item 0 received:4294967295 expected:0 at vktTransformFeedbackSimpleTests.cpp:2321
+dEQP-VK.transform_feedback.simple.multistreams_same_location_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2353
+dEQP-VK.transform_feedback.simple.multistreams_same_location_6_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2353
+dEQP-VK.transform_feedback.simple.shader_object_rebind	NotSupported	VK_EXT_shader_object is not supported at vktTestCase.cpp:1394
+dEQP-VK.transform_feedback.simple.streams_1	Pass	Pass
+dEQP-VK.transform_feedback.simple.streams_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_14_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_1_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.streams_3	Pass	Pass
+dEQP-VK.transform_feedback.simple.streams_3_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.streams_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_6_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_clipdistance_1	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple.streams_clipdistance_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_clipdistance_14_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_clipdistance_1_ptsz	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple.streams_clipdistance_3	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple.streams_clipdistance_3_ptsz	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple.streams_clipdistance_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_clipdistance_6_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_culldistance_1	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple.streams_culldistance_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_culldistance_14_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_culldistance_1_ptsz	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple.streams_culldistance_3	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple.streams_culldistance_3_ptsz	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple.streams_culldistance_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_culldistance_6_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_pointsize_1	Pass	Pass
+dEQP-VK.transform_feedback.simple.streams_pointsize_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_pointsize_3	Pass	Pass
+dEQP-VK.transform_feedback.simple.streams_pointsize_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481

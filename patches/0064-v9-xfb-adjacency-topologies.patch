@@ -1,0 +1,129 @@
+diff --git a/src/panfrost/libpan/xfb_helper.cl b/src/panfrost/libpan/xfb_helper.cl
+--- a/src/panfrost/libpan/xfb_helper.cl
++++ b/src/panfrost/libpan/xfb_helper.cl
+@@ -67,6 +67,23 @@
+       uint32_t i = j / 3, k = j % 3;
+       return k == 0 ? i : (k == 1 ? i + 1 + (i & 1) : i + 2 - (i & 1));
+    }
++   case PANLIB_XFB_LINE_LIST_ADJ:
++      /* Line i is 4i + 1, 4i + 2. */
++      return (j / 2) * 4 + 1 + j % 2;
++   case PANLIB_XFB_LINE_STRIP_ADJ:
++      /* Line i is i + 1, i + 2. */
++      return j / 2 + 1 + j % 2;
++   case PANLIB_XFB_TRIANGLE_LIST_ADJ:
++      /* Triangle i is 6i, 6i + 2, 6i + 4. */
++      return (j / 3) * 6 + (j % 3) * 2;
++   case PANLIB_XFB_TRIANGLE_STRIP_ADJ: {
++      /* Triangle i is 2i, 2i + 2, 2i + 4 when i is even and
++       * 2i + 2, 2i, 2i + 4 when i is odd. */
++      uint32_t i = j / 3, k = j % 3;
++      if (k == 2 || !(i & 1))
++         return 2 * i + 2 * k;
++      return 2 * i + (k == 0 ? 2 : 0);
++   }
+    default: {
+       /* Triangle fan: triangle i is i + 1, i + 2, 0. */
+       uint32_t i = j / 3, k = j % 3;
+@@ -91,6 +108,12 @@
+       if (!stride)
+          continue;
+ 
++      /* Whole primitives only, nothing past the bound range. */
++      uint64_t prim_end =
++         (uint64_t)(id / p->verts_per_prim + 1) * p->verts_per_prim * stride;
++      if (offsets[b] + prim_end > p->size[b])
++         continue;
++
+       global uint32_t *src =
+          (global uint32_t *)(p->src[b] +
+                              (uint64_t)(inst * p->in_vertices + v) * stride);
+diff --git a/src/panfrost/libpan/xfb_helper.h b/src/panfrost/libpan/xfb_helper.h
+--- a/src/panfrost/libpan/xfb_helper.h
++++ b/src/panfrost/libpan/xfb_helper.h
+@@ -15,6 +15,12 @@
+    PANLIB_XFB_LINE_STRIP = 0,
+    PANLIB_XFB_TRIANGLE_STRIP = 1,
+    PANLIB_XFB_TRIANGLE_FAN = 2,
++   /* Adjacency without a geometry shader: the adjacent vertices are not
++    * captured, only the base lines/triangles. */
++   PANLIB_XFB_LINE_LIST_ADJ = 3,
++   PANLIB_XFB_LINE_STRIP_ADJ = 4,
++   PANLIB_XFB_TRIANGLE_LIST_ADJ = 5,
++   PANLIB_XFB_TRIANGLE_STRIP_ADJ = 6,
+ };
+ 
+ /* Parameters of panlib_xfb_expand(), written by the CPU per draw. */
+@@ -32,6 +38,11 @@
+    uint32_t out_vertices;
+    uint32_t instances;
+    uint32_t topology;
++   /* 2 for lines, 3 for triangles. */
++   uint32_t verts_per_prim;
++   /* Bound size of each XFB buffer in bytes; a primitive that does not fit
++    * entirely is not written. */
++   uint32_t size[4];
+    /* Zero offsets read by the XFB variant while it writes src[]. */
+    uint32_t zero[4];
+ };
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -3173,9 +3173,10 @@
+       return VK_SUCCESS;
+ 
+    /* XFB stores independent primitives. Lists only drop an incomplete last
+-    * primitive; strips and fans are captured linearly into scratch memory
+-    * and rewritten by panlib_xfb_expand. Points, adjacency and patches stay
+-    * linear. */
++    * primitive; strips, fans and adjacency topologies are captured linearly
++    * into scratch memory and rewritten by panlib_xfb_expand. Points and
++    * patches stay linear. PANVK_V9_XFB_NO_ADJ=1 keeps adjacency linear
++    * (control). */
+    int topo = -1;
+    uint32_t out_count = n;
+    switch (draw->info.prim) {
+@@ -3197,9 +3198,29 @@
+       topo = PANLIB_XFB_TRIANGLE_FAN;
+       out_count = n >= 3 ? 3 * (n - 2) : 0;
+       break;
++   case MESA_PRIM_LINES_ADJACENCY:
++      topo = PANLIB_XFB_LINE_LIST_ADJ;
++      out_count = n / 4 * 2;
++      break;
++   case MESA_PRIM_LINE_STRIP_ADJACENCY:
++      topo = PANLIB_XFB_LINE_STRIP_ADJ;
++      out_count = n >= 4 ? 2 * (n - 3) : 0;
++      break;
++   case MESA_PRIM_TRIANGLES_ADJACENCY:
++      topo = PANLIB_XFB_TRIANGLE_LIST_ADJ;
++      out_count = n / 6 * 3;
++      break;
++   case MESA_PRIM_TRIANGLE_STRIP_ADJACENCY:
++      topo = PANLIB_XFB_TRIANGLE_STRIP_ADJ;
++      out_count = n >= 6 ? 3 * ((n - 4) / 2) : 0;
++      break;
+    default:
+       break;
+    }
++   if (topo >= PANLIB_XFB_LINE_LIST_ADJ && getenv("PANVK_V9_XFB_NO_ADJ")) {
++      topo = -1;
++      out_count = n;
++   }
+    if (!out_count)
+       return VK_SUCCESS;
+ 
+@@ -3242,6 +3263,13 @@
+       p->out_vertices = out_count;
+       p->instances = instance_count;
+       p->topology = topo;
++      p->verts_per_prim = (topo == PANLIB_XFB_LINE_STRIP ||
++                           topo == PANLIB_XFB_LINE_LIST_ADJ ||
++                           topo == PANLIB_XFB_LINE_STRIP_ADJ)
++                             ? 2
++                             : 3;
++      for (uint32_t i = 0; i < PANVK_MAX_XFB_BUFFERS; i++)
++         p->size[i] = MIN2(gfx->xfb.buffers[i].size, UINT32_MAX);
+    }
+ 
+    for (uint32_t i = 0; i < PANVK_MAX_XFB_BUFFERS; i++) {

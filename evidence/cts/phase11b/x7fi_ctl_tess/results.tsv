@@ -1,0 +1,40 @@
+dEQP-VK.tessellation.common_edge.quads_equal_spacing	Fail	Failure
+dEQP-VK.tessellation.common_edge.quads_equal_spacing_precise	Fail	Failure
+dEQP-VK.tessellation.common_edge.quads_fractional_even_spacing	Fail	Failure
+dEQP-VK.tessellation.common_edge.quads_fractional_even_spacing_precise	Fail	Failure
+dEQP-VK.tessellation.common_edge.quads_fractional_odd_spacing	Fail	Failure
+dEQP-VK.tessellation.common_edge.quads_fractional_odd_spacing_precise	Fail	Failure
+dEQP-VK.tessellation.common_edge.triangles_equal_spacing	Fail	Failure
+dEQP-VK.tessellation.common_edge.triangles_equal_spacing_precise	Fail	Failure
+dEQP-VK.tessellation.common_edge.triangles_fractional_even_spacing	Fail	Failure
+dEQP-VK.tessellation.common_edge.triangles_fractional_even_spacing_precise	Fail	Failure
+dEQP-VK.tessellation.common_edge.triangles_fractional_odd_spacing	Fail	Failure
+dEQP-VK.tessellation.common_edge.triangles_fractional_odd_spacing_precise	Fail	Failure
+dEQP-VK.tessellation.fractional_spacing.glsl_even	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.fractional_spacing.glsl_odd	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.fractional_spacing.hlsl_even	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.fractional_spacing.hlsl_odd	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.geometry_interaction.limits.output_required_max_geometry	Fail	Image comparison failed
+dEQP-VK.tessellation.geometry_interaction.limits.output_required_max_invocations	Fail	Image comparison failed
+dEQP-VK.tessellation.geometry_interaction.limits.output_required_max_tessellation	Fail	Image comparison failed
+dEQP-VK.tessellation.limits.max_tessellation_control_per_patch_output_components	Pass	OK
+dEQP-VK.tessellation.limits.max_tessellation_control_per_vertex_input_components	Pass	OK
+dEQP-VK.tessellation.limits.max_tessellation_control_per_vertex_output_components	Pass	OK
+dEQP-VK.tessellation.limits.max_tessellation_control_total_output_components	Pass	OK
+dEQP-VK.tessellation.limits.max_tessellation_evaluation_input_components	Pass	OK
+dEQP-VK.tessellation.limits.max_tessellation_evaluation_output_components	Pass	OK
+dEQP-VK.tessellation.limits.max_tessellation_generation_level	Pass	OK
+dEQP-VK.tessellation.limits.max_tessellation_patch_size	Pass	OK
+dEQP-VK.tessellation.tesscoord.isolines_equal_spacing	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.tesscoord.isolines_equal_spacing_execution_mode_in_tesc	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.tesscoord.isolines_fractional_even_spacing	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.tesscoord.isolines_fractional_even_spacing_execution_mode_in_tesc	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.tesscoord.isolines_fractional_odd_spacing	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.tesscoord.isolines_fractional_odd_spacing_execution_mode_in_tesc	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.tesscoord.quads_equal_spacing	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.tesscoord.quads_equal_spacing_execution_mode_in_tesc	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.tesscoord.quads_fractional_even_spacing	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.tesscoord.quads_fractional_even_spacing_execution_mode_in_tesc	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.tesscoord.quads_fractional_odd_spacing	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.tesscoord.quads_fractional_odd_spacing_execution_mode_in_tesc	NotSupported	SSBO and image writes not supported in vertex pipeline
+dEQP-VK.tessellation.tesscoord.triangles_equal_spacing	NotSupported	SSBO and image writes not supported in vertex pipeline
