@@ -1,0 +1,772 @@
+diff --git a/src/panfrost/lib/pan_env.h b/src/panfrost/lib/pan_env.h
+new file mode 100644
+--- /dev/null
++++ b/src/panfrost/lib/pan_env.h
+@@ -0,0 +1,28 @@
++/*
++ * Copyright 2026 Noysz
++ * SPDX-License-Identifier: MIT
++ */
++
++#ifndef PAN_ENV_H
++#define PAN_ENV_H
++
++#include <stdlib.h>
++#include <string.h>
++#include <strings.h>
++
++/* Debug and control knobs that switch something on by being set.
++ * Unset, empty, "0", "false", "off" and "no" all mean off, so KNOB=0 turns
++ * a knob off instead of on. Returns the value, or NULL when off. */
++static inline const char *
++pan_env_flag(const char *name)
++{
++   const char *v = getenv(name);
++
++   if (!v || !v[0] || !strcmp(v, "0") || !strcasecmp(v, "false") ||
++       !strcasecmp(v, "off") || !strcasecmp(v, "no"))
++      return NULL;
++
++   return v;
++}
++
++#endif /* PAN_ENV_H */
+diff --git a/src/panfrost/compiler/bifrost/bifrost_compile.c b/src/panfrost/compiler/bifrost/bifrost_compile.c
+--- a/src/panfrost/compiler/bifrost/bifrost_compile.c
++++ b/src/panfrost/compiler/bifrost/bifrost_compile.c
+@@ -20,6 +20,7 @@
+ #include "bifrost_nir.h"
+ #include "pan_nir.h"
+ #include "compiler.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ static void pan_stats_verbose(FILE *f, const char *prefix, bi_context *ctx,
+                               const struct pan_stats *stats,
+@@ -2633,7 +2634,7 @@
+ bi_emit_shift64(bi_builder *b, nir_alu_instr *instr, bi_index dst, bi_index s0)
+ {
+    if (!nir_src_is_const(instr->src[1].src) ||
+-       instr->def.num_components != 1 || getenv("PAN_NO_SHIFT64_SPLIT"))
++       instr->def.num_components != 1 || pan_env_flag("PAN_NO_SHIFT64_SPLIT"))
+       return false;
+ 
+    unsigned c = nir_alu_src_as_uint(instr->src[1]) & 63;
+diff --git a/src/panfrost/compiler/bifrost/bifrost_nir.c b/src/panfrost/compiler/bifrost/bifrost_nir.c
+--- a/src/panfrost/compiler/bifrost/bifrost_nir.c
++++ b/src/panfrost/compiler/bifrost/bifrost_nir.c
+@@ -20,6 +20,7 @@
+ #include "bifrost_nir.h"
+ #include "compiler.h"
+ #include "../kraid/kraid.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ static bool
+ bi_use_kraid(nir_shader *nir, uint64_t gpu_id)
+@@ -968,7 +969,7 @@
+        * atomic result. Run them in the position shader only.
+        * PAN_V9_IDVS_STORES_BOTH=1 keeps the old behaviour (control). */
+       if (info->vs.idvs && nir->info.writes_memory && gpu_arch < 13 &&
+-          !getenv("PAN_V9_IDVS_STORES_BOTH"))
++          !pan_env_flag("PAN_V9_IDVS_STORES_BOTH"))
+          NIR_PASS(_, nir, bifrost_nir_lower_vs_stores);
+ 
+       /* Needs to run after lower_vs_atomics as it inserts operations between
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
+@@ -34,6 +34,7 @@
+ #include "vk_descriptor_update_template.h"
+ #include "vk_format.h"
+ #include "pan_v9_trace.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ static void
+ panvk_debug_dump_blob(const char *name, const void *ptr, size_t size,
+@@ -213,7 +214,7 @@
+           * in "intersect" mode, i.e. only on tiles with primitives. With
+           * layered rendering, the fragment job of layer 1 was TERMINATED
+           * (CTS indirect_draw_multiview, multiview.masks with LOAD). */
+-         if (PAN_ARCH < 9 || getenv("PANVK_V9_DCD_PER_LAYER"))
++         if (PAN_ARCH < 9 || pan_env_flag("PANVK_V9_DCD_PER_LAYER"))
+             fbd_info.frame_shaders.dcd_pointer += layer_id * 3 * pan_size(DRAW);
+ 
+          const struct pan_fb_descs fb_descs = {
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -54,6 +54,7 @@
+ #include "vk_format.h"
+ #include "vk_meta.h"
+ #include "vk_pipeline_layout.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ struct panvk_draw_data {
+    struct panvk_draw_info info;
+@@ -2482,7 +2483,7 @@
+        * (negative control). */
+       static int zsd_old = -1;
+       if (zsd_old < 0)
+-         zsd_old = getenv("PANVK_V9_ZSD_OLD") != NULL;
++         zsd_old = pan_env_flag("PANVK_V9_ZSD_OLD") != NULL;
+       if (!zsd_old) {
+          cfg.stencil_from_shader = fs ? fs->info.fs.writes_stencil : 0;
+          cfg.depth_cull_enable = vk_rasterization_state_depth_clip_enable(rs);
+@@ -2550,7 +2551,7 @@
+        * TES and the rasterizer. */
+       const struct panvk_cmd_graphics_state *tgfx = &cmdbuf->state.gfx;
+       if (tgfx->tess.tcs && tgfx->tess.tes && !tgfx->gs.shader &&
+-          !getenv("PANVK_V9_TESS_NO_WINDING")) {
++          !pan_env_flag("PANVK_V9_TESS_NO_WINDING")) {
+          struct panvk_tess_info tinfo = panvk_tess_info_merge(
+             tgfx->tess.tcs->tess.info, tgfx->tess.tes->tess.info);
+          cfg.flags_0.front_face_ccw ^= tinfo.ccw;
+@@ -2576,7 +2577,7 @@
+       if (fs) {
+          static int no_earlyzs = -1;
+          if (no_earlyzs < 0)
+-            no_earlyzs = getenv("PANVK_V9_DCD_NO_EARLYZS") != NULL;
++            no_earlyzs = pan_env_flag("PANVK_V9_DCD_NO_EARLYZS") != NULL;
+ 
+          const struct vk_dynamic_graphics_state *dyns =
+             &cmdbuf->vk.dynamic_graphics_state;
+@@ -2618,7 +2619,7 @@
+           * PANVK_V9_NO_PER_SAMPLE=1 restores the old behaviour (control). */
+          static int no_per_sample = -1;
+          if (no_per_sample < 0)
+-            no_per_sample = getenv("PANVK_V9_NO_PER_SAMPLE") != NULL;
++            no_per_sample = pan_env_flag("PANVK_V9_NO_PER_SAMPLE") != NULL;
+          if (!no_per_sample)
+             cfg.flags_0.evaluate_per_sample =
+                (fs->info.fs.sample_shading ||
+@@ -2794,7 +2795,7 @@
+     * and passed. Which descriptor fields those bytes belong to was not
+     * established. Zero the whole job first. PANVK_MVJ_NO_ZERO=1 is the
+     * control. */
+-   if (!getenv("PANVK_MVJ_NO_ZERO"))
++   if (!pan_env_flag("PANVK_MVJ_NO_ZERO"))
+       memset(ptr.cpu, 0, pan_size(MALLOC_VERTEX_JOB));
+ 
+    util_dynarray_append(&batch->jobs, ptr.cpu);
+@@ -2823,7 +2824,7 @@
+        * primitives outside [0, 1] (CTS draw.renderpass.depth_clamp.*_input_*).
+        * Same as the Bifrost tiler descriptor. PANVK_V9_DEPTH_CULL_ALWAYS=1
+        * keeps them on (control). */
+-      if (!getenv("PANVK_V9_DEPTH_CULL_ALWAYS"))
++      if (!pan_env_flag("PANVK_V9_DEPTH_CULL_ALWAYS"))
+          cfg.low_depth_cull = cfg.high_depth_cull =
+             vk_rasterization_state_depth_clip_enable(rs);
+       /* PATCH v9: gl_PrimitiveID in the fragment shader. The primitive
+@@ -2833,7 +2834,7 @@
+        * value of the last pre-rasterization stage when that stage writes it.
+        * PANVK_V9_NO_PRIM_ID=1 restores the old fields (control). */
+       if (fs && fs->info.fs.reads_primitive_id &&
+-          !getenv("PANVK_V9_NO_PRIM_ID")) {
++          !pan_env_flag("PANVK_V9_NO_PRIM_ID")) {
+          cfg.primitive_index_enable = true;
+          cfg.primitive_index_override =
+             (vs->info.outputs_written & VARYING_BIT_PRIMITIVE_ID) != 0;
+@@ -2941,7 +2942,7 @@
+           * needs was not established. The varying shader shares the position
+           * shader's push-uniform block, so the count is the same.
+           * PANVK_VARYING_NO_FAU_COUNT reproduces the old behaviour. */
+-         if (!getenv("PANVK_VARYING_NO_FAU_COUNT"))
++         if (!pan_env_flag("PANVK_VARYING_NO_FAU_COUNT"))
+             cfg.fau_count = vs->fau.total_count;
+       }
+    }
+@@ -3200,7 +3201,7 @@
+    /* PANVK_V9_XFB_SKIP=1: no capture (negative control). */
+    static int xfb_skip = -1;
+    if (xfb_skip < 0)
+-      xfb_skip = getenv("PANVK_V9_XFB_SKIP") != NULL;
++      xfb_skip = pan_env_flag("PANVK_V9_XFB_SKIP") != NULL;
+ 
+    if (xfb_skip || !gfx->xfb.enabled || !xfb || !gfx->xfb.offsets.gpu)
+       return VK_SUCCESS;
+@@ -3262,7 +3263,7 @@
+    default:
+       break;
+    }
+-   if (topo >= PANLIB_XFB_LINE_LIST_ADJ && getenv("PANVK_V9_XFB_NO_ADJ")) {
++   if (topo >= PANLIB_XFB_LINE_LIST_ADJ && pan_env_flag("PANVK_V9_XFB_NO_ADJ")) {
+       topo = -1;
+       out_count = n;
+    }
+@@ -3600,7 +3601,7 @@
+     * libagx_tess_setup_indirect). PANVK_V9_TESS_NO_INDIRECT=1 skips these
+     * draws again (control). */
+    const bool indirect = in->indirect.buffer_dev_addr != 0;
+-   if (indirect && getenv("PANVK_V9_TESS_NO_INDIRECT"))
++   if (indirect && pan_env_flag("PANVK_V9_TESS_NO_INDIRECT"))
+       return VK_SUCCESS;
+ 
+    const uint32_t input_patch_size = dyn->ts.patch_control_points;
+@@ -4001,7 +4002,7 @@
+ 
+    if (!in->index.index_size || !in->index.restart_enable ||
+        in->prim == u_decomposed_prim(in->prim) || !dev->poly_heap_data ||
+-       getenv("PANVK_V9_GS_NO_UNROLL"))
++       pan_env_flag("PANVK_V9_GS_NO_UNROLL"))
+       return false;
+ 
+    const bool indirect = in->indirect.buffer_dev_addr != 0;
+@@ -4114,7 +4115,7 @@
+     * panlib_gs_setup_indirect fills the parameters and the job grids.
+     * PANVK_V9_GS_NO_INDIRECT=1 skips these draws again (control). */
+    const bool indirect = in->indirect.buffer_dev_addr != 0;
+-   if (indirect && (getenv("PANVK_V9_GS_NO_INDIRECT") || !dev->poly_heap_data))
++   if (indirect && (pan_env_flag("PANVK_V9_GS_NO_INDIRECT") || !dev->poly_heap_data))
+       return VK_SUCCESS;
+ 
+    const struct poly_gs_info *gsi = &gs->gs.info;
+@@ -4123,7 +4124,7 @@
+     * prefix sum, PRE (XFB buffer setup and offsets) and the XFB copy of
+     * RAST run as well. PANVK_V9_GS_NO_XFB=1 skips them (control). */
+    const bool xfb = gsi->xfb && gfx->xfb.enabled && gfx->xfb.offsets.gpu &&
+-                    !getenv("PANVK_V9_GS_NO_XFB");
++                    !pan_env_flag("PANVK_V9_GS_NO_XFB");
+    const enum mesa_prim in_prim = in->prim;
+ 
+    if (in->index.index_size && in->index.restart_enable && !tes &&
+@@ -4513,7 +4514,7 @@
+    struct panvk_draw_data forced;
+    if (!draw->info.indirect.buffer_dev_addr &&
+        (cmdbuf->state.gfx.tess.tes || cmdbuf->state.gfx.gs.shader) &&
+-       getenv("PANVK_V9_FORCE_INDIRECT")) {
++       pan_env_flag("PANVK_V9_FORCE_INDIRECT")) {
+       const bool indexed = draw->info.index.index_size != 0;
+       struct pan_ptr cmd = panvk_cmd_alloc_dev_mem(cmdbuf, desc, 20, 4);
+       if (!cmd.gpu)
+@@ -4566,7 +4567,7 @@
+     * without this, points mode ignored the TES gl_PointSize (1 pixel
+     * points). PANVK_V9_TESS_KEEP_IA=1 keeps the API topology (control). */
+    const bool tess_ia = !gs && cmdbuf->state.gfx.tess.tes &&
+-                        !getenv("PANVK_V9_TESS_KEEP_IA");
++                        !pan_env_flag("PANVK_V9_TESS_KEEP_IA");
+    if (gs || tess_ia) {
+       if (gs) {
+          struct panvk_draw_data unrolled;
+@@ -4596,7 +4597,7 @@
+ 
+    /* Pipeline statistics of the draw. PANVK_V9_STATS_NO_DRAW=1 skips it,
+     * the draw counters then stay 0 (control). */
+-   if (cmdbuf->state.stats.addr && !getenv("PANVK_V9_STATS_NO_DRAW"))
++   if (cmdbuf->state.stats.addr && !pan_env_flag("PANVK_V9_STATS_NO_DRAW"))
+       emit_draw_stats_v9(cmdbuf, api_draw, stats_tess, stats_gs);
+ 
+    uint32_t view_mask = cmdbuf->state.gfx.render.view_mask;
+@@ -4608,7 +4609,7 @@
+     * unaffected. PANVK_V9_ALL_LAYERS=1 restores the old replication. */
+    const struct panvk_shader *hw_vs = cmdbuf->state.gfx.vs.shader;
+    if (!view_mask && hw_vs && !hw_vs->writes_layer &&
+-       !getenv("PANVK_V9_ALL_LAYERS"))
++       !pan_env_flag("PANVK_V9_ALL_LAYERS"))
+       layer_count = 1;
+ 
+    /* multiViewport: Mali has one viewport per draw. When the last
+@@ -4624,7 +4625,7 @@
+    for (uint32_t v = 0; v < vp_count; v++) {
+       draw->info.viewport_id = v;
+       uint32_t mask = view_mask;
+-      if (layer_count <= 1 || getenv("PANVK_V9_LAYER0_ONLY")) {
++      if (layer_count <= 1 || pan_env_flag("PANVK_V9_LAYER0_ONLY")) {
+          draw->info.layer_id = mask ? u_bit_scan(&mask) : 0;
+          panvk_cmd_draw_v9_layer(cmdbuf, draw);
+       } else {
+@@ -4690,7 +4691,7 @@
+     * (negative control). */
+    static int stale_batch = -1;
+    if (stale_batch < 0)
+-      stale_batch = getenv("PANVK_V9_STALE_BATCH") != NULL;
++      stale_batch = pan_env_flag("PANVK_V9_STALE_BATCH") != NULL;
+    if (!stale_batch)
+       batch = cmdbuf->cur_batch;
+ 
+@@ -4731,7 +4732,7 @@
+ 
+       /* Negative control: withhold the pointers, reproducing the behaviour
+        * before the sysvals were patched. */
+-      if (getenv("PANVK_INDIRECT_NO_SYSVAL"))
++      if (pan_env_flag("PANVK_INDIRECT_NO_SYSVAL"))
+          fv_sysval = bi_sysval = 0;
+    }
+ 
+@@ -4740,7 +4741,7 @@
+     * driver set are the attributes (prepare_vs_driver_set). */
+    uint64_t vs_attribs = 0, inst_strides = 0;
+    uint32_t inst_mask = 0;
+-   if (is_indirect && !getenv("PANVK_INDIRECT_NO_INSTATTR")) {
++   if (is_indirect && !pan_env_flag("PANVK_INDIRECT_NO_INSTATTR")) {
+       const struct vk_dynamic_graphics_state *idyns =
+          &cmdbuf->vk.dynamic_graphics_state;
+       const struct vk_vertex_input_state *ivi = idyns->vi;
+@@ -4777,7 +4778,7 @@
+     * not the draw reads the CPU placeholder and the output collapses to the
+     * degenerate case.
+     */
+-   const bool chain_reverse = is_indirect && getenv("PANVK_INDIRECT_CHAIN_REVERSE");
++   const bool chain_reverse = is_indirect && pan_env_flag("PANVK_INDIRECT_CHAIN_REVERSE");
+ 
+    if (chain_reverse) {
+       const unsigned predicted_helper_index = batch->vtc_jc.job_index + 2;
+@@ -4847,7 +4848,7 @@
+        * ordering was never coming from this dependency and every indirect
+        * result would be a race that happens to resolve favourably. Env-gated so
+        * the shipped path is untouched. */
+-      if (getenv("PANVK_INDIRECT_NODEP"))
++      if (pan_env_flag("PANVK_INDIRECT_NODEP"))
+          indirect_dep = 0;
+    }
+ 
+@@ -4866,7 +4867,7 @@
+     * PANVK_V9_INDIRECT_UNTRACKED=1 restores the old behaviour (control). */
+    static int indirect_untracked = -1;
+    if (indirect_untracked < 0)
+-      indirect_untracked = getenv("PANVK_V9_INDIRECT_UNTRACKED") != NULL;
++      indirect_untracked = pan_env_flag("PANVK_V9_INDIRECT_UNTRACKED") != NULL;
+    const bool track_parked = is_indirect && !indirect_untracked;
+    const unsigned prev_tiler_dep = batch->vtc_jc.tiler_dep;
+ 
+@@ -4980,8 +4981,8 @@
+    /* Negative controls: PANVK_MDI_NO_DRAWID gives every draw gl_DrawID 0,
+     * PANVK_MDI_NO_COUNT ignores the count buffer (all maxDrawCount draws
+     * run). */
+-   const bool no_draw_id = getenv("PANVK_MDI_NO_DRAWID") != NULL;
+-   if (getenv("PANVK_MDI_NO_COUNT"))
++   const bool no_draw_id = pan_env_flag("PANVK_MDI_NO_DRAWID") != NULL;
++   if (pan_env_flag("PANVK_MDI_NO_COUNT"))
+       count_buffer_dev_addr = 0;
+ 
+    for (uint32_t i = 0; i < draw_count; i++) {
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_precomp.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_precomp.c
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_precomp.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_precomp.c
+@@ -12,6 +12,7 @@
+ #include "panvk_macros.h"
+ #include "panvk_mempool.h"
+ #include "panvk_precomp_cache.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ /* Both arches are implemented. The PAN_ARCH < 9 path below is the original
+  * Bifrost one using the separate INVOCATION/PARAMETERS/DRAW sections; the
+@@ -135,7 +136,7 @@
+     * that it was only needed for precompiled internal kernels. Returning here
+     * reproduces that stub exactly, which lets the before and after states be
+     * compared against one build instead of two. */
+-   if (getenv("PANVK_PRECOMP_STUB"))
++   if (pan_env_flag("PANVK_PRECOMP_STUB"))
+       return;
+ 
+    ASSERTED enum panlib_barrier supported_barriers =
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+--- a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+@@ -42,6 +42,7 @@
+ #include <sys/mman.h>
+ #include <unistd.h>
+ #include "pan_v9_trace.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ struct panvk_kbase_event_v2 {
+    uint32_t event_code;
+@@ -487,7 +488,7 @@
+          if (op->event->kbase) {
+             /* The batch has completed (synchronous kbase submit).
+              * PANVK_KBASE_EVENT_NO_SET=1: negative control, drop the set. */
+-            if (!getenv("PANVK_KBASE_EVENT_NO_SET"))
++            if (!pan_env_flag("PANVK_KBASE_EVENT_NO_SET"))
+                p_atomic_set(&op->event->kbase_set, 1);
+             break;
+          }
+@@ -621,7 +622,7 @@
+     * each batch is submitted and waited for synchronously, so the signal can
+     * be raised on the CPU. PANVK_KBASE_NO_SIGNAL=1 reproduces the old
+     * behaviour as a negative control. */
+-   if (!getenv("PANVK_KBASE_NO_SIGNAL")) {
++   if (!pan_env_flag("PANVK_KBASE_NO_SIGNAL")) {
+       for (unsigned i = 0; i < submit->signal_count; i++) {
+          VkResult sr = vk_sync_signal(&dev->vk, submit->signals[i].sync,
+                                       submit->signals[i].signal_value);
+@@ -1250,15 +1251,15 @@
+ 
+    /* The debug dumps read job state after every chain: they need the
+     * synchronous path. */
+-   queue->kbase.async = !getenv("PANVK_KBASE_SYNC_SUBMIT") &&
++   queue->kbase.async = !pan_env_flag("PANVK_KBASE_SYNC_SUBMIT") &&
+                         !getenv("PANVK_HEAP_LOG") && !pan_v9_trace_enabled() &&
+                         !PANVK_DEBUG(TRACE) && !PANVK_DEBUG(DUMP) &&
+                         !PANVK_DEBUG(SYNC);
+    queue->kbase.fd = device->drm_fd;
+    queue->kbase.building = 1;
+-   queue->kbase.cpu_waits = getenv("PANVK_KBASE_ASYNC_CPU_WAITS") != NULL;
+-   queue->kbase.no_signal = getenv("PANVK_KBASE_NO_SIGNAL") != NULL;
+-   queue->kbase.no_event_set = getenv("PANVK_KBASE_EVENT_NO_SET") != NULL;
++   queue->kbase.cpu_waits = pan_env_flag("PANVK_KBASE_ASYNC_CPU_WAITS") != NULL;
++   queue->kbase.no_signal = pan_env_flag("PANVK_KBASE_NO_SIGNAL") != NULL;
++   queue->kbase.no_event_set = pan_env_flag("PANVK_KBASE_EVENT_NO_SET") != NULL;
+    util_dynarray_init(&queue->kbase.event_ops, NULL);
+    if (mtx_init(&queue->kbase.mtx, mtx_plain) != thrd_success ||
+        u_cnd_monotonic_init(&queue->kbase.cnd) != thrd_success) {
+diff --git a/src/panfrost/vulkan/panvk_physical_device.c b/src/panfrost/vulkan/panvk_physical_device.c
+--- a/src/panfrost/vulkan/panvk_physical_device.c
++++ b/src/panfrost/vulkan/panvk_physical_device.c
+@@ -49,6 +49,7 @@
+ #include "pan_props.h"
+ 
+ #include "genxml/gen_macros.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ #define PER_ARCH_FUNCS(_ver)                                                   \
+    void panvk_v##_ver##_get_physical_device_extensions(                        \
+@@ -1045,7 +1046,7 @@
+    device->drm_syncobj_type = kbase_cpu_sync_type;
+    /* Negative control: PANVK_KBASE_NO_SYNCFD=1 removes SYNC_FD import/export
+     * (the state before it was implemented). */
+-   if (os_get_option("PANVK_KBASE_NO_SYNCFD")) {
++   if (pan_env_flag("PANVK_KBASE_NO_SYNCFD")) {
+       device->drm_syncobj_type.import_sync_file = NULL;
+       device->drm_syncobj_type.export_sync_file = NULL;
+    }
+@@ -1277,7 +1278,7 @@
+        * launcher crash on the "Unknown" version). Installing this build is
+        * the opt-in. PANVK_V9_REQUIRE_OPTIN=1 restores the gate (control).
+        */
+-      if (arch == 9 && !os_get_option("PANVK_V9_REQUIRE_OPTIN"))
++      if (arch == 9 && !pan_env_flag("PANVK_V9_REQUIRE_OPTIN"))
+          break;
+ #endif
+       if (!os_get_option("PAN_I_WANT_A_BROKEN_VULKAN_DRIVER")) {
+diff --git a/src/panfrost/vulkan/panvk_vX_cmd_desc_state.c b/src/panfrost/vulkan/panvk_vX_cmd_desc_state.c
+--- a/src/panfrost/vulkan/panvk_vX_cmd_desc_state.c
++++ b/src/panfrost/vulkan/panvk_vX_cmd_desc_state.c
+@@ -29,6 +29,7 @@
+ #include "vk_command_buffer.h"
+ #include "vk_command_pool.h"
+ #include "pan_v9_trace.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ static void
+ cmd_desc_state_bind_sets(struct panvk_descriptor_state *desc_state,
+@@ -305,7 +306,7 @@
+     * the validated baseline is bit-identical without it. */
+    static int restab_dbg = -1;
+    if (restab_dbg < 0)
+-      restab_dbg = getenv("PANVK_DEBUG_RESTAB") ? 1 : 0;
++      restab_dbg = pan_env_flag("PANVK_DEBUG_RESTAB") ? 1 : 0;
+    if (restab_dbg)
+       PAN_V9_TRACE(
+               "[PANVK_DEBUG_RESTAB] used_set_mask=0x%x first_unused_set=%u "
+diff --git a/src/panfrost/vulkan/panvk_vX_cmd_draw.c b/src/panfrost/vulkan/panvk_vX_cmd_draw.c
+--- a/src/panfrost/vulkan/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/panvk_vX_cmd_draw.c
+@@ -12,6 +12,7 @@
+ #include "pan_desc.h"
+ #include "pan_util.h"
+ #include "pan_v9_trace.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ static enum pan_fb_load_op
+ get_att_fb_load_op(const VkRenderingAttachmentInfo *att)
+@@ -113,7 +114,7 @@
+     * framebuffer layout and we could potentially allow direct resolves in
+     * more cases.
+     */
+-   if (PAN_ARCH == 9 && getenv("PANVK_V9_NO_TILE_RESOLVE"))
++   if (PAN_ARCH == 9 && pan_env_flag("PANVK_V9_NO_TILE_RESOLVE"))
+       return true;
+ 
+    return PAN_ARCH < 7 && drm_is_afbc(img->props.modifier);
+diff --git a/src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c b/src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c
+--- a/src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c
++++ b/src/panfrost/vulkan/panvk_vX_cmd_frame_shaders.c
+@@ -15,6 +15,7 @@
+ #include "pan_afbc.h"
+ #include "pan_shader.h"
+ #include "pan_nir.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ PRAGMA_DIAGNOSTIC_PUSH
+ PRAGMA_DIAGNOSTIC_ERROR(-Wpadded)
+@@ -364,7 +365,7 @@
+        * Describe cube attachments as the 2D array they are.
+        * PANVK_V9_PRELOAD_CUBE=1 keeps the cube descriptor (control). */
+       if (pview.dim == MALI_TEXTURE_DIMENSION_CUBE &&
+-          !getenv("PANVK_V9_PRELOAD_CUBE"))
++          !pan_env_flag("PANVK_V9_PRELOAD_CUBE"))
+          pview.dim = MALI_TEXTURE_DIMENSION_2D;
+ #endif
+       if (loc == FRAG_RESULT_DEPTH)
+diff --git a/src/panfrost/vulkan/panvk_vX_descriptor_set.c b/src/panfrost/vulkan/panvk_vX_descriptor_set.c
+--- a/src/panfrost/vulkan/panvk_vX_descriptor_set.c
++++ b/src/panfrost/vulkan/panvk_vX_descriptor_set.c
+@@ -35,6 +35,7 @@
+ #include "panvk_macros.h"
+ #include "panvk_priv_bo.h"
+ #include "panvk_sampler.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ static const void *
+ get_desc_slot_ptr(struct panvk_descriptor_set *set, uint32_t binding,
+@@ -90,7 +91,7 @@
+        * PANVK_NULLDESC_POISON=1 is the negative control: write 0xff bytes  \
+        * (invalid type) instead, so a test that really reads the slot must   \
+        * change. */                                                          \
+-      if (getenv("PANVK_NULLDESC_POISON"))                                   \
++      if (pan_env_flag("PANVK_NULLDESC_POISON"))                                   \
+          memset(&null_desc, 0xff, sizeof(null_desc));                        \
+       write_desc(set, binding, elem, &null_desc, (subdesc));                 \
+    } while (0)
+diff --git a/src/panfrost/vulkan/panvk_vX_physical_device.c b/src/panfrost/vulkan/panvk_vX_physical_device.c
+--- a/src/panfrost/vulkan/panvk_vX_physical_device.c
++++ b/src/panfrost/vulkan/panvk_vX_physical_device.c
+@@ -28,6 +28,7 @@
+ 
+ #include "pan_format.h"
+ #include "pan_props.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ /* We reserve one ubo for push constant, one for sysvals and one per-set for the
+  * descriptor metadata  */
+@@ -334,21 +335,21 @@
+       .alphaToOne = false,
+       /* PATCH v9: one draw per viewport when gl_ViewportIndex is written
+        * (panvk_cmd_draw_v9). */
+-      .multiViewport = PAN_ARCH == 9 && !getenv("PANVK_V9_NO_MULTIVIEWPORT"),
++      .multiViewport = PAN_ARCH == 9 && !pan_env_flag("PANVK_V9_NO_MULTIVIEWPORT"),
+       .samplerAnisotropy = true,
+       .textureCompressionETC2 = has_texture_compression_etc2(device),
+       .textureCompressionASTC_LDR = has_texture_compression_astc_ldr(device),
+       .textureCompressionBC = has_texture_compression_bc(device),
+       .occlusionQueryPrecise = true,
+       /* PATCH v9: counted by the driver (panlib_stats_add). */
+-      .pipelineStatisticsQuery = PAN_ARCH == 9 && !getenv("PANVK_V9_NO_STATS"),
++      .pipelineStatisticsQuery = PAN_ARCH == 9 && !pan_env_flag("PANVK_V9_NO_STATS"),
+       /* On v13+, the hardware isn't speculatively referencing to invalid
+          indices anymore. */
+       /* PATCH v9: the stores of an IDVS vertex shader run in the position
+        * shader only (bifrost_nir_lower_vs_stores), the TCS and the GS main
+        * pass run as compute. PANVK_V9_NO_VPS=1 hides it again (control). */
+       .vertexPipelineStoresAndAtomics =
+-         (PAN_ARCH == 9 && !getenv("PANVK_V9_NO_VPS")) ||
++         (PAN_ARCH == 9 && !pan_env_flag("PANVK_V9_NO_VPS")) ||
+          (PAN_ARCH >= 13 && instance->drirc.misc.enable_vertex_pipeline_stores_atomics) ||
+          instance->drirc.misc.force_enable_shader_atomics,
+       .fragmentStoresAndAtomics = true,
+@@ -363,8 +364,8 @@
+       .shaderStorageBufferArrayDynamicIndexing = true,
+       .shaderStorageImageArrayDynamicIndexing = true,
+       /* PATCH v9: emulated in the fragment shader (panvk_v9_lower_fs_clip_cull). */
+-      .shaderClipDistance = PAN_ARCH == 9 && !getenv("PANVK_V9_NO_CLIP_CULL"),
+-      .shaderCullDistance = PAN_ARCH == 9 && !getenv("PANVK_V9_NO_CLIP_CULL"),
++      .shaderClipDistance = PAN_ARCH == 9 && !pan_env_flag("PANVK_V9_NO_CLIP_CULL"),
++      .shaderCullDistance = PAN_ARCH == 9 && !pan_env_flag("PANVK_V9_NO_CLIP_CULL"),
+       .shaderFloat64 = false,
+       .shaderInt64 = true,
+       .shaderInt16 = true,
+@@ -379,7 +380,7 @@
+       .sparseResidency8Samples = false,
+       .sparseResidency16Samples = false,
+       .sparseResidencyAliased = false, /* https://gitlab.freedesktop.org/panfrost/mesa/-/issues/237 */
+-      .variableMultisampleRate = PAN_ARCH == 9 && !getenv("PANVK_V9_NO_VMSR"),
++      .variableMultisampleRate = PAN_ARCH == 9 && !pan_env_flag("PANVK_V9_NO_VMSR"),
+       .inheritedQueries = false,
+ 
+       /* Vulkan 1.1 */
+@@ -643,7 +644,7 @@
+       .pipelineExecutableInfo = true,
+ 
+       /* VK_KHR_robustness2 */
+-      .robustBufferAccess2 = PAN_ARCH == 9 ? getenv("PANVK_V9_RBA2") != NULL : PAN_ARCH >= 11,
++      .robustBufferAccess2 = PAN_ARCH == 9 ? pan_env_flag("PANVK_V9_RBA2") != NULL : PAN_ARCH >= 11,
+       .robustImageAccess2 = false,
+       .nullDescriptor = PAN_ARCH >= 9,
+ 
+@@ -992,7 +993,7 @@
+       .maxSamplerLodBias = (float)INT16_MAX / 256.0f,
+       .maxSamplerAnisotropy = 16,
+       .maxViewports =
+-         PAN_ARCH == 9 && !getenv("PANVK_V9_NO_MULTIVIEWPORT") ? 16 : 1,
++         PAN_ARCH == 9 && !pan_env_flag("PANVK_V9_NO_MULTIVIEWPORT") ? 16 : 1,
+       .maxViewportDimensions = {MAX_FRAMEBUFFER_DIMENSION, MAX_FRAMEBUFFER_DIMENSION},
+       .viewportBoundsRange = {-2.0f * MAX_FRAMEBUFFER_DIMENSION, 2.0f * MAX_FRAMEBUFFER_DIMENSION - 1.0f},
+       .viewportSubPixelBits = 0,
+diff --git a/src/panfrost/vulkan/panvk_vX_shader.c b/src/panfrost/vulkan/panvk_vX_shader.c
+--- a/src/panfrost/vulkan/panvk_vX_shader.c
++++ b/src/panfrost/vulkan/panvk_vX_shader.c
+@@ -53,6 +53,7 @@
+ #include "vk_shader.h"
+ #include "vk_util.h"
+ #include "pan_v9_trace.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ #define FAU_WORD_COUNT 64
+ 
+@@ -737,7 +738,7 @@
+     * lowering as Bifrost: drop the layer write and discard
+     * primitives whose layer is not the one being drawn.
+     * PANVK_V9_HW_LAYER=1 skips this as a negative control. */
+-   if (PAN_ARCH < 9 || !getenv("PANVK_V9_HW_LAYER"))
++   if (PAN_ARCH < 9 || !pan_env_flag("PANVK_V9_HW_LAYER"))
+       NIR_PASS(_, nir, lower_layer_writes);
+ #if PAN_ARCH == 9
+    NIR_PASS(_, nir, lower_viewport_writes);
+@@ -828,7 +829,7 @@
+     * device's enabled features, so it is part of the cache key. Both
+     * runtime callers pass &vk_device::enabled_features.
+     * PANVK_V9_EMU_NO_HASH=1 leaves it out (negative control). */
+-   if (!getenv("PANVK_V9_EMU_NO_HASH")) {
++   if (!pan_env_flag("PANVK_V9_EMU_NO_HASH")) {
+       const struct vk_device *vkdev =
+          container_of(enabled_features, struct vk_device, enabled_features);
+       const bool emu = panvk_v9_sampler_emulation_active(vkdev);
+@@ -1372,7 +1373,7 @@
+ panvk_v9_lower_cull_mask(nir_shader *nir, unsigned clip_size,
+                          unsigned cull_size)
+ {
+-   if (!cull_size || getenv("PANVK_V9_NO_CLIP_CULL"))
++   if (!cull_size || pan_env_flag("PANVK_V9_NO_CLIP_CULL"))
+       return;
+ 
+    struct panvk_v9_cull_ctx ctx = {
+@@ -1414,7 +1415,7 @@
+ panvk_v9_lower_fs_clip_cull(nir_shader *nir,
+                             const struct pan_varying_layout *vs_layout)
+ {
+-   if (getenv("PANVK_V9_NO_CLIP_CULL"))
++   if (pan_env_flag("PANVK_V9_NO_CLIP_CULL"))
+       return false;
+ 
+    unsigned clip_slots = 2, cull_slots = 2;
+@@ -1524,7 +1525,7 @@
+ static void
+ panvk_v9_tes_store_patch_id(nir_shader *nir)
+ {
+-   if (getenv("PANVK_V9_GS_PRIM_ID_RAW") ||
++   if (pan_env_flag("PANVK_V9_GS_PRIM_ID_RAW") ||
+        (nir->info.outputs_written & VARYING_BIT_PRIMITIVE_ID))
+       return;
+ 
+@@ -1553,7 +1554,7 @@
+ static void
+ panvk_v9_gs_prim_id_from_tes(nir_shader *nir)
+ {
+-   if (getenv("PANVK_V9_GS_PRIM_ID_RAW"))
++   if (pan_env_flag("PANVK_V9_GS_PRIM_ID_RAW"))
+       return;
+ 
+    nir_function_impl *impl = nir_shader_get_entrypoint(nir);
+@@ -1593,7 +1594,7 @@
+ static void
+ panvk_v9_gate_side_effects(nir_shader *nir, bool tes)
+ {
+-   if (!nir->info.writes_memory || getenv("PANVK_V9_NO_SFX_FILTER"))
++   if (!nir->info.writes_memory || pan_env_flag("PANVK_V9_NO_SFX_FILTER"))
+       return;
+ 
+    nir_function_impl *impl = nir_shader_get_entrypoint(nir);
+@@ -1927,7 +1928,7 @@
+     * filtering. PANVK_V9_NO_MINMAX=1 skips it (negative control; compile
+     * time, needs MESA_SHADER_CACHE_DISABLE=true). */
+    if (panvk_v9_sampler_emulation_active(&dev->vk) &&
+-       !getenv("PANVK_V9_NO_MINMAX"))
++       !pan_env_flag("PANVK_V9_NO_MINMAX"))
+       NIR_PASS(_, nir, panvk_v9_lower_sampler_minmax);
+ #endif
+ 
+@@ -2584,7 +2585,7 @@
+        * larger output patch spans several warps and needs a real workgroup
+        * barrier. */
+       if (shader->tess.tcs_output_patch_size > pan_subgroup_size(PAN_ARCH) &&
+-          !getenv("PANVK_V9_TCS_SUBGROUP_BARRIER"))
++          !pan_env_flag("PANVK_V9_TCS_SUBGROUP_BARRIER"))
+          NIR_PASS(_, nir, nir_shader_intrinsics_pass,
+                   panvk_v9_widen_tcs_barrier, nir_metadata_all, NULL);
+ #endif
+@@ -2796,7 +2797,7 @@
+ 
+ #if PAN_ARCH == 9
+          if (parts[i].v != PANVK_GS_VARIANT_MAIN &&
+-             nir->info.writes_memory && !getenv("PANVK_V9_GS_SFX_ALL")) {
++             nir->info.writes_memory && !pan_env_flag("PANVK_V9_GS_SFX_ALL")) {
+             NIR_PASS(_, pnir, nir_shader_intrinsics_pass,
+                      panvk_v9_strip_api_side_effects,
+                      nir_metadata_control_flow, NULL);
+@@ -2811,7 +2812,7 @@
+             NIR_PASS(_, pnir, nir_opt_dce);
+             nir_shader_gather_info(pnir, nir_shader_get_entrypoint(pnir));
+             /* PANVK_V9_GS_RAST_BASE0=1 keeps libpoly's base 0 (control). */
+-            if (!getenv("PANVK_V9_GS_RAST_BASE0"))
++            if (!pan_env_flag("PANVK_V9_GS_RAST_BASE0"))
+                panvk_v9_fix_rast_output_bases(pnir);
+ #if PAN_ARCH == 9
+             panvk_v9_lower_cull_mask(pnir, shader->clip_size,
+@@ -3062,25 +3063,25 @@
+     */
+    static int allow_tess_gs = -1;
+    if (allow_tess_gs < 0)
+-      allow_tess_gs = getenv("PANVK_V9_ALLOW_TESS_GS") != NULL;
++      allow_tess_gs = pan_env_flag("PANVK_V9_ALLOW_TESS_GS") != NULL;
+    for (i = 0; !allow_tess_gs && i < shader_count; i++) {
+       mesa_shader_stage s = infos[i].stage;
+       /* PATCH v9: tessellation runs through libpoly now (launch_tess_v9);
+        * PANVK_V9_NO_TESS=1 rejects it again (negative control). Geometry
+        * shaders are still refused. */
+       const bool tess = s == MESA_SHADER_TESS_CTRL || s == MESA_SHADER_TESS_EVAL;
+-      if (tess && !getenv("PANVK_V9_NO_TESS"))
++      if (tess && !pan_env_flag("PANVK_V9_NO_TESS"))
+          continue;
+       /* PATCH v9: geometry shaders run through libpoly too (launch_gs_v9),
+        * PANVK_V9_NO_GS=1 rejects them again (negative control). A GS after
+        * tessellation is not implemented yet and is still refused. */
+-      if (s == MESA_SHADER_GEOMETRY && !getenv("PANVK_V9_NO_GS")) {
++      if (s == MESA_SHADER_GEOMETRY && !pan_env_flag("PANVK_V9_NO_GS")) {
+          /* A GS after tessellation runs on the TES SW variant now;
+           * PANVK_V9_NO_TES_GS=1 refuses it again (negative control). */
+          bool has_tes = false;
+          for (uint32_t j = 0; j < shader_count; j++)
+             has_tes |= infos[j].stage == MESA_SHADER_TESS_EVAL;
+-         if (!has_tes || !getenv("PANVK_V9_NO_TES_GS"))
++         if (!has_tes || !pan_env_flag("PANVK_V9_NO_TES_GS"))
+             continue;
+       }
+       if (!tess && s != MESA_SHADER_GEOMETRY)
+diff --git a/src/panfrost/vulkan/panvk_wsi.c b/src/panfrost/vulkan/panvk_wsi.c
+--- a/src/panfrost/vulkan/panvk_wsi.c
++++ b/src/panfrost/vulkan/panvk_wsi.c
+@@ -22,6 +22,7 @@
+ 
+ #include "vk_util.h"
+ #include "wsi_common.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ static VKAPI_PTR PFN_vkVoidFunction
+ panvk_wsi_proc_addr(VkPhysicalDevice physicalDevice, const char *pName)
+@@ -100,7 +101,7 @@
+     * so the app thread can submit the next frame meanwhile.
+     * PANVK_KBASE_WSI_SYNC_PRESENT=1: wait in vkQueuePresentKHR as before. */
+    physical_device->wsi_device.x11_wait_fence_in_present_thread =
+-      uses_kbase && !getenv("PANVK_KBASE_WSI_SYNC_PRESENT");
++      uses_kbase && !pan_env_flag("PANVK_KBASE_WSI_SYNC_PRESENT");
+ 
+    /* kbase is not a DRM fd.  The default CPU WSI path presents through
+     * MIT-SHM.  Android dma-heaps can also provide shareable
+diff --git a/src/vulkan/runtime/vk_pipeline.c b/src/vulkan/runtime/vk_pipeline.c
+--- a/src/vulkan/runtime/vk_pipeline.c
++++ b/src/vulkan/runtime/vk_pipeline.c
+@@ -46,6 +46,7 @@
+ #include "shader_enums.h"
+ 
+ #include "util/mesa-blake3.h"
++#include "panfrost/lib/pan_env.h"
+ 
+ struct vk_pipeline_binary {
+    struct vk_object_base base;
+@@ -2043,7 +2044,7 @@
+    const VkPipelineLibraryCreateInfoKHR *null_check_libs =
+       vk_find_struct_const(pCreateInfo->pNext,
+                            PIPELINE_LIBRARY_CREATE_INFO_KHR);
+-   if (null_check_libs && !getenv("PANVK_V9_ALLOW_TESS_GS")) {
++   if (null_check_libs && !pan_env_flag("PANVK_V9_ALLOW_TESS_GS")) {
+       for (uint32_t i = 0; i < null_check_libs->libraryCount; i++) {
+          if (null_check_libs->pLibraries[i] == VK_NULL_HANDLE) {
+             mesa_logw_once("vk_pipeline: pLibraries[%u] is VK_NULL_HANDLE, "

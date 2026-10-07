@@ -1,0 +1,6 @@
+tests/graphics/async_submit_test.c on build9 (0068), 2026-10-07 08:4x
+ASYNCSUB submits=2.2 ms fence_after_submit=NOT_READY event_early=RESET wait=0 after 123.4 ms event=SET bad_q1=0 bad_rest=0 last=16 verdict=PASS
+ASYNCSUB submits=2.4 ms fence_after_submit=NOT_READY event_early=RESET wait=0 after 122.1 ms event=SET bad_q1=0 bad_rest=0 last=16 verdict=PASS
+ASYNCSUB submits=0.2 ms fence_after_submit=NOT_READY event_early=RESET wait=0 after 114.4 ms event=SET bad_q1=0 bad_rest=0 last=16 verdict=PASS
+control PANVK_KBASE_SYNC_SUBMIT=1:
+ASYNCSUB submits=147.5 ms fence_after_submit=SIGNALED event_early=SET wait=0 after 0.0 ms event=SET bad_q1=0 bad_rest=0 last=16 verdict=FAIL

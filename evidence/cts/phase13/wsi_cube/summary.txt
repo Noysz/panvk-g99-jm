@@ -1,0 +1,10 @@
+fifo default rc=0 frames=240 in 3.2 s = 74.3 fps (incl. checks), checked=12 bad_frames=0 screen_bad=0 
+immediate default rc=0 frames=240 in 3.4 s = 71.3 fps (incl. checks), checked=12 bad_frames=0 screen_bad=0 
+fifo PANVK_KBASE_WSI_SYNC_PRESENT=1 rc=0 frames=240 in 3.5 s = 69.2 fps (incl. checks), checked=12 bad_frames=0 screen_bad=0 
+fifo PANVK_KBASE_SYNC_SUBMIT=1 rc=0 frames=240 in 3.6 s = 66.2 fps (incl. checks), checked=12 bad_frames=0 screen_bad=0 
+r2 fifo default rc=0 frames=240 in 3.4 s = 70.7 fps (incl. checks), checked=12 bad_frames=0 screen_bad=0
+r2 immediate default rc=0 frames=240 in 3.4 s = 71.4 fps (incl. checks), checked=12 bad_frames=0 screen_bad=0
+r2 fifo PANVK_KBASE_WSI_SYNC_PRESENT=1 rc=0 frames=240 in 3.4 s = 70.9 fps (incl. checks), checked=12 bad_frames=0 screen_bad=0
+r3 fifo default rc=0 frames=240 in 3.4 s = 70.7 fps (incl. checks), checked=12 bad_frames=0 screen_bad=0
+r3 immediate default rc=0 frames=240 in 3.5 s = 69.2 fps (incl. checks), checked=12 bad_frames=0 screen_bad=0
+r3 fifo PANVK_KBASE_WSI_SYNC_PRESENT=1 rc=0 frames=240 in 3.2 s = 75.8 fps (incl. checks), checked=12 bad_frames=0 screen_bad=0

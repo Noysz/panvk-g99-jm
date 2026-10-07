@@ -1,0 +1,6 @@
+showcase    pkg_v007  avg 23.1 22.8    mean 23.0  1%low 7.2 9.8
+showcase    pkg_v008  avg 23.3 23.1    mean 23.2  1%low 9.5 10.0
+showcase    pkg_v009  avg 23.6 22.7    mean 23.2  1%low 8.3 7.3
+draws:1024  pkg_v007  avg 42.5 43.5    mean 43.0  1%low 10.2 15.1
+draws:1024  pkg_v008  avg 43.9 44.1    mean 44.0  1%low 14.8 15.5
+draws:1024  pkg_v009  avg 44.9 43.9    mean 44.4  1%low 15.5 15.2

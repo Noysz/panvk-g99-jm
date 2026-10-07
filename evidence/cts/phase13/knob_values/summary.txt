@@ -1,0 +1,12 @@
+PANVK_KBASE_SYNC_SUBMIT=unset -> fence_after_submit=NOT_READY ... bad_q1=0 bad_rest=0 last=16 verdict=PASS
+PANVK_KBASE_SYNC_SUBMIT=0 -> fence_after_submit=NOT_READY ... bad_q1=0 bad_rest=0 last=16 verdict=PASS
+PANVK_KBASE_SYNC_SUBMIT=false -> fence_after_submit=NOT_READY ... bad_q1=0 bad_rest=0 last=16 verdict=PASS
+PANVK_KBASE_SYNC_SUBMIT=off -> fence_after_submit=NOT_READY ... bad_q1=0 bad_rest=0 last=16 verdict=PASS
+PANVK_KBASE_SYNC_SUBMIT=1 -> fence_after_submit=SIGNALED ... bad_q1=0 bad_rest=0 last=16 verdict=FAIL
+PANVK_KBASE_SYNC_SUBMIT=yes -> fence_after_submit=SIGNALED ... bad_q1=0 bad_rest=0 last=16 verdict=FAIL
+PANVK_V9_NO_STATS=unset ->      40 Pass 
+PANVK_V9_NO_STATS=0 ->      40 Pass 
+PANVK_V9_NO_STATS=1 ->      40 NotSupported 
+PANVK_V9_NO_GS=unset ->      30 Pass 
+PANVK_V9_NO_GS=0 ->      30 Pass 
+PANVK_V9_NO_GS=1 ->      30 Fail 

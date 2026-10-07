@@ -1,0 +1,12 @@
+r1 pkg_v007 showcase rc=0 # avg_fps,23.12,min_fps,4.49,max_fps,912.41,low1pct_fps,7.17
+r1 pkg_v008 showcase rc=0 # avg_fps,23.33,min_fps,6.24,max_fps,1015.54,low1pct_fps,9.46
+r1 pkg_v009 showcase rc=0 # avg_fps,23.65,min_fps,4.60,max_fps,811.56,low1pct_fps,8.29
+r1 pkg_v007 draws:1024 rc=0 # avg_fps,42.49,min_fps,5.82,max_fps,273.19,low1pct_fps,10.18
+r1 pkg_v008 draws:1024 rc=0 # avg_fps,43.88,min_fps,7.48,max_fps,264.04,low1pct_fps,14.85
+r1 pkg_v009 draws:1024 rc=0 # avg_fps,44.90,min_fps,5.85,max_fps,244.29,low1pct_fps,15.48
+r2 pkg_v007 showcase rc=0 # avg_fps,22.83,min_fps,7.86,max_fps,959.51,low1pct_fps,9.79
+r2 pkg_v008 showcase rc=0 # avg_fps,23.08,min_fps,7.90,max_fps,721.81,low1pct_fps,10.02
+r2 pkg_v009 showcase rc=0 # avg_fps,22.74,min_fps,4.80,max_fps,872.52,low1pct_fps,7.28
+r2 pkg_v007 draws:1024 rc=0 # avg_fps,43.47,min_fps,7.18,max_fps,255.60,low1pct_fps,15.14
+r2 pkg_v008 draws:1024 rc=0 # avg_fps,44.12,min_fps,7.81,max_fps,239.29,low1pct_fps,15.54
+r2 pkg_v009 draws:1024 rc=0 # avg_fps,43.87,min_fps,7.15,max_fps,236.51,low1pct_fps,15.19

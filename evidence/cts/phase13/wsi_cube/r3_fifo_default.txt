@@ -1,0 +1,28 @@
+=== wsi cube: frames=240 step=1.0 dim=600 present=fifo check every 20 ===
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+surface     : supported=1 images 3..0 extent 600x600 usage 0x8009f
+formats     : 50 44
+presentmodes: 0 1 2 3
+swapchain   : #0 600x600, 4 images, format 44 (frame 0)
+WSIFP frame=0000 deg=    0.0 img=0 screen_bad=0 edge=1296 fps=0.0
+WSIFP frame=0020 deg=   20.0 img=0 screen_bad=0 edge=2182 fps=82.1
+swapchain   : #1 640x640, 4 images, format 44 (frame 40)
+WSIFP frame=0040 deg=   40.0 img=0 screen_bad=0 edge=2172 fps=56.4
+WSIFP frame=0060 deg=   60.0 img=0 screen_bad=0 edge=2228 fps=89.5
+swapchain   : #2 880x880, 4 images, format 44 (frame 80)
+WSIFP frame=0080 deg=   80.0 img=0 screen_bad=0 edge=2717 fps=74.7
+WSIFP frame=0100 deg=  100.0 img=0 screen_bad=0 edge=2764 fps=58.1
+swapchain   : #3 400x400, 4 images, format 44 (frame 120)
+WSIFP frame=0120 deg=  120.0 img=0 screen_bad=0 edge=932 fps=70.4
+WSIFP frame=0140 deg=  140.0 img=0 screen_bad=0 edge=937 fps=79.5
+swapchain   : #4 720x720, 4 images, format 44 (frame 160)
+WSIFP frame=0160 deg=  160.0 img=0 screen_bad=0 edge=2278 fps=104.1
+WSIFP frame=0180 deg=  180.0 img=0 screen_bad=0 edge=2269 fps=79.7
+swapchain   : #5 1024x1024, 4 images, format 44 (frame 200)
+WSIFP frame=0200 deg=  200.0 img=0 screen_bad=0 edge=3596 fps=70.3
+WSIFP frame=0220 deg=  220.0 img=0 screen_bad=0 edge=3563 fps=57.6
+
+--- result ---
+frames=240 in 3.4 s = 70.7 fps (incl. checks), checked=12 bad_frames=0 screen_bad=0
+WSISUM present=fifo format=BGRA8 frames=240 checked=12 bad_frames=0 bad=0 swapchains=6 out_of_date=0 verdict=PASS
+DONE
