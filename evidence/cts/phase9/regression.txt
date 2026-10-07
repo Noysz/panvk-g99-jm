@@ -1,0 +1,8 @@
+rX8 (0.0.8 tree, Termux build) vs rX7 (0.0.7), per group: Pass->notPass / notPass->Pass
+api_smoke 0/0, blend 0/0, event 0/0, gs 0/2, gsctl 0/0, indirect_draw 0/0, layers 0/0, nulldesc 0/8,
+occlusion 0/0, own 0/0, sampler 0/0, secondary 0/1, simple_draw 0/0, stencil 0/0, syncbasic 0/0,
+syncfd 0/0, tesgs 0/0, tess 0/48, tessfull 0/560, tex_filter 0/0, tex_mipmap 0/0, topology 0/0,
+xfb 0/9, xfbstr 0/8
+TOTAL Pass->notPass = 0
+tessfull (1114): 766 Pass / 0 Fail / 347 NotSupported / 1 Timeout (rX7: 206 / 0 / 908)
+new lists: tessmvp 248/0 (320 NS shaderFloat64), vpsa 264/0, vpst 314/0 (+1 Timeout), mvp 138/0, clip 584/6, vmsr 96/0

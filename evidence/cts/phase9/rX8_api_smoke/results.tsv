@@ -1,0 +1,8 @@
+dEQP-VK.api.smoke.asm_triangle	Pass	Rendering succeeded
+dEQP-VK.api.smoke.asm_triangle_no_opname	Pass	Rendering succeeded
+dEQP-VK.api.smoke.compute	Pass	Pass
+dEQP-VK.api.smoke.create_sampler	Pass	Creating sampler succeeded
+dEQP-VK.api.smoke.create_shader	Pass	Creating shader module succeeded
+dEQP-VK.api.smoke.transfer	Pass	Pass
+dEQP-VK.api.smoke.triangle	Pass	Rendering succeeded
+dEQP-VK.api.smoke.unused_resolve_attachment	Pass	Rendering succeeded

@@ -1,0 +1,12 @@
+Negative controls for 0066 (same build, env knob set, MESA_SHADER_CACHE_DISABLE=true)
+x8c_vps     PANVK_V9_NO_VPS=1            l_vps_atomic  416 NotSupported (feature hidden)        normal: 264 Pass / 0 Fail
+x8c_sfx     PANVK_V9_NO_SFX_FILTER=1     l_vps_tess    22 Fail / 292 Pass / 1 Timeout          normal: 314 Pass / 0 Fail / 1 Timeout
+x8c_mvp     PANVK_V9_NO_MULTIVIEWPORT=1  l_mvp         103 NotSupported / 120 Pass             normal: 138 Pass / 85 NotSupported
+x8clip_ctl  PANVK_V9_NO_CLIP_CULL=1      l_clip        16 Fail / 640 NotSupported / 42 Pass    normal: 584 Pass / 6 Fail
+x8vmsr_ctl  PANVK_V9_NO_VMSR=1           l_vmsr        1032 NotSupported / 18 Pass             normal: 96 Pass / 0 Fail
+x8mvp_dcul  PANVK_V9_DEPTH_CULL_ALWAYS=1 l_mvp         30 Fail (draw.renderpass.depth_clamp.*) normal: 0 Fail
+single cases (deqp-vk direct):
+  PAN_V9_IDVS_STORES_BOTH=1 / PANVK_V9_NO_SFX_FILTER=1: tessellation.fractional_spacing.* + tesscoord.* 0/4 pass (normal 4/4)
+dxvk_probe on drv16: PANVK_V9_NO_VPS=1 or PANVK_V9_NO_VMSR=1 -> DXVK 1.10.3 maxFL 11_0 (normal 11_1)
+Known non-pass in the lists: transform_feedback.*.depth_clip_control_tese* (6, stream output from a TES without GS, pre-existing),
+tessellation.misc_draw.tess_factor_barrier_bug (Timeout, 524288 instances; NotSupported before VPS).

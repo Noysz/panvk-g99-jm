@@ -1,0 +1,2 @@
+drv16 gs AIOCLICK scene=gs status=ALIVE segv=0 guard_msgs=0 unhandled=0
+drv16 tess AIOCLICK scene=tess status=ALIVE segv=0 guard_msgs=0 unhandled=0

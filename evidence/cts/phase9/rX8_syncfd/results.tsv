@@ -1,0 +1,28 @@
+dEQP-VK.api.external.fence.sync_fd.dup2_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.fence.sync_fd.dup3_temporary	NotSupported	Platform doesn't support dup3() at vktApiExternalMemoryTests.cpp:2720
+dEQP-VK.api.external.fence.sync_fd.dup_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.fence.sync_fd.export_multiple_times_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.fence.sync_fd.import_multiple_times_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.fence.sync_fd.import_signaled_temporary	Pass	Pass
+dEQP-VK.api.external.fence.sync_fd.import_twice_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.fence.sync_fd.info	Pass	Pass
+dEQP-VK.api.external.fence.sync_fd.reimport_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.fence.sync_fd.reset_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.fence.sync_fd.send_over_socket_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.fence.sync_fd.signal_export_import_wait_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.fence.sync_fd.signal_import_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.fence.sync_fd.transference_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.semaphore.sync_fd.dup2_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.semaphore.sync_fd.dup3_temporary	NotSupported	Platform doesn't support dup3() at vktApiExternalMemoryTests.cpp:1644
+dEQP-VK.api.external.semaphore.sync_fd.dup_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.semaphore.sync_fd.export_multiple_times_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.semaphore.sync_fd.import_multiple_times_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.semaphore.sync_fd.import_signaled_temporary	Pass	Pass
+dEQP-VK.api.external.semaphore.sync_fd.import_twice_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.semaphore.sync_fd.info_binary	Pass	Pass
+dEQP-VK.api.external.semaphore.sync_fd.info_timeline	Pass	Pass
+dEQP-VK.api.external.semaphore.sync_fd.reimport_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.semaphore.sync_fd.send_over_socket_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.semaphore.sync_fd.signal_export_import_wait_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.semaphore.sync_fd.signal_import_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference
+dEQP-VK.api.external.semaphore.sync_fd.transference_temporary	Pass	Pass: got -1 as a file descriptor, which is valid with a handle type of copy transference

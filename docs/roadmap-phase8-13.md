@@ -120,14 +120,45 @@ has a working reference only for tessellation, so the build order is:
 
 ## Phase 9 — small features DXVK asks for
 
-- [ ] 9.1 `depthBounds` (hardware has a depth-bounds test on Valhall? check
-  genxml first; otherwise shader emulation).
-- [ ] 9.2 `variableMultisampleRate`.
-- [ ] 9.3 `vertexPipelineStoresAndAtomics` (upstream only on v13; check what
-  v9 needs: VS/TES side effects with IDVS).
-- [ ] 9.4 `shaderClipDistance` / `shaderCullDistance` in the driver (today
-  only via the Wrapper).
-- [ ] 9.5 `multiViewport`.
+- [ ] 9.1 `depthBounds`: moved out of `0.0.8`. The v9 genxml has no
+  depth-bounds field. Emulation has to read the stored depth from the tile
+  buffer in the fragment shader, which forces late depth/stencil for every
+  draw that could have the test enabled (dynamic state). Only DXVK-Sarek 1.12
+  asks for it, as an optional feature it runs without.
+- [x] 9.2 `variableMultisampleRate` (`0066`): without attachments the frame
+  takes its sample count from the first draw; a draw with another
+  `rasterizationSamples` starts a new batch. CTS
+  `pipeline.monolithic.multisample.variable_rate|mixed_count` 96 pass, 0 fail
+  (3x; 954 not supported: sample-count combinations the driver does not
+  report). Control `PANVK_V9_NO_VMSR`.
+- [x] 9.3 `vertexPipelineStoresAndAtomics` (`0066`): IDVS shades vertex IDs
+  in groups of 4 and runs the position and varying shaders separately, so
+  memory writes went to the position shader only and are gated on the vertex
+  being real (direct draws: vertex index < vertex count; tessellation: the
+  padding points the tessellator now writes are skipped). GS memory writes
+  stay in the MAIN compute pass only. CTS `glsl.atomic_operations` vertex /
+  tess / geometry 264 pass, 0 fail; vertex-store tessellation list 314 pass,
+  0 fail, 1 timeout (`tess_factor_barrier_bug`, 524288 instances) (3x).
+  Controls `PANVK_V9_NO_VPS`, `PANVK_V9_NO_SFX_FILTER`,
+  `PAN_V9_IDVS_STORES_BOTH`, `PANVK_V9_GS_SFX_ALL`.
+- [x] 9.4 `shaderClipDistance` / `shaderCullDistance` in the driver
+  (`0066`): Mali has no clip-distance hardware. The fragment shader discards
+  where an enabled interpolated clip distance is negative; cull distances
+  travel as `d < 0 ? 1 : 0` masks and a primitive is dropped where the mask is
+  1 with zero derivatives (the idea of asahi's `agx_nir_lower_cull_distance`).
+  CTS `clipping.*` + transform-feedback clip/cull 584 pass, 6 fail (3x; the 6
+  are `depth_clip_control_tese`, stream output straight from a TES). Control
+  `PANVK_V9_NO_CLIP_CULL`.
+- [x] 9.5 `multiViewport` (`0066`): 16 viewports. Mali has one viewport per
+  draw, so a draw whose last pre-rasterization stage writes
+  `gl_ViewportIndex` is recorded once per viewport and the other viewports'
+  vertices are moved out of the way. CTS 223-case list 138 pass, 0 fail (3x);
+  tessellation cases gated on `multiViewport` 248 pass, 0 fail (the other 320
+  need `shaderFloat64`). Control `PANVK_V9_NO_MULTIVIEWPORT`.
+- [x] Found on the way (`0066`): the v9 primitive descriptor kept the depth
+  cull bits on, so `depthClamp` / `depthClipEnable = false` still dropped
+  primitives outside [0, 1] (CTS `draw.renderpass.depth_clamp.*`, 30 cases).
+  Control `PANVK_V9_DEPTH_CULL_ALWAYS`.
 
 ## Phase 10 — tessellation on v9
 

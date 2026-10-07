@@ -1,0 +1,223 @@
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_clamp_control_half_viewport_range	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_clamp_control_half_viewport_range_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_clamp_control_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_clamp_control_input_negative_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_clamp_control_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_clamp_control_input_positive_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_clamp_control_viewport_range	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_clamp_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_clamp_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_depth_bias_clamp_control_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_depth_bias_clamp_control_input_negative_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_depth_bias_clamp_control_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_depth_bias_clamp_control_input_positive_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_depth_bias_clamp_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_depth_bias_clamp_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_clamp_control_half_viewport_range	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_clamp_control_half_viewport_range_dynamic	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_clamp_control_input_negative	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_clamp_control_input_negative_dynamic	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_clamp_control_input_positive	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_clamp_control_input_positive_dynamic	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_clamp_control_viewport_range	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_clamp_input_negative	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_clamp_input_positive	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_depth_bias_clamp_control_input_negative	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_depth_bias_clamp_control_input_negative_dynamic	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_depth_bias_clamp_control_input_positive	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_depth_bias_clamp_control_input_positive_dynamic	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_depth_bias_clamp_input_negative	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d16_unorm_s8_uint_depth_bias_clamp_input_positive	NotSupported	Format not supported at vktDrawDepthClampTests.cpp:1092
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_clamp_control_half_viewport_range	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_clamp_control_half_viewport_range_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_clamp_control_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_clamp_control_input_negative_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_clamp_control_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_clamp_control_input_positive_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_clamp_control_viewport_range	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_clamp_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_clamp_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_depth_bias_clamp_control_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_depth_bias_clamp_control_input_negative_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_depth_bias_clamp_control_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_depth_bias_clamp_control_input_positive_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_depth_bias_clamp_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d24_unorm_s8_uint_depth_bias_clamp_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_clamp_control_half_viewport_range	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_clamp_control_half_viewport_range_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_clamp_control_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_clamp_control_input_negative_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_clamp_control_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_clamp_control_input_positive_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_clamp_control_viewport_range	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_clamp_four_viewports	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_clamp_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_clamp_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_depth_bias_clamp_control_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_depth_bias_clamp_control_input_negative_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_depth_bias_clamp_control_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_depth_bias_clamp_control_input_positive_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_depth_bias_clamp_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_depth_bias_clamp_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_depth_range_unrestricted_negative	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_depth_range_unrestricted_positive	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_clamp_control_half_viewport_range	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_clamp_control_half_viewport_range_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_clamp_control_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_clamp_control_input_negative_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_clamp_control_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_clamp_control_input_positive_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_clamp_control_viewport_range	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_clamp_four_viewports	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_clamp_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_clamp_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_depth_bias_clamp_control_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_depth_bias_clamp_control_input_negative_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_depth_bias_clamp_control_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_depth_bias_clamp_control_input_positive_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_depth_bias_clamp_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_depth_bias_clamp_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_depth_range_unrestricted_negative	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_depth_range_unrestricted_positive	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_unrestricted_bias_clamp_control_negative	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_unrestricted_bias_clamp_control_negative_dynamic	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_unrestricted_bias_clamp_control_positive	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_unrestricted_bias_clamp_control_positive_dynamic	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_unrestricted_clamp_control_negative	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_unrestricted_clamp_control_negative_dynamic	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_unrestricted_clamp_control_positive	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_s8_uint_unrestricted_clamp_control_positive_dynamic	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_unrestricted_bias_clamp_control_negative	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_unrestricted_bias_clamp_control_negative_dynamic	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_unrestricted_bias_clamp_control_positive	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_unrestricted_bias_clamp_control_positive_dynamic	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_unrestricted_clamp_control_negative	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_unrestricted_clamp_control_negative_dynamic	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_unrestricted_clamp_control_positive	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.d32_sfloat_unrestricted_clamp_control_positive_dynamic	NotSupported	VK_EXT_depth_range_unrestricted is not supported at vktTestCase.cpp:1394
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_clamp_control_half_viewport_range	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_clamp_control_half_viewport_range_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_clamp_control_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_clamp_control_input_negative_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_clamp_control_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_clamp_control_input_positive_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_clamp_control_viewport_range	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_clamp_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_clamp_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_depth_bias_clamp_control_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_depth_bias_clamp_control_input_negative_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_depth_bias_clamp_control_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_depth_bias_clamp_control_input_positive_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_depth_bias_clamp_input_negative	Pass	Pass
+dEQP-VK.draw.renderpass.depth_clamp.x8_d24_unorm_pack32_depth_bias_clamp_input_positive	Pass	Pass
+dEQP-VK.draw.renderpass.large_viewport.large_negative_x_max_width	Pass	Pass
+dEQP-VK.draw.renderpass.large_viewport.large_negative_x_max_width_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.large_viewport.large_negative_x_max_width_overlap	Pass	Pass
+dEQP-VK.draw.renderpass.large_viewport.large_negative_x_max_width_overlap_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.large_viewport.large_negative_y_max_height	Pass	Pass
+dEQP-VK.draw.renderpass.large_viewport.large_negative_y_max_height_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.large_viewport.large_negative_y_max_height_overlap	Pass	Pass
+dEQP-VK.draw.renderpass.large_viewport.large_negative_y_max_height_overlap_dynamic	Pass	Pass
+dEQP-VK.draw.renderpass.negative_viewport_height.front_ccw_cull_back	Pass	Pass
+dEQP-VK.draw.renderpass.negative_viewport_height.front_ccw_cull_both	Pass	Pass
+dEQP-VK.draw.renderpass.negative_viewport_height.front_ccw_cull_front	Pass	Pass
+dEQP-VK.draw.renderpass.negative_viewport_height.front_ccw_cull_none	Pass	Pass
+dEQP-VK.draw.renderpass.negative_viewport_height.front_cw_cull_back	Pass	Pass
+dEQP-VK.draw.renderpass.negative_viewport_height.front_cw_cull_both	Pass	Pass
+dEQP-VK.draw.renderpass.negative_viewport_height.front_cw_cull_front	Pass	Pass
+dEQP-VK.draw.renderpass.negative_viewport_height.front_cw_cull_none	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_off_screen_negative_y_off_screen_negative	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_off_screen_negative_y_off_screen_negative_negative_height	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_off_screen_negative_y_off_screen_positive	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_off_screen_negative_y_off_screen_positive_negative_height	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_off_screen_negative_y_on_screen	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_off_screen_negative_y_on_screen_negative_height	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_off_screen_positive_y_off_screen_negative	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_off_screen_positive_y_off_screen_negative_negative_height	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_off_screen_positive_y_off_screen_positive	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_off_screen_positive_y_off_screen_positive_negative_height	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_off_screen_positive_y_on_screen	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_off_screen_positive_y_on_screen_negative_height	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_on_screen_y_off_screen_negative	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_on_screen_y_off_screen_negative_negative_height	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_on_screen_y_off_screen_positive	Pass	Pass
+dEQP-VK.draw.renderpass.offscreen_viewport.x_on_screen_y_off_screen_positive_negative_height	Pass	Pass
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_1	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_10	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_11	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_12	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_13	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_14	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_15	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_16	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_2	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_3	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_4	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_5	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_6	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_7	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_8	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_9	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.fragment_shader_implicit	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_1	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_10	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_11	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_12	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_13	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_14	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_15	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_16	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_2	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_3	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_4	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_5	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_6	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_7	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_8	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.tessellation_shader_9	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_1	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_10	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_11	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_12	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_13	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_14	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_15	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_16	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_2	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_3	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_4	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_5	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_6	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_7	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_8	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.shader_viewport_index.vertex_shader_9	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.draw.renderpass.zero_viewport_height.front_ccw_cull_back	Pass	Pass
+dEQP-VK.draw.renderpass.zero_viewport_height.front_ccw_cull_both	Pass	Pass
+dEQP-VK.draw.renderpass.zero_viewport_height.front_ccw_cull_front	Pass	Pass
+dEQP-VK.draw.renderpass.zero_viewport_height.front_ccw_cull_none	Pass	Pass
+dEQP-VK.draw.renderpass.zero_viewport_height.front_cw_cull_back	Pass	Pass
+dEQP-VK.draw.renderpass.zero_viewport_height.front_cw_cull_both	Pass	Pass
+dEQP-VK.draw.renderpass.zero_viewport_height.front_cw_cull_front	Pass	Pass
+dEQP-VK.draw.renderpass.zero_viewport_height.front_cw_cull_none	Pass	Pass
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_1	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_10	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_11	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_12	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_13	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_14	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_15	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_16	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_2	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_3	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_4	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_5	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_6	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_7	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_8	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498
+dEQP-VK.fragment_operations.scissor.multi_viewport.scissor_9	NotSupported	Requested core feature is not supported: multiViewport at vktTestCase.cpp:1498

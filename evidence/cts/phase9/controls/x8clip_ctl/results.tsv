@@ -1,0 +1,698 @@
+dEQP-VK.clipping.clip_volume.clipped.large_points	Pass	OK
+dEQP-VK.clipping.clip_volume.clipped.wide_lines_axis_aligned	Pass	OK
+dEQP-VK.clipping.clip_volume.clipped.wide_lines_diagonal	Pass	OK
+dEQP-VK.clipping.clip_volume.depth_clamp.line_list	Fail	Rendered image(s) are incorrect
+dEQP-VK.clipping.clip_volume.depth_clamp.line_list_with_adjacency	Fail	Rendered image(s) are incorrect
+dEQP-VK.clipping.clip_volume.depth_clamp.line_strip	Fail	Rendered image(s) are incorrect
+dEQP-VK.clipping.clip_volume.depth_clamp.line_strip_with_adjacency	Fail	Rendered image(s) are incorrect
+dEQP-VK.clipping.clip_volume.depth_clamp.point_list	Fail	Rendered image(s) are incorrect
+dEQP-VK.clipping.clip_volume.depth_clamp.triangle_fan	Pass	OK
+dEQP-VK.clipping.clip_volume.depth_clamp.triangle_list	Pass	OK
+dEQP-VK.clipping.clip_volume.depth_clamp.triangle_list_with_adjacency	Pass	OK
+dEQP-VK.clipping.clip_volume.depth_clamp.triangle_strip	Pass	OK
+dEQP-VK.clipping.clip_volume.depth_clamp.triangle_strip_with_adjacency	Pass	OK
+dEQP-VK.clipping.clip_volume.depth_clip.line_list	Fail	Rendered image(s) are incorrect (depth clip with depth clamp disabled)
+dEQP-VK.clipping.clip_volume.depth_clip.line_list_with_adjacency	Fail	Rendered image(s) are incorrect (depth clip with depth clamp disabled)
+dEQP-VK.clipping.clip_volume.depth_clip.line_strip	Fail	Rendered image(s) are incorrect (depth clip with depth clamp disabled)
+dEQP-VK.clipping.clip_volume.depth_clip.line_strip_with_adjacency	Fail	Rendered image(s) are incorrect (depth clip with depth clamp disabled)
+dEQP-VK.clipping.clip_volume.depth_clip.point_list	Fail	Rendered image(s) are incorrect (depth clip with depth clamp disabled)
+dEQP-VK.clipping.clip_volume.depth_clip.triangle_fan	Pass	OK
+dEQP-VK.clipping.clip_volume.depth_clip.triangle_list	Pass	OK
+dEQP-VK.clipping.clip_volume.depth_clip.triangle_list_with_adjacency	Pass	OK
+dEQP-VK.clipping.clip_volume.depth_clip.triangle_strip	Pass	OK
+dEQP-VK.clipping.clip_volume.depth_clip.triangle_strip_with_adjacency	Pass	OK
+dEQP-VK.clipping.clip_volume.inside.line_list	Pass	OK
+dEQP-VK.clipping.clip_volume.inside.line_list_with_adjacency	Pass	OK
+dEQP-VK.clipping.clip_volume.inside.line_strip	Pass	OK
+dEQP-VK.clipping.clip_volume.inside.line_strip_with_adjacency	Pass	OK
+dEQP-VK.clipping.clip_volume.inside.point_list	Pass	OK
+dEQP-VK.clipping.clip_volume.inside.triangle_fan	Pass	OK
+dEQP-VK.clipping.clip_volume.inside.triangle_list	Pass	OK
+dEQP-VK.clipping.clip_volume.inside.triangle_list_with_adjacency	Pass	OK
+dEQP-VK.clipping.clip_volume.inside.triangle_strip	Pass	OK
+dEQP-VK.clipping.clip_volume.inside.triangle_strip_with_adjacency	Pass	OK
+dEQP-VK.clipping.clip_volume.outside.line_list	Pass	OK
+dEQP-VK.clipping.clip_volume.outside.line_list_with_adjacency	Pass	OK
+dEQP-VK.clipping.clip_volume.outside.line_strip	Pass	OK
+dEQP-VK.clipping.clip_volume.outside.line_strip_with_adjacency	Pass	OK
+dEQP-VK.clipping.clip_volume.outside.point_list	Pass	OK
+dEQP-VK.clipping.clip_volume.outside.triangle_fan	Pass	OK
+dEQP-VK.clipping.clip_volume.outside.triangle_list	Pass	OK
+dEQP-VK.clipping.clip_volume.outside.triangle_list_with_adjacency	Pass	OK
+dEQP-VK.clipping.clip_volume.outside.triangle_strip	Pass	OK
+dEQP-VK.clipping.clip_volume.outside.triangle_strip_with_adjacency	Pass	OK
+dEQP-VK.clipping.complementarity.1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.complementarity.2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.complementarity.3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.complementarity.4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.complementarity.5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.complementarity.6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.complementarity.7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.complementarity.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.misc.negative_and_non_negative_cull_distance	NotSupported	Shader CullDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.1_7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.1_7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.2_6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.2_6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.3_5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.3_5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.4_4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.4_4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.5_3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.5_3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.6_2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.6_2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.7_1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.7_1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.1_7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.1_7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.2_6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.2_6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.3_5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.3_5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.4_4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.4_4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.5_3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.5_3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.6_2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.6_2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.7_1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.7_1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_geom.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.1_7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.1_7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.2_6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.2_6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.3_5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.3_5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.4_4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.4_4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.5_3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.5_3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.6_2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.6_2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.7_1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.7_1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.1_7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.1_7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.2_6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.2_6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.3_5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.3_5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.4_4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.4_4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.5_3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.5_3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.6_2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.6_2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.7_1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.7_1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance.vert_tess_geom.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.1_7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.1_7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.2_6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.2_6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.3_5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.3_5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.4_4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.4_4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.5_3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.5_3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.6_2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.6_2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.7_1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.7_1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.1_7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.1_7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.2_6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.2_6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.3_5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.3_5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.4_4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.4_4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.5_3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.5_3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.6_2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.6_2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.7_1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.7_1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_geom.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.1_7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.1_7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.2_6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.2_6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.3_5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.3_5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.4_4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.4_4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.5_3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.5_3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.6_2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.6_2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.7_1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.7_1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.1_7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.1_7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.2_6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.2_6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.3_5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.3_5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.4_4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.4_4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.5_3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.5_3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.6_2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.6_2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.7_1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.7_1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_cull_distance_dynamic_index.vert_tess_geom.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_geom.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance.vert_tess_geom.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_geom.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.1	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.1_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.2	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.2_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.3	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.3_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.4	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.4_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.5	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.5_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.6	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.6_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.7	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.7_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.8	NotSupported	Shader ClipDistance not supported
+dEQP-VK.clipping.user_defined.clip_distance_dynamic_index.vert_tess_geom.8_fragmentshader_read	NotSupported	Shader ClipDistance not supported
+dEQP-VK.transform_feedback.simple.depth_clip_control_geometry	Pass	Pass
+dEQP-VK.transform_feedback.simple.depth_clip_control_geometry_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple.depth_clip_control_tese	Fail	Failed at vertex 0 depth. Received:0 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039
+dEQP-VK.transform_feedback.simple.depth_clip_control_tese_ptsz	Fail	Failed at vertex 0 depth. Received:0 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039
+dEQP-VK.transform_feedback.simple.depth_clip_control_vertex	Pass	Pass
+dEQP-VK.transform_feedback.simple.streams_clipdistance_1	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple.streams_clipdistance_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_clipdistance_14_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_clipdistance_1_ptsz	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple.streams_clipdistance_3	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple.streams_clipdistance_3_ptsz	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple.streams_clipdistance_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_clipdistance_6_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_culldistance_1	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple.streams_culldistance_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_culldistance_14_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_culldistance_1_ptsz	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple.streams_culldistance_3	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple.streams_culldistance_3_ptsz	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple.streams_culldistance_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.streams_culldistance_6_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_2_256_device_address	NotSupported	VK_KHR_device_address_commands is not supported at vktTestCase.cpp:1394
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_beginqueryindexed_streamid_0_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_beginqueryindexed_streamid_0_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_beginqueryindexed_streamid_0_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_beginqueryindexed_streamid_0_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_beginqueryindexed_streamid_0_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_beginqueryindexed_streamid_0_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_beginqueryindexed_streamid_0_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_beginqueryindexed_streamid_0_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_beginqueryindexed_streamid_0_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_beginqueryindexed_streamid_0_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_beginqueryindexed_streamid_0_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_beginqueryindexed_streamid_0_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_endqueryindexed_streamid_0_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_endqueryindexed_streamid_0_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_endqueryindexed_streamid_0_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_endqueryindexed_streamid_0_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_endqueryindexed_streamid_0_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_endqueryindexed_streamid_0_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_endqueryindexed_streamid_0_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_endqueryindexed_streamid_0_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_endqueryindexed_streamid_0_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_endqueryindexed_streamid_0_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_endqueryindexed_streamid_0_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clip_and_cull_endqueryindexed_streamid_0_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_2_256_device_address	NotSupported	VK_KHR_device_address_commands is not supported at vktTestCase.cpp:1394
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_beginqueryindexed_streamid_0_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_beginqueryindexed_streamid_0_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_beginqueryindexed_streamid_0_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_beginqueryindexed_streamid_0_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_beginqueryindexed_streamid_0_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_beginqueryindexed_streamid_0_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_beginqueryindexed_streamid_0_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_beginqueryindexed_streamid_0_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_beginqueryindexed_streamid_0_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_beginqueryindexed_streamid_0_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_beginqueryindexed_streamid_0_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_beginqueryindexed_streamid_0_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_endqueryindexed_streamid_0_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_endqueryindexed_streamid_0_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_endqueryindexed_streamid_0_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_endqueryindexed_streamid_0_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_endqueryindexed_streamid_0_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_endqueryindexed_streamid_0_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_endqueryindexed_streamid_0_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_endqueryindexed_streamid_0_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_endqueryindexed_streamid_0_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_endqueryindexed_streamid_0_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_endqueryindexed_streamid_0_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_clipdistance_endqueryindexed_streamid_0_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple.xfb_culldistance_1_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_1_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_1_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_2_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_2_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_2_256_device_address	NotSupported	VK_KHR_device_address_commands is not supported at vktTestCase.cpp:1394
+dEQP-VK.transform_feedback.simple.xfb_culldistance_2_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_4_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_4_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_4_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_8_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_8_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_8_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_beginqueryindexed_streamid_0_1_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_beginqueryindexed_streamid_0_1_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_beginqueryindexed_streamid_0_1_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_beginqueryindexed_streamid_0_2_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_beginqueryindexed_streamid_0_2_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_beginqueryindexed_streamid_0_2_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_beginqueryindexed_streamid_0_4_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_beginqueryindexed_streamid_0_4_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_beginqueryindexed_streamid_0_4_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_beginqueryindexed_streamid_0_8_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_beginqueryindexed_streamid_0_8_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_beginqueryindexed_streamid_0_8_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_1_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_1_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_1_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_2_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_2_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_2_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_4_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_4_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_4_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_8_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_8_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_8_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.depth_clip_control_geometry	Pass	Pass
+dEQP-VK.transform_feedback.simple_fast_gpl.depth_clip_control_geometry_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple_fast_gpl.depth_clip_control_tese	Fail	Failed at vertex 0 depth. Received:0 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039
+dEQP-VK.transform_feedback.simple_fast_gpl.depth_clip_control_tese_ptsz	Fail	Failed at vertex 0 depth. Received:0 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039
+dEQP-VK.transform_feedback.simple_fast_gpl.depth_clip_control_vertex	Pass	Pass
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_clipdistance_1	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_clipdistance_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_clipdistance_14_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_clipdistance_1_ptsz	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_clipdistance_3	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_clipdistance_3_ptsz	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_clipdistance_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_clipdistance_6_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_culldistance_1	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_culldistance_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_culldistance_14_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_culldistance_1_ptsz	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_culldistance_3	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_culldistance_3_ptsz	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_culldistance_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_fast_gpl.streams_culldistance_6_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_endqueryindexed_streamid_0_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_endqueryindexed_streamid_0_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_endqueryindexed_streamid_0_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_endqueryindexed_streamid_0_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_endqueryindexed_streamid_0_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_endqueryindexed_streamid_0_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_endqueryindexed_streamid_0_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_endqueryindexed_streamid_0_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_endqueryindexed_streamid_0_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_endqueryindexed_streamid_0_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_endqueryindexed_streamid_0_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_clipdistance_endqueryindexed_streamid_0_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_1_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_1_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_1_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_2_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_2_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_2_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_4_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_4_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_4_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_8_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_8_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_8_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_1_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_1_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_1_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_2_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_2_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_2_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_4_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_4_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_4_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_8_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_8_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_8_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_1_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_1_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_1_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_2_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_2_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_2_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_4_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_4_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_4_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_8_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_8_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_8_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_geometry	Pass	Pass
+dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_geometry_ptsz	Pass	Pass
+dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_tese	Fail	Failed at vertex 0 depth. Received:0 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039
+dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_tese_ptsz	Fail	Failed at vertex 0 depth. Received:0 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039
+dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_vertex	Pass	Pass
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_clipdistance_1	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_clipdistance_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_clipdistance_14_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_clipdistance_1_ptsz	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_clipdistance_3	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_clipdistance_3_ptsz	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2487
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_clipdistance_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_clipdistance_6_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_culldistance_1	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_culldistance_14	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_culldistance_14_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_culldistance_1_ptsz	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_culldistance_3	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_culldistance_3_ptsz	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:2490
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_culldistance_6	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_optimized_gpl.streams_culldistance_6_ptsz	NotSupported	maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:2481
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_beginqueryindexed_streamid_0_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clip_and_cull_endqueryindexed_streamid_0_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_beginqueryindexed_streamid_0_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_endqueryindexed_streamid_0_1_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_endqueryindexed_streamid_0_1_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_endqueryindexed_streamid_0_1_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_endqueryindexed_streamid_0_2_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_endqueryindexed_streamid_0_2_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_endqueryindexed_streamid_0_2_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_endqueryindexed_streamid_0_4_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_endqueryindexed_streamid_0_4_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_endqueryindexed_streamid_0_4_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_endqueryindexed_streamid_0_8_131072	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_endqueryindexed_streamid_0_8_256	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_clipdistance_endqueryindexed_streamid_0_8_512	NotSupported	shaderClipDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1804
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_1_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_1_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_1_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_2_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_2_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_2_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_4_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_4_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_4_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_8_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_8_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_8_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_beginqueryindexed_streamid_0_1_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_beginqueryindexed_streamid_0_1_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_beginqueryindexed_streamid_0_1_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_beginqueryindexed_streamid_0_2_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_beginqueryindexed_streamid_0_2_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_beginqueryindexed_streamid_0_2_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_beginqueryindexed_streamid_0_4_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_beginqueryindexed_streamid_0_4_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_beginqueryindexed_streamid_0_4_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_beginqueryindexed_streamid_0_8_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_beginqueryindexed_streamid_0_8_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_beginqueryindexed_streamid_0_8_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_endqueryindexed_streamid_0_1_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_endqueryindexed_streamid_0_1_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_endqueryindexed_streamid_0_1_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_endqueryindexed_streamid_0_2_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_endqueryindexed_streamid_0_2_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_endqueryindexed_streamid_0_2_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_endqueryindexed_streamid_0_4_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_endqueryindexed_streamid_0_4_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_endqueryindexed_streamid_0_4_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_endqueryindexed_streamid_0_8_131072	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_endqueryindexed_streamid_0_8_256	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
+dEQP-VK.transform_feedback.simple_optimized_gpl.xfb_culldistance_endqueryindexed_streamid_0_8_512	NotSupported	shaderCullDistance feature is not supported at vktTransformFeedbackSimpleTests.cpp:1807
