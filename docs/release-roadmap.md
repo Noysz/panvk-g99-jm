@@ -23,6 +23,7 @@ Releases are GitHub pre-releases until `1.0.0`.
 | `0.0.7` ✅ | `geometryStreams`, XFB from a GS, GS after tessellation, indirect draws with tessellation or a GS (patches `0064`, `0065`) | 2.3.1 `dxvk_probe` OK; CTS `transform_feedback.*` streams cases, `geometry.*` and `tessellation.*` indirect cases |
 | `0.0.8` ✅ | Phase 9 small features: `variableMultisampleRate`, `vertexPipelineStoresAndAtomics`, `multiViewport`, clip/cull distance in the driver, depth clamp fix (patch `0066`). `depthBounds` moved out (no v9 hardware field, see roadmap 9.1) | 1.10.3 at FL 11_1 ✅; the 568 tessellation CTS cases that need `multiViewport` run ✅ (248 pass, 320 need `shaderFloat64`) |
 | `0.0.9` ✅ | Remaining correctness gaps: cube layered rendering, `primitive_id` to the FS, primitive restart before a GS, pipeline statistics, plus a fix for indirect draws lost when a batch is split inside a render pass (patch `0067`) | CTS `geometry.*` 0 fail ✅ (192 pass, 8 need 64+ GS invocations) |
+| `0.0.10` (in progress) | Speed, Phase 13 step 1 moved forward: asynchronous kbase JM submission (`pre_dep` chain, one `JOB_SUBMIT` per submit, no CPU wait per job chain) and the present fence wait in the X11 present thread (patch `0068`) | AIO Showcase and Draw 1024 A/B 3x faster than `0.0.9`, CTS regression 0 lost, `dxvk_probe` and AIO GS/tessellation unchanged |
 
 ## Beta
 
@@ -34,7 +35,7 @@ real game per D3D level (9, 10, 11) reaches gameplay in Winlator.
 |---|---|---|
 | `0.1.x` | Feature complete, stabilise; `depthBounds` as an opt-in emulation (roadmap 9.1) | test matrix of games, every crash report reproduced or explained |
 | `0.2.x` | Memory (Phase 8.6 + 12): RAM growth in games, heap size reported to apps, BO caching, poly heap and tiler heap budgets | Little Nightmares 1/2 no longer killed by Android; RAM curve logged over 30 min |
-| `0.3.x` | Speed (Phase 13): asynchronous job dependencies (kbase `pre_dep`) instead of a CPU wait per job chain, fewer job barriers in the libpoly path | frame time A/B on the same scenes, no CTS change |
+| `0.3.x` | Speed (Phase 13): asynchronous job dependencies (kbase `pre_dep`) instead of a CPU wait per job chain (done early in `0.0.10`), fewer job barriers in the libpoly path | frame time A/B on the same scenes, no CTS change |
 | `0.3.x`+ | D3D12 (vkd3d-proton) after memory and speed: `transformFeedbackQueries` first (vkd3d-proton 2.14 refuses the device without it), then the other vkd3d-proton requirements | vkd3d-proton creates a device, a D3D12 test program renders |
 | `0.4.x` | Android native surface (Phase 8.5) and device coverage: other G57 SoCs (G100, Dimensity 6080/6100), atom stride detection, other Valhall v9 JM GPUs | at least 3 more devices confirmed by testers with logs |
 | `0.5.x` … `0.9.x` | Fixes from tester reports, upstreamable cleanup of the patch stack | open crash reports closed or documented |

@@ -198,3 +198,13 @@ CPU: per-draw descriptor emission, the one-job-per-draw MALLOC_VERTEX path,
 synchronous submit-and-wait per batch in the kbase queue. GPU: early-ZS /
 FPK, tile size, AFBC, needless preloads. Target: frame-time traces before and
 after each change, same scene, 3 runs.
+
+- [x] 13.1 Asynchronous kbase JM submission (`0068`): one `JOB_SUBMIT` per
+  `vkQueueSubmit`, ORDER `pre_dep` chain instead of a CPU wait per job chain,
+  fences/semaphores pending on the submission seqno, X11 present fence wait
+  in the present thread. AIO Showcase +39%, Draw 1024 +88% (3 rounds), GPU
+  busy 95-98%. Control `PANVK_KBASE_SYNC_SUBMIT=1`.
+- [ ] 13.2 Showcase is GPU bound now: fragment/shader cost (early-ZS, FPK,
+  preloads) is next. Vertex/tiler of batch N+1 still waits for the fragment
+  job of batch N (shared tiler heap); overlapping them needs a heap per
+  batch in flight.

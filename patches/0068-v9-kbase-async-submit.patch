@@ -1,0 +1,1093 @@
+diff --git a/src/panfrost/vulkan/panvk_physical_device.c b/src/panfrost/vulkan/panvk_physical_device.c
+--- a/src/panfrost/vulkan/panvk_physical_device.c
++++ b/src/panfrost/vulkan/panvk_physical_device.c
+@@ -754,6 +754,26 @@
+    mtx_unlock(&ks->mutex);
+ }
+ 
++/* True if the payload of a kbase CPU sync is work that was set pending with
++ * this (wait, data) pair and has not been seen complete yet. A queue that runs
++ * all of its work in submission order does not need a CPU wait for such a
++ * sync before it submits more work. */
++bool
++panvk_kbase_sync_pending_on(struct vk_sync *sync,
++                            panvk_kbase_sync_wait_func wait, void *data)
++{
++   if (sync->type->wait_many != kbase_cpu_sync_wait_many)
++      return false;
++
++   struct kbase_cpu_sync *ks = container_of(sync, struct kbase_cpu_sync, sync);
++   mtx_lock(&ks->mutex);
++   bool pending = (ks->state == KBASE_CPU_SYNC_PENDING ||
++                   ks->state == KBASE_CPU_SYNC_WAITING) &&
++                  ks->pending_wait == wait && ks->pending_data == data;
++   mtx_unlock(&ks->mutex);
++   return pending;
++}
++
+ static VkResult
+ kbase_cpu_sync_wait_one(struct vk_device *device, struct kbase_cpu_sync *ks,
+                         enum vk_sync_wait_flags wait_flags,
+diff --git a/src/panfrost/vulkan/panvk_physical_device.h b/src/panfrost/vulkan/panvk_physical_device.h
+--- a/src/panfrost/vulkan/panvk_physical_device.h
++++ b/src/panfrost/vulkan/panvk_physical_device.h
+@@ -116,6 +116,9 @@
+ void panvk_kbase_sync_set_pending(
+    struct vk_sync *sync, void *data, panvk_kbase_sync_wait_func wait,
+    const uint64_t targets[PANVK_KBASE_SYNC_TARGET_COUNT]);
++
++bool panvk_kbase_sync_pending_on(struct vk_sync *sync,
++                                 panvk_kbase_sync_wait_func wait, void *data);
+ #endif
+ 
+ void panvk_physical_device_finish(struct panvk_physical_device *device);
+diff --git a/src/panfrost/vulkan/panvk_wsi.c b/src/panfrost/vulkan/panvk_wsi.c
+--- a/src/panfrost/vulkan/panvk_wsi.c
++++ b/src/panfrost/vulkan/panvk_wsi.c
+@@ -95,6 +95,13 @@
+     */
+    physical_device->wsi_device.disable_unordered_submits = uses_kbase;
+ 
++   /* With asynchronous kbase submission the present fence is still pending
++    * when vkQueuePresentKHR runs. Let the X11 present thread wait for it,
++    * so the app thread can submit the next frame meanwhile.
++    * PANVK_KBASE_WSI_SYNC_PRESENT=1: wait in vkQueuePresentKHR as before. */
++   physical_device->wsi_device.x11_wait_fence_in_present_thread =
++      uses_kbase && !getenv("PANVK_KBASE_WSI_SYNC_PRESENT");
++
+    /* kbase is not a DRM fd.  The default CPU WSI path presents through
+     * MIT-SHM.  Android dma-heaps can also provide shareable
+     * allocations, but some Android X servers advertise DRI3 while rejecting
+diff --git a/src/panfrost/vulkan/jm/panvk_cmd_buffer.h b/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
+--- a/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
++++ b/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
+@@ -83,6 +83,10 @@
+    struct list_head push_sets;
+    struct panvk_batch *cur_batch;
+ 
++   /* kbase async submission: last group that runs jobs of this command
++    * buffer. Re-issuing its batches waits for it first. */
++   uint64_t kbase_seqno;
++
+    struct {
+       struct panvk_cmd_graphics_state gfx;
+       struct panvk_cmd_compute_state compute;
+diff --git a/src/panfrost/vulkan/jm/panvk_queue.h b/src/panfrost/vulkan/jm/panvk_queue.h
+--- a/src/panfrost/vulkan/jm/panvk_queue.h
++++ b/src/panfrost/vulkan/jm/panvk_queue.h
+@@ -11,14 +11,100 @@
+ #endif
+ 
+ #include <stdint.h>
++#include <stdio.h>
++
++#include "c11/threads.h"
++#include "util/cnd_monotonic.h"
++#include "util/u_dynarray.h"
+ 
+ #include "panvk_device.h"
+ 
+ #include "vk_queue.h"
+ 
++/* One kbase JM atom as JOB_SUBMIT takes it on this DDK: base_jd_atom_v2
++ * padded to the 64-byte stride, the only stride the kernel accepts. */
++struct panvk_kbase_jm_atom {
++   uint64_t jc;
++   uint64_t udata[2];
++   uint64_t extres_list;
++   uint16_t nr_extres;
++   uint8_t jit_id[2];
++   struct {
++      uint8_t atom_id;
++      uint8_t dependency_type;
++   } pre_dep[2];
++   uint8_t atom_number;
++   uint8_t prio;
++   uint8_t device_nr;
++   uint8_t jobslot;
++   uint32_t core_req;
++   uint8_t padding[16];
++};
++
++/* Atoms handed to the kernel with one JOB_SUBMIT. */
++#define PANVK_KBASE_JM_GROUP_ATOMS 64
++
++/* A vkCmdSetEvent/vkCmdResetEvent that takes effect when the group with
++ * this seqno has completed. */
++struct panvk_kbase_jm_event_op {
++   uint64_t seqno;
++   uint32_t type;
++   struct panvk_event *event;
++};
++
++/* PANVK_KBASE_PROF=1 (stderr) or =<file>: submit statistics every 2 s. */
++struct panvk_kbase_jm_prof {
++   bool enabled;
++   FILE *out;
++   uint64_t window_start;
++   uint64_t submits, batches, atoms, groups, events;
++   uint64_t submit_ns, gpu_ns, wait_ns, stall_ns;
++   uint64_t ioctl_ns, cpu_wait_ns, cpu_waits, cpu_signals;
++   uint64_t last_done;
++   uint64_t flush_ns[256];
++};
++
+ struct panvk_gpu_queue {
+    struct vk_queue vk;
+    uint32_t sync;
++
++   /* kbase JM submission without a CPU wait per job chain, see
++    * panvk_vX_gpu_queue.c. Off (sync == the old path) with
++    * PANVK_KBASE_SYNC_SUBMIT=1. */
++   struct {
++      bool async;
++      int fd;
++
++      mtx_t mtx;
++      struct u_cnd_monotonic cnd;
++      /* A thread is in poll()/read() on the kbase fd. */
++      bool reader;
++
++      /* Group seqnos: groups run on the GPU strictly in order. */
++      uint64_t building;
++      uint64_t submitted;
++      uint64_t completed;
++
++      /* Atom numbers 1..255. atom_seqno[n] is the group atom n belongs
++       * to; the number is free again once that group completed. */
++      uint8_t next_atom;
++      uint8_t last_atom;
++      uint64_t atom_seqno[256];
++      bool atom_reports[256];
++
++      struct panvk_kbase_jm_atom atoms[PANVK_KBASE_JM_GROUP_ATOMS];
++      unsigned nr_atoms;
++
++      struct util_dynarray event_ops;
++      uint32_t errors;
++
++      /* Env knobs, read once. */
++      bool cpu_waits;     /* PANVK_KBASE_ASYNC_CPU_WAITS */
++      bool no_signal;     /* PANVK_KBASE_NO_SIGNAL */
++      bool no_event_set;  /* PANVK_KBASE_EVENT_NO_SET */
++
++      struct panvk_kbase_jm_prof prof;
++   } kbase;
+ };
+ 
+ VK_DEFINE_HANDLE_CASTS(panvk_gpu_queue, vk.base, VkQueue, VK_OBJECT_TYPE_QUEUE)
+@@ -31,4 +117,9 @@
+                                           struct vk_queue_submit *vk_submit);
+ VkResult panvk_per_arch(gpu_queue_check_status)(struct vk_queue *vk_queue);
+ 
++struct panvk_event;
++void panvk_per_arch(gpu_queue_kbase_update)(struct panvk_device *dev);
++void panvk_per_arch(gpu_queue_kbase_forget_event)(struct panvk_device *dev,
++                                                  struct panvk_event *event);
++
+ #endif
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_event.c b/src/panfrost/vulkan/jm/panvk_vX_event.c
+--- a/src/panfrost/vulkan/jm/panvk_vX_event.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_event.c
+@@ -6,6 +6,7 @@
+ #include "panvk_device.h"
+ #include "panvk_entrypoints.h"
+ #include "panvk_event.h"
++#include "panvk_queue.h"
+ 
+ #include "vk_log.h"
+ #include "panvk_physical_device.h"
+@@ -67,6 +68,11 @@
+    if (!event)
+       return;
+ 
++   /* Async kbase submission applies vkCmdSetEvent/ResetEvent when it reads
++    * the completion of the work: drop what still points at this event. */
++   if (event->kbase)
++      panvk_per_arch(gpu_queue_kbase_forget_event)(device, event);
++
+    if (!event->kbase) {
+       struct drm_syncobj_destroy destroy = {.handle = event->syncobj};
+       pan_kmod_ioctl(device->drm_fd, DRM_IOCTL_SYNCOBJ_DESTROY, &destroy);
+@@ -82,8 +88,11 @@
+    VK_FROM_HANDLE(panvk_event, event, _event);
+    bool signaled;
+ 
+-   if (event->kbase)
++   if (event->kbase) {
++      if (!p_atomic_read(&event->kbase_set))
++         panvk_per_arch(gpu_queue_kbase_update)(device);
+       return p_atomic_read(&event->kbase_set) ? VK_EVENT_SET : VK_EVENT_RESET;
++   }
+ 
+    struct drm_syncobj_wait wait = {
+       .handles = (uintptr_t)&event->syncobj,
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+--- a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+@@ -30,9 +30,15 @@
+ 
+ #include "drm-uapi/panfrost_drm.h"
+ #include "drm-uapi/mali_kbase_ioctl.h"
++#include "util/os_time.h"
++#include "util/timespec.h"
++#include "util/u_atomic.h"
++
++#include <errno.h>
+ #include <fcntl.h>
+ #include <inttypes.h>
+ #include <poll.h>
++#include <string.h>
+ #include <sys/mman.h>
+ #include <unistd.h>
+ #include "pan_v9_trace.h"
+@@ -298,6 +304,46 @@
+    return 0;
+ }
+ 
++/* PANVK_KBASE_PROF on the synchronous path: a blocking chain submit. */
++static void
++kbase_sync_prof_chain(struct panvk_gpu_queue *queue, uint64_t c0)
++{
++   struct panvk_kbase_jm_prof *p = &queue->kbase.prof;
++
++   if (!p->enabled)
++      return;
++
++   p->gpu_ns += os_time_get_nano() - c0;
++   p->atoms++;
++   p->groups++;
++   p->events++;
++}
++
++/* Resets the job headers and the tiler context of a batch that already ran,
++ * so it can run again. */
++static void
++panvk_batch_reset_for_reissue(struct panvk_cmd_buffer *cmdbuf,
++                              struct panvk_batch *batch)
++{
++   util_dynarray_foreach(&batch->jobs, void *, job)
++      memset((*job), 0, 4 * 4);
++
++   /* Reset the tiler before re-issuing the batch */
++   if (batch->tiler.ctx_descs.cpu) {
++      memcpy(batch->tiler.heap_desc.cpu, &batch->tiler.heap_templ,
++             sizeof(batch->tiler.heap_templ));
++
++      struct mali_tiler_context_packed *ctxs = batch->tiler.ctx_descs.cpu;
++
++      for (uint32_t i = 0; i < batch->fb.layer_count; i++)
++         memcpy(&ctxs[i], &batch->tiler.ctx_templ, sizeof(*ctxs));
++   }
++
++   /* We don't keep track of BO <-> job relationship, so let's just flush the
++    * whole desc pool for now. */
++   panvk_pool_flush_maps(&cmdbuf->desc_pool);
++}
++
+ static void
+ panvk_queue_submit_batch(struct panvk_gpu_queue *queue,
+                          struct panvk_cmd_buffer *cmdbuf,
+@@ -311,25 +357,8 @@
+    ASSERTED int ret;
+ 
+    /* Reset the batch if it's already been issued */
+-   if (batch->issued) {
+-      util_dynarray_foreach(&batch->jobs, void *, job)
+-         memset((*job), 0, 4 * 4);
+-
+-      /* Reset the tiler before re-issuing the batch */
+-      if (batch->tiler.ctx_descs.cpu) {
+-         memcpy(batch->tiler.heap_desc.cpu, &batch->tiler.heap_templ,
+-                sizeof(batch->tiler.heap_templ));
+-
+-         struct mali_tiler_context_packed *ctxs = batch->tiler.ctx_descs.cpu;
+-
+-         for (uint32_t i = 0; i < batch->fb.layer_count; i++)
+-            memcpy(&ctxs[i], &batch->tiler.ctx_templ, sizeof(*ctxs));
+-      }
+-
+-      /* We don't keep track of BO <-> job relationship, so let's just flush the
+-       * whole desc pool for now. */
+-      panvk_pool_flush_maps(&cmdbuf->desc_pool);
+-   }
++   if (batch->issued)
++      panvk_batch_reset_for_reissue(cmdbuf, batch);
+ 
+    /* Flush pending synchronization requests before submitting the job, to
+     * make sure things are GPU-visible. */
+@@ -337,7 +366,9 @@
+ 
+    /* SKIP: dump sebelum submit dipastikan SIGSEGV karena ALLOC_ON_FAULT (commit_pages=0), nggak informatif */
+    if (batch->vtc_jc.first_job) {
++      uint64_t c0 = queue->kbase.prof.enabled ? os_time_get_nano() : 0;
+       ret = panvk_kbase_submit_and_wait(dev->drm_fd, batch->vtc_jc.first_job, 0x16); /* PATCH eksperimen: dulu 0x16 (CS|T|V) */
++      kbase_sync_prof_chain(queue, c0);
+       if (ret)
+          mesa_loge("panvk: v9 vtc_jc job chain failed: kbase event 0x%x "
+                    "(PANVK_V9_TRACE=1 dumps the job status)", -ret);
+@@ -363,7 +394,9 @@
+    }
+ 
+    if (batch->frag_jc.first_job) {
++      uint64_t c0 = queue->kbase.prof.enabled ? os_time_get_nano() : 0;
+       ret = panvk_kbase_submit_and_wait(dev->drm_fd, batch->frag_jc.first_job, 0x01);
++      kbase_sync_prof_chain(queue, c0);
+       if (ret)
+          mesa_loge("panvk: v9 frag_jc job chain failed: kbase event 0x%x "
+                    "(PANVK_V9_TRACE=1 dumps the job status)", -ret);
+@@ -486,11 +519,15 @@
+    }
+ }
+ 
+-VkResult
+-panvk_per_arch(gpu_queue_submit)(struct vk_queue *vk_queue, struct vk_queue_submit *submit)
++static void kbase_prof_tick(struct panvk_gpu_queue *queue, uint64_t now);
++
++static VkResult
++gpu_queue_submit_sync(struct panvk_gpu_queue *queue,
++                      struct vk_queue_submit *submit)
+ {
+-   struct panvk_gpu_queue *queue = container_of(vk_queue, struct panvk_gpu_queue, vk);
+    struct panvk_device *dev = to_panvk_device(queue->vk.base.device);
++   const uint64_t t0 = queue->kbase.prof.enabled ? os_time_get_nano() : 0;
++   unsigned nr_batches = 0;
+ 
+    unsigned nr_semaphores = submit->wait_count + 1;
+    uint32_t semaphores[nr_semaphores];
+@@ -515,6 +552,7 @@
+          container_of(submit->command_buffers[j], struct panvk_cmd_buffer, vk);
+ 
+       list_for_each_entry(struct panvk_batch, batch, &cmdbuf->batches, node) {
++         nr_batches++;
+          /* FIXME: should be done at the batch level */
+          unsigned nr_bos = panvk_pool_num_bos(&cmdbuf->desc_pool) +
+                            panvk_pool_num_bos(&cmdbuf->varying_pool) +
+@@ -592,9 +630,596 @@
+       }
+    }
+ 
++   if (queue->kbase.prof.enabled) {
++      uint64_t now = os_time_get_nano();
++      queue->kbase.prof.submits++;
++      queue->kbase.prof.batches += nr_batches;
++      queue->kbase.prof.submit_ns += now - t0;
++      kbase_prof_tick(queue, now);
++   }
++
+    return VK_SUCCESS;
+ }
+ 
++/*
++ * kbase JM submission without a CPU wait per job chain.
++ *
++ * The synchronous path above (still used with PANVK_KBASE_SYNC_SUBMIT=1 and
++ * by the debug dumps) submits every job chain as its own atom and blocks in
++ * poll()+read() until it is done. vkQueueSubmit only returns once the GPU is
++ * idle, and the GPU waits for the CPU between every two job chains.
++ *
++ * Here the job chains of a vkQueueSubmit go to the kernel together, up to
++ * PANVK_KBASE_JM_GROUP_ATOMS atoms per JOB_SUBMIT (a "group"). Every atom has
++ * an ORDER pre_dep on the atom before it, across groups and submits too, so
++ * the GPU still runs all work strictly in submission order, like the single
++ * syncobj chaining of the DRM path. The shared tiler heap, the poly heap and
++ * the events rely on that order. Only the last atom of a group reports its
++ * completion; the others are EVENT_ONLY_ON_FAILURE, so a group costs one
++ * wake-up. vkQueueSubmit returns after the ioctl. Signaled fences and
++ * semaphores become pending on the group seqno and complete in whichever
++ * thread waits for them (kbase_jm_wait_seqno reads the kbase events).
++ */
++
++#define KBASE_JD_REQ_FS                    (1u << 0)
++#define KBASE_JD_REQ_CS                    (1u << 1)
++#define KBASE_JD_REQ_T                     (1u << 2)
++#define KBASE_JD_REQ_V                     (1u << 4)
++#define KBASE_JD_REQ_EVENT_ONLY_ON_FAILURE (1u << 12)
++#define KBASE_JD_DEP_TYPE_ORDER            2
++#define KBASE_JD_EVENT_DONE                1
++
++#define KBASE_JM_VTC_REQ  (KBASE_JD_REQ_CS | KBASE_JD_REQ_T | KBASE_JD_REQ_V)
++#define KBASE_JM_FRAG_REQ KBASE_JD_REQ_FS
++
++static_assert(sizeof(struct panvk_kbase_jm_atom) == 64, "kbase atom stride");
++static_assert(offsetof(struct panvk_kbase_jm_atom, pre_dep) == 36, "pre_dep");
++static_assert(offsetof(struct panvk_kbase_jm_atom, atom_number) == 40,
++              "atom_number");
++static_assert(offsetof(struct panvk_kbase_jm_atom, core_req) == 44,
++              "core_req");
++
++static VkResult kbase_jm_wait_targets(
++   void *data, const uint64_t targets[PANVK_KBASE_SYNC_TARGET_COUNT],
++   uint64_t abs_timeout_ns);
++
++/* Caller holds kbase.mtx. */
++static void
++kbase_jm_apply_event_ops(struct panvk_gpu_queue *queue)
++{
++   struct panvk_kbase_jm_event_op *ops = queue->kbase.event_ops.data;
++   unsigned count = util_dynarray_num_elements(&queue->kbase.event_ops,
++                                               struct panvk_kbase_jm_event_op);
++   unsigned kept = 0;
++
++   for (unsigned i = 0; i < count; i++) {
++      if (ops[i].seqno > queue->kbase.completed) {
++         ops[kept++] = ops[i];
++         continue;
++      }
++
++      if (ops[i].type == PANVK_EVENT_OP_SET) {
++         /* PANVK_KBASE_EVENT_NO_SET=1: negative control, drop the set. */
++         if (!queue->kbase.no_event_set)
++            p_atomic_set(&ops[i].event->kbase_set, 1);
++      } else if (ops[i].type == PANVK_EVENT_OP_RESET) {
++         p_atomic_set(&ops[i].event->kbase_set, 0);
++      }
++   }
++
++   queue->kbase.event_ops.size = kept * sizeof(*ops);
++}
++
++/* Caller holds kbase.mtx. */
++static void
++kbase_jm_process_event(struct panvk_gpu_queue *queue,
++                       const struct panvk_kbase_event_v2 *ev, uint64_t now)
++{
++   uint8_t n = ev->atom_number;
++
++   queue->kbase.prof.events++;
++
++   if (ev->event_code != KBASE_JD_EVENT_DONE &&
++       queue->kbase.errors++ < 16) {
++      mesa_loge("panvk: v9 job chain failed: kbase event 0x%x (atom %u, "
++                "group %" PRIu64 ", PANVK_KBASE_SYNC_SUBMIT=1 "
++                "PANVK_V9_TRACE=1 dumps the job status)",
++                ev->event_code, n, queue->kbase.atom_seqno[n]);
++   }
++
++   /* A failure of an EVENT_ONLY_ON_FAILURE atom: its group goes on. */
++   if (!queue->kbase.atom_reports[n])
++      return;
++
++   queue->kbase.atom_reports[n] = false;
++   if (queue->kbase.atom_seqno[n] > queue->kbase.completed)
++      queue->kbase.completed = queue->kbase.atom_seqno[n];
++
++   if (queue->kbase.prof.enabled) {
++      uint64_t from = MAX2(queue->kbase.prof.flush_ns[n],
++                           queue->kbase.prof.last_done);
++      if (now > from)
++         queue->kbase.prof.gpu_ns += now - from;
++      queue->kbase.prof.last_done = now;
++   }
++
++   kbase_jm_apply_event_ops(queue);
++}
++
++/* Waits up to timeout_ns (-1: no limit) for kbase events and processes
++ * them. Caller holds kbase.mtx and has set kbase.reader; the mutex is
++ * dropped around poll() and read(). Returns <0 on a fd error. */
++static int
++kbase_jm_read_events(struct panvk_gpu_queue *queue, int64_t timeout_ns)
++{
++   struct pollfd pfd = {.fd = queue->kbase.fd, .events = POLLIN};
++   struct timespec ts, *tsp = NULL;
++   struct panvk_kbase_event_v2 evs[16];
++   ssize_t n = 0;
++   int ret, rd_errno = 0;
++
++   if (timeout_ns >= 0) {
++      timespec_from_nsec(&ts, timeout_ns);
++      tsp = &ts;
++   }
++
++   mtx_unlock(&queue->kbase.mtx);
++   ret = ppoll(&pfd, 1, tsp, NULL);
++   if (ret > 0 && (pfd.revents & POLLIN)) {
++      do {
++         n = read(queue->kbase.fd, evs, sizeof(evs));
++      } while (n < 0 && errno == EINTR);
++      rd_errno = n < 0 ? errno : 0;
++   }
++   int err = ret < 0 && errno != EINTR ? -errno : 0;
++   uint64_t now = os_time_get_nano();
++   mtx_lock(&queue->kbase.mtx);
++
++   if (n > 0) {
++      for (unsigned i = 0; i < n / sizeof(evs[0]); i++)
++         kbase_jm_process_event(queue, &evs[i], now);
++   } else if (n < 0 && rd_errno != EAGAIN) {
++      err = -rd_errno;
++   }
++
++   if (ret > 0 && (pfd.revents & (POLLERR | POLLHUP | POLLNVAL)) && n <= 0)
++      err = -EIO;
++
++   return err;
++}
++
++/* Waits until every group up to seqno has completed. abs_timeout_ns 0 only
++ * processes the events that are already there. */
++static VkResult
++kbase_jm_wait_seqno(struct panvk_gpu_queue *queue, uint64_t seqno,
++                    uint64_t abs_timeout_ns)
++{
++   const bool infinite =
++      abs_timeout_ns == OS_TIMEOUT_INFINITE || abs_timeout_ns > INT64_MAX;
++   VkResult result = VK_SUCCESS;
++   uint64_t t0 = 0;
++   bool blocked = false;
++
++   mtx_lock(&queue->kbase.mtx);
++
++   /* Never wait for a group that is not in the kernel yet. */
++   if (seqno > queue->kbase.submitted)
++      seqno = queue->kbase.submitted;
++
++   while (queue->kbase.completed < seqno) {
++      uint64_t now = os_time_get_nano();
++
++      if (!blocked && queue->kbase.prof.enabled && abs_timeout_ns) {
++         t0 = now;
++         blocked = true;
++      }
++
++      if (queue->kbase.reader) {
++         if (!abs_timeout_ns) {
++            result = VK_TIMEOUT;
++            break;
++         }
++
++         int ret;
++         if (infinite) {
++            ret = u_cnd_monotonic_wait(&queue->kbase.cnd, &queue->kbase.mtx);
++         } else {
++            struct timespec abs_ts;
++            timespec_from_nsec(&abs_ts, abs_timeout_ns);
++            ret = u_cnd_monotonic_timedwait(&queue->kbase.cnd,
++                                            &queue->kbase.mtx, &abs_ts);
++         }
++         if (ret == thrd_timedout) {
++            result = VK_TIMEOUT;
++            break;
++         }
++         continue;
++      }
++
++      int64_t rel = -1;
++      if (!infinite)
++         rel = abs_timeout_ns > now ? (int64_t)(abs_timeout_ns - now) : 0;
++
++      queue->kbase.reader = true;
++      int err = kbase_jm_read_events(queue, rel);
++      queue->kbase.reader = false;
++      u_cnd_monotonic_broadcast(&queue->kbase.cnd);
++
++      if (err) {
++         mesa_loge("panvk: kbase event read failed: %s", strerror(-err));
++         result = VK_ERROR_DEVICE_LOST;
++         break;
++      }
++
++      if (queue->kbase.completed < seqno && !infinite &&
++          os_time_get_nano() >= abs_timeout_ns) {
++         result = VK_TIMEOUT;
++         break;
++      }
++   }
++
++   if (blocked)
++      queue->kbase.prof.wait_ns += os_time_get_nano() - t0;
++
++   mtx_unlock(&queue->kbase.mtx);
++   return result;
++}
++
++static VkResult
++kbase_jm_wait_targets(void *data,
++                      const uint64_t targets[PANVK_KBASE_SYNC_TARGET_COUNT],
++                      uint64_t abs_timeout_ns)
++{
++   return kbase_jm_wait_seqno(data, targets[0], abs_timeout_ns);
++}
++
++/* Hands the group being built to the kernel. Only the submitting thread
++ * builds groups (vk_queue serializes driver_submit). */
++static void
++kbase_jm_flush(struct panvk_gpu_queue *queue)
++{
++   struct panvk_device *dev = to_panvk_device(queue->vk.base.device);
++   unsigned nr = queue->kbase.nr_atoms;
++
++   if (!nr) {
++      /* Event ops of batches without jobs: they follow the last group in
++       * the kernel, or apply now if that one is done already. */
++      mtx_lock(&queue->kbase.mtx);
++      util_dynarray_foreach(&queue->kbase.event_ops,
++                            struct panvk_kbase_jm_event_op, op) {
++         if (op->seqno == queue->kbase.building)
++            op->seqno = queue->kbase.submitted;
++      }
++      kbase_jm_apply_event_ops(queue);
++      mtx_unlock(&queue->kbase.mtx);
++      return;
++   }
++
++   struct panvk_kbase_jm_atom *last = &queue->kbase.atoms[nr - 1];
++   last->core_req &= ~KBASE_JD_REQ_EVENT_ONLY_ON_FAILURE;
++
++   /* CPU writes (descriptors, re-issue resets) must be GPU-visible. */
++   pan_kmod_flush_bo_map_syncs(dev->kmod.dev);
++
++   mtx_lock(&queue->kbase.mtx);
++   queue->kbase.atom_reports[last->atom_number] = true;
++   if (queue->kbase.prof.enabled)
++      queue->kbase.prof.flush_ns[last->atom_number] = os_time_get_nano();
++   mtx_unlock(&queue->kbase.mtx);
++
++   struct kbase_ioctl_job_submit req = {
++      .addr = (uint64_t)(uintptr_t)queue->kbase.atoms,
++      .nr_atoms = nr,
++      .stride = sizeof(struct panvk_kbase_jm_atom),
++   };
++   int ret;
++   uint64_t i0 = queue->kbase.prof.enabled ? os_time_get_nano() : 0;
++   do {
++      ret = ioctl(queue->kbase.fd, KBASE_IOCTL_JOB_SUBMIT, &req);
++   } while (ret && errno == EINTR);
++   if (queue->kbase.prof.enabled)
++      queue->kbase.prof.ioctl_ns += os_time_get_nano() - i0;
++
++   mtx_lock(&queue->kbase.mtx);
++   queue->kbase.submitted = queue->kbase.building;
++   if (ret) {
++      /* Nothing of this group will report: do not let waiters hang. */
++      mesa_loge("panvk: kbase JOB_SUBMIT of %u atoms failed: %s", nr,
++                strerror(errno));
++      queue->kbase.atom_reports[last->atom_number] = false;
++      queue->kbase.completed = queue->kbase.building;
++      kbase_jm_apply_event_ops(queue);
++   } else {
++      queue->kbase.last_atom = last->atom_number;
++   }
++   queue->kbase.prof.groups++;
++   mtx_unlock(&queue->kbase.mtx);
++
++   queue->kbase.building++;
++   queue->kbase.nr_atoms = 0;
++}
++
++static void
++kbase_jm_stall_wait(struct panvk_gpu_queue *queue, uint64_t seqno)
++{
++   uint64_t t0 = queue->kbase.prof.enabled ? os_time_get_nano() : 0;
++
++   kbase_jm_wait_seqno(queue, seqno, OS_TIMEOUT_INFINITE);
++
++   if (queue->kbase.prof.enabled) {
++      mtx_lock(&queue->kbase.mtx);
++      queue->kbase.prof.stall_ns += os_time_get_nano() - t0;
++      mtx_unlock(&queue->kbase.mtx);
++   }
++}
++
++static void
++kbase_jm_add_atom(struct panvk_gpu_queue *queue, uint64_t jc,
++                  uint32_t core_req)
++{
++   if (queue->kbase.nr_atoms == PANVK_KBASE_JM_GROUP_ATOMS)
++      kbase_jm_flush(queue);
++
++   /* Atom numbers are reused round robin. One that belongs to a group that
++    * has not completed is still owned by the kernel. A group holds fewer
++    * than 255 atoms, so that group is never the one being built. */
++   uint8_t n = (queue->kbase.next_atom % 255) + 1;
++   mtx_lock(&queue->kbase.mtx);
++   uint64_t owner = queue->kbase.atom_seqno[n];
++   bool busy = owner > queue->kbase.completed;
++   mtx_unlock(&queue->kbase.mtx);
++   if (busy)
++      kbase_jm_stall_wait(queue, owner);
++   queue->kbase.next_atom = n;
++
++   unsigned idx = queue->kbase.nr_atoms++;
++   uint8_t prev = idx ? queue->kbase.atoms[idx - 1].atom_number
++                      : queue->kbase.last_atom;
++   struct panvk_kbase_jm_atom *atom = &queue->kbase.atoms[idx];
++
++   memset(atom, 0, sizeof(*atom));
++   atom->jc = jc;
++   atom->atom_number = n;
++   atom->core_req = core_req | KBASE_JD_REQ_EVENT_ONLY_ON_FAILURE;
++   if (prev) {
++      atom->pre_dep[0].atom_id = prev;
++      atom->pre_dep[0].dependency_type = KBASE_JD_DEP_TYPE_ORDER;
++   }
++
++   mtx_lock(&queue->kbase.mtx);
++   queue->kbase.atom_seqno[n] = queue->kbase.building;
++   queue->kbase.atom_reports[n] = false;
++   queue->kbase.prof.atoms++;
++   mtx_unlock(&queue->kbase.mtx);
++}
++
++static void
++kbase_jm_queue_event_ops(struct panvk_gpu_queue *queue,
++                         struct panvk_batch *batch)
++{
++   util_dynarray_foreach(&batch->event_ops, struct panvk_cmd_event_op, op) {
++      /* Waits are covered by the in-order execution; non-kbase events do
++       * not exist on a kbase device. */
++      if (op->type == PANVK_EVENT_OP_WAIT || !op->event->kbase)
++         continue;
++
++      struct panvk_kbase_jm_event_op kop = {
++         .seqno = queue->kbase.building,
++         .type = op->type,
++         .event = op->event,
++      };
++      mtx_lock(&queue->kbase.mtx);
++      util_dynarray_append_typed(&queue->kbase.event_ops,
++                                 struct panvk_kbase_jm_event_op, kop);
++      mtx_unlock(&queue->kbase.mtx);
++   }
++}
++
++static void
++kbase_prof_tick(struct panvk_gpu_queue *queue, uint64_t now)
++{
++   struct panvk_kbase_jm_prof *p = &queue->kbase.prof;
++
++   if (!p->window_start) {
++      p->window_start = now;
++      return;
++   }
++
++   uint64_t win = now - p->window_start;
++   if (win < 2000000000ull)
++      return;
++
++   mtx_lock(&queue->kbase.mtx);
++   double ms = win / 1e6;
++   fprintf(p->out,
++           "panvk-prof %s: %.2f s | %" PRIu64 " submits, %" PRIu64
++           " batches, %" PRIu64 " atoms, %" PRIu64 " ioctls, %" PRIu64
++           " events | in vkQueueSubmit %.1f ms (%.1f%%) | GPU busy <= "
++           "%.1f ms (%.1f%%) | threads blocked in waits %.1f ms | submit "
++           "stalls %.1f ms | ioctl %.1f ms | %" PRIu64 " CPU waits %.1f ms, "
++           "%" PRIu64 " CPU signals\n",
++           queue->kbase.async ? "async" : "sync", ms / 1e3, p->submits,
++           p->batches, p->atoms, p->groups, p->events, p->submit_ns / 1e6,
++           100.0 * p->submit_ns / win, p->gpu_ns / 1e6,
++           100.0 * p->gpu_ns / win, p->wait_ns / 1e6, p->stall_ns / 1e6,
++           p->ioctl_ns / 1e6, p->cpu_waits, p->cpu_wait_ns / 1e6,
++           p->cpu_signals);
++   p->submits = p->batches = p->atoms = p->groups = p->events = 0;
++   p->submit_ns = p->gpu_ns = p->wait_ns = p->stall_ns = 0;
++   p->ioctl_ns = p->cpu_wait_ns = p->cpu_waits = p->cpu_signals = 0;
++   p->window_start = now;
++   mtx_unlock(&queue->kbase.mtx);
++}
++
++static VkResult
++kbase_jm_queue_submit(struct panvk_gpu_queue *queue,
++                      struct vk_queue_submit *submit)
++{
++   struct panvk_device *dev = to_panvk_device(queue->vk.base.device);
++   struct panvk_physical_device *phys_dev =
++      to_panvk_physical_device(dev->vk.physical);
++   const uint64_t t0 = queue->kbase.prof.enabled ? os_time_get_nano() : 0;
++   unsigned nr_batches = 0;
++
++   /* Work of this queue that is still pending is ahead of the new work in
++    * the atom chain. Anything else (imported sync_file, CPU signal) is
++    * waited for on the CPU, as before. */
++   for (unsigned i = 0; i < submit->wait_count; i++) {
++      struct vk_sync *sync = submit->waits[i].sync;
++
++      if (!queue->kbase.cpu_waits &&
++          panvk_kbase_sync_pending_on(sync, kbase_jm_wait_targets, queue))
++         continue;
++
++      uint64_t w0 = queue->kbase.prof.enabled ? os_time_get_nano() : 0;
++      VkResult wr = vk_sync_wait(&dev->vk, sync, submit->waits[i].wait_value,
++                                 VK_SYNC_WAIT_COMPLETE, UINT64_MAX);
++      if (queue->kbase.prof.enabled) {
++         queue->kbase.prof.cpu_wait_ns += os_time_get_nano() - w0;
++         queue->kbase.prof.cpu_waits++;
++      }
++      if (wr != VK_SUCCESS)
++         return wr;
++   }
++
++   for (uint32_t j = 0; j < submit->command_buffer_count; ++j) {
++      struct panvk_cmd_buffer *cmdbuf =
++         container_of(submit->command_buffers[j], struct panvk_cmd_buffer, vk);
++
++      list_for_each_entry(struct panvk_batch, batch, &cmdbuf->batches, node) {
++         nr_batches++;
++
++         if (batch->issued) {
++            /* The job descriptors are reset in place: the previous run
++             * of this command buffer must be over. */
++            if (cmdbuf->kbase_seqno == queue->kbase.building &&
++                queue->kbase.nr_atoms)
++               kbase_jm_flush(queue);
++            if (cmdbuf->kbase_seqno)
++               kbase_jm_stall_wait(queue, cmdbuf->kbase_seqno);
++            panvk_batch_reset_for_reissue(cmdbuf, batch);
++         }
++
++         if (batch->vtc_jc.first_job)
++            kbase_jm_add_atom(queue, batch->vtc_jc.first_job,
++                              KBASE_JM_VTC_REQ);
++         if (batch->frag_jc.first_job)
++            kbase_jm_add_atom(queue, batch->frag_jc.first_job,
++                              KBASE_JM_FRAG_REQ);
++         if (batch->vtc_jc.first_job || batch->frag_jc.first_job)
++            cmdbuf->kbase_seqno = queue->kbase.building;
++
++         kbase_jm_queue_event_ops(queue, batch);
++         batch->issued = true;
++      }
++   }
++
++   kbase_jm_flush(queue);
++
++   mtx_lock(&queue->kbase.mtx);
++   const uint64_t target = queue->kbase.submitted;
++   const bool done = target <= queue->kbase.completed;
++   mtx_unlock(&queue->kbase.mtx);
++
++   /* PANVK_KBASE_NO_SIGNAL=1 keeps its meaning: no signal at all. */
++   if (!queue->kbase.no_signal) {
++      for (unsigned i = 0; i < submit->signal_count; i++) {
++         struct vk_sync *sync = submit->signals[i].sync;
++
++         if (!done && sync->type == &phys_dev->drm_syncobj_type) {
++            const uint64_t targets[PANVK_KBASE_SYNC_TARGET_COUNT] = {target};
++            panvk_kbase_sync_set_pending(sync, queue, kbase_jm_wait_targets,
++                                         targets);
++            continue;
++         }
++
++         if (!done)
++            kbase_jm_wait_seqno(queue, target, OS_TIMEOUT_INFINITE);
++         queue->kbase.prof.cpu_signals++;
++         VkResult sr = vk_sync_signal(&dev->vk, sync,
++                                      submit->signals[i].signal_value);
++         if (sr != VK_SUCCESS)
++            return sr;
++      }
++   }
++
++   if (queue->kbase.prof.enabled) {
++      uint64_t now = os_time_get_nano();
++      mtx_lock(&queue->kbase.mtx);
++      queue->kbase.prof.submits++;
++      queue->kbase.prof.batches += nr_batches;
++      queue->kbase.prof.submit_ns += now - t0;
++      mtx_unlock(&queue->kbase.mtx);
++      kbase_prof_tick(queue, now);
++   }
++
++   return VK_SUCCESS;
++}
++
++/* Processes the kbase events that are already there, so host-side state
++ * (vkGetEventStatus) catches up with the GPU without a wait. */
++void
++panvk_per_arch(gpu_queue_kbase_update)(struct panvk_device *dev)
++{
++   vk_foreach_queue(vk_queue, &dev->vk) {
++      struct panvk_gpu_queue *queue =
++         container_of(vk_queue, struct panvk_gpu_queue, vk);
++      if (queue->kbase.async)
++         kbase_jm_wait_seqno(queue, queue->kbase.submitted, 0);
++   }
++}
++
++/* vkDestroyEvent: the work that sets or resets the event has finished (the
++ * app guarantees it), but its completion may not have been read yet. */
++void
++panvk_per_arch(gpu_queue_kbase_forget_event)(struct panvk_device *dev,
++                                             struct panvk_event *event)
++{
++   vk_foreach_queue(vk_queue, &dev->vk) {
++      struct panvk_gpu_queue *queue =
++         container_of(vk_queue, struct panvk_gpu_queue, vk);
++      if (!queue->kbase.async)
++         continue;
++
++      uint64_t seqno = 0;
++      mtx_lock(&queue->kbase.mtx);
++      util_dynarray_foreach(&queue->kbase.event_ops,
++                            struct panvk_kbase_jm_event_op, op) {
++         if (op->event == event)
++            seqno = MAX2(seqno, op->seqno);
++      }
++      mtx_unlock(&queue->kbase.mtx);
++
++      if (seqno)
++         kbase_jm_wait_seqno(queue, seqno, OS_TIMEOUT_INFINITE);
++
++      mtx_lock(&queue->kbase.mtx);
++      struct panvk_kbase_jm_event_op *ops = queue->kbase.event_ops.data;
++      unsigned count = util_dynarray_num_elements(
++         &queue->kbase.event_ops, struct panvk_kbase_jm_event_op);
++      unsigned kept = 0;
++      for (unsigned i = 0; i < count; i++) {
++         if (ops[i].event != event)
++            ops[kept++] = ops[i];
++      }
++      queue->kbase.event_ops.size = kept * sizeof(*ops);
++      mtx_unlock(&queue->kbase.mtx);
++   }
++}
++
++VkResult
++panvk_per_arch(gpu_queue_submit)(struct vk_queue *vk_queue,
++                                 struct vk_queue_submit *submit)
++{
++   struct panvk_gpu_queue *queue =
++      container_of(vk_queue, struct panvk_gpu_queue, vk);
++
++   if (queue->kbase.async)
++      return kbase_jm_queue_submit(queue, submit);
++
++   return gpu_queue_submit_sync(queue, submit);
++}
++
+ VkResult
+ panvk_per_arch(create_gpu_queue)(struct panvk_device *device,
+                                  const VkDeviceQueueCreateInfo *create_info,
+@@ -623,6 +1248,37 @@
+ 
+    queue->sync = 0;
+ 
++   /* The debug dumps read job state after every chain: they need the
++    * synchronous path. */
++   queue->kbase.async = !getenv("PANVK_KBASE_SYNC_SUBMIT") &&
++                        !getenv("PANVK_HEAP_LOG") && !pan_v9_trace_enabled() &&
++                        !PANVK_DEBUG(TRACE) && !PANVK_DEBUG(DUMP) &&
++                        !PANVK_DEBUG(SYNC);
++   queue->kbase.fd = device->drm_fd;
++   queue->kbase.building = 1;
++   queue->kbase.cpu_waits = getenv("PANVK_KBASE_ASYNC_CPU_WAITS") != NULL;
++   queue->kbase.no_signal = getenv("PANVK_KBASE_NO_SIGNAL") != NULL;
++   queue->kbase.no_event_set = getenv("PANVK_KBASE_EVENT_NO_SET") != NULL;
++   util_dynarray_init(&queue->kbase.event_ops, NULL);
++   if (mtx_init(&queue->kbase.mtx, mtx_plain) != thrd_success ||
++       u_cnd_monotonic_init(&queue->kbase.cnd) != thrd_success) {
++      result = panvk_error(device, VK_ERROR_INITIALIZATION_FAILED);
++      goto err_finish_queue;
++   }
++
++   const char *prof = getenv("PANVK_KBASE_PROF");
++   if (prof && *prof && strcmp(prof, "0")) {
++      queue->kbase.prof.enabled = true;
++      queue->kbase.prof.out = stderr;
++      if (strchr(prof, '/')) {
++         FILE *f = fopen(prof, "a");
++         if (f) {
++            setvbuf(f, NULL, _IOLBF, 0);
++            queue->kbase.prof.out = f;
++         }
++      }
++   }
++
+    queue->vk.driver_submit = panvk_per_arch(gpu_queue_submit);
+    *out_queue = &queue->vk;
+    return VK_SUCCESS;
+@@ -640,7 +1296,16 @@
+    struct panvk_gpu_queue *queue = container_of(vk_queue, struct panvk_gpu_queue, vk);
+    struct panvk_device *dev = to_panvk_device(vk_queue->base.device);
+ 
++   /* The kernel still owns the job descriptors of unfinished atoms. */
++   if (queue->kbase.async)
++      kbase_jm_wait_seqno(queue, queue->kbase.submitted, OS_TIMEOUT_INFINITE);
++
+    vk_queue_finish(&queue->vk);
++   if (queue->kbase.prof.out && queue->kbase.prof.out != stderr)
++      fclose(queue->kbase.prof.out);
++   util_dynarray_fini(&queue->kbase.event_ops);
++   u_cnd_monotonic_destroy(&queue->kbase.cnd);
++   mtx_destroy(&queue->kbase.mtx);
+    /* PATCH: no drm_syncobj to destroy */
+    vk_free(&dev->vk.alloc, queue);
+ }
+@@ -666,5 +1331,9 @@
+       return VK_ERROR_DEVICE_LOST;
+    }
+ 
++   if (queue->kbase.async)
++      return kbase_jm_wait_seqno(queue, queue->kbase.submitted,
++                                 OS_TIMEOUT_INFINITE);
++
+    return VK_SUCCESS;
+ }
+diff --git a/src/vulkan/wsi/wsi_common.c b/src/vulkan/wsi/wsi_common.c
+--- a/src/vulkan/wsi/wsi_common.c
++++ b/src/vulkan/wsi/wsi_common.c
+@@ -2883,7 +2883,8 @@
+ #endif
+       }
+ 
+-      if (wsi->sw || wsi->wait_present_before_queue) {
++      if ((wsi->sw || wsi->wait_present_before_queue) &&
++          !swapchain->present_thread_waits_fence) {
+          results[i] = wsi->WaitForFences(
+             vk_device_to_handle(dev), 1, &swapchain->fences[image_index],
+             true, ~0ull);
+diff --git a/src/vulkan/wsi/wsi_common.h b/src/vulkan/wsi/wsi_common.h
+--- a/src/vulkan/wsi/wsi_common.h
++++ b/src/vulkan/wsi/wsi_common.h
+@@ -115,6 +115,12 @@
+ 
+    bool disable_unordered_submits;
+ 
++   /* X11: wait for the present fence in the swapchain's present thread
++    * instead of in vkQueuePresentKHR (software and wait_present_before_queue
++    * paths). The thread that presents can then queue the next frame while
++    * the GPU is still rendering this one. */
++   bool x11_wait_fence_in_present_thread;
++
+    /* Wait for rendering to finish before handing an image to the window
+     * system.  Used by dma-buf capable devices which cannot attach their GPU
+     * completion fence to the dma-buf reservation object.
+diff --git a/src/vulkan/wsi/wsi_common_private.h b/src/vulkan/wsi/wsi_common_private.h
+--- a/src/vulkan/wsi/wsi_common_private.h
++++ b/src/vulkan/wsi/wsi_common_private.h
+@@ -230,6 +230,8 @@
+    VkDevice device;
+    VkAllocationCallbacks alloc;
+    VkFence* fences;
++   /* The present thread waits for fences[] before it uses the image. */
++   bool present_thread_waits_fence;
+    VkPresentModeKHR present_mode;
+    /**
+     * Timeline for presents completing according to VK_KHR_present_wait.  The
+diff --git a/src/vulkan/wsi/wsi_common_x11.c b/src/vulkan/wsi/wsi_common_x11.c
+--- a/src/vulkan/wsi/wsi_common_x11.c
++++ b/src/vulkan/wsi/wsi_common_x11.c
+@@ -2523,8 +2523,9 @@
+ 
+       /* Not necessary to block when we have explicit sync */
+       bool need_fence_wait =
+-            x11_needs_wait_for_fences(chain->base.wsi, wsi_conn, present_mode) &&
+-            !chain->base.image_info.explicit_sync;
++            chain->base.present_thread_waits_fence ||
++            (x11_needs_wait_for_fences(chain->base.wsi, wsi_conn, present_mode) &&
++             !chain->base.image_info.explicit_sync);
+ 
+       bool need_timing_fence_wait = x11_swapchain_present_timing_is_out_of_order_completion(
+             chain, wsi_conn, &chain->images[image_index].timing_request);
+@@ -3292,6 +3293,9 @@
+    chain->base.poll_early_refresh = x11_poll_early_refresh;
+    chain->base.present_mode = present_mode;
+    chain->base.image_count = num_images;
++   chain->base.present_thread_waits_fence =
++      wsi_device->x11_wait_fence_in_present_thread &&
++      (wsi_device->sw || wsi_device->wait_present_before_queue);
+ 
+    /* This is what Xserver is using. We cannot really query it, but we rely on it working. */
+    chain->base.present_timing.time_domain = VK_TIME_DOMAIN_CLOCK_MONOTONIC_KHR;

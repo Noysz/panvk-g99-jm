@@ -1,0 +1,32 @@
+dEQP-VK.api.null_handle.destroy_event	Pass	OK: no observable change
+dEQP-VK.api.object_management.multiple_shared_resources.event	Pass	Ok
+dEQP-VK.api.object_management.multiple_unique_resources.event	Pass	Ok
+dEQP-VK.api.object_management.single.event	Pass	Ok
+dEQP-VK.api.object_management.single_alloc_callbacks.event	Pass	Ok
+dEQP-VK.synchronization.basic.event.device_set_reset	Pass	Device set and reset event tests pass
+dEQP-VK.synchronization.basic.event.device_set_reset_cq	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.synchronization.basic.event.host_set_reset	Pass	Tests set and reset event on host pass
+dEQP-VK.synchronization.basic.event.host_set_reset_cq	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.synchronization.basic.event.multi_secondary_command_buffer	Pass	Wait and set even on device using secondary command buffers tests pass
+dEQP-VK.synchronization.basic.event.multi_secondary_command_buffer_cq	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.synchronization.basic.event.multi_submit_multi_command_buffer	Pass	Wait and set even on device multi submission tests pass
+dEQP-VK.synchronization.basic.event.multi_submit_multi_command_buffer_cq	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.synchronization.basic.event.single_submit_multi_command_buffer	Pass	Wait and set even on device single submission tests pass
+dEQP-VK.synchronization.basic.event.single_submit_multi_command_buffer_cq	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.synchronization2.basic.event.device_set_reset	Pass	Device set and reset event tests pass
+dEQP-VK.synchronization2.basic.event.device_set_reset_cq	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.synchronization2.basic.event.multi_secondary_command_buffer	Pass	Wait and set even on device using secondary command buffers tests pass
+dEQP-VK.synchronization2.basic.event.multi_secondary_command_buffer_cq	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.synchronization2.basic.event.multi_secondary_command_buffer_device_only	Pass	Wait and set even on device using secondary command buffers tests pass
+dEQP-VK.synchronization2.basic.event.multi_secondary_command_buffer_device_only_cq	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.synchronization2.basic.event.multi_submit_multi_command_buffer	Pass	Wait and set even on device multi submission tests pass
+dEQP-VK.synchronization2.basic.event.multi_submit_multi_command_buffer_cq	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.synchronization2.basic.event.multi_submit_multi_command_buffer_device_only	Pass	Wait and set even on device multi submission tests pass
+dEQP-VK.synchronization2.basic.event.multi_submit_multi_command_buffer_device_only_cq	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.synchronization2.basic.event.none_set_reset	Pass	Pass
+dEQP-VK.synchronization2.basic.event.none_set_reset_cq	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.synchronization2.basic.event.single_submit_multi_command_buffer	Pass	Wait and set even on device single submission tests pass
+dEQP-VK.synchronization2.basic.event.single_submit_multi_command_buffer_cq	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.synchronization2.basic.event.single_submit_multi_command_buffer_device_only	Pass	Wait and set even on device single submission tests pass
+dEQP-VK.synchronization2.basic.event.single_submit_multi_command_buffer_device_only_cq	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.synchronization2.basic.event.vertex_stage_barrier	Pass	Pass
