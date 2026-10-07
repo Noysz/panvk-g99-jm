@@ -1,0 +1,7 @@
+drv19 1.10.3 rc=1 
+drv19 pandxvk-9 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3063ms fps=49.0 verdict=PASS
+drv19 1.12.1-sarek rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2733ms fps=54.9 verdict=PASS
+drv19 v2.3.1-stripped rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3086ms fps=48.6 verdict=PASS
+drv19 1.10.3 rerun_a rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2996ms fps=50.1 verdict=PASS
+drv19 1.10.3 rerun_b rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3043ms fps=49.3 verdict=PASS
+First 1.10.3 run (rc=1, empty output): Wine started right after a wineserver -k and exited before DXVK loaded; both reruns PASS.

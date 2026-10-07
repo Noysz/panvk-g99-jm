@@ -1,0 +1,3 @@
+drv19 gs AIOCLICK scene=gs status=ALIVE segv=0 guard_msgs=0 unhandled=0
+drv19 tess AIOCLICK scene=tess status=ALIVE segv=0 guard_msgs=0 unhandled=0
+GS Exploder: sequence of 8 frames over the animation (the sphere is pushed out and back and changes colour over time).

@@ -203,7 +203,9 @@ after each change, same scene, 3 runs.
   `vkQueueSubmit`, ORDER `pre_dep` chain instead of a CPU wait per job chain,
   fences/semaphores pending on the submission seqno, X11 present fence wait
   in the present thread. AIO Showcase +39%, Draw 1024 +88% (3 rounds), GPU
-  busy 95-98%. Control `PANVK_KBASE_SYNC_SUBMIT=1`.
+  busy 95-98%. Control `PANVK_KBASE_SYNC_SUBMIT=1`. Released in `0.0.10`
+  with `0069` (switch values `0`/`false`/`off`/`no` = off). CTS regression
+  30 groups, 7127 cases, lost 0.
 - [ ] 13.2 Showcase is GPU bound now: fragment/shader cost (early-ZS, FPK,
   preloads) is next. Vertex/tiler of batch N+1 still waits for the fragment
   job of batch N (shared tiler heap); overlapping them needs a heap per
