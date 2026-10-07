@@ -1,0 +1,14 @@
+Second pass after a slow first pass (39-43 fps on 1.12.1-sarek / 2.3.1): drv16 = 0.0.8, drv17 = 0.0.9, alternating; u_ = PANVK_V9_INDIRECT_UNTRACKED=1, s_ = PANVK_V9_NO_STATS=1
+1_drv16_1.12.1-sarek fps=39.4 verdict=PASS
+1_drv17_1.12.1-sarek fps=56.8 verdict=PASS
+1_drv16_v2.3.1-stripped fps=55.0 verdict=PASS
+1_drv17_v2.3.1-stripped fps=55.9 verdict=PASS
+2_drv16_1.12.1-sarek fps=57.4 verdict=PASS
+2_drv17_1.12.1-sarek fps=49.7 verdict=PASS
+2_drv16_v2.3.1-stripped fps=56.2 verdict=PASS
+2_drv17_v2.3.1-stripped fps=56.2 verdict=PASS
+u_drv17_1.12.1-sarek fps=57.4 verdict=PASS
+s_drv17_1.12.1-sarek fps=57.5 verdict=PASS
+u_drv17_v2.3.1-stripped fps=55.7 verdict=PASS
+s_drv17_v2.3.1-stripped fps=55.5 verdict=PASS
+3_drv17_1.10.3 fps=56.3 verdict=PASS

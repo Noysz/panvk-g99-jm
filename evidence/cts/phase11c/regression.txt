@@ -1,0 +1,32 @@
+Regression rX9 (0.0.9, build9) vs rX8 (0.0.8): lost = Pass in rX8 and not Pass in rX9, gain = the reverse
+api_smoke          8/8     lost=0 gain=0  Pass=8 
+blend            100/100   lost=0 gain=0  Pass=100 
+clip             698/698   lost=0 gain=0  Fail=6 NotSupported=108 Pass=584 
+event             32/32    lost=0 gain=0  NotSupported=13 Pass=19 
+gs               200/200   lost=0 gain=11  NotSupported=8 Pass=192 
+gsctl            200/200   lost=0 gain=0  Fail=192 NotSupported=8 
+indirect_draw    372/372   lost=0 gain=0  Pass=372 
+layers            62/62    lost=0 gain=0  Pass=62 
+mvp              223/223   lost=0 gain=0  NotSupported=85 Pass=138 
+nulldesc          25/25    lost=0 gain=0  Fail=1 Pass=24 
+occlusion        441/441   lost=0 gain=0  NotSupported=7 Pass=434 
+own               82/82    lost=0 gain=0  NotSupported=1 Pass=81 
+sampler          170/170   lost=0 gain=0  NotSupported=115 Pass=55 
+secondary         19/19    lost=0 gain=0  NotSupported=2 Pass=17 
+simple_draw        4/4     lost=0 gain=0  Pass=4 
+stencil          209/209   lost=0 gain=0  Pass=209 
+syncbasic         19/19    lost=0 gain=0  NotSupported=3 Pass=16 
+syncfd            28/28    lost=0 gain=0  NotSupported=2 Pass=26 
+tesgs             54/54    lost=0 gain=0  NotSupported=12 Pass=42 
+tess             217/217   lost=0 gain=0  NotSupported=24 Pass=192 Timeout=1 
+tessfull        1114/1114  lost=0 gain=0  NotSupported=347 Pass=766 Timeout=1 
+tessmvp          568/568   lost=0 gain=0  NotSupported=320 Pass=248 
+tex_filter        18/18    lost=0 gain=0  NotSupported=12 Pass=6 
+tex_mipmap        72/72    lost=0 gain=0  NotSupported=36 Pass=36 
+topology         198/198   lost=0 gain=0  NotSupported=17 Pass=181 
+vmsr            1050/1050  lost=0 gain=0  NotSupported=954 Pass=96 
+vpsa             416/416   lost=0 gain=0  NotSupported=152 Pass=264 
+vpst             315/315   lost=0 gain=0  Pass=314 Timeout=1 
+xfb              143/143   lost=0 gain=0  Fail=8 NotSupported=10 Pass=125 
+xfbstr            70/70    lost=0 gain=0  NotSupported=31 Pass=39 
+TOTAL: 30 groups, 7127 cases, lost=0 gain=11 (geometry.*)

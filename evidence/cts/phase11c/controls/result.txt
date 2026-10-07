@@ -1,0 +1,13 @@
+Negative controls for 0067 (same build9, env knob set, MESA_SHADER_CACHE_DISABLE=true)
+x9c_cube      PANVK_V9_PRELOAD_CUBE=1        l_gs        8 Fail (layered.cube*, cube_array*)            normal: 192 Pass / 0 Fail / 8 NS
+x9c_primid    PANVK_V9_NO_PRIM_ID=1          l_gs        1 Fail (builtin_variable.in_block.primitive_id) normal: 0 Fail
+x9c_gsraw     PANVK_V9_GS_PRIM_ID_RAW=1      l_gs        1 Fail (builtin_variable.primitive_id.matching) normal: 0 Fail
+x9c_unroll    PANVK_V9_GS_NO_UNROLL=1        l_gs        1 Fail (in_block.primitive_id_in_restarted)     normal: 0 Fail
+x9c_nostats   PANVK_V9_NO_STATS=1            l_stats_s   1258 NotSupported (feature hidden)              normal: 1087 Pass / 0 Fail / 171 NS
+x9c_nodraw    PANVK_V9_STATS_NO_DRAW=1       l_stats_s   743 Fail / 344 Pass / 171 NS                   normal: 0 Fail
+x9c_untracked PANVK_V9_INDIRECT_UNTRACKED=1  l_stats_s   51 Fail (tessellated draws in a query render nothing) normal: 0 Fail
+The 171 NotSupported of l_stats_s are *.secondary_inherited (inheritedQueries not exposed).
+The 8 NotSupported of geometry.* are instanced.*_64/127_geometry_invocations (maxGeometryShaderInvocations 32).
+l_stats_s = every 15th case per group of the 18775 query_pool.statistics_query.* cases.
+Full list (x9stfull/results.tsv.gz, its first column is the caselist): 18775 cases, 16182 Pass / 0 Fail / 2593 NotSupported
+(2588 inheritedQueries, 5 VK_KHR_device_address_commands).

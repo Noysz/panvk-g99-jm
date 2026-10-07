@@ -97,8 +97,13 @@ has a working reference only for tessellation, so the build order is:
    adjacency topologies, TES point size. CTS `tessellation.*` 1114 3x:
    206 pass, 0 fail; XFB streams 31 pass, 0 fail; `geometry.*` unchanged.
    DXVK 2.3.1 passes `dxvk_probe` at FL 11_1.
-   Next: `primitive_id` to the FS, cube layered rendering, XFB from a TES
-   without a GS (8 `winding_patch_list` fails).
+   Next: XFB from a TES without a GS (8 `winding_patch_list` fails).
+4c. [x] `0.0.9` (patch `0067`): cube layered rendering (preload of cube
+   faces), `gl_PrimitiveID` to the FS, GS primitive ID after tessellation,
+   primitive restart before a GS (`panlib_unroll_restart`), pipeline
+   statistics queries counted by the driver (`panlib_stats_add`), and indirect
+   draws tracked as tiler jobs (they were lost when a batch closed inside a
+   render pass). CTS `geometry.*` 3x: 192 pass, 0 fail.
 5. Expose the features, DXVK 1.10.3 / 1.11 / 2.3.1 through the Wrapper.
 
 ## Phase 8 — close the open Phase 4-6 items
@@ -120,11 +125,14 @@ has a working reference only for tessellation, so the build order is:
 
 ## Phase 9 — small features DXVK asks for
 
-- [ ] 9.1 `depthBounds`: moved out of `0.0.8`. The v9 genxml has no
-  depth-bounds field. Emulation has to read the stored depth from the tile
-  buffer in the fragment shader, which forces late depth/stencil for every
-  draw that could have the test enabled (dynamic state). Only DXVK-Sarek 1.12
-  asks for it, as an optional feature it runs without.
+- [ ] 9.1 `depthBounds`: moved out of `0.0.8`, planned as an opt-in
+  emulation (env var, off by default). The v9 genxml has no depth-bounds
+  field. The emulation reads the stored depth from the tile buffer in the
+  fragment shader and discards outside the bounds, which forces late
+  depth/stencil for the draws that run it. Because the test enable is dynamic
+  state, draws with the test enabled get a separate FS variant so the other
+  draws keep early-ZS. Only DXVK-Sarek 1.12 asks for it, as an optional
+  feature it runs without (D3D9 `NVDB` depth-bounds hack).
 - [x] 9.2 `variableMultisampleRate` (`0066`): without attachments the frame
   takes its sample count from the first draw; a draw with another
   `rasterizationSamples` starts a new batch. CTS
