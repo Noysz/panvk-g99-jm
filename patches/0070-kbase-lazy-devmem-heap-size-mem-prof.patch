@@ -1,0 +1,790 @@
+diff --git a/src/panfrost/vulkan/panvk_mem_prof.h b/src/panfrost/vulkan/panvk_mem_prof.h
+new file mode 100644
+--- /dev/null
++++ b/src/panfrost/vulkan/panvk_mem_prof.h
+@@ -0,0 +1,29 @@
++/*
++ * Copyright 2026 Noysz
++ * SPDX-License-Identifier: MIT
++ */
++
++#ifndef PANVK_MEM_PROF_H
++#define PANVK_MEM_PROF_H
++
++#include <stdbool.h>
++#include <stdint.h>
++#include <stdio.h>
++
++struct panvk_device;
++
++/* PANVK_MEM_PROF=1 (stderr) or =<file>: every 2 s, memory held by the driver
++ * (kbase BOs, VkDeviceMemory, cached command pool BOs, growable heaps) and
++ * the process/system memory state. */
++struct panvk_mem_prof {
++   bool enabled;
++   FILE *out;
++   uint64_t start_ns, last_ns;
++   uint64_t last_allocs, last_frees;
++};
++
++void panvk_mem_prof_init(struct panvk_device *dev);
++void panvk_mem_prof_finish(struct panvk_device *dev);
++void panvk_mem_prof_tick(struct panvk_device *dev);
++
++#endif /* PANVK_MEM_PROF_H */
+diff --git a/src/panfrost/vulkan/panvk_mem_prof.c b/src/panfrost/vulkan/panvk_mem_prof.c
+new file mode 100644
+--- /dev/null
++++ b/src/panfrost/vulkan/panvk_mem_prof.c
+@@ -0,0 +1,162 @@
++/*
++ * Copyright 2026 Noysz
++ * SPDX-License-Identifier: MIT
++ */
++
++#include "panvk_mem_prof.h"
++
++#include <inttypes.h>
++#include <stdlib.h>
++#include <string.h>
++#include <unistd.h>
++
++#include "util/os_time.h"
++#include "util/u_atomic.h"
++
++#include "panfrost/lib/pan_env.h"
++#include "panvk_device.h"
++#include "panvk_physical_device.h"
++#include "panvk_priv_bo.h"
++
++#ifdef HAVE_PAN_KMOD_KBASE
++#include "kmod/kbase_kmod.h"
++#endif
++
++#define MB(x) ((double)(x) / (1024.0 * 1024.0))
++
++void
++panvk_mem_prof_init(struct panvk_device *dev)
++{
++   struct panvk_mem_prof *p = &dev->mem_prof;
++   const char *v = pan_env_flag("PANVK_MEM_PROF");
++
++   memset(p, 0, sizeof(*p));
++   if (!v)
++      return;
++
++   p->enabled = true;
++   p->out = stderr;
++   if (strchr(v, '/')) {
++      FILE *f = fopen(v, "a");
++      if (f) {
++         setvbuf(f, NULL, _IOLBF, 0);
++         p->out = f;
++      }
++   }
++   p->start_ns = os_time_get_nano();
++   p->last_ns = 0;
++   fprintf(p->out, "panvk-mem: profiling on (pid %d)\n", (int)getpid());
++}
++
++void
++panvk_mem_prof_finish(struct panvk_device *dev)
++{
++   struct panvk_mem_prof *p = &dev->mem_prof;
++
++   if (!p->enabled)
++      return;
++
++   p->last_ns = 0;
++   panvk_mem_prof_tick(dev);
++   if (p->out && p->out != stderr)
++      fclose(p->out);
++   p->enabled = false;
++}
++
++/* "Key:   1234 kB" from a /proc file, in bytes; 0 if missing. */
++static uint64_t
++proc_kb(const char *buf, const char *key)
++{
++   const char *s = buf ? strstr(buf, key) : NULL;
++
++   if (!s)
++      return 0;
++
++   return strtoull(s + strlen(key), NULL, 10) * 1024;
++}
++
++static char *
++read_small_file(const char *path, char *buf, size_t size)
++{
++   FILE *f = fopen(path, "r");
++
++   if (!f)
++      return NULL;
++
++   size_t n = fread(buf, 1, size - 1, f);
++   fclose(f);
++   buf[n] = 0;
++   return buf;
++}
++
++static uint64_t
++commit_of(struct panvk_priv_bo *bo)
++{
++#ifdef HAVE_PAN_KMOD_KBASE
++   if (bo && bo->bo)
++      return kbase_kmod_bo_commit_bytes(bo->bo);
++#endif
++   return 0;
++}
++
++void
++panvk_mem_prof_tick(struct panvk_device *dev)
++{
++   struct panvk_mem_prof *p = &dev->mem_prof;
++
++   if (!p->enabled)
++      return;
++
++   uint64_t now = os_time_get_nano();
++   if (p->last_ns && now - p->last_ns < 2000000000ull)
++      return;
++   p->last_ns = now;
++
++   struct panvk_physical_device *pdev =
++      to_panvk_physical_device(dev->vk.physical);
++   uint64_t devmem = p_atomic_read(&pdev->memory.heap_used);
++   uint64_t cached = p_atomic_read(&dev->pool_cached_bytes);
++
++   uint64_t bos = 0, va = 0, commit = 0, growable = 0, allocs = 0, frees = 0;
++   uint64_t grow_commit = 0, lazy_n = 0, lazy_va = 0, lazy_commit = 0;
++#ifdef HAVE_PAN_KMOD_KBASE
++   struct kbase_kmod_mem_stats ks;
++   kbase_kmod_mem_stats(&ks);
++   bos = ks.live_bos;
++   va = ks.live_bytes;
++   commit = ks.commit_bytes;
++   growable = ks.growable_bos;
++   allocs = ks.allocs;
++   frees = ks.frees;
++   grow_commit = ks.growable_commit_bytes;
++   lazy_n = ks.lazy_bos;
++   lazy_va = ks.lazy_va_bytes;
++   lazy_commit = ks.lazy_commit_bytes;
++#endif
++
++   char buf[4096];
++   char *st = read_small_file("/proc/self/status", buf, sizeof(buf));
++   uint64_t rss = proc_kb(st, "VmRSS:"), anon = proc_kb(st, "RssAnon:"),
++            file = proc_kb(st, "RssFile:"), shmem = proc_kb(st, "RssShmem:");
++   char *mi = read_small_file("/proc/meminfo", buf, sizeof(buf));
++   uint64_t avail = proc_kb(mi, "MemAvailable:");
++
++   fprintf(p->out,
++           "panvk-mem t=%.1fs | kbase BOs %" PRIu64 " (%.1f MB VA, %.1f MB "
++           "committed at alloc, %" PRIu64 " growable) +%" PRIu64 "/-%" PRIu64
++           " | VkDeviceMemory %.1f MB (lazy: %" PRIu64 " BOs, %.1f MB of "
++           "%.1f MB backed) | all growable backed %.1f MB | cmd pool cache "
++           "%.1f MB | heaps "
++           "committed: tiler %.1f, poly %.1f, indirect varyings %.1f MB | "
++           "RSS %.1f MB (anon %.1f, file %.1f, shmem %.1f) | MemAvailable "
++           "%.1f MB\n",
++           (now - p->start_ns) / 1e9, bos, MB(va), MB(commit), growable,
++           allocs - p->last_allocs, frees - p->last_frees, MB(devmem),
++           lazy_n, MB(lazy_commit), MB(lazy_va), MB(grow_commit), MB(cached), MB(commit_of(dev->tiler_heap)),
++           MB(commit_of(dev->poly_heap_data)),
++           MB(commit_of(dev->indirect_varying_buffer)), MB(rss), MB(anon),
++           MB(file), MB(shmem), MB(avail));
++
++   p->last_allocs = allocs;
++   p->last_frees = frees;
++}
+diff --git a/src/panfrost/lib/kmod/pan_kmod.h b/src/panfrost/lib/kmod/pan_kmod.h
+--- a/src/panfrost/lib/kmod/pan_kmod.h
++++ b/src/panfrost/lib/kmod/pan_kmod.h
+@@ -137,6 +137,12 @@
+ 
+    /* kbase CSF event memory monitored for cross-CSG synchronization. */
+    PAN_KMOD_BO_FLAG_CSF_EVENT = BITFIELD_BIT(8),
++
++   /* kbase: physical pages are added when the GPU first touches them
++    * (grow on GPU fault) instead of all at allocation. The first CPU
++    * mapping request (pan_kmod_bo_mmap) backs the whole buffer, since a
++    * CPU access to a page without backing is fatal. */
++   PAN_KMOD_BO_FLAG_LAZY_COMMIT = BITFIELD_BIT(9),
+ };
+ 
+ /* Allowed group priority flags. */
+diff --git a/src/panfrost/lib/kmod/kbase_kmod.h b/src/panfrost/lib/kmod/kbase_kmod.h
+--- a/src/panfrost/lib/kmod/kbase_kmod.h
++++ b/src/panfrost/lib/kmod/kbase_kmod.h
+@@ -72,6 +72,23 @@
+  * state is latched while completion waits consume the notification stream. */
+ bool kbase_kmod_csf_has_error(const struct pan_kmod_dev *dev);
+ 
++/* Process-wide counters of the BOs this backend allocated (PANVK_MEM_PROF). */
++struct kbase_kmod_mem_stats {
++   uint64_t live_bos;
++   uint64_t live_bytes;    /* GPU VA size of live BOs */
++   uint64_t commit_bytes;  /* pages committed at allocation */
++   uint64_t growable_bos;  /* grow-on-fault regions (committed on demand) */
++   uint64_t allocs, frees; /* totals since start */
++   uint64_t growable_commit_bytes; /* committed now, all growable BOs */
++   uint64_t lazy_bos, lazy_va_bytes, lazy_commit_bytes; /* LAZY_COMMIT */
++};
++
++void kbase_kmod_mem_stats(struct kbase_kmod_mem_stats *out);
++
++struct pan_kmod_bo;
++/* Committed (physically backed) bytes of a BO, 0 if unknown. */
++uint64_t kbase_kmod_bo_commit_bytes(struct pan_kmod_bo *bo);
++
+ int kbase_kmod_csf_tiler_heap_create(struct pan_kmod_dev *dev,
+                                      uint32_t chunk_size,
+                                      uint32_t initial_chunks,
+diff --git a/src/panfrost/lib/kmod/kbase_kmod.c b/src/panfrost/lib/kmod/kbase_kmod.c
+--- a/src/panfrost/lib/kmod/kbase_kmod.c
++++ b/src/panfrost/lib/kmod/kbase_kmod.c
+@@ -35,6 +35,7 @@
+  */
+ 
+ #include <errno.h>
++#include <inttypes.h>
+ #include <fcntl.h>
+ #include <linux/dma-heap.h>
+ #include <stdlib.h>
+@@ -45,6 +46,8 @@
+ #include <unistd.h>
+ 
+ #include "util/macros.h"
++#include "util/simple_mtx.h"
++#include "util/list.h"
+ #include "util/os_time.h"
+ #include "util/u_atomic.h"
+ #include "util/u_math.h"
+@@ -121,6 +124,14 @@
+ struct kbase_kmod_bo {
+    struct pan_kmod_bo base;
+ 
++   /* Counted in kbase_mem_stats (native allocations only). */
++   bool stats_counted;
++   /* Grow-on-fault region: committed size is queried by PANVK_MEM_PROF. */
++   bool growable;
++   /* LAZY_COMMIT buffer that got fully backed for CPU access. */
++   bool fully_committed;
++   struct list_head grow_link;
++
+    /* GPU virtual address.  For SAME_VA allocations this equals the CPU
+     * mapping address; for EXEC_VA-zone allocations it is the address
+     * returned by KBASE_IOCTL_MEM_ALLOC. */
+@@ -382,7 +393,8 @@
+                                 PAN_KMOD_BO_FLAG_NO_MMAP |
+                                 PAN_KMOD_BO_FLAG_WB_MMAP |
+                                 PAN_KMOD_BO_FLAG_GPU_UNCACHED |
+-                                PAN_KMOD_BO_FLAG_CSF_EVENT;
++                                PAN_KMOD_BO_FLAG_CSF_EVENT |
++                                PAN_KMOD_BO_FLAG_LAZY_COMMIT;
+ }
+ 
+ /* -------------------------------------------------------------------------
+@@ -1398,7 +1410,8 @@
+    if (kmod_flags & PAN_KMOD_BO_FLAG_IO_COHERENT)
+       flags |= BASE_MEM_COHERENT_SYSTEM;
+ 
+-   if (kmod_flags & PAN_KMOD_BO_FLAG_ALLOC_ON_FAULT)
++   if (kmod_flags & (PAN_KMOD_BO_FLAG_ALLOC_ON_FAULT |
++                     PAN_KMOD_BO_FLAG_LAZY_COMMIT))
+       flags |= BASE_MEM_GROW_ON_GPF;
+ 
+    if (kmod_flags & PAN_KMOD_BO_FLAG_CSF_EVENT) {
+@@ -1505,6 +1518,88 @@
+    return NULL;
+ }
+ 
++static struct {
++   uint64_t live_bos, live_bytes, commit_bytes, growable_bos, allocs, frees;
++} kbase_mem_stats;
++
++static simple_mtx_t kbase_grow_lock = SIMPLE_MTX_INITIALIZER;
++static struct list_head kbase_grow_list = {&kbase_grow_list, &kbase_grow_list};
++
++static uint64_t kbase_bo_query_commit(int fd, uint64_t gpu_va);
++
++void
++kbase_kmod_mem_stats(struct kbase_kmod_mem_stats *out)
++{
++   out->live_bos = p_atomic_read(&kbase_mem_stats.live_bos);
++   out->live_bytes = p_atomic_read(&kbase_mem_stats.live_bytes);
++   out->commit_bytes = p_atomic_read(&kbase_mem_stats.commit_bytes);
++   out->growable_bos = p_atomic_read(&kbase_mem_stats.growable_bos);
++   out->allocs = p_atomic_read(&kbase_mem_stats.allocs);
++   out->frees = p_atomic_read(&kbase_mem_stats.frees);
++
++   out->growable_commit_bytes = 0;
++   out->lazy_bos = 0;
++   out->lazy_va_bytes = 0;
++   out->lazy_commit_bytes = 0;
++   simple_mtx_lock(&kbase_grow_lock);
++   list_for_each_entry(struct kbase_kmod_bo, kbo, &kbase_grow_list,
++                       grow_link) {
++      uint64_t c = kbase_bo_query_commit(kbo->base.dev->fd, kbo->gpu_va);
++      out->growable_commit_bytes += c;
++      if (kbo->base.flags & PAN_KMOD_BO_FLAG_LAZY_COMMIT) {
++         out->lazy_bos++;
++         out->lazy_va_bytes += kbo->base.size;
++         out->lazy_commit_bytes += c;
++      }
++   }
++   simple_mtx_unlock(&kbase_grow_lock);
++}
++
++static uint64_t
++kbase_bo_query_commit(int fd, uint64_t gpu_va)
++{
++   union kbase_ioctl_mem_query q = {
++      .in = {
++         .gpu_addr = gpu_va,
++         .query = KBASE_MEM_QUERY_COMMIT_SIZE,
++      },
++   };
++
++   if (ioctl(fd, KBASE_IOCTL_MEM_QUERY, &q))
++      return 0;
++
++   return q.out.value * 4096;
++}
++
++uint64_t
++kbase_kmod_bo_commit_bytes(struct pan_kmod_bo *bo)
++{
++   struct kbase_kmod_bo *kbase_bo =
++      container_of(bo, struct kbase_kmod_bo, base);
++
++   return kbase_bo_query_commit(bo->dev->fd, kbase_bo->gpu_va);
++}
++
++static void
++kbase_mem_stats_add(uint64_t size, uint64_t commit, bool growable, int sign)
++{
++   if (sign > 0) {
++      p_atomic_inc(&kbase_mem_stats.live_bos);
++      p_atomic_add(&kbase_mem_stats.live_bytes, size);
++      p_atomic_add(&kbase_mem_stats.commit_bytes, commit);
++      if (growable)
++         p_atomic_inc(&kbase_mem_stats.growable_bos);
++      p_atomic_inc(&kbase_mem_stats.allocs);
++   } else {
++      p_atomic_dec(&kbase_mem_stats.live_bos);
++      p_atomic_add(&kbase_mem_stats.live_bytes, -size);
++      p_atomic_add(&kbase_mem_stats.commit_bytes, -commit);
++      if (growable)
++         p_atomic_dec(&kbase_mem_stats.growable_bos);
++      p_atomic_inc(&kbase_mem_stats.frees);
++   }
++}
++
+ static struct pan_kmod_bo *
+ kbase_kmod_bo_alloc_dmabuf(struct pan_kmod_dev *dev, uint64_t size,
+                            uint32_t kmod_flags)
+@@ -1559,11 +1654,12 @@
+    uint64_t alloc_flags = to_kbase_mem_flags(kmod_flags);
+    uint64_t alloc_gpu_va;
+ 
+-   if (kmod_flags & PAN_KMOD_BO_FLAG_ALLOC_ON_FAULT) {
++   if (kmod_flags & (PAN_KMOD_BO_FLAG_ALLOC_ON_FAULT |
++                     PAN_KMOD_BO_FLAG_LAZY_COMMIT)) {
+       /* Growable region: nothing committed up-front, grown in 2 MB
+        * increments on GPU page fault (matches panfork's heap setup). */
+       commit_pages = 0;
+-      extension = (2 * 1024 * 1024) / page_size;
++      extension = MIN2((2 * 1024 * 1024) / page_size, va_pages);
+    }
+ 
+    if (kbase_dev->is_csf &&
+@@ -1641,6 +1737,15 @@
+ 
+    pan_kmod_bo_init(&kbase_bo->base, dev, exclusive_vm,
+                     va_pages * page_size, kmod_flags, handle);
++   kbase_bo->stats_counted = true;
++   kbase_mem_stats_add(va_pages * page_size, commit_pages * page_size,
++                       commit_pages == 0, 1);
++   if (commit_pages == 0) {
++      kbase_bo->growable = true;
++      simple_mtx_lock(&kbase_grow_lock);
++      list_addtail(&kbase_bo->grow_link, &kbase_grow_list);
++      simple_mtx_unlock(&kbase_grow_lock);
++   }
+    return &kbase_bo->base;
+ 
+ err_free_bo:
+@@ -1656,6 +1761,16 @@
+ 
+    pan_kmod_bo_cleanup(bo);
+ 
++   if (kbase_bo->growable) {
++      simple_mtx_lock(&kbase_grow_lock);
++      list_del(&kbase_bo->grow_link);
++      simple_mtx_unlock(&kbase_grow_lock);
++   }
++
++   if (kbase_bo->stats_counted)
++      kbase_mem_stats_add(bo->size, kbase_bo->growable ? 0 : bo->size,
++                          kbase_bo->growable, -1);
++
+    /* For SAME_VA regions, munmap() alone tears the whole region down
+     * (free-on-close); a MEM_FREE afterwards would hit a stale VA.  For
+     * zone regions (EXEC_VA), munmap() only drops the CPU mapping and the
+@@ -1747,6 +1862,24 @@
+       return MAP_FAILED;
+    }
+ 
++   /* A CPU access to a page of a grow-on-fault region that has no backing
++    * is fatal (SIGBUS): back all of a LAZY_COMMIT buffer before the CPU
++    * gets the pointer. */
++   if ((bo->flags & PAN_KMOD_BO_FLAG_LAZY_COMMIT) &&
++       !p_atomic_read(&kbase_bo->fully_committed)) {
++      struct kbase_ioctl_mem_commit commit = {
++         .gpu_addr = kbase_bo->gpu_va,
++         .pages = bo->size / 4096,
++      };
++      if (ioctl(bo->dev->fd, KBASE_IOCTL_MEM_COMMIT, &commit)) {
++         mesa_loge("kbase: KBASE_IOCTL_MEM_COMMIT of %" PRIu64 " pages "
++                   "failed: %s", (uint64_t)commit.pages, strerror(errno));
++         errno = ENOMEM;
++         return MAP_FAILED;
++      }
++      p_atomic_set(&kbase_bo->fully_committed, true);
++   }
++
+    return kbase_bo->cpu_ptr;
+ }
+ 
+diff --git a/src/panfrost/vulkan/meson.build b/src/panfrost/vulkan/meson.build
+--- a/src/panfrost/vulkan/meson.build
++++ b/src/panfrost/vulkan/meson.build
+@@ -58,6 +58,7 @@
+   'panvk_host_copy.c',
+   'panvk_image.c',
+   'panvk_instance.c',
++  'panvk_mem_prof.c',
+   'panvk_mempool.c',
+   'panvk_nir_lower_tile_image.c',
+   'panvk_physical_device.c',
+diff --git a/src/panfrost/vulkan/panvk_device.h b/src/panfrost/vulkan/panvk_device.h
+--- a/src/panfrost/vulkan/panvk_device.h
++++ b/src/panfrost/vulkan/panvk_device.h
+@@ -18,6 +18,7 @@
+ #include "panvk_mempool.h"
+ #include "panvk_physical_device.h"
+ #include "panvk_utrace_perfetto.h"
++#include "panvk_mem_prof.h"
+ 
+ #include "kmod/pan_kmod.h"
+ #include "kmod/panthor_kmod.h"
+@@ -78,6 +79,10 @@
+    struct panvk_priv_bo *indirect_varying_buffer;
+    struct panvk_priv_bo *sample_positions;
+ 
++   /* Bytes of command pool BOs on the pools' free lists (kept for reuse). */
++   uint64_t pool_cached_bytes;
++   struct panvk_mem_prof mem_prof;
++
+    struct {
+       struct panvk_priv_bo *handlers_bo;
+       uint32_t handler_stride;
+diff --git a/src/panfrost/vulkan/panvk_mempool.c b/src/panfrost/vulkan/panvk_mempool.c
+--- a/src/panfrost/vulkan/panvk_mempool.c
++++ b/src/panfrost/vulkan/panvk_mempool.c
+@@ -9,6 +9,7 @@
+ #include "panvk_priv_bo.h"
+ 
+ #include "kmod/pan_kmod.h"
++#include "util/u_atomic.h"
+ 
+ void
+ panvk_bo_pool_cleanup(struct panvk_bo_pool *bo_pool)
+@@ -16,10 +17,22 @@
+    list_for_each_entry_safe(struct panvk_priv_bo, bo, &bo_pool->free_bos,
+                             node) {
+       list_del(&bo->node);
++      p_atomic_add(&bo->dev->pool_cached_bytes, -pan_kmod_bo_size(bo->bo));
+       panvk_priv_bo_unref(bo);
+    }
+ }
+ 
++static uint64_t
++panvk_bo_list_bytes(struct list_head *list)
++{
++   uint64_t bytes = 0;
++
++   list_for_each_entry(struct panvk_priv_bo, bo, list, node)
++      bytes += pan_kmod_bo_size(bo->bo);
++
++   return bytes;
++}
++
+ /* Knockoff u_upload_mgr. Uploads wherever we left off, allocating new entries
+  * when needed.
+  *
+@@ -47,6 +60,7 @@
+       bo =
+          list_first_entry(&pool->bo_pool->free_bos, struct panvk_priv_bo, node);
+       list_del(&bo->node);
++      p_atomic_add(&pool->dev->pool_cached_bytes, -pan_kmod_bo_size(bo->bo));
+    } else {
+       if (pool->big_bo_pool) {
+          list_for_each_entry_safe(struct panvk_priv_bo, pooled_bo,
+@@ -56,6 +70,7 @@
+             if (picked_bo_sz >= bo_sz) {
+                bo = pooled_bo;
+                list_del(&bo->node);
++               p_atomic_add(&pool->dev->pool_cached_bytes, -picked_bo_sz);
+                break;
+             }
+          }
+@@ -217,6 +232,8 @@
+ panvk_pool_reset(struct panvk_pool *pool)
+ {
+    if (pool->bo_pool) {
++      p_atomic_add(&pool->dev->pool_cached_bytes,
++                   panvk_bo_list_bytes(&pool->bos));
+       list_splicetail(&pool->bos, &pool->bo_pool->free_bos);
+       list_inithead(&pool->bos);
+    } else {
+@@ -227,6 +244,8 @@
+    }
+ 
+    if (pool->big_bo_pool) {
++      p_atomic_add(&pool->dev->pool_cached_bytes,
++                   panvk_bo_list_bytes(&pool->big_bos));
+       list_splicetail(&pool->big_bos, &pool->big_bo_pool->free_bos);
+       list_inithead(&pool->big_bos);
+    } else {
+diff --git a/src/panfrost/vulkan/panvk_vX_device.c b/src/panfrost/vulkan/panvk_vX_device.c
+--- a/src/panfrost/vulkan/panvk_vX_device.c
++++ b/src/panfrost/vulkan/panvk_vX_device.c
+@@ -747,6 +747,8 @@
+    panvk_utrace_perfetto_init(device, 2);
+ #endif
+ 
++   panvk_mem_prof_init(device);
++
+    *pDevice = panvk_device_to_handle(device);
+    return VK_SUCCESS;
+ 
+@@ -809,6 +811,7 @@
+    if (!device)
+       return;
+ 
++   panvk_mem_prof_finish(device);
+    panvk_per_arch(utrace_context_fini)(device);
+ 
+    vk_foreach_queue_safe(queue, &device->vk)
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+--- a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+@@ -1215,6 +1215,8 @@
+    struct panvk_gpu_queue *queue =
+       container_of(vk_queue, struct panvk_gpu_queue, vk);
+ 
++   panvk_mem_prof_tick(to_panvk_device(queue->vk.base.device));
++
+    if (queue->kbase.async)
+       return kbase_jm_queue_submit(queue, submit);
+ 
+diff --git a/src/panfrost/vulkan/panvk_device_memory.c b/src/panfrost/vulkan/panvk_device_memory.c
+--- a/src/panfrost/vulkan/panvk_device_memory.c
++++ b/src/panfrost/vulkan/panvk_device_memory.c
+@@ -17,6 +17,27 @@
+ #include "util/u_atomic.h"
+ #include "vk_debug_utils.h"
+ #include "vk_log.h"
++#include "panfrost/lib/pan_env.h"
++
++/* Smaller allocations are backed up front: DXVK only suballocates from
++ * large chunks, and small ones are mostly fully used. */
++#define PANVK_DEVMEM_LAZY_MIN_SIZE (8ull << 20)
++
++/* PANVK_KBASE_DEVMEM_LAZY_MIN_KB=N moves the threshold (testing: 0 makes
++ * every device-local-only allocation lazy). */
++static uint64_t
++panvk_devmem_lazy_min_size(void)
++{
++   static int64_t min = -1;
++
++   if (min < 0) {
++      const char *e = getenv("PANVK_KBASE_DEVMEM_LAZY_MIN_KB");
++      min = e && *e ? (int64_t)strtoull(e, NULL, 10) * 1024
++                    : (int64_t)PANVK_DEVMEM_LAZY_MIN_SIZE;
++   }
++
++   return min;
++}
+ 
+ static void
+ panvk_memory_emit_report(struct panvk_device *device,
+@@ -125,6 +146,22 @@
+           (type->propertyFlags & VK_MEMORY_PROPERTY_HOST_CACHED_BIT))
+          bo_flags |= PAN_KMOD_BO_FLAG_WB_MMAP;
+ 
++      /* kbase backs every page of an allocation when it is made. DXVK
++       * suballocates from 256 MiB device-local chunks, so a nearly empty
++       * chunk costs 256 MiB of RAM on this unified-memory GPU. Memory the
++       * CPU cannot map gets its pages when the GPU first touches them
++       * instead (host image copies back the whole buffer first, see
++       * PAN_KMOD_BO_FLAG_LAZY_COMMIT). PANVK_KBASE_DEVMEM_EAGER=1 backs
++       * everything up front as before. */
++      if (!can_be_exported &&
++          !(type->propertyFlags & VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT) &&
++          pAllocateInfo->allocationSize >= panvk_devmem_lazy_min_size() &&
++          (physical_device->kmod.dev->props.supported_bo_flags &
++           PAN_KMOD_BO_FLAG_LAZY_COMMIT) &&
++          !PANVK_DEBUG(DUMP) && !PANVK_DEBUG(TRACE) &&
++          !pan_env_flag("PANVK_KBASE_DEVMEM_EAGER"))
++         bo_flags |= PAN_KMOD_BO_FLAG_LAZY_COMMIT;
++
+       bo_flags = panvk_device_adjust_bo_flags(device, bo_flags);
+       mem->bo = pan_kmod_bo_alloc(device->kmod.dev,
+                                   can_be_exported ? NULL : device->kmod.vm,
+diff --git a/src/panfrost/vulkan/panvk_physical_device.c b/src/panfrost/vulkan/panvk_physical_device.c
+--- a/src/panfrost/vulkan/panvk_physical_device.c
++++ b/src/panfrost/vulkan/panvk_physical_device.c
+@@ -17,6 +17,9 @@
+ #include <string.h>
+ #include <sys/stat.h>
+ #include <sys/sysinfo.h>
++#include <limits.h>
++#include <ctype.h>
++#include <dlfcn.h>
+ #include <fcntl.h>
+ 
+ #include "util/disk_cache.h"
+@@ -503,6 +506,98 @@
+    return result;
+ }
+ 
++/* FourFectVK release name for the device name, so it shows in game
++ * overlays (the Winlator wrapper replaces driverName and driverInfo, and
++ * driverVersion is a number). Read from the package's meta.json next to
++ * this library ("name": "FourFectVK-G57-v0.1.0-beta"), or else from the
++ * folder adrenotools installed it in, which carries the same name.
++ * "0.1.0-beta" becomes "0.1.0 Beta". Empty if neither names a FourFectVK
++ * package. PANVK_NO_FOURFECT_NAME=1 leaves the device name alone. */
++static void
++panvk_fourfect_version(char *out, size_t size)
++{
++   Dl_info info;
++   char dir[PATH_MAX];
++
++   out[0] = 0;
++   if (pan_env_flag("PANVK_NO_FOURFECT_NAME"))
++      return;
++   if (!dladdr((void *)panvk_fourfect_version, &info) || !info.dli_fname)
++      return;
++
++   snprintf(dir, sizeof(dir), "%s", info.dli_fname);
++   char *slash = strrchr(dir, '/');
++   if (!slash)
++      return;
++   *slash = 0;
++
++   /* Candidate strings: meta.json "name" first, then the folder name. */
++   char text[512] = "";
++   char path[PATH_MAX + 16];
++   snprintf(path, sizeof(path), "%s/meta.json", dir);
++   FILE *f = fopen(path, "r");
++   if (f) {
++      char buf[2048];
++      size_t n = fread(buf, 1, sizeof(buf) - 1, f);
++      fclose(f);
++      buf[n] = 0;
++      const char *k = strstr(buf, "\"name\"");
++      const char *q = k ? strchr(k + 6, '"') : NULL;
++      const char *e = q ? strchr(q + 1, '"') : NULL;
++      if (q && e && (size_t)(e - q - 1) < sizeof(text))
++         snprintf(text, sizeof(text), "%.*s", (int)(e - q - 1), q + 1);
++   }
++   if (!strstr(text, "FourFectVK")) {
++      const char *base = strrchr(dir, '/');
++      snprintf(text, sizeof(text), "%s", base ? base + 1 : dir);
++   }
++
++   const char *v = strstr(text, "FourFectVK");
++   v = v ? strstr(v, "-v") : NULL;
++   if (!v || !isdigit((unsigned char)v[2]))
++      return;
++   v += 2;
++
++   char ver[64];
++   size_t i = 0;
++   for (; v[i] && i < sizeof(ver) - 1; i++)
++      ver[i] = v[i] == '-' || v[i] == '_' ? ' ' : v[i];
++   ver[i] = 0;
++   char *sp = strchr(ver, ' ');
++   if (sp && sp[1])
++      sp[1] = toupper((unsigned char)sp[1]);
++
++   snprintf(out, size, "FourFectVK %s", ver);
++}
++
++/* Heap size reported on kbase. The default heuristic says 75% of RAM,
++ * 5.6 GiB on an 8 GiB phone, while a game in Winlator gets about 2 GiB
++ * before Android kills it. DXVK 2.x only returns empty memory chunks once
++ * 80% of the heap is allocated, and games size texture streaming from
++ * this number (DXGI DedicatedVideoMemory), so it should be what the app
++ * can really use: a third of RAM, at least 2 GiB, at most 75%.
++ * PANVK_KBASE_HEAP_PERCENT=N (1-100) sets it to N% of RAM. */
++static float
++panvk_kbase_heap_percent(void)
++{
++   const char *e = pan_env_flag("PANVK_KBASE_HEAP_PERCENT");
++   uint64_t total;
++
++   if (e) {
++      int pct = atoi(e);
++      if (pct >= 1 && pct <= 100)
++         return pct / 100.0f;
++   }
++
++   if (!os_get_total_physical_memory(&total) || !total)
++      return OS_GPU_HEAP_SIZE_HEURISTIC;
++
++   uint64_t want = total / 3;
++   want = MAX2(want, 2ull << 30);
++   want = MIN2(want, total / 4 * 3);
++   return (float)((double)want / (double)total);
++}
++
+ static VkResult
+ get_device_heaps(struct panvk_physical_device *device,
+                  struct panvk_instance *instance)
+@@ -510,9 +605,11 @@
+    int host_coherent_not_cached_idx = -1;
+    int host_cached_not_coherent_idx = -1;
+ 
+-   const uint64_t heap_size =
+-      os_get_gpu_heap_size(instance->drirc.misc.heap_memory_percent,
+-                           &instance->drirc.misc.heap_memory_percent);
++   float percent = instance->drirc.misc.heap_memory_percent;
++   if (device->kbase_node_path[0] && percent == OS_GPU_HEAP_SIZE_HEURISTIC)
++      percent = panvk_kbase_heap_percent();
++
++   const uint64_t heap_size = os_get_gpu_heap_size(percent, &percent);
+ 
+    device->memory.heap_count = 1;
+    device->memory.heaps[0] = (VkMemoryHeap){
+@@ -1318,6 +1415,14 @@
+    else
+       sprintf(device->name, "%s MC%u", device->model->name, core_count);
+ 
++   char fourfect[96];
++   panvk_fourfect_version(fourfect, sizeof(fourfect));
++   if (fourfect[0]) {
++      size_t len = strlen(device->name);
++      snprintf(device->name + len, sizeof(device->name) - len, " %s",
++               fourfect);
++   }
++
+    result = get_core_masks(device, instance);
+    if (result != VK_SUCCESS)
+       goto fail_kbase;

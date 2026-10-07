@@ -1,0 +1,6 @@
+dxvk-3.1.1 rc=1  |  | err=
+dxvk-gplasync-3.1.1-1 rc=1  |  | err=
+dxvk-gplasync-2.7.1-1 rc=1  |  | err=
+dxvk-gplasync-2.3.1-1 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=5399ms fps=27.8 verdict=PASS | Using feature level D3D_FEATURE_LEVEL_11_1 | err=
+dxvk-sarek-async-1.11.0 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3183ms fps=47.1 verdict=PASS | Using feature level D3D_FEATURE_LEVEL_11_1 | err=
+dxvk-sarek-async-v1.10.9 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=5049ms fps=29.7 verdict=PASS | Using feature level D3D_FEATURE_LEVEL_11_1 | err=

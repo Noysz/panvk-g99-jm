@@ -1,0 +1,170 @@
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_0000	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_0000_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_0011	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_0011_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_1000	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_1000_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_1001	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_1001_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_1011	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_1011_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_1011_formatless	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_1011_formatless_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_1101	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_1101_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_1101_formatless	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_custom_1101_formatless_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_opaque_black	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_opaque_black_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_opaque_white	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_opaque_white_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_transparent_black	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_border_transparent_black_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_edge	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_clamp_to_edge_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_mirror_clamp_to_edge	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_mirror_clamp_to_edge_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_mirrored_repeat	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_mirrored_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_repeat	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.all_mode_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_border_mode_clamp_to_edge_mode_clamp_to_edge	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_border_mode_clamp_to_edge_mode_clamp_to_edge_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_border_mode_mirror_clamp_to_edge_mode_repeat	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_border_mode_mirror_clamp_to_edge_mode_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_border_mode_mirrored_repeat_mode_mirror_clamp_to_edge	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_border_mode_mirrored_repeat_mode_mirror_clamp_to_edge_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_border_mode_repeat_mode_mirrored_repeat	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_border_mode_repeat_mode_mirrored_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_edge_mode_clamp_to_border_mode_repeat	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_edge_mode_clamp_to_border_mode_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_edge_mode_clamp_to_edge_mode_clamp_to_border	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_edge_mode_clamp_to_edge_mode_clamp_to_border_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_edge_mode_mirror_clamp_to_edge_mode_mirrored_repeat	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_edge_mode_mirror_clamp_to_edge_mode_mirrored_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_edge_mode_mirrored_repeat_mode_clamp_to_edge	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_edge_mode_mirrored_repeat_mode_clamp_to_edge_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_edge_mode_repeat_mode_mirror_clamp_to_edge	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_clamp_to_edge_mode_repeat_mode_mirror_clamp_to_edge_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirror_clamp_to_edge_mode_clamp_to_border_mode_mirrored_repeat	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirror_clamp_to_edge_mode_clamp_to_border_mode_mirrored_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirror_clamp_to_edge_mode_clamp_to_edge_mode_mirror_clamp_to_edge	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirror_clamp_to_edge_mode_clamp_to_edge_mode_mirror_clamp_to_edge_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirror_clamp_to_edge_mode_mirror_clamp_to_edge_mode_clamp_to_border	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirror_clamp_to_edge_mode_mirror_clamp_to_edge_mode_clamp_to_border_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirror_clamp_to_edge_mode_mirrored_repeat_mode_repeat	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirror_clamp_to_edge_mode_mirrored_repeat_mode_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirror_clamp_to_edge_mode_repeat_mode_clamp_to_edge	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirror_clamp_to_edge_mode_repeat_mode_clamp_to_edge_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirrored_repeat_mode_clamp_to_border_mode_mirror_clamp_to_edge	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirrored_repeat_mode_clamp_to_border_mode_mirror_clamp_to_edge_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirrored_repeat_mode_clamp_to_edge_mode_repeat	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirrored_repeat_mode_clamp_to_edge_mode_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirrored_repeat_mode_mirror_clamp_to_edge_mode_clamp_to_edge	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirrored_repeat_mode_mirror_clamp_to_edge_mode_clamp_to_edge_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirrored_repeat_mode_repeat_mode_clamp_to_border	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_mirrored_repeat_mode_repeat_mode_clamp_to_border_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_repeat_mode_clamp_to_border_mode_clamp_to_edge	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_repeat_mode_clamp_to_border_mode_clamp_to_edge_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_repeat_mode_clamp_to_edge_mode_mirrored_repeat	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_repeat_mode_clamp_to_edge_mode_mirrored_repeat_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_repeat_mode_mirror_clamp_to_edge_mode_mirror_clamp_to_edge	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_repeat_mode_mirror_clamp_to_edge_mode_mirror_clamp_to_edge_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_repeat_mode_mirrored_repeat_mode_clamp_to_border	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.address_modes.uvw_mode_repeat_mode_mirrored_repeat_mode_clamp_to_border_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_filter.linear	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_filter.linear_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_filter.nearest	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_filter.nearest_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_b_g_r_a.average	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_b_g_r_a.average_compute	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_b_g_r_a.max	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_b_g_r_a.max_compute	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_b_g_r_a.min	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_b_g_r_a.min_compute	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_identity_zero_zero_zero.average	NotSupported	VK_EXT_sampler_filter_minmax is not supported at vktTestCase.cpp:1394
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_identity_zero_zero_zero.average_compute	NotSupported	VK_EXT_sampler_filter_minmax is not supported at vktTestCase.cpp:1394
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_identity_zero_zero_zero.max	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_identity_zero_zero_zero.max_compute	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_identity_zero_zero_zero.min	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_identity_zero_zero_zero.min_compute	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_one_r_r_r.average	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_one_r_r_r.average_compute	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_one_r_r_r.max	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_one_r_r_r.max_compute	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_one_r_r_r.min	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_one_r_r_r.min_compute	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_r_g_b_a.average	NotSupported	VK_EXT_sampler_filter_minmax is not supported at vktTestCase.cpp:1394
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_r_g_b_a.average_compute	NotSupported	VK_EXT_sampler_filter_minmax is not supported at vktTestCase.cpp:1394
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_r_g_b_a.max	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_r_g_b_a.max_compute	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_r_g_b_a.min	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_r_g_b_a.min_compute	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_r_zero_zero_zero.average	NotSupported	VK_EXT_sampler_filter_minmax is not supported at vktTestCase.cpp:1394
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_r_zero_zero_zero.average_compute	NotSupported	VK_EXT_sampler_filter_minmax is not supported at vktTestCase.cpp:1394
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_r_zero_zero_zero.max	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_r_zero_zero_zero.max_compute	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_r_zero_zero_zero.min	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mag_reduce.comp_r_zero_zero_zero.min_compute	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_filter.linear	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_filter.linear_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_filter.nearest	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_filter.nearest_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_b_g_r_a.average	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_b_g_r_a.average_compute	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_b_g_r_a.max	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_b_g_r_a.max_compute	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_b_g_r_a.min	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_b_g_r_a.min_compute	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_identity_zero_zero_zero.average	NotSupported	VK_EXT_sampler_filter_minmax is not supported at vktTestCase.cpp:1394
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_identity_zero_zero_zero.average_compute	NotSupported	VK_EXT_sampler_filter_minmax is not supported at vktTestCase.cpp:1394
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_identity_zero_zero_zero.max	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_identity_zero_zero_zero.max_compute	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_identity_zero_zero_zero.min	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_identity_zero_zero_zero.min_compute	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_one_r_r_r.average	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_one_r_r_r.average_compute	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_one_r_r_r.max	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_one_r_r_r.max_compute	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_one_r_r_r.min	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_one_r_r_r.min_compute	NotSupported	filterMinmaxImageComponentMapping is not supported (R mapping is not IDENTITY) at vktPipelineImageSamplingInstance.cpp:251
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_r_g_b_a.average	NotSupported	VK_EXT_sampler_filter_minmax is not supported at vktTestCase.cpp:1394
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_r_g_b_a.average_compute	NotSupported	VK_EXT_sampler_filter_minmax is not supported at vktTestCase.cpp:1394
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_r_g_b_a.max	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_r_g_b_a.max_compute	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_r_g_b_a.min	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_r_g_b_a.min_compute	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_r_zero_zero_zero.average	NotSupported	VK_EXT_sampler_filter_minmax is not supported at vktTestCase.cpp:1394
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_r_zero_zero_zero.average_compute	NotSupported	VK_EXT_sampler_filter_minmax is not supported at vktTestCase.cpp:1394
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_r_zero_zero_zero.max	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_r_zero_zero_zero.max_compute	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_r_zero_zero_zero.min	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.min_reduce.comp_r_zero_zero_zero.min_compute	NotSupported	Unsupported format for min/max filtering: VK_FORMAT_R8G8B8A8_UNORM
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.equal_min_3_max_3	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.equal_min_3_max_3_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.select_bias_2_1	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.select_bias_2_1_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.select_bias_2_5	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.select_bias_2_5_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.select_bias_3_1	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.select_bias_3_1_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.select_bias_3_7	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.select_bias_3_7_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.select_max_4	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.select_max_4_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.select_min_1	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.linear.lod.select_min_1_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.equal_min_3_max_3	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.equal_min_3_max_3_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.select_bias_2_1	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.select_bias_2_1_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.select_bias_2_5	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.select_bias_2_5_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.select_bias_3_1	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.select_bias_3_1_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.select_bias_3_7	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.select_bias_3_7_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.select_max_4	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.select_max_4_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.select_min_1	Pass	Result image matches reference
+dEQP-VK.pipeline.monolithic.sampler.view_type.2d.format.r8g8b8a8_unorm.mipmap.nearest.lod.select_min_1_compute	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980

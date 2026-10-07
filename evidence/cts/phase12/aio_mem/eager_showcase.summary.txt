@@ -1,0 +1,1 @@
+showcase rc=0 # avg_fps,32.76,min_fps,3.97,max_fps,927.99,low1pct_fps,9.15

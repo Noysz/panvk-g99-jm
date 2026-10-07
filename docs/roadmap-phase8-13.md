@@ -122,6 +122,8 @@ has a working reference only for tessellation, so the build order is:
 - [ ] 8.5 Phase 6 leftover: Android native surface outside Winlator.
 - [ ] 8.6 Memory growth seen in games (RAM 60% -> 96% then the app is
   killed). Measure first (per-pool / per-BO accounting), fix in Phase 12.
+  Measured and first fixes in `0070` (12.1-12.3); still open until a game
+  that was killed (Little Nightmares, RE3) is confirmed on the new build.
 
 ## Phase 9 — small features DXVK asks for
 
@@ -191,6 +193,25 @@ Allocation accounting, pool sizing and reuse (desc/varying/tls pools, tiler
 heap), BO cache, freeing per-batch memory on cmdbuf reset, memory budget
 reporting (`VK_EXT_memory_budget`). Target: flat RSS over a long DXVK run
 and over a real game session.
+
+- [x] 12.1 Accounting (`0070`): `PANVK_MEM_PROF=1|<file>` prints kbase BOs
+  (VA, committed, growable, lazy backed), `VkDeviceMemory`, command pool
+  cache, tiler/poly heaps, RSS and MemAvailable every 2 s. Result: no driver
+  leak; RAM grows because kbase backed whole DXVK chunks at allocation.
+- [x] 12.2 Lazy device-local memory (`0070`): device-local, not
+  host-visible, not exported allocations >= 8 MB get kbase commit 0 +
+  `BASE_MEM_GROW_ON_GPF`. AIO backed device memory 404 -> 138 MB, RSS max
+  ~600 -> ~330-360 MB, same FPS. Control `PANVK_KBASE_DEVMEM_EAGER=1`.
+  Host-visible memory cannot be lazy (a CPU access to a page without backing
+  is a crash), so DXVK's host-visible chunks stay committed.
+- [x] 12.3 Heap size (`0070`): RAM / 3 clamped to [2 GiB, 75 %], 2.50 GiB on
+  the G99 instead of 5.63 GiB, so DXVK frees empty chunks and games pick
+  smaller texture budgets. Override `PANVK_KBASE_HEAP_PERCENT=N`.
+- [ ] 12.4 Command pool BO cache: it keeps the peak of every scene until the
+  device is destroyed (2 -> 98 MB over a 10-minute AIO session in one
+  D3D11 device, flat per scene). Cap it and give the rest back.
+- [ ] 12.5 Real game session with the profile on (30 min), Little
+  Nightmares / RE3 no longer killed.
 
 ## Phase 13 — CPU and GPU cost
 

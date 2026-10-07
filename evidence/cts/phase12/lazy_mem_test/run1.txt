@@ -1,0 +1,9 @@
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+panvk-mem: profiling on (pid 1787)
+LAZYMEM step 0 (allocated) done
+panvk-mem t=2.1s | kbase BOs 9 (652.4 MB VA, 3.1 MB committed at alloc, 4 growable) +9/-0 | VkDeviceMemory 259.0 MB (lazy: 1 BOs, 0.0 MB of 256.0 MB backed) | all growable backed 0.0 MB | cmd pool cache 0.0 MB | heaps committed: tiler 0.0, poly 0.0, indirect varyings 0.0 MB | RSS 11.2 MB (anon 1.0, file 9.9, shmem 0.3) | MemAvailable 1543.1 MB
+LAZYMEM step 1 (filled 0-4 MiB) done
+panvk-mem t=4.2s | kbase BOs 11 (652.4 MB VA, 3.1 MB committed at alloc, 4 growable) +2/-0 | VkDeviceMemory 259.0 MB (lazy: 1 BOs, 4.0 MB of 256.0 MB backed) | all growable backed 4.0 MB | cmd pool cache 0.1 MB | heaps committed: tiler 0.0, poly 0.0, indirect varyings 0.0 MB | RSS 15.3 MB (anon 1.0, file 14.0, shmem 0.3) | MemAvailable 1555.0 MB
+LAZYMEM step 2 (filled 200-204 MiB) done
+panvk-mem t=6.5s | kbase BOs 11 (652.4 MB VA, 3.1 MB committed at alloc, 4 growable) +0/-0 | VkDeviceMemory 259.0 MB (lazy: 1 BOs, 204.0 MB of 256.0 MB backed) | all growable backed 204.0 MB | cmd pool cache 0.1 MB | heaps committed: tiler 0.0, poly 0.0, indirect varyings 0.0 MB | RSS 215.7 MB (anon 1.0, file 214.4, shmem 0.3) | MemAvailable 1460.9 MB
+LAZYMEM fill1=0 fill2=0 copy=0 bad_written_0=0 bad_written_200=0 untouched_100MiB_first_word=0x00000000 verdict=PASS

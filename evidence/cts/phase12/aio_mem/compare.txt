@@ -1,0 +1,13 @@
+config scene         VkDevMem  backed(max)    RSSmax  RSSmedian    fps
+old    showcase         404.4        404.4     608.5      608.1  31.39
+old    draws_1024       404.4        404.4     601.0      578.9  67.87
+old    tess             404.4        404.4     626.3      626.1 199.44
+old    gsexplode        404.4        404.4     595.8      589.3 167.20
+eager  showcase         276.4        276.4     443.6      347.9  32.76
+eager  draws_1024       276.4        276.4     479.5      472.8  93.72
+eager  tess             276.4        276.4     506.2      505.5 207.70
+eager  gsexplode        276.4        276.4     475.6      447.7 219.58
+new    showcase         276.4        138.4     352.0      237.5  31.63
+new    draws_1024       276.4        138.4     325.6      273.9  90.31
+new    tess             276.4        138.4     359.4      342.5 227.80
+new    gsexplode        276.4        138.4     332.8      332.2 213.46

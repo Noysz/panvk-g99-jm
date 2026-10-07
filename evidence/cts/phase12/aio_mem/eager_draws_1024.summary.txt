@@ -1,0 +1,1 @@
+draws:1024 rc=0 # avg_fps,93.72,min_fps,4.84,max_fps,235.64,low1pct_fps,21.79

@@ -1,0 +1,1527 @@
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.buffer_storage_large	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.buffer_storage_small	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.buffer_uniform_large	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.buffer_uniform_small	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.buffer_view_storage_r8g8b8a8_unorm	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.buffer_view_uniform_r8g8b8a8_unorm	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.command_buffer_primary	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.command_buffer_secondary	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.command_pool	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.command_pool_transient	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.compute_pipeline	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.descriptor_pool	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.descriptor_pool_free_descriptor_set	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.descriptor_set	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.descriptor_set_layout_empty	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.descriptor_set_layout_single	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.device	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.device_memory_small	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.event	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.fence	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.fence_signaled	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.framebuffer	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.graphics_pipeline	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.image_1d	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.image_2d	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.image_3d	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.image_view_1d	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.image_view_1d_arr	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.image_view_2d	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.image_view_2d_arr	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.image_view_3d	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.image_view_cube	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.image_view_cube_arr	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.pipeline_cache	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.pipeline_layout_empty	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.pipeline_layout_single	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.query_pool	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.render_pass	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.sampler	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.semaphore	Pass	Ok
+dEQP-VK.memory.address_binding_report.create_and_destroy_object.shader_module	Pass	Ok
+dEQP-VK.memory.allocation.basic.percent_1.forward.count_12	Pass	Pass
+dEQP-VK.memory.allocation.basic.percent_1.mixed.count_12	Pass	Pass
+dEQP-VK.memory.allocation.basic.percent_1.reverse.count_12	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_128.forward.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_128.forward.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_128.forward.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_128.forward.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_128.mixed.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_128.mixed.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_128.mixed.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_128.mixed.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_128.reverse.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_128.reverse.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_128.reverse.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_128.reverse.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1KiB.forward.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1KiB.forward.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1KiB.forward.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1KiB.forward.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1KiB.mixed.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1KiB.mixed.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1KiB.mixed.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1KiB.mixed.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1KiB.reverse.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1KiB.reverse.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1KiB.reverse.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1KiB.reverse.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1MiB.forward.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1MiB.forward.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1MiB.forward.count_50	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1MiB.mixed.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1MiB.mixed.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1MiB.mixed.count_50	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1MiB.reverse.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1MiB.reverse.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_1MiB.reverse.count_50	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_256.forward.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_256.forward.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_256.forward.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_256.forward.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_256.mixed.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_256.mixed.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_256.mixed.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_256.mixed.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_256.reverse.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_256.reverse.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_256.reverse.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_256.reverse.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.forward.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.forward.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.forward.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.forward.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.forward.count_4000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.mixed.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.mixed.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.mixed.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.mixed.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.mixed.count_4000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.reverse.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.reverse.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.reverse.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.reverse.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_4KiB.reverse.count_4000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_512.forward.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_512.forward.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_512.forward.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_512.forward.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_512.mixed.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_512.mixed.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_512.mixed.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_512.mixed.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_512.reverse.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_512.reverse.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_512.reverse.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_512.reverse.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_64.forward.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_64.forward.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_64.forward.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_64.forward.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_64.mixed.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_64.mixed.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_64.mixed.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_64.mixed.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_64.reverse.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_64.reverse.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_64.reverse.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_64.reverse.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.forward.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.forward.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.forward.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.forward.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.forward.count_4000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.mixed.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.mixed.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.mixed.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.mixed.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.mixed.count_4000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.reverse.count_1	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.reverse.count_10	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.reverse.count_100	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.reverse.count_1000	Pass	Pass
+dEQP-VK.memory.allocation.basic.size_8KiB.reverse.count_4000	Pass	Pass
+dEQP-VK.memory.allocation.random.0	Pass	Pass
+dEQP-VK.memory.allocation.random.1	Pass	Pass
+dEQP-VK.memory.allocation.random.10	Pass	Pass
+dEQP-VK.memory.allocation.random.11	Pass	Pass
+dEQP-VK.memory.allocation.random.12	Pass	Pass
+dEQP-VK.memory.allocation.random.13	Pass	Pass
+dEQP-VK.memory.allocation.random.14	Pass	Pass
+dEQP-VK.memory.allocation.random.15	Pass	Pass
+dEQP-VK.memory.allocation.random.16	Pass	Pass
+dEQP-VK.memory.allocation.random.17	Pass	Pass
+dEQP-VK.memory.allocation.random.18	Pass	Pass
+dEQP-VK.memory.allocation.random.19	Pass	Pass
+dEQP-VK.memory.allocation.random.2	Pass	Pass
+dEQP-VK.memory.allocation.random.20	Pass	Pass
+dEQP-VK.memory.allocation.random.21	Pass	Pass
+dEQP-VK.memory.allocation.random.22	Pass	Pass
+dEQP-VK.memory.allocation.random.23	Pass	Pass
+dEQP-VK.memory.allocation.random.24	Pass	Pass
+dEQP-VK.memory.allocation.random.25	Pass	Pass
+dEQP-VK.memory.allocation.random.26	Pass	Pass
+dEQP-VK.memory.allocation.random.27	Pass	Pass
+dEQP-VK.memory.allocation.random.28	Pass	Pass
+dEQP-VK.memory.allocation.random.29	Pass	Pass
+dEQP-VK.memory.allocation.random.3	Pass	Pass
+dEQP-VK.memory.allocation.random.30	Pass	Pass
+dEQP-VK.memory.allocation.random.31	Pass	Pass
+dEQP-VK.memory.allocation.random.32	Pass	Pass
+dEQP-VK.memory.allocation.random.33	Pass	Pass
+dEQP-VK.memory.allocation.random.34	Pass	Pass
+dEQP-VK.memory.allocation.random.35	Pass	Pass
+dEQP-VK.memory.allocation.random.36	Pass	Pass
+dEQP-VK.memory.allocation.random.37	Pass	Pass
+dEQP-VK.memory.allocation.random.38	Pass	Pass
+dEQP-VK.memory.allocation.random.39	Pass	Pass
+dEQP-VK.memory.allocation.random.4	Pass	Pass
+dEQP-VK.memory.allocation.random.40	Pass	Pass
+dEQP-VK.memory.allocation.random.41	Pass	Pass
+dEQP-VK.memory.allocation.random.42	Pass	Pass
+dEQP-VK.memory.allocation.random.43	Pass	Pass
+dEQP-VK.memory.allocation.random.44	Pass	Pass
+dEQP-VK.memory.allocation.random.45	Pass	Pass
+dEQP-VK.memory.allocation.random.46	Pass	Pass
+dEQP-VK.memory.allocation.random.47	Pass	Pass
+dEQP-VK.memory.allocation.random.48	Pass	Pass
+dEQP-VK.memory.allocation.random.49	Pass	Pass
+dEQP-VK.memory.allocation.random.5	Pass	Pass
+dEQP-VK.memory.allocation.random.50	Pass	Pass
+dEQP-VK.memory.allocation.random.51	Pass	Pass
+dEQP-VK.memory.allocation.random.52	Pass	Pass
+dEQP-VK.memory.allocation.random.53	Pass	Pass
+dEQP-VK.memory.allocation.random.54	Pass	Pass
+dEQP-VK.memory.allocation.random.55	Pass	Pass
+dEQP-VK.memory.allocation.random.56	Pass	Pass
+dEQP-VK.memory.allocation.random.57	Pass	Pass
+dEQP-VK.memory.allocation.random.58	Pass	Pass
+dEQP-VK.memory.allocation.random.59	Pass	Pass
+dEQP-VK.memory.allocation.random.6	Pass	Pass
+dEQP-VK.memory.allocation.random.60	Pass	Pass
+dEQP-VK.memory.allocation.random.61	Pass	Pass
+dEQP-VK.memory.allocation.random.62	Pass	Pass
+dEQP-VK.memory.allocation.random.63	Pass	Pass
+dEQP-VK.memory.allocation.random.64	Pass	Pass
+dEQP-VK.memory.allocation.random.65	Pass	Pass
+dEQP-VK.memory.allocation.random.66	Pass	Pass
+dEQP-VK.memory.allocation.random.67	Pass	Pass
+dEQP-VK.memory.allocation.random.68	Pass	Pass
+dEQP-VK.memory.allocation.random.69	Pass	Pass
+dEQP-VK.memory.allocation.random.7	Pass	Pass
+dEQP-VK.memory.allocation.random.70	Pass	Pass
+dEQP-VK.memory.allocation.random.71	Pass	Pass
+dEQP-VK.memory.allocation.random.72	Pass	Pass
+dEQP-VK.memory.allocation.random.73	Pass	Pass
+dEQP-VK.memory.allocation.random.74	Pass	Pass
+dEQP-VK.memory.allocation.random.75	Pass	Pass
+dEQP-VK.memory.allocation.random.76	Pass	Pass
+dEQP-VK.memory.allocation.random.77	Pass	Pass
+dEQP-VK.memory.allocation.random.78	Pass	Pass
+dEQP-VK.memory.allocation.random.79	Pass	Pass
+dEQP-VK.memory.allocation.random.8	Pass	Pass
+dEQP-VK.memory.allocation.random.80	Pass	Pass
+dEQP-VK.memory.allocation.random.81	Pass	Pass
+dEQP-VK.memory.allocation.random.82	Pass	Pass
+dEQP-VK.memory.allocation.random.83	Pass	Pass
+dEQP-VK.memory.allocation.random.84	Pass	Pass
+dEQP-VK.memory.allocation.random.85	Pass	Pass
+dEQP-VK.memory.allocation.random.86	Pass	Pass
+dEQP-VK.memory.allocation.random.87	Pass	Pass
+dEQP-VK.memory.allocation.random.88	Pass	Pass
+dEQP-VK.memory.allocation.random.89	Pass	Pass
+dEQP-VK.memory.allocation.random.9	Pass	Pass
+dEQP-VK.memory.allocation.random.90	Pass	Pass
+dEQP-VK.memory.allocation.random.91	Pass	Pass
+dEQP-VK.memory.allocation.random.92	Pass	Pass
+dEQP-VK.memory.allocation.random.93	Pass	Pass
+dEQP-VK.memory.allocation.random.94	Pass	Pass
+dEQP-VK.memory.allocation.random.95	Pass	Pass
+dEQP-VK.memory.allocation.random.96	Pass	Pass
+dEQP-VK.memory.allocation.random.97	Pass	Pass
+dEQP-VK.memory.allocation.random.98	Pass	Pass
+dEQP-VK.memory.allocation.random.99	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.buffer_1048577	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.buffer_257	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.buffer_33	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.buffer_4087	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.buffer_8095	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.image_257_257	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.image_257_33	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.image_257_8	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.image_33_257	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.image_33_33	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.image_33_8	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.image_8_257	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.image_8_33	Pass	Pass
+dEQP-VK.memory.binding.aliasing.suballocated.image_8_8	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.buffer_1048577	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.buffer_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.buffer_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.buffer_4087	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.buffer_8095	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.image_257_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.image_257_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.image_257_8	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.image_33_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.image_33_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.image_33_8	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.image_8_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.image_8_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.aliasing.suballocated.image_8_8	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.aliasing.suballocated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.dedicated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.overallocated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority.regular.suballocated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.aliasing.suballocated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.dedicated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.overallocated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.priority_dynamic.regular.suballocated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.buffer_1048577	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.buffer_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.buffer_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.buffer_4087	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.buffer_8095	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.image_257_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.image_257_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.image_257_8	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.image_33_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.image_33_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.image_33_8	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.image_8_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.image_8_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.dedicated.image_8_8	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.buffer_1048577	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.buffer_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.buffer_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.buffer_4087	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.buffer_8095	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.image_257_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.image_257_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.image_257_8	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.image_33_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.image_33_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.image_33_8	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.image_8_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.image_8_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.overallocated.image_8_8	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.buffer_1048577	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.buffer_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.buffer_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.buffer_4087	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.buffer_8095	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.image_257_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.image_257_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.image_257_8	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.image_33_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.image_33_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.image_33_8	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.image_8_257	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.image_8_33	Pass	Pass
+dEQP-VK.memory.binding.maintenance6.regular.suballocated.image_8_8	Pass	Pass
+dEQP-VK.memory.binding.priority.aliasing.suballocated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.aliasing.suballocated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.aliasing.suballocated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.aliasing.suballocated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.aliasing.suballocated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.aliasing.suballocated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.aliasing.suballocated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.aliasing.suballocated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.aliasing.suballocated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.aliasing.suballocated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.aliasing.suballocated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.aliasing.suballocated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.aliasing.suballocated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.aliasing.suballocated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.dedicated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.overallocated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority.regular.suballocated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.aliasing.suballocated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.dedicated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.overallocated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.buffer_1048577	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.buffer_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.buffer_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.buffer_4087	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.buffer_8095	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.image_257_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.image_257_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.image_257_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.image_33_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.image_33_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.image_33_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.image_8_257	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.image_8_33	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.priority_dynamic.regular.suballocated.image_8_8	NotSupported	VK_EXT_memory_priority Not supported at vktMemoryBindingTests.cpp:1117
+dEQP-VK.memory.binding.regular.dedicated.buffer_1048577	Pass	Pass
+dEQP-VK.memory.binding.regular.dedicated.buffer_257	Pass	Pass
+dEQP-VK.memory.binding.regular.dedicated.buffer_33	Pass	Pass
+dEQP-VK.memory.binding.regular.dedicated.buffer_4087	Pass	Pass
+dEQP-VK.memory.binding.regular.dedicated.buffer_8095	Pass	Pass
+dEQP-VK.memory.binding.regular.dedicated.image_257_257	Pass	Pass
+dEQP-VK.memory.binding.regular.dedicated.image_257_33	Pass	Pass
+dEQP-VK.memory.binding.regular.dedicated.image_257_8	Pass	Pass
+dEQP-VK.memory.binding.regular.dedicated.image_33_257	Pass	Pass
+dEQP-VK.memory.binding.regular.dedicated.image_33_33	Pass	Pass
+dEQP-VK.memory.binding.regular.dedicated.image_33_8	Pass	Pass
+dEQP-VK.memory.binding.regular.dedicated.image_8_257	Pass	Pass
+dEQP-VK.memory.binding.regular.dedicated.image_8_33	Pass	Pass
+dEQP-VK.memory.binding.regular.dedicated.image_8_8	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.buffer_1048577	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.buffer_257	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.buffer_33	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.buffer_4087	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.buffer_8095	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.image_257_257	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.image_257_33	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.image_257_8	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.image_33_257	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.image_33_33	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.image_33_8	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.image_8_257	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.image_8_33	Pass	Pass
+dEQP-VK.memory.binding.regular.overallocated.image_8_8	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.buffer_1048577	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.buffer_257	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.buffer_33	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.buffer_4087	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.buffer_8095	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.image_257_257	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.image_257_33	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.image_257_8	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.image_33_257	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.image_33_33	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.image_33_8	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.image_8_257	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.image_8_33	Pass	Pass
+dEQP-VK.memory.binding.regular.suballocated.image_8_8	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.compute.host_read_host_write.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_read_host_write.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_read_host_write.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_read_host_write.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_read_transfer_dst.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_read_transfer_dst.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_read_transfer_dst.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_read_transfer_dst.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_image_sampled.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_image_sampled.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_image_sampled.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_image_sampled.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_storage_buffer.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_storage_buffer.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_storage_buffer.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_storage_buffer.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_storage_image.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_storage_image.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_storage_image.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_storage_image.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_storage_texel_buffer.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_storage_texel_buffer.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_storage_texel_buffer.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_storage_texel_buffer.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_transfer_src.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_transfer_src.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_transfer_src.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_transfer_src.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_uniform_buffer.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_uniform_buffer.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_uniform_buffer.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_uniform_buffer.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_uniform_texel_buffer.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_uniform_texel_buffer.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_uniform_texel_buffer.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.host_write_uniform_texel_buffer.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_image_sampled.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_image_sampled.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_image_sampled.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_image_sampled.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_storage_buffer.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_storage_buffer.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_storage_buffer.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_storage_buffer.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_storage_image.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_storage_image.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_storage_image.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_storage_image.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_storage_texel_buffer.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_storage_texel_buffer.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_storage_texel_buffer.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_storage_texel_buffer.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_uniform_buffer.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_uniform_buffer.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_uniform_buffer.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_uniform_buffer.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_uniform_texel_buffer.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_uniform_texel_buffer.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_uniform_texel_buffer.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_dst_uniform_texel_buffer.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_src_transfer_dst.1024	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_src_transfer_dst.1048576	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_src_transfer_dst.65536	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.compute.transfer_src_transfer_dst.8192	NotSupported	No dedicated compute queue available at vktMemoryPipelineBarrierComputeTests.cpp:2013
+dEQP-VK.memory.pipeline_barrier.graphics.all.1024_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all.1024_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all.1048576_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all.1048576_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all.65536_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all.65536_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all.8192_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all.8192_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all_device.1024_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all_device.1024_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all_device.1048576_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all_device.1048576_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all_device.65536_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all_device.65536_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all_device.8192_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.all_device.8192_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_read_host_write.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_read_host_write.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_read_host_write.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_read_host_write.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_read_transfer_dst.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_read_transfer_dst.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_read_transfer_dst.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_read_transfer_dst.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_image_sampled.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_image_sampled.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_image_sampled.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_image_sampled.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_index_buffer.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_index_buffer.1048576	Fail	2:SubmitRenderPass Image comparison failed
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_index_buffer.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_index_buffer.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_storage_buffer.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_storage_buffer.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_storage_buffer.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_storage_buffer.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_storage_image.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_storage_image.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_storage_image.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_storage_image.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_storage_texel_buffer.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_storage_texel_buffer.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_storage_texel_buffer.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_storage_texel_buffer.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_transfer_src.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_transfer_src.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_transfer_src.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_transfer_src.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_uniform_buffer.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_uniform_buffer.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_uniform_buffer.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_uniform_buffer.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_uniform_texel_buffer.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_uniform_texel_buffer.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_uniform_texel_buffer.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_uniform_texel_buffer.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_vertex_buffer.1024_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_vertex_buffer.1024_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_vertex_buffer.1048576_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_vertex_buffer.1048576_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_vertex_buffer.65536_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_vertex_buffer.65536_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_vertex_buffer.8192_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.host_write_vertex_buffer.8192_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_image_sampled.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_image_sampled.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_image_sampled.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_image_sampled.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_index_buffer.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_index_buffer.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_index_buffer.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_index_buffer.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_storage_buffer.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_storage_buffer.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_storage_buffer.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_storage_buffer.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_storage_image.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_storage_image.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_storage_image.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_storage_image.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_storage_texel_buffer.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_storage_texel_buffer.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_storage_texel_buffer.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_storage_texel_buffer.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_uniform_buffer.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_uniform_buffer.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_uniform_buffer.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_uniform_buffer.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_uniform_texel_buffer.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_uniform_texel_buffer.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_uniform_texel_buffer.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_uniform_texel_buffer.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_vertex_buffer.1024_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_vertex_buffer.1024_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_vertex_buffer.1048576_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_vertex_buffer.1048576_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_vertex_buffer.65536_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_vertex_buffer.65536_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_vertex_buffer.8192_vertex_buffer_stride_2	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_dst_vertex_buffer.8192_vertex_buffer_stride_4	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_src_transfer_dst.1024	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_src_transfer_dst.1048576	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_src_transfer_dst.65536	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.graphics.transfer_src_transfer_dst.8192	Pass	Pass
+dEQP-VK.memory.pipeline_barrier.transfer.host_read_host_write.1024	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.host_read_host_write.1048576	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.host_read_host_write.65536	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.host_read_host_write.8192	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.host_read_transfer_dst.1024	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.host_read_transfer_dst.1048576	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.host_read_transfer_dst.65536	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.host_read_transfer_dst.8192	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.host_write_transfer_src.1024	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.host_write_transfer_src.1048576	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.host_write_transfer_src.65536	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.host_write_transfer_src.8192	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.transfer_src_transfer_dst.1024	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.transfer_src_transfer_dst.1048576	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.transfer_src_transfer_dst.65536	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.pipeline_barrier.transfer.transfer_src_transfer_dst.8192	NotSupported	No dedicated transfer queue available at vktMemoryPipelineBarrierTransferTests.cpp:42
+dEQP-VK.memory.requirements.core.buffer.regular	Pass	Pass
+dEQP-VK.memory.requirements.core.buffer.sparse	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.core.buffer.sparse_aliased	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.core.buffer.sparse_residency	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.core.buffer.sparse_residency_aliased	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.core.image.regular_tiling_linear	Pass	Pass
+dEQP-VK.memory.requirements.core.image.regular_tiling_optimal	Pass	Pass
+dEQP-VK.memory.requirements.core.image.sparse_aliased_tiling_linear	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.core.image.sparse_aliased_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.core.image.sparse_residency_aliased_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.core.image.sparse_residency_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.core.image.sparse_tiling_linear	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.core.image.sparse_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.core.image.transient_tiling_linear	Pass	Pass
+dEQP-VK.memory.requirements.core.image.transient_tiling_optimal	Pass	Pass
+dEQP-VK.memory.requirements.create_info.buffer.regular	Pass	Pass
+dEQP-VK.memory.requirements.create_info.buffer.sparse	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.buffer.sparse_aliased	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.buffer.sparse_residency	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.buffer.sparse_residency_aliased	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.image.regular_tiling_linear	Pass	Pass
+dEQP-VK.memory.requirements.create_info.image.regular_tiling_optimal	Pass	Pass
+dEQP-VK.memory.requirements.create_info.image.sparse_aliased_tiling_linear	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.image.sparse_aliased_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.image.sparse_residency_aliased_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.image.sparse_residency_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.image.sparse_tiling_linear	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.image.sparse_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.image.transient_tiling_linear	Pass	Pass
+dEQP-VK.memory.requirements.create_info.image.transient_tiling_optimal	Pass	Pass
+dEQP-VK.memory.requirements.create_info.multiplane_image.regular_linear	Pass	Pass
+dEQP-VK.memory.requirements.create_info.multiplane_image.regular_optimal	Pass	Pass
+dEQP-VK.memory.requirements.create_info.multiplane_image.sparse_aliased_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.multiplane_image.sparse_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.multiplane_image.sparse_residency_aliased_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.multiplane_image.sparse_residency_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.create_info.multiplane_image.transient_linear	NotSupported	None of tested in given configuration multiplanar formats is supported by device.
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method1.acc_struct_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method1.other_usage_bits	Pass	93
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method1.size_req_acc_struct_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method1.size_req_other_usage_bits	Pass	2976
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method1.size_req_storage_usage_bits	Pass	6048
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method1.size_req_transfer_usage_bits	Pass	288
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method1.size_req_video_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method1.storage_usage_bits	Pass	189
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method1.transfer_usage_bits	Pass	9
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method1.video_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method2.acc_struct_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method2.other_usage_bits	Pass	93
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method2.size_req_acc_struct_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method2.size_req_other_usage_bits	Pass	2976
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method2.size_req_storage_usage_bits	Pass	6048
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method2.size_req_transfer_usage_bits	Pass	288
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method2.size_req_video_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method2.storage_usage_bits	Pass	189
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method2.transfer_usage_bits	Pass	9
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_excluded.method2.video_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method1.acc_struct_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method1.other_usage_bits	Pass	31
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method1.size_req_acc_struct_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method1.size_req_other_usage_bits	Pass	992
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method1.size_req_storage_usage_bits	Pass	2016
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method1.size_req_transfer_usage_bits	Pass	96
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method1.size_req_video_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method1.storage_usage_bits	Pass	63
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method1.transfer_usage_bits	Pass	3
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method1.video_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method2.acc_struct_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method2.other_usage_bits	Pass	31
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method2.size_req_acc_struct_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method2.size_req_other_usage_bits	Pass	992
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method2.size_req_storage_usage_bits	Pass	2016
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method2.size_req_transfer_usage_bits	Pass	96
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method2.size_req_video_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method2.storage_usage_bits	Pass	63
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method2.transfer_usage_bits	Pass	3
+dEQP-VK.api.buffer_memory_requirements.create_no_flags.ext_mem_flags_included.method2.video_usage_bits	NotSupported	One or more buffer usage flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:597
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method1.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method1.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method1.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method1.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method1.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method1.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method1.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method1.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method1.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method1.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method2.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method2.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method2.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method2.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method2.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method2.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method2.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method2.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method2.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_excluded.method2.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.memory.requirements.create_info.multiplane_image.transient_optimal	NotSupported	None of tested in given configuration multiplanar formats is supported by device.
+dEQP-VK.memory.requirements.dedicated_allocation.buffer.regular	Pass	Pass
+dEQP-VK.memory.requirements.dedicated_allocation.buffer.sparse	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.dedicated_allocation.buffer.sparse_aliased	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.dedicated_allocation.buffer.sparse_residency	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.dedicated_allocation.buffer.sparse_residency_aliased	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.dedicated_allocation.image.regular_tiling_linear	Pass	Pass
+dEQP-VK.memory.requirements.dedicated_allocation.image.regular_tiling_optimal	Pass	Pass
+dEQP-VK.memory.requirements.dedicated_allocation.image.sparse_aliased_tiling_linear	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.dedicated_allocation.image.sparse_aliased_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.dedicated_allocation.image.sparse_residency_aliased_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.dedicated_allocation.image.sparse_residency_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.dedicated_allocation.image.sparse_tiling_linear	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.dedicated_allocation.image.sparse_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.dedicated_allocation.image.transient_tiling_linear	Pass	Pass
+dEQP-VK.memory.requirements.dedicated_allocation.image.transient_tiling_optimal	Pass	Pass
+dEQP-VK.memory.requirements.extended.buffer.regular	Pass	Pass
+dEQP-VK.memory.requirements.extended.buffer.sparse	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.extended.buffer.sparse_aliased	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.extended.buffer.sparse_residency	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.extended.buffer.sparse_residency_aliased	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.extended.image.regular_tiling_linear	Pass	Pass
+dEQP-VK.memory.requirements.extended.image.regular_tiling_optimal	Pass	Pass
+dEQP-VK.memory.requirements.extended.image.sparse_aliased_tiling_linear	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.extended.image.sparse_aliased_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.extended.image.sparse_residency_aliased_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.extended.image.sparse_residency_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.extended.image.sparse_tiling_linear	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.extended.image.sparse_tiling_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.extended.image.transient_tiling_linear	Pass	Pass
+dEQP-VK.memory.requirements.extended.image.transient_tiling_optimal	Pass	Pass
+dEQP-VK.memory.requirements.memory_property_flags.check_all	Pass	Pass
+dEQP-VK.memory.requirements.multiplane_image.regular_linear	Pass	Pass
+dEQP-VK.memory.requirements.multiplane_image.regular_optimal	Pass	Pass
+dEQP-VK.memory.requirements.multiplane_image.sparse_aliased_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.multiplane_image.sparse_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.multiplane_image.sparse_residency_aliased_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.multiplane_image.sparse_residency_optimal	NotSupported	Requested core feature is not supported: sparseBinding at vktTestCase.cpp:1498
+dEQP-VK.memory.requirements.multiplane_image.transient_linear	NotSupported	None of tested in given configuration multiplanar formats is supported by device.
+dEQP-VK.memory.requirements.multiplane_image.transient_optimal	NotSupported	None of tested in given configuration multiplanar formats is supported by device.
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method1.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method1.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method1.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method1.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method1.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method1.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method1.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method1.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method1.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method1.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method2.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method2.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method2.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method2.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method2.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method2.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method2.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method2.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method2.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_protected.ext_mem_flags_included.method2.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method1.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method1.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method1.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method1.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method1.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method1.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method1.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method1.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method1.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method1.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method2.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method2.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method2.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method2.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method2.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method2.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method2.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method2.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method2.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_excluded.method2.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method1.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method1.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method1.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method1.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method1.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method1.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method1.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method1.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method1.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method1.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method2.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method2.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method2.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method2.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method2.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method2.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method2.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method2.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method2.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding.ext_mem_flags_included.method2.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method1.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method1.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method1.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method1.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method1.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method1.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method1.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method1.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method1.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method1.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method2.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method2.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method2.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method2.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method2.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method2.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method2.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method2.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method2.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_excluded.method2.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method1.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method1.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method1.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method1.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method1.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method1.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method1.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method1.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method1.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method1.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method2.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method2.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method2.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method2.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method2.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method2.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method2.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method2.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method2.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_aliased.ext_mem_flags_included.method2.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method1.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method1.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method1.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method1.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method1.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method1.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method1.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method1.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method1.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method1.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method2.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method2.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method2.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method2.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method2.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method2.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method2.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method2.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method2.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_excluded.method2.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method1.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method1.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method1.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method1.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method1.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method1.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method1.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method1.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method1.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method1.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method2.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method2.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method2.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method2.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method2.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method2.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method2.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method2.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method2.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency.ext_mem_flags_included.method2.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method1.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method1.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method1.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method1.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method1.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method1.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method1.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method1.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method1.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method1.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method2.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method2.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method2.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method2.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method2.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method2.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method2.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method2.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method2.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_excluded.method2.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method1.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method1.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method1.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method1.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method1.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method1.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method1.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method1.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method1.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method1.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method2.acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method2.other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method2.size_req_acc_struct_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method2.size_req_other_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method2.size_req_storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method2.size_req_transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method2.size_req_video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method2.storage_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method2.transfer_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.api.buffer_memory_requirements.create_sparse_binding_sparse_residency_sparse_aliased.ext_mem_flags_included.method2.video_usage_bits	NotSupported	One or more create buffer flags not supported by device (check log for details) at vktApiBufferMemoryRequirementsTests.cpp:435
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.full.1048577.flush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.full.1048577.subflush_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.full.257.flush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.full.257.subflush_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.full.33.flush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.full.33.subflush_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.full.4087.flush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.full.4087.subflush_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.full.8095.flush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.full.8095.subflush_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.full.variable.implicit_unmap	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_0.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_0.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_0.size_1048575.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_0.size_1048575.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_0.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_0.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_0.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_0.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_0.size_4085.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_0.size_4085.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_1025.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_1025.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_1025.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_1025.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_1025.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_1025.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_1025.size_4085.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_1025.size_4085.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_129.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_129.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_129.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_129.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_129.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_129.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_129.size_4085.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_129.size_4085.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_17.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_17.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_17.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_17.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_17.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_17.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_17.size_4085.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_17.size_4085.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_255.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_255.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_255.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_255.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_255.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_255.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_255.size_4085.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_255.size_4085.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_32769.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_32769.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_32769.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_32769.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_32769.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_32769.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_32769.size_4085.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.1048577.offset_32769.size_4085.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.257.offset_0.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.257.offset_0.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.257.offset_0.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.257.offset_0.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.257.offset_129.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.257.offset_129.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.257.offset_17.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.257.offset_17.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.33.offset_0.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.33.offset_0.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_0.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_0.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_0.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_0.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_0.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_0.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_0.size_4085.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_0.size_4085.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_1025.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_1025.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_1025.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_1025.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_1025.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_1025.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_129.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_129.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_129.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_129.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_129.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_129.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_17.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_17.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_17.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_17.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_17.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_17.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_255.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_255.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_255.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_255.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_255.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.4087.offset_255.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_0.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_0.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_0.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_0.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_0.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_0.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_0.size_4085.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_0.size_4085.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_1025.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_1025.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_1025.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_1025.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_1025.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_1025.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_1025.size_4085.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_1025.size_4085.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_129.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_129.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_129.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_129.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_129.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_129.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_129.size_4085.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_129.size_4085.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_17.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_17.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_17.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_17.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_17.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_17.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_17.size_4085.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_17.size_4085.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_255.size_1025.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_255.size_1025.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_255.size_255.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_255.size_255.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_255.size_31.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_255.size_31.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_255.size_4085.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.buffer.sub.8095.offset_255.size_4085.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.full.1048577.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.full.1048577.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.full.257.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.full.257.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.full.33.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.full.33.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.full.4087.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.full.4087.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.full.8095.subflush	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.full.8095.subinvalidate_separate	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_0.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_0.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_0.size_1048575.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_0.size_1048575.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_0.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_0.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_0.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_0.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_0.size_4085.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_0.size_4085.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_1025.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_1025.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_1025.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_1025.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_1025.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_1025.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_1025.size_4085.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_1025.size_4085.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_129.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_129.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_129.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_129.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_129.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_129.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_129.size_4085.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_129.size_4085.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_17.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_17.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_17.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_17.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_17.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_17.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_17.size_4085.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_17.size_4085.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_255.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_255.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_255.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_255.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_255.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_255.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_255.size_4085.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_255.size_4085.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_32769.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_32769.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_32769.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_32769.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_32769.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_32769.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_32769.size_4085.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.1048577.offset_32769.size_4085.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.257.offset_0.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.257.offset_0.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.257.offset_0.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.257.offset_0.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.257.offset_129.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.257.offset_129.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.257.offset_17.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.257.offset_17.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.33.offset_0.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.33.offset_0.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_0.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_0.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_0.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_0.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_0.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_0.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_0.size_4085.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_0.size_4085.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_1025.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_1025.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_1025.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_1025.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_1025.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_1025.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_129.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_129.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_129.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_129.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_129.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_129.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_17.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_17.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_17.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_17.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_17.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_17.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_255.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_255.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_255.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_255.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_255.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.4087.offset_255.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_0.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_0.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_0.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_0.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_0.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_0.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_0.size_4085.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_0.size_4085.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_1025.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_1025.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_1025.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_1025.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_1025.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_1025.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_1025.size_4085.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_1025.size_4085.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_129.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_129.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_129.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_129.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_129.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_129.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_129.size_4085.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_129.size_4085.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_17.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_17.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_17.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_17.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_17.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_17.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_17.size_4085.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_17.size_4085.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_255.size_1025.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_255.size_1025.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_255.size_255.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_255.size_255.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_255.size_31.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_255.size_31.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_255.size_4085.simple	Pass	Pass
+dEQP-VK.memory.mapping.dedicated_alloc.image.sub.8095.offset_255.size_4085.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.full.1048577.simple	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.full.1048577.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.full.257.simple	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.full.257.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.full.33.simple	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.full.33.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.full.4087.simple	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.full.4087.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.full.8095.simple	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.full.8095.subinvalidate_overlapping	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.10_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.15_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.24_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.29_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.33_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.38_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.42_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.47_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.51_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.56_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.60_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.65_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.7	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.74_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.79_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.83_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.88_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.92_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.random.97_map2	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_0.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_0.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_0.size_1048575.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_0.size_1048575.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_0.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_0.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_0.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_0.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_0.size_4085.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_0.size_4085.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_1025.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_1025.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_1025.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_1025.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_1025.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_1025.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_1025.size_4085.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_1025.size_4085.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_129.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_129.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_129.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_129.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_129.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_129.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_129.size_4085.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_129.size_4085.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_17.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_17.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_17.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_17.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_17.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_17.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_17.size_4085.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_17.size_4085.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_255.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_255.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_255.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_255.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_255.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_255.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_255.size_4085.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_255.size_4085.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_32769.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_32769.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_32769.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_32769.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_32769.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_32769.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_32769.size_4085.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.1048577.offset_32769.size_4085.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.257.offset_0.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.257.offset_0.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.257.offset_0.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.257.offset_0.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.257.offset_129.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.257.offset_129.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.257.offset_17.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.257.offset_17.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.33.offset_0.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.33.offset_0.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_0.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_0.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_0.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_0.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_0.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_0.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_0.size_4085.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_0.size_4085.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_1025.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_1025.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_1025.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_1025.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_1025.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_1025.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_129.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_129.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_129.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_129.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_129.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_129.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_17.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_17.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_17.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_17.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_17.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_17.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_255.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_255.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_255.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_255.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_255.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.4087.offset_255.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_0.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_0.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_0.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_0.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_0.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_0.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_0.size_4085.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_0.size_4085.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_1025.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_1025.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_1025.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_1025.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_1025.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_1025.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_1025.size_4085.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_1025.size_4085.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_129.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_129.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_129.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_129.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_129.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_129.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_129.size_4085.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_129.size_4085.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_17.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_17.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_17.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_17.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_17.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_17.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_17.size_4085.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_17.size_4085.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_255.size_1025.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_255.size_1025.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_255.size_255.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_255.size_255.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_255.size_31.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_255.size_31.subinvalidate	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_255.size_4085.remap	Pass	Pass
+dEQP-VK.memory.mapping.suballocation.sub.8095.offset_255.size_4085.subinvalidate	Pass	Pass

@@ -34,7 +34,7 @@ real game per D3D level (9, 10, 11) reaches gameplay in Winlator.
 | Version | Focus | Gate |
 |---|---|---|
 | `0.1.x` | Feature complete, stabilise; `depthBounds` as an opt-in emulation (roadmap 9.1) | test matrix of games, every crash report reproduced or explained |
-| `0.2.x` | Memory (Phase 8.6 + 12): RAM growth in games, heap size reported to apps, BO caching, poly heap and tiler heap budgets | Little Nightmares 1/2 no longer killed by Android; RAM curve logged over 30 min |
+| `0.2.x` | Memory (Phase 8.6 + 12): RAM growth in games, heap size reported to apps, BO caching, poly heap and tiler heap budgets (lazy device-local memory, heap size and the memory profile done early, patch `0070`, for `0.1.0`) | Little Nightmares 1/2 no longer killed by Android; RAM curve logged over 30 min |
 | `0.3.x` | Speed (Phase 13): asynchronous job dependencies (kbase `pre_dep`) instead of a CPU wait per job chain (done early in `0.0.10`), fewer job barriers in the libpoly path | frame time A/B on the same scenes, no CTS change |
 | `0.3.x`+ | D3D12 (vkd3d-proton) after memory and speed: `transformFeedbackQueries` first (vkd3d-proton 2.14 refuses the device without it), then the other vkd3d-proton requirements | vkd3d-proton creates a device, a D3D12 test program renders |
 | `0.4.x` | Android native surface (Phase 8.5) and device coverage: other G57 SoCs (G100, Dimensity 6080/6100), atom stride detection, other Valhall v9 JM GPUs | at least 3 more devices confirmed by testers with logs |

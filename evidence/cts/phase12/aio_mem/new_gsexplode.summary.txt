@@ -1,0 +1,1 @@
+gsexplode rc=0 # avg_fps,213.46,min_fps,3.91,max_fps,916.84,low1pct_fps,21.91

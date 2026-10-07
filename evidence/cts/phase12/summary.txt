@@ -1,0 +1,68 @@
+Phase 12 memory: lazy device-local memory, kbase heap size, memory
+profile, FourFectVK device name (patch 0070), 2026-10-07
+
+Root cause of the RAM growth in games (measured with PANVK_MEM_PROF):
+  1. kbase backed every page of a VkDeviceMemory at vkAllocateMemory.
+     DXVK 2.3.1 allocates device-local memory in 256 MB chunks and
+     host-visible memory in 64 MB chunks, so RAM jumped by a whole chunk
+     even when the chunk was almost empty (AIO Showcase: 272 MB allocated,
+     6 MB used, DXVK HUD "Vidmem heap 0").
+  2. The heap was reported as 75 % of RAM (5.63 GB). DXVK frees empty
+     chunks only above 80 % of the heap, which a phone never reaches, and
+     games size textures from DXGI DedicatedVideoMemory (= heap size).
+  3. No driver leak: BO count, command pool cache (2-32 MB depending on
+     the scene) and tiler/poly heaps stay flat over 90-186 s runs of the
+     0.0.10 driver (aio_mem/v0.0.10_base_*).
+
+Changes (0070):
+  - device-local, not host-visible, not exported allocations >= 8 MB get
+    kbase commit 0 + BASE_MEM_GROW_ON_GPF (pages on first GPU use);
+    off: PANVK_KBASE_DEVMEM_EAGER=1, threshold PANVK_KBASE_DEVMEM_LAZY_MIN_KB.
+    A CPU map of such a BO commits the full size first.
+  - kbase heap = RAM / 3, clamped to [2 GiB, 75 % of RAM]: 2.50 GiB on an
+    8 GB G99 phone (was 5.63 GiB); override PANVK_KBASE_HEAP_PERCENT=N.
+  - PANVK_MEM_PROF=1|<file>: one line every 2 s (kbase BOs, VkDeviceMemory,
+    lazy backed size, command pool cache, heaps, RSS, MemAvailable).
+  - deviceName gets " FourFectVK <version>" from meta.json "name" or the
+    install folder name; off: PANVK_NO_FOURFECT_NAME=1.
+
+aio_mem/        AIO-Graphics-Test v2, DXVK 2.3.1, drv21, Showcase 90 s, other
+                scenes 60 s.
+                compare.txt:
+                  config  VkDeviceMemory backed (max)  RSS max     fps
+                  old     404 MB (0.0.10)              596-626 MB  same
+                  eager   276 MB (heap fix only)       444-506 MB  same
+                  new     138 MB (heap + lazy)         326-359 MB  same
+                "old" = PANVK_KBASE_HEAP_PERCENT=75 + EAGER, "eager" =
+                EAGER only, "new" = default. v0.0.10_base_* = the released
+                0.0.10 driver with only the profile added.
+lazy_mem_test/  tests/graphics/lazy_mem_test.c on build9, 3x PASS: 256 MB
+                lazy buffer backed 0 -> 4 -> 204 MB as the GPU writes 4 MB at
+                0 and 4 MB at 200 MB, data correct. Control
+                PANVK_KBASE_DEVMEM_EAGER=1: RSS 266 MB from the start.
+cts_mem/        CTS memory.* (1527, l_mem) and host image copy (733, l_hic)
+                with eager / default / all-lazy (LAZY_MIN_KB=0): identical,
+                954 P / 1 F / 572 NS and 270 P / 463 NS. The one fail
+                memory.pipeline_barrier.graphics.host_write_index_buffer.1048576
+                also fails with EAGER and with PANVK_KBASE_SYNC_SUBMIT=1
+                (pre-existing, not caused by 0070).
+rM12/           CTS regression, 30 groups, 7127 cases: vs rX9 (0.0.9) lost 0,
+                gain 3 (same as rA10b); vs rA10b (0.0.10) lost 0, gain 0.
+drv21/          Android build through the Winlator Wrapper: device name
+                "Apex(Mali-G57 MC2 FourFectVK 0.1.0 Test1)", dxvk_probe FL 11_1
+                on 1.10.3, 1.11.1-sarek, 1.12.1-sarek, 2.3.1 (D3D9 OK on 1.x),
+                also with PANVK_KBASE_SYNC_SUBMIT=1; launcher 1 device;
+                d3d11_tri 4/4 PASS; AIO GS Exploder + Tessellation ALIVE.
+dxvk_versions/  d3d11_tri with DXVK builds from the Winlator components list:
+                sarek-async 1.10.9 / 1.11.0 and gplasync 2.3.1 PASS FL 11_1;
+                DXVK 3.1.1, gplasync 2.7.1 and 3.1.1 refuse the device
+                ("required feature robustBufferAccess2"), PASS FL 11_1 with
+                PANVK_V9_RBA2=1 (d3d11_tri_rba2/). aio_rba2/: AIO with
+                PANVK_V9_RBA2=1 (gplasync 2.7.1 tess/dx9/dx10 hit the 120 s
+                timeout of the harness, not checked yet).
+user_test1/     the v0.1.0-test1 build in Winlator on the maintainer's phone,
+                DXVK 1.7.2, AIO 10 min with PANVK_MEM_PROF: heap 2562 MiB,
+                lazy 512 MB allocated / 26-42 MB backed, RSS max ~780 MB, app
+                not killed. Command pool cache grew 2 -> 98 MB over many
+                scenes in one D3D11 device (retained peaks; per scene it is
+                flat, max 32 MB in tessellation).

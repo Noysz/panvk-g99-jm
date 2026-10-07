@@ -1,0 +1,5 @@
+showcase rc=0 # avg_fps,36.17,min_fps,7.90,max_fps,3623.19,low1pct_fps,12.01
+gsexplode rc=0 # avg_fps,311.66,min_fps,9.24,max_fps,2455.80,low1pct_fps,41.45
+tess rc=124 
+dx9 rc=124 
+dx10 rc=124 

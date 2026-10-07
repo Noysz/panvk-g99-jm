@@ -1,0 +1,21 @@
+tests/graphics/lazy_mem_test.c on build9 (0070), 2026-10-07 15:3x, PAN_I_WANT_A_BROKEN_VULKAN_DRIVER=1 MESA_SHADER_CACHE_DISABLE=true PANVK_MEM_PROF=1
+== run1
+t=2.1s lazy BOs 1, backed 0.0 of 256.0 MB, RSS 11.2 MB
+t=4.2s lazy BOs 1, backed 4.0 of 256.0 MB, RSS 15.3 MB
+t=6.5s lazy BOs 1, backed 204.0 of 256.0 MB, RSS 215.7 MB
+verdict=PASS
+== run2
+t=2.1s lazy BOs 1, backed 0.0 of 256.0 MB, RSS 11.3 MB
+t=4.2s lazy BOs 1, backed 4.0 of 256.0 MB, RSS 15.3 MB
+t=6.4s lazy BOs 1, backed 204.0 of 256.0 MB, RSS 215.7 MB
+verdict=PASS
+== run3
+t=2.1s lazy BOs 1, backed 0.0 of 256.0 MB, RSS 11.2 MB
+t=4.2s lazy BOs 1, backed 4.0 of 256.0 MB, RSS 15.5 MB
+t=6.4s lazy BOs 1, backed 204.0 of 256.0 MB, RSS 213.9 MB
+verdict=PASS
+== control_eager (PANVK_KBASE_DEVMEM_EAGER=1)
+t=2.3s lazy BOs 0, backed 0.0 of 0.0 MB, RSS 266.4 MB
+t=4.4s lazy BOs 0, backed 0.0 of 0.0 MB, RSS 266.6 MB
+t=6.5s lazy BOs 0, backed 0.0 of 0.0 MB, RSS 266.6 MB
+verdict=PASS

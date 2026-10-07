@@ -1,0 +1,3 @@
+dxvk-3.1.1 RBA2=1 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3655ms fps=41.0 verdict=PASS | Using feature level D3D_FEATURE_LEVEL_11_1 | 
+dxvk-gplasync-3.1.1-1 RBA2=1 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3164ms fps=47.4 verdict=PASS | Using feature level D3D_FEATURE_LEVEL_11_1 | 
+dxvk-gplasync-2.7.1-1 RBA2=1 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2855ms fps=52.5 verdict=PASS | Using feature level D3D_FEATURE_LEVEL_11_1 | 

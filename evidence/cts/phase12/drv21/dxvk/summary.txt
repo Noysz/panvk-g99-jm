@@ -1,0 +1,4 @@
+drv21 1.10.3 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3359ms fps=44.7 verdict=PASS
+drv21 pandxvk-9 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2942ms fps=51.0 verdict=PASS
+drv21 1.12.1-sarek rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3712ms fps=40.4 verdict=PASS
+drv21 v2.3.1-stripped rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2823ms fps=53.1 verdict=PASS

@@ -1,0 +1,1 @@
+tess rc=0 # avg_fps,207.70,min_fps,8.75,max_fps,1756.85,low1pct_fps,34.48
