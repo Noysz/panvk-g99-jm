@@ -1,0 +1,2 @@
+gsexplode rc=0 # avg_fps,297.80,min_fps,7.79,max_fps,668.94,low1pct_fps,50.97
+tess rc=0 # avg_fps,265.03,min_fps,7.90,max_fps,652.95,low1pct_fps,42.92

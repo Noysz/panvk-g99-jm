@@ -1,0 +1,7 @@
+VKMAP32 vkCreateInstance=0
+VKMAP32 device Apex(Mali-G57 MC2 FourFectVK 0.1.0 Test3), 153 extensions, map_memory_placed=0 external_memory_host=0
+VKMAP32 alloc 0: allocate=0 map=0 ptr=01440000 rw=ok
+VKMAP32 alloc 1: allocate=0 map=0 ptr=05440000 rw=ok
+VKMAP32 alloc 2: allocate=0 map=0 ptr=09440000 rw=ok
+VKMAP32 alloc 3: allocate=0 map=0 ptr=0d440000 rw=ok
+VKMAP32 mapped_ok=4/4 verdict=PASS

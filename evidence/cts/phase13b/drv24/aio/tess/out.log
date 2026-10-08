@@ -1,0 +1,246 @@
+Fontconfig error: Cannot load default config file: No such file: (null)
+Fontconfig error: Cannot load default config file: No such file: (null)
+0094:err:nsi:poll_events error receivng, len 0, errno 0.
+0054:err:dnsapi:DllMain No libresolv support, expect problems
+Fontconfig error: Cannot load default config file: No such file: (null)
+00a4:err:ntoskrnl:ZwLoadDriver failed to create driver L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\winebth": c00000e5
+003c:fixme:service:scmdatabase_autostart_services Auto-start service L"winebth" failed to start: 1359
+Fontconfig error: Cannot load default config file: No such file: (null)
+starting FEX (Hangover 11.16) based libarm64ecfex.dll
+0024:fixme:process:NtSetInformationProcess (0xffffffffffffffff,0x000007d0,0x71cbf7cf48,0x00000004) stub
+0024:fixme:process:NtSetInformationProcess (0xffffffffffffffff,0x000007d1,0x71cbf7cf48,0x00000008) stub
+Fontconfig error: Cannot load default config file: No such file: (null)
+AIODIAG [04:38:47.264] [ctor] static-init reached (priority 101)
+AIODIAG [04:38:47.271] WinMain: entry
+AIODIAG [04:38:47.272] WinMain args: (none)
+AIODIAG [04:38:47.274] dispatch: default (imgui shell)
+AIODIAG [04:38:47.281] aio_run_imgui_shell: entry
+Fontconfig error: Cannot load default config file: No such file: (null)
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+00d8:err:wgl:egl_init Failed to load libEGL.so.1: dlopen failed: library "libEGL.so.1" not found
+00d8:err:wgl:X11DRV_OpenGLInit Failed to load libGL: dlopen failed: library "libGL.so.1" not found
+00d8:err:wgl:X11DRV_OpenGLInit OpenGL support is disabled.
+00d8:err:wgl:internal_context_create Failed to create internal thread context
+AIODIAG [04:38:51.364] window created; creating D3D11 device+swapchain...
+info:  Game: AIO-64.exe
+info:  DXVK: v2.3.1
+info:  Vulkan: Found vkGetInstanceProcAddr in winevulkan.dll @ 0x7ff99b0cc0
+info:  Built-in extension providers:
+info:    Win32 WSI
+info:    OpenVR
+info:    OpenXR
+info:  OpenVR: could not open registry key, status 2
+info:  OpenVR: Failed to locate module
+info:  Enabled instance extensions:
+info:    VK_EXT_surface_maintenance1
+info:    VK_KHR_get_surface_capabilities2
+info:    VK_KHR_surface
+info:    VK_KHR_win32_surface
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+info:  Apex(Mali-G57 MC2 FourFectVK 0.1.0 Test2):
+info:    Driver : Apex 26.2.99
+info:    Memory Heap[0]: 
+info:      Size: 2562 MiB
+info:      Flags: 0x1
+info:      Memory Type[0]: Property Flags = 0x1
+info:      Memory Type[1]: Property Flags = 0xb
+info:      Memory Type[2]: Property Flags = 0x7
+info:  D3D11InternalCreateDevice: Maximum supported feature level: D3D_FEATURE_LEVEL_11_1
+info:  D3D11InternalCreateDevice: Using feature level D3D_FEATURE_LEVEL_11_0
+info:  Device properties:
+info:    Device : Apex(Mali-G57 MC2 FourFectVK 0.1.0 Test2)
+info:    Driver : Apex 26.2.99
+info:  Enabled device extensions:
+info:    VK_EXT_attachment_feedback_loop_layout
+info:    VK_EXT_custom_border_color
+info:    VK_EXT_depth_bias_control
+info:    VK_EXT_depth_clip_enable
+info:    VK_EXT_extended_dynamic_state3
+info:    VK_EXT_graphics_pipeline_library
+info:    VK_EXT_non_seamless_cube_map
+info:    VK_EXT_robustness2
+info:    VK_EXT_shader_module_identifier
+info:    VK_EXT_shader_stencil_export
+info:    VK_EXT_swapchain_maintenance1
+info:    VK_EXT_transform_feedback
+info:    VK_EXT_vertex_attribute_divisor
+info:    VK_KHR_external_memory_win32
+info:    VK_KHR_external_semaphore_win32
+info:    VK_KHR_maintenance5
+info:    VK_KHR_pipeline_library
+info:    VK_KHR_present_id
+info:    VK_KHR_present_wait
+info:    VK_KHR_swapchain
+info:    VK_KHR_win32_keyed_mutex
+info:  Device features:
+info:    robustBufferAccess                     : 1
+info:    fullDrawIndexUint32                    : 1
+info:    imageCubeArray                         : 1
+info:    independentBlend                       : 1
+info:    geometryShader                         : 1
+info:    tessellationShader                     : 1
+info:    sampleRateShading                      : 1
+info:    dualSrcBlend                           : 1
+info:    logicOp                                : 1
+info:    multiDrawIndirect                      : 1
+info:    drawIndirectFirstInstance              : 1
+info:    depthClamp                             : 1
+info:    depthBiasClamp                         : 1
+info:    fillModeNonSolid                       : 1
+info:    depthBounds                            : 0
+info:    wideLines                              : 1
+info:    multiViewport                          : 1
+info:    samplerAnisotropy                      : 1
+info:    textureCompressionBC                   : 1
+info:    occlusionQueryPrecise                  : 1
+info:    pipelineStatisticsQuery                : 1
+info:    vertexPipelineStoresAndAtomics         : 1
+info:    fragmentStoresAndAtomics               : 1
+info:    shaderImageGatherExtended              : 1
+info:    shaderClipDistance                     : 1
+info:    shaderCullDistance                     : 1
+info:    shaderFloat64                          : 0
+info:    shaderInt64                            : 1
+info:    variableMultisampleRate                : 1
+info:    shaderResourceResidency                : 0
+info:    shaderResourceMinLod                   : 0
+info:    sparseBinding                          : 0
+info:    sparseResidencyBuffer                  : 0
+info:    sparseResidencyImage2D                 : 0
+info:    sparseResidencyImage3D                 : 0
+info:    sparseResidency2Samples                : 0
+info:    sparseResidency4Samples                : 0
+info:    sparseResidency8Samples                : 0
+info:    sparseResidency16Samples               : 0
+info:    sparseResidencyAliased                 : 0
+info:  Vulkan 1.1
+info:    shaderDrawParameters                   : 1
+info:  Vulkan 1.2
+info:    samplerMirrorClampToEdge               : 1
+info:    drawIndirectCount                      : 1
+info:    samplerFilterMinmax                    : 0
+info:    hostQueryReset                         : 1
+info:    timelineSemaphore                      : 1
+info:    bufferDeviceAddress                    : 0
+info:    shaderOutputViewportIndex              : 0
+info:    shaderOutputLayer                      : 0
+info:    vulkanMemoryModel                      : 1
+info:  Vulkan 1.3
+info:    robustImageAccess                      : 1
+info:    pipelineCreationCacheControl           : 1
+info:    shaderDemoteToHelperInvocation         : 1
+info:    shaderZeroInitializeWorkgroupMemory    : 0
+info:    synchronization2                       : 1
+info:    dynamicRendering                       : 1
+info:  VK_AMD_shader_fragment_mask
+info:    extension supported                    : 0
+info:  VK_EXT_attachment_feedback_loop_layout
+info:    attachmentFeedbackLoopLayout           : 0
+info:  VK_EXT_conservative_rasterization
+info:    extension supported                    : 0
+info:  VK_EXT_custom_border_color
+info:    customBorderColors                     : 1
+info:    customBorderColorWithoutFormat         : 1
+info:  VK_EXT_depth_clip_enable
+info:    depthClipEnable                        : 1
+info:  VK_EXT_depth_bias_control
+info:    depthBiasControl                       : 1
+info:    leastRepresentableValueForceUnormRepresentation : 0
+info:    floatRepresentation                    : 0
+info:    depthBiasExact                         : 1
+info:  VK_EXT_extended_dynamic_state3
+info:    extDynamicState3AlphaToCoverageEnable  : 1
+info:    extDynamicState3DepthClipEnable        : 1
+info:    extDynamicState3RasterizationSamples   : 1
+info:    extDynamicState3SampleMask             : 1
+info:    extDynamicState3LineRasterizationMode  : 1
+info:  VK_EXT_fragment_shader_interlock
+info:    fragmentShaderSampleInterlock          : 0
+info:    fragmentShaderPixelInterlock           : 0
+info:  VK_EXT_full_screen_exclusive
+info:    extension supported                    : 0
+info:  VK_EXT_graphics_pipeline_library
+info:    graphicsPipelineLibrary                : 1
+info:  VK_EXT_line_rasterization
+info:    rectangularLines                       : 1
+info:    smoothLines                            : 0
+info:  VK_EXT_memory_budget
+info:    extension supported                    : 1
+info:  VK_EXT_memory_priority
+info:    memoryPriority                         : 0
+info:  VK_EXT_non_seamless_cube_map
+info:    nonSeamlessCubeMap                     : 0
+info:  VK_EXT_robustness2
+info:    robustBufferAccess2                    : 1
+info:    robustImageAccess2                     : 0
+info:    nullDescriptor                         : 1
+info:  VK_EXT_shader_module_identifier
+info:    shaderModuleIdentifier                 : 1
+info:  VK_EXT_shader_stencil_export
+info:    extension supported                    : 1
+info:  VK_EXT_swapchain_colorspace
+info:    extension supported                    : 0
+info:  VK_EXT_swapchain_maintenance1
+info:    swapchainMaintenance1                  : 1
+info:  VK_EXT_hdr_metadata
+info:    extension supported                    : 0
+info:  VK_EXT_transform_feedback
+info:    transformFeedback                      : 1
+info:    geometryStreams                        : 1
+info:  VK_EXT_vertex_attribute_divisor
+info:    vertexAttributeInstanceRateDivisor     : 1
+info:    vertexAttributeInstanceRateZeroDivisor : 1
+info:  VK_KHR_external_memory_win32
+info:    extension supported                    : 1
+info:  VK_KHR_external_semaphore_win32
+info:    extension supported                    : 1
+info:  VK_KHR_maintenance5
+info:    maintenance5                           : 1
+info:  VK_KHR_present_id
+info:    presentId                              : 1
+info:  VK_KHR_present_wait
+info:    presentWait                            : 1
+info:  VK_NV_raw_access_chains
+info:    shaderRawAccessChains                  : 0
+info:  VK_NVX_binary_import
+info:    extension supported                    : 0
+info:  VK_NVX_image_view_handle
+info:    extension supported                    : 0
+info:  VK_KHR_win32_keyed_mutex
+info:    extension supported                    : 1
+info:  Queue families:
+info:    Graphics : 0
+info:    Transfer : 0
+info:    Sparse   : n/a
+info:  DXVK: Read 4 valid state cache entries
+info:  DXVK: Graphics pipeline libraries supported
+info:  Presenter: Actual swap chain properties:
+info:    Format:       VK_FORMAT_B8G8R8A8_UNORM
+info:    Color space:  VK_COLOR_SPACE_SRGB_NONLINEAR_KHR
+info:    Present mode: VK_PRESENT_MODE_IMMEDIATE_KHR (dynamic: yes)
+info:    Buffer size:  1084x686
+info:    Image count:  4
+info:    Exclusive FS: 2
+AIODIAG [04:38:52.408] host: D3D11
+AIODIAG [04:38:52.640] ImGui context + fonts loaded
+AIODIAG [04:38:52.641] theme applied; bench history load: begin
+AIODIAG [04:38:52.646] bench history load: end (0 runs)
+AIODIAG [04:38:52.647] disk history load: begin
+AIODIAG [04:38:52.656] disk history load: end (0 runs)
+AIODIAG [04:38:52.711] ImGui Win32 + DX11 backends init; entering main loop
+AIODIAG [04:38:52.716] first frame: begin
+info:  DXVK: Using 8 compiler threads
+info:  Presenter: Actual swap chain properties:
+info:    Format:       VK_FORMAT_B8G8R8A8_UNORM
+info:    Color space:  VK_COLOR_SPACE_SRGB_NONLINEAR_KHR
+info:    Present mode: VK_PRESENT_MODE_FIFO_KHR (dynamic: yes)
+info:    Buffer size:  1084x686
+info:    Image count:  4
+info:    Exclusive FS: 2
+err:   readMonitorEdidFromKey: Failed to get EDID reg key size
+err:   DXGI: Failed to parse display metadata + colorimetry info, using blank.
+AIODIAG [04:38:53.250] first frame: presented OK

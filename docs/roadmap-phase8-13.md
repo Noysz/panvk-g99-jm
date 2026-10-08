@@ -32,6 +32,14 @@ Update after `0063` (drv12/drv13, 2026-10-05): `geometryShader` is no longer
 missing. DXVK 1.10.3 D3D11 and D3D9 start (d3d11_tri FL 11_0), 1.11.1-sarek
 FL 11_0, 2.3.1 FL 11_0 and only `geometryStreams` is missing for it.
 
+Update after `0071` (drv23, 2026-10-07): builds from the Winlator components
+list, d3d11_tri with no env var. DXVK 3.1.1, gplasync 2.7.1-1 and 3.1.1-1
+need `robustBufferAccess2` (they refused the device before `0071`) and now
+reach FL 11_1; sarek-async 1.10.9 / 1.11.0, gplasync 2.3.1-1, 2.3.1, 1.10.3
+and 1.7.2 FL 11_1 as before. AIO Showcase, GS Exploder, Tessellation, D3D9
+and D3D10 run on 3.1.1 and gplasync 2.7.1. `PANVK_V9_NO_RBA2=1`: the three
+refuse the device again (`evidence/cts/phase13b/drv23`).
+
 Clip/cull distance, `multiViewport` and BC textures are supplied by the
 Winlator Wrapper, so they are not on this list, but they are also missing in
 the driver itself.
@@ -125,6 +133,13 @@ has a working reference only for tessellation, so the build order is:
   Measured and first fixes in `0070` (12.1-12.3); still open until a game
   that was killed (Little Nightmares, RE3) is confirmed on the new build.
 
+- [x] 8.7 Command buffers submitted more than once (`0072`): only the first
+  submit drew, every later one faulted (kbase `0x58`) because the MALLOC_VERTEX
+  job keeps the vertex packet pointer the hardware wrote into it. Native
+  Vulkan apps that record once and submit every frame (vkcube, the
+  AIO-Graphics-Test Vulkan cube) showed nothing. `cube_test` `CUBE_RESUBMIT=1`
+  3x PASS, control FAIL.
+
 ## Phase 9 — small features DXVK asks for
 
 - [ ] 9.1 `depthBounds`: moved out of `0.0.8`, planned as an opt-in
@@ -170,6 +185,15 @@ has a working reference only for tessellation, so the build order is:
   primitives outside [0, 1] (CTS `draw.renderpass.depth_clamp.*`, 30 cases).
   Control `PANVK_V9_DEPTH_CULL_ALWAYS`.
 
+- [x] 9.6 `robustBufferAccess2` on by default (`0071`): texel buffer reads out
+  of range return 0 and alpha 1 / 0 by format, as Vulkan requires. DXVK 2.4+
+  and 3.x refuse a device without it; with `0071` DXVK 3.1.1, gplasync
+  2.7.1 and 3.1.1 create FL 11_1 with no env var. Cost: AIO Tessellation
+  -5 % on DXVK 2.3.1 (which turns the feature on when it is there), Showcase
+  and Draw 1024 unchanged; `PANVK_V9_NO_RBA2=1` hides it. Still open:
+  out-of-range vertex attribute fetch (28 CTS cases) and null-descriptor
+  sampled images in a vertex shader (25).
+
 ## Phase 10 — tessellation on v9
 
 Upstream panvk exposes `tessellationShader` on v10+ using the `poly`
@@ -207,11 +231,16 @@ and over a real game session.
 - [x] 12.3 Heap size (`0070`): RAM / 3 clamped to [2 GiB, 75 %], 2.50 GiB on
   the G99 instead of 5.63 GiB, so DXVK frees empty chunks and games pick
   smaller texture budgets. Override `PANVK_KBASE_HEAP_PERCENT=N`.
-- [ ] 12.4 Command pool BO cache: it keeps the peak of every scene until the
-  device is destroyed (2 -> 98 MB over a 10-minute AIO session in one
-  D3D11 device, flat per scene). Cap it and give the rest back.
+- [x] 12.4 Command pool BO cache (`0073`): it kept the peak of every pool
+  until the pool was destroyed (2 -> 98 MB over a 10-minute AIO session in
+  one D3D11 device). Now capped at 48 MB per device
+  (`PANVK_POOL_CACHE_MAX_MB`, `0` = no cap); `pool_cache_test` 79 -> 48 MB.
 - [ ] 12.5 Real game session with the profile on (30 min), Little
   Nightmares / RE3 no longer killed.
+- [x] 12.6 Scratch per command buffer (`0074`): every JM batch with a
+  scratch-using shader had its own 1-3 MB TLS buffer; NFS Most Wanted (DX9)
+  held 2.1 GB after 5 s and was killed at the race start. One TLS/WLS buffer
+  per command buffer now; `tls_batch_test` +300 MB -> +1.6 MB.
 
 ## Phase 13 — CPU and GPU cost
 

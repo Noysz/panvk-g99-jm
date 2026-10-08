@@ -1,0 +1,80 @@
+diff --git a/src/panfrost/vulkan/jm/panvk_cmd_buffer.h b/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
+--- a/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
++++ b/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
+@@ -102,6 +102,16 @@
+          bool owns_oq;
+       } stats;
+       struct panvk_push_constant_state push_constants;
++      /* PATCH: scratch shared by the batches of this command buffer. The
++       * batches of one command buffer never run at the same time on the
++       * GPU (one queue, every job chain waits for the one before), so one
++       * buffer big enough for the largest batch is enough. Before, every
++       * batch with scratch got its own TLS buffer (1-3 MB each), and a
++       * frame with a few hundred passes held gigabytes. */
++      struct {
++         uint64_t tls_ptr, wls_ptr;
++         uint64_t tls_size, wls_size;
++      } scratch;
+    } state;
+ };
+ 
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
+@@ -91,6 +91,15 @@
+    return VK_SUCCESS;
+ }
+ 
++static bool
++tls_per_batch(void)
++{
++   static int v = -1;
++   if (v < 0)
++      v = pan_env_flag("PANVK_TLS_PER_BATCH") != NULL;
++   return v;
++}
++
+ void
+ panvk_per_arch(cmd_close_batch)(struct panvk_cmd_buffer *cmdbuf)
+ {
+@@ -138,14 +147,36 @@
+ 
+       unsigned size = pan_get_total_stack_size(batch->tlsinfo.tls.size,
+                                                thread_tls_alloc, core_id_range);
+-      batch->tlsinfo.tls.ptr =
+-         panvk_cmd_alloc_dev_mem(cmdbuf, tls, size, 4096).gpu;
++      /* PATCH: reuse the command buffer's scratch when it is big enough
++       * (see panvk_cmd_buffer.h). A smaller per-thread size in the TLS
++       * descriptor only uses the start of a larger buffer.
++       * PANVK_TLS_PER_BATCH=1 keeps one buffer per batch (control). */
++      if (!tls_per_batch() && cmdbuf->state.scratch.tls_size >= size) {
++         batch->tlsinfo.tls.ptr = cmdbuf->state.scratch.tls_ptr;
++      } else {
++         batch->tlsinfo.tls.ptr =
++            panvk_cmd_alloc_dev_mem(cmdbuf, tls, size, 4096).gpu;
++         if (batch->tlsinfo.tls.ptr) {
++            cmdbuf->state.scratch.tls_ptr = batch->tlsinfo.tls.ptr;
++            cmdbuf->state.scratch.tls_size = size;
++         }
++      }
+    }
+ 
+    if (batch->tlsinfo.wls.size) {
+       assert(batch->wls_total_size);
+-      batch->tlsinfo.wls.ptr =
+-         panvk_cmd_alloc_dev_mem(cmdbuf, tls, batch->wls_total_size, 4096).gpu;
++      if (!tls_per_batch() &&
++          cmdbuf->state.scratch.wls_size >= batch->wls_total_size) {
++         batch->tlsinfo.wls.ptr = cmdbuf->state.scratch.wls_ptr;
++      } else {
++         batch->tlsinfo.wls.ptr =
++            panvk_cmd_alloc_dev_mem(cmdbuf, tls, batch->wls_total_size, 4096)
++               .gpu;
++         if (batch->tlsinfo.wls.ptr) {
++            cmdbuf->state.scratch.wls_ptr = batch->tlsinfo.wls.ptr;
++            cmdbuf->state.scratch.wls_size = batch->wls_total_size;
++         }
++      }
+    }
+ 
+    if (batch->tls.cpu)

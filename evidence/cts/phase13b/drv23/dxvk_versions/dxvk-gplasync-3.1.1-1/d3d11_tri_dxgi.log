@@ -1,0 +1,18 @@
+info:  Game: d3d11_tri.exe
+info:  DXVK: v3.1.1-gplasync
+info:  Build: x86_64 gcc 13.0.0
+info:  Vulkan: Found vkGetInstanceProcAddr in winevulkan.dll @ 0x7e864a0cc0
+info:  Extension providers:
+info:    Platform WSI
+info:    OpenVR
+info:  OpenVR: could not open registry key, status 2
+info:  OpenVR: Failed to locate module
+info:    OpenXR
+info:  Enabled instance extensions:
+info:    VK_EXT_surface_maintenance1
+info:    VK_KHR_get_surface_capabilities2
+info:    VK_KHR_surface
+info:    VK_KHR_win32_surface
+info:  Found device: Apex(Mali-G57 MC2 FourFectVK 0.1.0 Test2) (Apex 26.2.99)
+err:   readMonitorEdidFromKey: Failed to get EDID reg key size
+err:   DXGI: Failed to parse display metadata + colorimetry info, using blank.

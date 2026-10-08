@@ -1,0 +1,1 @@
+faults=0 vk rc=0 # avg_fps,192.47,min_fps,0.57,max_fps,514.67,low1pct_fps,11.43

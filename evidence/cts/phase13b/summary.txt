@@ -1,0 +1,125 @@
+Patches 0071-0073 for 0.1.0, 2026-10-07: texel buffer out-of-range values
+(robustBufferAccess2 on by default), command buffer re-submit fix, command
+pool BO cache cap. All runs with MESA_SHADER_CACHE_DISABLE=true.
+
+0071 robustBufferAccess2 / texel buffers
+  texel_oob_test/  tests/compute/texel_buffer_oob_test.c on build9: 3x PASS.
+                   Control PANVK_V9_TEXEL_OOB_HW=1: 16 bad out-of-range values
+                   (alpha 0 instead of 1 for R32_UINT / R32G32_SFLOAT, 1.0
+                   instead of 0 for R8G8B8A8_UNORM), FAIL. PANVK_V9_NO_RBA2=1:
+                   feature not exposed (exit 3).
+  cts_rb2/         the old 35-case subset (l_rba2): 35/35, was 20 P / 15 F
+                   with PANVK_V9_RBA2=1 before. robustness2 subset l_rb2
+                   (2649: bind.notemplate, 32-bit formats, unroll.nonvolatile,
+                   all texel buffer cases + every 4th other case): 926 P /
+                   53 F / 1670 NS; control 485 P / 494 F; 441 texel buffer
+                   cases fixed, 0 lost. The 53 fail in both: out-of-range
+                   vertex attribute fetch (28) and null-descriptor sampled
+                   images read in a vertex shader (25).
+  rT13/            CTS regression 30 groups, 7127 cases: lost 0, gain 0 vs
+                   rM12 (0070) and vs rA10b (0.0.10).
+
+0072 command buffer re-submit
+  Root cause: the MALLOC_VERTEX job writes the vertex packet pointer and
+  strides into its own Draw.vertex_array; the reset before a re-submit did
+  not put it back, so every later submit faulted (kbase 0x58). Found by
+  diffing the descriptor pool before/after the first run (11 words changed:
+  tiler heap, job status, Draw.vertex_array).
+  resubmit_test/   tests/graphics/cube_test.c CUBE_RESUBMIT=1 (record once,
+                   submit 30 times, pixel check every frame): 3x 30/30, 0
+                   faults; PANVK_KBASE_SYNC_SUBMIT=1 and linear tiling PASS;
+                   normal mode (record per frame) PASS. Control
+                   PANVK_V9_NO_REISSUE_VA_RESET=1: 29/30 frames bad, 16
+                   fault messages. CTS api.command_buffers (131): 55 P /
+                   76 NS with and without the fix (no CTS case there
+                   re-submits a draw).
+  rR13/            CTS regression with 0071 + 0072: lost 0 vs rT13 and rA10b.
+  drv23/aio_vk_cube/  AIO-Graphics-Test --cube vk (native Vulkan, prerecorded
+                   command buffers) on the Android build: 0 faults; control
+                   16 faults. 0.0.9 / 0.0.10 / 0070 had 16-1473 faults
+                   (userlogs repro, same scene).
+
+0073 command pool BO cache cap
+  pool_cache_test/ tests/graphics/pool_cache_test.c (8 command pools x 40000
+                   dispatches, vkResetCommandPool, 2 rounds, counter check):
+                   before_0073.txt cache after resets 79.0 MB, RSS 127 MB,
+                   FAIL; with 0073 3x 48.0 MB, RSS 94-95 MB, counters exact,
+                   PASS; control PANVK_POOL_CACHE_MAX_MB=0 79.0 MB FAIL;
+                   PANVK_POOL_CACHE_MAX_MB=8 8.0 MB.
+  rP13/            CTS regression with 0071-0073: lost 0 vs rR13 and rA10b.
+
+drv23 (Android build, 0071 + 0072, Winlator Wrapper)
+  device name "Apex(Mali-G57 MC2 FourFectVK 0.1.0 Test2)", dxvk_probe 4
+  profiles OK (FL 11_1, D3D9 OK on 1.x), launcher 1 device, d3d11_tri 4/4,
+  AIO GS Exploder + Tessellation ALIVE.
+  dxvk_versions/   d3d11_tri, no env var: DXVK 3.1.1, gplasync 3.1.1-1, 2.7.1-1,
+                   2.3.1-1, sarek-async 1.11.0, 1.10.9, 2.3.1, 1.10.3, 1.7.2 all
+                   PASS FL 11_1. PANVK_V9_NO_RBA2=1: 3.1.1, gplasync 2.7.1 and
+                   3.1.1 skip the device ("required feature
+                   'robustBufferAccess2'").
+  aio_dxvk3/       AIO with DXVK 3.1.1 / gplasync 2.7.1, no env var: Showcase
+                   30.5 / 35.5, GS Exploder 237 / 250, Tessellation 228 / 260,
+                   D3D9 354 / 354, D3D10 307 / 311 fps.
+  rba2_fps_ab/     DXVK 2.3.1 (turns robustBufferAccess2 on when exposed),
+                   30 s, 3 rounds, RBA2 on / PANVK_V9_NO_RBA2=1:
+                   Showcase 35.8 / 35.8, Draw 1024 111.2 / 111.5,
+                   Tessellation 245.3 / 258.1 (-5 %).
+
+drv24 (Android build, 0071-0073, = v0.1.0-test2)
+  dxvk_probe 4 profiles OK, launcher 1 device, d3d11_tri 4/4 PASS, AIO GS
+  Exploder + Tessellation ALIVE; d3d11_tri no env var: 3.1.1, gplasync 2.7.1,
+  sarek-async 1.11.0, 2.3.1, 1.10.3, 1.7.2 PASS FL 11_1; AIO --cube vk 0
+  faults.
+  cap_fps_ab/      2 rounds, cap (default 48 MB) / PANVK_POOL_CACHE_MAX_MB=0,
+                   DXVK 2.3.1, with PANVK_MEM_PROF. The phone was loaded by
+                   other processes (swap 3.6 of 4.2 GB used, another app at
+                   high CPU), so FPS moved a lot between runs of the same
+                   setting (Tessellation 140 / 161 capped, 201 / 108 uncapped;
+                   Draw 2048 57 / 35 and 55 / 35). The profile shows the cap
+                   never acted in these scenes: cache max 31.6 MB
+                   (Tessellation), 15.2 MB (Draw 2048), 1.6 MB (Showcase), all
+                   below 48 MB, so the BOs took the same path as without the
+                   cap. No FPS claim is made from this A/B.
+
+0074 scratch (TLS/WLS) per command buffer instead of per batch
+  Found in user PANVK_MEM_PROF logs (2026-10-08, ~/panvk-refs only): NFS Most
+  Wanted (DX9, DXVK 1.7.2) on test1 reached 770-1500 kbase BOs and 2.1-3.9 GB
+  committed within 5-17 s and was killed; on test2 (0073 cap) the committed
+  size swung 64 <-> 1039 MB every frame (allocs and frees in the hundreds
+  per 2 s), and the race start ran out of RAM. Each JM batch with a
+  scratch-using shader allocated its own TLS buffer.
+  tls_batch_test/  tests/graphics/tls_batch_test.c, 200 dispatches of
+                   tests/shaders/tls_spill.comp in one command buffer:
+                   before +300.0 MB / 201 BOs; after 3x +1.6 MB / 2 BOs, data
+                   exact, PASS; 1000 dispatches +1.7 MB; control
+                   PANVK_TLS_PER_BATCH=1 +300.0 MB FAIL.
+  cts: l_scratch (compute.pipeline.basic, glsl.indexing.tmp_array, every 4th
+       zero_initialize_workgroup_memory, 402): 387 P / 15 NS with 0074 and
+       with the control, 0 fail (tls_batch_test/cts_l_scratch*.tsv).
+  rS14/            CTS regression with 0071-0074: 7127 cases, lost 0 vs rP13
+                   and vs rA10b.
+
+drv25 (Android build, 0071-0074, = v0.1.0-test3)
+  dxvk_probe 4 profiles OK, d3d11_tri 4/4, AIO GS + Tessellation ALIVE;
+  d3d11_tri no env var: 3.1.1, gplasync 2.7.1, 2.3.1, 1.10.3, 1.7.2 PASS
+  FL 11_1. aio_dx172/: AIO (DXVK 1.7.2) D3D9, Showcase, Tessellation,
+  GS Exploder, Vulkan cube run with 0074 and with PANVK_TLS_PER_BATCH=1,
+  memory the same (these scenes have few passes with scratch).
+  tls_fps_ab/      GS Exploder and Tessellation, 3 interleaved rounds:
+                   GS 235 / 298 / 273 (median 273) vs control 239 / 283 / 259
+                   (259); Tess 234 / 265 / 283 (265) vs 272 / 281 / 290 (281).
+                   Spread between runs of the same setting is larger than the
+                   difference: no FPS change claimed.
+
+wow64 (32-bit games), no driver change
+  wow64_map32/     tests/phase7/vk_map32_test.c (i686, 4 x 64 MB host-visible
+                   allocations mapped, written, read back) through Hangover
+                   wine wow64 + Winlator Wrapper: drv25 (test3), drv19
+                   (0.0.10), drv17 (0.0.9) PASS, mappings below 4 GB (wine
+                   uses VK_EXT_map_memory_placed). WRAPPER_DISABLE_PLACED=1:
+                   every map fails with wine "returned mapping ... does not fit
+                   32-bit pointer", the message in tester logs of 32-bit games
+                   that did not start (Just Cause 2, FNAF). The 32-bit DXVK
+                   d3d11_tri hangs after DXVK start-up on 0.0.9, 0.0.10 and
+                   test3 alike on this local stack (local wow64 setup, not a
+                   driver difference), see d3d11_tri32_local_hang.txt.

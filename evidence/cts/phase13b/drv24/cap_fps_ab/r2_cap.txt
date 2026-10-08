@@ -1,0 +1,3 @@
+tess rc=0 # avg_fps,161.25,min_fps,4.07,max_fps,869.26,low1pct_fps,12.23
+draws:2048 rc=0 # avg_fps,35.19,min_fps,3.07,max_fps,93.58,low1pct_fps,5.33
+showcase rc=0 # avg_fps,34.21,min_fps,7.06,max_fps,766.11,low1pct_fps,8.31

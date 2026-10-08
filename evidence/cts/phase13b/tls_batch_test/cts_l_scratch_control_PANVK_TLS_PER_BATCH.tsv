@@ -1,0 +1,402 @@
+dEQP-VK.compute.pipeline.basic.atomic_barrier_sum_small	Pass	Pass
+dEQP-VK.compute.pipeline.basic.branch_past_barrier	Pass	Pass
+dEQP-VK.compute.pipeline.basic.concurrent_compute	NotSupported	Queues couldn't be created at vktComputeBasicComputeShaderTests.cpp:4117
+dEQP-VK.compute.pipeline.basic.copy_image_to_ssbo_large	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.copy_image_to_ssbo_small	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.copy_ssbo_bounds	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.copy_ssbo_multiple_groups	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.copy_ssbo_multiple_invocations	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.copy_ssbo_single_invocation	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.copy_ssbo_to_image_large	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.copy_ssbo_to_image_small	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.empty_shader	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.empty_workgroup_all	Pass	Pass
+dEQP-VK.compute.pipeline.basic.empty_workgroup_x	Pass	Pass
+dEQP-VK.compute.pipeline.basic.empty_workgroup_y	Pass	Pass
+dEQP-VK.compute.pipeline.basic.empty_workgroup_z	Pass	Pass
+dEQP-VK.compute.pipeline.basic.float16_isnan_isinf	NotSupported	Test requires unsupported features: Float16Int8Features.shaderFloat16 at vktAmberTestCase.cpp:248
+dEQP-VK.compute.pipeline.basic.float64_isnan_isinf	NotSupported	Test requires unsupported features: Features.shaderFloat64 at vktAmberTestCase.cpp:248
+dEQP-VK.compute.pipeline.basic.image_atomic_op_local_size_1	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.image_atomic_op_local_size_8	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.image_barrier_multiple	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.image_barrier_single	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.indirect_after_base_dispatch	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.max_local_size_x	Pass	Pass
+dEQP-VK.compute.pipeline.basic.max_local_size_y	Pass	Pass
+dEQP-VK.compute.pipeline.basic.max_local_size_z	Pass	Pass
+dEQP-VK.compute.pipeline.basic.pk_immediate	NotSupported	Test requires unsupported features: Float16Int8Features.shaderFloat16 at vktAmberTestCase.cpp:248
+dEQP-VK.compute.pipeline.basic.pkadd_immediate	Pass	Pass
+dEQP-VK.compute.pipeline.basic.read_unbound_ssbo	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.remove_global_load_pass	Pass	Pass
+dEQP-VK.compute.pipeline.basic.replicated_composites_array_array_constant	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_array_array_specconstant	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_array_array_value	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_array_constant	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_array_specconstant	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_array_value	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_coopmat_constant	NotSupported	VkPhysicalDeviceCooperativeMatrixFeaturesKHR::cooperativeMatrix not supported at vktComputeBasicComputeShaderTests.cpp:5170
+dEQP-VK.compute.pipeline.basic.replicated_composites_coopmat_specconstant	NotSupported	VkPhysicalDeviceCooperativeMatrixFeaturesKHR::cooperativeMatrix not supported at vktComputeBasicComputeShaderTests.cpp:5170
+dEQP-VK.compute.pipeline.basic.replicated_composites_coopmat_value	NotSupported	VkPhysicalDeviceCooperativeMatrixFeaturesKHR::cooperativeMatrix not supported at vktComputeBasicComputeShaderTests.cpp:5170
+dEQP-VK.compute.pipeline.basic.replicated_composites_matrix_constant	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_matrix_specconstant	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_matrix_value	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_struct_constant	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_struct_specconstant	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_struct_struct_constant	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_struct_struct_specconstant	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_struct_struct_value	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_struct_value	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_vector_constant	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_vector_specconstant	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.replicated_composites_vector_value	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.secondary_compute_only_queue	NotSupported	No queue family found that only supports compute queue. at vktComputeBasicComputeShaderTests.cpp:4994
+dEQP-VK.compute.pipeline.basic.shared_atomic_op_multiple_groups	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.shared_atomic_op_multiple_invocations	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.shared_atomic_op_single_group	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.shared_atomic_op_single_invocation	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.shared_var_multiple_groups	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.shared_var_multiple_invocations	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.shared_var_single_group	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.shared_var_single_invocation	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.ssbo_cmd_barrier_multiple	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.ssbo_cmd_barrier_single	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.ssbo_local_barrier_multiple_groups	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.ssbo_local_barrier_single_group	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.ssbo_local_barrier_single_invocation	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.ssbo_rw_multiple_groups	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.ssbo_rw_single_invocation	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.ssbo_unsized_arr_multiple_groups	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.ssbo_unsized_arr_single_invocation	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.ubo_to_ssbo_multiple_groups	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.ubo_to_ssbo_multiple_invocations	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.ubo_to_ssbo_single_group	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.ubo_to_ssbo_single_invocation	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.undefined_values	Pass	Pass
+dEQP-VK.compute.pipeline.basic.vec2_nclamp_nan_component	Pass	Pass
+dEQP-VK.compute.pipeline.basic.webgl_spirv_loop	Pass	Pass
+dEQP-VK.compute.pipeline.basic.write_multiple_arr_multiple_groups	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.write_multiple_arr_single_invocation	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.write_multiple_unsized_arr_multiple_groups	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.write_multiple_unsized_arr_single_invocation	Pass	Compute succeeded
+dEQP-VK.compute.pipeline.basic.write_ssbo_array	Pass	Pass
+dEQP-VK.glsl.indexing.tmp_array.float_const_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_const_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_const_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_const_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_const_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_const_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_const_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_const_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_loop_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_loop_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_loop_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_loop_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_loop_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_loop_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_loop_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_loop_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_dynamic_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_loop_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_loop_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_loop_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_loop_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_loop_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_loop_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_loop_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_loop_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.float_static_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_const_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_const_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_const_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_const_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_const_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_const_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_const_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_const_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_loop_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_loop_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_loop_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_loop_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_loop_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_loop_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_loop_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_loop_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_dynamic_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_loop_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_loop_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_loop_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_loop_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_loop_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_loop_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_loop_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_loop_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec2_static_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_const_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_const_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_const_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_const_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_const_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_const_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_const_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_const_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_loop_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_loop_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_loop_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_loop_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_loop_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_loop_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_loop_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_loop_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_dynamic_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_loop_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_loop_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_loop_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_loop_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_loop_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_loop_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_loop_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_loop_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.composites.2	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.composites.6	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.max_workgroup_memory.1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.max_workgroup_memory.4	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.max_workgroups.z	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.repeat_pipeline.x_16_even_repeat_8	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.repeat_pipeline.x_16_odd_repeat_8	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.repeat_pipeline.x_32_even_repeat_8	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.repeat_pipeline.x_32_odd_repeat_8	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.repeat_pipeline.x_4_even_repeat_8	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.repeat_pipeline.x_4_odd_repeat_8	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.repeat_pipeline.x_64_even_repeat_8	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.repeat_pipeline.x_64_odd_repeat_8	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.shared_memory_blocks.workgroup_size_4x8x4	Pass	Pass
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_1_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_1_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_2_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_2_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_3_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_3_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_4_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_4_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_5_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_5_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_6_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_6_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_7_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_7_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_8_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.1_8_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_1_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_1_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_2_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_2_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_3_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_3_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_4_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_4_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_5_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_5_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_6_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_6_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_7_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_7_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_8_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.2_8_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_1_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_1_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_2_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_2_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_3_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_3_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_4_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_4_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_5_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_5_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_6_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_6_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_7_1	Pass	compute succeeded
+dEQP-VK.glsl.indexing.tmp_array.vec3_static_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_const_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_const_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_const_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_const_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_const_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_const_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_const_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_const_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_loop_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_loop_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_loop_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_loop_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_loop_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_loop_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_loop_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_loop_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_dynamic_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_loop_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_loop_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_loop_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_loop_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_loop_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_loop_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_loop_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_loop_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_write_dynamic_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_write_dynamic_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_write_dynamic_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_write_dynamic_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_write_static_loop_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_write_static_loop_read_vertex	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_write_static_read_fragment	Pass	Result image matches reference
+dEQP-VK.glsl.indexing.tmp_array.vec4_static_write_static_read_vertex	Pass	Result image matches reference
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_7_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_8_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.3_8_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_1_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_1_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_2_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_2_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_3_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_3_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_4_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_4_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_5_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_5_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_6_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_6_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_7_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_7_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_8_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.4_8_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_1_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_1_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_2_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_2_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_3_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_3_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_4_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_4_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_5_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_5_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_6_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_6_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_7_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_7_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_8_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.5_8_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_1_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_1_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_2_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_2_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_3_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_3_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_4_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_4_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_5_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_5_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_6_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_6_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_7_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_7_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_8_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.6_8_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_1_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_1_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_2_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_2_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_3_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_3_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_4_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_4_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_5_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_5_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_6_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_6_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_7_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_7_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_8_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.7_8_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_1_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_1_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_2_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_2_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_3_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_3_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_4_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_4_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_5_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_5_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_6_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_6_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_7_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_7_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_8_1	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.specialize_workgroup.8_8_5	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.bool	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.f16mat2x2	NotSupported	shaderFloat16 not supported at vktComputeZeroInitializeWorkgroupMemoryTests.cpp:353
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.f16mat3x3	NotSupported	shaderFloat16 not supported at vktComputeZeroInitializeWorkgroupMemoryTests.cpp:353
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.f16mat4x4	NotSupported	shaderFloat16 not supported at vktComputeZeroInitializeWorkgroupMemoryTests.cpp:353
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.f32mat2x2	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.f32mat3x3	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.f32mat4x4	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.f64mat2x2	NotSupported	shaderFloat64 not supported at vktComputeZeroInitializeWorkgroupMemoryTests.cpp:363
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.f64mat3x3	NotSupported	shaderFloat64 not supported at vktComputeZeroInitializeWorkgroupMemoryTests.cpp:363
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.f64mat4x4	NotSupported	shaderFloat64 not supported at vktComputeZeroInitializeWorkgroupMemoryTests.cpp:363
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.float16_t	NotSupported	shaderFloat16 not supported at vktComputeZeroInitializeWorkgroupMemoryTests.cpp:353
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.i16vec3	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.i64vec4	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.int16_t	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.ivec2	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.u16vec3	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.u64vec4	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.uint16_t	Pass	compute succeeded
+dEQP-VK.compute.pipeline.zero_initialize_workgroup_memory.types.uvec2	Pass	compute succeeded

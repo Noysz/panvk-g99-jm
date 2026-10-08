@@ -1,0 +1,31 @@
+api_smoke          8 cases  Pass=8  lost=0 gain=0 
+blend            100 cases  Pass=100  lost=0 gain=0 
+clip             698 cases  Fail=6 NotSupported=108 Pass=584  lost=0 gain=0 
+event             32 cases  NotSupported=13 Pass=19  lost=0 gain=0 
+gs               200 cases  NotSupported=8 Pass=192  lost=0 gain=0 
+gsctl            200 cases  Fail=192 NotSupported=8  lost=0 gain=0 
+indirect_draw    372 cases  Pass=372  lost=0 gain=0 
+layers            62 cases  Pass=62  lost=0 gain=0 
+mvp              223 cases  NotSupported=85 Pass=138  lost=0 gain=0 
+nulldesc          25 cases  Fail=1 Pass=24  lost=0 gain=0 
+occlusion        441 cases  NotSupported=7 Pass=434  lost=0 gain=0 
+own               82 cases  NotSupported=1 Pass=81  lost=0 gain=0 
+sampler          170 cases  NotSupported=115 Pass=55  lost=0 gain=0 
+secondary         19 cases  NotSupported=2 Pass=17  lost=0 gain=0 
+simple_draw        4 cases  Pass=4  lost=0 gain=0 
+stencil          209 cases  Pass=209  lost=0 gain=0 
+syncbasic         19 cases  NotSupported=3 Pass=16  lost=0 gain=0 
+syncfd            28 cases  NotSupported=2 Pass=26  lost=0 gain=0 
+tesgs             54 cases  NotSupported=12 Pass=42  lost=0 gain=0 
+tess             217 cases  NotSupported=24 Pass=193  lost=0 gain=0 
+tessfull        1114 cases  NotSupported=347 Pass=767  lost=0 gain=0 
+tessmvp          568 cases  NotSupported=320 Pass=248  lost=0 gain=0 
+tex_filter        18 cases  NotSupported=12 Pass=6  lost=0 gain=0 
+tex_mipmap        72 cases  NotSupported=36 Pass=36  lost=0 gain=0 
+topology         198 cases  NotSupported=17 Pass=181  lost=0 gain=0 
+vmsr            1050 cases  NotSupported=954 Pass=96  lost=0 gain=0 
+vpsa             416 cases  NotSupported=152 Pass=264  lost=0 gain=0 
+vpst             315 cases  Pass=315  lost=0 gain=0 
+xfb              143 cases  Fail=8 NotSupported=10 Pass=125  lost=0 gain=0 
+xfbstr            70 cases  NotSupported=31 Pass=39  lost=0 gain=0 
+TOTAL groups=30 cases=7127 lost=0 gain=0

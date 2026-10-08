@@ -1,0 +1,13 @@
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+DEVICE Apex(Mali-G57 MC2 FourFectVK 0.1.0 Test3) api 1.3.354
+PROFILE dxvk-1.10.3        D3D11 OK maxFL=b_1 | D3D9 OK
+PROFILE dxvk-1.11.1-sarek  D3D11 OK maxFL=b_1 | D3D9 OK
+PROFILE dxvk-1.12.1-sarek  D3D11 OK maxFL=b_1 | D3D9 OK
+PROFILE dxvk-v2.3.1        D3D11 OK maxFL=b_1
+SAREK112_DEGRADED depthBounds
+OPT_EXT +EXT_4444_formats +EXT_custom_border_color +EXT_depth_clip_enable +EXT_extended_dynamic_state +EXT_host_query_reset +EXT_memory_budget +EXT_non_seamless_cube_map +EXT_robustness2 +EXT_shader_demote_to_helper_invocation +EXT_shader_stencil_export +EXT_vertex_attribute_divisor +KHR_create_renderpass2 +KHR_depth_stencil_resolve +KHR_draw_indirect_count +KHR_driver_properties +KHR_image_format_list +KHR_sampler_mirror_clamp_to_edge +KHR_shader_float_controls +KHR_swapchain +KHR_timeline_semaphore +EXT_transform_feedback -EXT_shader_viewport_index_layer -EXT_memory_priority -EXT_conservative_rasterization
+CREATE_DEVICE sarek-like r=0 exts=21
+SUBMIT r=0 WAITIDLE r=0
+RESULT ok usable_profiles=4

@@ -1,0 +1,38 @@
+=== cube: frames=30 step=10.0 dim=256 tiling=optimal band=0.50 resubmit ===
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+CUBEFP frame=000 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=001 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=002 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=003 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=004 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=005 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=006 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=007 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=008 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=009 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=010 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=011 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=012 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=013 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=014 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=015 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=016 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=017 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=018 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=019 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=020 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=021 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=022 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=023 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=024 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=025 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=026 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=027 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=028 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=029 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+
+--- result ---
+frames=30 bad_frames=0 bad_pixels=0 edge_pixels=27150 edge_diff=20220 gpu+wait=2.4 ms/frame wall=14.5 ms/frame
+checked frames=30 of 30
+CUBESUM tiling=optimal frames=30 bad_frames=0 bad=0 exact_diff=0 max_exact_frame=0 verdict=PASS
+DONE

@@ -1,0 +1,19 @@
+dEQP-VK.synchronization.basic.binary_semaphore.chain	Pass	Basic semaphore chain test passed
+dEQP-VK.synchronization.basic.binary_semaphore.multi_queue	NotSupported	Queues couldn't be created at vktSynchronizationBasicSemaphoreTests.cpp:869
+dEQP-VK.synchronization.basic.binary_semaphore.multi_queue_typed	NotSupported	Queues couldn't be created at vktSynchronizationBasicSemaphoreTests.cpp:869
+dEQP-VK.synchronization.basic.binary_semaphore.one_queue	Pass	Basic semaphore tests with one queue passed
+dEQP-VK.synchronization.basic.binary_semaphore.one_queue_typed	Pass	Basic semaphore tests with one queue passed
+dEQP-VK.synchronization.basic.fence.empty_submit	Pass	OK
+dEQP-VK.synchronization.basic.fence.multi	Pass	Basic multi fence tests passed
+dEQP-VK.synchronization.basic.fence.multi_waitall_false	Pass	Basic multi fence test without waitAll passed
+dEQP-VK.synchronization.basic.fence.multiple_signaled	Pass	Pass
+dEQP-VK.synchronization.basic.fence.one	Pass	Basic one fence tests passed
+dEQP-VK.synchronization.basic.fence.one_signaled	Pass	Pass
+dEQP-VK.synchronization.basic.timeline_semaphore.chain	Pass	Basic semaphore chain test passed
+dEQP-VK.synchronization.basic.timeline_semaphore.multi_queue	NotSupported	Queues couldn't be created at vktSynchronizationBasicSemaphoreTests.cpp:869
+dEQP-VK.synchronization.basic.timeline_semaphore.one_queue	Pass	Basic semaphore tests with one queue passed
+dEQP-VK.synchronization.basic.timeline_semaphore.two_threads	Pass	Pass
+dEQP-VK.synchronization.basic.timeline_semaphore.wait_for_all_current_value	Pass	Pass
+dEQP-VK.synchronization.basic.timeline_semaphore.wait_for_all_lesser_value	Pass	Pass
+dEQP-VK.synchronization.basic.timeline_semaphore.wait_for_any_current_value	Pass	Pass
+dEQP-VK.synchronization.basic.timeline_semaphore.wait_for_any_lesser_value	Pass	Pass

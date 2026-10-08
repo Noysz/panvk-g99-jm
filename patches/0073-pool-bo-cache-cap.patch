@@ -1,0 +1,88 @@
+diff --git a/src/panfrost/vulkan/panvk_mempool.c b/src/panfrost/vulkan/panvk_mempool.c
+--- a/src/panfrost/vulkan/panvk_mempool.c
++++ b/src/panfrost/vulkan/panvk_mempool.c
+@@ -11,6 +11,8 @@
+ #include "kmod/pan_kmod.h"
+ #include "util/u_atomic.h"
+ 
++#include <stdlib.h>
++
+ void
+ panvk_bo_pool_cleanup(struct panvk_bo_pool *bo_pool)
+ {
+@@ -228,14 +230,59 @@
+       panvk_pool_alloc_backing(pool, pool->base.slab_size);
+ }
+ 
++/* PATCH: command buffer BOs go back to the command pool's BO cache on reset
++ * and stay there until the pool is destroyed. Every pool keeps the peak it
++ * ever needed, and DXVK keeps a pool per command list, so a long session over
++ * many scenes ends with ~100 MB of idle cached BOs (measured, PANVK_MEM_PROF).
++ * Cache only up to PANVK_POOL_CACHE_MAX_MB per device (default 48, 0 = no
++ * cap, the old behaviour) and free the rest. A BO pool with nothing cached
++ * still keeps one BO, so a single BO larger than the cap is not freed and
++ * allocated again on every reset. */
++static uint64_t
++panvk_pool_cache_cap(void)
++{
++   static int64_t cap = -1;
++
++   if (cap < 0) {
++      const char *e = getenv("PANVK_POOL_CACHE_MAX_MB");
++      cap = (e && *e) ? (int64_t)(strtoull(e, NULL, 10) << 20) : 48ll << 20;
++   }
++   return cap;
++}
++
++static void
++panvk_pool_return_bos(struct panvk_pool *pool, struct list_head *bos,
++                      struct panvk_bo_pool *bo_pool)
++{
++   const uint64_t cap = panvk_pool_cache_cap();
++
++   if (!cap) {
++      p_atomic_add(&pool->dev->pool_cached_bytes, panvk_bo_list_bytes(bos));
++      list_splicetail(bos, &bo_pool->free_bos);
++      list_inithead(bos);
++      return;
++   }
++
++   list_for_each_entry_safe(struct panvk_priv_bo, bo, bos, node) {
++      const uint64_t sz = pan_kmod_bo_size(bo->bo);
++
++      list_del(&bo->node);
++      if (list_is_empty(&bo_pool->free_bos) ||
++          p_atomic_read(&pool->dev->pool_cached_bytes) + sz <= cap) {
++         p_atomic_add(&pool->dev->pool_cached_bytes, sz);
++         list_addtail(&bo->node, &bo_pool->free_bos);
++      } else {
++         panvk_priv_bo_unref(bo);
++      }
++   }
++   list_inithead(bos);
++}
++
+ void
+ panvk_pool_reset(struct panvk_pool *pool)
+ {
+    if (pool->bo_pool) {
+-      p_atomic_add(&pool->dev->pool_cached_bytes,
+-                   panvk_bo_list_bytes(&pool->bos));
+-      list_splicetail(&pool->bos, &pool->bo_pool->free_bos);
+-      list_inithead(&pool->bos);
++      panvk_pool_return_bos(pool, &pool->bos, pool->bo_pool);
+    } else {
+       list_for_each_entry_safe(struct panvk_priv_bo, bo, &pool->bos, node) {
+          list_del(&bo->node);
+@@ -244,10 +291,7 @@
+    }
+ 
+    if (pool->big_bo_pool) {
+-      p_atomic_add(&pool->dev->pool_cached_bytes,
+-                   panvk_bo_list_bytes(&pool->big_bos));
+-      list_splicetail(&pool->big_bos, &pool->big_bo_pool->free_bos);
+-      list_inithead(&pool->big_bos);
++      panvk_pool_return_bos(pool, &pool->big_bos, pool->big_bo_pool);
+    } else {
+       list_for_each_entry_safe(struct panvk_priv_bo, bo, &pool->big_bos, node) {
+          list_del(&bo->node);

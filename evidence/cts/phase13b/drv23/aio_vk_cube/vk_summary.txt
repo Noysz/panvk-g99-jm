@@ -1,0 +1,2 @@
+vk_default faults=0 vk rc=0 # avg_fps,234.08,min_fps,8.31,max_fps,597.98,low1pct_fps,38.74
+vk_PANVK_V9_NO_REISSUE_VA_RESET=1 faults=16 vk rc=0 # avg_fps,231.60,min_fps,7.58,max_fps,665.16,low1pct_fps,37.61

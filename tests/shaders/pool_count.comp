@@ -1,0 +1,10 @@
+#version 450
+// Command pool BO cache test (tests/graphics/pool_cache_test.c): every
+// dispatch adds 1 to a counter, so lost or corrupted dispatches show up.
+layout(local_size_x = 1) in;
+layout(std430, set = 0, binding = 0) buffer C { uint n; } c;
+layout(push_constant) uniform P { uint add; } p;
+void main()
+{
+   atomicAdd(c.n, p.add);
+}

@@ -175,9 +175,13 @@ int main(void){
     /* CUBE_CHECK_EVERY=n: run the CPU check on every n-th frame only (live
      * view). Default 1, every frame. */
     const int check_every = getenv("CUBE_CHECK_EVERY") ? atoi(getenv("CUBE_CHECK_EVERY")) : 1;
+    /* CUBE_RESUBMIT=1: record the command buffer once (fixed angle 30, no
+     * ONE_TIME_SUBMIT) and submit the same command buffer every frame, like
+     * vkcube with prerecorded command buffers. Every frame is checked. */
+    const int resubmit = getenv("CUBE_RESUBMIT") && getenv("CUBE_RESUBMIT")[0]=='1';
     int checked=0;
-    printf("=== cube: frames=%d step=%.1f dim=%d tiling=%s band=%.2f%s%s%s ===\n",
-           frames,step,D,linear?"linear":"optimal",band,
+    printf("=== cube: frames=%d step=%.1f dim=%d tiling=%s band=%.2f%s%s%s%s ===\n",
+           frames,step,D,linear?"linear":"optimal",band,resubmit?" resubmit":"",
            lie?" NEGATIVE CONTROL: model angle +3":"",
            nodepth?" NEGATIVE CONTROL: pipeline depth test off":"",
            want_x11?" x11":"");
@@ -362,12 +366,13 @@ int main(void){
     uint64_t tot_bad=0,tot_edge_diff=0,tot_edge=0; int bad_frames=0;
     double t_gpu=0,t_start=now_s();
     for(int fr=0; frames==0 || fr<frames; fr++){
-        double deg=fr*step;
+        double deg=resubmit?30.0:fr*step;
         double m[16]; make_mvp(deg,m); float mf[16]; for(int i=0;i<16;i++) mf[i]=(float)m[i];
         double t0=now_s();
+        if(resubmit && fr>0) goto submit;
         CHECK(ResetCommandBuffer(cmd,0),"reset cb");
         VkCommandBufferBeginInfo bi={.sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,
-            .flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT};
+            .flags=resubmit?0:VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT};
         CHECK(BeginCommandBuffer(cmd,&bi),"begin");
         VkImageMemoryBarrier b0[2]={
             {.sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER,.oldLayout=VK_IMAGE_LAYOUT_UNDEFINED,
@@ -412,6 +417,7 @@ int main(void){
             CmdPipelineBarrier(cmd,VK_PIPELINE_STAGE_TRANSFER_BIT,VK_PIPELINE_STAGE_HOST_BIT,0,1,&hb,0,NULL,0,NULL);
         }
         CHECK(EndCommandBuffer(cmd),"end");
+submit:
         if(!linear) memset(rmap,0xAB,(size_t)D*D*4);   /* poison: a skipped copy cannot pass */
         VkSubmitInfo si={.sType=VK_STRUCTURE_TYPE_SUBMIT_INFO,.commandBufferCount=1,.pCommandBuffers=&cmd};
         CHECK(ResetFences(dev,1,&fence),"reset fence");

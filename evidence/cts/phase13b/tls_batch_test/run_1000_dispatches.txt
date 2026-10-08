@@ -1,0 +1,1 @@
+TLSBATCH dispatches=1000 prof_lines=2 committed 0.2 -> 1.9 MB (+1.7, limit 16.0) BOs 12 -> 17 bad_values=0 verdict=PASS

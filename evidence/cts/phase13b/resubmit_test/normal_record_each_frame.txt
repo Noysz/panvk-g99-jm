@@ -1,0 +1,44 @@
+=== cube: frames=36 step=10.0 dim=256 tiling=optimal band=0.50 ===
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+CUBEFP frame=000 deg=   0.0 bad=0 exact_diff=30 edge=558 edge_diff=110 faces[R C G M B Y]=0 0 0 0 0 11990
+CUBEFP frame=001 deg=  10.0 bad=0 exact_diff=4 edge=595 edge_diff=379 faces[R C G M B Y]=0 0 0 0 0 11434
+CUBEFP frame=002 deg=  20.0 bad=0 exact_diff=2 edge=931 edge_diff=705 faces[R C G M B Y]=1193 0 0 245 0 10110
+CUBEFP frame=003 deg=  30.0 bad=0 exact_diff=0 edge=905 edge_diff=674 faces[R C G M B Y]=2840 0 0 1524 0 8156
+CUBEFP frame=004 deg=  40.0 bad=0 exact_diff=1 edge=871 edge_diff=628 faces[R C G M B Y]=4256 0 0 2904 0 5893
+CUBEFP frame=005 deg=  50.0 bad=0 exact_diff=0 edge=900 edge_diff=663 faces[R C G M B Y]=5136 0 0 4323 0 3656
+CUBEFP frame=006 deg=  60.0 bad=0 exact_diff=2 edge=876 edge_diff=655 faces[R C G M B Y]=5376 0 0 5784 0 1687
+CUBEFP frame=007 deg=  70.0 bad=0 exact_diff=1 edge=888 edge_diff=657 faces[R C G M B Y]=4943 0 0 7194 0 114
+CUBEFP frame=008 deg=  80.0 bad=0 exact_diff=0 edge=793 edge_diff=564 faces[R C G M B Y]=3955 0 0 8521 0 0
+CUBEFP frame=009 deg=  90.0 bad=0 exact_diff=0 edge=799 edge_diff=569 faces[R C G M B Y]=2614 0 0 9707 0 0
+CUBEFP frame=010 deg= 100.0 bad=0 exact_diff=2 edge=802 edge_diff=580 faces[R C G M B Y]=1221 0 0 10663 0 0
+CUBEFP frame=011 deg= 110.0 bad=0 exact_diff=0 edge=701 edge_diff=475 faces[R C G M B Y]=2 0 0 11375 0 0
+CUBEFP frame=012 deg= 120.0 bad=0 exact_diff=0 edge=600 edge_diff=374 faces[R C G M B Y]=0 0 0 11794 0 0
+CUBEFP frame=013 deg= 130.0 bad=0 exact_diff=0 edge=611 edge_diff=378 faces[R C G M B Y]=0 0 0 11901 0 0
+CUBEFP frame=014 deg= 140.0 bad=0 exact_diff=1 edge=600 edge_diff=375 faces[R C G M B Y]=0 0 0 11706 0 0
+CUBEFP frame=015 deg= 150.0 bad=0 exact_diff=0 edge=759 edge_diff=536 faces[R C G M B Y]=0 0 0 11197 0 69
+CUBEFP frame=016 deg= 160.0 bad=0 exact_diff=1 edge=812 edge_diff=583 faces[R C G M B Y]=0 0 0 10406 0 1388
+CUBEFP frame=017 deg= 170.0 bad=0 exact_diff=1 edge=817 edge_diff=596 faces[R C G M B Y]=0 0 0 9369 0 2934
+CUBEFP frame=018 deg= 180.0 bad=0 exact_diff=0 edge=808 edge_diff=584 faces[R C G M B Y]=0 0 0 8102 0 4520
+CUBEFP frame=019 deg= 190.0 bad=0 exact_diff=1 edge=786 edge_diff=564 faces[R C G M B Y]=0 0 0 6783 0 5795
+CUBEFP frame=020 deg= 200.0 bad=0 exact_diff=2 edge=895 edge_diff=664 faces[R C G M B Y]=489 0 0 5354 0 6602
+CUBEFP frame=021 deg= 210.0 bad=0 exact_diff=1 edge=892 edge_diff=662 faces[R C G M B Y]=2253 0 0 3903 0 6725
+CUBEFP frame=022 deg= 220.0 bad=0 exact_diff=3 edge=890 edge_diff=658 faces[R C G M B Y]=4384 0 0 2498 0 6091
+CUBEFP frame=023 deg= 230.0 bad=0 exact_diff=0 edge=895 edge_diff=666 faces[R C G M B Y]=6679 0 0 1164 0 4819
+CUBEFP frame=024 deg= 240.0 bad=0 exact_diff=2 edge=868 edge_diff=636 faces[R C G M B Y]=8852 0 0 0 0 3112
+CUBEFP frame=025 deg= 250.0 bad=0 exact_diff=0 edge=785 edge_diff=555 faces[R C G M B Y]=10596 0 0 0 0 1277
+CUBEFP frame=026 deg= 260.0 bad=0 exact_diff=0 edge=594 edge_diff=375 faces[R C G M B Y]=11579 0 0 0 0 0
+CUBEFP frame=027 deg= 270.0 bad=0 exact_diff=0 edge=595 edge_diff=473 faces[R C G M B Y]=11585 0 0 0 0 0
+CUBEFP frame=028 deg= 280.0 bad=0 exact_diff=2 edge=765 edge_diff=539 faces[R C G M B Y]=10806 0 584 0 0 0
+CUBEFP frame=029 deg= 290.0 bad=0 exact_diff=3 edge=925 edge_diff=699 faces[R C G M B Y]=9201 0 1883 0 1018 0
+CUBEFP frame=030 deg= 300.0 bad=0 exact_diff=0 edge=901 edge_diff=668 faces[R C G M B Y]=7126 0 3287 0 2420 0
+CUBEFP frame=031 deg= 310.0 bad=0 exact_diff=2 edge=881 edge_diff=647 faces[R C G M B Y]=4906 0 4741 0 3479 0
+CUBEFP frame=032 deg= 320.0 bad=0 exact_diff=1 edge=895 edge_diff=663 faces[R C G M B Y]=2801 0 6193 0 4001 0
+CUBEFP frame=033 deg= 330.0 bad=0 exact_diff=1 edge=904 edge_diff=672 faces[R C G M B Y]=1034 0 7595 0 3901 0
+CUBEFP frame=034 deg= 340.0 bad=0 exact_diff=1 edge=771 edge_diff=546 faces[R C G M B Y]=0 0 8875 0 3232 0
+CUBEFP frame=035 deg= 350.0 bad=0 exact_diff=2 edge=782 edge_diff=561 faces[R C G M B Y]=0 0 9999 0 2171 0
+
+--- result ---
+frames=36 bad_frames=0 bad_pixels=0 edge_pixels=28650 edge_diff=20333 gpu+wait=2.3 ms/frame wall=14.3 ms/frame
+checked frames=36 of 36
+CUBESUM tiling=optimal frames=36 bad_frames=0 bad=0 exact_diff=66 max_exact_frame=30 verdict=PASS
+DONE

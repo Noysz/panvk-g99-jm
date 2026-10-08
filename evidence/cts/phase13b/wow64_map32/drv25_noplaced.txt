@@ -1,0 +1,11 @@
+VKMAP32 vkCreateInstance=0
+VKMAP32 device Apex(Mali-G57 MC2 FourFectVK 0.1.0 Test3), 151 extensions, map_memory_placed=0 external_memory_host=0
+0024:fixme:vulkan:win32u_vkMapMemory2KHR returned mapping 0x71ac400000 does not fit 32-bit pointer
+VKMAP32 alloc 0: allocate=0 map=-1 ptr=00000000 rw=bad
+0024:fixme:vulkan:win32u_vkMapMemory2KHR returned mapping 0x71a8400000 does not fit 32-bit pointer
+VKMAP32 alloc 1: allocate=0 map=-1 ptr=00000000 rw=bad
+0024:fixme:vulkan:win32u_vkMapMemory2KHR returned mapping 0x71a4400000 does not fit 32-bit pointer
+VKMAP32 alloc 2: allocate=0 map=-1 ptr=00000000 rw=bad
+0024:fixme:vulkan:win32u_vkMapMemory2KHR returned mapping 0x71a0400000 does not fit 32-bit pointer
+VKMAP32 alloc 3: allocate=0 map=-1 ptr=00000000 rw=bad
+VKMAP32 mapped_ok=0/4 verdict=FAIL

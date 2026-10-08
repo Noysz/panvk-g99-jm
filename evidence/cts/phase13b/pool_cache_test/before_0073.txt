@@ -1,0 +1,4 @@
+build9 at 0072 (no cap)
+POOLCACHE round 0 counter=320000 want=320000 rss=126.8 MB
+POOLCACHE round 1 counter=640000 want=640000 rss=127.4 MB
+POOLCACHE pools=8 dispatches=40000 cache_after_resets=79.0 MB max_seen=79.0 MB limit=56.0 MB rss_before=9.2 rss_after=127.4 bad_counters=0 verdict=FAIL

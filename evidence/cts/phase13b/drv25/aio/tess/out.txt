@@ -1,0 +1,1 @@
+AIOCLICK scene=tess status=ALIVE segv=0 guard_msgs=0 unhandled=0

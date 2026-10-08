@@ -1,0 +1,185 @@
+diff --git a/src/panfrost/lib/pan_buffer.c b/src/panfrost/lib/pan_buffer.c
+--- a/src/panfrost/lib/pan_buffer.c
++++ b/src/panfrost/lib/pan_buffer.c
+@@ -46,6 +46,19 @@
+       cfg.stride = stride;
+       cfg.conversion = conv;
+    }
++
++#if PAN_ARCH < 11
++   /* PATCH v9: dwords 5 and 6 are not read by the hardware. They hold the
++    * element count and whether the format has no alpha channel, for the
++    * software bounds check of texel buffer reads (robustBufferAccess2:
++    * out-of-range reads return 0 and 1 for a missing alpha; the hardware
++    * returns 0 with the alpha the wrong way round, see
++    * pan_nir_lower_texel_buf_oob). A null descriptor is all zeros, so every
++    * read is out of range and returns 0, as before. */
++   uint32_t *w = (uint32_t *)out;
++   w[5] = bview->width_el;
++   w[6] = !util_format_has_alpha(bview->format);
++#endif
+ }
+ 
+ #elif PAN_ARCH >= 6
+diff --git a/src/panfrost/compiler/pan_compiler.h b/src/panfrost/compiler/pan_compiler.h
+--- a/src/panfrost/compiler/pan_compiler.h
++++ b/src/panfrost/compiler/pan_compiler.h
+@@ -41,6 +41,11 @@
+     * checks. */
+    bool robust_descriptors;
+ 
++   /* PATCH v9: texel buffer reads out of the view range return 0 and 1 for a
++    * missing alpha (robustBufferAccess2), checked in the shader against the
++    * element count the driver stores in BUFFER descriptor dword 5. */
++   bool robust_texel_buffers;
++
+    /* Varying layout in memory, if known */
+    const struct pan_varying_layout *varying_layout;
+ 
+diff --git a/src/panfrost/compiler/bifrost/bifrost_nir.c b/src/panfrost/compiler/bifrost/bifrost_nir.c
+--- a/src/panfrost/compiler/bifrost/bifrost_nir.c
++++ b/src/panfrost/compiler/bifrost/bifrost_nir.c
+@@ -866,6 +866,7 @@
+ }
+ 
+ static bool pan_nir_lower_buf_image_access(nir_shader *nir, unsigned arch);
++static bool pan_nir_lower_texel_buf_oob(nir_shader *nir);
+ static bool bi_should_idvs(nir_shader *nir, const struct pan_compile_inputs *inputs);
+ static bool bifrost_nir_lower_vs_atomics(nir_shader *nir);
+ static bool bifrost_nir_lower_vs_stores(nir_shader *nir);
+@@ -889,6 +890,10 @@
+    if (gpu_arch < 9)
+       NIR_PASS(_, nir, pan_nir_lower_image_ms);
+ 
++   /* PATCH v9: before the texel buffer accesses become LEA_BUF + LD_CVT. */
++   if (gpu_arch >= 9 && gpu_arch < 11 && inputs->robust_texel_buffers)
++      NIR_PASS(_, nir, pan_nir_lower_texel_buf_oob);
++
+    NIR_PASS(_, nir, pan_nir_lower_buf_image_access, gpu_arch);
+ 
+    /* We assume that UBO and SSBO were lowered, let's move things around. */
+@@ -1219,6 +1224,87 @@
+                                      nir_metadata_control_flow, &arch);
+ }
+ 
++/* PATCH v9: robustBufferAccess2 wants a texel buffer read outside the view
++ * to return 0 for the components of the format and (0, 0, 1) for a missing
++ * G, B, A. LEA_BUF + LD_CVT on v9 bounds-check (stores and atomics are
++ * dropped, the components read are 0) but return alpha 0 for formats
++ * without alpha (R32_UINT, R32G32_SFLOAT) and 1 for formats with alpha
++ * (R8G8B8A8_UNORM). pan_buffer_texture_emit stores the element count in
++ * dword 5 and "format has no alpha" in dword 6; select the spec value when
++ * the index is not below the element count. */
++static nir_def *
++texel_buf_oob_select(nir_builder *b, nir_def *val, nir_def *handle,
++                     nir_def *index, nir_alu_type type)
++{
++   nir_def *count = pan_nir_load_va_desc(b, 1, 32, handle, 5 * 4);
++   nir_def *no_alpha = pan_nir_load_va_desc(b, 1, 32, handle, 6 * 4);
++   nir_def *in_range = nir_ult(b, index, count);
++   unsigned bits = val->bit_size;
++   nir_def *zero = nir_imm_intN_t(b, 0, bits);
++   nir_def *one = nir_alu_type_get_base_type(type) == nir_type_float
++                     ? nir_imm_floatN_t(b, 1.0, bits)
++                     : nir_imm_intN_t(b, 1, bits);
++   nir_def *comps[NIR_MAX_VEC_COMPONENTS];
++
++   for (unsigned c = 0; c < val->num_components; c++) {
++      nir_def *oob =
++         c == 3 ? nir_bcsel(b, nir_ine_imm(b, no_alpha, 0), one, zero) : zero;
++      comps[c] = nir_bcsel(b, in_range, nir_channel(b, val, c), oob);
++   }
++
++   return nir_vec(b, comps, val->num_components);
++}
++
++static bool
++lower_texel_buf_oob_instr(nir_builder *b, nir_instr *instr, UNUSED void *data)
++{
++   nir_def *def, *handle, *index;
++   nir_alu_type type;
++
++   b->cursor = nir_before_instr(instr);
++
++   if (instr->type == nir_instr_type_intrinsic) {
++      nir_intrinsic_instr *intr = nir_instr_as_intrinsic(instr);
++      if (intr->intrinsic != nir_intrinsic_image_load ||
++          nir_intrinsic_image_dim(intr) != GLSL_SAMPLER_DIM_BUF)
++         return false;
++      def = &intr->def;
++      handle = intr->src[0].ssa;
++      index = nir_channel(b, intr->src[1].ssa, 0);
++      type = nir_intrinsic_dest_type(intr);
++   } else if (instr->type == nir_instr_type_tex) {
++      nir_tex_instr *tex = nir_instr_as_tex(instr);
++      if (tex->op != nir_texop_txf || tex->sampler_dim != GLSL_SAMPLER_DIM_BUF)
++         return false;
++      int h = nir_tex_instr_src_index(tex, nir_tex_src_texture_handle);
++      if (h < 0)
++         h = nir_tex_instr_src_index(tex, nir_tex_src_texture_offset);
++      int c = nir_tex_instr_src_index(tex, nir_tex_src_coord);
++      if (c < 0)
++         return false;
++      def = &tex->def;
++      /* Same handle as steal_tex_srcs() + combine_index() build. */
++      handle = h >= 0 ? nir_iadd_imm(b, tex->src[h].src.ssa, tex->texture_index)
++                      : nir_imm_int(b, tex->texture_index);
++      index = nir_channel(b, tex->src[c].src.ssa, 0);
++      type = tex->dest_type;
++   } else {
++      return false;
++   }
++
++   b->cursor = nir_after_instr(instr);
++   nir_def *res = texel_buf_oob_select(b, def, handle, index, type);
++   nir_def_rewrite_uses_after(def, res);
++   return true;
++}
++
++static bool
++pan_nir_lower_texel_buf_oob(nir_shader *shader)
++{
++   return nir_shader_instructions_pass(shader, lower_texel_buf_oob_instr,
++                                       nir_metadata_control_flow, NULL);
++}
++
+ /* Decide if Index-Driven Vertex Shading should be used for a given shader */
+ static bool
+ bi_should_idvs(nir_shader *nir, const struct pan_compile_inputs *inputs)
+diff --git a/src/panfrost/vulkan/panvk_vX_shader.c b/src/panfrost/vulkan/panvk_vX_shader.c
+--- a/src/panfrost/vulkan/panvk_vX_shader.c
++++ b/src/panfrost/vulkan/panvk_vX_shader.c
+@@ -2355,6 +2355,18 @@
+       .robust_descriptors = dev->vk.enabled_features.nullDescriptor,
+    };
+ 
++#if PAN_ARCH == 9
++   /* PATCH v9: uniform/storage texel buffers follow the uniform/storage
++    * buffer robustness. PANVK_V9_TEXEL_OOB_HW=1 keeps the hardware values
++    * (control). */
++   inputs.robust_texel_buffers =
++      (info->robustness->uniform_buffers ==
++          VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2_EXT ||
++       info->robustness->storage_buffers ==
++          VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2_EXT) &&
++      !pan_env_flag("PANVK_V9_TEXEL_OOB_HW");
++#endif
++
+    /* lower_layer_writes() removed the gl_Layer store, the variable stays. */
+    shader->writes_layer =
+       nir_find_variable_with_location(info->nir, nir_var_shader_out,
+diff --git a/src/panfrost/vulkan/panvk_vX_physical_device.c b/src/panfrost/vulkan/panvk_vX_physical_device.c
+--- a/src/panfrost/vulkan/panvk_vX_physical_device.c
++++ b/src/panfrost/vulkan/panvk_vX_physical_device.c
+@@ -644,7 +644,10 @@
+       .pipelineExecutableInfo = true,
+ 
+       /* VK_KHR_robustness2 */
+-      .robustBufferAccess2 = PAN_ARCH == 9 ? pan_env_flag("PANVK_V9_RBA2") != NULL : PAN_ARCH >= 11,
++      /* PATCH v9: on since texel buffer reads out of range return the spec
++       * values (pan_nir_lower_texel_buf_oob); PANVK_V9_NO_RBA2=1 hides it.
++       * DXVK 2.4+ and 3.x need it. */
++      .robustBufferAccess2 = PAN_ARCH == 9 ? !pan_env_flag("PANVK_V9_NO_RBA2") : PAN_ARCH >= 11,
+       .robustImageAccess2 = false,
+       .nullDescriptor = PAN_ARCH >= 9,
+ 

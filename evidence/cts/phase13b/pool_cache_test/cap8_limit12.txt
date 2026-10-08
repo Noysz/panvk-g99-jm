@@ -1,0 +1,3 @@
+POOLCACHE round 0 counter=320000 want=320000 rss=52.3 MB
+POOLCACHE round 1 counter=640000 want=640000 rss=40.1 MB
+POOLCACHE pools=8 dispatches=40000 cache_after_resets=8.0 MB max_seen=8.3 MB limit=12.0 MB rss_before=10.2 rss_after=40.1 bad_counters=0 verdict=PASS

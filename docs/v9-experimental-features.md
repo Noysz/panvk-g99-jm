@@ -77,11 +77,47 @@ Negative controls:
   uniform-buffer cases still pass under it, so the control does not cover
   them.
 
-`robustBufferAccess2` is **not** on by default. It is exposed only with
-`PANVK_V9_RBA2=1`. Under that setting, the out-of-bounds subset gives 20
-pass and 15 fail. All the failures are texel buffers: the expected
+Until `0071`, `robustBufferAccess2` was exposed only with
+`PANVK_V9_RBA2=1`. Under that setting, the out-of-bounds subset gave 20
+pass and 15 fail. All the failures were texel buffers: the expected
 out-of-bounds value depends on the format, and the shader does not know the
-format at compile time. UBO and SSBO cases pass.
+format at compile time. UBO and SSBO cases passed.
+
+## 0071: texel buffer out-of-bounds values, robustBufferAccess2 on by default (VERIFIED-HW in CTS)
+
+Measured with `tests/compute/texel_buffer_oob_test.c` (views of 4 texels in
+memory filled with a pattern, indices 0..7): v9 LEA_BUF + LD_CVT do bounds
+check (out-of-range reads give 0 in R, G, B, out-of-range stores and atomics
+are dropped), but the alpha is the wrong way round: 0 for formats without
+alpha (`R32_UINT`, `R32G32_SFLOAT`, Vulkan wants 1) and 1.0 for
+`R8G8B8A8_UNORM` (Vulkan wants 0).
+
+- `pan_buffer_texture_emit` writes the element count into dword 5 and
+  "the format has no alpha" into dword 6 of the BUFFER descriptor. The
+  hardware does not read them (dword 7 already holds the conversion the
+  same way).
+- `pan_nir_lower_texel_buf_oob` (bifrost_nir.c) runs before the texel buffer
+  accesses become LEA_BUF + LD_CVT, for `imageLoad` and `texelFetch` on
+  buffers: index < count keeps the loaded value, otherwise (0, 0, 0, a) with
+  a = 1 when dword 6 says no alpha. A null descriptor has count 0 and
+  dword 6 = 0, so it still reads 0.
+- It runs only when the pipeline asks for robustBufferAccess2 on uniform or
+  storage buffers. Control `PANVK_V9_TEXEL_OOB_HW=1`.
+- `robustBufferAccess2` is now on by default on v9; `PANVK_V9_NO_RBA2=1`
+  hides it. DXVK 2.4+ and 3.x refuse a device without it.
+
+Results (`evidence/cts/phase13b`):
+
+- `texel_buffer_oob_test`: 3x PASS. `PANVK_V9_TEXEL_OOB_HW=1`: 16 bad
+  out-of-range values (FAIL). `PANVK_V9_NO_RBA2=1`: not supported.
+- The old 35-case subset: 35/35 (was 20 / 15 F).
+- `robustness2.bind.notemplate`, 32-bit formats, `unroll.nonvolatile`, all
+  texel buffer cases plus every 4th other case (2649): 926 P / 53 F /
+  1670 NS. Control: 485 P / 494 F. 441 texel buffer cases fixed, 0 lost.
+- The 53 left fail with the control too: out-of-range **vertex attribute
+  fetch** (28: `len_32`, `len_39`, `len_252` and null descriptor) and
+  null-descriptor sampled images read in a **vertex shader** (25). Both are
+  open.
 
 ## 0046: sampler min/max reduction, emulated in the shader (VERIFIED-HW in CTS, cube maps BROKEN)
 
@@ -144,8 +180,8 @@ has not been measured.
 ## Still open
 
 - Cube and cube array for 0046.
-- Format-aware out-of-bounds values for texel buffers, so
-  `robustBufferAccess2` can be on by default.
+- robustBufferAccess2 vertex attribute fetch out of range (28 CTS cases) and
+  null-descriptor sampled images in a vertex shader (25), see 0071.
 - `VK_EXT_filter_cubic`, with the same word-3 approach and 16 texels.
 - Compute-only queue (97 cases).
 - The backend spill/phi bug from 0046.

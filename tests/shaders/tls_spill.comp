@@ -1,0 +1,15 @@
+#version 450
+// TLS per batch test (tests/graphics/tls_batch_test.c). The private array
+// is indexed with a run-time value, so the compiler puts it in thread-local
+// storage (scratch). Every invocation adds a[(x * 7 + k) % 96] to v[x].
+layout(local_size_x = 64) in;
+layout(std430, set = 0, binding = 0) buffer B { uint v[]; } b;
+layout(push_constant) uniform P { uint k; } p;
+void main()
+{
+   uint x = gl_GlobalInvocationID.x;
+   uint a[96];
+   for (uint i = 0u; i < 96u; i++)
+      a[i] = i * p.k + x;
+   b.v[x] += a[(x * 7u + p.k) % 96u];
+}

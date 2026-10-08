@@ -1,0 +1,6 @@
+dxvk-3.1.1 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3029ms fps=49.5 verdict=PASS | Using feature level D3D_FEATURE_LEVEL_11_1
+dxvk-gplasync-2.7.1-1 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2896ms fps=51.8 verdict=PASS | Using feature level D3D_FEATURE_LEVEL_11_1
+dxvk-sarek-async-1.11.0 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2672ms fps=56.1 verdict=PASS | Using feature level D3D_FEATURE_LEVEL_11_1
+v2.3.1-stripped rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3552ms fps=42.2 verdict=PASS | Using feature level D3D_FEATURE_LEVEL_11_1
+1.10.3 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2615ms fps=57.4 verdict=PASS | Using feature level D3D_FEATURE_LEVEL_11_1
+1.7.2 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2775ms fps=54.1 verdict=PASS | Using feature level D3D_FEATURE_LEVEL_11_1

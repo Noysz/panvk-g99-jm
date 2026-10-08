@@ -1,0 +1,4 @@
+dEQP-VK.draw.renderpass.simple_draw.simple_draw_instanced_triangle_list	Pass	Pass
+dEQP-VK.draw.renderpass.simple_draw.simple_draw_instanced_triangle_strip	Pass	Pass
+dEQP-VK.draw.renderpass.simple_draw.simple_draw_triangle_list	Pass	Pass
+dEQP-VK.draw.renderpass.simple_draw.simple_draw_triangle_strip	Pass	Pass

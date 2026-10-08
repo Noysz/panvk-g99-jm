@@ -1,0 +1,4 @@
+drv24 1.10.3 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2776ms fps=54.0 verdict=PASS
+drv24 pandxvk-9 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2757ms fps=54.4 verdict=PASS
+drv24 1.12.1-sarek rc=0 D3D11SUM frames=150 checked=5 bad=0 time=4447ms fps=33.7 verdict=PASS
+drv24 v2.3.1-stripped rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2677ms fps=56.0 verdict=PASS

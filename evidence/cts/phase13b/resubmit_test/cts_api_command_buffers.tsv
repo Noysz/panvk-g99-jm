@@ -1,0 +1,131 @@
+dEQP-VK.api.command_buffers.allocate_many_primary	Pass	allocateManyPrimaryBuffersTest succeded: created 10000 command buffers
+dEQP-VK.api.command_buffers.allocate_many_secondary	Pass	allocateManySecondaryBuffersTest succeded: created 10000 command buffers
+dEQP-VK.api.command_buffers.allocate_single_primary	Pass	Buffer was created correctly.
+dEQP-VK.api.command_buffers.allocate_single_secondary	Pass	Buffer was created correctly.
+dEQP-VK.api.command_buffers.bad_inheritance_info_invalid_type	Pass	Pass
+dEQP-VK.api.command_buffers.bad_inheritance_info_random	Pass	Pass
+dEQP-VK.api.command_buffers.bad_inheritance_info_random_cont	Pass	Pass
+dEQP-VK.api.command_buffers.bad_inheritance_info_random_data	Pass	Pass
+dEQP-VK.api.command_buffers.bad_inheritance_info_valid_nonsense_type	Pass	Pass
+dEQP-VK.api.command_buffers.executable_to_ininitial	Pass	Pass
+dEQP-VK.api.command_buffers.executable_to_invalid	Pass	Pass
+dEQP-VK.api.command_buffers.execute_large_primary	Pass	All events set correctly.
+dEQP-VK.api.command_buffers.execute_small_primary	Pass	Execute Primary Command Buffer succeeded
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_0_0	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_0_12	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_0_16	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_0_20	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_0_24	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_0_28	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_0_4	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_0_8	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_12_0	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_12_12	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_12_16	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_12_20	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_12_24	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_12_28	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_12_4	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_12_8	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_16_0	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_16_12	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_16_16	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_16_20	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_16_24	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_16_28	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_16_4	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_16_8	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_20_0	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_20_12	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_20_16	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_20_20	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_20_24	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_20_28	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_20_4	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_20_8	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_24_0	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_24_12	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_24_16	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_24_20	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_24_24	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_24_28	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_24_4	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_24_8	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_28_0	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_28_12	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_28_16	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_28_20	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_28_24	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_28_28	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_28_4	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_28_8	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_4_0	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_4_12	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_4_16	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_4_20	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_4_24	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_4_28	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_4_4	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_4_8	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_8_0	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_8_12	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_8_16	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_8_20	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_8_24	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_8_28	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_8_4	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.indirect_compute_dispatch_offsets_8_8	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.inherited_occlusion_query_without_primary_query_imprecise	NotSupported	Inherited queries feature is not supported at vktApiCommandBuffersTests.cpp:4670
+dEQP-VK.api.command_buffers.inherited_occlusion_query_without_primary_query_precise	NotSupported	Inherited queries feature is not supported at vktApiCommandBuffersTests.cpp:4670
+dEQP-VK.api.command_buffers.many_indirect_disps_on_secondary	NotSupported	Exclusive compute queue not supported. at vktTestCase.cpp:980
+dEQP-VK.api.command_buffers.many_indirect_draws_on_secondary	Pass	Pass
+dEQP-VK.api.command_buffers.nested_execute	NotSupported	VK_EXT_nested_command_buffer is not supported at vktTestCase.cpp:1394
+dEQP-VK.api.command_buffers.nested_execute_multiple_levels	NotSupported	VK_EXT_nested_command_buffer is not supported at vktTestCase.cpp:1394
+dEQP-VK.api.command_buffers.nested_render_pass_continue	NotSupported	VK_EXT_nested_command_buffer is not supported at vktTestCase.cpp:1394
+dEQP-VK.api.command_buffers.order_bind_pipeline	Pass	Pass
+dEQP-VK.api.command_buffers.pipeline_shader_object_mix_with_secondaries	NotSupported	VK_EXT_shader_object is not supported at vktTestCase.cpp:1394
+dEQP-VK.api.command_buffers.pool_create_non_null_allocator	Pass	Command Pool allocated correctly.
+dEQP-VK.api.command_buffers.pool_create_null_params	Pass	Command Pool allocated correctly.
+dEQP-VK.api.command_buffers.pool_create_reset_bit	Pass	Command Pool allocated correctly.
+dEQP-VK.api.command_buffers.pool_create_transient_bit	Pass	Command Pool allocated correctly.
+dEQP-VK.api.command_buffers.pool_reset_no_flags_res	Pass	Command Pool allocated correctly.
+dEQP-VK.api.command_buffers.pool_reset_release_res	Pass	Command Pool allocated correctly.
+dEQP-VK.api.command_buffers.pool_reset_reuse	Pass	Passed
+dEQP-VK.api.command_buffers.record_many_draws_primary_1	Pass	Pass
+dEQP-VK.api.command_buffers.record_many_draws_primary_2	Pass	Pass
+dEQP-VK.api.command_buffers.record_many_draws_secondary_1	Pass	Pass
+dEQP-VK.api.command_buffers.record_many_draws_secondary_2	Pass	Pass
+dEQP-VK.api.command_buffers.record_many_primary	Pass	hugeTest succeeded
+dEQP-VK.api.command_buffers.record_many_secondary	Pass	hugeTest succeeded
+dEQP-VK.api.command_buffers.record_one_time_submit_primary	Pass	oneTimeSubmitFlagPrimaryBufferTest succeeded
+dEQP-VK.api.command_buffers.record_one_time_submit_secondary	Pass	oneTimeSubmitFlagSecondaryBufferTest succeeded
+dEQP-VK.api.command_buffers.record_query_imprecise_w_flag	NotSupported	Inherited queries feature is not supported at vktApiCommandBuffersTests.cpp:4654
+dEQP-VK.api.command_buffers.record_query_imprecise_wo_flag	NotSupported	Inherited queries feature is not supported at vktApiCommandBuffersTests.cpp:4654
+dEQP-VK.api.command_buffers.record_query_precise_w_flag	Pass	Successfully recorded a secondary command buffer allowing a precise occlusion query.
+dEQP-VK.api.command_buffers.record_simul_use_nested	NotSupported	VK_EXT_nested_command_buffer is not supported at vktTestCase.cpp:1394
+dEQP-VK.api.command_buffers.record_simul_use_secondary_one_primary	Pass	Simultaneous Secondary Command Buffer Execution succeeded
+dEQP-VK.api.command_buffers.record_simul_use_secondary_two_primary	Pass	Simultaneous Secondary Command Buffer Execution succeeded
+dEQP-VK.api.command_buffers.record_simul_use_twice_nested	NotSupported	VK_EXT_nested_command_buffer is not supported at vktTestCase.cpp:1394
+dEQP-VK.api.command_buffers.record_single_primary	Pass	Primary buffer recorded successfully.
+dEQP-VK.api.command_buffers.record_single_secondary	Pass	Secondary buffer recorded successfully.
+dEQP-VK.api.command_buffers.recording_to_ininitial	Pass	Pass
+dEQP-VK.api.command_buffers.recording_to_invalid	Pass	Pass
+dEQP-VK.api.command_buffers.render_pass_continue	Pass	render pass continue test passed
+dEQP-VK.api.command_buffers.render_pass_continue_no_fb	Pass	render pass continue test passed
+dEQP-VK.api.command_buffers.reset_implicit	Pass	Buffer was reset correctly.
+dEQP-VK.api.command_buffers.secondary_execute	Pass	executeSecondaryBufferTest succeeded
+dEQP-VK.api.command_buffers.secondary_execute_twice	Pass	executeSecondaryBufferTwiceTest succeeded
+dEQP-VK.api.command_buffers.secondary_on_transfer_queue	NotSupported	Exclusive transfer queue not supported. at vktTestCase.cpp:988
+dEQP-VK.api.command_buffers.secondary_push_constants_2	Pass	Pass
+dEQP-VK.api.command_buffers.secondary_push_descriptor_set_2	Pass	Pass
+dEQP-VK.api.command_buffers.secondary_push_descriptor_set_with_template	Pass	Pass
+dEQP-VK.api.command_buffers.submit_count_equal_zero	Pass	The first submission was ignored.
+dEQP-VK.api.command_buffers.submit_count_non_zero	Pass	All buffers were submitted and executed correctly.
+dEQP-VK.api.command_buffers.submit_null_fence	Pass	Buffers have been submitted and executed correctly.
+dEQP-VK.api.command_buffers.submit_twice_primary	Pass	Submit Twice Test succeeded
+dEQP-VK.api.command_buffers.submit_twice_secondary	Pass	Submit Twice Secondary Command Buffer succeeded
+dEQP-VK.api.command_buffers.submit_two_buffers_one_buffer_null_with_fence	Pass	Buffers have been submitted correctly
+dEQP-VK.api.command_buffers.submit_wait_many_semaphores	Pass	Submit Buffer and Wait for Many Semaphores Test succeeded
+dEQP-VK.api.command_buffers.submit_wait_single_semaphore	Pass	Submit Buffer and Wait for Single Semaphore Test succeeded
+dEQP-VK.api.command_buffers.trim_command_pool	Pass	Pass
+dEQP-VK.api.command_buffers.trim_command_pool_secondary	Pass	Pass

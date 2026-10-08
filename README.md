@@ -27,7 +27,7 @@ Most public PanVK testing/builds so far target **CSF** chips (G610/G615/G710/G72
 | WSI: X11 swapchain on Termux:X11, spinning cube, 30,000 frames with resize/recreate | ✅ **VERIFIED-HW** (on-screen pixels checked) |
 | VK-GL-CTS on device | 🚧 small subsets only, see table below |
 | `multiDrawIndirect`, `drawIndirectCount` on v9 | 🧪 **EXPERIMENTAL** (patch `0044`, CTS subset passes) |
-| `VK_EXT_robustness2` `nullDescriptor` on v9 | 🧪 **EXPERIMENTAL** (patch `0045`, CTS subset passes). `robustBufferAccess2` opt-in only, texel buffers fail |
+| `VK_EXT_robustness2` `nullDescriptor` and `robustBufferAccess2` on v9 | 🧪 **EXPERIMENTAL** (patches `0045`, `0071`). `robustBufferAccess2` on by default since `0071` (texel buffer out-of-range values fixed in the shader); out-of-range vertex fetch still open |
 | Sampler min/max reduction on v9 (emulated in the shader) | 🧪 **EXPERIMENTAL** (patch `0046`). 1D/2D/3D pass in CTS, **cube maps broken** |
 | Sampler min/max on cube maps, cubic filtering (opt-in `PANVK_V9_EMULATE_SAMPLER=1`) | 🧪 **EXPERIMENTAL** (patches `0047`, `0049`, `0050`), CTS subsets pass 3x |
 | Winlator: adrenotools import, launcher query, Wrapper device, AHB swapchain | ✅ **VERIFIED-HW** with the APK's own libraries (patches `0052`-`0056`), not inside the app |

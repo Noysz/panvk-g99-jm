@@ -1,0 +1,37 @@
+#version 450
+// Texel buffer bounds probe (tests/compute/texel_buffer_oob_test.c).
+// Every view has 4 texels in range; indices 0..7 are read, so 4..7 are out
+// of bounds. With robustBufferAccess2 an out-of-bounds read returns 0 for
+// the components of the format and (0,0,1) for missing G, B, A; an
+// out-of-bounds store or atomic is discarded.
+layout(local_size_x = 1) in;
+
+layout(std430, set = 0, binding = 0) buffer Out { uint v[]; } o;
+layout(set = 0, binding = 1) uniform usamplerBuffer t_r32ui;
+layout(set = 0, binding = 2, r32ui) uniform uimageBuffer i_r32ui;
+layout(set = 0, binding = 3) uniform samplerBuffer t_rgba8;
+layout(set = 0, binding = 4) uniform samplerBuffer t_rg32f;
+
+void main()
+{
+   for (int i = 0; i < 8; i++) {
+      uvec4 a = texelFetch(t_r32ui, i);
+      uvec4 b = imageLoad(i_r32ui, i);
+      vec4 c = texelFetch(t_rgba8, i);
+      vec4 d = texelFetch(t_rg32f, i);
+      for (int k = 0; k < 4; k++) {
+         o.v[0 * 32 + i * 4 + k] = a[k];
+         o.v[1 * 32 + i * 4 + k] = b[k];
+         o.v[2 * 32 + i * 4 + k] = floatBitsToUint(c[k]);
+         o.v[3 * 32 + i * 4 + k] = floatBitsToUint(d[k]);
+      }
+   }
+   memoryBarrierImage();
+   barrier();
+   for (int i = 0; i < 8; i++)
+      imageStore(i_r32ui, i, uvec4(0x5500u + uint(i)));
+   memoryBarrierImage();
+   barrier();
+   o.v[128] = imageAtomicAdd(i_r32ui, 1, 0x10000u);
+   o.v[129] = imageAtomicAdd(i_r32ui, 6, 0x10000u);
+}
