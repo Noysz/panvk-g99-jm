@@ -1,0 +1,2 @@
+dEQP-VK.robustness.robustness2.bind.notemplate.r32f.unroll.nonvolatile.storage_buffer.readonly.no_fmt_qual.len_16.samples_1.1d.vert
+dEQP-VK.robustness.robustness2.bind.notemplate.r32i.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.2d.frag

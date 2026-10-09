@@ -1,0 +1,4 @@
+drv26 1.10.3 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3300ms fps=45.5 verdict=PASS
+drv26 pandxvk-9 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2947ms fps=50.9 verdict=PASS
+drv26 1.12.1-sarek rc=0 D3D11SUM frames=150 checked=5 bad=0 time=4082ms fps=36.7 verdict=PASS
+drv26 v2.3.1-stripped rc=0 D3D11SUM frames=150 checked=5 bad=0 time=4336ms fps=34.6 verdict=PASS

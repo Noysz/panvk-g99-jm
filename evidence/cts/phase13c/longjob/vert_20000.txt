@@ -1,0 +1,6 @@
+LONGJOB mode=vert iters=20000 reps=3 grid=32 draws=1024
+LONGJOB rep=0 gpu_ms=1481.5 wait=0 bad_pixels=0 bad_16x16_tiles=0 first_bad=(0,0)
+LONGJOB rep=1 gpu_ms=1464.0 wait=0 bad_pixels=0 bad_16x16_tiles=0 first_bad=(0,0)
+LONGJOB rep=2 gpu_ms=1465.8 wait=0 bad_pixels=0 bad_16x16_tiles=0 first_bad=(0,0)
+LONGJOB verdict=PASS
+rc=0

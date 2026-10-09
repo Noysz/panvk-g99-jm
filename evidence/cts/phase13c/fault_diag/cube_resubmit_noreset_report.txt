@@ -1,0 +1,9 @@
+CUBEFP frame=000 deg=  30.0 bad=0 exact_diff=3 edge=1823 edge_diff=1372 faces[R C G M B Y]=11764 0 0 6419 0 33221
+MESA: error: panvk-fault: event 0x58 (FAULT) atom 4 group 2 vertex/tiler/compute chain, cmdbuf 0xb40000700b40bf30 batch 0
+MESA: error: panvk-fault:   job[0] malloc-vertex status 0x58 (FAULT) first_incomplete_task 0 fault_ptr 0x703b7fa600 (live BO 0x703b7fa000 +0x10000 offset 0x600 flags 0x40)
+MESA: error: panvk-fault:   2 jobs: 1 done, 0 not run, 1 other | compute 0, malloc-vertex 1, indexed-vertex 0, tiler 0, fragment 1, write-value 0, null 0
+CUBEFP frame=001 deg=  30.0 bad=51404 exact_diff=52775 edge=1823 edge_diff=917 faces[R C G M B Y]=0 0 0 0 0 0 first=(226,150) got=32,32,40 model=255,0,255
+MESA: error: panvk-fault: event 0x58 (FAULT) atom 7 group 4 vertex/tiler/compute chain, cmdbuf 0xb40000700b40bf30 batch 0
+MESA: error: panvk-fault:   job[0] malloc-vertex status 0x58 (FAULT) first_incomplete_task 0 fault_ptr 0x703b7fa600 (live BO 0x703b7fa000 +0x10000 offset 0x600 flags 0x40)
+MESA: error: panvk-fault:   2 jobs: 0 done, 1 not run, 1 other | compute 0, malloc-vertex 1, indexed-vertex 0, tiler 0, fragment 1, write-value 0, null 0
+CUBEFP frame=002 deg=  30.0 bad=51404 exact_diff=52775 edge=1823 edge_diff=917 faces[R C G M B Y]=0 0 0 0 0 0 first=(226,150) got=32,32,40 model=255,0,255

@@ -1,0 +1,6 @@
+LONGJOB mode=frag iters=40000 reps=3 grid=32 draws=1
+LONGJOB rep=0 gpu_ms=943.5 wait=0 bad_pixels=0 bad_16x16_tiles=0 first_bad=(0,0)
+LONGJOB rep=1 gpu_ms=927.3 wait=0 bad_pixels=0 bad_16x16_tiles=0 first_bad=(0,0)
+LONGJOB rep=2 gpu_ms=924.3 wait=0 bad_pixels=0 bad_16x16_tiles=0 first_bad=(0,0)
+LONGJOB verdict=PASS
+rc=0

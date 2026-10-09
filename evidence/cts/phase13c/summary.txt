@@ -1,0 +1,93 @@
+Phase 13c (2026-10-08): stability investigation, 0075, 0076, test4
+
+0075 null-combined-image-texture-slot
+  Symptom      robustness2 bind.notemplate.*.sampled_image.no_fmt_qual.
+               null_descriptor.* failed in the full l_rb2 run (25 cases) and
+               passed when run alone.
+  Trigger      any graphics case with a float format (r32f storage_buffer
+               vert, r32f uniform_texel_buffer frag/vert) earlier in the same
+               process; r32f compute and r32i graphics cases did not trigger
+               it. After the trigger the r32i null cases failed in vert, frag
+               and comp (pair runs, nulltex/pair_*.txt,
+               nulltex/polluter_plus_46_null.txt). storage image, buffer and
+               texel buffer null cases were not affected.
+  Ruled out    shader binary: identical alone and after the trigger
+               (BIFROST_MESA_DEBUG=shaders diff). Knobs without effect:
+               PANVK_KBASE_SYNC_SUBMIT, PANVK_KBASE_DEVMEM_EAGER,
+               PANVK_V9_NO_MINMAX, PANVK_MVJ_NO_ZERO, PANVK_V9_TEXEL_OOB_HW,
+               PANVK_NULLDESC_POISON, PANVK_POOL_CACHE_MAX_MB=1. A temporary
+               hook filling command pool BOs with 0x00 or 0xa5 changed
+               nothing (stale pool memory ruled out). A temporary shader
+               pass selecting 0 when the texture descriptor type is Null
+               changed nothing; forcing 0 for all 1D texture results made
+               the case pass, so the values came from texture reads and the
+               slot did not hold a null descriptor. Both temporary changes
+               were reverted (sources compared with stack17).
+  Root cause   write_image_view_desc() wrote the null descriptor of a
+               COMBINED_IMAGE_SAMPLER into the sampler sub-descriptor
+               (get_sampler_subdesc_info), so the texture slot kept what the
+               descriptor memory held. Same code in upstream Mesa (6598829).
+  Fix          get_tex_subdesc_info(); control PANVK_NULL_TEX_SAMPLER_SLOT=1.
+  Results      pair (r32f uniform_texel_buffer frag, r32i null 1d vert):
+               3x Pass/Pass, control Pass/Fail. pair with 2d frag: Pass/Pass.
+               polluter + 46 r32i null cases: only the known
+               vertex_attribute_fetch null case fails.
+               l_rb2 n15: 951 P / 28 F / 1670 NS (t13: 926 / 53 / 1670),
+               25 Fail -> Pass, 0 lost (nulltex/n15_l_rb2.tsv).
+               Regression rN15 vs rS14: 30 groups, 7127 cases, lost 0
+               (regression_rN15_vs_rS14.txt).
+
+0076 fault-report-free-delay (diagnostics, off by default)
+  PANVK_FAULT_REPORT=1       report per failed atom (async and sync submit)
+  PANVK_DBG_FREE_DELAY_MS=N  freed kbase BOs stay mapped N ms
+  kbase r54p1 source (mmu_jm.c kbase_mmu_report_fault_and_kill): an
+  unhandled MMU fault hard-stops the context's running jobs (event 0x4)
+  and switches its address space off, queued jobs then fail (0x42).
+  fault_diag/runs.txt (tests/graphics/fault_diag_test.c, 3 runs each):
+    valid order                       ALL_CORRECT x3
+    use-after-free                    WRONG x3, kbase event 0x4
+    use-after-free + FREE_DELAY 2000  ALL_CORRECT x3
+    use-after-free + FAULT_REPORT     WRONG x3, report: compute chain,
+                                      2 compute jobs not run
+  fault_diag/cube_resubmit_noreset_report.txt: cube_test CUBE_RESUBMIT=1
+    with PANVK_V9_NO_REISSUE_VA_RESET=1: report names the malloc-vertex job,
+    status 0x58, fault pointer inside a live BO.
+  Regression rO16 vs rN15 and vs rS14: 7127 cases, lost 0.
+
+test4 (drv26 = 0071-0076, Android build), Winlator stack check (drv26/)
+  dxvk_probe: 4 profiles usable (1.10.3, 1.11.1-sarek, 1.12.1-sarek,
+  2.3.1), d3d11_tri PASS on 1.10.3, pandxvk-9, 1.12.1-sarek, 2.3.1;
+  AIO gs and tess scenes alive, segv 0.
+
+User logs 2026-10-08 test3 (~/panvk-refs, not in the repo)
+  NFS Most Wanted reaches the race on test3 (user report).
+  Little Nightmares II run 1: no driver error, the game's own crash
+  handler runs (dbghelp unwind messages) about 20 s in. Run 2: title
+  screen at 10.7 fps, then 1x 0x4 and 15x 0x42 over groups 5780-5783.
+  Memory flat in both (cmd pool cache 11-32 MB, MemAvailable >= 1.1 GB).
+
+User test4 runs, Little Nightmares II (2026-10-08, logs in ~/panvk-refs)
+  run1 PANVK_FAULT_REPORT=1: menu text fixed (0075), Mono normal, texture
+       flicker remains. run2 + PANVK_DBG_FREE_DELAY_MS=2000: Mono dark
+       again, flicker stronger. run3 PANVK_TLS_PER_BATCH=1: Mono normal,
+       flicker a bit stronger. One run each.
+  All three: 1x event 0x4 on the fragment chain of a batch with 166-226
+  malloc-vertex jobs (its vertex/tiler chain completed), then about 12
+  groups of 0x42 (address space switched off after an MMU fault). Not
+  removed by the free delay (not a BO freed within 2 s) nor by
+  TLS_PER_BATCH (not 0074). MemAvailable >= 830 MB in all runs.
+
+longjob/ (tests/graphics/longjob_test.c): fragment jobs of 0.9 s and 3.7 s
+  and a vertex chain of 1.5 s, stopped and resumed by kbase's scheduler
+  (soft-stop after 100-200 ms), every pixel matches, 3 reps each.
+
+0077 fault-pointer-audit (diagnostics, off by default)
+  fault_diag/audit_runs.txt: fault_frag_test use-after-free 3x: the
+  texture plane is the only suspect; fault_diag_test 3x: the freed buffer
+  is the only suspect.
+  audit_all/summary.txt: PANVK_FAULT_AUDIT_ALL=1 on own tests and 11 CTS
+  lists, 0 suspects, pass/fail identical to rO16. The first version
+  flagged the TLS base (v9 packed mode stores base >> 8) and the tiler
+  polygon list (top bits written by the tiler); both were decode errors
+  and are fixed. record_many_draws (65k jobs) is too slow with
+  AUDIT_ALL; the fault path audits at most 512 jobs per batch.

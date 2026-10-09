@@ -1,0 +1,16 @@
+#version 450
+// Reads src[] over and over for a while and writes the sum, so the GPU is
+// still reading src when the CPU frees it (tests/graphics/fault_diag_test.c).
+layout(local_size_x = 64) in;
+layout(std430, binding = 0) readonly buffer Src { uint src[]; };
+layout(std430, binding = 1) buffer Dst { uint dst[]; };
+layout(push_constant) uniform P { uint words; uint iters; } pc;
+
+void main()
+{
+   uint id = gl_GlobalInvocationID.x;
+   uint sum = 0u;
+   for (uint i = 0u; i < pc.iters; i++)
+      sum += src[(id * 97u + i * 13u) % pc.words];
+   dst[id] = sum;
+}

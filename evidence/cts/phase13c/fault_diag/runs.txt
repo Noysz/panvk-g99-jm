@@ -1,0 +1,48 @@
+== [FAULTDIAG_MODE=ok] run 1
+FAULTDIAG mode=ok iters=40000 fence=0 correct=4096/4096 dst[0]=40000
+FAULTDIAG verdict=ALL_CORRECT
+== [FAULTDIAG_MODE=ok] run 2
+FAULTDIAG mode=ok iters=40000 fence=0 correct=4096/4096 dst[0]=40000
+FAULTDIAG verdict=ALL_CORRECT
+== [FAULTDIAG_MODE=ok] run 3
+FAULTDIAG mode=ok iters=40000 fence=0 correct=4096/4096 dst[0]=40000
+FAULTDIAG verdict=ALL_CORRECT
+== [FAULTDIAG_MODE=uaf] run 1
+MESA: error: panvk: v9 job chain failed: kbase event 0x4 (atom 1, group 1, PANVK_KBASE_SYNC_SUBMIT=1 PANVK_V9_TRACE=1 dumps the job status)
+FAULTDIAG mode=uaf iters=40000 fence=0 correct=0/4096 dst[0]=4294967295
+FAULTDIAG verdict=WRONG
+== [FAULTDIAG_MODE=uaf] run 2
+MESA: error: panvk: v9 job chain failed: kbase event 0x4 (atom 1, group 1, PANVK_KBASE_SYNC_SUBMIT=1 PANVK_V9_TRACE=1 dumps the job status)
+FAULTDIAG mode=uaf iters=40000 fence=0 correct=0/4096 dst[0]=4294967295
+FAULTDIAG verdict=WRONG
+== [FAULTDIAG_MODE=uaf] run 3
+MESA: error: panvk: v9 job chain failed: kbase event 0x4 (atom 1, group 1, PANVK_KBASE_SYNC_SUBMIT=1 PANVK_V9_TRACE=1 dumps the job status)
+FAULTDIAG mode=uaf iters=40000 fence=0 correct=0/4096 dst[0]=4294967295
+FAULTDIAG verdict=WRONG
+== [FAULTDIAG_MODE=uaf PANVK_DBG_FREE_DELAY_MS=2000] run 1
+FAULTDIAG mode=uaf iters=40000 fence=0 correct=4096/4096 dst[0]=40000
+FAULTDIAG verdict=ALL_CORRECT
+== [FAULTDIAG_MODE=uaf PANVK_DBG_FREE_DELAY_MS=2000] run 2
+FAULTDIAG mode=uaf iters=40000 fence=0 correct=4096/4096 dst[0]=40000
+FAULTDIAG verdict=ALL_CORRECT
+== [FAULTDIAG_MODE=uaf PANVK_DBG_FREE_DELAY_MS=2000] run 3
+FAULTDIAG mode=uaf iters=40000 fence=0 correct=4096/4096 dst[0]=40000
+FAULTDIAG verdict=ALL_CORRECT
+== [FAULTDIAG_MODE=uaf PANVK_FAULT_REPORT=1] run 1
+MESA: error: panvk: v9 job chain failed: kbase event 0x4 (atom 1, group 1, PANVK_KBASE_SYNC_SUBMIT=1 PANVK_V9_TRACE=1 dumps the job status)
+MESA: error: panvk-fault: event 0x4 (TERMINATED) atom 1 group 1 vertex/tiler/compute chain, cmdbuf 0xb400007f1be136c0 batch 0
+MESA: error: panvk-fault:   2 jobs: 0 done, 2 not run, 0 other | compute 2, malloc-vertex 0, indexed-vertex 0, tiler 0, fragment 0, write-value 0, null 0
+FAULTDIAG mode=uaf iters=40000 fence=0 correct=0/4096 dst[0]=4294967295
+FAULTDIAG verdict=WRONG
+== [FAULTDIAG_MODE=uaf PANVK_FAULT_REPORT=1] run 2
+MESA: error: panvk: v9 job chain failed: kbase event 0x4 (atom 1, group 1, PANVK_KBASE_SYNC_SUBMIT=1 PANVK_V9_TRACE=1 dumps the job status)
+MESA: error: panvk-fault: event 0x4 (TERMINATED) atom 1 group 1 vertex/tiler/compute chain, cmdbuf 0xb400007aa5a0ff30 batch 0
+MESA: error: panvk-fault:   2 jobs: 0 done, 2 not run, 0 other | compute 2, malloc-vertex 0, indexed-vertex 0, tiler 0, fragment 0, write-value 0, null 0
+FAULTDIAG mode=uaf iters=40000 fence=0 correct=0/4096 dst[0]=4294967295
+FAULTDIAG verdict=WRONG
+== [FAULTDIAG_MODE=uaf PANVK_FAULT_REPORT=1] run 3
+MESA: error: panvk: v9 job chain failed: kbase event 0x4 (atom 1, group 1, PANVK_KBASE_SYNC_SUBMIT=1 PANVK_V9_TRACE=1 dumps the job status)
+MESA: error: panvk-fault: event 0x4 (TERMINATED) atom 1 group 1 vertex/tiler/compute chain, cmdbuf 0xb400007647c107a0 batch 0
+MESA: error: panvk-fault:   2 jobs: 0 done, 2 not run, 0 other | compute 2, malloc-vertex 0, indexed-vertex 0, tiler 0, fragment 0, write-value 0, null 0
+FAULTDIAG mode=uaf iters=40000 fence=0 correct=0/4096 dst[0]=4294967295
+FAULTDIAG verdict=WRONG

@@ -1,0 +1,57 @@
+== [FAULTFRAG_MODE=uaf /tmp/fault_frag_test PANVK_FAULT_REPORT=1] run 1
+MESA: error: panvk: v9 job chain failed: kbase event 0x4 (atom 2, group 1, PANVK_KBASE_SYNC_SUBMIT=1 PANVK_V9_TRACE=1 dumps the job status)
+MESA: error: panvk-fault: event 0x4 (TERMINATED) atom 2 group 1 fragment chain, cmdbuf 0xb400007dacc07f30 batch 0
+MESA: error: panvk-fault:   t=0.0s since device creation, MemAvailable 2349 MB, growable BOs backed 2 MB
+MESA: error: panvk-fault:   2 jobs: 1 done, 1 not run, 0 other | compute 0, malloc-vertex 1, indexed-vertex 0, tiler 0, fragment 1, write-value 0, null 0
+MESA: error: panvk-fault:   SUSPECT job[0] texture plane 0x7d3c81d000 +0x40000: not in any tracked BO (nearest below: BO 0x7cb1f00000, ends 0x8a81d000 bytes before)
+MESA: error: panvk-fault:   audit: 18 GPU addresses checked: 1 in no BO, 0 in freed BOs, 0 past the end of their BO, 0 null-buffer sink
+MESA: error: panvk-fault:   growable BO 0x7ca9e00000 +0x8000000: 2 refs up to offset 0x8000000 (live BO 0x7ca9e00000 +0x8000000 offset 0x7ffffff flags 0x2 growable, backed 0x200000)
+FAULTFRAG mode=uaf iters=3000 gpu_ms=5.2 wait=0 bad_pixels=262144 pixel0=eeeeeeee
+FAULTFRAG verdict=WRONG
+== [FAULTDIAG_MODE=uaf /tmp/fault_diag_test PANVK_FAULT_REPORT=1] run 1
+MESA: error: panvk: v9 job chain failed: kbase event 0x4 (atom 1, group 1, PANVK_KBASE_SYNC_SUBMIT=1 PANVK_V9_TRACE=1 dumps the job status)
+MESA: error: panvk-fault: event 0x4 (TERMINATED) atom 1 group 1 vertex/tiler/compute chain, cmdbuf 0xb40000759920e6c0 batch 0
+MESA: error: panvk-fault:   t=0.0s since device creation, MemAvailable 2350 MB, growable BOs backed 0 MB
+MESA: error: panvk-fault:   2 jobs: 0 done, 2 not run, 0 other | compute 2, malloc-vertex 0, indexed-vertex 0, tiler 0, fragment 0, write-value 0, null 0
+MESA: error: panvk-fault:   SUSPECT job[0] buffer 0x7428400000 +0x400000: not in any tracked BO (none below)
+MESA: error: panvk-fault:   audit: 12 GPU addresses checked: 1 in no BO, 0 in freed BOs, 0 past the end of their BO, 0 null-buffer sink
+FAULTDIAG mode=uaf iters=40000 fence=0 correct=0/4096 dst[0]=4294967295
+FAULTDIAG verdict=WRONG
+== [FAULTFRAG_MODE=uaf /tmp/fault_frag_test PANVK_FAULT_REPORT=1] run 2
+MESA: error: panvk: v9 job chain failed: kbase event 0x4 (atom 2, group 1, PANVK_KBASE_SYNC_SUBMIT=1 PANVK_V9_TRACE=1 dumps the job status)
+MESA: error: panvk-fault: event 0x4 (TERMINATED) atom 2 group 1 fragment chain, cmdbuf 0xb400006ec9a097a0 batch 0
+MESA: error: panvk-fault:   t=0.0s since device creation, MemAvailable 2352 MB, growable BOs backed 2 MB
+MESA: error: panvk-fault:   2 jobs: 1 done, 1 not run, 0 other | compute 0, malloc-vertex 1, indexed-vertex 0, tiler 0, fragment 1, write-value 0, null 0
+MESA: error: panvk-fault:   SUSPECT job[0] texture plane 0x703b48f000 +0x40000: not in any tracked BO (nearest below: BO 0x703b47f000, ends 0x0 bytes before)
+MESA: error: panvk-fault:   audit: 18 GPU addresses checked: 1 in no BO, 0 in freed BOs, 0 past the end of their BO, 0 null-buffer sink
+MESA: error: panvk-fault:   growable BO 0x6d97e00000 +0x8000000: 2 refs up to offset 0x8000000 (live BO 0x6d97e00000 +0x8000000 offset 0x7ffffff flags 0x2 growable, backed 0x200000)
+FAULTFRAG mode=uaf iters=3000 gpu_ms=1.7 wait=0 bad_pixels=262144 pixel0=eeeeeeee
+FAULTFRAG verdict=WRONG
+== [FAULTDIAG_MODE=uaf /tmp/fault_diag_test PANVK_FAULT_REPORT=1] run 2
+MESA: error: panvk: v9 job chain failed: kbase event 0x4 (atom 1, group 1, PANVK_KBASE_SYNC_SUBMIT=1 PANVK_V9_TRACE=1 dumps the job status)
+MESA: error: panvk-fault: event 0x4 (TERMINATED) atom 1 group 1 vertex/tiler/compute chain, cmdbuf 0xb40000788120b7a0 batch 0
+MESA: error: panvk-fault:   t=0.0s since device creation, MemAvailable 2349 MB, growable BOs backed 0 MB
+MESA: error: panvk-fault:   2 jobs: 0 done, 2 not run, 0 other | compute 2, malloc-vertex 0, indexed-vertex 0, tiler 0, fragment 0, write-value 0, null 0
+MESA: error: panvk-fault:   SUSPECT job[0] buffer 0x75f3200000 +0x400000: not in any tracked BO (none below)
+MESA: error: panvk-fault:   audit: 12 GPU addresses checked: 1 in no BO, 0 in freed BOs, 0 past the end of their BO, 0 null-buffer sink
+FAULTDIAG mode=uaf iters=40000 fence=0 correct=0/4096 dst[0]=4294967295
+FAULTDIAG verdict=WRONG
+== [FAULTFRAG_MODE=uaf /tmp/fault_frag_test PANVK_FAULT_REPORT=1] run 3
+MESA: error: panvk: v9 job chain failed: kbase event 0x4 (atom 2, group 1, PANVK_KBASE_SYNC_SUBMIT=1 PANVK_V9_TRACE=1 dumps the job status)
+MESA: error: panvk-fault: event 0x4 (TERMINATED) atom 2 group 1 fragment chain, cmdbuf 0xb400007f1b6156c0 batch 0
+MESA: error: panvk-fault:   t=0.0s since device creation, MemAvailable 2350 MB, growable BOs backed 2 MB
+MESA: error: panvk-fault:   2 jobs: 1 done, 1 not run, 0 other | compute 0, malloc-vertex 1, indexed-vertex 0, tiler 0, fragment 1, write-value 0, null 0
+MESA: error: panvk-fault:   SUSPECT job[0] texture plane 0x7dab21d000 +0x40000: not in any tracked BO (nearest below: BO 0x7d29218000, ends 0x81f05000 bytes before)
+MESA: error: panvk-fault:   audit: 18 GPU addresses checked: 1 in no BO, 0 in freed BOs, 0 past the end of their BO, 0 null-buffer sink
+MESA: error: panvk-fault:   growable BO 0x7d1bc00000 +0x8000000: 2 refs up to offset 0x8000000 (live BO 0x7d1bc00000 +0x8000000 offset 0x7ffffff flags 0x2 growable, backed 0x200000)
+FAULTFRAG mode=uaf iters=3000 gpu_ms=2.5 wait=0 bad_pixels=262144 pixel0=eeeeeeee
+FAULTFRAG verdict=WRONG
+== [FAULTDIAG_MODE=uaf /tmp/fault_diag_test PANVK_FAULT_REPORT=1] run 3
+MESA: error: panvk: v9 job chain failed: kbase event 0x4 (atom 1, group 1, PANVK_KBASE_SYNC_SUBMIT=1 PANVK_V9_TRACE=1 dumps the job status)
+MESA: error: panvk-fault: event 0x4 (TERMINATED) atom 1 group 1 vertex/tiler/compute chain, cmdbuf 0xb400006ef22067a0 batch 0
+MESA: error: panvk-fault:   t=0.0s since device creation, MemAvailable 2350 MB, growable BOs backed 0 MB
+MESA: error: panvk-fault:   2 jobs: 0 done, 2 not run, 0 other | compute 2, malloc-vertex 0, indexed-vertex 0, tiler 0, fragment 0, write-value 0, null 0
+MESA: error: panvk-fault:   SUSPECT job[0] buffer 0x6dc3e00000 +0x400000: not in any tracked BO (none below)
+MESA: error: panvk-fault:   audit: 12 GPU addresses checked: 1 in no BO, 0 in freed BOs, 0 past the end of their BO, 0 null-buffer sink
+FAULTDIAG mode=uaf iters=40000 fence=0 correct=0/4096 dst[0]=4294967295
+FAULTDIAG verdict=WRONG

@@ -1,0 +1,27 @@
+diff --git a/src/panfrost/vulkan/panvk_vX_descriptor_set.c b/src/panfrost/vulkan/panvk_vX_descriptor_set.c
+--- a/src/panfrost/vulkan/panvk_vX_descriptor_set.c
++++ b/src/panfrost/vulkan/panvk_vX_descriptor_set.c
+@@ -147,10 +147,22 @@
+       &set->layout->bindings[binding];
+ 
+    if (pImageInfo->imageView == VK_NULL_HANDLE) {
++      /* PATCH: the null texture goes in the texture sub-descriptor. The
++       * sampler one was used, so for a COMBINED_IMAGE_SAMPLER the texture
++       * slot kept whatever the memory held: zero in a fresh pool (reads
++       * looked right), a stale descriptor of an earlier set otherwise
++       * (robustness2 null_descriptor sampled_image fails after other tests).
++       * PANVK_NULL_TEX_SAMPLER_SLOT=1 restores the old slot (control). */
++      const bool old_slot = pan_env_flag("PANVK_NULL_TEX_SAMPLER_SLOT");
++      (void)old_slot;
+       for (uint8_t plane = 0; plane < binding_layout->textures_per_desc;
+            plane++)
+          write_nulldesc(set, binding, elem,
+-                        get_sampler_subdesc_info(binding_layout->type, plane));
++                        old_slot
++                           ? get_sampler_subdesc_info(binding_layout->type,
++                                                      plane)
++                           : get_tex_subdesc_info(binding_layout->type,
++                                                  plane));
+       return;
+    }
+ 

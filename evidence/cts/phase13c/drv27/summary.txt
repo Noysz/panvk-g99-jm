@@ -1,0 +1,4 @@
+drv27 1.10.3 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2816ms fps=53.3 verdict=PASS
+drv27 pandxvk-9 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2709ms fps=55.4 verdict=PASS
+drv27 1.12.1-sarek rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2672ms fps=56.1 verdict=PASS
+drv27 v2.3.1-stripped rc=0 D3D11SUM frames=150 checked=5 bad=0 time=2737ms fps=54.8 verdict=PASS

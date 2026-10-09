@@ -1,0 +1,493 @@
+diff --git a/src/panfrost/vulkan/jm/panvk_queue.h b/src/panfrost/vulkan/jm/panvk_queue.h
+--- a/src/panfrost/vulkan/jm/panvk_queue.h
++++ b/src/panfrost/vulkan/jm/panvk_queue.h
+@@ -44,6 +44,9 @@
+ /* Atoms handed to the kernel with one JOB_SUBMIT. */
+ #define PANVK_KBASE_JM_GROUP_ATOMS 64
+ 
++struct panvk_cmd_buffer;
++struct panvk_batch;
++
+ /* A vkCmdSetEvent/vkCmdResetEvent that takes effect when the group with
+  * this seqno has completed. */
+ struct panvk_kbase_jm_event_op {
+@@ -98,6 +101,18 @@
+       struct util_dynarray event_ops;
+       uint32_t errors;
+ 
++      /* PATCH: PANVK_FAULT_REPORT=1 prints the batch behind a failed atom
++       * (job types, status, fault pointer). atom_info[n] belongs to atom n
++       * like atom_seqno[n]. */
++      bool fault_report;
++      uint32_t fault_reports;
++      struct {
++         struct panvk_cmd_buffer *cmdbuf;
++         struct panvk_batch *batch;
++         uint32_t core_req;
++         uint32_t batch_idx;
++      } atom_info[256];
++
+       /* Env knobs, read once. */
+       bool cpu_waits;     /* PANVK_KBASE_ASYNC_CPU_WAITS */
+       bool no_signal;     /* PANVK_KBASE_NO_SIGNAL */
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+--- a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+@@ -43,6 +43,15 @@
+ #include <unistd.h>
+ #include "pan_v9_trace.h"
+ #include "panfrost/lib/pan_env.h"
++#ifdef HAVE_PAN_KMOD_KBASE
++#include "kmod/kbase_kmod.h"
++#else
++static inline void
++kbase_kmod_describe_va(uint64_t va, char *buf, size_t size)
++{
++   snprintf(buf, size, "?");
++}
++#endif
+ 
+ struct panvk_kbase_event_v2 {
+    uint32_t event_code;
+@@ -271,6 +280,9 @@
+    }
+ }
+ 
++static void panvk_fault_report_batch(struct panvk_cmd_buffer *cmdbuf,
++                                     struct panvk_batch *batch);
++
+ static int
+ panvk_kbase_submit_and_wait(int fd, uint64_t jc, uint32_t core_req)
+ {
+@@ -401,9 +413,13 @@
+       uint64_t c0 = queue->kbase.prof.enabled ? os_time_get_nano() : 0;
+       ret = panvk_kbase_submit_and_wait(dev->drm_fd, batch->vtc_jc.first_job, 0x16); /* PATCH eksperimen: dulu 0x16 (CS|T|V) */
+       kbase_sync_prof_chain(queue, c0);
+-      if (ret)
++      if (ret) {
+          mesa_loge("panvk: v9 vtc_jc job chain failed: kbase event 0x%x "
+                    "(PANVK_V9_TRACE=1 dumps the job status)", -ret);
++         if (queue->kbase.fault_report &&
++             queue->kbase.fault_reports++ < 64)
++            panvk_fault_report_batch(cmdbuf, batch);
++      }
+       if (pan_v9_trace_enabled() || getenv("PANVK_HEAP_LOG")) {
+          fprintf(panvk_debug_log_file(),
+                  "[PANVK_DEBUG_SUBMIT] vtc_jc ret=%d\n", ret);
+@@ -429,9 +445,13 @@
+       uint64_t c0 = queue->kbase.prof.enabled ? os_time_get_nano() : 0;
+       ret = panvk_kbase_submit_and_wait(dev->drm_fd, batch->frag_jc.first_job, 0x01);
+       kbase_sync_prof_chain(queue, c0);
+-      if (ret)
++      if (ret) {
+          mesa_loge("panvk: v9 frag_jc job chain failed: kbase event 0x%x "
+                    "(PANVK_V9_TRACE=1 dumps the job status)", -ret);
++         if (queue->kbase.fault_report &&
++             queue->kbase.fault_reports++ < 64)
++            panvk_fault_report_batch(cmdbuf, batch);
++      }
+       if (pan_v9_trace_enabled() || getenv("PANVK_HEAP_LOG")) {
+          fprintf(panvk_debug_log_file(),
+                  "[PANVK_DEBUG_SUBMIT] frag_jc ret=%d\n", ret);
+@@ -742,6 +762,90 @@
+    queue->kbase.event_ops.size = kept * sizeof(*ops);
+ }
+ 
++/* PATCH: PANVK_FAULT_REPORT=1. Prints, for a failed atom, the batch it
++ * carried: which chain, the job types, the status the GPU wrote back into
++ * each job header and the fault pointer, plus what the fault pointer is
++ * (live GPU memory, a quarantined freed BO with PANVK_DBG_FREE_DELAY_MS,
++ * or nothing). The command buffer is still pending, so its descriptors are
++ * alive. Caller holds kbase.mtx. */
++static const char *
++panvk_job_type_str(unsigned t)
++{
++   switch (t) {
++   case 0: return "not-started";
++   case 1: return "null";
++   case 2: return "write-value";
++   case 3: return "cache-flush";
++   case 4: return "compute";
++   case 7: return "tiler";
++   case 9: return "fragment";
++   case 10: return "indexed-vertex";
++   case 11: return "malloc-vertex";
++   case 12: return "fullscreen";
++   default: return "?";
++   }
++}
++
++static void
++panvk_fault_report_batch(struct panvk_cmd_buffer *cmdbuf,
++                         struct panvk_batch *batch)
++{
++   if (!cmdbuf || !batch)
++      return;
++
++   panvk_pool_invalidate_maps(&cmdbuf->desc_pool);
++
++   unsigned counts[16] = {0}, done = 0, not_run = 0, shown = 0, idx = 0;
++   util_dynarray_foreach(&batch->jobs, void *, job) {
++      const uint8_t *bytes = *job;
++      uint32_t status, word4;
++      uint64_t fault_ptr;
++
++      memcpy(&status, bytes + 0, sizeof(status));
++      memcpy(&fault_ptr, bytes + 8, sizeof(fault_ptr));
++      memcpy(&word4, bytes + 16, sizeof(word4));
++      unsigned type = (word4 >> 1) & BITFIELD_MASK(7);
++      counts[type & 15]++;
++
++      if ((status & 0xff) == 0x01) {
++         done++;
++      } else if ((status & 0xff) == 0) {
++         not_run++;
++      } else if (shown++ < 8) {
++         char what[160];
++         kbase_kmod_describe_va(fault_ptr, what, sizeof(what));
++         mesa_loge("panvk-fault:   job[%u] %s status 0x%02x (%s) "
++                   "first_incomplete_task %u fault_ptr 0x%" PRIx64 " (%s)",
++                   idx, panvk_job_type_str(type), status & 0xff,
++                   panvk_jd_event_str(status & 0xff),
++                   *(const uint32_t *)(bytes + 4), fault_ptr, what);
++      }
++      idx++;
++   }
++
++   mesa_loge("panvk-fault:   %u jobs: %u done, %u not run, %u other | "
++             "compute %u, malloc-vertex %u, indexed-vertex %u, tiler %u, "
++             "fragment %u, write-value %u, null %u", idx, done, not_run,
++             idx - done - not_run, counts[4], counts[11], counts[10],
++             counts[7], counts[9], counts[2], counts[1]);
++}
++
++static void
++kbase_jm_fault_report(struct panvk_gpu_queue *queue, uint8_t n,
++                      uint32_t event_code)
++{
++   const bool frag = queue->kbase.atom_info[n].core_req == KBASE_JM_FRAG_REQ;
++
++   mesa_loge("panvk-fault: event 0x%x (%s) atom %u group %" PRIu64
++             " %s chain, cmdbuf %p batch %u", event_code,
++             panvk_jd_event_str(event_code), n, queue->kbase.atom_seqno[n],
++             frag ? "fragment" : "vertex/tiler/compute",
++             (void *)queue->kbase.atom_info[n].cmdbuf,
++             queue->kbase.atom_info[n].batch_idx);
++   panvk_fault_report_batch(queue->kbase.atom_info[n].cmdbuf,
++                            queue->kbase.atom_info[n].batch);
++}
++
+ /* Caller holds kbase.mtx. */
+ static void
+ kbase_jm_process_event(struct panvk_gpu_queue *queue,
+@@ -759,6 +863,10 @@
+                 ev->event_code, n, queue->kbase.atom_seqno[n]);
+    }
+ 
++   if (ev->event_code != KBASE_JD_EVENT_DONE && queue->kbase.fault_report &&
++       queue->kbase.fault_reports++ < 64)
++      kbase_jm_fault_report(queue, n, ev->event_code);
++
+    /* A failure of an EVENT_ONLY_ON_FAILURE atom: its group goes on. */
+    if (!queue->kbase.atom_reports[n])
+       return;
+@@ -987,7 +1095,8 @@
+ 
+ static void
+ kbase_jm_add_atom(struct panvk_gpu_queue *queue, uint64_t jc,
+-                  uint32_t core_req)
++                  uint32_t core_req, struct panvk_cmd_buffer *cmdbuf,
++                  struct panvk_batch *batch, uint32_t batch_idx)
+ {
+    if (queue->kbase.nr_atoms == PANVK_KBASE_JM_GROUP_ATOMS)
+       kbase_jm_flush(queue);
+@@ -1004,6 +1113,13 @@
+       kbase_jm_stall_wait(queue, owner);
+    queue->kbase.next_atom = n;
+ 
++   /* PANVK_FAULT_REPORT: written before the JOB_SUBMIT of this atom, read
++    * by the thread that reads its failure event. */
++   queue->kbase.atom_info[n].cmdbuf = cmdbuf;
++   queue->kbase.atom_info[n].batch = batch;
++   queue->kbase.atom_info[n].core_req = core_req;
++   queue->kbase.atom_info[n].batch_idx = batch_idx;
++
+    unsigned idx = queue->kbase.nr_atoms++;
+    uint8_t prev = idx ? queue->kbase.atoms[idx - 1].atom_number
+                       : queue->kbase.last_atom;
+@@ -1118,6 +1234,7 @@
+       struct panvk_cmd_buffer *cmdbuf =
+          container_of(submit->command_buffers[j], struct panvk_cmd_buffer, vk);
+ 
++      uint32_t batch_idx = 0;
+       list_for_each_entry(struct panvk_batch, batch, &cmdbuf->batches, node) {
+          nr_batches++;
+ 
+@@ -1134,10 +1251,11 @@
+ 
+          if (batch->vtc_jc.first_job)
+             kbase_jm_add_atom(queue, batch->vtc_jc.first_job,
+-                              KBASE_JM_VTC_REQ);
++                              KBASE_JM_VTC_REQ, cmdbuf, batch, batch_idx);
+          if (batch->frag_jc.first_job)
+             kbase_jm_add_atom(queue, batch->frag_jc.first_job,
+-                              KBASE_JM_FRAG_REQ);
++                              KBASE_JM_FRAG_REQ, cmdbuf, batch, batch_idx);
++         batch_idx++;
+          if (batch->vtc_jc.first_job || batch->frag_jc.first_job)
+             cmdbuf->kbase_seqno = queue->kbase.building;
+ 
+@@ -1293,6 +1411,7 @@
+    queue->kbase.cpu_waits = pan_env_flag("PANVK_KBASE_ASYNC_CPU_WAITS") != NULL;
+    queue->kbase.no_signal = pan_env_flag("PANVK_KBASE_NO_SIGNAL") != NULL;
+    queue->kbase.no_event_set = pan_env_flag("PANVK_KBASE_EVENT_NO_SET") != NULL;
++   queue->kbase.fault_report = pan_env_flag("PANVK_FAULT_REPORT") != NULL;
+    util_dynarray_init(&queue->kbase.event_ops, NULL);
+    if (mtx_init(&queue->kbase.mtx, mtx_plain) != thrd_success ||
+        u_cnd_monotonic_init(&queue->kbase.cnd) != thrd_success) {
+diff --git a/src/panfrost/lib/kmod/kbase_kmod.h b/src/panfrost/lib/kmod/kbase_kmod.h
+--- a/src/panfrost/lib/kmod/kbase_kmod.h
++++ b/src/panfrost/lib/kmod/kbase_kmod.h
+@@ -5,6 +5,7 @@
+ 
+ #pragma once
+ 
++#include <stddef.h>
+ #include <stdint.h>
+ 
+ #if defined(__cplusplus)
+@@ -89,6 +90,10 @@
+ /* Committed (physically backed) bytes of a BO, 0 if unknown. */
+ uint64_t kbase_kmod_bo_commit_bytes(struct pan_kmod_bo *bo);
+ 
++/* PATCH: names what a GPU address belongs to (live BO, quarantined freed
++ * BO, nothing) when PANVK_FAULT_REPORT or PANVK_DBG_FREE_DELAY_MS is set. */
++void kbase_kmod_describe_va(uint64_t va, char *buf, size_t size);
++
+ int kbase_kmod_csf_tiler_heap_create(struct pan_kmod_dev *dev,
+                                      uint32_t chunk_size,
+                                      uint32_t initial_chunks,
+diff --git a/src/panfrost/lib/kmod/kbase_kmod.c b/src/panfrost/lib/kmod/kbase_kmod.c
+--- a/src/panfrost/lib/kmod/kbase_kmod.c
++++ b/src/panfrost/lib/kmod/kbase_kmod.c
+@@ -38,6 +38,7 @@
+ #include <inttypes.h>
+ #include <fcntl.h>
+ #include <linux/dma-heap.h>
++#include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+ #include <sys/ioctl.h>
+@@ -131,6 +132,9 @@
+    /* LAZY_COMMIT buffer that got fully backed for CPU access. */
+    bool fully_committed;
+    struct list_head grow_link;
++   /* PATCH: fault diagnostics, see kbase_diag_tracking(). */
++   bool diag_tracked;
++   struct list_head diag_link;
+ 
+    /* GPU virtual address.  For SAME_VA allocations this equals the CPU
+     * mapping address; for EXEC_VA-zone allocations it is the address
+@@ -1320,12 +1324,16 @@
+    return NULL;
+ }
+ 
++static void kbase_quar_reap(int fd, bool all);
++
+ static void
+ kbase_kmod_dev_destroy(struct pan_kmod_dev *dev)
+ {
+    struct kbase_kmod_dev *kbase_dev =
+       container_of(dev, struct kbase_kmod_dev, base);
+ 
++   kbase_quar_reap(dev->fd, true);
++
+    simple_mtx_lock(&kbase_dev->kcpu.lock);
+    if (kbase_dev->kcpu.fence_fd >= 0)
+       close(kbase_dev->kcpu.fence_fd);
+@@ -1525,6 +1533,129 @@
+ static simple_mtx_t kbase_grow_lock = SIMPLE_MTX_INITIALIZER;
+ static struct list_head kbase_grow_list = {&kbase_grow_list, &kbase_grow_list};
+ 
++/* PATCH: fault diagnostics. With PANVK_FAULT_REPORT=1 or
++ * PANVK_DBG_FREE_DELAY_MS=<ms>, live BOs are listed so a GPU address can be
++ * named (kbase_kmod_describe_va). PANVK_DBG_FREE_DELAY_MS keeps a freed BO
++ * mapped on the GPU for that long (quarantine): a GPU read of freed memory
++ * then sees the old data instead of faulting, so a fault that goes away
++ * with the delay is a use-after-free. Both are off by default. */
++struct kbase_quar_bo {
++   struct list_head link;
++   uint64_t gpu_va, size, freed_ns;
++   void *cpu_ptr, *gpu_mapping;
++   bool same_va, owns_cpu_mapping;
++   int dmabuf_fd, fd;
++   uint32_t flags;
++};
++
++static simple_mtx_t kbase_diag_lock = SIMPLE_MTX_INITIALIZER;
++static struct list_head kbase_diag_list = {&kbase_diag_list, &kbase_diag_list};
++static struct list_head kbase_quar_list = {&kbase_quar_list, &kbase_quar_list};
++static int kbase_diag_mode = -1;
++static uint64_t kbase_free_delay_ns;
++
++static bool
++kbase_diag_tracking(void)
++{
++   if (kbase_diag_mode < 0) {
++      const char *d = getenv("PANVK_DBG_FREE_DELAY_MS");
++      const char *r = getenv("PANVK_FAULT_REPORT");
++      kbase_free_delay_ns = d ? strtoull(d, NULL, 10) * 1000000ull : 0;
++      kbase_diag_mode =
++         (kbase_free_delay_ns || (r && *r && strcmp(r, "0"))) ? 1 : 0;
++   }
++   return kbase_diag_mode == 1;
++}
++
++static void
++kbase_diag_track(struct pan_kmod_bo *bo)
++{
++   if (!bo || !kbase_diag_tracking())
++      return;
++
++   struct kbase_kmod_bo *kbo = container_of(bo, struct kbase_kmod_bo, base);
++   simple_mtx_lock(&kbase_diag_lock);
++   list_addtail(&kbo->diag_link, &kbase_diag_list);
++   kbo->diag_tracked = true;
++   simple_mtx_unlock(&kbase_diag_lock);
++}
++
++static void
++kbase_quar_release(struct kbase_quar_bo *q)
++{
++   if (q->owns_cpu_mapping && q->cpu_ptr && q->cpu_ptr != q->gpu_mapping)
++      munmap(q->cpu_ptr, q->size);
++   if (q->gpu_mapping)
++      munmap(q->gpu_mapping, q->size);
++   if (!q->same_va) {
++      struct kbase_ioctl_mem_free req = { .gpu_addr = q->gpu_va };
++      ioctl(q->fd, KBASE_IOCTL_MEM_FREE, &req);
++   }
++   if (q->dmabuf_fd >= 0)
++      close(q->dmabuf_fd);
++   free(q);
++}
++
++/* Frees quarantined BOs older than the delay, or all of fd's (fd >= 0,
++ * all = true) before that kbase fd is closed. */
++static void
++kbase_quar_reap(int fd, bool all)
++{
++   uint64_t now = os_time_get_nano();
++   struct list_head done;
++   list_inithead(&done);
++
++   simple_mtx_lock(&kbase_diag_lock);
++   list_for_each_entry_safe(struct kbase_quar_bo, q, &kbase_quar_list, link) {
++      if (all ? q->fd == fd : now - q->freed_ns >= kbase_free_delay_ns) {
++         list_del(&q->link);
++         list_addtail(&q->link, &done);
++      }
++   }
++   simple_mtx_unlock(&kbase_diag_lock);
++
++   list_for_each_entry_safe(struct kbase_quar_bo, q, &done, link)
++      kbase_quar_release(q);
++}
++
++void
++kbase_kmod_describe_va(uint64_t va, char *buf, size_t size)
++{
++   if (!va) {
++      snprintf(buf, size, "null");
++      return;
++   }
++   if (!kbase_diag_tracking()) {
++      snprintf(buf, size, "BO tracking off");
++      return;
++   }
++
++   uint64_t now = os_time_get_nano();
++   simple_mtx_lock(&kbase_diag_lock);
++   list_for_each_entry(struct kbase_kmod_bo, kbo, &kbase_diag_list,
++                       diag_link) {
++      if (va >= kbo->gpu_va && va < kbo->gpu_va + kbo->base.size) {
++         snprintf(buf, size, "live BO 0x%" PRIx64 " +0x%" PRIx64
++                  " offset 0x%" PRIx64 " flags 0x%x%s", kbo->gpu_va,
++                  kbo->base.size, va - kbo->gpu_va, kbo->base.flags,
++                  kbo->growable ? " growable" : "");
++         simple_mtx_unlock(&kbase_diag_lock);
++         return;
++      }
++   }
++   list_for_each_entry(struct kbase_quar_bo, q, &kbase_quar_list, link) {
++      if (va >= q->gpu_va && va < q->gpu_va + q->size) {
++         snprintf(buf, size, "FREED BO 0x%" PRIx64 " +0x%" PRIx64
++                  " flags 0x%x, freed %" PRIu64 " ms ago", q->gpu_va, q->size,
++                  q->flags, (now - q->freed_ns) / 1000000);
++         simple_mtx_unlock(&kbase_diag_lock);
++         return;
++      }
++   }
++   simple_mtx_unlock(&kbase_diag_lock);
++   snprintf(buf, size, "not in any tracked BO");
++}
++
+ static uint64_t kbase_bo_query_commit(int fd, uint64_t gpu_va);
+ 
+ void
+@@ -1635,7 +1766,11 @@
+        !(kmod_flags & (PAN_KMOD_BO_FLAG_EXECUTABLE |
+                        PAN_KMOD_BO_FLAG_ALLOC_ON_FAULT |
+                        PAN_KMOD_BO_FLAG_CSF_EVENT)))
+-      return kbase_kmod_bo_alloc_dmabuf(dev, size, kmod_flags);
++   {
++      struct pan_kmod_bo *dbo = kbase_kmod_bo_alloc_dmabuf(dev, size, kmod_flags);
++      kbase_diag_track(dbo);
++      return dbo;
++   }
+ 
+    const uint64_t page_size = 4096;
+    uint64_t va_pages = (size + page_size - 1) / page_size;
+@@ -1746,6 +1881,7 @@
+       list_addtail(&kbase_bo->grow_link, &kbase_grow_list);
+       simple_mtx_unlock(&kbase_grow_lock);
+    }
++   kbase_diag_track(&kbase_bo->base);
+    return &kbase_bo->base;
+ 
+ err_free_bo:
+@@ -1771,6 +1907,34 @@
+       kbase_mem_stats_add(bo->size, kbase_bo->growable ? 0 : bo->size,
+                           kbase_bo->growable, -1);
+ 
++   if (kbase_bo->diag_tracked) {
++      simple_mtx_lock(&kbase_diag_lock);
++      list_del(&kbase_bo->diag_link);
++      simple_mtx_unlock(&kbase_diag_lock);
++   }
++
++   if (kbase_diag_tracking() && kbase_free_delay_ns) {
++      struct kbase_quar_bo *q = calloc(1, sizeof(*q));
++      if (q) {
++         q->gpu_va = kbase_bo->gpu_va;
++         q->size = bo->size;
++         q->freed_ns = os_time_get_nano();
++         q->cpu_ptr = kbase_bo->cpu_ptr;
++         q->gpu_mapping = kbase_bo->gpu_mapping;
++         q->same_va = kbase_bo->same_va;
++         q->owns_cpu_mapping = kbase_bo->owns_cpu_mapping;
++         q->dmabuf_fd = kbase_bo->dmabuf_fd;
++         q->fd = bo->dev->fd;
++         q->flags = bo->flags;
++         simple_mtx_lock(&kbase_diag_lock);
++         list_addtail(&q->link, &kbase_quar_list);
++         simple_mtx_unlock(&kbase_diag_lock);
++         pan_kmod_dev_free(bo->dev, kbase_bo);
++         kbase_quar_reap(-1, false);
++         return;
++      }
++   }
++
+    /* For SAME_VA regions, munmap() alone tears the whole region down
+     * (free-on-close); a MEM_FREE afterwards would hit a stale VA.  For
+     * zone regions (EXEC_VA), munmap() only drops the CPU mapping and the

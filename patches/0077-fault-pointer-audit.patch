@@ -1,0 +1,697 @@
+diff --git a/src/panfrost/vulkan/jm/panvk_queue.h b/src/panfrost/vulkan/jm/panvk_queue.h
+--- a/src/panfrost/vulkan/jm/panvk_queue.h
++++ b/src/panfrost/vulkan/jm/panvk_queue.h
+@@ -106,6 +106,11 @@
+        * like atom_seqno[n]. */
+       bool fault_report;
+       uint32_t fault_reports;
++      uint32_t fault_audits;
++      uint64_t t0_ns;
++      uint64_t fail_print_ns;
++      bool audit_all;
++      uint32_t audit_batches, audit_suspect_batches, audit_lines;
+       struct {
+          struct panvk_cmd_buffer *cmdbuf;
+          struct panvk_batch *batch;
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+--- a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+@@ -38,9 +38,11 @@
+ #include <fcntl.h>
+ #include <inttypes.h>
+ #include <poll.h>
++#include <stdlib.h>
+ #include <string.h>
+ #include <sys/mman.h>
+ #include <unistd.h>
++#include "pan_props.h"
+ #include "pan_v9_trace.h"
+ #include "panfrost/lib/pan_env.h"
+ #ifdef HAVE_PAN_KMOD_KBASE
+@@ -51,6 +53,19 @@
+ {
+    snprintf(buf, size, "?");
+ }
++static inline int
++kbase_kmod_va_check(uint64_t va, uint64_t len, void *out, bool *growable,
++                    uint64_t *bo_va, uint64_t *bo_size)
++{
++   return -3;
++}
++struct kbase_kmod_mem_stats {
++   uint64_t growable_commit_bytes;
++};
++static inline void
++kbase_kmod_mem_stats(struct kbase_kmod_mem_stats *out)
++{
++}
+ #endif
+ 
+ struct panvk_kbase_event_v2 {
+@@ -280,8 +295,9 @@
+    }
+ }
+ 
+-static void panvk_fault_report_batch(struct panvk_cmd_buffer *cmdbuf,
+-                                     struct panvk_batch *batch);
++static void panvk_fault_report_batch(struct panvk_gpu_queue *queue,
++                                     struct panvk_cmd_buffer *cmdbuf,
++                                     struct panvk_batch *batch, bool frag);
+ 
+ static int
+ panvk_kbase_submit_and_wait(int fd, uint64_t jc, uint32_t core_req)
+@@ -418,7 +434,7 @@
+                    "(PANVK_V9_TRACE=1 dumps the job status)", -ret);
+          if (queue->kbase.fault_report &&
+              queue->kbase.fault_reports++ < 64)
+-            panvk_fault_report_batch(cmdbuf, batch);
++            panvk_fault_report_batch(queue, cmdbuf, batch, false);
+       }
+       if (pan_v9_trace_enabled() || getenv("PANVK_HEAP_LOG")) {
+          fprintf(panvk_debug_log_file(),
+@@ -450,7 +466,7 @@
+                    "(PANVK_V9_TRACE=1 dumps the job status)", -ret);
+          if (queue->kbase.fault_report &&
+              queue->kbase.fault_reports++ < 64)
+-            panvk_fault_report_batch(cmdbuf, batch);
++            panvk_fault_report_batch(queue, cmdbuf, batch, true);
+       }
+       if (pan_v9_trace_enabled() || getenv("PANVK_HEAP_LOG")) {
+          fprintf(panvk_debug_log_file(),
+@@ -786,10 +802,391 @@
+    }
+ }
+ 
++/* PATCH 0077: pointer audit of a failed batch. kbase kills the context's
++ * jobs on an MMU fault without telling userspace the address (dmesg only),
++ * and a killed job never writes its status, so the job headers say
++ * nothing. Instead, every GPU address the failed chain follows (job
++ * descriptors -> draw/shader descriptors -> resource tables -> buffer,
++ * texture and plane descriptors -> memory; framebuffer -> render targets,
++ * tiler heap) is checked against the live BOs: an address in no BO, in a
++ * freed BO or running past the end of its BO is printed, and the growable
++ * (grow-on-fault) BOs that are used are listed with how much the kernel has
++ * backed. Descriptor memory is read through the BO's CPU mapping; growable
++ * BOs are never read. */
++struct fault_audit {
++   unsigned checked, outside, freed, past_end, sink, shown;
++   unsigned show_max;
++   unsigned occl_len, jobs_skipped;
++   unsigned nseen;
++   uint64_t seen[256];
++   unsigned ngrow;
++   struct {
++      uint64_t bo, size, max_end;
++      unsigned refs;
++   } grow[16];
++};
++
++static uint32_t
++fa_rd32(const uint8_t *p)
++{
++   uint32_t v;
++   memcpy(&v, p, 4);
++   return v;
++}
++
++static uint64_t
++fa_rd64(const uint8_t *p)
++{
++   uint64_t v;
++   memcpy(&v, p, 8);
++   return v;
++}
++
++/* True the first time a table address is seen (tables are shared by
++ * many draws). */
++static bool
++fa_first(struct fault_audit *a, uint64_t va)
++{
++   for (unsigned i = 0; i < a->nseen; i++)
++      if (a->seen[i] == va)
++         return false;
++   if (a->nseen < ARRAY_SIZE(a->seen))
++      a->seen[a->nseen++] = va;
++   return true;
++}
++
+ static void
+-panvk_fault_report_batch(struct panvk_cmd_buffer *cmdbuf,
+-                         struct panvk_batch *batch)
++fa_ptr(struct fault_audit *a, unsigned job, const char *what, uint64_t va,
++       uint64_t len)
+ {
++   if (!va)
++      return;
++   a->checked++;
++   if ((va >> 60) == 0x8) {
++      /* Memory sink of null dynamic buffers: never dereferenced as long
++       * as the size is 0. */
++      a->sink++;
++      if (!len)
++         return;
++   }
++
++   bool growable = false;
++   uint64_t bo = 0, bo_size = 0;
++   int r = kbase_kmod_va_check(va, len ? len : 1, NULL, &growable, &bo,
++                               &bo_size);
++   if (r == 0) {
++      if (growable) {
++         unsigned i;
++         for (i = 0; i < a->ngrow; i++)
++            if (a->grow[i].bo == bo)
++               break;
++         if (i == a->ngrow && a->ngrow < ARRAY_SIZE(a->grow)) {
++            a->grow[i].bo = bo;
++            a->grow[i].size = bo_size;
++            a->grow[i].max_end = 0;
++            a->grow[i].refs = 0;
++            a->ngrow++;
++         }
++         if (i < a->ngrow) {
++            a->grow[i].refs++;
++            a->grow[i].max_end =
++               MAX2(a->grow[i].max_end, va - bo + (len ? len : 1));
++         }
++      }
++      return;
++   }
++   if (r == -3)
++      return;
++
++   if (r == -1)
++      a->freed++;
++   else if (r == -4)
++      a->past_end++;
++   else
++      a->outside++;
++
++   if (a->shown++ < a->show_max) {
++      char where[160];
++      kbase_kmod_describe_va(va, where, sizeof(where));
++      mesa_loge("panvk-fault:   SUSPECT job[%u] %s 0x%" PRIx64 " +0x%" PRIx64
++                ": %s%s", job, what, va, len, where,
++                r == -4 ? " (runs past the end of the BO)" : "");
++   }
++}
++
++static bool
++fa_read(uint64_t va, void *out, size_t len)
++{
++   return va && (va >> 60) != 0x8 &&
++          kbase_kmod_va_check(va, len, out, NULL, NULL, NULL) == 0;
++}
++
++static void
++fa_desc(struct fault_audit *a, unsigned job, const uint8_t *d)
++{
++   switch (d[0] & 0xf) {
++   case 2: { /* Texture */
++      unsigned levels = ((fa_rd32(d + 8) >> 16) & 0x1f) + 1;
++      unsigned layers = (fa_rd32(d + 24) & 0xffff) + 1;
++      uint64_t surfaces = fa_rd64(d + 16);
++      uint64_t n = MIN2((uint64_t)levels * layers, 4096);
++      fa_ptr(a, job, "texture surfaces", surfaces, n * 32);
++      uint8_t pl[32];
++      for (uint64_t i = 0; i < n; i += (n > 1 ? n - 1 : 1)) {
++         if (!fa_read(surfaces + i * 32, pl, 32))
++            break;
++         fa_ptr(a, job, "texture plane", fa_rd64(pl + 8), fa_rd32(pl + 4));
++      }
++      break;
++   }
++   case 8: /* Shader program */
++      fa_ptr(a, job, "shader binary", fa_rd64(d + 8), 4);
++      break;
++   case 9: /* Buffer */
++      fa_ptr(a, job, "buffer", fa_rd64(d + 8), fa_rd32(d + 4));
++      break;
++   case 10: /* Plane */
++      fa_ptr(a, job, "plane", fa_rd64(d + 8), fa_rd32(d + 4));
++      break;
++   default:
++      break;
++   }
++}
++
++static void
++fa_res_table(struct fault_audit *a, unsigned job, uint64_t res)
++{
++   const uint64_t tab = res & ~0x3full;
++   const unsigned count = res & 0x3f;
++
++   if (!tab || !fa_first(a, res))
++      return;
++   fa_ptr(a, job, "resource table", tab, count * 16);
++   for (unsigned i = 0; i < count; i++) {
++      uint8_t e[16];
++      if (!fa_read(tab + i * 16, e, 16))
++         continue;
++      uint64_t addr = fa_rd64(e) & BITFIELD64_MASK(56);
++      uint64_t size = fa_rd64(e + 8);
++      if (!addr || !size || !fa_first(a, addr))
++         continue;
++      fa_ptr(a, job, "descriptor table", addr, size);
++      uint64_t n = MIN2(size / 32, 1024);
++      for (uint64_t k = 0; k < n; k++) {
++         uint8_t d[32];
++         if (!fa_read(addr + k * 32, d, 32))
++            break;
++         fa_desc(a, job, d);
++      }
++   }
++}
++
++/* Shader Environment, 64 bytes. Returns the shader binary address. */
++static uint64_t
++fa_shader_env(struct fault_audit *a, unsigned job, const char *what,
++              const uint8_t *env)
++{
++   uint64_t prog = fa_rd64(env + 40), tls = fa_rd64(env + 48);
++   uint64_t fau = fa_rd64(env + 56), binary = 0;
++   unsigned fau_count = fa_rd32(env + 4) & 0xff;
++   char w[48];
++
++   snprintf(w, sizeof(w), "%s shader program", what);
++   fa_ptr(a, job, w, prog, 32);
++   uint8_t sp[32];
++   if (fa_read(prog, sp, 32)) {
++      binary = fa_rd64(sp + 8);
++      snprintf(w, sizeof(w), "%s shader binary", what);
++      fa_ptr(a, job, w, binary, 4);
++   }
++   if (tls && fa_first(a, tls)) {
++      fa_ptr(a, job, "local storage", tls, 32);
++      uint8_t ls[32];
++      if (fa_read(tls, ls, 32)) {
++         /* Packed address mode (what pan_emit_tls uses on v9) stores the
++          * base shifted right by 8. */
++         uint64_t tls_base = fa_rd64(ls + 8) & BITFIELD64_MASK(48);
++         if ((fa_rd32(ls + 12) >> 28) == 1)
++            tls_base <<= 8;
++         fa_ptr(a, job, "TLS", tls_base, 1);
++         fa_ptr(a, job, "WLS", fa_rd64(ls + 16), 1);
++      }
++   }
++   snprintf(w, sizeof(w), "%s FAU", what);
++   fa_ptr(a, job, w, fau, fau_count * 8);
++   fa_res_table(a, job, fa_rd64(env + 32));
++   return binary;
++}
++
++/* Draw descriptor (DCD), 128 bytes: fragment side of a draw. */
++static void
++fa_draw(struct fault_audit *a, unsigned job, const uint8_t *draw)
++{
++   uint64_t binary = fa_shader_env(a, job, "fragment", draw + 64);
++   uint64_t blend = fa_rd64(draw + 48);
++   unsigned blend_count = blend & 0xf;
++
++   blend &= ~0xfull;
++   fa_ptr(a, job, "depth/stencil descriptor", fa_rd64(draw + 40), 32);
++   /* One 64-bit counter per shader core ID (query pool layout). */
++   fa_ptr(a, job, "occlusion", fa_rd64(draw + 56), a->occl_len);
++   fa_ptr(a, job, "blend descriptors", blend, blend_count * 16);
++   for (unsigned i = 0; i < blend_count; i++) {
++      uint8_t b[16];
++      if (!fa_read(blend + i * 16, b, 16))
++         break;
++      uint32_t pc = fa_rd32(b + 12) & ~0xfu;
++      if ((fa_rd32(b + 8) & 3) == 0 && pc && binary)
++         fa_ptr(a, job, "blend shader", (binary & ~0xffffffffull) | pc, 4);
++   }
++}
++
++static void
++fa_framebuffer(struct fault_audit *a, unsigned job, const uint8_t *frag_job)
++{
++   uint64_t fbd = fa_rd64(frag_job + 40) & ~0x3full;
++   uint8_t p[128];
++
++   fa_ptr(a, job, "framebuffer descriptor", fbd, 128);
++   if (!fa_read(fbd, p, 128))
++      return;
++
++   unsigned rt_count = ((fa_rd32(p + 44) >> 19) & 0xf) + 1;
++   bool has_zs = (fa_rd32(p + 48) >> 21) & 1;
++   uint64_t dcds = fa_rd64(p + 24), tiler = fa_rd64(p + 56);
++   uint32_t modes = fa_rd32(p);
++
++   fa_ptr(a, job, "sample locations", fa_rd64(p + 16), 8);
++   fa_ptr(a, job, "tile enable map", fa_rd64(frag_job + 48), 1);
++   for (unsigned i = 0; i < 3; i++) {
++      uint8_t dcd[128];
++      if (((modes >> (3 * i)) & 7) && fa_read(dcds + i * 128, dcd, 128))
++         fa_draw(a, job, dcd);
++   }
++
++   /* The tiler updates the polygon list pointer (flags in the top bits)
++    * and the heap's bottom/top while it runs: only the 48-bit address and
++    * the CPU-written base + size are checked. */
++   uint8_t t[32];
++   fa_ptr(a, job, "tiler context", tiler, 32);
++   if (fa_read(tiler, t, 32)) {
++      fa_ptr(a, job, "polygon list", fa_rd64(t) & BITFIELD64_MASK(48), 1);
++      uint64_t heap = fa_rd64(t + 24);
++      uint8_t h[32];
++      fa_ptr(a, job, "tiler heap descriptor", heap, 32);
++      if (fa_read(heap, h, 32))
++         fa_ptr(a, job, "tiler heap", fa_rd64(h + 8), fa_rd32(h + 4));
++   }
++
++   uint64_t rts = fbd + 128;
++   if (has_zs) {
++      uint8_t z[64];
++      fa_ptr(a, job, "ZS/CRC extension", rts, 64);
++      if (fa_read(rts, z, 64)) {
++         fa_ptr(a, job, "depth target", fa_rd64(z + 32), 1);
++         fa_ptr(a, job, "stencil target", fa_rd64(z + 48), 1);
++      }
++      rts += 64;
++   }
++   for (unsigned i = 0; i < rt_count; i++) {
++      uint8_t rt[64];
++      if (!fa_read(rts + i * 64, rt, 64))
++         break;
++      fa_ptr(a, job, "render target", fa_rd64(rt + 32), 1);
++   }
++}
++
++/* quiet: PANVK_FAULT_AUDIT_ALL, prints SUSPECT lines only (show_max of
++ * them). Returns the number of suspect addresses. */
++static unsigned
++panvk_fault_audit(struct panvk_gpu_queue *queue, struct panvk_batch *batch,
++                  bool frag, bool quiet, unsigned show_max)
++{
++   struct panvk_physical_device *phys_dev = to_panvk_physical_device(
++      to_panvk_device(queue->vk.base.device)->vk.physical);
++   struct fault_audit *a = calloc(1, sizeof(*a));
++   if (!a)
++      return 0;
++   a->show_max = show_max;
++   a->occl_len = 8 * pan_query_core_id_range(&phys_dev->kmod.dev->props);
++
++   unsigned idx = 0;
++   util_dynarray_foreach(&batch->jobs, void *, job) {
++      const uint8_t *j = *job;
++      unsigned type = (fa_rd32(j + 16) >> 1) & BITFIELD_MASK(7);
++
++      /* Bounded: this runs with kbase.mtx held. */
++      if (idx >= 512) {
++         a->jobs_skipped++;
++         idx++;
++         continue;
++      }
++
++      if (type == 11) { /* malloc vertex */
++         fa_draw(a, idx, j + 128);
++         if (!frag) {
++            fa_shader_env(a, idx, "position", j + 256);
++            fa_shader_env(a, idx, "varying", j + 320);
++         }
++      } else if (type == 9 && frag) {
++         fa_framebuffer(a, idx, j);
++      } else if (type == 4 && !frag) {
++         fa_shader_env(a, idx, "compute", j + 64);
++      }
++      idx++;
++   }
++
++   const unsigned suspects = a->outside + a->freed + a->past_end;
++   if (quiet) {
++      free(a);
++      return suspects;
++   }
++
++   mesa_loge("panvk-fault:   audit: %u GPU addresses checked: %u in no BO, "
++             "%u in freed BOs, %u past the end of their BO, %u null-buffer "
++             "sink%s", a->checked, a->outside, a->freed, a->past_end, a->sink,
++             a->jobs_skipped ? " (first 512 jobs only)" : "");
++   for (unsigned i = 0; i < a->ngrow; i++) {
++      char where[160];
++      kbase_kmod_describe_va(a->grow[i].bo + a->grow[i].max_end - 1, where,
++                             sizeof(where));
++      mesa_loge("panvk-fault:   growable BO 0x%" PRIx64 " +0x%" PRIx64
++                ": %u refs up to offset 0x%" PRIx64 " (%s)", a->grow[i].bo,
++                a->grow[i].size, a->grow[i].refs, a->grow[i].max_end, where);
++   }
++   free(a);
++   return suspects;
++}
++
++static uint64_t
++fa_mem_available_mb(void)
++{
++   FILE *f = fopen("/proc/meminfo", "r");
++   char line[128];
++   uint64_t kb = 0;
++
++   if (!f)
++      return 0;
++   while (fgets(line, sizeof(line), f)) {
++      if (sscanf(line, "MemAvailable: %" SCNu64, &kb) == 1)
++         break;
++   }
++   fclose(f);
++   return kb / 1024;
++}
++
++static void
++panvk_fault_report_batch(struct panvk_gpu_queue *queue,
++                         struct panvk_cmd_buffer *cmdbuf,
++                         struct panvk_batch *batch, bool frag)
++{
++   struct kbase_kmod_mem_stats ms = {0};
++   kbase_kmod_mem_stats(&ms);
++   mesa_loge("panvk-fault:   t=%.1fs since device creation, MemAvailable %"
++             PRIu64 " MB, growable BOs backed %" PRIu64 " MB",
++             (os_time_get_nano() - queue->kbase.t0_ns) / 1e9,
++             fa_mem_available_mb(), ms.growable_commit_bytes >> 20);
++
+    if (!cmdbuf || !batch)
+       return;
+ 
+@@ -828,6 +1225,10 @@
+              "fragment %u, write-value %u, null %u", idx, done, not_run,
+              idx - done - not_run, counts[4], counts[11], counts[10],
+              counts[7], counts[9], counts[2], counts[1]);
++
++   /* The first fault is the one that matters, the rest are its fallout. */
++   if (queue->kbase.fault_audits++ < 3)
++      panvk_fault_audit(queue, batch, frag, false, 12);
+ }
+ 
+ static void
+@@ -842,8 +1243,8 @@
+              frag ? "fragment" : "vertex/tiler/compute",
+              (void *)queue->kbase.atom_info[n].cmdbuf,
+              queue->kbase.atom_info[n].batch_idx);
+-   panvk_fault_report_batch(queue->kbase.atom_info[n].cmdbuf,
+-                            queue->kbase.atom_info[n].batch);
++   panvk_fault_report_batch(queue, queue->kbase.atom_info[n].cmdbuf,
++                            queue->kbase.atom_info[n].batch, frag);
+ }
+ 
+ /* Caller holds kbase.mtx. */
+@@ -855,6 +1256,17 @@
+ 
+    queue->kbase.prof.events++;
+ 
++   /* PATCH 0077: after the first 16 lines, one summary per second, so a
++   * log shows whether failures keep coming. */
++   if (ev->event_code != KBASE_JD_EVENT_DONE && queue->kbase.errors >= 16 &&
++       now - queue->kbase.fail_print_ns >= 1000000000ull) {
++      queue->kbase.fail_print_ns = now;
++      mesa_loge("panvk: %u GPU job chains failed so far (t=%.1fs, last "
++                "event 0x%x group %" PRIu64 ")", queue->kbase.errors + 1,
++                (now - queue->kbase.t0_ns) / 1e9, ev->event_code,
++                queue->kbase.atom_seqno[n]);
++   }
++
+    if (ev->event_code != KBASE_JD_EVENT_DONE &&
+        queue->kbase.errors++ < 16) {
+       mesa_loge("panvk: v9 job chain failed: kbase event 0x%x (atom %u, "
+@@ -1249,6 +1661,27 @@
+             panvk_batch_reset_for_reissue(cmdbuf, batch);
+          }
+ 
++         /* PATCH 0077: PANVK_FAULT_AUDIT_ALL=1 checks every batch before it
++          * goes to the GPU (validation of the audit, very slow). */
++         if (queue->kbase.audit_all) {
++            unsigned sus = 0;
++            if (batch->vtc_jc.first_job)
++               sus += panvk_fault_audit(queue, batch, false, true,
++                                        queue->kbase.audit_lines < 40 ? 4 : 0);
++            if (batch->frag_jc.first_job)
++               sus += panvk_fault_audit(queue, batch, true, true,
++                                        queue->kbase.audit_lines < 40 ? 4 : 0);
++            queue->kbase.audit_batches++;
++            if (sus) {
++               queue->kbase.audit_suspect_batches++;
++               queue->kbase.audit_lines += sus;
++            }
++            if ((queue->kbase.audit_batches & 1023) == 0)
++               mesa_loge("panvk-audit: %u batches checked, %u with suspect "
++                         "addresses", queue->kbase.audit_batches,
++                         queue->kbase.audit_suspect_batches);
++         }
++
+          if (batch->vtc_jc.first_job)
+             kbase_jm_add_atom(queue, batch->vtc_jc.first_job,
+                               KBASE_JM_VTC_REQ, cmdbuf, batch, batch_idx);
+@@ -1412,6 +1845,8 @@
+    queue->kbase.no_signal = pan_env_flag("PANVK_KBASE_NO_SIGNAL") != NULL;
+    queue->kbase.no_event_set = pan_env_flag("PANVK_KBASE_EVENT_NO_SET") != NULL;
+    queue->kbase.fault_report = pan_env_flag("PANVK_FAULT_REPORT") != NULL;
++   queue->kbase.t0_ns = os_time_get_nano();
++   queue->kbase.audit_all = pan_env_flag("PANVK_FAULT_AUDIT_ALL") != NULL;
+    util_dynarray_init(&queue->kbase.event_ops, NULL);
+    if (mtx_init(&queue->kbase.mtx, mtx_plain) != thrd_success ||
+        u_cnd_monotonic_init(&queue->kbase.cnd) != thrd_success) {
+diff --git a/src/panfrost/lib/kmod/kbase_kmod.h b/src/panfrost/lib/kmod/kbase_kmod.h
+--- a/src/panfrost/lib/kmod/kbase_kmod.h
++++ b/src/panfrost/lib/kmod/kbase_kmod.h
+@@ -5,6 +5,7 @@
+ 
+ #pragma once
+ 
++#include <stdbool.h>
+ #include <stddef.h>
+ #include <stdint.h>
+ 
+@@ -93,6 +94,8 @@
+ /* PATCH: names what a GPU address belongs to (live BO, quarantined freed
+  * BO, nothing) when PANVK_FAULT_REPORT or PANVK_DBG_FREE_DELAY_MS is set. */
+ void kbase_kmod_describe_va(uint64_t va, char *buf, size_t size);
++int kbase_kmod_va_check(uint64_t va, uint64_t len, void *out, bool *growable,
++                        uint64_t *bo_va, uint64_t *bo_size);
+ 
+ int kbase_kmod_csf_tiler_heap_create(struct pan_kmod_dev *dev,
+                                      uint32_t chunk_size,
+diff --git a/src/panfrost/lib/kmod/kbase_kmod.c b/src/panfrost/lib/kmod/kbase_kmod.c
+--- a/src/panfrost/lib/kmod/kbase_kmod.c
++++ b/src/panfrost/lib/kmod/kbase_kmod.c
+@@ -1560,6 +1560,8 @@
+    if (kbase_diag_mode < 0) {
+       const char *d = getenv("PANVK_DBG_FREE_DELAY_MS");
+       const char *r = getenv("PANVK_FAULT_REPORT");
++      if (!r || !*r || !strcmp(r, "0"))
++         r = getenv("PANVK_FAULT_AUDIT_ALL");
+       kbase_free_delay_ns = d ? strtoull(d, NULL, 10) * 1000000ull : 0;
+       kbase_diag_mode =
+          (kbase_free_delay_ns || (r && *r && strcmp(r, "0"))) ? 1 : 0;
+@@ -1618,6 +1620,57 @@
+       kbase_quar_release(q);
+ }
+ 
++static uint64_t kbase_bo_query_commit(int fd, uint64_t gpu_va);
++
++/* PATCH 0077: 0 = [va, va+len) is inside one live BO (1 also says whether
++ * it is growable), -1 = in a freed (quarantined) BO, -2 = in no BO. When
++ * out is set and the BO is CPU-mapped and not growable, copies the bytes.
++ * Fault diagnostics only. */
++int
++kbase_kmod_va_check(uint64_t va, uint64_t len, void *out, bool *growable,
++                    uint64_t *bo_va, uint64_t *bo_size)
++{
++   int ret = -2;
++
++   if (!kbase_diag_tracking())
++      return -3;
++
++   simple_mtx_lock(&kbase_diag_lock);
++   list_for_each_entry(struct kbase_kmod_bo, kbo, &kbase_diag_list,
++                       diag_link) {
++      if (va >= kbo->gpu_va && va < kbo->gpu_va + kbo->base.size) {
++         if (bo_va)
++            *bo_va = kbo->gpu_va;
++         if (bo_size)
++            *bo_size = kbo->base.size;
++         if (growable)
++            *growable = kbo->growable;
++         if (len > kbo->gpu_va + kbo->base.size - va) {
++            ret = -4; /* starts inside, ends past the BO */
++         } else {
++            ret = 0;
++            if (out) {
++               if (!kbo->growable && kbo->cpu_ptr)
++                  memcpy(out, (const uint8_t *)kbo->cpu_ptr +
++                                 (va - kbo->gpu_va), len);
++               else
++                  ret = 1;
++            }
++         }
++         simple_mtx_unlock(&kbase_diag_lock);
++         return ret;
++      }
++   }
++   list_for_each_entry(struct kbase_quar_bo, q, &kbase_quar_list, link) {
++      if (va >= q->gpu_va && va < q->gpu_va + q->size) {
++         ret = -1;
++         break;
++      }
++   }
++   simple_mtx_unlock(&kbase_diag_lock);
++   return ret;
++}
++
+ void
+ kbase_kmod_describe_va(uint64_t va, char *buf, size_t size)
+ {
+@@ -1635,10 +1688,16 @@
+    list_for_each_entry(struct kbase_kmod_bo, kbo, &kbase_diag_list,
+                        diag_link) {
+       if (va >= kbo->gpu_va && va < kbo->gpu_va + kbo->base.size) {
++         char extra[64] = "";
++         /* PATCH 0077: for a grow-on-fault region, how much of it the
++          * kernel has backed: an address above that needs a page fault
++          * that can fail under memory pressure. */
++         if (kbo->growable)
++            snprintf(extra, sizeof(extra), " growable, backed 0x%" PRIx64,
++                     kbase_bo_query_commit(kbo->base.dev->fd, kbo->gpu_va));
+          snprintf(buf, size, "live BO 0x%" PRIx64 " +0x%" PRIx64
+                   " offset 0x%" PRIx64 " flags 0x%x%s", kbo->gpu_va,
+-                  kbo->base.size, va - kbo->gpu_va, kbo->base.flags,
+-                  kbo->growable ? " growable" : "");
++                  kbo->base.size, va - kbo->gpu_va, kbo->base.flags, extra);
+          simple_mtx_unlock(&kbase_diag_lock);
+          return;
+       }
+@@ -1652,8 +1711,23 @@
+          return;
+       }
+    }
++   /* Nearest live BO below: tells an overrun apart from a wild pointer. */
++   uint64_t best_end = 0, best_va = 0;
++   list_for_each_entry(struct kbase_kmod_bo, kbo, &kbase_diag_list,
++                       diag_link) {
++      uint64_t end = kbo->gpu_va + kbo->base.size;
++      if (end <= va && end > best_end) {
++         best_end = end;
++         best_va = kbo->gpu_va;
++      }
++   }
+    simple_mtx_unlock(&kbase_diag_lock);
+-   snprintf(buf, size, "not in any tracked BO");
++   if (best_end)
++      snprintf(buf, size, "not in any tracked BO (nearest below: BO 0x%"
++               PRIx64 ", ends 0x%" PRIx64 " bytes before)", best_va,
++               va - best_end);
++   else
++      snprintf(buf, size, "not in any tracked BO (none below)");
+ }
+ 
+ static uint64_t kbase_bo_query_commit(int fd, uint64_t gpu_va);
+@@ -1976,7 +2050,10 @@
+ static struct pan_kmod_bo *
+ kbase_kmod_bo_import_fd(struct pan_kmod_dev *dev, int fd, uint64_t size)
+ {
+-   return kbase_kmod_import_dmabuf(dev, NULL, fd, size, 0, true);
++   struct pan_kmod_bo *bo = kbase_kmod_import_dmabuf(dev, NULL, fd, size, 0,
++                                                     true);
++   kbase_diag_track(bo);
++   return bo;
+ }
+ 
+ static int

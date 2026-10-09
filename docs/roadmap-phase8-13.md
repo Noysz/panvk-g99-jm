@@ -260,3 +260,20 @@ after each change, same scene, 3 runs.
   preloads) is next. Vertex/tiler of batch N+1 still waits for the fragment
   job of batch N (shared tiler heap); overlapping them needs a heap per
   batch in flight.
+- [x] 13.3 Stability: a null image view in a combined image sampler went into
+  the sampler sub-descriptor, the texture slot kept stale data (`0075`).
+  robustness2 `l_rb2` 951 P / 28 F (was 926 / 53), regression lost 0.
+  Control `PANVK_NULL_TEX_SAMPLER_SLOT=1`.
+- [x] 13.4 Fault diagnostics for game logs (`0076`, off by default):
+  `PANVK_FAULT_REPORT=1` (failed chain, job types, status, fault pointer and
+  its BO) and `PANVK_DBG_FREE_DELAY_MS` (freed BOs stay mapped, tells a
+  use-after-free apart). `tests/graphics/fault_diag_test.c`.
+- [ ] 13.5 Little Nightmares II GPU faults (kbase 0x4 then 0x42 = an MMU fault
+  kills the context's jobs): find the job type and the bug class with the
+  `0076` switches on the user's device. test4 runs: the fragment job of a
+  166-226 draw render pass, every run; not a recently freed BO (fault stays
+  with `PANVK_DBG_FREE_DELAY_MS=2000`), not `0074` (stays with
+  `PANVK_TLS_PER_BATCH=1`), not kbase soft-stop of long jobs
+  (`longjob_test`), no memory pressure (MemAvailable >= 830 MB). Next: the
+  `0077` pointer audit on the device, plus `PANVK_KBASE_DEVMEM_EAGER=1` and
+  `PANVK_KBASE_SYNC_SUBMIT=1` runs.

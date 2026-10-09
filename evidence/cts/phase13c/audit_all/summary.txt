@@ -1,0 +1,19 @@
+cts_l_blend.out pass=100 fail=0 notsupported=0 crash=0 suspect=0 
+cts_l_gs.out pass=192 fail=0 notsupported=8 crash=0 suspect=0 
+cts_l_indirect_draw.out pass=372 fail=0 notsupported=0 crash=0 suspect=0 
+cts_l_layers.out pass=62 fail=0 notsupported=0 crash=0 suspect=0 
+cts_l_nulldesc.out pass=24 fail=1 notsupported=0 crash=0 suspect=0 
+cts_l_rba2.out pass=35 fail=0 notsupported=0 crash=0 suspect=0 
+cts_l_sampler.out pass=55 fail=0 notsupported=115 crash=0 suspect=0 
+cts_l_simple_draw.out pass=4 fail=0 notsupported=0 crash=0 suspect=0 
+cts_l_tess_r.out pass=193 fail=0 notsupported=24 crash=0 suspect=0 
+cts_l_tex_filter.out pass=6 fail=0 notsupported=12 crash=0 suspect=0 
+cts_l_xfb_s.out pass=125 fail=8 notsupported=10 crash=0 suspect=0 
+own_cube.out pass=0 fail=0 notsupported=0 crash=0 suspect=0 CUBESUM tiling=optimal frames=30 bad_frames=0 bad=0 exact_di
+own_cube_resubmit.out pass=0 fail=0 notsupported=0 crash=0 suspect=0 CUBESUM tiling=optimal frames=10 bad_frames=0 bad=0 exact_di
+own_diag.out pass=0 fail=0 notsupported=0 crash=0 suspect=0 FAULTDIAG verdict=ALL_CORRECT
+own_frag.out pass=0 fail=0 notsupported=0 crash=0 suspect=0 FAULTFRAG verdict=ALL_CORRECT
+own_longjob_vert.out pass=0 fail=0 notsupported=0 crash=0 suspect=0 LONGJOB verdict=PASS
+cts_l_layers.out:MESA: error: panvk-audit: 1024 batches checked, 0 with suspect addresses
+cts_l_layers.out:MESA: error: panvk-audit: 2048 batches checked, 0 with suspect addresses
+cts_l_layers.out:MESA: error: panvk-audit: 3072 batches checked, 0 with suspect addresses
