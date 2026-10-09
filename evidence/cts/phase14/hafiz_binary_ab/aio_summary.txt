@@ -1,0 +1,2 @@
+drvH2 gs AIOCLICK scene=gs status=DIED segv=0 guard_msgs=0 unhandled=0
+drvH2 tess AIOCLICK scene=tess status=DIED segv=0 guard_msgs=0 unhandled=0

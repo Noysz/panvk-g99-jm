@@ -1,0 +1,1 @@
+# avg_fps,22.48,min_fps,6.90,max_fps,2224.20,low1pct_fps,9.02 failed=0

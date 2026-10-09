@@ -1,0 +1,4 @@
+drvH2 1.10.3 rc=1 
+drvH2 pandxvk-9 rc=1 
+drvH2 1.12.1-sarek rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3147ms fps=47.7 verdict=PASS
+drvH2 v2.3.1-stripped rc=0 D3D11SUM frames=150 checked=5 bad=0 time=4887ms fps=30.7 verdict=PASS

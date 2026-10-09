@@ -10,6 +10,42 @@ Most public PanVK testing/builds so far target **CSF** chips (G610/G615/G710/G72
 
 ---
 
+## Status (2026-10-10): FourFectVK 0.1.0 test builds, new upstream base
+
+**Builds for Winlator: [`docs/test-builds.md`](docs/test-builds.md)**
+(test1-test7, what each one changed, results, downloads in the
+[`fourfectvk-g57-v0.1.0-tests`](https://github.com/Noysz/panvk-g99-jm/releases/tag/fourfectvk-g57-v0.1.0-tests)
+pre-release). Latest: **test7**.
+
+* **New base since test6.** FourFectVK now builds on upstream Mesa
+  `feeadb5f` (26.3.0-devel) through **hafiz's rebase** of this project, with
+  FourFectVK `0060`-`0077` ported on top:
+  [`patches-upstream/`](patches-upstream/). The old series in
+  [`patches/`](patches/) (`0001`-`0077`) is kept for history and builds
+  test1-test5.
+* **GPU faults gone in the games that had them.** Tomb Raider and Little
+  Nightmares II ended with kbase `0x4`/`0x42` job failures on test4-test5
+  (flat or missing textures, pink models, missing menu text). On test6 the
+  logs of 5 Tomb Raider runs and 1 LN2 run show 0 failed GPU jobs and the
+  pictures are right. Which change of the new base removed the fault is not
+  isolated yet.
+* **D3D11:** tessellation, geometry shaders and transform feedback stay on
+  for v9 (DXVK 1.10.3 / 1.11 / 2.x start); robustBufferAccess2 for DXVK 2.4+
+  and 3.x.
+* **Checked for every test build:** VK-GL-CTS regression of 7127 cases with
+  0 lost, and a Winlator-stack device check
+  ([`evidence/cts/phase14/`](evidence/cts/phase14/) for test6-test7).
+* **Open:** frame rate in heavy games (Tomb Raider about 10 fps at medium
+  settings, GPU-bound); test7 adds `PANVK_FRAME_PROF` to measure where the
+  time goes. Other Valhall GPUs (G68, G57 MC3) are untested.
+
+**Thanks to hafiz** for the upstream rebase, the chained and asynchronous
+kbase submission with real kernel fences, forward pixel kill on v9 and the
+multisampled storage work: test6 is the build where the graphics problems of
+test1-test5 went away.
+
+---
+
 ## Status (2026-10-04): graphics, texturing, WSI and a spinning cube on v9, EXPERIMENTAL v9-only features, and real DXVK through the Winlator stack.
 
 **Full labelled status: [`docs/STATUS.md`](docs/STATUS.md)** (up to 2026-09-17). Newer work:
@@ -348,6 +384,7 @@ tools/                                  bring-up scripts; NOT a supported build 
 
 ## Credits / prior art
 
+- **hafiz** — rebased this project onto upstream Mesa (`patches-upstream/0001`), and wrote the chained and asynchronous kbase JM submission with sync_file fences, forward pixel kill on v9, multisampled storage images and the Android HAL / AFBC swapchain work. FourFectVK test6 and later are built on his base.
 - [wonderkast02/panvk-g720-kbase-csf](https://github.com/wonderkast02/panvk-g720-kbase-csf) — CSF/G720 bring-up this repo's methodology and roadmap structure is modeled on.
 - [LukeValen/panvk-mali-g52](https://github.com/LukeValen/panvk-mali-g52) — native Termux build + Android-detection patch used in §6; the v7/G52 cross-reference in §3; independently found the same `EXEC_INIT`-before-`JIT_INIT` ordering fix referenced in §7.
 - [leegao/mesa-funnymdzz](https://github.com/leegao/mesa-funnymdzz) (forked from [funnymdzz/mesa](https://github.com/funnymdzz/mesa)) — cross-compile tooling and stub-`.pc` approach referenced in §6; the base wonderkast02 built from, and the base the §7 work is built on.

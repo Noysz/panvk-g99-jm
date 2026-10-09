@@ -1,0 +1,6 @@
+drv27.1.txt fps=57.4 verdict=PASS
+drv27.pandxvk-9.txt fps=56.1 verdict=PASS
+drv27.v2.3.1-stripped.txt fps=31.6 verdict=PASS
+drvM1.1.txt fps=55.7 verdict=PASS
+drvM1.pandxvk-9.txt fps=56.4 verdict=PASS
+drvM1.v2.3.1-stripped.txt fps=49.3 verdict=PASS

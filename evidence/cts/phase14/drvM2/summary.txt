@@ -1,0 +1,4 @@
+drvM2 1.10.3 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=3363ms fps=44.6 verdict=PASS
+drvM2 pandxvk-9 rc=0 D3D11SUM frames=150 checked=5 bad=0 time=5499ms fps=27.3 verdict=PASS
+drvM2 1.12.1-sarek rc=0 D3D11SUM frames=150 checked=5 bad=0 time=4361ms fps=34.4 verdict=PASS
+drvM2 v2.3.1-stripped rc=0 D3D11SUM frames=150 checked=5 bad=0 time=4028ms fps=37.2 verdict=PASS

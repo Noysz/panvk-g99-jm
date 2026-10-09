@@ -268,7 +268,7 @@ after each change, same scene, 3 runs.
   `PANVK_FAULT_REPORT=1` (failed chain, job types, status, fault pointer and
   its BO) and `PANVK_DBG_FREE_DELAY_MS` (freed BOs stay mapped, tells a
   use-after-free apart). `tests/graphics/fault_diag_test.c`.
-- [ ] 13.5 Little Nightmares II GPU faults (kbase 0x4 then 0x42 = an MMU fault
+- [x] 13.5 Little Nightmares II GPU faults (kbase 0x4 then 0x42 = an MMU fault
   kills the context's jobs): find the job type and the bug class with the
   `0076` switches on the user's device. test4 runs: the fragment job of a
   166-226 draw render pass, every run; not a recently freed BO (fault stays
@@ -277,3 +277,10 @@ after each change, same scene, 3 runs.
   (`longjob_test`), no memory pressure (MemAvailable >= 830 MB). Next: the
   `0077` pointer audit on the device, plus `PANVK_KBASE_DEVMEM_EAGER=1` and
   `PANVK_KBASE_SYNC_SUBMIT=1` runs.
+  test5 (`0077` audit): 0 suspect addresses in the audited failed batches
+  (the first 3 of each run), so no stale or wrong pointer from the driver
+  in those; Tomb Raider failed about 1000
+  chains per second. **test6 (new base, `patches-upstream/`): 0 failed GPU
+  jobs in 5 Tomb Raider runs and 1 LN2 run, pictures right.** The change of
+  the new base that removed it is not isolated (candidates: chained and
+  asynchronous submission 8.9/8.15, upstream Mesa since `6598829`).

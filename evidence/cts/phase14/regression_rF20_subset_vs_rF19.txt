@@ -1,0 +1,7 @@
+blend            100 cases  Pass=100  lost=0 gain=0 
+indirect_draw    372 cases  Pass=372  lost=0 gain=0 
+layers            62 cases  Pass=62  lost=0 gain=0 
+simple_draw        4 cases  Pass=4  lost=0 gain=0 
+syncbasic         19 cases  NotSupported=3 Pass=16  lost=0 gain=0 
+syncfd            28 cases  NotSupported=2 Pass=26  lost=0 gain=0 
+TOTAL groups=6 cases=585 lost=0 gain=0

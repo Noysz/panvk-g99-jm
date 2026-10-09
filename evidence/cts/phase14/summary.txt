@@ -1,0 +1,64 @@
+Phase 14: new base (hafiz's upstream rebase) + FourFectVK 0060-0077, test6 and test7
+=================================================================================
+
+Base: hafiz's tree 52a7497a = upstream Mesa feeadb5f + panvk-g99-jm 0015-0059
++ funnymdzz kbase backend + his phases 8.5-8.16. On top: FourFectVK
+0060-0077 (patches-upstream/0002, merge notes MERGE-0060-0077.md).
+
+hafiz_binary_ab/ (his binaries, unmodified, in our Winlator stack, 2026-10-09)
+  ICD build: not loadable by Winlator's adrenotools path (no HAL entry).
+  HAL build: needs PAN_I_WANT_A_BROKEN_VULKAN_DRIVER=1; geometryShader,
+  tessellationShader and transformFeedback are off on v9 there, so D3D11
+  device creation fails on DXVK 1.10.3 / 1.11.1-sarek / 2.3.1; d3d11_tri
+  PASS on 1.12.1-sarek and 2.3.1-stripped (FL 10_1), AIO tess/gs scenes
+  close. Built with assertions on: Tomb Raider (DXVK-Sarek 1.12.0) aborts at
+  its first vkDestroyDevice on vk_pipeline_cache_destroy
+  (object_cache->entries == 0). Not a defect of his work on its own target
+  (Android native, Mobile Legends / ZZZ / WuWa through the HAL).
+
+Merge (rM18, host build)
+  First run: 141 tess, 90 GS, 10 topology, 2 XFB cases crashed: the software
+  VS variant lowers inputs to load_attr_pan and nir_gather_info used a NULL
+  IO offset source for it (upstream gap, CSF-only and untested in the base).
+  Fixed in src/compiler/nir/nir_gather_info.c.
+  regression_rM18_vs_rP17.txt / _vs_rS14.txt: 7127 cases, lost 0, gain 0.
+
+drvM1/ (test6, Android build): dxvk_probe 4 profiles OK, d3d11_tri PASS on
+  1.10.3, pandxvk-9, 1.12.1-sarek, 2.3.1-stripped; AIO gs/tess ALIVE.
+  d3d11_tri fps differences between builds are run-to-run noise (both
+  31-57 fps in interleaved A/B, d3d11_tri_ab.txt).
+
+User runs on test6 (2026-10-10, one run per setting)
+  Tomb Raider DXVK-Sarek 1.12.0, PANVK_FAULT_REPORT=1: 0 failed GPU jobs,
+    occasional artifact and small pink spots far away. DXVK state cache
+    went 452 -> 958 entries during that run (pipelines compiled while
+    playing); the later Sarek run (PANVK_V9_NO_FPK=1) had none. Not proven.
+  Tomb Raider DXVK 1.7.2: FAULT_REPORT, +V9_NO_FPK, +KBASE_WAIT_SUBMIT: 0
+    failed GPU jobs, normal picture.
+  test5, same game and DXVK 1.7.2: 44,723 failed job chains by t=80 s,
+    flat pale characters and sky.
+  Little Nightmares II: 0 failed GPU jobs; test4 and test5 had 1x 0x4 then
+    about 15x 0x42 in every run. Which part of the new base removed the
+    fault is not isolated.
+  Memory, LN2 test6 vs test5 run1: GPU memory median 1123 vs 1184 MB,
+    process anon 1220 vs 1187 MB.
+
+aio_ab/ (AIO-Graphics-Test v2.1.0, DXVK 2.3.1-stripped, --bench 15)
+  Round 1: drawstress 1024 test5 110.6 -> test6 144.8 fps; city 16.7 ->
+  19.0 fps (1% low 1.1 -> 9.6); showcase 32.7 -> 32.4. FPK off or eager
+  memory: no difference. Round 2 ran beside a build (CPU load), all
+  configurations slower, not used for conclusions.
+
+test7 (frame_prof/, drvM2/)
+  PANVK_FRAME_PROF: per 2 s GPU busy %, process CPU %, submit / wait time,
+  submits, passes; with PANVK_KBASE_SYNC_SUBMIT=1 the vertex/tiler vs
+  fragment split. Inside the Winlator stack presents are not seen (the
+  Wrapper layer presents), lines are per second.
+  AIO city: GPU busy 99-101 %, process CPU 8-9 %, split vertex/tiler 4-6 %,
+  fragment 94-96 %. drawstress 1024: split 53-57 % / 43-47 %. showcase:
+  GPU busy 98 %.
+  regression_rF19_vs_rM18.txt / _vs_rP17.txt: 7127 cases, lost 0 (build
+  before the split counter); regression_rF20_subset_vs_rF19.txt: 585
+  cases after it, lost 0. drvM2 device check: 4 profiles, d3d11_tri 4/4,
+  AIO gs/tess ALIVE (first attempt timed out at wine start while a build
+  ran in parallel; repeated with nothing else running).

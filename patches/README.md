@@ -1,5 +1,7 @@
 # patches/
 
+> **Since FourFectVK v0.1.0-test6 the driver is built from [`../patches-upstream/`](../patches-upstream/)** (upstream Mesa `feeadb5f` + hafiz's rebase + FourFectVK `0060`-`0077` ported). This series stays as the history and builds test1-test5 and earlier.
+
 Base commit for everything here: **`6598829019c0746aa8e473b4ae1c980cbfa6ea4b`**
 (upstream Mesa), the commit the driver work tree sits on.
 
