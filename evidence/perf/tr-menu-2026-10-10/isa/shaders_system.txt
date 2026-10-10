@@ -1,0 +1,108 @@
+System (blob) driver - per-shader ISA table
+===========================================
+
+One row per unique GPU VA used by at least one draw, sorted by draws (descending).
+FMA/AD = FMA+FADD+FMUL (float arithmetic). reg* = register allocation varied across draws.
+Note: the panvk driver re-uploads some identical binaries to several GPU VAs, so
+several rows can be byte-identical.
+
+---- Stage: Compute  (3 unique VAs, 6 draw-bindings) ----
+      GPU_VA stage      reg draws instr LD_PKA LD_ATTR LD_VAR  TEX IADD_I   MOV FMA/AD STORE BRNCH bytes
+007f00009000 Compute     64     4   386      3       0      0    0     46    26      3    36    57  4096
+007f00001000 Compute     32     1    47      4       0      0    0      2     1      0     9     3  4096
+007f00009c80 Compute     64     1    39      1       0      0    0      2     3      0     5     4   896
+
+---- Stage: Fragment  (41 unique VAs, 281 draw-bindings) ----
+      GPU_VA stage      reg draws instr LD_PKA LD_ATTR LD_VAR  TEX IADD_I   MOV FMA/AD STORE BRNCH bytes
+007f00053000 Fragment    32    33   258     22       3      5    4      5     1    160     1     0  4096
+007f0001cd80 Fragment    32    30    40      0       0      3    1      0     1     31     0     0   640
+007f00035980 Fragment    32    27    19      0       0      1    0      0     1     15     0     0  1664
+007f0004e000 Fragment    32    24    54      0       0      4    2      0     1     43     0     0  4096
+007f00038e00 Fragment    32    22    42      0       0      3    1      0     1     33     0     0   512
+007f00047b80 Fragment    32    22    25      0       0      2    1      0     0     20     0     0  1152
+007f0005b780 Fragment    32    15    67      0       0      3    4      0     0     56     0     0  2176
+007f0003b280 Fragment    32    15    42      0       0      3    1      0     1     33     0     0  3456
+007f00097880 Fragment    32    13    91      0       0      4    3      0     0     75     0     0  1920
+007f0001e480 Fragment    32    12    61      1       0      5    3      0     1     36     0     0  2944
+007f0008a880 Fragment    32     9    53      1       0      5    3      0     0     33     0     0  1920
+007f0003ad80 Fragment    32     9    23      0       0      1    0      0     1     15     0     0   640
+007f0004a880 Fragment    32     7    89      0       0      4    5      0     0     71     0     0  1920
+007f0007fd80 Fragment    32     4    28      0       0      2    2      0     0     22     0     0   640
+007f00039800 Fragment    32     3    59      1       0      5    3      0     1     38     0     0  2048
+007f0001cb80 Fragment    32     3    57      1       0      5    3      0     1     36     0     0  1152
+007f00048400 Fragment    32     2    61      0       0      3    3      0     0     47     0     0  3072
+007f00071700 Fragment    32     2    60      0       0      3    3      0     0     50     0     0  2304
+007f00057600 Fragment    32     2    59      0       0      3    3      0     0     49     0     0  2560
+007f00049380 Fragment    32     2    55      0       0      3    2      0     0     46     0     0  3200
+007f00089400 Fragment    32     2    51      0       0      3    2      0     0     38     0     0  3072
+007f00053b80 Fragment    32     2    50      0       0      3    2      0     1     40     0     0  1152
+007f00069d00 Fragment    32     2    46      0       0      3    1      0     0     38     0     0   768
+007f00056d00 Fragment    32     2    24      0       0      2    1      0     0     19     0     0   768
+007f00055b80 Fragment    32     1    88      0       0      3    3      0     2     69     0     0  1152
+007f00074d00 Fragment    32     1    73      0       0      3    3      2     0     54     1     0   768
+007f0004a400 Fragment    32     1    72      0       0      3    2      0     0     60     0     0  3072
+007f00048a80 Fragment    32     1    70      0       0      3    2      0     0     58     0     0  1408
+007f00063980 Fragment    32     1    67      0       0      4    4      0     2     53     0     0  1664
+007f0008a000 Fragment    32     1    60      0       0      3    3      0     0     46     0     0  4096
+007f0007e400 Fragment    32     1    59      0       0      3    3      0     0     49     0     0  3072
+007f00068380 Fragment    32     1    57      0       0      3    2      0     0     48     0     0  3200
+007f00064000 Fragment    32     1    55      0       0      3    2      0     0     46     0     0  4096
+007f00060880 Fragment    32     1    53      0       0      3    2      0     0     44     0     0  1920
+007f00064b80 Fragment    32     1    51      0       0      4    2      0     0     41     0     0  1152
+007f00075d80 Fragment    32     1    46      0       0      3    1      0     1     33     0     0   640
+007f0001dd00 Fragment    32     1    44      0       0      3    1      0     1     31     0     0   768
+007f0005bc80 Fragment    32     1    42      0       0      3    1      0     1     33     0     0   896
+007f0004cc80 Fragment    32     1    29      0       0      2    2      0     0     23     0     0   896
+007f00043d80 Fragment    32     1    29      0       0      2    1      0     0     20     0     0   640
+007f00059e00 Fragment    32     1    23      0       0      2    1      0     0     18     0     0   512
+
+---- Stage: Vertex  (46 unique VAs, 562 draw-bindings) ----
+      GPU_VA stage      reg draws instr LD_PKA LD_ATTR LD_VAR  TEX IADD_I   MOV FMA/AD STORE BRNCH bytes
+007f0001d900 Vertex      32    88    49      6       1      0    0      2     0     29     1     0  1792
+007f0001e000 Vertex      32    58    55      4       4      0    0      0     0     38     3     0  4096
+007f00035680 Vertex      32    35    24      4       1      0    0      0     0     12     1     0  2432
+007f00045980 Vertex      32    34    49      6       1      0    0      2     0     29     1     0  1664
+007f00052000 Vertex      32    33   162     21       3      0    0      5     0     96     1     0  4096
+007f00052580 Vertex      32    33   140     17       8      0    0      0     0     80     4     0  2688
+007f00045b80 Vertex      32    29    57      4       5      0    0      0     1     38     3     0  1152
+007f00043c80 Vertex      32    24    30      4       3      0    0      0     1     14     2     0   896
+007f0004f880 Vertex      32    23   110     10       5      0    0      2     0     65     1     0  1920
+007f0004fc00 Vertex      32    23    65      5       6      0    0      0     1     39     4     0  1024
+007f00039d00 Vertex      32    20    49      6       1      0    0      2     0     29     1     0   768
+007f00035480 Vertex      32    15    49      6       1      0    0      2     0     29     1     0  2944
+007f00097000 Vertex      32    13   260      6       4      0    2      2     6    199     1     0  4096
+007f00095680 Vertex      32    13   233      4       5      0    0      0     4    179     4     0  2432
+007f00021300 Vertex      32    11   162     21       3      0    0      5     0     96     1     0  3328
+007f00024000 Vertex      32    11   135     17       6      0    0      0     0     78     3     0  4096
+007f00051000 Vertex      32    11   110     10       5      0    0      2     0     65     1     0  4096
+007f00051380 Vertex      32    11    62      5       5      0    0      0     0     39     3     0  3200
+007f0008a400 Vertex      32     9   134      9       4      0    0      1     0    102     1     0  3072
+007f00089c80 Vertex      32     9    18      1       1      0    0      2     7      2     3     0   896
+007f0004a680 Vertex      32     7    59      4       5      0    0      0     0     40     4     0  2432
+007f00048e00 Vertex      32     7    49      6       1      0    0      2     0     29     1     0   512
+007f00032e00 Vertex      32     5    49      6       1      0    0      2     0     29     1     0   512
+007f00021b80 Vertex      32     4    77      9       2      0    0      2     0     45     1     0  1152
+007f0001db00 Vertex      32     4    55      4       4      0    0      0     0     38     3     0  1280
+007f0007fc80 Vertex      32     4    28      4       2      0    0      0     0     14     2     0   896
+007f0001e880 Vertex      32     3    62      5       5      0    0      0     0     39     3     0  1920
+007f00086d00 Vertex      32     3    49      6       1      0    0      2     0     29     1     0   768
+007f00063380 Vertex      32     2    61      4       6      0    0      0     1     40     4     0  3200
+007f00087a80 Vertex      32     2    57      4       5      0    0      0     1     38     3     0  1408
+007f00081580 Vertex      32     2    55      4       4      0    0      0     0     38     3     0  2688
+007f00062d80 Vertex      32     2    49      6       1      0    0      2     0     29     1     0   640
+007f0003a200 Vertex      32     1    77      9       2      0    0      2     0     45     1     0  3584
+007f0004ab80 Vertex      32     1    77      9       2      0    0      2     0     45     1     0  1152
+007f0004ae00 Vertex      32     1    64      5       6      0    0      0     1     39     3     0   512
+007f0001ea80 Vertex      32     1    62      5       5      0    0      0     0     39     3     0  1408
+007f0004da00 Vertex      32     1    58      4       5      0    0      0     1     38     4     0  1536
+007f00057800 Vertex      32     1    57      4       5      0    0      0     1     38     3     0  2048
+007f0007e200 Vertex      32     1    57      4       5      0    0      0     1     38     3     0  3584
+007f00089600 Vertex      32     1    57      4       5      0    0      0     1     38     3     0  2560
+007f00055780 Vertex      32     1    54      5       2      0    0      0     0     37     3     0  2176
+007f00053d80 Vertex      32     1    49      6       1      0    0      2     0     29     1     0   640
+007f00036d00 Vertex      32     1    31      5       2      0    0      0     0     13     1     0   768
+007f00061d80 Vertex      32     1    30      4       3      0    0      0     1     14     2     0   640
+007f0008fe00 Vertex      32     1    29      4       3      0    0      0     0     14     2     0   512
+007f00059d00 Vertex      32     1    28      4       2      0    0      0     0     14     2     0   768
+
+Totals: 90 unique VAs, 849 draw-bindings.

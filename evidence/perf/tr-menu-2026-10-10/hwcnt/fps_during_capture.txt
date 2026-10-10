@@ -1,0 +1,18 @@
+## system driver run
+FPS: 14.1 GPU: 88% 
+FPS: 13.06 GPU: 73% 
+FPS: 14.7 GPU: 86% 
+FPS: 12.6 GPU: 73% 
+FPS: 12.3 GPU: 77% 
+ee GPU: 74% 
+FPS: 13.5 GPU: 81% 
+FPS: 14.3 GPU: 90% 
+## panvk run
+FPS: 5.3 GPU: 166% 
+FPS: 5.3 GPU: 16060% 
+FPS: 5.6 GPU: 166% 
+FPS: 5.6 GPU: 100% 
+‘FPS: 5.3 "GPU: Veex 
+FPS: 5.7 GPU: 100% 
+FPS: 5.5 GPU: 100% 
+FPS: 5.5 GPU: 100% 

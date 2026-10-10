@@ -61,3 +61,11 @@ Build with Termux clang; the binaries are not kept here.
 The script header lists the one-time prefix setup and the three things it
 needs on Termux:X11 (the `noshm` preload, `winmm=n,b` for Tomb Raider, a
 virtual desktop).
+
+Hardware counters and object code:
+
+| File | Purpose |
+|---|---|
+| `iolog/hwcnt.c` | GPU-wide Mali counters through kbase `kinstr_prfcnt` (the older hwcnt reader is not in the r54p1 kernel); runs as its own process, no root. Build with the Arm kbase UAPI headers (`-I<kbase>/include/uapi/gpu/arm/midgard`) |
+| `iolog/hwcnt.py`, `iolog/hwcmp.py` | decode one capture / compare two (per second and per frame), names from Arm's Mali-G77 layout (`MALI_LAYOUT_XML`) |
+| `iolog/isapairs.py` | per-shader tables of two decoded snapshots and structurally matched shader pairs |

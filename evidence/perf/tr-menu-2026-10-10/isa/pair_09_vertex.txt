@@ -1,0 +1,138 @@
+Pair 09 - stage Vertex
+================================================================
+confidence: high   similarity=0.843 (structural base=0.963, immediate-overlap=0.167)
+feature agreement: attr_w=1.00, ld_attr=1.00, fma=0.88, store=1.00, instr=0.83
+
+[SYSTEM] GPU VA 007f0001d900  stage=Vertex  regs=32  draws=175  instr=49  bytes=1792 (9 GPU VAs share this instruction sequence, constants may differ; draws summed)
+      LD_PKA=6 LD_ATTR=1 LD_VAR=0 TEX=0 IADD_IMM=2 MOV=0 FMA/FADD/FMUL=29 STORE=1 BRANCH=0
+
+[PANVK ] GPU VA 007fffc52000  stage=Vertex  regs=32  draws=673  instr=69  bytes=8192 (69 GPU VAs share this instruction sequence, constants may differ; draws summed)
+      LD_PKA=16 LD_ATTR=1 LD_VAR=0 TEX=0 IADD_IMM=15 MOV=9 FMA/FADD/FMUL=23 STORE=1 BRANCH=0
+
+delta (system -> panvk): instr 49->69 (+20); LD_PKA 6->16 (+10); FMA/AD 29->23 (-6); TEX 0->0; regs 32->32
+
+----------------------------------------------------------------
+SYSTEM disassembly  (GPU VA 007f0001d900, 49 instr)
+----------------------------------------------------------------
+8b 8a 00 18 82 80 6a 00    LD_PKA.i32.unsigned.slot0 @r0, u5.w1, u5.w0
+7c 3d 41 a2 06 84 66 08    LD_ATTR_IMM.v3.f32.slot2.wait0 @r4:r5:r6, r60^, r61, index:0x4, table:0x1
+7d 40 01 00 00 c0 a0 00    ISUB.u32 r0, r61^, r0^
+40 c7 0a 1c 00 c0 a0 00    IMUL.i32 r0, r0^, 0xC0B0A090.b3
+00 cd 00 10 00 c1 a0 00    IADD.u32 r1, r0, 0x17161514.b0
+41 89 00 b8 f8 88 6a 00    LD_PKA.i128.unsigned.slot2 @r8:r9:r10:r11, r1^, u4.w1
+00 c9 00 10 00 c2 a0 00    IADD.u32 r2, r0, 0x7060504.b0
+42 89 00 b8 f8 8c 6a 00    LD_PKA.i128.unsigned.slot2 @r12:r13:r14:r15, r2^, u4.w1
+00 24 00 00 00 c2 10 01    IADD_IMM.i32 r2, r0, #0x24
+42 89 00 78 f8 b0 6a 00    LD_PKA.i128.unsigned.slot1 @r48:r49:r50:r51, r2^, u4.w1
+00 d9 00 1c 00 c2 a0 00    IADD.u32 r2, r0, 0x34000000.b3
+42 89 00 30 e6 b4 6a 00    LD_PKA.i96.unsigned.slot0 @r52:r53:r54, r2^, u4.w1
+40 89 00 18 82 80 6a 20    LD_PKA.i32.unsigned.slot0.wait2 @r0, r0^, u4.w1
+05 4a c0 00 04 c1 b2 00    FMA.f32 r1, r5, r10^, 0x0.neg
+04 4e 41 00 00 c1 b2 10    FMA.f32.wait1 r1, r4, r14^, r1^
+06 72 41 00 00 c1 b2 08    FMA.f32.wait0 r1, r6, r50^, r1^
+41 76 00 00 00 c3 a4 00    FADD.f32 r3, r1^, r54^
+05 49 c0 00 04 c1 b2 00    FMA.f32 r1, r5, r9^, 0x0.neg
+04 4d 41 00 00 c1 b2 00    FMA.f32 r1, r4, r13^, r1^
+06 71 41 00 00 c1 b2 00    FMA.f32 r1, r6, r49^, r1^
+41 75 00 00 00 c2 a4 00    FADD.f32 r2, r1^, r53^
+05 48 c0 00 04 c1 b2 00    FMA.f32 r1, r5, r8^, 0x0.neg
+45 4f c0 00 04 c5 b2 00    FMA.f32 r5, r5^, r15^, 0x0.neg
+04 40 45 00 00 c0 b2 00    FMA.f32 r0, r4, r0^, r5^
+44 4c 41 00 00 c1 b2 00    FMA.f32 r1, r4^, r12^, r1^
+7b 0d 00 00 04 84 5e 00    LEA_BUF_IMM.slot0 @r4:r5, r59^, table:0xD, index:0x0
+06 70 41 00 00 c1 b2 00    FMA.f32 r1, r6, r48^, r1^
+46 4b 40 00 00 c0 b2 00    FMA.f32 r0, r6^, r11^, r0^
+40 73 00 00 00 c0 a4 00    FADD.f32 r0, r0^, r51^
+41 74 00 00 00 c1 a4 08    FADD.f32.wait0 r1, r1^, r52^
+c0 e0 28 24 27 c6 10 01    IADD_IMM.i32 r6, 0x0, #0x272428E0
+02 06 c0 00 84 c7 b2 00    FMA.f32 r7, r2.abs, r6, 0x0.neg
+01 06 47 00 80 c7 b2 00    FMA.f32 r7, r1.abs, r6, r7^
+00 46 47 00 80 c7 b2 00    FMA.f32 r7, r0.abs, r6^, r7^
+03 da 03 40 80 c6 a4 00    FMAX.f32 r6, r3.abs, 0x38000000
+46 47 03 40 00 c6 a4 00    FMAX.f32 r6, r6^, r7^
+46 00 00 00 00 c6 9c 00    FRCP.f32 r6, r6^
+06 c0 00 00 50 fa a4 00    FADD.f32 r58, r6.neg, 0x0.neg
+03 c0 7a 46 04 cb 54 01    CSEL.f32.lt r11, r3, 0x0, r58^, r6^
+02 0b c0 00 04 c6 b2 00    FMA.f32 r6, r2, r11, 0x0.neg
+06 c0 00 00 12 fc a4 00    FADD.f32.clamp_m1_1 r60, r6, 0x0.neg
+42 43 c0 80 a1 fb f4 00    FCMP_OR.f32.gt.m1 r59, r2^.abs, r3^.abs, 0x0
+7b c0 46 7c 03 fb 51 01    CSEL.v2u16.ne r59, r59^, 0x0, r6^, r60^
+7b 82 83 00 00 ca b2 00    FMA.f32 r10, r59^, u1.w0, u1.w1
+40 80 c0 00 04 ff b2 00    FMA.f32 r63, r0^, u0.w0, 0x0.neg
+41 81 c0 00 04 fd b2 00    FMA.f32 r61, r1^, u0.w1, 0x0.neg
+7d 0b 85 00 00 c9 b2 00    FMA.f32 r9, r61^, r11, u2.w1
+7f 0b 84 00 00 c8 b2 00    FMA.f32 r8, r63^, r11, u2.w0
+44 00 00 39 08 48 61 78    STORE.i128.istream.slot0.end @r8:r9:r10:r11, [r4^:r5^], offset:0
+
+----------------------------------------------------------------
+PANVK disassembly   (GPU VA 007fffc52000, 69 instr)
+----------------------------------------------------------------
+3d c7 0a 1c 00 c0 a0 00    IMUL.i32 r0, r61, 0xC0B0A090.b3
+00 1c 00 00 00 c1 10 01    IADD_IMM.i32 r1, r0, #0x1C
+41 86 00 18 82 81 6a 00    LD_PKA.i32.unsigned.slot0 @r1, r1^, u3.w0
+00 18 00 00 00 c2 10 01    IADD_IMM.i32 r2, r0, #0x18
+42 86 00 58 82 82 6a 00    LD_PKA.i32.unsigned.slot1 @r2, r2^, u3.w0
+00 14 00 00 00 c3 10 01    IADD_IMM.i32 r3, r0, #0x14
+43 86 00 98 82 83 6a 00    LD_PKA.i32.unsigned.slot2 @r3, r3^, u3.w0
+00 10 00 00 00 c4 10 01    IADD_IMM.i32 r4, r0, #0x10
+44 86 00 18 82 84 6a 00    LD_PKA.i32.unsigned.slot0 @r4, r4^, u3.w0
+7c 7d 30 62 06 86 66 18    LD_ATTR_IMM.v3.f32.slot1.wait01 @r6:r7:r8, r60^, r61^, index:0x3, table:0x0
+07 41 c0 00 04 c1 b2 00    FMA.f32 r1, r7, r1^, 0x0.neg
+07 42 c0 00 04 c2 b2 20    FMA.f32.wait2 r2, r7, r2^, 0x0.neg
+07 43 c0 00 04 c3 b2 00    FMA.f32 r3, r7, r3^, 0x0.neg
+47 44 c0 00 04 c4 b2 00    FMA.f32 r4, r7^, r4^, 0x0.neg
+00 0c 00 00 00 c5 10 01    IADD_IMM.i32 r5, r0, #0xC
+45 86 00 98 82 85 6a 20    LD_PKA.i32.unsigned.slot2.wait2 @r5, r5^, u3.w0
+06 45 41 00 00 c1 b2 00    FMA.f32 r1, r6, r5^, r1^
+00 08 00 00 00 c5 10 01    IADD_IMM.i32 r5, r0, #0x8
+45 86 00 18 82 85 6a 08    LD_PKA.i32.unsigned.slot0.wait0 @r5, r5^, u3.w0
+06 45 42 00 00 c2 b2 00    FMA.f32 r2, r6, r5^, r2^
+00 04 00 00 00 c5 10 01    IADD_IMM.i32 r5, r0, #0x4
+45 86 00 58 82 85 6a 10    LD_PKA.i32.unsigned.slot1.wait1 @r5, r5^, u3.w0
+06 45 43 00 00 c3 b2 00    FMA.f32 r3, r6, r5^, r3^
+00 86 00 98 82 85 6a 20    LD_PKA.i32.unsigned.slot2.wait2 @r5, r0, u3.w0
+46 45 44 00 00 c4 b2 00    FMA.f32 r4, r6^, r5^, r4^
+00 2c 00 00 00 c5 10 01    IADD_IMM.i32 r5, r0, #0x2C
+45 86 00 18 82 85 6a 00    LD_PKA.i32.unsigned.slot0 @r5, r5^, u3.w0
+00 28 00 00 00 c6 10 01    IADD_IMM.i32 r6, r0, #0x28
+46 86 00 58 82 86 6a 08    LD_PKA.i32.unsigned.slot1.wait0 @r6, r6^, u3.w0
+08 45 41 00 00 c1 b2 00    FMA.f32 r1, r8, r5^, r1^
+00 24 00 00 00 c5 10 01    IADD_IMM.i32 r5, r0, #0x24
+45 86 00 98 82 85 6a 10    LD_PKA.i32.unsigned.slot2.wait1 @r5, r5^, u3.w0
+08 46 42 00 00 c2 b2 00    FMA.f32 r2, r8, r6^, r2^
+00 20 00 00 00 c6 10 01    IADD_IMM.i32 r6, r0, #0x20
+46 86 00 18 82 86 6a 20    LD_PKA.i32.unsigned.slot0.wait2 @r6, r6^, u3.w0
+08 45 43 00 00 c3 b2 00    FMA.f32 r3, r8, r5^, r3^
+00 3c 00 00 00 c5 10 01    IADD_IMM.i32 r5, r0, #0x3C
+45 86 00 58 82 85 6a 08    LD_PKA.i32.unsigned.slot1.wait0 @r5, r5^, u3.w0
+48 46 44 00 00 c4 b2 00    FMA.f32 r4, r8^, r6^, r4^
+00 38 00 00 00 c6 10 01    IADD_IMM.i32 r6, r0, #0x38
+46 86 00 98 82 86 6a 00    LD_PKA.i32.unsigned.slot2 @r6, r6^, u3.w0
+00 34 00 00 00 c7 10 01    IADD_IMM.i32 r7, r0, #0x34
+47 86 00 18 82 87 6a 00    LD_PKA.i32.unsigned.slot0 @r7, r7^, u3.w0
+40 30 00 00 00 c0 10 01    IADD_IMM.i32 r0, r0^, #0x30
+40 86 00 58 82 80 6a 10    LD_PKA.i32.unsigned.slot1.wait1 @r0, r0^, u3.w0
+41 45 00 00 00 c1 a4 00    FADD.f32 r1, r1^, r5^
+7b 0d 00 80 04 88 5e 20    LEA_BUF_IMM.slot2.wait2 @r8:r9, r59^, table:0xD, index:0x0
+42 46 00 00 00 c2 a4 08    FADD.f32.wait0 r2, r2^, r6^
+43 47 00 00 00 c3 a4 00    FADD.f32 r3, r3^, r7^
+44 40 00 00 00 c0 a4 00    FADD.f32 r0, r4^, r0^
+41 00 00 00 00 c1 9c 00    FRCP.f32 r1, r1^
+41 87 03 00 00 c1 a4 00    FMAX.f32 r1, r1^, u3.w1
+41 88 02 00 00 c1 a4 00    FMIN.f32 r1, r1^, u4.w0
+42 01 c0 00 04 c2 b2 00    FMA.f32 r2, r2^, r1, 0x0.neg
+85 00 00 00 00 c4 91 00    MOV.i32 r4, u2.w1
+42 82 44 00 00 c2 b2 00    FMA.f32 r2, r2^, u1.w0, r4^
+43 01 c0 00 04 c3 b2 00    FMA.f32 r3, r3^, r1, 0x0.neg
+84 00 00 00 00 c4 91 00    MOV.i32 r4, u2.w0
+43 81 44 00 00 c3 b2 00    FMA.f32 r3, r3^, u0.w1, r4^
+40 01 c0 00 04 c0 b2 00    FMA.f32 r0, r0^, r1, 0x0.neg
+83 00 00 00 00 c4 91 00    MOV.i32 r4, u1.w1
+40 80 44 00 00 c0 b2 00    FMA.f32 r0, r0^, u0.w0, r4^
+40 00 00 00 00 c4 91 00    MOV.i32 r4, r0^
+43 00 00 00 00 c5 91 00    MOV.i32 r5, r3^
+42 00 00 00 00 c6 91 00    MOV.i32 r6, r2^
+41 00 00 00 00 c7 91 00    MOV.i32 r7, r1^
+48 00 00 00 00 c0 91 00    MOV.i32 r0, r8^
+49 00 00 00 00 c1 91 00    MOV.i32 r1, r9^
+40 00 00 39 08 44 61 78    STORE.i128.istream.slot0.end @r4:r5:r6:r7, [r0^:r1^], offset:0
