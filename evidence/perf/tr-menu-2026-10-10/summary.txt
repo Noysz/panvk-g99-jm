@@ -48,3 +48,6 @@ per-draw serialisation do not move the frame rate, so neither is the limit.
 Open: forward pixel kill is off on all 778 draws of our main pass (on for 221
 of 281 in the system driver's), different early-ZS modes, and memory traffic.
 Next step: Mali hardware counters for both drivers on the same scene.
+
+Regression for patches-upstream/0003 (all of its switches off, host build):
+  regression_rK20_vs_rF19.txt: 7127 cases, lost 0, gain 0 against test7's tree.
