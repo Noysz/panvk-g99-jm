@@ -1,0 +1,23 @@
+## l_ubovec.txt (1880 cases), PAN_LATE_VECTORIZE=1 (rLV1)
+group rLV1: 1880 cases, 10 process run(s)
+  Pass                   1452
+  NotSupported           428
+  pass rate of supported: 1452/1452 = 100.0%
+
+## same list, switch off (rLV0)
+group rLV0: 1880 cases, 10 process run(s)
+  Pass                   1452
+  NotSupported           428
+  pass rate of supported: 1452/1452 = 100.0%
+
+## PAN_V9_REG32 (removed): l_reg32.txt (544) with REG32=1 (rR1_reg32)
+group rR1_reg32: 544 cases, 6 process run(s)
+  Pass                   543
+  Fail                   1
+  pass rate of supported: 543/544 = 99.8%
+failing case per stage:
+  REG32=0: dEQP-VK.graphicsfuzz.cov-dfdx-dfdy-after-nested-loops	Pass
+  REG32=1: dEQP-VK.graphicsfuzz.cov-dfdx-dfdy-after-nested-loops	Fail
+  REG32=vs: dEQP-VK.graphicsfuzz.cov-dfdx-dfdy-after-nested-loops	Pass
+  REG32=fs: dEQP-VK.graphicsfuzz.cov-dfdx-dfdy-after-nested-loops	Fail
+  REG32=all: dEQP-VK.graphicsfuzz.cov-dfdx-dfdy-after-nested-loops	Fail

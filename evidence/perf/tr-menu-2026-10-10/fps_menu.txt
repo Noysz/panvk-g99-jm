@@ -1,0 +1,66 @@
+# DXVK HUD read by OCR (tesseract), 8 samples per run in the Tomb Raider main menu, 848x480 Low.
+# Raw OCR output: some lines are garbled, the GPU % field of the HUD is not reliable.
+# hangover_* = Hangover 11.16, ge_* = GE-Proton 11.0-7.1; reg32_all = broken rendering (menu never drawn).
+## hangover_base_drvM5 (tmV0)
+ESE Fig &) GPU: Tee% 
+FPS: 5.8 GPU: 166% 
+FPS: 6.6 ~ GPU: 100% 
+FPS: 5.9 GPU: 166% 
+FPS: 5.8 GPU: 166% 
+FPS: 6.21 GPU: 166% 
+FPS: 5.9 GPU: 166% 
+FPS: 5.8 GPU: 166% 
+## hangover_reg32_vs (tmV1)
+FPS); 3.3 GPU: 166% 
+FPS: 3.4 GPU: 166% 
+FPS: 3.4 GPU: 166% 
+f FPS: 3.4 GPU: 100% 
+FPS: 3.4 GPU: 100% 
+FIPS':) 33 GPU: 166% 
+FPS: 3.3 GPU: 166% 
+FPS: 3.3 GPU: 166% 
+## hangover_reg32_all_BROKEN (tmR1)
+FPS: 7.9 GPU: 64% 
+FPS: 7.9 GPU: 64% 
+FPS: 7.9 GPU: 64% 
+FPS: 6.86 GPU: 86% 
+FPS: 7.3 GPU: 67% 
+FPS: 6.86 GPU: 86% 
+FPS: 6.86 GPU: 86% 
+FPS: 7.9 GPU: 58% 
+## hangover_hmask_0xaa (tmH1)
+FPS: 6.2 GPU: 100% 
+FPS: 6.3 GPU: 166% 
+FPS: 6.2 GPU: 100% 
+FPS: 6.3 GPU: 166% 
+FPS: 6.2 GPU: 100% 
+FPS: 6.5 GPU: 166% 
+FPS: 6.1 GPU: 166% 
+FPS: 6.4 GPU: 166% 
+## ge_base_drvM8 (tmG0)
+FPS: 5.8 GPU: 166% 
+FIP'S3)55). 8 GPU: 166% 
+FPS: 5.9 GPU: 166% 
+FPS: 5.8 GPU: 166% 
+FPS: 6.86 GPU: 166% 
+FPS: 6.1 GPU: 166% 
+FPS: 5.9 GPU: 166% 
+FPS: 6.2 GPU: 100% 
+## ge_late_vectorize (tmG1)
+FPS: 6.2 GPU: 100% 
+FIPS: 5.9 GPU: 166% 
+FPS: 6.6 GPU: 166% 
+FPS: 6.6 GPU: 166% 
+FPS: 6.6 GPU: 166% 
+FPS: 5.9 GPU: 166% 
+FPS: 6.1 “GPU: 16060% 
+FPS: 5.8 GPU: 166% 
+## ge_no_tiler_chain (tmC1)
+FPS: 5.3 GPU: 166% 
+FPS: 6.21 GPU: 166% 
+FIPS) 6. 21 GPU: 166% 
+FPS: 6.2 GPU: 100% 
+NRPS: 5.9 ‘GPU: 100% 
+FPS: 5.9 GPU: 166% 
+FPS: 6.6 GPU: 166% 
+FPS: 6.1 ; GPU: 166% | 

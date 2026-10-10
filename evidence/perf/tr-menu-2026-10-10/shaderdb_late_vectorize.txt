@@ -1,0 +1,8 @@
+## baseline (BIFROST_MESA_DEBUG=shaderdb)
+FRAGMENT  n= 478 64reg  21%  instrs  142.0  cycles  13.62  fma  2.12  ls  13.60  ls-bound  98%  spills 11
+POSITION  n= 478 64reg   3%  instrs   88.8  cycles  23.51  fma  0.98  ls  23.51  ls-bound 100%  spills 12
+VARYING   n= 478 64reg  39%  instrs  157.7  cycles  38.99  fma  1.51  ls  38.99  ls-bound 100%  spills 52
+## PAN_LATE_VECTORIZE=1
+FRAGMENT  n= 478 64reg  21%  instrs  140.0  cycles  12.73  fma  2.12  ls  12.72  ls-bound  97%  spills 11
+POSITION  n= 478 64reg   3%  instrs   60.3  cycles   9.24  fma  0.98  ls   9.24  ls-bound 100%  spills 12
+VARYING   n= 478 64reg  39%  instrs  120.3  cycles  22.14  fma  1.51  ls  22.14  ls-bound 100%  spills 44

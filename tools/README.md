@@ -38,3 +38,26 @@ The misleading `=> halaman belum ter-commit, tiler tidak menulis apa pun`
 it is in the driver itself, at `jm/panvk_vX_gpu_queue.c:148`, and therefore
 inside patches `0005` and `0012`. That conclusion is false; see
 [`../docs/historical-superseded.md`](../docs/historical-superseded.md).
+
+## iolog/ — comparing against the system Mali driver (2026-10-10)
+
+Used for the Tomb Raider performance work in
+[`../evidence/perf/tr-menu-2026-10-10/`](../evidence/perf/tr-menu-2026-10-10/).
+Build with Termux clang; the binaries are not kept here.
+
+| File | Purpose |
+|---|---|
+| `iolog.c` | `LD_PRELOAD` logger for `/dev/mali0` (kbase `JOB_SUBMIT` atoms, completion events) and `/proc/ged` calls. Preload it on the bionic game process only, from a path under `$HOME` (the linker refuses `/tmp`). `IOLOG_SNAP=<file>` + `IOLOG_SNAP_AT=<s>` also saves one submit's job chains and the readable GPU memory |
+| `blobdeps.py` | atom kinds, rates and dependencies of a trace |
+| `passtime.py` | GPU time per pass, vertex/tiler vs fragment, from the completion events |
+| `snapdec.c`, `build_snapdec.sh`, `snapdec.flags` | decode a snapshot with pandecode (links the host build's static libs) |
+| `shaderstats.py` | per stage: shaders, registers and instruction mix of the draws in a decoded snapshot |
+| `sdbstats.py` | aggregate `BIFROST_MESA_DEBUG=shaderdb` lines from a game log |
+| `gedprobe.c` | read-only MediaTek GED query (GPU clock and load), no root needed |
+
+## winlator/run_ge.sh, winlator/noshm.c
+
+`run_dxvk.sh` on GE-Proton 11.0-7.1 arm64ec (The412Banner's bionic build).
+The script header lists the one-time prefix setup and the three things it
+needs on Termux:X11 (the `noshm` preload, `winmm=n,b` for Tomb Raider, a
+virtual desktop).

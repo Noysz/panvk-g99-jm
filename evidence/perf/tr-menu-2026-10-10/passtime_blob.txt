@@ -1,0 +1,4 @@
+## system driver (tr_blob2, 60-100 s)
+window 40.0 s, completions 16264
+vtc       192.8/s  avg    1.85 ms  busy  35.7% of wall time
+frag      214.2/s  avg    1.32 ms  busy  28.2% of wall time

@@ -1,0 +1,50 @@
+Tomb Raider (2013, DXVK 1.7.2) main menu, 848x480 Low, Mali-G57 MC2, 2026-10-10
+==============================================================================
+
+Gap: the system Mali driver renders the menu at 11.9-13.1 fps at a 904 MHz average
+GPU clock and 59% load; FourFectVK at 5.6-6.6 fps at 1100 MHz (max) and ~100% load.
+GPU time per frame: ~50 ms for the system driver, ~160 ms for panvk.
+
+Where the time goes
+  passtime_blob.txt (system driver, kbase atom completion events, tools/iolog):
+    vtc 193/s x 1.85 ms, frag 214/s x 1.32 ms -> ~28 ms vertex/tiler and
+    ~22 ms fragment per frame.
+  panvk (PANVK_FRAME_PROF_PASSES + PANVK_FRAME_PROF_SYNC_SUBMIT): 3 big passes
+    per frame, each vertex/tiler 25-27 ms and fragment 28-31 ms -> ~80 ms + ~90 ms.
+  Both halves are slower: vertex/tiler ~3x, fragment ~4x.
+
+Differences found in the job descriptors (iolog snapshot + pandecode)
+  shaderstats_snapshots.txt: the system driver's shaders all use 32 registers;
+    ours 57% of FS and 25% of VS use 64. Our vertex shaders do 26.5 UBO loads
+    (LD_PKA) per shader vs 7.5, mostly scalar loads of per-instance matrices
+    (imul(instance_id, 192) + 4*k), each with its own IADD_IMM.
+  jobs_tiler_deps.txt: hierarchy mask 0xaa (system) vs 0xff (ours); the system
+    driver leaves consecutive draw jobs independent (dependency 0/0 on 280 of
+    281), we chain every draw to the previous one (dependency 2).
+  Caveat: the two snapshots are probably not the same pass (281 vs 778 draws),
+    so per-draw numbers are indicative only.
+
+Tried, each behind a switch that is off by default (fps_menu.txt):
+  PAN_V9_REG32 (force 32 registers, spill): "all"/"fs" breaks rendering (menu
+    never appears, flicker; CTS graphicsfuzz.cov-dfdx-dfdy-after-nested-loops
+    fails with the FS part, see cts.txt); "vs" renders but 3.3-3.4 fps.
+    Removed from the tree.
+  PANVK_TILER_HMASK=0xaa: 6.1-6.5 fps vs 5.8-6.6, noise.
+  PAN_LATE_VECTORIZE=1 (UBO load vectoriser run again after the late
+    optimisation loop): static cycles POSITION 23.5 -> 9.2, VARYING 39.0 ->
+    22.1, FRAGMENT 13.6 -> 12.7 (shaderdb_late_vectorize.txt). CTS l_ubovec
+    1452/1452 with and without it (cts.txt). Tomb Raider: 5.8-6.6 fps, no change.
+  PANVK_V9_NO_TILER_CHAIN=1 (no dependency between consecutive draw jobs, like
+    the system driver): 5.3-6.6 fps, no change. Not CTS-tested; the job
+    dependencies under the switch were not checked in a dump.
+  GE-Proton 11.0-7.1 instead of Hangover 11.16: 5.8-6.9 fps, no change.
+
+Ruled out earlier the same day: GPU clock/DVFS (GED probe), vertex/fragment
+overlap (the system driver does not overlap either), lazy-memory page faults,
+copy-descriptor compute jobs, robustBufferAccess2.
+
+Conclusion so far: halving the vertex shaders' static cost and removing the
+per-draw serialisation do not move the frame rate, so neither is the limit.
+Open: forward pixel kill is off on all 778 draws of our main pass (on for 221
+of 281 in the system driver's), different early-ZS modes, and memory traffic.
+Next step: Mali hardware counters for both drivers on the same scene.

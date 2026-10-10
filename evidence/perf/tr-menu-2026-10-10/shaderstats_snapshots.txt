@@ -1,0 +1,12 @@
+## panvk snapshot, main pass (778 draws)
+Fragment  draws  778 unique  84 | per draw: instr  157.4, tex  4.5, ld_var  5.7, mem  0.0, spill(tl)  0.0, fp  81.0 | 64 regs 57%
+    FMA:67.0 MOV:15.1 LD_PKA:13.6 FADD:9.0 LD_VAR_BUF_IMM:5.7 ICMP_OR:5.0 FCMP_OR:4.6 TEX_SINGLE:4.5 LSHIFT_AND:4.0 LSHIFT_OR:3.6 FRSQ:3.4 FMAX:2.9
+Vertex    draws 1556 unique 168 | per draw: instr  149.6, tex  0.0, ld_var  0.0, mem  5.2, spill(tl)  0.0, fp  51.4 | 64 regs 25%
+    FMA:44.0 MOV:29.3 LD_PKA:26.5 IADD_IMM:24.4 FADD:6.6 STORE:4.7 SHADDX:3.5 LD_ATTR_IMM:2.6 IMUL:1.1 LEA_BUF_IMM:1.0 FRSQ:0.8 FRCP:0.8
+## system driver snapshot, main pass (281 draws)
+Compute   draws    6 unique   3 | per draw: instr  271.7, tex  0.0, ld_var  0.0, mem 50.7, spill(tl)  0.0, fp   2.0 | 64 regs 83%
+    IADD:38.8 BRANCHZ:38.3 IADD_IMM:31.3 STORE:26.3 LOAD:24.3 ICMP_OR:21.7 MOV:18.0 IMUL:14.5 LSHIFT_OR:13.8 NOP:10.5 ISUB:7.8 LSHIFT_AND:7.7
+Fragment  draws  281 unique  41 | per draw: instr   71.3, tex  2.0, ld_var  3.2, mem  0.1, spill(tl)  0.0, fp  50.4 | 64 regs 0%
+    FMA:48.1 LD_VAR_BUF_IMM:3.2 LD_PKA:2.7 FRSQ:2.5 IADD:2.1 FADD:2.0 TEX_SINGLE:1.9 IMUL:1.4 FRCP:1.3 BLEND:1.0 MOV:0.7 LSHIFT_XOR:0.7
+Vertex    draws  562 unique  46 | per draw: instr   78.6, tex  0.0, ld_var  0.0, mem  2.0, spill(tl)  0.0, fp  49.2 | 64 regs 0%
+    FMA:42.3 LD_PKA:7.5 IADD:5.5 FADD:5.4 LD_ATTR_IMM:3.2 IMUL:2.7 STORE:2.0 CSEL:1.7 IADD_IMM:1.3 ISUB:1.0 LEA_BUF_IMM:1.0 FMAX:1.0

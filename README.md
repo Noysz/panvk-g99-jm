@@ -37,7 +37,11 @@ pre-release). Latest: **test7**.
   ([`evidence/cts/phase14/`](evidence/cts/phase14/) for test6-test7).
 * **Open:** frame rate in heavy games (Tomb Raider about 10 fps at medium
   settings, GPU-bound); test7 adds `PANVK_FRAME_PROF` to measure where the
-  time goes. Other Valhall GPUs (G68, G57 MC3) are untested.
+  time goes. In the Tomb Raider menu the system driver needs ~50 ms of GPU
+  time per frame, FourFectVK ~160 ms (vertex/tiler ~3x, fragment ~4x); what
+  has been ruled out so far:
+  [`evidence/perf/tr-menu-2026-10-10/`](evidence/perf/tr-menu-2026-10-10/).
+  Other Valhall GPUs (G68, G57 MC3) are untested.
 
 **Thanks to hafiz** for the upstream rebase, the chained and asynchronous
 kbase submission with real kernel fences, forward pixel kill on v9 and the

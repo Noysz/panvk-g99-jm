@@ -1,0 +1,12 @@
+## system
+    288 Relax Dependency 2: false
+    288 Relax Dependency 1: false
+    282 Dependency 2: 0
+    281 Hierarchy Mask: 170
+    280 Dependency 1: 0
+## panvk
+    778 Relax Dependency 2: false
+    778 Relax Dependency 1: false
+    778 Hierarchy Mask: 255
+    778 Dependency 1: 0
+      1 Dependency 2: 99
