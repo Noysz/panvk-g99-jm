@@ -2,8 +2,7 @@
 
 Apply `0001-defer-occlusion-availability.patch` after the compiler/cache stack
 in `../2026-10-19/series`, itself applied after `patches-upstream/0001` through
-`0005`. This is a local implementation for Valhall v9 JM, not a source backport
-of an unavailable rival implementation.
+`0005`. This is a local implementation for Valhall v9 JM.
 
 `PANVK_DEFER_OQ=1` retains EndQuery availability writes in a following batch
 ordered after the producing fragment work. It is off by default. Statistics

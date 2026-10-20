@@ -1,8 +1,8 @@
 # Follow-up tasks - 2026-10-19
 
 Target: the existing phase 8-13 and release roadmaps, including correct
-rendering, sustained memory use, compatibility, and performance against
-Zenithblue, FristOneRR, Faux123 and the Mali blob on comparable workloads.
+rendering, sustained memory use, compatibility, and performance on
+comparable workloads.
 No task is complete based only on an advertised feature or an FPS claim.
 
 | ID | Status | Task | Completion evidence |
@@ -76,7 +76,7 @@ Compact evidence: `evidence/validation/compiler-cache-2026-10-19/`.
 T01-T03 are complete at the scope above. T04 has a measured TR/K4 baseline and
 the limited Naruto results described below;
 T05 has an evaluated opt-in deferred candidate, and T06-T10 remain pending. No
-repeatable gameplay speedup, victory over a rival/blob, full CTS conformance, or test9 readiness is
+repeatable gameplay speedup, full CTS conformance, or test9 readiness is
 claimed. See `evidence/validation/gameplay-2026-10-19/README.md` and
 `docs/occlusion-followup-2026-10-19.md` for the new evidence and remaining gates.
 
@@ -172,5 +172,4 @@ Details and all exclusions: [Naruto report](naruto-gpl-k2-2026-10-20.md).
 Selected evidence: `evidence/validation/naruto-k2-2026-10-20/`.
 Next, explain the transient HUD/draw changes and profile the remaining frame
 cost with complete rendering. T04 remains partial; T06-T10 keep their existing
-order. BC and wrapper changes remain deferred. The
-[FristOneRR 3.0 audit](fristonerr-3.0-audit.md) is supporting research.
+order. BC and wrapper changes remain deferred.

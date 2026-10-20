@@ -35,9 +35,6 @@ These are development candidates, not test9 or a new release. No superiority
 over another driver or the Mali blob is established. Historical snapshots and
 released-build descriptions follow.
 
-The [FristOneRR 3.0 source audit](docs/fristonerr-3.0-audit.md) records the
-current release references and the gap between published source and binaries.
-
 ## Status (2026-10-10): FourFectVK 0.1.0 test builds, new upstream base
 
 **Builds for Winlator: [`docs/test-builds.md`](docs/test-builds.md)**

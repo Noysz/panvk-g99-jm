@@ -151,10 +151,6 @@ Acceptance gates:
 6. Baseline/candidate repeated CTS and rendering checks, then normal-mode
    A/B with fewer measured fragment splits and an actual workload benefit.
 
-The newer rival occlusion implementation is not available as public driver
-source in the reviewed snapshot. A local implementation would be an independently
-validated optimization, not a verified source backport of that release.
-
 ## Candidate correctness results
 
 Native and Android builds pass. The exact candidate patch stack reproduces
