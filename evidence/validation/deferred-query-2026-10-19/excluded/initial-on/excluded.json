@@ -1,0 +1,4 @@
+{
+  "reason": "Manually stopped for a suspected visual issue in loading/menu transition at screen-0090.png. Later menu screenshot screen-0120.png renders coherently; cause not established. Benchmark was activated shortly before stop, but no completed result exists. Excluded from performance comparisons.",
+  "candidate_regression_confirmed": false
+}

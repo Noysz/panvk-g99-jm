@@ -1,0 +1,440 @@
+{
+  "ok": true,
+  "runs": [
+    {
+      "run": "visual-off",
+      "ubo_words": 32,
+      "defer_occlusion": 0,
+      "game_reported_fps": {
+        "min": 6.0,
+        "max": 17.9,
+        "average": 13.1
+      },
+      "present_window": {
+        "seconds_after_benchmark_action": [
+          45,
+          80
+        ],
+        "anchor": "last logged present at recorded action; input delivery/recognition occurs later",
+        "frames": 452,
+        "seconds": 34.864487000000004,
+        "first_csv_line": 1372,
+        "last_csv_line": 1823,
+        "fps": 12.964481594121834,
+        "mean_ms": 77.13382079646017,
+        "median_ms": 72.164,
+        "p99_ms": 143.682,
+        "slowest_one_percent_mean_fps": 5.381424613775155,
+        "worst_ms": 269.193
+      },
+      "driver_sha256": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+      "state_sha256": {
+        "user.reg": "549db5ee6048d3059c5261da6341f1dad8bf4408bf1e0bce4f3e5ab09b0e2bfd",
+        "SaveGames/Profile/data_98": "fbdff30a37273808ce69a18e79ff0e0f73cb63926160636b682cbc0b1416c3f5",
+        "SaveGames/Profile/LastModifiedTime": "ba5880e83a048d8d7e37cc3b6293bf4b982fbce34c093c1d79d7161065e8ce3f",
+        "SaveGames/GameSlot1/data_98": "285ea0bebce0297e1ee0f6e2bf3d8f15cb468c8d93b42bd107904068734035d2",
+        "SaveGames/GameSlot1/LastModifiedTime": "0c985efd5498be56ba9d02f6898c2aa811030c10d4be4fd1418664089e460d00",
+        "SaveGames/GameSlot2/data_98": "ad478ae79e2978dedee5641ed49df9a4ac46966a81e6bc693b8b273901faeed2",
+        "SaveGames/GameSlot2/LastModifiedTime": "e4ce04e7532683a78ac7dc7394b6662d4c7e75338faabaec9e5e0ec2332ba8dc"
+      },
+      "stack_sha256": {
+        "d3d11.dll": "1030517a75ab7ba379ca6bf34d06eaba78fcaf556fd2800bffc181ac6728425a",
+        "dxgi.dll": "f2016311156cb279ac719aa7260119e9829ad0470f63a5a6cd7852ec9ea1016c",
+        "d3d9.dll": "c6fc22edd81a56bb9ccceb6e750312c19f5c084143fba8921734cb38c35594d9",
+        "d3d10core.dll": "cb4a8c82a309c924ada6fbe8784a348fc3567bd450d71ef892e5bfd95f4eb8a3",
+        "libvulkan_panfrost.so": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+        "libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+        "TombRaider.exe": "5d1ad249fc991957981e62620679c142cb72a21413e7f1586f3c8184eed94715",
+        "bench.ini": "e165404145b9ee170a58a45cc8e3d328f4f8290606b3fe59d05a42785bd619d2",
+        "measurement_runner.py": "bd362e2fb9db2d4ec4db6cf8d114e757bda89b620a854c04c75a73e5e63acfe8",
+        "final-scene.png": "0b9170b4e4b5d0f186da386a39a103bb7e3eb2058fa3da808b840d606e238252",
+        "libVkLayer_MESA_overlay.so": "18bc159f5d916fac1616c367acbb12b016aedbb7d88204290ddbd4dd53ad390b",
+        "VkLayer_MESA_overlay.json": "18f90342e3cfcb6993454ef01e9ad0ab4d02c6837f727e354362a44c4efea645"
+      },
+      "shared_controls": {
+        "WINEPREFIX": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/prefix",
+        "WINEDEBUG": "-all",
+        "DISPLAY": ":0",
+        "LD_LIBRARY_PATH": "/data/data/com.termux/files/home/hangover/root/data/data/com.termux/files/usr/lib:/data/data/com.termux/files/home/wltest/imagefs/usr/lib",
+        "ADRENOTOOLS_DRIVER_PATH": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/package/",
+        "ADRENOTOOLS_HOOKS_PATH": "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/",
+        "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+        "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n",
+        "DXVK_LOG_LEVEL": "info",
+        "DXVK_STATE_CACHE": "0",
+        "DXVK_HUD": "",
+        "MESA_SHADER_CACHE_DISABLE": "true",
+        "PANVK_UBO_PUSH": "32",
+        "PANVK_V9_CLIP_KILL_FPK": "0",
+        "PANVK_FRAME_PROF_PASSES": "1",
+        "VK_LAYER_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer",
+        "VK_INSTANCE_LAYERS": "VK_LAYER_MESA_overlay",
+        "VK_LAYER_MESA_OVERLAY_CONFIG": "no_display=1,device=0,format=0,fps=0,frame=1,frame_timing=1,present_timing=1,submit=1,draw=1,draw_indexed=1,fps_sampling_period=0,output_file=<run>"
+      },
+      "visual_check_required": true
+    },
+    {
+      "run": "ab-normal-on-1",
+      "ubo_words": 32,
+      "defer_occlusion": 1,
+      "game_reported_fps": {
+        "min": 7.0,
+        "max": 18.6,
+        "average": 13.4
+      },
+      "present_window": {
+        "seconds_after_benchmark_action": [
+          45,
+          80
+        ],
+        "anchor": "last logged present at recorded action; input delivery/recognition occurs later",
+        "frames": 458,
+        "seconds": 34.944977,
+        "first_csv_line": 1338,
+        "last_csv_line": 1795,
+        "fps": 13.106318541860823,
+        "mean_ms": 76.29907641921397,
+        "median_ms": 72.103,
+        "p99_ms": 136.713,
+        "slowest_one_percent_mean_fps": 7.143306150672329,
+        "worst_ms": 145.746
+      },
+      "driver_sha256": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+      "state_sha256": {
+        "user.reg": "549db5ee6048d3059c5261da6341f1dad8bf4408bf1e0bce4f3e5ab09b0e2bfd",
+        "SaveGames/Profile/data_98": "fbdff30a37273808ce69a18e79ff0e0f73cb63926160636b682cbc0b1416c3f5",
+        "SaveGames/Profile/LastModifiedTime": "ba5880e83a048d8d7e37cc3b6293bf4b982fbce34c093c1d79d7161065e8ce3f",
+        "SaveGames/GameSlot1/data_98": "285ea0bebce0297e1ee0f6e2bf3d8f15cb468c8d93b42bd107904068734035d2",
+        "SaveGames/GameSlot1/LastModifiedTime": "0c985efd5498be56ba9d02f6898c2aa811030c10d4be4fd1418664089e460d00",
+        "SaveGames/GameSlot2/data_98": "ad478ae79e2978dedee5641ed49df9a4ac46966a81e6bc693b8b273901faeed2",
+        "SaveGames/GameSlot2/LastModifiedTime": "e4ce04e7532683a78ac7dc7394b6662d4c7e75338faabaec9e5e0ec2332ba8dc"
+      },
+      "stack_sha256": {
+        "d3d11.dll": "1030517a75ab7ba379ca6bf34d06eaba78fcaf556fd2800bffc181ac6728425a",
+        "dxgi.dll": "f2016311156cb279ac719aa7260119e9829ad0470f63a5a6cd7852ec9ea1016c",
+        "d3d9.dll": "c6fc22edd81a56bb9ccceb6e750312c19f5c084143fba8921734cb38c35594d9",
+        "d3d10core.dll": "cb4a8c82a309c924ada6fbe8784a348fc3567bd450d71ef892e5bfd95f4eb8a3",
+        "libvulkan_panfrost.so": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+        "libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+        "TombRaider.exe": "5d1ad249fc991957981e62620679c142cb72a21413e7f1586f3c8184eed94715",
+        "bench.ini": "e165404145b9ee170a58a45cc8e3d328f4f8290606b3fe59d05a42785bd619d2",
+        "measurement_runner.py": "bd362e2fb9db2d4ec4db6cf8d114e757bda89b620a854c04c75a73e5e63acfe8",
+        "final-scene.png": "0b9170b4e4b5d0f186da386a39a103bb7e3eb2058fa3da808b840d606e238252",
+        "libVkLayer_MESA_overlay.so": "18bc159f5d916fac1616c367acbb12b016aedbb7d88204290ddbd4dd53ad390b",
+        "VkLayer_MESA_overlay.json": "18f90342e3cfcb6993454ef01e9ad0ab4d02c6837f727e354362a44c4efea645"
+      },
+      "shared_controls": {
+        "WINEPREFIX": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/prefix",
+        "WINEDEBUG": "-all",
+        "DISPLAY": ":0",
+        "LD_LIBRARY_PATH": "/data/data/com.termux/files/home/hangover/root/data/data/com.termux/files/usr/lib:/data/data/com.termux/files/home/wltest/imagefs/usr/lib",
+        "ADRENOTOOLS_DRIVER_PATH": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/package/",
+        "ADRENOTOOLS_HOOKS_PATH": "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/",
+        "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+        "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n",
+        "DXVK_LOG_LEVEL": "info",
+        "DXVK_STATE_CACHE": "0",
+        "DXVK_HUD": "",
+        "MESA_SHADER_CACHE_DISABLE": "true",
+        "PANVK_UBO_PUSH": "32",
+        "PANVK_V9_CLIP_KILL_FPK": "0",
+        "PANVK_FRAME_PROF_PASSES": "1",
+        "VK_LAYER_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer",
+        "VK_INSTANCE_LAYERS": "VK_LAYER_MESA_overlay",
+        "VK_LAYER_MESA_OVERLAY_CONFIG": "no_display=1,device=0,format=0,fps=0,frame=1,frame_timing=1,present_timing=1,submit=1,draw=1,draw_indexed=1,fps_sampling_period=0,output_file=<run>"
+      },
+      "visual_check_required": true
+    },
+    {
+      "run": "ab-normal-off-2",
+      "ubo_words": 32,
+      "defer_occlusion": 0,
+      "game_reported_fps": {
+        "min": 7.8,
+        "max": 17.2,
+        "average": 13.5
+      },
+      "present_window": {
+        "seconds_after_benchmark_action": [
+          45,
+          80
+        ],
+        "anchor": "last logged present at recorded action; input delivery/recognition occurs later",
+        "frames": 473,
+        "seconds": 34.966376,
+        "first_csv_line": 1330,
+        "last_csv_line": 1802,
+        "fps": 13.527281180068533,
+        "mean_ms": 73.92468498942918,
+        "median_ms": 70.295,
+        "p99_ms": 128.175,
+        "slowest_one_percent_mean_fps": 6.68867687269575,
+        "worst_ms": 180.817
+      },
+      "driver_sha256": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+      "state_sha256": {
+        "user.reg": "549db5ee6048d3059c5261da6341f1dad8bf4408bf1e0bce4f3e5ab09b0e2bfd",
+        "SaveGames/Profile/data_98": "fbdff30a37273808ce69a18e79ff0e0f73cb63926160636b682cbc0b1416c3f5",
+        "SaveGames/Profile/LastModifiedTime": "ba5880e83a048d8d7e37cc3b6293bf4b982fbce34c093c1d79d7161065e8ce3f",
+        "SaveGames/GameSlot1/data_98": "285ea0bebce0297e1ee0f6e2bf3d8f15cb468c8d93b42bd107904068734035d2",
+        "SaveGames/GameSlot1/LastModifiedTime": "0c985efd5498be56ba9d02f6898c2aa811030c10d4be4fd1418664089e460d00",
+        "SaveGames/GameSlot2/data_98": "ad478ae79e2978dedee5641ed49df9a4ac46966a81e6bc693b8b273901faeed2",
+        "SaveGames/GameSlot2/LastModifiedTime": "e4ce04e7532683a78ac7dc7394b6662d4c7e75338faabaec9e5e0ec2332ba8dc"
+      },
+      "stack_sha256": {
+        "d3d11.dll": "1030517a75ab7ba379ca6bf34d06eaba78fcaf556fd2800bffc181ac6728425a",
+        "dxgi.dll": "f2016311156cb279ac719aa7260119e9829ad0470f63a5a6cd7852ec9ea1016c",
+        "d3d9.dll": "c6fc22edd81a56bb9ccceb6e750312c19f5c084143fba8921734cb38c35594d9",
+        "d3d10core.dll": "cb4a8c82a309c924ada6fbe8784a348fc3567bd450d71ef892e5bfd95f4eb8a3",
+        "libvulkan_panfrost.so": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+        "libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+        "TombRaider.exe": "5d1ad249fc991957981e62620679c142cb72a21413e7f1586f3c8184eed94715",
+        "bench.ini": "e165404145b9ee170a58a45cc8e3d328f4f8290606b3fe59d05a42785bd619d2",
+        "measurement_runner.py": "bd362e2fb9db2d4ec4db6cf8d114e757bda89b620a854c04c75a73e5e63acfe8",
+        "final-scene.png": "0b9170b4e4b5d0f186da386a39a103bb7e3eb2058fa3da808b840d606e238252",
+        "libVkLayer_MESA_overlay.so": "18bc159f5d916fac1616c367acbb12b016aedbb7d88204290ddbd4dd53ad390b",
+        "VkLayer_MESA_overlay.json": "18f90342e3cfcb6993454ef01e9ad0ab4d02c6837f727e354362a44c4efea645"
+      },
+      "shared_controls": {
+        "WINEPREFIX": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/prefix",
+        "WINEDEBUG": "-all",
+        "DISPLAY": ":0",
+        "LD_LIBRARY_PATH": "/data/data/com.termux/files/home/hangover/root/data/data/com.termux/files/usr/lib:/data/data/com.termux/files/home/wltest/imagefs/usr/lib",
+        "ADRENOTOOLS_DRIVER_PATH": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/package/",
+        "ADRENOTOOLS_HOOKS_PATH": "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/",
+        "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+        "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n",
+        "DXVK_LOG_LEVEL": "info",
+        "DXVK_STATE_CACHE": "0",
+        "DXVK_HUD": "",
+        "MESA_SHADER_CACHE_DISABLE": "true",
+        "PANVK_UBO_PUSH": "32",
+        "PANVK_V9_CLIP_KILL_FPK": "0",
+        "PANVK_FRAME_PROF_PASSES": "1",
+        "VK_LAYER_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer",
+        "VK_INSTANCE_LAYERS": "VK_LAYER_MESA_overlay",
+        "VK_LAYER_MESA_OVERLAY_CONFIG": "no_display=1,device=0,format=0,fps=0,frame=1,frame_timing=1,present_timing=1,submit=1,draw=1,draw_indexed=1,fps_sampling_period=0,output_file=<run>"
+      },
+      "visual_check_required": true
+    },
+    {
+      "run": "ab-normal-on-2",
+      "ubo_words": 32,
+      "defer_occlusion": 1,
+      "game_reported_fps": {
+        "min": 6.9,
+        "max": 17.0,
+        "average": 13.3
+      },
+      "present_window": {
+        "seconds_after_benchmark_action": [
+          45,
+          80
+        ],
+        "anchor": "last logged present at recorded action; input delivery/recognition occurs later",
+        "frames": 463,
+        "seconds": 34.930677,
+        "first_csv_line": 1239,
+        "last_csv_line": 1701,
+        "fps": 13.25482469177451,
+        "mean_ms": 75.44422678185745,
+        "median_ms": 70.553,
+        "p99_ms": 134.748,
+        "slowest_one_percent_mean_fps": 6.019324439179543,
+        "worst_ms": 219.221
+      },
+      "driver_sha256": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+      "state_sha256": {
+        "user.reg": "549db5ee6048d3059c5261da6341f1dad8bf4408bf1e0bce4f3e5ab09b0e2bfd",
+        "SaveGames/Profile/data_98": "fbdff30a37273808ce69a18e79ff0e0f73cb63926160636b682cbc0b1416c3f5",
+        "SaveGames/Profile/LastModifiedTime": "ba5880e83a048d8d7e37cc3b6293bf4b982fbce34c093c1d79d7161065e8ce3f",
+        "SaveGames/GameSlot1/data_98": "285ea0bebce0297e1ee0f6e2bf3d8f15cb468c8d93b42bd107904068734035d2",
+        "SaveGames/GameSlot1/LastModifiedTime": "0c985efd5498be56ba9d02f6898c2aa811030c10d4be4fd1418664089e460d00",
+        "SaveGames/GameSlot2/data_98": "ad478ae79e2978dedee5641ed49df9a4ac46966a81e6bc693b8b273901faeed2",
+        "SaveGames/GameSlot2/LastModifiedTime": "e4ce04e7532683a78ac7dc7394b6662d4c7e75338faabaec9e5e0ec2332ba8dc"
+      },
+      "stack_sha256": {
+        "d3d11.dll": "1030517a75ab7ba379ca6bf34d06eaba78fcaf556fd2800bffc181ac6728425a",
+        "dxgi.dll": "f2016311156cb279ac719aa7260119e9829ad0470f63a5a6cd7852ec9ea1016c",
+        "d3d9.dll": "c6fc22edd81a56bb9ccceb6e750312c19f5c084143fba8921734cb38c35594d9",
+        "d3d10core.dll": "cb4a8c82a309c924ada6fbe8784a348fc3567bd450d71ef892e5bfd95f4eb8a3",
+        "libvulkan_panfrost.so": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+        "libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+        "TombRaider.exe": "5d1ad249fc991957981e62620679c142cb72a21413e7f1586f3c8184eed94715",
+        "bench.ini": "e165404145b9ee170a58a45cc8e3d328f4f8290606b3fe59d05a42785bd619d2",
+        "measurement_runner.py": "bd362e2fb9db2d4ec4db6cf8d114e757bda89b620a854c04c75a73e5e63acfe8",
+        "final-scene.png": "0b9170b4e4b5d0f186da386a39a103bb7e3eb2058fa3da808b840d606e238252",
+        "libVkLayer_MESA_overlay.so": "18bc159f5d916fac1616c367acbb12b016aedbb7d88204290ddbd4dd53ad390b",
+        "VkLayer_MESA_overlay.json": "18f90342e3cfcb6993454ef01e9ad0ab4d02c6837f727e354362a44c4efea645"
+      },
+      "shared_controls": {
+        "WINEPREFIX": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/prefix",
+        "WINEDEBUG": "-all",
+        "DISPLAY": ":0",
+        "LD_LIBRARY_PATH": "/data/data/com.termux/files/home/hangover/root/data/data/com.termux/files/usr/lib:/data/data/com.termux/files/home/wltest/imagefs/usr/lib",
+        "ADRENOTOOLS_DRIVER_PATH": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/package/",
+        "ADRENOTOOLS_HOOKS_PATH": "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/",
+        "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+        "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n",
+        "DXVK_LOG_LEVEL": "info",
+        "DXVK_STATE_CACHE": "0",
+        "DXVK_HUD": "",
+        "MESA_SHADER_CACHE_DISABLE": "true",
+        "PANVK_UBO_PUSH": "32",
+        "PANVK_V9_CLIP_KILL_FPK": "0",
+        "PANVK_FRAME_PROF_PASSES": "1",
+        "VK_LAYER_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer",
+        "VK_INSTANCE_LAYERS": "VK_LAYER_MESA_overlay",
+        "VK_LAYER_MESA_OVERLAY_CONFIG": "no_display=1,device=0,format=0,fps=0,frame=1,frame_timing=1,present_timing=1,submit=1,draw=1,draw_indexed=1,fps_sampling_period=0,output_file=<run>"
+      },
+      "visual_check_required": true
+    },
+    {
+      "run": "ab-normal-off-3",
+      "ubo_words": 32,
+      "defer_occlusion": 0,
+      "game_reported_fps": {
+        "min": 5.7,
+        "max": 16.9,
+        "average": 12.8
+      },
+      "present_window": {
+        "seconds_after_benchmark_action": [
+          45,
+          80
+        ],
+        "anchor": "last logged present at recorded action; input delivery/recognition occurs later",
+        "frames": 433,
+        "seconds": 34.89083,
+        "first_csv_line": 1373,
+        "last_csv_line": 1805,
+        "fps": 12.410137563365502,
+        "mean_ms": 80.57928406466513,
+        "median_ms": 75.854,
+        "p99_ms": 159.167,
+        "slowest_one_percent_mean_fps": 5.142831869511955,
+        "worst_ms": 251.801
+      },
+      "driver_sha256": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+      "state_sha256": {
+        "user.reg": "549db5ee6048d3059c5261da6341f1dad8bf4408bf1e0bce4f3e5ab09b0e2bfd",
+        "SaveGames/Profile/data_98": "fbdff30a37273808ce69a18e79ff0e0f73cb63926160636b682cbc0b1416c3f5",
+        "SaveGames/Profile/LastModifiedTime": "ba5880e83a048d8d7e37cc3b6293bf4b982fbce34c093c1d79d7161065e8ce3f",
+        "SaveGames/GameSlot1/data_98": "285ea0bebce0297e1ee0f6e2bf3d8f15cb468c8d93b42bd107904068734035d2",
+        "SaveGames/GameSlot1/LastModifiedTime": "0c985efd5498be56ba9d02f6898c2aa811030c10d4be4fd1418664089e460d00",
+        "SaveGames/GameSlot2/data_98": "ad478ae79e2978dedee5641ed49df9a4ac46966a81e6bc693b8b273901faeed2",
+        "SaveGames/GameSlot2/LastModifiedTime": "e4ce04e7532683a78ac7dc7394b6662d4c7e75338faabaec9e5e0ec2332ba8dc"
+      },
+      "stack_sha256": {
+        "d3d11.dll": "1030517a75ab7ba379ca6bf34d06eaba78fcaf556fd2800bffc181ac6728425a",
+        "dxgi.dll": "f2016311156cb279ac719aa7260119e9829ad0470f63a5a6cd7852ec9ea1016c",
+        "d3d9.dll": "c6fc22edd81a56bb9ccceb6e750312c19f5c084143fba8921734cb38c35594d9",
+        "d3d10core.dll": "cb4a8c82a309c924ada6fbe8784a348fc3567bd450d71ef892e5bfd95f4eb8a3",
+        "libvulkan_panfrost.so": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+        "libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+        "TombRaider.exe": "5d1ad249fc991957981e62620679c142cb72a21413e7f1586f3c8184eed94715",
+        "bench.ini": "e165404145b9ee170a58a45cc8e3d328f4f8290606b3fe59d05a42785bd619d2",
+        "measurement_runner.py": "bd362e2fb9db2d4ec4db6cf8d114e757bda89b620a854c04c75a73e5e63acfe8",
+        "final-scene.png": "0b9170b4e4b5d0f186da386a39a103bb7e3eb2058fa3da808b840d606e238252",
+        "libVkLayer_MESA_overlay.so": "18bc159f5d916fac1616c367acbb12b016aedbb7d88204290ddbd4dd53ad390b",
+        "VkLayer_MESA_overlay.json": "18f90342e3cfcb6993454ef01e9ad0ab4d02c6837f727e354362a44c4efea645"
+      },
+      "shared_controls": {
+        "WINEPREFIX": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/prefix",
+        "WINEDEBUG": "-all",
+        "DISPLAY": ":0",
+        "LD_LIBRARY_PATH": "/data/data/com.termux/files/home/hangover/root/data/data/com.termux/files/usr/lib:/data/data/com.termux/files/home/wltest/imagefs/usr/lib",
+        "ADRENOTOOLS_DRIVER_PATH": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/package/",
+        "ADRENOTOOLS_HOOKS_PATH": "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/",
+        "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+        "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n",
+        "DXVK_LOG_LEVEL": "info",
+        "DXVK_STATE_CACHE": "0",
+        "DXVK_HUD": "",
+        "MESA_SHADER_CACHE_DISABLE": "true",
+        "PANVK_UBO_PUSH": "32",
+        "PANVK_V9_CLIP_KILL_FPK": "0",
+        "PANVK_FRAME_PROF_PASSES": "1",
+        "VK_LAYER_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer",
+        "VK_INSTANCE_LAYERS": "VK_LAYER_MESA_overlay",
+        "VK_LAYER_MESA_OVERLAY_CONFIG": "no_display=1,device=0,format=0,fps=0,frame=1,frame_timing=1,present_timing=1,submit=1,draw=1,draw_indexed=1,fps_sampling_period=0,output_file=<run>"
+      },
+      "visual_check_required": true
+    },
+    {
+      "run": "ab-normal-on-3",
+      "ubo_words": 32,
+      "defer_occlusion": 1,
+      "game_reported_fps": {
+        "min": 9.0,
+        "max": 23.3,
+        "average": 16.8
+      },
+      "present_window": {
+        "seconds_after_benchmark_action": [
+          45,
+          80
+        ],
+        "anchor": "last logged present at recorded action; input delivery/recognition occurs later",
+        "frames": 637,
+        "seconds": 34.946872000000006,
+        "first_csv_line": 1440,
+        "last_csv_line": 2076,
+        "fps": 18.227668559291942,
+        "mean_ms": 54.86165149136578,
+        "median_ms": 52.128,
+        "p99_ms": 99.883,
+        "slowest_one_percent_mean_fps": 9.068955152721205,
+        "worst_ms": 125.43
+      },
+      "driver_sha256": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+      "state_sha256": {
+        "user.reg": "549db5ee6048d3059c5261da6341f1dad8bf4408bf1e0bce4f3e5ab09b0e2bfd",
+        "SaveGames/Profile/data_98": "fbdff30a37273808ce69a18e79ff0e0f73cb63926160636b682cbc0b1416c3f5",
+        "SaveGames/Profile/LastModifiedTime": "ba5880e83a048d8d7e37cc3b6293bf4b982fbce34c093c1d79d7161065e8ce3f",
+        "SaveGames/GameSlot1/data_98": "285ea0bebce0297e1ee0f6e2bf3d8f15cb468c8d93b42bd107904068734035d2",
+        "SaveGames/GameSlot1/LastModifiedTime": "0c985efd5498be56ba9d02f6898c2aa811030c10d4be4fd1418664089e460d00",
+        "SaveGames/GameSlot2/data_98": "ad478ae79e2978dedee5641ed49df9a4ac46966a81e6bc693b8b273901faeed2",
+        "SaveGames/GameSlot2/LastModifiedTime": "e4ce04e7532683a78ac7dc7394b6662d4c7e75338faabaec9e5e0ec2332ba8dc"
+      },
+      "stack_sha256": {
+        "d3d11.dll": "1030517a75ab7ba379ca6bf34d06eaba78fcaf556fd2800bffc181ac6728425a",
+        "dxgi.dll": "f2016311156cb279ac719aa7260119e9829ad0470f63a5a6cd7852ec9ea1016c",
+        "d3d9.dll": "c6fc22edd81a56bb9ccceb6e750312c19f5c084143fba8921734cb38c35594d9",
+        "d3d10core.dll": "cb4a8c82a309c924ada6fbe8784a348fc3567bd450d71ef892e5bfd95f4eb8a3",
+        "libvulkan_panfrost.so": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+        "libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+        "TombRaider.exe": "5d1ad249fc991957981e62620679c142cb72a21413e7f1586f3c8184eed94715",
+        "bench.ini": "e165404145b9ee170a58a45cc8e3d328f4f8290606b3fe59d05a42785bd619d2",
+        "measurement_runner.py": "bd362e2fb9db2d4ec4db6cf8d114e757bda89b620a854c04c75a73e5e63acfe8",
+        "final-scene.png": "0b9170b4e4b5d0f186da386a39a103bb7e3eb2058fa3da808b840d606e238252",
+        "libVkLayer_MESA_overlay.so": "18bc159f5d916fac1616c367acbb12b016aedbb7d88204290ddbd4dd53ad390b",
+        "VkLayer_MESA_overlay.json": "18f90342e3cfcb6993454ef01e9ad0ab4d02c6837f727e354362a44c4efea645"
+      },
+      "shared_controls": {
+        "WINEPREFIX": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/prefix",
+        "WINEDEBUG": "-all",
+        "DISPLAY": ":0",
+        "LD_LIBRARY_PATH": "/data/data/com.termux/files/home/hangover/root/data/data/com.termux/files/usr/lib:/data/data/com.termux/files/home/wltest/imagefs/usr/lib",
+        "ADRENOTOOLS_DRIVER_PATH": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/package/",
+        "ADRENOTOOLS_HOOKS_PATH": "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/",
+        "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+        "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n",
+        "DXVK_LOG_LEVEL": "info",
+        "DXVK_STATE_CACHE": "0",
+        "DXVK_HUD": "",
+        "MESA_SHADER_CACHE_DISABLE": "true",
+        "PANVK_UBO_PUSH": "32",
+        "PANVK_V9_CLIP_KILL_FPK": "0",
+        "PANVK_FRAME_PROF_PASSES": "1",
+        "VK_LAYER_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer",
+        "VK_INSTANCE_LAYERS": "VK_LAYER_MESA_overlay",
+        "VK_LAYER_MESA_OVERLAY_CONFIG": "no_display=1,device=0,format=0,fps=0,frame=1,frame_timing=1,present_timing=1,submit=1,draw=1,draw_indexed=1,fps_sampling_period=0,output_file=<run>"
+      },
+      "visual_check_required": true
+    }
+  ],
+  "errors": [],
+  "variable": "PANVK_DEFER_OQ",
+  "scope": "Present-call intervals, not scanout latency or GPU execution time. Window statistics exclude startup; game results cover the built-in camera path. Inspect screenshots before making a performance claim."
+}

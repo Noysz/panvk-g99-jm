@@ -1,0 +1,30 @@
+{
+  "plan": [
+    [
+      "visual-off",
+      0
+    ],
+    [
+      "ab-normal-on-1",
+      1
+    ],
+    [
+      "ab-normal-off-2",
+      0
+    ],
+    [
+      "ab-normal-on-2",
+      1
+    ],
+    [
+      "ab-normal-off-3",
+      0
+    ],
+    [
+      "ab-normal-on-3",
+      1
+    ]
+  ],
+  "declared_unix": 1792451089.3665667,
+  "reason": "The initial on run was stopped without a result after a suspected loading-transition issue. The complete off comparison is included before observing its benchmark result; then alternate on/off for three pairs."
+}

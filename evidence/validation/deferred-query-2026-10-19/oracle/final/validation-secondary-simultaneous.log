@@ -1,0 +1,73 @@
+[Vulkan Loader] LAYER:          Searching for implicit layer manifest files
+[Vulkan Loader] LAYER:             In following locations:
+[Vulkan Loader] LAYER:                /root/.config/vulkan/implicit_layer.d
+[Vulkan Loader] LAYER:                /etc/xdg/vulkan/implicit_layer.d
+[Vulkan Loader] LAYER:                /etc/vulkan/implicit_layer.d
+[Vulkan Loader] LAYER:                /root/.local/share/vulkan/implicit_layer.d
+[Vulkan Loader] LAYER:                /usr/local/share/vulkan/implicit_layer.d
+[Vulkan Loader] LAYER:                /usr/share/vulkan/implicit_layer.d
+[Vulkan Loader] LAYER:             Found the following files:
+[Vulkan Loader] LAYER:                /usr/share/vulkan/implicit_layer.d/VkLayer_MESA_device_select.json
+[Vulkan Loader] LAYER:          Searching for explicit layer manifest files
+[Vulkan Loader] LAYER:             In following locations:
+[Vulkan Loader] LAYER:                /data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/validation-layer
+[Vulkan Loader] LAYER:             Found the following files:
+[Vulkan Loader] LAYER:                /data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/validation-layer/VkLayer_khronos_validation.json
+[Vulkan Loader] WARNING | LAYER: env var 'VK_INSTANCE_LAYERS' defined and adding layers "VK_LAYER_KHRONOS_validation"
+[Vulkan Loader] WARNING | LAYER: env var 'VK_INSTANCE_LAYERS' defined and adding layers "VK_LAYER_KHRONOS_validation"
+[Vulkan Loader] DEBUG | LAYER:  Loading layer library /usr/lib/chromium/libVkLayer_khronos_validation.so
+[Vulkan Loader] INFO | LAYER:   Insert instance layer "VK_LAYER_KHRONOS_validation" (/usr/lib/chromium/libVkLayer_khronos_validation.so)
+[Vulkan Loader] DEBUG | LAYER:  Loading layer library libVkLayer_MESA_device_select.so
+[Vulkan Loader] INFO | LAYER:   Insert instance layer "VK_LAYER_MESA_device_select" (libVkLayer_MESA_device_select.so)
+[Vulkan Loader] LAYER:          vkCreateInstance layer callstack setup to:
+[Vulkan Loader] LAYER:             <Application>
+[Vulkan Loader] LAYER:               ||
+[Vulkan Loader] LAYER:             <Loader>
+[Vulkan Loader] LAYER:               ||
+[Vulkan Loader] LAYER:             VK_LAYER_MESA_device_select
+[Vulkan Loader] LAYER:                     Type: Implicit
+[Vulkan Loader] LAYER:                     Enabled By: Implicit Layer
+[Vulkan Loader] LAYER:                         Disable Env Var:  NODEVICE_SELECT
+[Vulkan Loader] LAYER:                     Manifest: /usr/share/vulkan/implicit_layer.d/VkLayer_MESA_device_select.json
+[Vulkan Loader] LAYER:                     Library:  libVkLayer_MESA_device_select.so
+[Vulkan Loader] LAYER:               ||
+[Vulkan Loader] LAYER:             VK_LAYER_KHRONOS_validation
+[Vulkan Loader] LAYER:                     Type: Explicit
+[Vulkan Loader] LAYER:                     Enabled By: Environment Variable VK_INSTANCE_LAYERS
+[Vulkan Loader] LAYER:                     Manifest: /data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/validation-layer/VkLayer_khronos_validation.json
+[Vulkan Loader] LAYER:                     Library:  /usr/lib/chromium/libVkLayer_khronos_validation.so
+[Vulkan Loader] LAYER:               ||
+[Vulkan Loader] LAYER:             <Drivers>
+[Vulkan Loader] INFO | LAYER:   Inserted device layer "VK_LAYER_KHRONOS_validation" (/usr/lib/chromium/libVkLayer_khronos_validation.so)
+[Vulkan Loader] INFO | LAYER:   Failed to find vkGetDeviceProcAddr in layer "libVkLayer_MESA_device_select.so"
+[Vulkan Loader] DRIVER:         vkCreateDevice layer callstack setup to:
+[Vulkan Loader] DRIVER:            <Application>
+[Vulkan Loader] DRIVER:              ||
+[Vulkan Loader] DRIVER:            <Loader>
+[Vulkan Loader] DRIVER:              ||
+[Vulkan Loader] LAYER:             VK_LAYER_KHRONOS_validation
+[Vulkan Loader] LAYER:                     Type: Explicit
+[Vulkan Loader] LAYER:                     Enabled By: Environment Variable VK_INSTANCE_LAYERS
+[Vulkan Loader] LAYER:                     Manifest: /data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/validation-layer/VkLayer_khronos_validation.json
+[Vulkan Loader] LAYER:                     Library:  /usr/lib/chromium/libVkLayer_khronos_validation.so
+[Vulkan Loader] LAYER:               ||
+[Vulkan Loader] DRIVER:            <Device>
+[Vulkan Loader] DRIVER:                Using "llvmpipe (LLVM 19.1.7, 128 bits)" with driver: "libvulkan_lvp.so"
+[Vulkan Loader] DEBUG | LAYER:  Unloading layer library libVkLayer_MESA_device_select.so
+[Vulkan Loader] DEBUG | LAYER:  Unloading layer library /usr/lib/chromium/libVkLayer_khronos_validation.so
+cycle=0 query=0 expected=512 host=512 copy64=512 available64=1 copy32=512 verdict=PASS
+cycle=0 query=1 expected=0 host=0 copy64=0 available64=1 copy32=0 verdict=PASS
+cycle=0 query=2 expected=0 host=0 copy64=0 available64=1 copy32=0 verdict=PASS
+cycle=0 query=3 expected=128 host=128 copy64=128 available64=1 copy32=128 verdict=PASS
+cycle=0 bad_pixels=0 reset_status=1 reset_available=0 reset_verdict=PASS
+cycle=1 query=0 expected=512 host=512 copy64=512 available64=1 copy32=512 verdict=PASS
+cycle=1 query=1 expected=0 host=0 copy64=0 available64=1 copy32=0 verdict=PASS
+cycle=1 query=2 expected=0 host=0 copy64=0 available64=1 copy32=0 verdict=PASS
+cycle=1 query=3 expected=128 host=128 copy64=128 available64=1 copy32=128 verdict=PASS
+cycle=1 bad_pixels=0 reset_status=1 reset_available=0 reset_verdict=PASS
+cycle=2 query=0 expected=512 host=512 copy64=512 available64=1 copy32=512 verdict=PASS
+cycle=2 query=1 expected=0 host=0 copy64=0 available64=1 copy32=0 verdict=PASS
+cycle=2 query=2 expected=0 host=0 copy64=0 available64=1 copy32=0 verdict=PASS
+cycle=2 query=3 expected=128 host=128 copy64=128 available64=1 copy32=128 verdict=PASS
+cycle=2 bad_pixels=0 reset_status=1 reset_available=0 reset_verdict=PASS
+OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=1 allocation_failure=0 failures=0 verdict=PASS

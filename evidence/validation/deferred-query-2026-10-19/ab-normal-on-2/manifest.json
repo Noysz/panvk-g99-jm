@@ -1,0 +1,363 @@
+{
+  "command": [
+    "/data/data/com.termux/files/home/hangover/root/data/data/com.termux/files/usr/opt/hangover-wine/bin/wine",
+    "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-2/game/TombRaider.exe"
+  ],
+  "cwd": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-2/game",
+  "controls": {
+    "WINEPREFIX": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/prefix",
+    "WINEDEBUG": "-all",
+    "DISPLAY": ":0",
+    "LD_LIBRARY_PATH": "/data/data/com.termux/files/home/hangover/root/data/data/com.termux/files/usr/lib:/data/data/com.termux/files/home/wltest/imagefs/usr/lib",
+    "VK_ICD_FILENAMES": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-2/icd.json",
+    "ADRENOTOOLS_DRIVER_PATH": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/package/",
+    "ADRENOTOOLS_HOOKS_PATH": "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/",
+    "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+    "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n",
+    "DXVK_LOG_LEVEL": "info",
+    "DXVK_LOG_PATH": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-2",
+    "DXVK_STATE_CACHE": "0",
+    "DXVK_HUD": "",
+    "MESA_SHADER_CACHE_DISABLE": "true",
+    "PANVK_UBO_PUSH": "32",
+    "PANVK_V9_CLIP_KILL_FPK": "0",
+    "PANVK_DEFER_OQ": "1",
+    "PANVK_FRAME_PROF": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-2/frames.log",
+    "PANVK_FRAME_PROF_PASSES": "1",
+    "VK_LAYER_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer",
+    "VK_INSTANCE_LAYERS": "VK_LAYER_MESA_overlay",
+    "VK_LAYER_MESA_OVERLAY_CONFIG": "no_display=1,device=0,format=0,fps=0,frame=1,frame_timing=1,present_timing=1,submit=1,draw=1,draw_indexed=1,fps_sampling_period=0,output_file=/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-2/present.csv"
+  },
+  "sha256": {
+    "/tmp/dxvk/1.7.2/system32/d3d11.dll": "1030517a75ab7ba379ca6bf34d06eaba78fcaf556fd2800bffc181ac6728425a",
+    "/tmp/dxvk/1.7.2/system32/dxgi.dll": "f2016311156cb279ac719aa7260119e9829ad0470f63a5a6cd7852ec9ea1016c",
+    "/tmp/dxvk/1.7.2/system32/d3d9.dll": "c6fc22edd81a56bb9ccceb6e750312c19f5c084143fba8921734cb38c35594d9",
+    "/tmp/dxvk/1.7.2/system32/d3d10core.dll": "cb4a8c82a309c924ada6fbe8784a348fc3567bd450d71ef892e5bfd95f4eb8a3",
+    "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/package/libvulkan_panfrost.so": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+    "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+    "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-2/game/TombRaider.exe": "5d1ad249fc991957981e62620679c142cb72a21413e7f1586f3c8184eed94715",
+    "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-2/game/bench.ini": "e165404145b9ee170a58a45cc8e3d328f4f8290606b3fe59d05a42785bd619d2",
+    "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/measurement_runner.py": "bd362e2fb9db2d4ec4db6cf8d114e757bda89b620a854c04c75a73e5e63acfe8",
+    "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/pilot4-state/final-scene.png": "0b9170b4e4b5d0f186da386a39a103bb7e3eb2058fa3da808b840d606e238252",
+    "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer/libVkLayer_MESA_overlay.so": "18bc159f5d916fac1616c367acbb12b016aedbb7d88204290ddbd4dd53ad390b",
+    "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer/VkLayer_MESA_overlay.json": "18f90342e3cfcb6993454ef01e9ad0ab4d02c6837f727e354362a44c4efea645"
+  },
+  "timeout_seconds": 420,
+  "start_unix": 1792451602.3403108,
+  "screenshots": [
+    {
+      "file": "screen-0015.png",
+      "capture_begin_seconds": 15.05502346297726,
+      "elapsed_seconds": 15.232636923989048
+    },
+    {
+      "file": "screen-0030.png",
+      "capture_begin_seconds": 30.809287771000527,
+      "elapsed_seconds": 31.149107386998367
+    },
+    {
+      "file": "screen-0045.png",
+      "capture_begin_seconds": 45.597968694986776,
+      "elapsed_seconds": 45.8843646949972,
+      "present_lines": 0
+    },
+    {
+      "file": "screen-0060.png",
+      "capture_begin_seconds": 60.457644310983596,
+      "elapsed_seconds": 61.83366961899446,
+      "present_lines": 75
+    },
+    {
+      "file": "screen-0075.png",
+      "capture_begin_seconds": 75.48532254298334,
+      "elapsed_seconds": 76.4371963889862,
+      "present_lines": 230
+    },
+    {
+      "file": "screen-0090.png",
+      "capture_begin_seconds": 90.06997477498953,
+      "elapsed_seconds": 91.17726154398406,
+      "present_lines": 328
+    },
+    {
+      "file": "screen-0105.png",
+      "capture_begin_seconds": 105.11264154498349,
+      "elapsed_seconds": 105.51380315999268,
+      "present_lines": 610
+    },
+    {
+      "file": "screen-0120.png",
+      "capture_begin_seconds": 120.62664623800083,
+      "elapsed_seconds": 121.22515885398025,
+      "present_lines": 962
+    },
+    {
+      "file": "screen-0135.png",
+      "capture_begin_seconds": 135.34201085398672,
+      "elapsed_seconds": 135.95242962398333,
+      "present_lines": 1167
+    },
+    {
+      "file": "screen-0150.png",
+      "capture_begin_seconds": 150.0667905479786,
+      "elapsed_seconds": 151.17124931697617,
+      "present_lines": 1312
+    },
+    {
+      "file": "screen-0165.png",
+      "capture_begin_seconds": 165.29379385599168,
+      "elapsed_seconds": 166.5977573179989,
+      "present_lines": 1526
+    },
+    {
+      "file": "screen-0180.png",
+      "capture_begin_seconds": 180.72064431899344,
+      "elapsed_seconds": 181.61093724198872,
+      "present_lines": 1745
+    },
+    {
+      "file": "screen-0195.png",
+      "capture_begin_seconds": 195.72577354998793,
+      "elapsed_seconds": 196.4266188579786,
+      "present_lines": 1973
+    }
+  ],
+  "initial_state_sha256": {
+    "user.reg": "549db5ee6048d3059c5261da6341f1dad8bf4408bf1e0bce4f3e5ab09b0e2bfd",
+    "SaveGames/Profile/data_98": "fbdff30a37273808ce69a18e79ff0e0f73cb63926160636b682cbc0b1416c3f5",
+    "SaveGames/Profile/LastModifiedTime": "ba5880e83a048d8d7e37cc3b6293bf4b982fbce34c093c1d79d7161065e8ce3f",
+    "SaveGames/GameSlot1/data_98": "285ea0bebce0297e1ee0f6e2bf3d8f15cb468c8d93b42bd107904068734035d2",
+    "SaveGames/GameSlot1/LastModifiedTime": "0c985efd5498be56ba9d02f6898c2aa811030c10d4be4fd1418664089e460d00",
+    "SaveGames/GameSlot2/data_98": "ad478ae79e2978dedee5641ed49df9a4ac46966a81e6bc693b8b273901faeed2",
+    "SaveGames/GameSlot2/LastModifiedTime": "e4ce04e7532683a78ac7dc7394b6662d4c7e75338faabaec9e5e0ec2332ba8dc"
+  },
+  "actions": [
+    {
+      "action": "PLAY",
+      "screenshot": "screen-0030.png",
+      "x": 741.0,
+      "y": 212.0,
+      "unix": 1792451634.2915637,
+      "elapsed_seconds": 31.950408309989143
+    },
+    {
+      "action": "BENCHMARK",
+      "screenshot": "screen-0090.png",
+      "x": 212.5,
+      "y": 279.5,
+      "unix": 1792451700.8823056,
+      "present_lines": 392,
+      "elapsed_seconds": 98.54114739099168
+    }
+  ],
+  "system_samples": [
+    {
+      "elapsed_seconds": 0.005265307991066948,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 5.030935692979256,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 10.043280693003908,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1300000
+    },
+    {
+      "elapsed_seconds": 15.05502346297726,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1300000
+    },
+    {
+      "elapsed_seconds": 20.753084000985837,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 25.773099771002308,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1100000
+    },
+    {
+      "elapsed_seconds": 30.809287771000527,
+      "cpu0_khz": 1400000,
+      "cpu6_khz": 2000000
+    },
+    {
+      "elapsed_seconds": 35.55254154099384,
+      "cpu0_khz": 1200000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 40.57646954100346,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1100000
+    },
+    {
+      "elapsed_seconds": 45.597968694986776,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 50.41170831100317,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 55.439360926975496,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 60.457644310983596,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 65.43544892698992,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 70.45973354298621,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1300000
+    },
+    {
+      "elapsed_seconds": 75.48532254298334,
+      "cpu0_khz": 1250000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 80.01085292798234,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 85.04517600499094,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 90.06997477498953,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 100.0817705449881,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 101.08949885200127,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2100000
+    },
+    {
+      "elapsed_seconds": 105.11264154498349,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 110.57500585299567,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 115.59802031499567,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 120.62664623800083,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 125.28823200799525,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 130.3152196999872,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 135.34201085398672,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 140.01677170098992,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 145.04484739300096,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1700000
+    },
+    {
+      "elapsed_seconds": 150.0667905479786,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 155.25152223999612,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1400000
+    },
+    {
+      "elapsed_seconds": 160.2737501639931,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 165.29379385599168,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 170.675367163989,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 175.6951610109827,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 180.72064431899344,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 185.67716554997605,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 190.70700985798612,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 195.72577354998793,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    }
+  ],
+  "launch_mode": "menu",
+  "elapsed_seconds": 199.55384193497594,
+  "exit_code": 1,
+  "timed_out": false,
+  "stopped_after_result": true,
+  "result_source": "dialog",
+  "failure": null,
+  "results": []
+}

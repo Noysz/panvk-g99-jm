@@ -1,0 +1,52 @@
+{
+  "pairs": [
+    {
+      "off": "visual-off",
+      "on": "ab-normal-on-1",
+      "off_fps": 13.1,
+      "on_fps": 13.4,
+      "on_minus_off_fps": 0.3000000000000007,
+      "on_relative_change_percent": 2.2900763358778775
+    },
+    {
+      "off": "ab-normal-off-2",
+      "on": "ab-normal-on-2",
+      "off_fps": 13.5,
+      "on_fps": 13.3,
+      "on_minus_off_fps": -0.1999999999999993,
+      "on_relative_change_percent": -1.4814814814814725
+    },
+    {
+      "off": "ab-normal-off-3",
+      "on": "ab-normal-on-3",
+      "off_fps": 12.8,
+      "on_fps": 16.8,
+      "on_minus_off_fps": 4.0,
+      "on_relative_change_percent": 31.25
+    }
+  ],
+  "groups": {
+    "off": {
+      "game_average_fps": [
+        13.1,
+        13.5,
+        12.8
+      ],
+      "median_game_average_fps": 13.1,
+      "median_window_fps": 12.964481594121834,
+      "median_window_p99_ms": 143.682
+    },
+    "on": {
+      "game_average_fps": [
+        13.4,
+        13.3,
+        16.8
+      ],
+      "median_game_average_fps": 13.4,
+      "median_window_fps": 13.25482469177451,
+      "median_window_p99_ms": 134.748
+    }
+  },
+  "primary_metric": "Average FPS reported by the complete built-in camera benchmark.",
+  "secondary_metric_limit": "The present window uses an approximate menu-action anchor. Variable loading shifts the camera phase; it is not a frame-exact comparison."
+}

@@ -1,0 +1,36 @@
+{
+  "commands": [
+    [
+      "/data/data/com.termux/files/usr/bin/clang",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "/data/data/com.termux/files/home/panvk-g99-jm/tests/graphics/occlusion_ordering_oracle.c",
+      "-o",
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/empty/oracle",
+      "-ldl"
+    ],
+    [
+      "/usr/bin/cc",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "-I/data/data/com.termux/files/home/panvk-g57/mesa-up/include",
+      "/data/data/com.termux/files/home/panvk-g99-jm/tests/graphics/occlusion_ordering_oracle.c",
+      "-o",
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/empty/oracle-host",
+      "-ldl"
+    ]
+  ],
+  "sha256": {
+    "occlusion_ordering_oracle.c": "a56e3fc06adb49ce88cb2b926c00a03db44987ffd53ee844f83b215dd95c6ee5",
+    "occlusion_oracle.vert.spv": "837a8d906354f6311cca16da2e3e98d34c33c32e942230070a6cbb0039e6c900",
+    "occlusion_oracle.frag.spv": "6d5efa84cb8654d217d4f24b0a5d4ff5b6229e508394e5e7a87b8d163692af57",
+    "oracle": "ff7e4d4e2383ce6594ce8734ff512efb862a54984722619e919fb760964fed8f",
+    "oracle-host": "3bc117ee1aa1bdac0f2cf294c4458ef855eac38303d6ccd2f66347d8d1e8cfe2"
+  }
+}

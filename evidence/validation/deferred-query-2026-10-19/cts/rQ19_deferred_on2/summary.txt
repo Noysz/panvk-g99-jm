@@ -1,0 +1,5 @@
+group rQ19_deferred_on2: 1243 cases, 13 process run(s)
+  Pass                   938
+  Fail                   2
+  NotSupported           303
+  pass rate of supported: 938/940 = 99.8%

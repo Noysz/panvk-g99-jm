@@ -1,0 +1,4 @@
+group rQ19_batch_baseline: 516 cases, 6 process run(s)
+  Pass                   498
+  NotSupported           18
+  pass rate of supported: 498/498 = 100.0%

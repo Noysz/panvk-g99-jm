@@ -1,0 +1,22 @@
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+cycle=0 query=0 expected=512 host=512 copy64=512 available64=1 copy32=512 verdict=PASS
+cycle=0 query=1 expected=0 host=0 copy64=0 available64=1 copy32=0 verdict=PASS
+cycle=0 query=2 expected=0 host=0 copy64=0 available64=1 copy32=0 verdict=PASS
+cycle=0 query=3 expected=128 host=128 copy64=128 available64=1 copy32=128 verdict=PASS
+cycle=0 bad_pixels=0 reset_status=1 reset_available=0 reset_verdict=PASS
+cycle=1 query=0 expected=512 host=512 copy64=512 available64=1 copy32=512 verdict=PASS
+cycle=1 query=1 expected=0 host=0 copy64=0 available64=1 copy32=0 verdict=PASS
+cycle=1 query=2 expected=0 host=0 copy64=0 available64=1 copy32=0 verdict=PASS
+cycle=1 query=3 expected=128 host=128 copy64=128 available64=1 copy32=128 verdict=PASS
+cycle=1 bad_pixels=0 reset_status=1 reset_available=0 reset_verdict=PASS
+cycle=2 query=0 expected=512 host=512 copy64=512 available64=1 copy32=512 verdict=PASS
+cycle=2 query=1 expected=0 host=0 copy64=0 available64=1 copy32=0 verdict=PASS
+cycle=2 query=2 expected=0 host=0 copy64=0 available64=1 copy32=0 verdict=PASS
+cycle=2 query=3 expected=128 host=128 copy64=128 available64=1 copy32=128 verdict=PASS
+cycle=2 bad_pixels=0 reset_status=1 reset_available=0 reset_verdict=PASS
+OQ_EMPTY_OUTSIDE cycle=0 host=0 copy=0 available=1 verdict=PASS
+OQ_EMPTY_OUTSIDE cycle=1 host=0 copy=0 available=1 verdict=PASS
+OQ_EMPTY_OUTSIDE cycle=2 host=0 copy=0 available=1 verdict=PASS
+OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS

@@ -1,0 +1,59 @@
+{
+  "scope": "Printed top-group rows over each full process lifetime; not pass or frame counts. Group truncation prevents inferring zero global splits. These are not GPU hardware timings.",
+  "runs": [
+    {
+      "run": "visual-off",
+      "defer_occlusion": 0,
+      "printed_split_group_rows": 47,
+      "first_split_rows": [
+        "panvk-frame   pass 848x480 8rt+zs 1x tile 256px load 3 store 3 afbc 1 (split): 5.0 per s, 1 draws, 1 compute jobs each",
+        "panvk-frame   pass 848x480 8rt+zs 1x tile 256px load 3 store 3 afbc 1 (split): 87.2 per s, 1 draws, 1 compute jobs each",
+        "panvk-frame   pass 848x480 8rt+zs 1x tile 256px load 3 store 3 afbc 1 (split): 79.2 per s, 1 draws, 1 compute jobs each"
+      ],
+      "truncated_group_reports": 72
+    },
+    {
+      "run": "ab-normal-on-1",
+      "defer_occlusion": 1,
+      "printed_split_group_rows": 0,
+      "first_split_rows": [],
+      "truncated_group_reports": 67
+    },
+    {
+      "run": "ab-normal-off-2",
+      "defer_occlusion": 0,
+      "printed_split_group_rows": 40,
+      "first_split_rows": [
+        "panvk-frame   pass 848x480 8rt+zs 1x tile 256px load 3 store 3 afbc 1 (split): 69.7 per s, 1 draws, 1 compute jobs each",
+        "panvk-frame   pass 848x480 8rt+zs 1x tile 256px load 3 store 3 afbc 1 (split): 75.0 per s, 1 draws, 1 compute jobs each",
+        "panvk-frame   pass 848x480 8rt+zs 1x tile 256px load 3 store 3 afbc 1 (split): 75.0 per s, 1 draws, 1 compute jobs each"
+      ],
+      "truncated_group_reports": 67
+    },
+    {
+      "run": "ab-normal-on-2",
+      "defer_occlusion": 1,
+      "printed_split_group_rows": 0,
+      "first_split_rows": [],
+      "truncated_group_reports": 62
+    },
+    {
+      "run": "ab-normal-off-3",
+      "defer_occlusion": 0,
+      "printed_split_group_rows": 47,
+      "first_split_rows": [
+        "panvk-frame   pass 848x480 8rt+zs 1x tile 256px load 3 store 3 afbc 1 (split): 59.0 per s, 1 draws, 1 compute jobs each",
+        "panvk-frame   pass 848x480 8rt+zs 1x tile 256px load 3 store 3 afbc 1 (split): 71.8 per s, 1 draws, 1 compute jobs each",
+        "panvk-frame   pass 848x480 8rt+zs 1x tile 256px load 3 store 3 afbc 1 (split): 74.9 per s, 1 draws, 1 compute jobs each"
+      ],
+      "truncated_group_reports": 78
+    },
+    {
+      "run": "ab-normal-on-3",
+      "defer_occlusion": 1,
+      "printed_split_group_rows": 0,
+      "first_split_rows": [],
+      "truncated_group_reports": 65
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "label": "validation",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/empty/oracle-host",
+      "--empty-outside"
+    ],
+    "returncode": 0,
+    "ok": true
+  },
+  {
+    "label": "baseline",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/empty/oracle",
+      "--empty-outside"
+    ],
+    "returncode": 0,
+    "ok": true
+  },
+  {
+    "label": "host-on",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/empty/oracle",
+      "--empty-outside"
+    ],
+    "returncode": 0,
+    "ok": true
+  },
+  {
+    "label": "package-off",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/empty/oracle",
+      "--empty-outside"
+    ],
+    "returncode": 0,
+    "ok": true
+  },
+  {
+    "label": "package-on",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/empty/oracle",
+      "--empty-outside"
+    ],
+    "returncode": 0,
+    "ok": true
+  }
+]

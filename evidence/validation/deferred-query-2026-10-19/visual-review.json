@@ -1,0 +1,48 @@
+{
+  "reviewed_unix": 1792452506.8486326,
+  "runs": [
+    {
+      "run": "visual-off",
+      "scene": "screen-0135.png",
+      "result": "result.png",
+      "scene_review": "Character and scenery geometry are coherent in the selected image; no gross corruption apparent.",
+      "result_review": "Displayed minimum, maximum and average FPS match the parsed values."
+    },
+    {
+      "run": "ab-normal-on-1",
+      "scene": "screen-0180.png",
+      "result": "result.png",
+      "scene_review": "Character and scenery geometry are coherent in the selected image; no gross corruption apparent.",
+      "result_review": "Displayed minimum, maximum and average FPS match the parsed values."
+    },
+    {
+      "run": "ab-normal-off-2",
+      "scene": "screen-0135.png",
+      "result": "result.png",
+      "scene_review": "Character and scenery geometry are coherent in the selected image; no gross corruption apparent.",
+      "result_review": "Displayed minimum, maximum and average FPS match the parsed values."
+    },
+    {
+      "run": "ab-normal-on-2",
+      "scene": "screen-0150.png",
+      "result": "result.png",
+      "scene_review": "Character and scenery geometry are coherent in the selected image; no gross corruption apparent.",
+      "result_review": "Displayed minimum, maximum and average FPS match the parsed values."
+    },
+    {
+      "run": "ab-normal-off-3",
+      "scene": "screen-0150.png",
+      "result": "result.png",
+      "scene_review": "Character and scenery geometry are coherent in the selected image; no gross corruption apparent.",
+      "result_review": "Displayed minimum, maximum and average FPS match the parsed values."
+    },
+    {
+      "run": "ab-normal-on-3",
+      "scene": "screen-0135.png",
+      "result": "result.png",
+      "scene_review": "Character and scenery geometry are coherent in the selected image; no gross corruption apparent.",
+      "result_review": "Displayed minimum, maximum and average FPS match the parsed values."
+    }
+  ],
+  "limits": "Selected screenshots only. Different camera phases prevent pixel-exact comparison; no all-frame correctness claim."
+}

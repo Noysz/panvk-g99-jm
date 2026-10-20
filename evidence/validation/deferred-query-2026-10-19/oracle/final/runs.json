@@ -1,0 +1,1179 @@
+[
+  {
+    "name": "validation-primary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle-host"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": null
+  },
+  {
+    "name": "validation-primary-lifetime",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle-host",
+      "--lifetime"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=1 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": null
+  },
+  {
+    "name": "validation-primary-simultaneous",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle-host",
+      "--simultaneous"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=1 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": null
+  },
+  {
+    "name": "validation-primary-poll-availability",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle-host",
+      "--poll-availability"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": null
+  },
+  {
+    "name": "validation-primary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle-host",
+      "--early-copy-control"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=1 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=12 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": null
+  },
+  {
+    "name": "validation-secondary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle-host",
+      "--secondary"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": null
+  },
+  {
+    "name": "validation-secondary-lifetime",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle-host",
+      "--secondary",
+      "--lifetime"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=1 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": null
+  },
+  {
+    "name": "validation-secondary-simultaneous",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle-host",
+      "--secondary",
+      "--simultaneous"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=1 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": null
+  },
+  {
+    "name": "validation-secondary-poll-availability",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle-host",
+      "--secondary",
+      "--poll-availability"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": null
+  },
+  {
+    "name": "validation-secondary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle-host",
+      "--secondary",
+      "--early-copy-control"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=1 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=12 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": null
+  },
+  {
+    "name": "host-baseline-primary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "adff593f446b9e280ea32b513d048b2d92a8f952975b479addcb9cc6eeb2632a"
+  },
+  {
+    "name": "host-baseline-primary-simultaneous",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--simultaneous"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=1 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "adff593f446b9e280ea32b513d048b2d92a8f952975b479addcb9cc6eeb2632a"
+  },
+  {
+    "name": "host-baseline-primary-poll-availability",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--poll-availability"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "adff593f446b9e280ea32b513d048b2d92a8f952975b479addcb9cc6eeb2632a"
+  },
+  {
+    "name": "host-baseline-primary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--early-copy-control"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=1 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=12 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "adff593f446b9e280ea32b513d048b2d92a8f952975b479addcb9cc6eeb2632a"
+  },
+  {
+    "name": "host-baseline-secondary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "adff593f446b9e280ea32b513d048b2d92a8f952975b479addcb9cc6eeb2632a"
+  },
+  {
+    "name": "host-baseline-secondary-simultaneous",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--simultaneous"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=1 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "adff593f446b9e280ea32b513d048b2d92a8f952975b479addcb9cc6eeb2632a"
+  },
+  {
+    "name": "host-baseline-secondary-poll-availability",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--poll-availability"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "adff593f446b9e280ea32b513d048b2d92a8f952975b479addcb9cc6eeb2632a"
+  },
+  {
+    "name": "host-baseline-secondary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--early-copy-control"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=1 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=12 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "adff593f446b9e280ea32b513d048b2d92a8f952975b479addcb9cc6eeb2632a"
+  },
+  {
+    "name": "host-off-primary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-off-primary-lifetime",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--lifetime"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=1 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-off-primary-simultaneous",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--simultaneous"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=1 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-off-primary-poll-availability",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--poll-availability"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-off-primary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--early-copy-control"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=1 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=12 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-off-secondary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-off-secondary-lifetime",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--lifetime"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=1 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-off-secondary-simultaneous",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--simultaneous"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=1 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-off-secondary-poll-availability",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--poll-availability"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-off-secondary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--early-copy-control"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=1 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=12 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-primary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-primary-lifetime",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--lifetime"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=1 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-primary-simultaneous",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--simultaneous"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=1 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-primary-poll-availability",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--poll-availability"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-primary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--early-copy-control"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=1 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=12 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-secondary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-secondary-lifetime",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--lifetime"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=1 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-secondary-simultaneous",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--simultaneous"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=1 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-secondary-poll-availability",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--poll-availability"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-secondary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--early-copy-control"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=1 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=12 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-r1-primary-allocation-failure",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--allocation-failure"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=1 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-r1-primary-premature-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--poll-availability"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=3 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-r1-secondary-allocation-failure",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--allocation-failure"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=1 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-r1-secondary-premature-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--poll-availability"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=3 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-r2-primary-allocation-failure",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--allocation-failure"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=1 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-r2-primary-premature-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--poll-availability"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=3 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-r2-secondary-allocation-failure",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--allocation-failure"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=1 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-r2-secondary-premature-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--poll-availability"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=3 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-r3-primary-allocation-failure",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--allocation-failure"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=1 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-r3-primary-premature-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--poll-availability"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=3 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-r3-secondary-allocation-failure",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--allocation-failure"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=1 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "host-on-r3-secondary-premature-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--poll-availability"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=3 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3e51fcbc827b5cd0cfac8071e25d5ece27012c51fe8e706ce06b85a83c14c654"
+  },
+  {
+    "name": "android-off-primary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-off-primary-lifetime",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--lifetime"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=1 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-off-primary-simultaneous",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--simultaneous"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=1 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-off-primary-poll-availability",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--poll-availability"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-off-primary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--early-copy-control"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=1 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=12 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-off-secondary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-off-secondary-lifetime",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--lifetime"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=1 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-off-secondary-simultaneous",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--simultaneous"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=1 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-off-secondary-poll-availability",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--poll-availability"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-off-secondary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--early-copy-control"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=1 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=12 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-primary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-primary-lifetime",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--lifetime"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=1 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-primary-simultaneous",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--simultaneous"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=1 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-primary-poll-availability",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--poll-availability"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-primary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--early-copy-control"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=1 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=12 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-secondary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-secondary-lifetime",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--lifetime"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=1 poll=0 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-secondary-simultaneous",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--simultaneous"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=1 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-secondary-poll-availability",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--poll-availability"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-secondary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--early-copy-control"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=1 lifetime=0 poll=0 simultaneous=0 allocation_failure=0 failures=12 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-r1-primary-allocation-failure",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--allocation-failure"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=1 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-r1-primary-premature-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--poll-availability"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=3 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-r1-secondary-allocation-failure",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--allocation-failure"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=1 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-r1-secondary-premature-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--poll-availability"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=3 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-r2-primary-allocation-failure",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--allocation-failure"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=1 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-r2-primary-premature-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--poll-availability"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=3 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-r2-secondary-allocation-failure",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--allocation-failure"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=1 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-r2-secondary-premature-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--poll-availability"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=3 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-r3-primary-allocation-failure",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--allocation-failure"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=1 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-r3-primary-premature-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--poll-availability"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=3 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-r3-secondary-allocation-failure",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--allocation-failure"
+    ],
+    "returncode": 0,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=0 simultaneous=0 allocation_failure=1 failures=0 verdict=PASS"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  },
+  {
+    "name": "android-on-r3-secondary-premature-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/oracle/final/oracle",
+      "--secondary",
+      "--poll-availability"
+    ],
+    "returncode": 2,
+    "last": [
+      "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 lifetime=0 poll=1 simultaneous=0 allocation_failure=0 failures=3 verdict=FAIL"
+    ],
+    "validation_errors": [],
+    "ok": true,
+    "driver_sha256": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729"
+  }
+]

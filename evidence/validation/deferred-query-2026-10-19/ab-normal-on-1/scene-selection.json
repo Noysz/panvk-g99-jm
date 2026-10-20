@@ -1,0 +1,10 @@
+{
+  "target_seconds_after_action": 60,
+  "selected": {
+    "file": "screen-0180.png",
+    "capture_begin_seconds": 180.2755630100146,
+    "elapsed_seconds": 181.48064616401098,
+    "present_lines": 1611
+  },
+  "scope": "Representative gameplay image; not a frame-exact cross-run match."
+}

@@ -1,0 +1,79 @@
+{
+  "ok": true,
+  "base": "feeadb5f55f4ba14a5c5ddc84ba20177e419cffb",
+  "expected_tree": "4c5dcb0eb588db057715813358a598b0419d7743",
+  "repository": "/data/data/com.termux/files/home/panvk-g57/mesa-up",
+  "patches": [
+    {
+      "path": "/data/data/com.termux/files/home/panvk-g99-jm/patches-upstream/0001-base-upstream-rebase-52a7497a.patch",
+      "sha256": "4a83248ada0c4f39f3f4f5174bee011bc1fab5ab34338a1f4563250c405ec23c"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/panvk-g99-jm/patches-upstream/0002-fourfectvk-0060-0077-frame-prof.patch",
+      "sha256": "7f4013d2994653715e46f8670365244d817d650ce50afb99c322030bf9d085dc"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/panvk-g99-jm/patches-upstream/0003-fourfectvk-perf-knobs-2026-10-10.patch",
+      "sha256": "1f0a0c0c92f4e90cbb70120cd9cb791ac23f847ba0a491d6e3f45ab78198a858"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/panvk-g99-jm/patches-upstream/0004-fourfectvk-ubo-push-clip-cull-drirc-exec-va.patch",
+      "sha256": "aa360d0cace26be4d0a81e46105707c7c65ad461dbd5a3f13df577829b7eff29"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/panvk-g99-jm/patches-upstream/0005-fourfectvk-v9-timestamp-queries.patch",
+      "sha256": "249f9d08bd992541956cfd147aa040f989d61a76cb7596bf2f73b0bb910ef2e4"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/panvk-g99-jm/patches-candidates/2026-10-19/0000-local-checkpoint.patch",
+      "sha256": "38018ae74c52c89ec7c5fd6c9693322a4eb5501d6ba67821571c316dccf1a437"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/panvk-g99-jm/patches-candidates/2026-10-19/0001-shader-cache-key-controls.patch",
+      "sha256": "253dddd91cd15f335bf7771ffaaff1e601ac06aeb520cbcb92da30768cbb47b6"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/panvk-g99-jm/patches-candidates/2026-10-19/152-ra-interference-over-live-nodes-and-one-pass-solve.patch",
+      "sha256": "fe6fd7ff69b4146af1639f845b26810b51333dcde154194418ecc5af9b495efd"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/panvk-g99-jm/patches-candidates/2026-10-19/162-repair-ssa-flat-definition-map.patch",
+      "sha256": "dc31e60d755a655f34a98415865140a3806dbbd86d1120dcab277a51319a6257"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/panvk-g99-jm/patches-candidates/2026-10-19/163-nir-skip-opt-loop-passes-that-cannot-progress.patch",
+      "sha256": "df00c2b4d33d3be3ae142ea4a8db95f67a0c2bf2754cbea01733e6389a5dee45"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/panvk-g99-jm/patches-candidates/2026-10-19/170-keep-the-shader-disk-cache-on-by-default-on-android.patch",
+      "sha256": "1caacd03cc4aa00f828e44f788b1bd534222e0b8033d16b6f516b68e52251bf3"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/panvk-g99-jm/patches-candidates/2026-10-19/171-look-each-android-property-option-up-once.patch",
+      "sha256": "30411e61c50bcbbdd286bd442c70481148673519b9f547c11b377b1f1a86c7f6"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/panvk-g99-jm/patches-candidates/2026-10-19-deferred-query/0001-defer-occlusion-availability.patch",
+      "sha256": "36679176d49cd5c6f826ae030d9379291d8bc66b269adbc815e0b9396e69028a"
+    }
+  ],
+  "compared_files": 12928,
+  "exclusions": [
+    "MERGE-0060-0077.md",
+    "REBASE-RESOLUTIONS.md",
+    "src/panfrost/tools/snapdec.c",
+    "build-android-hosttools/"
+  ],
+  "excluded_files": [
+    "MERGE-0060-0077.md",
+    "REBASE-RESOLUTIONS.md",
+    "build-android-hosttools/mesa_clc",
+    "build-android-hosttools/panfrost_compile",
+    "build-android-hosttools/vtn_bindgen2",
+    "src/panfrost/tools/snapdec.c"
+  ],
+  "differences": [],
+  "allow_root_doc_pointer_mode": true,
+  "root_doc_pointer_mode_differences": 1,
+  "scope": "All expected files plus tracked and non-ignored untracked files; ignored build outputs are excluded."
+}

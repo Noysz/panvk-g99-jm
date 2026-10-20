@@ -1,0 +1,384 @@
+{
+  "command": [
+    "/data/data/com.termux/files/home/hangover/root/data/data/com.termux/files/usr/opt/hangover-wine/bin/wine",
+    "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-1/game/TombRaider.exe"
+  ],
+  "cwd": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-1/game",
+  "controls": {
+    "WINEPREFIX": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/prefix",
+    "WINEDEBUG": "-all",
+    "DISPLAY": ":0",
+    "LD_LIBRARY_PATH": "/data/data/com.termux/files/home/hangover/root/data/data/com.termux/files/usr/lib:/data/data/com.termux/files/home/wltest/imagefs/usr/lib",
+    "VK_ICD_FILENAMES": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-1/icd.json",
+    "ADRENOTOOLS_DRIVER_PATH": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/package/",
+    "ADRENOTOOLS_HOOKS_PATH": "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/",
+    "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+    "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n",
+    "DXVK_LOG_LEVEL": "info",
+    "DXVK_LOG_PATH": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-1",
+    "DXVK_STATE_CACHE": "0",
+    "DXVK_HUD": "",
+    "MESA_SHADER_CACHE_DISABLE": "true",
+    "PANVK_UBO_PUSH": "32",
+    "PANVK_V9_CLIP_KILL_FPK": "0",
+    "PANVK_DEFER_OQ": "1",
+    "PANVK_FRAME_PROF": "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-1/frames.log",
+    "PANVK_FRAME_PROF_PASSES": "1",
+    "VK_LAYER_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer",
+    "VK_INSTANCE_LAYERS": "VK_LAYER_MESA_overlay",
+    "VK_LAYER_MESA_OVERLAY_CONFIG": "no_display=1,device=0,format=0,fps=0,frame=1,frame_timing=1,present_timing=1,submit=1,draw=1,draw_indexed=1,fps_sampling_period=0,output_file=/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-1/present.csv"
+  },
+  "sha256": {
+    "/tmp/dxvk/1.7.2/system32/d3d11.dll": "1030517a75ab7ba379ca6bf34d06eaba78fcaf556fd2800bffc181ac6728425a",
+    "/tmp/dxvk/1.7.2/system32/dxgi.dll": "f2016311156cb279ac719aa7260119e9829ad0470f63a5a6cd7852ec9ea1016c",
+    "/tmp/dxvk/1.7.2/system32/d3d9.dll": "c6fc22edd81a56bb9ccceb6e750312c19f5c084143fba8921734cb38c35594d9",
+    "/tmp/dxvk/1.7.2/system32/d3d10core.dll": "cb4a8c82a309c924ada6fbe8784a348fc3567bd450d71ef892e5bfd95f4eb8a3",
+    "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/package/libvulkan_panfrost.so": "2edc9c5b91e8a014b4f6c04306aa15b458712d7093b31cd650abbbef7d24aff4",
+    "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+    "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-1/game/TombRaider.exe": "5d1ad249fc991957981e62620679c142cb72a21413e7f1586f3c8184eed94715",
+    "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/ab-normal-on-1/game/bench.ini": "e165404145b9ee170a58a45cc8e3d328f4f8290606b3fe59d05a42785bd619d2",
+    "/data/data/com.termux/files/home/panvk-refs/deferred-query-2026-10-19/measurement_runner.py": "bd362e2fb9db2d4ec4db6cf8d114e757bda89b620a854c04c75a73e5e63acfe8",
+    "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/pilot4-state/final-scene.png": "0b9170b4e4b5d0f186da386a39a103bb7e3eb2058fa3da808b840d606e238252",
+    "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer/libVkLayer_MESA_overlay.so": "18bc159f5d916fac1616c367acbb12b016aedbb7d88204290ddbd4dd53ad390b",
+    "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer/VkLayer_MESA_overlay.json": "18f90342e3cfcb6993454ef01e9ad0ab4d02c6837f727e354362a44c4efea645"
+  },
+  "timeout_seconds": 420,
+  "start_unix": 1792451180.970234,
+  "screenshots": [
+    {
+      "file": "screen-0015.png",
+      "capture_begin_seconds": 15.06051069300156,
+      "elapsed_seconds": 15.29487292401609
+    },
+    {
+      "file": "screen-0030.png",
+      "capture_begin_seconds": 30.775592232006602,
+      "elapsed_seconds": 31.113688309007557
+    },
+    {
+      "file": "screen-0045.png",
+      "capture_begin_seconds": 45.49551131000044,
+      "elapsed_seconds": 45.84607715602033,
+      "present_lines": 0
+    },
+    {
+      "file": "screen-0060.png",
+      "capture_begin_seconds": 60.56596454200917,
+      "elapsed_seconds": 61.31735661899438,
+      "present_lines": 6
+    },
+    {
+      "file": "screen-0075.png",
+      "capture_begin_seconds": 75.02349631200195,
+      "elapsed_seconds": 75.98305654301657,
+      "present_lines": 235
+    },
+    {
+      "file": "screen-0090.png",
+      "capture_begin_seconds": 90.60262392801815,
+      "elapsed_seconds": 92.11619654399692,
+      "present_lines": 288
+    },
+    {
+      "file": "screen-0105.png",
+      "capture_begin_seconds": 105.0149043140118,
+      "elapsed_seconds": 106.2115929290012,
+      "present_lines": 407
+    },
+    {
+      "file": "screen-0120.png",
+      "capture_begin_seconds": 120.58157162199495,
+      "elapsed_seconds": 120.98049223801354,
+      "present_lines": 696
+    },
+    {
+      "file": "screen-0135.png",
+      "capture_begin_seconds": 135.08716116199503,
+      "elapsed_seconds": 135.44316831600736,
+      "present_lines": 1028
+    },
+    {
+      "file": "screen-0150.png",
+      "capture_begin_seconds": 150.54917008601478,
+      "elapsed_seconds": 151.14486585499253,
+      "present_lines": 1252
+    },
+    {
+      "file": "screen-0165.png",
+      "capture_begin_seconds": 165.25697716299328,
+      "elapsed_seconds": 166.15234670200152,
+      "present_lines": 1404
+    },
+    {
+      "file": "screen-0180.png",
+      "capture_begin_seconds": 180.2755630100146,
+      "elapsed_seconds": 181.48064616401098,
+      "present_lines": 1611
+    },
+    {
+      "file": "screen-0195.png",
+      "capture_begin_seconds": 195.60710524200113,
+      "elapsed_seconds": 196.87148762700963,
+      "present_lines": 1831
+    },
+    {
+      "file": "screen-0210.png",
+      "capture_begin_seconds": 210.98317201199825,
+      "elapsed_seconds": 211.62469378201058,
+      "present_lines": 2055
+    }
+  ],
+  "initial_state_sha256": {
+    "user.reg": "549db5ee6048d3059c5261da6341f1dad8bf4408bf1e0bce4f3e5ab09b0e2bfd",
+    "SaveGames/Profile/data_98": "fbdff30a37273808ce69a18e79ff0e0f73cb63926160636b682cbc0b1416c3f5",
+    "SaveGames/Profile/LastModifiedTime": "ba5880e83a048d8d7e37cc3b6293bf4b982fbce34c093c1d79d7161065e8ce3f",
+    "SaveGames/GameSlot1/data_98": "285ea0bebce0297e1ee0f6e2bf3d8f15cb468c8d93b42bd107904068734035d2",
+    "SaveGames/GameSlot1/LastModifiedTime": "0c985efd5498be56ba9d02f6898c2aa811030c10d4be4fd1418664089e460d00",
+    "SaveGames/GameSlot2/data_98": "ad478ae79e2978dedee5641ed49df9a4ac46966a81e6bc693b8b273901faeed2",
+    "SaveGames/GameSlot2/LastModifiedTime": "e4ce04e7532683a78ac7dc7394b6662d4c7e75338faabaec9e5e0ec2332ba8dc"
+  },
+  "actions": [
+    {
+      "action": "PLAY",
+      "screenshot": "screen-0030.png",
+      "x": 741.0,
+      "y": 212.0,
+      "unix": 1792451212.8997178,
+      "elapsed_seconds": 31.926943386002677
+    },
+    {
+      "action": "BENCHMARK",
+      "screenshot": "screen-0105.png",
+      "x": 213.0,
+      "y": 281.25,
+      "unix": 1792451294.959765,
+      "present_lines": 468,
+      "elapsed_seconds": 113.98698946801596
+    }
+  ],
+  "system_samples": [
+    {
+      "elapsed_seconds": 0.010287384007824585,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 5.0297716920031235,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 10.044829770020442,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 15.06051069300156,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1900000
+    },
+    {
+      "elapsed_seconds": 20.724860539019573,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 25.742116617009742,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 725000
+    },
+    {
+      "elapsed_seconds": 30.775592232006602,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 35.4326898480067,
+      "cpu0_khz": 800000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 40.45864054100821,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 45.49551131000044,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 50.52175592601998,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 55.54596000301535,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 60.56596454200917,
+      "cpu0_khz": 1150000,
+      "cpu6_khz": 1200000
+    },
+    {
+      "elapsed_seconds": 65.96475900401128,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 70.99516123501235,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 75.02349631200195,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 80.5668063890189,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 85.58643908202066,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 90.60262392801815,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 95.92505377501948,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 100.95910239001387,
+      "cpu0_khz": 1500000,
+      "cpu6_khz": 1400000
+    },
+    {
+      "elapsed_seconds": 105.0149043140118,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 115.55279654500191,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 116.56214208400343,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 120.58157162199495,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 125.03977408399805,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 130.06643846901716,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 135.08716116199503,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 140.50761377700837,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 145.5319430080126,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 150.54917008601478,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 155.2102663940168,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 160.23307716299314,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 165.25697716299328,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 170.22747685600189,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 175.2520393950108,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 180.2755630100146,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 185.56039047200466,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 190.5831467800017,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 195.60710524200113,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 200.9438717040175,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 205.96318493501167,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "elapsed_seconds": 210.98317201199825,
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    }
+  ],
+  "launch_mode": "menu",
+  "elapsed_seconds": 214.61388608900597,
+  "exit_code": 1,
+  "timed_out": false,
+  "stopped_after_result": true,
+  "result_source": "dialog",
+  "failure": null,
+  "results": []
+}

@@ -1,0 +1,322 @@
+--- a/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
++++ b/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
+@@ -37,6 +37,7 @@
+    struct util_dynarray event_ops;
+    struct pan_jc vtc_jc;
+    struct pan_jc frag_jc;
++   struct panvk_batch *query_batch;
+    struct {
+       struct pan_ptr desc;
+       uint32_t desc_stride;
+@@ -182,6 +183,9 @@
+ 
+ void panvk_per_arch(cmd_close_batch)(struct panvk_cmd_buffer *cmdbuf);
+ 
++struct panvk_batch *
++   panvk_per_arch(cmd_query_batch)(struct panvk_cmd_buffer *cmdbuf);
++
+ VkResult panvk_per_arch(cmd_alloc_fb_desc)(struct panvk_cmd_buffer *cmdbuf);
+ 
+ VkResult panvk_per_arch(cmd_alloc_tls_desc)(struct panvk_cmd_buffer *cmdbuf,
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
+@@ -130,6 +130,29 @@
+ }
+ #endif
+ 
++static void
++panvk_destroy_batch(struct panvk_cmd_buffer *cmdbuf, struct panvk_batch *batch)
++{
++   if (batch->query_batch)
++      panvk_destroy_batch(cmdbuf, batch->query_batch);
++   util_dynarray_fini(&batch->jobs);
++   util_dynarray_fini(&batch->event_ops);
++#if PAN_ARCH == 9
++   util_dynarray_fini(&batch->ubo_gather.words);
++#endif
++   vk_free(&cmdbuf->vk.pool->alloc, batch);
++}
++
++static void
++panvk_close_query_batch(struct panvk_cmd_buffer *cmdbuf,
++                       struct panvk_batch *batch)
++{
++   if (batch->query_batch) {
++      list_addtail(&batch->query_batch->node, &cmdbuf->batches);
++      batch->query_batch = NULL;
++   }
++}
++
+ void
+ panvk_per_arch(cmd_close_batch)(struct panvk_cmd_buffer *cmdbuf)
+ {
+@@ -148,7 +171,8 @@
+       if (util_dynarray_num_elements(&batch->event_ops,
+                                      struct panvk_cmd_event_op) == 0) {
+          /* Content-less batch, let's drop it */
+-         vk_free(&cmdbuf->vk.pool->alloc, batch);
++         panvk_close_query_batch(cmdbuf, batch);
++         panvk_destroy_batch(cmdbuf, batch);
+       } else {
+          /* Batch has no jobs but is needed for synchronization, let's add a
+           * NULL job so the SUBMIT ioctl doesn't choke on it.
+@@ -162,6 +186,7 @@
+          }
+ 
+          list_addtail(&batch->node, &cmdbuf->batches);
++         panvk_close_query_batch(cmdbuf, batch);
+       }
+       cmdbuf->cur_batch = NULL;
+       return;
+@@ -247,8 +272,10 @@
+       VkResult result = panvk_per_arch(cmd_get_frame_shaders)(
+          cmdbuf, &render->fb.layout, fbd_info.load,
+          render->fb.needs_store ? &render->fb.resolve : NULL, &fs);
+-      if (result != VK_SUCCESS)
++      if (result != VK_SUCCESS) {
++         cmdbuf->cur_batch = NULL;
+          return;
++      }
+ 
+       if (dev->frame_prof.passes) {
+          const struct pan_fb_layout *l = &render->fb.layout;
+@@ -337,6 +364,7 @@
+       cmdbuf->state.gfx.render.fb.needs_load = false;
+    }
+ 
++   panvk_close_query_batch(cmdbuf, batch);
+    cmdbuf->cur_batch = NULL;
+ }
+ 
+@@ -495,27 +523,46 @@
+    return VK_SUCCESS;
+ }
+ 
+-struct panvk_batch *
+-panvk_per_arch(cmd_open_batch)(struct panvk_cmd_buffer *cmdbuf)
+-{
+-   assert(!cmdbuf->cur_batch);
+-   cmdbuf->cur_batch =
+-      vk_zalloc(&cmdbuf->vk.pool->alloc, sizeof(*cmdbuf->cur_batch), 8,
++static struct panvk_batch *
++panvk_alloc_batch(struct panvk_cmd_buffer *cmdbuf)
++{
++   struct panvk_batch *batch =
++      vk_zalloc(&cmdbuf->vk.pool->alloc, sizeof(*batch), 8,
+                 VK_SYSTEM_ALLOCATION_SCOPE_OBJECT);
+-   cmdbuf->cur_batch->jobs = UTIL_DYNARRAY_INIT;
+-   cmdbuf->cur_batch->event_ops = UTIL_DYNARRAY_INIT;
+-   assert(cmdbuf->cur_batch);
++   if (!batch) {
++      vk_command_buffer_set_error(&cmdbuf->vk, VK_ERROR_OUT_OF_HOST_MEMORY);
++      return NULL;
++   }
++   batch->jobs = UTIL_DYNARRAY_INIT;
++   batch->event_ops = UTIL_DYNARRAY_INIT;
+ #if PAN_ARCH == 9
+-   cmdbuf->cur_batch->ubo_gather.words = UTIL_DYNARRAY_INIT;
++   batch->ubo_gather.words = UTIL_DYNARRAY_INIT;
+ #endif
+ #if PAN_ARCH >= 9
+    /* See pan_jc::no_tiler_chain. */
+    static int no_tiler_chain = -1;
+    if (no_tiler_chain < 0)
+       no_tiler_chain = pan_env_flag("PANVK_V9_NO_TILER_CHAIN") != NULL;
+-   cmdbuf->cur_batch->vtc_jc.no_tiler_chain = no_tiler_chain;
++   batch->vtc_jc.no_tiler_chain = no_tiler_chain;
+ #endif
++   return batch;
++}
++
++struct panvk_batch *
++panvk_per_arch(cmd_open_batch)(struct panvk_cmd_buffer *cmdbuf)
++{
++   assert(!cmdbuf->cur_batch);
++   cmdbuf->cur_batch = panvk_alloc_batch(cmdbuf);
+    return cmdbuf->cur_batch;
++}
++
++struct panvk_batch *
++panvk_per_arch(cmd_query_batch)(struct panvk_cmd_buffer *cmdbuf)
++{
++   assert(cmdbuf->cur_batch);
++   if (!cmdbuf->cur_batch->query_batch)
++      cmdbuf->cur_batch->query_batch = panvk_alloc_batch(cmdbuf);
++   return cmdbuf->cur_batch->query_batch;
+ }
+ 
+ VKAPI_ATTR VkResult VKAPI_CALL
+@@ -557,15 +604,14 @@
+ 
+    vk_command_buffer_reset(&cmdbuf->vk);
+ 
++   if (cmdbuf->cur_batch) {
++      panvk_destroy_batch(cmdbuf, cmdbuf->cur_batch);
++      cmdbuf->cur_batch = NULL;
++   }
++
+    list_for_each_entry_safe(struct panvk_batch, batch, &cmdbuf->batches, node) {
+       list_del(&batch->node);
+-      util_dynarray_fini(&batch->jobs);
+-      util_dynarray_fini(&batch->event_ops);
+-#if PAN_ARCH == 9
+-      util_dynarray_fini(&batch->ubo_gather.words);
+-#endif
+-
+-      vk_free(&cmdbuf->vk.pool->alloc, batch);
++      panvk_destroy_batch(cmdbuf, batch);
+    }
+ 
+    panvk_pool_reset(&cmdbuf->desc_pool);
+@@ -583,15 +629,12 @@
+       container_of(vk_cmdbuf, struct panvk_cmd_buffer, vk);
+    struct panvk_device *dev = to_panvk_device(cmdbuf->vk.base.device);
+ 
++   if (cmdbuf->cur_batch)
++      panvk_destroy_batch(cmdbuf, cmdbuf->cur_batch);
++
+    list_for_each_entry_safe(struct panvk_batch, batch, &cmdbuf->batches, node) {
+       list_del(&batch->node);
+-      util_dynarray_fini(&batch->jobs);
+-      util_dynarray_fini(&batch->event_ops);
+-#if PAN_ARCH == 9
+-      util_dynarray_fini(&batch->ubo_gather.words);
+-#endif
+-
+-      vk_free(&cmdbuf->vk.pool->alloc, batch);
++      panvk_destroy_batch(cmdbuf, batch);
+    }
+ 
+ #if PAN_ARCH < 9
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_event.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_event.c
+@@ -25,6 +25,9 @@
+       .type = type,
+       .event = event,
+    };
++
++   if (cmdbuf->cur_batch && cmdbuf->cur_batch->query_batch)
++      panvk_per_arch(cmd_close_batch)(cmdbuf);
+ 
+    if (cmdbuf->cur_batch == NULL) {
+       /* No open batch, let's create a new one so this operation happens in
+@@ -60,7 +63,8 @@
+       /* Let's close the current batch so any future commands wait on the
+        * event signal operation.
+        */
+-      if (cmdbuf->cur_batch->frag_jc.first_job ||
++      if (cmdbuf->cur_batch->query_batch ||
++          cmdbuf->cur_batch->frag_jc.first_job ||
+           cmdbuf->cur_batch->vtc_jc.first_job) {
+          panvk_per_arch(cmd_close_batch)(cmdbuf);
+          panvk_per_arch(cmd_open_batch)(cmdbuf);
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_query.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_query.c
+@@ -15,6 +15,7 @@
+ #include "genxml/gen_macros.h"
+ 
+ #include "panvk_buffer.h"
++#include "panvk_cmd_alloc.h"
+ #include "panvk_cmd_buffer.h"
+ #include "panvk_cmd_meta.h"
+ #include "panvk_cmd_precomp.h"
+@@ -46,7 +47,16 @@
+                      uint64_t value)
+ {
+    struct pan_ptr job =
+-      pan_pool_alloc_desc(&cmd->desc_pool.base, WRITE_VALUE_JOB);
++      panvk_cmd_alloc_desc(cmd, WRITE_VALUE_JOB);
++   if (!job.gpu)
++      return;
++
++   void **job_ptr = util_dynarray_grow(&batch->jobs, void *, 1);
++   if (!job_ptr) {
++      vk_command_buffer_set_error(&cmd->vk, VK_ERROR_OUT_OF_HOST_MEMORY);
++      return;
++   }
++   *job_ptr = job.cpu;
+ 
+    pan_section_pack(job.cpu, WRITE_VALUE_JOB, PAYLOAD, payload) {
+       payload.type = type;
+@@ -56,7 +66,6 @@
+ 
+    pan_jc_add_job(&batch->vtc_jc, MALI_JOB_TYPE_WRITE_VALUE, true, false, 0, 0,
+                   &job, false);
+-   util_dynarray_append(&batch->jobs, job.cpu);
+ }
+ 
+ static struct panvk_batch *
+@@ -113,6 +122,9 @@
+    if (queryCount == 0)
+       return;
+ 
++   if (cmd->cur_batch && cmd->cur_batch->query_batch)
++      panvk_per_arch(cmd_close_batch)(cmd);
++
+    panvk_emit_clear_queries(cmd, pool, false, firstQuery, queryCount);
+ }
+ 
+@@ -171,6 +183,15 @@
+ 
+    /* TODO: transform feedback */
+    assert(index == 0);
++
++   if (pool->vk.query_type != VK_QUERY_TYPE_OCCLUSION && cmd->cur_batch &&
++       cmd->cur_batch->query_batch)
++      panvk_per_arch(cmd_close_batch)(cmd);
++
++   if (cmd->cur_batch && cmd->cur_batch->query_batch &&
++       cmd->cur_batch->vtc_jc.job_index >=
++          UINT16_MAX - pool->reports_per_query - 2)
++      panvk_per_arch(cmd_close_batch)(cmd);
+ 
+    bool had_batch;
+    struct panvk_batch *batch = open_batch(cmd, &had_batch);
+@@ -242,7 +263,12 @@
+    /* TODO: transform feedback */
+    assert(index == 0);
+ 
+-   bool end_sync = cmd->cur_batch != NULL;
++   bool defer = false;
++#if PAN_ARCH == 9
++   defer = pool->vk.query_type == VK_QUERY_TYPE_OCCLUSION &&
++           !cmd->state.stats.addr && pan_env_flag("PANVK_DEFER_OQ");
++#endif
++   bool end_sync = cmd->cur_batch != NULL && !defer;
+ 
+    /* Close to ensure we are sync and flush caches */
+    if (end_sync)
+@@ -250,6 +276,8 @@
+ 
+    bool had_batch;
+    struct panvk_batch *batch = open_batch(cmd, &had_batch);
++   if (!batch)
++      return;
+    had_batch |= end_sync;
+ 
+    switch (pool->vk.query_type) {
+@@ -285,6 +313,11 @@
+    }
+ 
+    uint64_t available_addr = panvk_query_available_dev_addr(pool, query);
++   if (defer && !pan_env_flag("PANVK_DEFER_OQ_EARLY_CONTROL")) {
++      batch = panvk_per_arch(cmd_query_batch)(cmd);
++      if (!batch)
++         return;
++   }
+    panvk_emit_write_job(cmd, batch, MALI_WRITE_VALUE_TYPE_IMMEDIATE_32,
+                         available_addr, 1);
+ 
+@@ -329,10 +362,8 @@
+    VK_FROM_HANDLE(panvk_query_pool, pool, queryPool);
+    VK_FROM_HANDLE(panvk_buffer, dst_buffer, dstBuffer);
+ 
+-   /* XXX: Do we really need that barrier when EndQuery already handle it? */
+-   if ((flags & VK_QUERY_RESULT_WAIT_BIT) && cmd->cur_batch != NULL) {
+-      close_batch(cmd, true);
+-   }
++   if (cmd->cur_batch && cmd->cur_batch->query_batch)
++      panvk_per_arch(cmd_close_batch)(cmd);
+ 
+    uint64_t dst_addr = panvk_buffer_gpu_ptr(dst_buffer, dstOffset);
+    panvk_meta_copy_query_pool_results(cmd, pool, firstQuery, queryCount,
