@@ -1,0 +1,38 @@
+--- measurement_runner.py
++++ profile_runner_verified.py
+@@ -42,11 +42,23 @@
+ 
+ def activate(x, y, keyboard=False):
+     env = {**os.environ, 'DISPLAY': ':0'}
+-    subprocess.run(['xdotool', 'mousemove', str(round(x)), str(round(y))],
+-                   env=env, check=True)
++    subprocess.run(['xdotool', 'mousemove', str(round(x)), str(round(y))], env=env, check=True)
++    if keyboard:
++        for attempt in range(4):
++            time.sleep(1.5)
++            target = Path(os.environ['PANVK_MENU_VERIFY_DIR']) / f'menu-hover-{attempt}.png'
++            subprocess.run(['import', '-window', 'root', str(target)], env=env, check=True)
++            title = ' '.join(w['text'].upper() for w in words_in(target, (460, 130, 770, 185)))
++            if 'START' in title and 'BENCHMARK' in title:
++                break
++            words = words_in(target, (110, 140, 350, 330))
++            match = next((w for w in words if w['text'].upper() == 'BENCHMARK'), None)
++            if match:
++                subprocess.run(['xdotool', 'mousemove', str(round(match['x'])), str(round(match['y']))], env=env, check=True)
++        else:
++            raise RuntimeError('Could not verify START BENCHMARK selection')
+     time.sleep(.3)
+-    down, up, key = ('keydown', 'keyup', 'Return') if keyboard else (
+-        'mousedown', 'mouseup', '1')
++    down, up, key = ('keydown', 'keyup', 'Return') if keyboard else ('mousedown', 'mouseup', '1')
+     try:
+         subprocess.run(['xdotool', down, key], env=env, check=True)
+         time.sleep(.4)
+@@ -166,6 +178,7 @@
+     env = {k: v for k, v in os.environ.items() if not k.startswith(
+         ('PANVK_', 'PAN_', 'pan_', 'MESA_', 'DXVK_', 'VK_', 'ADRENOTOOLS_'))}
+     env.pop('LD_PRELOAD', None)
++    controls.update(json.loads(Path(os.environ['PANVK_BENCH_PROFILE_CONTROLS']).read_text()))
+     env.update(controls)
+     command = [str(WINE / 'wine'), str(game / 'TombRaider.exe'),
+                '-benchmark', '-benchmarkini', 'bench.ini']

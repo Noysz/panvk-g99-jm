@@ -1,0 +1,17 @@
+{
+  "unix": 1792505022.071248,
+  "condition": "Run only if B3 completes with matching full HUD and timing gates",
+  "reason": "Original six-run design leaves only two comparable pairs after A1/B1 visual-state exclusion. Replace that one pair to retain three comparable A/B pairs, independently of sign of FPS difference.",
+  "order": [
+    "A4",
+    "B4"
+  ],
+  "same_controls_and_durations": true,
+  "no_repeat": [
+    "Battle validation",
+    "Packed probes",
+    "Shader draw captures"
+  ],
+  "all_original_data_retained": true,
+  "additional_pairs_limit": 1
+}

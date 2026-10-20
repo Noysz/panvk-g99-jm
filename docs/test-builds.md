@@ -15,7 +15,7 @@ of each build + `SHA256SUMS.txt`):
 | test5 | `0077` | Pointer audit of failed GPU jobs (`PANVK_FAULT_REPORT`), 1/s failure summary | Audit: 0 suspect addresses in LN2 and Tomb Raider; Tomb Raider: about 1000 failed chains per second, flat pale characters |
 | test6 | **new**: upstream Mesa + hafiz's rebase (`patches-upstream/0001`) + FourFectVK `0060`-`0077` (`0002`) | One kbase submit per `vkQueueSubmit`, asynchronous submission with kernel fences, forward pixel kill, multisampled storage images (from hafiz); tess/GS/XFB and the 0.1.0 fixes kept | **0 failed GPU jobs** in Tomb Raider (5 runs) and Little Nightmares II; pictures correct |
 | test7 | same as test6 | `PANVK_FRAME_PROF`: GPU busy %, process CPU %, submit / wait time per 2 s; with `PANVK_KBASE_SYNC_SUBMIT=1` the vertex vs fragment split | measuring build |
-| test8 | `0003`-`0005` | TR clip/cull off by default (`pan_disable_clip_cull_distance`), kbase `EXEC_VA` 256 MiB (`0004`), v9 timestamps (`0005`, on for `NSUNS2.exe`), `PANVK_UBO_PUSH` | TR menu 8.1-9.7 fps (9.5-12 with UBO push), DXVK 2.x 0 alloc fails, Naruto Storm 2 30 fps |
+| test8 | `0003`-`0005` | TR clip/cull off by default (`pan_disable_clip_cull_distance`), kbase `EXEC_VA` 256 MiB (`0004`), v9 timestamps (`0005`, on for `NSUNS2.exe`), `PANVK_UBO_PUSH` | TR menu 8.1-9.7 fps (9.5-12 with UBO push), DXVK 2.x 0 alloc fails, Naruto Storm 2 intro 30 fps; gameplay not measured |
 
 sha256 (first 16 hex digits; full list in `SHA256SUMS.txt` in the release):
 

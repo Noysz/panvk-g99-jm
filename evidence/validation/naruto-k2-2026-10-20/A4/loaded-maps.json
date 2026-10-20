@@ -1,0 +1,44 @@
+[
+  {
+    "pid": 6663,
+    "command": [
+      "C:\\windows\\system32\\explorer.exe",
+      "/desktop=shell,848x480",
+      "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/game/NSUNS2.exe"
+    ],
+    "selected_lines": [
+      "795f279000-795f3ef000 r-xp 00000000 fe:53 2014516                        <device-home>/panvk-refs/gameplay-2026-10-19/layer/libVkLayer_MESA_overlay.so",
+      "795f3f2000-795f3f4000 r--p 00175000 fe:53 2014516                        <device-home>/panvk-refs/gameplay-2026-10-19/layer/libVkLayer_MESA_overlay.so",
+      "795f3f7000-795f3f8000 rw-p 00176000 fe:53 2014516                        <device-home>/panvk-refs/gameplay-2026-10-19/layer/libVkLayer_MESA_overlay.so",
+      "7960ece000-7961990000 r--p 00000000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+      "7961993000-7962175000 r-xp 00ac1000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+      "7962178000-79621ee000 r--p 012a2000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+      "79621f1000-79621fc000 rw-p 01317000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+      "7969239000-7969331000 r--p 00000000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+      "7969331000-79694a7000 r-xp 000f7000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+      "79694a7000-79694cf000 r--p 0026c000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+      "79694cf000-79694d3000 rw-p 00293000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so"
+    ]
+  },
+  {
+    "pid": 6672,
+    "command": [
+      "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/game/NSUNS2.exe",
+      "",
+      ""
+    ],
+    "selected_lines": [
+      "7030273000-70303e9000 r-xp 00000000 fe:53 2014516                        <device-home>/panvk-refs/gameplay-2026-10-19/layer/libVkLayer_MESA_overlay.so",
+      "70303ec000-70303ee000 r--p 00175000 fe:53 2014516                        <device-home>/panvk-refs/gameplay-2026-10-19/layer/libVkLayer_MESA_overlay.so",
+      "70303f1000-70303f2000 rw-p 00176000 fe:53 2014516                        <device-home>/panvk-refs/gameplay-2026-10-19/layer/libVkLayer_MESA_overlay.so",
+      "7030415000-7030ed7000 r--p 00000000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+      "7030eda000-70316bc000 r-xp 00ac1000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+      "70316bf000-7031735000 r--p 012a2000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+      "7031738000-7031743000 rw-p 01317000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+      "7037e27000-7037f1f000 r--p 00000000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+      "7037f1f000-7038095000 r-xp 000f7000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+      "7038095000-70380bd000 r--p 0026c000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+      "70380bd000-70380c1000 rw-p 00293000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so"
+    ]
+  }
+]

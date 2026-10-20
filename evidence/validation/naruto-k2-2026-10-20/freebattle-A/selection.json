@@ -1,0 +1,18 @@
+{
+  "mode": "COM vs COM",
+  "match": "Single Match",
+  "characters": [
+    "Kakashi",
+    "Shino"
+  ],
+  "selection": "In-game Random Select (Y/keyboard o) pressed once per character and once for stage",
+  "stage_name": "not yet identified; stage randomized in game",
+  "evidence": {
+    "mode": "action-1792502394053556229.png",
+    "single_match": "action-1792502421215300231.png",
+    "both_com": "action-1792502432629647539.png",
+    "random_left": "action-1792502452251987233.png",
+    "random_right_to_stage": "action-1792502468407673464.png",
+    "versus": "action-1792502489053949158.png"
+  }
+}

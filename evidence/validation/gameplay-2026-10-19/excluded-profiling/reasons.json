@@ -1,0 +1,5 @@
+{
+  "query-api-profile": "Completed camera run, but sampled frames only cover loading/UI, not gameplay.",
+  "query-api-scene": "Incorrect menu selection/manual recovery; no confirmed benchmark.",
+  "query-api-scene2": "Selected correct menu item, then OCR failed with StopIteration before activation."
+}

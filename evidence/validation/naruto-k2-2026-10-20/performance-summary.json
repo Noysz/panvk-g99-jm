@@ -1,0 +1,45 @@
+{
+  "primary_runs": [
+    "A2",
+    "B2",
+    "A3",
+    "B3"
+  ],
+  "excluded_pair": [
+    1,
+    4
+  ],
+  "comparable_pair_count": 2,
+  "planned_comparable_pair_count": 3,
+  "planned_sample_target_met": false,
+  "median_fps": {
+    "A": 10.067684009163994,
+    "B": 10.529757973993378
+  },
+  "ratio_of_medians_percent": -4.388267669310397,
+  "pairs": [
+    {
+      "pair": 2,
+      "A_fps": 10.530632350047098,
+      "B_fps": 10.644995263810483,
+      "A_relative_percent": -1.0743350365986726
+    },
+    {
+      "pair": 3,
+      "A_fps": 9.604735668280888,
+      "B_fps": 10.414520684176274,
+      "A_relative_percent": -7.775538024767337
+    }
+  ],
+  "conclusion": "K2 aktif mencatat FPS lebih rendah pada dua pasangan yang lolos pembanding. Belum ada bukti peningkatan; dua pasangan belum menetapkan regresi umum.",
+  "ranges": {
+    "A": [
+      9.604735668280888,
+      10.530632350047098
+    ],
+    "B": [
+      10.414520684176274,
+      10.644995263810483
+    ]
+  }
+}

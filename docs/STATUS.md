@@ -1,5 +1,9 @@
 # STATUS — PANVK on Mali-G57 MC2 (v9 / JM)
 
+This is a historical snapshot. Current development and its validation limits
+are tracked in [the follow-up ledger](followup-tasks-2026-10-19.md) and the
+[README](../README.md). The older capability table is retained for chronology.
+
 Snapshot date: **2026-09-17**. Every line below is labelled. Nothing here is
 inference unless it says so.
 

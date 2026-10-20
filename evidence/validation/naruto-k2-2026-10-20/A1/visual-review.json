@@ -1,0 +1,13 @@
+{
+  "before": "nav-19.png",
+  "after": "after.png",
+  "scene": "initial-village-stationary",
+  "environment_and_player_present": true,
+  "player_location_unchanged": true,
+  "differences": "NPC movement and idle HUD fade; not frame-exact. These contribute to draw-count variation.",
+  "draws_min_median_max": [
+    451,
+    466,
+    480
+  ]
+}

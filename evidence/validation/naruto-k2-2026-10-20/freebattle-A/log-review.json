@@ -1,0 +1,9 @@
+{
+  "swapchain_sizes": [
+    "640x360"
+  ],
+  "gpu_failure_lines": [],
+  "nonfatal_error_categories": [
+    "Fontconfig"
+  ]
+}

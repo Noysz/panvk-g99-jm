@@ -1,0 +1,280 @@
+{
+  "unix": 1792506282.62202,
+  "runs": {
+    "A1": {
+      "cleanup": {
+        "policy": "prefix-scoped SIGINT then wait; no forced kill",
+        "signal_returncode": 0,
+        "wait_returncode": 0,
+        "launcher_returncode": 1,
+        "remaining": [],
+        "closed": true
+      },
+      "expected_game_maps_present": true,
+      "game_pid": 28955,
+      "logs": {
+        "process.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": [
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "info:  OpenVR: Failed to locate module",
+            "err:   readMonitorEdidFromKey: Failed to get EDID reg key size",
+            "err:   DXGI: Failed to parse display metadata + colorimetry info, using blank."
+          ]
+        },
+        "NSUNS2_d3d11.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": []
+        }
+      },
+      "runner_screenshots_within_timing": []
+    },
+    "B1": {
+      "cleanup": {
+        "policy": "prefix-scoped SIGINT then wait; no forced kill",
+        "signal_returncode": 0,
+        "wait_returncode": 0,
+        "launcher_returncode": 1,
+        "remaining": [],
+        "closed": true
+      },
+      "expected_game_maps_present": true,
+      "game_pid": 31036,
+      "logs": {
+        "process.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": [
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "info:  OpenVR: Failed to locate module",
+            "err:   readMonitorEdidFromKey: Failed to get EDID reg key size",
+            "err:   DXGI: Failed to parse display metadata + colorimetry info, using blank."
+          ]
+        },
+        "NSUNS2_d3d11.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": []
+        }
+      },
+      "runner_screenshots_within_timing": []
+    },
+    "A2": {
+      "cleanup": {
+        "policy": "prefix-scoped SIGINT then wait; no forced kill",
+        "signal_returncode": 0,
+        "wait_returncode": 0,
+        "launcher_returncode": 1,
+        "remaining": [],
+        "closed": true
+      },
+      "expected_game_maps_present": true,
+      "game_pid": 31825,
+      "logs": {
+        "process.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": [
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "info:  OpenVR: Failed to locate module",
+            "err:   readMonitorEdidFromKey: Failed to get EDID reg key size",
+            "err:   DXGI: Failed to parse display metadata + colorimetry info, using blank."
+          ]
+        },
+        "NSUNS2_d3d11.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": []
+        }
+      },
+      "runner_screenshots_within_timing": []
+    },
+    "B2": {
+      "cleanup": {
+        "policy": "prefix-scoped SIGINT then wait; no forced kill",
+        "signal_returncode": 0,
+        "wait_returncode": 0,
+        "launcher_returncode": 1,
+        "remaining": [],
+        "closed": true
+      },
+      "expected_game_maps_present": true,
+      "game_pid": 32693,
+      "logs": {
+        "process.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": [
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "info:  OpenVR: Failed to locate module",
+            "err:   readMonitorEdidFromKey: Failed to get EDID reg key size",
+            "err:   DXGI: Failed to parse display metadata + colorimetry info, using blank.",
+            "wine client error:e0: write: Bad file descriptor"
+          ]
+        },
+        "NSUNS2_d3d11.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": []
+        }
+      },
+      "runner_screenshots_within_timing": []
+    },
+    "A3": {
+      "cleanup": {
+        "policy": "prefix-scoped SIGINT then wait; no forced kill",
+        "signal_returncode": 0,
+        "wait_returncode": 0,
+        "launcher_returncode": 1,
+        "remaining": [],
+        "closed": true
+      },
+      "expected_game_maps_present": true,
+      "game_pid": 2371,
+      "logs": {
+        "process.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": [
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "info:  OpenVR: Failed to locate module",
+            "err:   readMonitorEdidFromKey: Failed to get EDID reg key size",
+            "err:   DXGI: Failed to parse display metadata + colorimetry info, using blank.",
+            "pcm_params.c:162: int snd1_pcm_hw_param_get_min(const snd_pcm_hw_params_t *, snd_pcm_hw_param_t, unsigned int *, int *): assertion \"!snd_mask_empty(m)\" failed"
+          ]
+        },
+        "NSUNS2_d3d11.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": []
+        }
+      },
+      "runner_screenshots_within_timing": []
+    },
+    "B3": {
+      "cleanup": {
+        "policy": "prefix-scoped SIGINT then wait; no forced kill",
+        "signal_returncode": 0,
+        "wait_returncode": 0,
+        "launcher_returncode": 1,
+        "remaining": [],
+        "closed": true
+      },
+      "expected_game_maps_present": true,
+      "game_pid": 5232,
+      "logs": {
+        "process.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": [
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "info:  OpenVR: Failed to locate module",
+            "err:   readMonitorEdidFromKey: Failed to get EDID reg key size",
+            "err:   DXGI: Failed to parse display metadata + colorimetry info, using blank."
+          ]
+        },
+        "NSUNS2_d3d11.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": []
+        }
+      },
+      "runner_screenshots_within_timing": []
+    },
+    "A4": {
+      "cleanup": {
+        "policy": "prefix-scoped SIGINT then wait; no forced kill",
+        "signal_returncode": 0,
+        "wait_returncode": 0,
+        "launcher_returncode": 1,
+        "remaining": [],
+        "closed": true
+      },
+      "expected_game_maps_present": true,
+      "game_pid": 6672,
+      "logs": {
+        "process.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": [
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "info:  OpenVR: Failed to locate module",
+            "err:   readMonitorEdidFromKey: Failed to get EDID reg key size",
+            "err:   DXGI: Failed to parse display metadata + colorimetry info, using blank."
+          ]
+        },
+        "NSUNS2_d3d11.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": []
+        }
+      },
+      "runner_screenshots_within_timing": []
+    },
+    "B4": {
+      "cleanup": {
+        "policy": "prefix-scoped SIGINT then wait; no forced kill",
+        "signal_returncode": 0,
+        "wait_returncode": 0,
+        "launcher_returncode": 1,
+        "remaining": [],
+        "closed": true
+      },
+      "expected_game_maps_present": true,
+      "game_pid": 13210,
+      "logs": {
+        "process.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": [
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "Fontconfig error: Cannot load default config file: No such file: (null)",
+            "info:  OpenVR: Failed to locate module",
+            "err:   readMonitorEdidFromKey: Failed to get EDID reg key size",
+            "err:   DXGI: Failed to parse display metadata + colorimetry info, using blank."
+          ]
+        },
+        "NSUNS2_d3d11.log": {
+          "gpu_failure_matches": [],
+          "other_error_lines": []
+        }
+      },
+      "runner_screenshots_within_timing": []
+    }
+  },
+  "limits": "Process/D3D logs only; no claim of kernel-wide fault coverage. Existing Fontconfig, EDID, OpenVR and audio messages remain. A3 also logs an ALSA assertion; B2 logs a Wine bad-file-descriptor message, without timestamps to localize them."
+}

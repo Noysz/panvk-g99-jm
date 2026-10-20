@@ -1,0 +1,42 @@
+{
+  "unix": 1792506282.4728577,
+  "original_state_unchanged": true,
+  "original_state_before": {
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/user.reg": "210fa5ae6597490775e956f614f2e4f4efcdb434b6a7c5d666ee62b57ee62266",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/system.reg": "f6e17954eaaa3a5e43e83d1b9e98f753ab545d5b6574ae22463ec23eaea4da4f",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/userdef.reg": "9e8f914cb3602bd2c91462429a2e464ad7852dbba8d73b286770a0ad5cdc69dc",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/users/Public/Documents/Steam/<save-profile>/543870/remote/storm2.s": "617cedd4b9995bbd013f60dd1c283e6b7522ac9a6ee091cec788d02f5b851e58"
+  },
+  "original_state_after": {
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/user.reg": "210fa5ae6597490775e956f614f2e4f4efcdb434b6a7c5d666ee62b57ee62266",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/system.reg": "f6e17954eaaa3a5e43e83d1b9e98f753ab545d5b6574ae22463ec23eaea4da4f",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/userdef.reg": "9e8f914cb3602bd2c91462429a2e464ad7852dbba8d73b286770a0ad5cdc69dc",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/users/Public/Documents/Steam/<save-profile>/543870/remote/storm2.s": "617cedd4b9995bbd013f60dd1c283e6b7522ac9a6ee091cec788d02f5b851e58"
+  },
+  "pinned_binaries_match": true,
+  "pins_after": {
+    "<device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so": "d77c3c46ecd24889b34f1fe1ebd80f284622be729673c568ce1e62c244dbd114",
+    "<device-home>/panvk-refs/proton/noshm/libnoshm.so": "a4b86c51f797695b91d5a870b30e304361aa6a52fff844f478a71c072e6cc424",
+    "<device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+    "<device-home>/panvk-refs/proton/p10-4-v14/bin/wine": "07189f752896d526851599dc4d983ecda0a28f927d615010c032833669b4c24e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/NSUNS2.exe": "69748801175096afefb7f00eadba24eb6e6616c44924237f43bb428f0a42150e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/d3d11.dll": "b473142528f97a9c3cbad134df0dba083a9f207223803b0b6d34574c0619cf95",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/dxgi.dll": "550745e1ad3d30b6720077eb9fa1124ca77fd811cef5e9a01799eb295f972f51",
+    "<device-home>/panvk-refs/naruto-2026-10-19/gpl0b/icd.json": "96f359657df63c4a8cdee17c941e2c455fe19cb1183d629d0beded9368f3d279",
+    "<device-home>/panvk-refs/naruto-2026-10-19/libiolog-color.so": "b239432ca701a6c394e543d18a3f46fa5044c2ae60b8d58d5f429452b85efc04",
+    "<device-home>/panvk-refs/naruto-2026-10-19/iolog-color.c": "37e64b4cce02d2b1245b08bc3a20849f1d5cc3363887e06183db8ce316ed19a5"
+  },
+  "source_reference": "<device-home>/panvk-refs/t04-title-draw-7od7526e/source-before.json",
+  "four_source_hashes_match": true,
+  "source_hashes": {
+    "src/panfrost/compiler/pan_nir_lower_fs_inputs.c": "43d66a3815b2000724640c6efa560df30bbb1ec55cd938c22595ddd70ba5b614",
+    "src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c": "0f1023616d46d53b5c96abb11365642c932b63c3c1220d0effcf8b2fcdd9d54e",
+    "src/panfrost/vulkan/panvk_vX_shader.c": "e203fda6b919f1306fcf1692eaed3729369b5239581aa1955f8b0495a96cc186",
+    "src/panfrost/vulkan/panvk_vX_cmd_draw.c": "a0937836f0d71144bf67a19e031833be7e5f2a243963b007a41febbb64ac42c2"
+  },
+  "source_scope": "Four recorded diagnostic source files; not a whole-repository hash.",
+  "remaining_workloads": []
+}

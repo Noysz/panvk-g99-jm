@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/data/data/com.termux/files/home/hangover/root/data/data/com.termux/files/usr/opt/hangover-wine/bin/wine",
+    "/data/data/com.termux/files/home/wltest/d3d11_tri.exe"
+  ],
+  "controls": {
+    "VK_ICD_FILENAMES": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/pilot4-state/icd.json",
+    "DXVK_LOG_LEVEL": "info",
+    "DXVK_LOG_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer-validation",
+    "DXVK_STATE_CACHE": "0",
+    "DXVK_HUD": "",
+    "MESA_SHADER_CACHE_DISABLE": "true",
+    "PANVK_UBO_PUSH": "32",
+    "PANVK_V9_CLIP_KILL_FPK": "0",
+    "VK_LAYER_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer",
+    "VK_INSTANCE_LAYERS": "VK_LAYER_MESA_overlay",
+    "VK_LAYER_MESA_OVERLAY_CONFIG": "no_display=1,device=0,format=0,fps=0,frame=1,frame_timing=1,present_timing=1,submit=1,draw=1,draw_indexed=1,fps_sampling_period=0,output_file=/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer-validation/present.csv",
+    "D3D11TRI_FRAMES": "180"
+  }
+}

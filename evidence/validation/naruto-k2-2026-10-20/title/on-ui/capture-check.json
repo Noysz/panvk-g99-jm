@@ -1,0 +1,23 @@
+{
+  "complete_snapshot": true,
+  "maps": 139,
+  "mapped_bytes": 371630080,
+  "exact_chain_order_matches_submit": true,
+  "chains": 24,
+  "draws": 12,
+  "fragment_shaders": 12,
+  "matches_old_dump": 12,
+  "pins_unchanged": true,
+  "cleanup": {
+    "policy": "prefix-scoped SIGINT, no forced SIGKILL or pkill",
+    "signal_returncode": 0,
+    "server_wait_returncode": 0,
+    "launcher_returncode": 1,
+    "remaining_prefix_processes": [],
+    "closed": true
+  },
+  "game_save_unchanged": true,
+  "runner_capture_flag": true,
+  "marker_review": false,
+  "loaded_maps_recorded": true
+}

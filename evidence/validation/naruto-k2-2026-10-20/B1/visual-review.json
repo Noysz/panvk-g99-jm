@@ -1,0 +1,12 @@
+{
+  "before": "nav-19.png",
+  "after": "after.png",
+  "environment_and_player_present": true,
+  "player_location_unchanged": true,
+  "differences": "NPC movement and idle HUD fade; not frame-exact",
+  "draws_min_median_max": [
+    466,
+    466,
+    466
+  ]
+}

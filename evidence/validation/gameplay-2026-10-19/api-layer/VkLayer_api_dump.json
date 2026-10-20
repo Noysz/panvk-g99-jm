@@ -1,0 +1,11 @@
+{
+  "file_format_version": "1.0.0",
+  "layer": {
+    "name": "VK_LAYER_LUNARG_api_dump",
+    "type": "GLOBAL",
+    "library_path": "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/libVkLayer_api_dump.so",
+    "api_version": "1.4.305",
+    "implementation_version": "8192",
+    "description": "layer: api_dump"
+  }
+}

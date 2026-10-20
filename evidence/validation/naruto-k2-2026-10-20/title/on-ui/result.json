@@ -1,0 +1,217 @@
+{
+  "controls": {
+    "LD_PRELOAD": "<device-home>/panvk-refs/proton/noshm/libnoshm.so:<device-home>/panvk-refs/naruto-2026-10-19/libiolog-color.so",
+    "LD_LIBRARY_PATH": "<device-home>/hangover/root/data/data/com.termux/files/usr/lib:<device-home>/wltest/imagefs/usr/lib:<device-home>/panvk-refs/proton/p10-4-v14/lib",
+    "WINEPREFIX": "<device-home>/panvk-refs/naruto-2026-10-19/prefix",
+    "WINEDEBUG": "-all",
+    "DISPLAY": ":0",
+    "VK_ICD_FILENAMES": "<device-home>/panvk-refs/naruto-2026-10-19/gpl0b/icd.json",
+    "ADRENOTOOLS_DRIVER_PATH": "<device-home>/wltest/drvB19_cache_compiler/",
+    "ADRENOTOOLS_HOOKS_PATH": "<device-home>/wltest/imagefs/usr/lib/",
+    "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+    "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n;winmm=n,b",
+    "DXVK_CONFIG_FILE": "Z:\\<device-home>\\panvk-refs\\t04-title-draw-7od7526e\\on-ui\\dxvk.conf",
+    "DXVK_LOG_PATH": "<device-home>/panvk-refs/t04-title-draw-7od7526e/on-ui",
+    "DXVK_LOG_LEVEL": "info",
+    "DXVK_HUD": "compiler,pipelines",
+    "DXVK_STATE_CACHE": "0",
+    "MESA_SHADER_CACHE_DISABLE": "true",
+    "PANVK_V9_CLIP_KILL_FPK": "1",
+    "PANVK_UBO_PUSH": "0",
+    "PANVK_DEFER_OQ": "0",
+    "IOLOG_FILE": "<device-home>/panvk-refs/t04-title-draw-7od7526e/on-ui/io.log",
+    "IOLOG_SNAP": "<device-home>/panvk-refs/t04-title-draw-7od7526e/on-ui/snapshot.bin",
+    "IOLOG_SNAP_ARM": "<device-home>/panvk-refs/t04-title-draw-7od7526e/on-ui/capture",
+    "IOLOG_SNAP_AT": "1",
+    "IOLOG_SNAP_PREV": "0",
+    "IOLOG_SNAP_MIN_JOBS": "20",
+    "IOLOG_SNAP_REQ": "16"
+  },
+  "command": [
+    "<device-home>/panvk-refs/proton/p10-4-v14/bin/wine",
+    "explorer",
+    "/desktop=shell,848x480",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/NSUNS2.exe"
+  ],
+  "pins_before": {
+    "<device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so": "d77c3c46ecd24889b34f1fe1ebd80f284622be729673c568ce1e62c244dbd114",
+    "<device-home>/panvk-refs/proton/noshm/libnoshm.so": "a4b86c51f797695b91d5a870b30e304361aa6a52fff844f478a71c072e6cc424",
+    "<device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+    "<device-home>/panvk-refs/proton/p10-4-v14/bin/wine": "07189f752896d526851599dc4d983ecda0a28f927d615010c032833669b4c24e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/NSUNS2.exe": "69748801175096afefb7f00eadba24eb6e6616c44924237f43bb428f0a42150e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/d3d11.dll": "b473142528f97a9c3cbad134df0dba083a9f207223803b0b6d34574c0619cf95",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/dxgi.dll": "550745e1ad3d30b6720077eb9fa1124ca77fd811cef5e9a01799eb295f972f51",
+    "<device-home>/panvk-refs/naruto-2026-10-19/gpl0b/icd.json": "96f359657df63c4a8cdee17c941e2c455fe19cb1183d629d0beded9368f3d279",
+    "<device-home>/panvk-refs/naruto-2026-10-19/libiolog-color.so": "b239432ca701a6c394e543d18a3f46fa5044c2ae60b8d58d5f429452b85efc04",
+    "<device-home>/panvk-refs/naruto-2026-10-19/iolog-color.c": "37e64b4cce02d2b1245b08bc3a20849f1d5cc3363887e06183db8ce316ed19a5"
+  },
+  "state_before": {
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/user.reg": "b2504d03dabffb678f8e07c81c5b51df9d5bf58a5c5c9b6e54f5c63a99599698",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/system.reg": "0f3c5d6c8167114cd39eb44f408795afaced60cb2949e6eb453bcb64b3705c7a",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/userdef.reg": "9e8f914cb3602bd2c91462429a2e464ad7852dbba8d73b286770a0ad5cdc69dc",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/users/Public/Documents/Steam/<save-profile>/543870/remote/storm2.s": "617cedd4b9995bbd013f60dd1c283e6b7522ac9a6ee091cec788d02f5b851e58"
+  },
+  "runner_sha256": "b60cabffeebb4b7ed49f126cf55b6868624cbc263dc4766f81bd7a6da29429b3",
+  "start_unix": 1792499287.113536,
+  "scope": "Draw/state capture at title; no performance measurement.",
+  "reason": "The 69-chain title submit maps postprocess draws; a separate 22-atom submit must be inspected for source UI textures.",
+  "instrumentation_delta": "IOLOG enabled; no repeat of shader dump. Old ISA will be matched offline.",
+  "capture_unix": 1792499430.2689662,
+  "loaded_processes": [
+    {
+      "pid": 18142,
+      "cmdline": "start.exe /exec explorer /desktop=shell,848x480                                                                                                                                                                                                                                                   ",
+      "file": "loaded-maps-18142.txt",
+      "selected_lines": [
+        "7953e63000-7953e64000 r-xp 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so",
+        "7953e67000-7953e68000 r--p 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so"
+      ]
+    },
+    {
+      "pid": 18149,
+      "cmdline": "<device-home>/panvk-refs/proton/p10-4-v14/lib/wine/../../bin/wineserver ",
+      "file": "loaded-maps-18149.txt",
+      "selected_lines": [
+        "7a7ed50000-7a7ed51000 r-xp 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so",
+        "7a7ed54000-7a7ed55000 r--p 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so"
+      ]
+    },
+    {
+      "pid": 18155,
+      "cmdline": "C:\\windows\\system32\\services.exe                                                                                                                                                                                     ",
+      "file": "loaded-maps-18155.txt",
+      "selected_lines": [
+        "76892e0000-76892e1000 r-xp 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so",
+        "76892e4000-76892e5000 r--p 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so"
+      ]
+    },
+    {
+      "pid": 18165,
+      "cmdline": "C:\\windows\\system32\\winedevice.exe                                                                                                                                                                                     ",
+      "file": "loaded-maps-18165.txt",
+      "selected_lines": [
+        "7162a1d000-7162a1e000 r-xp 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so",
+        "7162a21000-7162a22000 r--p 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so"
+      ]
+    },
+    {
+      "pid": 18175,
+      "cmdline": "C:\\windows\\system32\\plugplay.exe                                                                                                                                                                                     ",
+      "file": "loaded-maps-18175.txt",
+      "selected_lines": [
+        "71efc0f000-71efc10000 r-xp 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so",
+        "71efc13000-71efc14000 r--p 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so"
+      ]
+    },
+    {
+      "pid": 18184,
+      "cmdline": "C:\\windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted                                                                                                                                                                                     ",
+      "file": "loaded-maps-18184.txt",
+      "selected_lines": [
+        "79c85b0000-79c85b1000 r-xp 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so",
+        "79c85b4000-79c85b5000 r--p 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so"
+      ]
+    },
+    {
+      "pid": 18194,
+      "cmdline": "C:\\windows\\system32\\winedevice.exe                                                                                                                                                                                     ",
+      "file": "loaded-maps-18194.txt",
+      "selected_lines": [
+        "7f31c73000-7f31c74000 r-xp 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so",
+        "7f31c77000-7f31c78000 r--p 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so"
+      ]
+    },
+    {
+      "pid": 18233,
+      "cmdline": "C:\\windows\\system32\\explorer.exe /desktop=shell,848x480 <device-home>/panvk-refs/naruto-2026-10-19/game/NSUNS2.exe                                                                                                                                                                                     ",
+      "file": "loaded-maps-18233.txt",
+      "selected_lines": [
+        "6dbd8b6000-6dbe378000 r--p 00000000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+        "6dbe37b000-6dbeb5d000 r-xp 00ac1000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+        "6dbeb60000-6dbebd6000 r--p 012a2000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+        "6dbebd9000-6dbebe4000 rw-p 01317000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+        "6dc634f000-6dc6447000 r--p 00000000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+        "6dc6447000-6dc65bd000 r-xp 000f7000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+        "6dc65bd000-6dc65e5000 r--p 0026c000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+        "6dc65e5000-6dc65e9000 rw-p 00293000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+        "7067006000-7067007000 r-xp 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so",
+        "706700a000-706700b000 r--p 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so"
+      ]
+    },
+    {
+      "pid": 18254,
+      "cmdline": "<device-home>/panvk-refs/naruto-2026-10-19/game/NSUNS2.exe                                                                                                                                                                                     ",
+      "file": "loaded-maps-18254.txt",
+      "selected_lines": [
+        "737aa1a000-737b4dc000 r--p 00000000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+        "737b4df000-737bcc1000 r-xp 00ac1000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+        "737bcc4000-737bd3a000 r--p 012a2000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+        "737bd3d000-737bd48000 rw-p 01317000 fe:53 1998748                        <device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+        "737fe18000-737ff10000 r--p 00000000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+        "737ff10000-7380086000 r-xp 000f7000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+        "7380086000-73800ae000 r--p 0026c000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+        "73800ae000-73800b2000 rw-p 00293000 fe:53 2146133                        <device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+        "761c9f8000-761c9f9000 r-xp 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so",
+        "761c9fc000-761c9fd000 r--p 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so"
+      ]
+    },
+    {
+      "pid": 18265,
+      "cmdline": "C:\\windows\\system32\\rpcss.exe                                                                                                                                                                                     ",
+      "file": "loaded-maps-18265.txt",
+      "selected_lines": [
+        "7b36035000-7b36036000 r-xp 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so",
+        "7b36039000-7b3603a000 r--p 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so"
+      ]
+    },
+    {
+      "pid": 18276,
+      "cmdline": "C:\\windows\\system32\\tabtip.exe                                                                                                                                                                                     ",
+      "file": "loaded-maps-18276.txt",
+      "selected_lines": [
+        "72b2e53000-72b2e54000 r-xp 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so",
+        "72b2e57000-72b2e58000 r--p 00000000 fe:53 2401225                        <device-home>/panvk-refs/proton/noshm/libnoshm.so"
+      ]
+    }
+  ],
+  "post_capture_image": {
+    "file": "after-capture.png",
+    "unix": 1792499434.145774,
+    "width": 848,
+    "height": 480,
+    "sha256": "140779fe8930c90d086321b4e37dc41e39726ef6643cea93faaa1c5ab019d2cf"
+  },
+  "capture_observed": true,
+  "duration_seconds": 146.79512008602615,
+  "cleanup": {
+    "policy": "prefix-scoped SIGINT, no forced SIGKILL or pkill",
+    "signal_returncode": 0,
+    "server_wait_returncode": 0,
+    "launcher_returncode": 1,
+    "remaining_prefix_processes": [],
+    "closed": true
+  },
+  "pins_after": {
+    "<device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so": "d77c3c46ecd24889b34f1fe1ebd80f284622be729673c568ce1e62c244dbd114",
+    "<device-home>/panvk-refs/proton/noshm/libnoshm.so": "a4b86c51f797695b91d5a870b30e304361aa6a52fff844f478a71c072e6cc424",
+    "<device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+    "<device-home>/panvk-refs/proton/p10-4-v14/bin/wine": "07189f752896d526851599dc4d983ecda0a28f927d615010c032833669b4c24e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/NSUNS2.exe": "69748801175096afefb7f00eadba24eb6e6616c44924237f43bb428f0a42150e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/d3d11.dll": "b473142528f97a9c3cbad134df0dba083a9f207223803b0b6d34574c0619cf95",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/dxgi.dll": "550745e1ad3d30b6720077eb9fa1124ca77fd811cef5e9a01799eb295f972f51",
+    "<device-home>/panvk-refs/naruto-2026-10-19/gpl0b/icd.json": "96f359657df63c4a8cdee17c941e2c455fe19cb1183d629d0beded9368f3d279",
+    "<device-home>/panvk-refs/naruto-2026-10-19/libiolog-color.so": "b239432ca701a6c394e543d18a3f46fa5044c2ae60b8d58d5f429452b85efc04",
+    "<device-home>/panvk-refs/naruto-2026-10-19/iolog-color.c": "37e64b4cce02d2b1245b08bc3a20849f1d5cc3363887e06183db8ce316ed19a5"
+  },
+  "state_after": {
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/user.reg": "3c55587cb2f98b790af04f389cc171a44c0f387d6faad6888f00196055f473e3",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/system.reg": "c09705a4930c0d524fb146cf555a2558acb650e67ac653ee580ac83cd8556afc",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/userdef.reg": "9e8f914cb3602bd2c91462429a2e464ad7852dbba8d73b286770a0ad5cdc69dc",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/users/Public/Documents/Steam/<save-profile>/543870/remote/storm2.s": "617cedd4b9995bbd013f60dd1c283e6b7522ac9a6ee091cec788d02f5b851e58"
+  },
+  "remaining_workloads": []
+}

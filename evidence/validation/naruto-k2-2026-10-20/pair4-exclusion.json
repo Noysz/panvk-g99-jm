@@ -1,0 +1,65 @@
+{
+  "unix": 1792506282.1423864,
+  "pair": [
+    "A4",
+    "B4"
+  ],
+  "retained": true,
+  "reason": "B4 has 451/469 draws in 212 of 895 intervals; A4 is constant 466. Endpoint images do not establish comparable workload throughout timing.",
+  "draw_distribution": {
+    "466": 683,
+    "469": 58,
+    "451": 154
+  },
+  "segments": [
+    {
+      "first_interval": 0,
+      "draw": 466,
+      "start_s": 0,
+      "frames": 29,
+      "interval_us": 4023494,
+      "end_s": 4.0234939999999995
+    },
+    {
+      "first_interval": 29,
+      "draw": 469,
+      "start_s": 4.0234939999999995,
+      "frames": 29,
+      "interval_us": 3453939,
+      "end_s": 7.477432999999997
+    },
+    {
+      "first_interval": 58,
+      "draw": 451,
+      "start_s": 7.477432999999997,
+      "frames": 154,
+      "interval_us": 16229026,
+      "end_s": 23.706459
+    },
+    {
+      "first_interval": 212,
+      "draw": 469,
+      "start_s": 23.706459,
+      "frames": 29,
+      "interval_us": 3556513,
+      "end_s": 27.262971999999994
+    },
+    {
+      "first_interval": 241,
+      "draw": 466,
+      "start_s": 27.262971999999994,
+      "frames": 654,
+      "interval_us": 62730737,
+      "end_s": 89.99370899999994
+    }
+  ],
+  "cause": "Not established; no screenshot during measurement.",
+  "decision_basis": "Draw-state comparability, irrespective of FPS direction.",
+  "no_window_trimming": true,
+  "no_more_pairs": true,
+  "primary_pairs_remaining": [
+    2,
+    3
+  ],
+  "three_comparable_pairs_target_met": false
+}

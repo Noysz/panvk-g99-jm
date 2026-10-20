@@ -1,0 +1,1084 @@
+{
+  "draw_counts": [
+    143,
+    143
+  ],
+  "shared_signatures": 109,
+  "unchanged_signatures": 94,
+  "changed_signatures": 15,
+  "fields": [
+    "Allow forward pixel to kill",
+    "Pixel kill operation",
+    "ZS update operation"
+  ],
+  "affected": [
+    {
+      "signature_sha256": "05f69f5fca498340aa4874896b1b56b62b0895f7a5fedffc706045e47b5d7bf5",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0031",
+          "job": "6f89afd580"
+        },
+        {
+          "file": "decoded..ctx-0.0035",
+          "job": "6f89afef00"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0031",
+          "job": "74428cc580"
+        },
+        {
+          "file": "decoded..ctx-0.0035",
+          "job": "74428cdf00"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "128b5ce16af025eac144e29bb6bb1fef953ea27cfa85fcd8685300d0ea9384fa",
+            "instructions": 126
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "659a5b0feaa8de119619654e589d2f86117fc07cfee1df597acce1154f1bfdb3",
+            "instructions": 46
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "efb53508f786fda997fbc3c67b1cfe072cb9aa803cfdc3ecb215b426a3951bde",
+            "instructions": 42
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 32\n  Vertex attribute stride: 16\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA8 TB RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "083afed7a153a47de9a3e6e6d9ddc8df65cf7faf95c8ee081823e8e0c9b828f8",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0040",
+          "job": "6f89b00d00"
+        },
+        {
+          "file": "decoded..ctx-0.0044",
+          "job": "6f89b02680"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0040",
+          "job": "74428cfd00"
+        },
+        {
+          "file": "decoded..ctx-0.0044",
+          "job": "74428d1680"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "128b5ce16af025eac144e29bb6bb1fef953ea27cfa85fcd8685300d0ea9384fa",
+            "instructions": 126
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "659a5b0feaa8de119619654e589d2f86117fc07cfee1df597acce1154f1bfdb3",
+            "instructions": 46
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "efb53508f786fda997fbc3c67b1cfe072cb9aa803cfdc3ecb215b426a3951bde",
+            "instructions": 42
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 32\n  Vertex attribute stride: 16\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA16F RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "29972d38be7f4cbaa66a409c64cd99a158c6927596343fa03170c1e266c72b4a",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0027",
+          "job": "6f89afbf80"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0027",
+          "job": "74428caf80"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "b1ab9279e49ba615d80cf94f87e033a31eb84ffb5179ce37b99cf8a1d79888ae",
+            "instructions": 150
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+            "instructions": 45
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "cf0191469cdac68c55e6fe4c8b1cd13cbee212a38293d3491777b13588b8d9a0",
+            "instructions": 85
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 48\n  Vertex attribute stride: 32\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 240\n  Scissor Minimum Y: 22\n  Scissor Maximum X: 399\n  Scissor Maximum Y: 111\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA8 TB RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "37f25672d67873fd82c18a1362941c7827757aa664aeeef8ef22963d4e223cc6",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0040",
+          "job": "6f89b01300"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0040",
+          "job": "74428d0300"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "b04d445eb8d74108bef4f8f9cef012fd7409a94e6a0e30212739e8b7fb55557d",
+            "instructions": 211
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+            "instructions": 45
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "f98ed791697f585c7ade8fb4c843a046e4967f1f41a8d77d26bbdeb271d42df9",
+            "instructions": 81
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 48\n  Vertex attribute stride: 32\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 40\n  Scissor Minimum Y: 22\n  Scissor Maximum X: 79\n  Scissor Maximum Y: 43\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA16F RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "4ab4d116ae9e4b8ca985a49728b6285f6990a75b059fa6c45aeecec68e088997",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0037",
+          "job": "6f89b00000"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0037",
+          "job": "74428cf000"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "b04d445eb8d74108bef4f8f9cef012fd7409a94e6a0e30212739e8b7fb55557d",
+            "instructions": 211
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+            "instructions": 45
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "f98ed791697f585c7ade8fb4c843a046e4967f1f41a8d77d26bbdeb271d42df9",
+            "instructions": 81
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 48\n  Vertex attribute stride: 32\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 440\n  Scissor Minimum Y: 134\n  Scissor Maximum X: 519\n  Scissor Maximum Y: 178\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA8 TB RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "5036c831709fea4bcbcdb0fa50949a60e44c300fc82fe8728841a0ac8c25c08e",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0010",
+          "job": "6f85489880"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0010",
+          "job": "74427fc880"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "2a10f37e2de2a32c092d58b95c59c5860484f20847514092aff1c63f715d8ff3",
+            "instructions": 140
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+            "instructions": 45
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "a7544dc8d457ed9a3a72792db601afa64eb779227efcd8543d5e04081436b5cc",
+            "instructions": 61
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 40\n  Vertex attribute stride: 24\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA8 TB RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "5601d57dad6bcaca49627b4245e324cccbf0bb8a90837521be21587e5497e7d9",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0031",
+          "job": "6f89afdb80"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0031",
+          "job": "74428ccb80"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "b04d445eb8d74108bef4f8f9cef012fd7409a94e6a0e30212739e8b7fb55557d",
+            "instructions": 211
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+            "instructions": 45
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "f98ed791697f585c7ade8fb4c843a046e4967f1f41a8d77d26bbdeb271d42df9",
+            "instructions": 81
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 48\n  Vertex attribute stride: 32\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 40\n  Scissor Minimum Y: 22\n  Scissor Maximum X: 199\n  Scissor Maximum Y: 111\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA8 TB RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "67fe4773d326f41115260a5d186e71bb7a0acb985748f6837e6d3da039ff8aef",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0025",
+          "job": "6f89afb100"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0025",
+          "job": "74428ca100"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "f5b6e3d47ced1305555fa20fa1ec54873284b2bd9bcb1bb6dbc087532a56d3ab",
+            "instructions": 155
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+            "instructions": 45
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "bfaf26cbceb07082b7e23f94cf530151bd120305002dff45d329ba3ad32dbf2e",
+            "instructions": 96
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 64\n  Vertex attribute stride: 48\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 40\n  Scissor Minimum Y: 246\n  Scissor Maximum X: 199\n  Scissor Maximum Y: 335\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA8 TB RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "7f0f41557a7458d700527ef3c9a2c01f9b9eaee1a53c075c73b155e4f8ce8bff",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0035",
+          "job": "6f89aff500"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0035",
+          "job": "74428ce500"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "b04d445eb8d74108bef4f8f9cef012fd7409a94e6a0e30212739e8b7fb55557d",
+            "instructions": 211
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+            "instructions": 45
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "f98ed791697f585c7ade8fb4c843a046e4967f1f41a8d77d26bbdeb271d42df9",
+            "instructions": 81
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 48\n  Vertex attribute stride: 32\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 40\n  Scissor Minimum Y: 22\n  Scissor Maximum X: 119\n  Scissor Maximum Y: 66\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA8 TB RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "8eda4c9f0ca10f0a4cf284c0a87cb0cdac54be70169e085678fdceca5ea1184a",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0025",
+          "job": "6f89afaa80"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0025",
+          "job": "74428c9a80"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "f5b6e3d47ced1305555fa20fa1ec54873284b2bd9bcb1bb6dbc087532a56d3ab",
+            "instructions": 155
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+            "instructions": 45
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "bfaf26cbceb07082b7e23f94cf530151bd120305002dff45d329ba3ad32dbf2e",
+            "instructions": 96
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 64\n  Vertex attribute stride: 48\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 40\n  Scissor Minimum Y: 134\n  Scissor Maximum X: 199\n  Scissor Maximum Y: 223\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA8 TB RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "90d4b4872acf34228d1277751ce1ba20264f4dc46725825782802b342f8d91f9",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0042",
+          "job": "6f89b01b80"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0042",
+          "job": "74428d0b80"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "b04d445eb8d74108bef4f8f9cef012fd7409a94e6a0e30212739e8b7fb55557d",
+            "instructions": 211
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+            "instructions": 45
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "f98ed791697f585c7ade8fb4c843a046e4967f1f41a8d77d26bbdeb271d42df9",
+            "instructions": 81
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 48\n  Vertex attribute stride: 32\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 440\n  Scissor Minimum Y: 246\n  Scissor Maximum X: 479\n  Scissor Maximum Y: 267\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA16F RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "922cdb28da53cbc29f8f7be0c44ed2c690c198a91b8ab97cf5e411e3f1a8bd8f",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0033",
+          "job": "6f89afe400"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0033",
+          "job": "74428cd400"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "b04d445eb8d74108bef4f8f9cef012fd7409a94e6a0e30212739e8b7fb55557d",
+            "instructions": 211
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+            "instructions": 45
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "f98ed791697f585c7ade8fb4c843a046e4967f1f41a8d77d26bbdeb271d42df9",
+            "instructions": 81
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 48\n  Vertex attribute stride: 32\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 440\n  Scissor Minimum Y: 22\n  Scissor Maximum X: 599\n  Scissor Maximum Y: 111\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA8 TB RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "ace8ff522e2cc1978ef234852812d2dec9e9b14178c4a1f83ca7769074e1600c",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0048",
+          "job": "6f89b04300"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0048",
+          "job": "74428d3300"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "8ec36c283a8bc7d69b6901eadcd032fb69e8d417ad12c8a5f4741d67789d95c1",
+            "instructions": 157
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+            "instructions": 45
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "cedf92b5d87d60b7cd2b6e4fb5bcb77b2e4d49683bc372eb17867edff1a41d5b",
+            "instructions": 124
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 64\n  Vertex attribute stride: 48\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 40\n  Scissor Minimum Y: 22\n  Scissor Maximum X: 199\n  Scissor Maximum Y: 111\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA8 TB RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "b7b9be3f96affcde6a89b437ea7efe504c0980a023bf9d7dfc2c3ee4e8a1966e",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0046",
+          "job": "6f89b03780"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0046",
+          "job": "74428d2780"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "b04d445eb8d74108bef4f8f9cef012fd7409a94e6a0e30212739e8b7fb55557d",
+            "instructions": 211
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+            "instructions": 45
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "f98ed791697f585c7ade8fb4c843a046e4967f1f41a8d77d26bbdeb271d42df9",
+            "instructions": 81
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 48\n  Vertex attribute stride: 32\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 240\n  Scissor Minimum Y: 246\n  Scissor Maximum X: 259\n  Scissor Maximum Y: 256\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA16F RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    },
+    {
+      "signature_sha256": "ee52f5412bc804f2e2ee10079385b8d8a0113d12a820c9a2a2031d4569a2d815",
+      "A_values": [
+        [
+          "true",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "B_values": [
+        [
+          "false",
+          "Weak Early",
+          "Weak Early"
+        ]
+      ],
+      "A_draws": [
+        {
+          "file": "decoded..ctx-0.0044",
+          "job": "6f89b02c80"
+        }
+      ],
+      "B_draws": [
+        {
+          "file": "decoded..ctx-0.0044",
+          "job": "74428d1c80"
+        }
+      ],
+      "signature": {
+        "shaders": [
+          {
+            "stage": "Fragment",
+            "machine_sha256": "b04d445eb8d74108bef4f8f9cef012fd7409a94e6a0e30212739e8b7fb55557d",
+            "instructions": 211
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+            "instructions": 45
+          },
+          {
+            "stage": "Vertex",
+            "machine_sha256": "f98ed791697f585c7ade8fb4c843a046e4967f1f41a8d77d26bbdeb271d42df9",
+            "instructions": 81
+          }
+        ],
+        "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 48\n  Vertex attribute stride: 32\nTiler:\n  Address: <address>\nScissor:\n  Scissor Minimum X: 40\n  Scissor Minimum Y: 22\n  Scissor Maximum X: 59\n  Scissor Maximum Y: 32\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: <address>",
+        "depth_blend": "  Type: Depth/stencil\n  Front compare function: Never\n  Front stencil fail: Keep\n  Front depth fail: Keep\n  Front depth pass: Keep\n  Back compare function: Never\n  Back stencil fail: Keep\n  Back depth fail: Keep\n  Back depth pass: Keep\n  Stencil from shader: false\n  Stencil test enable: false\n  Front write mask: 0x0\n  Back write mask: 0x0\n  Front value mask: 0x0\n  Back value mask: 0x0\n  Front reference value: 0x0\n  Back reference value: 0x0\n  Depth cull enable: true\n  Depth clamp mode: Bounds\n  Depth source: Fixed function\n  Depth write enable: false\n  Depth bias enable: false\n  Depth function: Always\n  Depth units: -150.000000\n  Depth factor: 0.000000\n  Depth bias clamp: 0.000000\nBlend RT 0:\n  Load Destination: false\n  Alpha To One: false\n  Enable: true\n  sRGB: false\n  Round to FB precision: true\n  Blend Constant: 0\n  Equation:\n    RGB:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Alpha:\n      A: Src\n      Negate A: false\n      B: Src\n      Negate B: false\n      C: Zero\n      Invert C: false\n    Color Mask: 15\n  Internal:\n    Mode: Opaque\n    Shader:\n      PC: <address>\n    Fixed-Function:\n      Num Comps: 4\n      RT: 0\n      Conversion:\n        Format (v7): RGBA16F RGBA\n        Raw: false",
+        "flags": {
+          "Allow forward pixel to be killed": "true",
+          "Allow primitive reorder": "false",
+          "Overdraw alpha0": "false",
+          "Overdraw alpha1": "false",
+          "Clean Fragment Write": "false",
+          "Primitive Barrier": "false",
+          "Evaluate per-sample": "false",
+          "Aligned line-ends": "false",
+          "Occlusion query": "Disabled",
+          "Front face CCW": "false",
+          "Cull front face": "false",
+          "Cull back face": "false",
+          "Multisample enable": "false",
+          "Shader modifies coverage": "false",
+          "Alpha-to-coverage Invert": "false",
+          "Alpha-to-coverage": "false",
+          "Scissor To Bounding Box": "true"
+        },
+        "flags1": "\n    Sample mask: 0x1\n    Render target mask: 0x1\n"
+      }
+    }
+  ],
+  "gate_passed": true,
+  "scope": "Same shader machine code, normalized primitive state, depth/stencil/blend and unaffected draw flags. Animated scene not same frame; not a whole-frame proof."
+}

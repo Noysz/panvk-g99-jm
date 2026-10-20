@@ -1,0 +1,33 @@
+test_diagnostic_profiling_is_not_normal_mode (test_analyze_gameplay.GameplayEvidenceTests.test_diagnostic_profiling_is_not_normal_mode) ... ok
+test_excluded_or_manually_steered_run_is_rejected (test_analyze_gameplay.GameplayEvidenceTests.test_excluded_or_manually_steered_run_is_rejected) ... ok
+test_grouped_frames_are_not_individual_samples (test_analyze_gameplay.GameplayEvidenceTests.test_grouped_frames_are_not_individual_samples) ... ok
+test_incomplete_benchmark_is_rejected (test_analyze_gameplay.GameplayEvidenceTests.test_incomplete_benchmark_is_rejected) ... ok
+test_invalid_csv_is_rejected (test_analyze_gameplay.GameplayEvidenceTests.test_invalid_csv_is_rejected) ... ok
+test_present_intervals_not_row_rate (test_analyze_gameplay.GameplayEvidenceTests.test_present_intervals_not_row_rate) ... ok
+test_query_comparison_holds_ubo_constant (test_analyze_gameplay.GameplayEvidenceTests.test_query_comparison_holds_ubo_constant) ... ok
+test_swapchain_log_reset_is_rejected (test_analyze_gameplay.GameplayEvidenceTests.test_swapchain_log_reset_is_rejected) ... ok
+test_truncated_window_is_rejected (test_analyze_gameplay.GameplayEvidenceTests.test_truncated_window_is_rejected) ... ok
+test_unknown_comparison_variable_is_rejected (test_analyze_gameplay.GameplayEvidenceTests.test_unknown_comparison_variable_is_rejected) ... ok
+test_wrong_resolution_is_rejected (test_analyze_gameplay.GameplayEvidenceTests.test_wrong_resolution_is_rejected) ... ok
+test_complete_recording_across_adjacent_frames (test_analyze_query_trace.QueryTraceTests.test_complete_recording_across_adjacent_frames) ... ok
+test_gap_invalidates_previously_seen_recording (test_analyze_query_trace.QueryTraceTests.test_gap_invalidates_previously_seen_recording) ... ok
+test_missing_begin_or_secondary_is_not_complete (test_analyze_query_trace.QueryTraceTests.test_missing_begin_or_secondary_is_not_complete) ... ok
+test_resubmission_counts_each_execution (test_analyze_query_trace.QueryTraceTests.test_resubmission_counts_each_execution) ... ok
+test_truncated_submit_is_rejected (test_analyze_query_trace.QueryTraceTests.test_truncated_submit_is_rejected) ... ok
+test_added_source_outside_patch (test_verify_patch_chain.PatchChainTest.test_added_source_outside_patch) ... ok
+test_checkout_line_endings (test_verify_patch_chain.PatchChainTest.test_checkout_line_endings) ... ok
+test_cli_bad_patch_is_error (test_verify_patch_chain.PatchChainTest.test_cli_bad_patch_is_error) ... ok
+test_cli_mismatch_is_failure (test_verify_patch_chain.PatchChainTest.test_cli_mismatch_is_failure) ... ok
+test_deleted_file_reintroduced (test_verify_patch_chain.PatchChainTest.test_deleted_file_reintroduced) ... ok
+test_identical_stack_and_source (test_verify_patch_chain.PatchChainTest.test_identical_stack_and_source) ... ok
+test_missing_expected_file (test_verify_patch_chain.PatchChainTest.test_missing_expected_file) ... ok
+test_mode_and_symlink_changes (test_verify_patch_chain.PatchChainTest.test_mode_and_symlink_changes) ... ok
+test_modified_file_outside_patch (test_verify_patch_chain.PatchChainTest.test_modified_file_outside_patch) ... ok
+test_root_doc_pointer_content_remains_strict (test_verify_patch_chain.PatchChainTest.test_root_doc_pointer_content_remains_strict) ... ok
+test_root_doc_pointer_exception_does_not_cover_source (test_verify_patch_chain.PatchChainTest.test_root_doc_pointer_exception_does_not_cover_source) ... ok
+test_root_doc_pointer_mode_is_explicit (test_verify_patch_chain.PatchChainTest.test_root_doc_pointer_mode_is_explicit) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 24.436s
+
+OK

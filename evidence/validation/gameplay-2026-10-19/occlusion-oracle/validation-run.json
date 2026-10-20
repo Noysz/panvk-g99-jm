@@ -1,0 +1,6 @@
+{
+  "scope": "Lavapipe oracle cross-check and loader/layer validation, not target GPU performance",
+  "loader": "/usr/lib/aarch64-linux-gnu/libvulkan.so.1",
+  "layer": "/usr/lib/chromium/libVkLayer_khronos_validation.so",
+  "layer_sha256": "0eafd8ce17375e81c1c1e6baf2c7f6fca0c02e58943fcd611d589496c2b95148"
+}

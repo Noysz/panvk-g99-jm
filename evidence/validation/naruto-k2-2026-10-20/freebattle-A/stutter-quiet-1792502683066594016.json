@@ -1,0 +1,28 @@
+{
+  "scope": "Ongoing COM battle; 20 second interval between screenshots; not paired K2 evidence",
+  "start": {
+    "offset": 208258,
+    "monotonic": 195344.726445796,
+    "unix": 1792502663.0206685
+  },
+  "end": {
+    "offset": 216168,
+    "monotonic": 195364.72884272,
+    "unix": 1792502683.0230656
+  },
+  "screenshots_during_window": [],
+  "valid_no_screenshot": true,
+  "frames": 281,
+  "interval_seconds": 19.955026,
+  "fps": 14.08166544107735,
+  "median_ms": 70.454,
+  "p95_ms": 86.296,
+  "max_ms": 122.214,
+  "intervals_over100ms": 3,
+  "intervals_over250ms": 0,
+  "draws_min_median_max": [
+    300,
+    333,
+    414
+  ]
+}

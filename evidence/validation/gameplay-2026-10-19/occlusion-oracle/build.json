@@ -1,0 +1,56 @@
+{
+  "commands": [
+    [
+      "/usr/bin/glslangValidator",
+      "-V",
+      "--target-env",
+      "vulkan1.3",
+      "/data/data/com.termux/files/home/panvk-g99-jm/tests/shaders/occlusion_oracle.vert",
+      "-o",
+      "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_oracle.vert.spv"
+    ],
+    [
+      "/usr/bin/glslangValidator",
+      "-V",
+      "--target-env",
+      "vulkan1.3",
+      "/data/data/com.termux/files/home/panvk-g99-jm/tests/shaders/occlusion_oracle.frag",
+      "-o",
+      "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_oracle.frag.spv"
+    ],
+    [
+      "/data/data/com.termux/files/usr/bin/clang",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "/data/data/com.termux/files/home/panvk-g99-jm/tests/graphics/occlusion_ordering_oracle.c",
+      "-o",
+      "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_ordering_oracle",
+      "-ldl"
+    ],
+    [
+      "/usr/bin/cc",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "-I/data/data/com.termux/files/home/panvk-g57/mesa-up/include",
+      "/data/data/com.termux/files/home/panvk-g99-jm/tests/graphics/occlusion_ordering_oracle.c",
+      "-o",
+      "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_ordering_oracle_host",
+      "-ldl"
+    ]
+  ],
+  "sha256": {
+    "/data/data/com.termux/files/home/panvk-g99-jm/tests/graphics/occlusion_ordering_oracle.c": "8faf77b8e6b9a73964288db3e2f0680aa34ede3d950c75e2c8e0b6feef1d77ae",
+    "/data/data/com.termux/files/home/panvk-g99-jm/tests/shaders/occlusion_oracle.vert": "2afed854bf81402e7851c55af9ff508b65009c9e35f36a26e2a0045673b5fc68",
+    "/data/data/com.termux/files/home/panvk-g99-jm/tests/shaders/occlusion_oracle.frag": "70c2123459649bff9db888b764c1ffd081a14be218d35770b29c502d28e7a8be",
+    "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_oracle.vert.spv": "837a8d906354f6311cca16da2e3e98d34c33c32e942230070a6cbb0039e6c900",
+    "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_oracle.frag.spv": "6d5efa84cb8654d217d4f24b0a5d4ff5b6229e508394e5e7a87b8d163692af57",
+    "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_ordering_oracle": "879d01543883937fcf8fb62da5d55e11ada1801922531b9686e8433f52b2c3ed",
+    "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_ordering_oracle_host": "06e4baed4e5601bdbcc017ec4716b2eb3d8c13637e32085e5ffe4a303c89b385"
+  }
+}

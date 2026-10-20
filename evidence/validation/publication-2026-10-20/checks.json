@@ -1,0 +1,49 @@
+{
+  "checked_utc": "2026-10-20T15:07:27.954419+00:00",
+  "scope": "Offline publication checks; no additional hardware runs.",
+  "unit_tests": 28,
+  "unit_test_failures": 0,
+  "evidence_manifests": {
+    "compiler-cache-2026-10-19": {
+      "files": 95,
+      "mismatches": 0
+    },
+    "deferred-query-2026-10-19": {
+      "files": 195,
+      "mismatches": 0
+    },
+    "gameplay-2026-10-19": {
+      "files": 144,
+      "mismatches": 0
+    },
+    "naruto-gameplay-setup-2026-10-19": {
+      "files": 12,
+      "mismatches": 0
+    },
+    "naruto-k2-2026-10-20": {
+      "files": 161,
+      "mismatches": 0
+    }
+  },
+  "donor_published_and_diff_hashes_verified": 5,
+  "naruto_timing_recheck": {
+    "runs": 8,
+    "analysis_matches": 8,
+    "primary_pairs": [
+      2,
+      3
+    ],
+    "excluded_pairs": [
+      1,
+      4
+    ],
+    "published_source_hashes_match": 159,
+    "descriptor_gate": true
+  },
+  "naruto_publication_files": 159,
+  "local_links_checked": 98,
+  "pending_files_scanned": 647,
+  "unwanted_metadata_matches": 0,
+  "credential_pattern_matches": 0,
+  "executable_binaries": 0
+}

@@ -1,0 +1,6 @@
+{
+  "observation": "A1 final image lacks health/mission HUD visible in B1 final image. Original review wording idle HUD fade was an assumption, not established cause.",
+  "pair1_status": "Timing valid; visual/UI state difference remains a comparability limitation until follow-up",
+  "checks": "Compare fresh pre-window and after images in A2/B2 and A3/B3; user input clarification pending",
+  "avoid_claim": "Do not attribute HUD change to K2 or normal idle behavior yet."
+}

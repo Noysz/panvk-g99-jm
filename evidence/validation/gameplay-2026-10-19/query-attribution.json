@@ -1,0 +1,578 @@
+{
+  "selected_complete_frame_labels": {
+    "1201": {
+      "first_us": 90968087,
+      "last_us": 91096093,
+      "calls": {
+        "vkEndCommandBuffer": 20,
+        "vkQueueSubmit": 6,
+        "vkResetCommandPool": 7,
+        "vkBeginCommandBuffer": 21,
+        "vkResetFences": 6,
+        "vkCreateFramebuffer": 33,
+        "vkCmdBeginRenderPass": 34,
+        "vkCmdEndRenderPass": 34,
+        "vkCmdBindVertexBuffers2EXT": 161,
+        "vkAllocateDescriptorSets": 198,
+        "vkUpdateDescriptorSetWithTemplate": 198,
+        "vkCmdBindDescriptorSets": 351,
+        "vkCmdBindPipeline": 158,
+        "vkCmdSetViewport": 28,
+        "vkCmdSetScissor": 28,
+        "vkCmdDraw": 26,
+        "vkCmdSetStencilReference": 45,
+        "vkCmdBindIndexBuffer": 12,
+        "vkCmdDrawIndexed": 348,
+        "vkWaitForFences": 6,
+        "vkDestroyFramebuffer": 29,
+        "vkAcquireNextImageKHR": 1,
+        "vkGetPhysicalDeviceImageFormatProperties": 6,
+        "vkCreateImage": 2,
+        "vkGetImageMemoryRequirements2": 2,
+        "vkBindImageMemory": 2,
+        "vkGetImageSubresourceLayout": 12,
+        "vkCmdPipelineBarrier": 3,
+        "vkGetQueryPoolResults": 6,
+        "vkDestroyImage": 2,
+        "vkResetQueryPoolEXT": 6,
+        "vkCmdBeginQuery": 6,
+        "vkCmdEndQuery": 6,
+        "vkCmdCopyBufferToImage": 1,
+        "vkQueuePresentKHR": 1
+      },
+      "submitted_complete": 6,
+      "submitted_incomplete": 0,
+      "complete_commands": {
+        "vkCmdPipelineBarrier": 3,
+        "vkCmdCopyBufferToImage": 1,
+        "vkCmdBeginRenderPass": 34,
+        "vkCmdEndRenderPass": 34,
+        "vkCmdBindVertexBuffers2EXT": 161,
+        "vkCmdBindDescriptorSets": 351,
+        "vkCmdBindPipeline": 158,
+        "vkCmdSetViewport": 28,
+        "vkCmdSetScissor": 28,
+        "vkCmdDraw": 26,
+        "vkCmdSetStencilReference": 45,
+        "vkCmdBindIndexBuffer": 12,
+        "vkCmdDrawIndexed": 348,
+        "vkCmdBeginQuery": 6,
+        "vkCmdEndQuery": 6
+      },
+      "in_render_pass_barriers": 0,
+      "in_render_pass_query_ends": 6,
+      "unsupported_submit_calls": 0
+    },
+    "1501": {
+      "first_us": 116553681,
+      "last_us": 116760683,
+      "calls": {
+        "vkEndCommandBuffer": 23,
+        "vkResetCommandPool": 8,
+        "vkBeginCommandBuffer": 24,
+        "vkQueueSubmit": 8,
+        "vkResetFences": 8,
+        "vkCreateFramebuffer": 33,
+        "vkCmdBeginRenderPass": 34,
+        "vkCmdEndRenderPass": 34,
+        "vkCmdBindVertexBuffers2EXT": 241,
+        "vkAllocateDescriptorSets": 386,
+        "vkUpdateDescriptorSetWithTemplate": 386,
+        "vkCmdBindDescriptorSets": 753,
+        "vkCmdBindPipeline": 295,
+        "vkCmdSetViewport": 28,
+        "vkCmdSetScissor": 28,
+        "vkCmdDraw": 26,
+        "vkCmdSetStencilReference": 67,
+        "vkCmdBindIndexBuffer": 14,
+        "vkCmdDrawIndexed": 836,
+        "vkCmdSetDepthBias": 18,
+        "vkWaitForFences": 8,
+        "vkDestroyFramebuffer": 39,
+        "vkAcquireNextImageKHR": 1,
+        "vkGetPhysicalDeviceImageFormatProperties": 6,
+        "vkCreateImage": 2,
+        "vkGetImageMemoryRequirements2": 2,
+        "vkBindImageMemory": 2,
+        "vkGetImageSubresourceLayout": 12,
+        "vkCmdPipelineBarrier": 3,
+        "vkGetPhysicalDeviceFormatProperties": 4,
+        "vkCreateImageView": 8,
+        "vkGetQueryPoolResults": 6,
+        "vkResetQueryPoolEXT": 6,
+        "vkCmdBeginQuery": 6,
+        "vkCmdEndQuery": 6,
+        "vkDestroyImage": 2,
+        "vkCmdCopyBufferToImage": 1,
+        "vkQueuePresentKHR": 1
+      },
+      "submitted_complete": 8,
+      "submitted_incomplete": 0,
+      "complete_commands": {
+        "vkCmdPipelineBarrier": 3,
+        "vkCmdCopyBufferToImage": 1,
+        "vkCmdBeginRenderPass": 34,
+        "vkCmdEndRenderPass": 34,
+        "vkCmdBindVertexBuffers2EXT": 241,
+        "vkCmdBindDescriptorSets": 753,
+        "vkCmdBindPipeline": 295,
+        "vkCmdSetViewport": 28,
+        "vkCmdSetScissor": 28,
+        "vkCmdDraw": 26,
+        "vkCmdSetStencilReference": 67,
+        "vkCmdBindIndexBuffer": 14,
+        "vkCmdDrawIndexed": 836,
+        "vkCmdSetDepthBias": 18,
+        "vkCmdBeginQuery": 6,
+        "vkCmdEndQuery": 6
+      },
+      "in_render_pass_barriers": 0,
+      "in_render_pass_query_ends": 6,
+      "unsupported_submit_calls": 0
+    },
+    "1502": {
+      "first_us": 116760931,
+      "last_us": 117012815,
+      "calls": {
+        "vkEndCommandBuffer": 36,
+        "vkResetCommandPool": 12,
+        "vkBeginCommandBuffer": 36,
+        "vkResetFences": 12,
+        "vkQueueSubmit": 11,
+        "vkCreateFramebuffer": 35,
+        "vkCmdBeginRenderPass": 36,
+        "vkCmdEndRenderPass": 36,
+        "vkCmdBindVertexBuffers2EXT": 245,
+        "vkAllocateDescriptorSets": 391,
+        "vkUpdateDescriptorSetWithTemplate": 391,
+        "vkCmdBindDescriptorSets": 753,
+        "vkCmdBindPipeline": 295,
+        "vkCmdSetViewport": 30,
+        "vkCmdSetScissor": 30,
+        "vkCmdDraw": 26,
+        "vkCmdSetStencilReference": 68,
+        "vkCmdBindIndexBuffer": 16,
+        "vkCmdDrawIndexed": 828,
+        "vkCmdSetDepthBias": 18,
+        "vkWaitForFences": 11,
+        "vkDestroyFramebuffer": 35,
+        "vkCreateDescriptorSetLayout": 2,
+        "vkCreatePipelineLayout": 2,
+        "vkCreateDescriptorUpdateTemplate": 2,
+        "vkCreateShaderModule": 4,
+        "vkCreateGraphicsPipelines": 2,
+        "vkDestroyShaderModule": 4,
+        "vkAcquireNextImageKHR": 1,
+        "vkGetPhysicalDeviceImageFormatProperties": 6,
+        "vkCreateImage": 2,
+        "vkGetImageMemoryRequirements2": 2,
+        "vkBindImageMemory": 2,
+        "vkGetImageSubresourceLayout": 12,
+        "vkCmdPipelineBarrier": 3,
+        "vkGetQueryPoolResults": 6,
+        "vkDestroyImage": 2,
+        "vkResetQueryPoolEXT": 6,
+        "vkCmdBeginQuery": 6,
+        "vkCmdEndQuery": 6,
+        "vkCmdCopyBufferToImage": 1,
+        "vkQueuePresentKHR": 1
+      },
+      "submitted_complete": 11,
+      "submitted_incomplete": 0,
+      "complete_commands": {
+        "vkCmdPipelineBarrier": 3,
+        "vkCmdCopyBufferToImage": 1,
+        "vkCmdBeginRenderPass": 36,
+        "vkCmdEndRenderPass": 36,
+        "vkCmdBindVertexBuffers2EXT": 245,
+        "vkCmdBindDescriptorSets": 753,
+        "vkCmdBindPipeline": 295,
+        "vkCmdSetViewport": 30,
+        "vkCmdSetScissor": 30,
+        "vkCmdDraw": 26,
+        "vkCmdSetStencilReference": 68,
+        "vkCmdBindIndexBuffer": 16,
+        "vkCmdDrawIndexed": 828,
+        "vkCmdSetDepthBias": 18,
+        "vkCmdBeginQuery": 6,
+        "vkCmdEndQuery": 6
+      },
+      "in_render_pass_barriers": 0,
+      "in_render_pass_query_ends": 6,
+      "unsupported_submit_calls": 0
+    },
+    "1801": {
+      "first_us": 137264164,
+      "last_us": 137398124,
+      "calls": {
+        "vkCmdPipelineBarrier": 4,
+        "vkEndCommandBuffer": 27,
+        "vkResetCommandPool": 9,
+        "vkBeginCommandBuffer": 27,
+        "vkQueueSubmit": 8,
+        "vkResetFences": 9,
+        "vkCreateFramebuffer": 39,
+        "vkCmdBeginRenderPass": 40,
+        "vkCmdEndRenderPass": 39,
+        "vkCmdBindVertexBuffers2EXT": 180,
+        "vkAllocateDescriptorSets": 200,
+        "vkUpdateDescriptorSetWithTemplate": 200,
+        "vkCmdBindDescriptorSets": 317,
+        "vkCmdBindPipeline": 173,
+        "vkCmdSetViewport": 29,
+        "vkCmdSetScissor": 29,
+        "vkCmdDraw": 35,
+        "vkCmdSetStencilReference": 44,
+        "vkCmdBindIndexBuffer": 10,
+        "vkCmdDrawIndexed": 393,
+        "vkCmdSetDepthBias": 2,
+        "vkWaitForFences": 8,
+        "vkDestroyFramebuffer": 33,
+        "vkAcquireNextImageKHR": 1,
+        "vkGetPhysicalDeviceImageFormatProperties": 6,
+        "vkCreateImage": 2,
+        "vkGetImageMemoryRequirements2": 2,
+        "vkBindImageMemory": 2,
+        "vkGetImageSubresourceLayout": 12,
+        "vkDestroyImage": 2,
+        "vkResetQueryPoolEXT": 6,
+        "vkCmdBeginQuery": 6,
+        "vkCmdEndQuery": 6,
+        "vkCmdCopyBufferToImage": 1,
+        "vkQueuePresentKHR": 1
+      },
+      "submitted_complete": 8,
+      "submitted_incomplete": 0,
+      "complete_commands": {
+        "vkCmdPipelineBarrier": 3,
+        "vkCmdCopyBufferToImage": 1,
+        "vkCmdBeginRenderPass": 34,
+        "vkCmdEndRenderPass": 34,
+        "vkCmdBindVertexBuffers2EXT": 178,
+        "vkCmdBindDescriptorSets": 315,
+        "vkCmdBindPipeline": 172,
+        "vkCmdSetViewport": 28,
+        "vkCmdSetScissor": 28,
+        "vkCmdDraw": 34,
+        "vkCmdSetStencilReference": 44,
+        "vkCmdBindIndexBuffer": 10,
+        "vkCmdDrawIndexed": 393,
+        "vkCmdSetDepthBias": 2,
+        "vkCmdBeginQuery": 6,
+        "vkCmdEndQuery": 6
+      },
+      "in_render_pass_barriers": 0,
+      "in_render_pass_query_ends": 6,
+      "unsupported_submit_calls": 0
+    },
+    "1802": {
+      "first_us": 137398227,
+      "last_us": 137525082,
+      "calls": {
+        "vkCmdBindPipeline": 175,
+        "vkCmdSetViewport": 27,
+        "vkCmdSetScissor": 27,
+        "vkCmdDraw": 33,
+        "vkCmdEndRenderPass": 31,
+        "vkQueueSubmit": 7,
+        "vkCreateFramebuffer": 31,
+        "vkCmdBeginRenderPass": 31,
+        "vkCmdBindVertexBuffers2EXT": 180,
+        "vkAllocateDescriptorSets": 198,
+        "vkUpdateDescriptorSetWithTemplate": 198,
+        "vkCmdBindDescriptorSets": 317,
+        "vkCmdSetStencilReference": 44,
+        "vkEndCommandBuffer": 21,
+        "vkResetCommandPool": 7,
+        "vkBeginCommandBuffer": 21,
+        "vkResetFences": 7,
+        "vkCmdBindIndexBuffer": 10,
+        "vkCmdDrawIndexed": 396,
+        "vkCmdSetDepthBias": 2,
+        "vkWaitForFences": 7,
+        "vkDestroyFramebuffer": 32,
+        "vkAcquireNextImageKHR": 1,
+        "vkGetPhysicalDeviceImageFormatProperties": 6,
+        "vkCreateImage": 2,
+        "vkGetImageMemoryRequirements2": 2,
+        "vkBindImageMemory": 2,
+        "vkGetImageSubresourceLayout": 12,
+        "vkCmdPipelineBarrier": 3,
+        "vkGetQueryPoolResults": 6,
+        "vkResetQueryPoolEXT": 6,
+        "vkCmdBeginQuery": 6,
+        "vkCmdEndQuery": 6,
+        "vkDestroyImage": 2,
+        "vkCmdCopyBufferToImage": 1
+      },
+      "submitted_complete": 7,
+      "submitted_incomplete": 0,
+      "complete_commands": {
+        "vkCmdPipelineBarrier": 3,
+        "vkCmdCopyBufferToImage": 1,
+        "vkCmdBeginRenderPass": 34,
+        "vkCmdEndRenderPass": 34,
+        "vkCmdBindVertexBuffers2EXT": 182,
+        "vkCmdBindDescriptorSets": 319,
+        "vkCmdBindPipeline": 176,
+        "vkCmdSetViewport": 28,
+        "vkCmdSetScissor": 28,
+        "vkCmdDraw": 34,
+        "vkCmdSetStencilReference": 44,
+        "vkCmdBindIndexBuffer": 10,
+        "vkCmdDrawIndexed": 396,
+        "vkCmdSetDepthBias": 2,
+        "vkCmdBeginQuery": 6,
+        "vkCmdEndQuery": 6
+      },
+      "in_render_pass_barriers": 0,
+      "in_render_pass_query_ends": 6,
+      "unsupported_submit_calls": 0
+    }
+  },
+  "begin_query_samples": [
+    {
+      "frame": 1200,
+      "time_us": 90914873,
+      "flags": 1
+    },
+    {
+      "frame": 1200,
+      "time_us": 90915255,
+      "flags": 1
+    },
+    {
+      "frame": 1200,
+      "time_us": 90915327,
+      "flags": 1
+    },
+    {
+      "frame": 1200,
+      "time_us": 90915387,
+      "flags": 1
+    },
+    {
+      "frame": 1200,
+      "time_us": 90915501,
+      "flags": 1
+    },
+    {
+      "frame": 1200,
+      "time_us": 90915559,
+      "flags": 1
+    },
+    {
+      "frame": 1201,
+      "time_us": 91037995,
+      "flags": 1
+    },
+    {
+      "frame": 1201,
+      "time_us": 91040254,
+      "flags": 1
+    },
+    {
+      "frame": 1201,
+      "time_us": 91040329,
+      "flags": 1
+    },
+    {
+      "frame": 1201,
+      "time_us": 91040386,
+      "flags": 1
+    },
+    {
+      "frame": 1201,
+      "time_us": 91040471,
+      "flags": 1
+    },
+    {
+      "frame": 1201,
+      "time_us": 91040526,
+      "flags": 1
+    },
+    {
+      "frame": 1500,
+      "time_us": 116439114,
+      "flags": 1
+    },
+    {
+      "frame": 1500,
+      "time_us": 116440029,
+      "flags": 1
+    },
+    {
+      "frame": 1500,
+      "time_us": 116440146,
+      "flags": 1
+    },
+    {
+      "frame": 1500,
+      "time_us": 116440559,
+      "flags": 1
+    },
+    {
+      "frame": 1500,
+      "time_us": 116440728,
+      "flags": 1
+    },
+    {
+      "frame": 1500,
+      "time_us": 116440809,
+      "flags": 1
+    },
+    {
+      "frame": 1501,
+      "time_us": 116645273,
+      "flags": 1
+    },
+    {
+      "frame": 1501,
+      "time_us": 116645655,
+      "flags": 1
+    },
+    {
+      "frame": 1501,
+      "time_us": 116645725,
+      "flags": 1
+    },
+    {
+      "frame": 1501,
+      "time_us": 116645826,
+      "flags": 1
+    },
+    {
+      "frame": 1501,
+      "time_us": 116645885,
+      "flags": 1
+    },
+    {
+      "frame": 1501,
+      "time_us": 116645969,
+      "flags": 1
+    },
+    {
+      "frame": 1502,
+      "time_us": 116877115,
+      "flags": 1
+    },
+    {
+      "frame": 1502,
+      "time_us": 116877469,
+      "flags": 1
+    },
+    {
+      "frame": 1502,
+      "time_us": 116880080,
+      "flags": 1
+    },
+    {
+      "frame": 1502,
+      "time_us": 116880447,
+      "flags": 1
+    },
+    {
+      "frame": 1502,
+      "time_us": 116880564,
+      "flags": 1
+    },
+    {
+      "frame": 1502,
+      "time_us": 116883494,
+      "flags": 1
+    },
+    {
+      "frame": 1800,
+      "time_us": 137181513,
+      "flags": 1
+    },
+    {
+      "frame": 1800,
+      "time_us": 137184976,
+      "flags": 1
+    },
+    {
+      "frame": 1800,
+      "time_us": 137189960,
+      "flags": 1
+    },
+    {
+      "frame": 1800,
+      "time_us": 137192280,
+      "flags": 1
+    },
+    {
+      "frame": 1800,
+      "time_us": 137192910,
+      "flags": 1
+    },
+    {
+      "frame": 1800,
+      "time_us": 137196922,
+      "flags": 1
+    },
+    {
+      "frame": 1801,
+      "time_us": 137335479,
+      "flags": 1
+    },
+    {
+      "frame": 1801,
+      "time_us": 137336128,
+      "flags": 1
+    },
+    {
+      "frame": 1801,
+      "time_us": 137336200,
+      "flags": 1
+    },
+    {
+      "frame": 1801,
+      "time_us": 137336256,
+      "flags": 1
+    },
+    {
+      "frame": 1801,
+      "time_us": 137336352,
+      "flags": 1
+    },
+    {
+      "frame": 1801,
+      "time_us": 137336410,
+      "flags": 1
+    },
+    {
+      "frame": 1802,
+      "time_us": 137458896,
+      "flags": 1
+    },
+    {
+      "frame": 1802,
+      "time_us": 137460457,
+      "flags": 1
+    },
+    {
+      "frame": 1802,
+      "time_us": 137460606,
+      "flags": 1
+    },
+    {
+      "frame": 1802,
+      "time_us": 137460819,
+      "flags": 1
+    },
+    {
+      "frame": 1802,
+      "time_us": 137460957,
+      "flags": 1
+    },
+    {
+      "frame": 1802,
+      "time_us": 137461144,
+      "flags": 1
+    }
+  ],
+  "query_type_evidence": "All sampled BeginQuery calls use PRECISE_BIT (1), valid for occlusion queries. Pool creation falls outside the captured ranges; queryType was not directly captured for the game pool.",
+  "scope": "No secondary commands were found in the selected submitted buffers. Query ends occur inside render passes. This attributes a split trigger, not every split or removable time.",
+  "trace_sha256": "94ec52aae45245ab32b14e158a2c7c31425ae9eaae3c1e8cb661f8c7d1d78701"
+}

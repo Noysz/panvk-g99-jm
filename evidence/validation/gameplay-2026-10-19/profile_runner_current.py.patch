@@ -1,0 +1,75 @@
+--- measurement_runner.py
++++ profile_runner_current.py
+@@ -40,18 +40,43 @@
+             if row['text'].strip()]
+ 
+ 
+-def activate(x, y, keyboard=False):
++def activate(x, y, keyboard=False, evidence_dir=None):
+     env = {**os.environ, 'DISPLAY': ':0'}
+     subprocess.run(['xdotool', 'mousemove', str(round(x)), str(round(y))],
+                    env=env, check=True)
++    if keyboard:
++        if evidence_dir is None:
++            raise ValueError('Menu selection requires an evidence directory')
++        for attempt in range(4):
++            time.sleep(1.5)
++            target = evidence_dir / f'menu-hover-{attempt}.png'
++            subprocess.run(['import', '-window', 'root', str(target)],
++                           env=env, check=True, timeout=15)
++            title = ' '.join(w['text'].upper() for w in
++                             words_in(target, (460, 130, 770, 185)))
++            if 'START' in title and 'BENCHMARK' in title:
++                break
++            words = words_in(target, (110, 140, 350, 330))
++            match = next((w for w in words if w['text'].upper() == 'BENCHMARK'), None)
++            if match:
++                subprocess.run(['xdotool', 'mousemove', str(round(match['x'])),
++                                str(round(match['y']))], env=env, check=True)
++        else:
++            raise RuntimeError('Could not verify START BENCHMARK selection')
+     time.sleep(.3)
+     down, up, key = ('keydown', 'keyup', 'Return') if keyboard else (
+         'mousedown', 'mouseup', '1')
++    stamp = {'unix': time.time(), 'monotonic': time.monotonic()}
++    if evidence_dir is not None:
++        present = evidence_dir / 'present.csv'
++        if present.exists():
++            stamp['present_lines'] = len(present.read_text().splitlines())
+     try:
+         subprocess.run(['xdotool', down, key], env=env, check=True)
+         time.sleep(.4)
+     finally:
+         subprocess.run(['xdotool', up, key], env=env, check=True)
++    return stamp
+ 
+ 
+ def result_dialog(image, template):
+@@ -166,6 +191,7 @@
+     env = {k: v for k, v in os.environ.items() if not k.startswith(
+         ('PANVK_', 'PAN_', 'pan_', 'MESA_', 'DXVK_', 'VK_', 'ADRENOTOOLS_'))}
+     env.pop('LD_PRELOAD', None)
++    controls.update(json.loads(Path(os.environ['PANVK_BENCH_PROFILE_CONTROLS']).read_text()))
+     env.update(controls)
+     command = [str(WINE / 'wine'), str(game / 'TombRaider.exe'),
+                '-benchmark', '-benchmarkini', 'bench.ini']
+@@ -242,14 +268,12 @@
+                         match = next((w for w in words if w['text'].upper() == wanted), None)
+                         if match:
+                             action = {'action': wanted, 'screenshot': name,
+-                                      'x': match['x'], 'y': match['y'],
+-                                      'elapsed_seconds': time.monotonic() - started,
+-                                      'unix': time.time()}
+-                            present = out / 'present.csv'
+-                            if present.exists():
+-                                action['present_lines'] = len(present.read_text().splitlines())
++                                      'x': match['x'], 'y': match['y']}
++                            stamp = activate(match['x'], match['y'],
++                                             keyboard=phase == 'menu', evidence_dir=out)
++                            action.update(stamp)
++                            action['elapsed_seconds'] = action.pop('monotonic') - started
+                             manifest['actions'].append(action)
+-                            activate(match['x'], match['y'], keyboard=phase == 'menu')
+                             phase = 'menu' if phase == 'launcher' else 'benchmark'
+                             (out / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+                             print(f'{out.name}: activated {wanted}', flush=True)

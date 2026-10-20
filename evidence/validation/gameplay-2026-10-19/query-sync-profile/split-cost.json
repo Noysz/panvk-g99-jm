@@ -1,0 +1,171 @@
+{
+  "selection": "Windows first observed 132-158 seconds after process launch; 1-second observation sampling. Camera screenshots at 135/150 s. Compiler activity at about 169-176 s excluded.",
+  "scope": "Serialized chain submission-to-observed-completion wall time; includes CPU/submit overhead, real draw and attachment work. Not hardware cycle time or wholly removable cost. Only a separate diagnostic run, no normal-mode FPS comparison.",
+  "windows": [
+    {
+      "observed_elapsed_seconds": 132.77555060386658,
+      "header_line": 514,
+      "driver_t": 99.2,
+      "passes_per_second": 42.3,
+      "draws_per_pass_rounded": 1.0,
+      "compute_per_pass_rounded": 1.0,
+      "chain_wall_share_percent_rounded": 6.0,
+      "vtc_ms_per_second": 17.3,
+      "fragment_ms_per_second": 35.0,
+      "chain_wall_ms_per_pass": 1.236406619385343
+    },
+    {
+      "observed_elapsed_seconds": 134.79471588134766,
+      "header_line": 527,
+      "driver_t": 101.2,
+      "passes_per_second": 44.3,
+      "draws_per_pass_rounded": 1.0,
+      "compute_per_pass_rounded": 1.0,
+      "chain_wall_share_percent_rounded": 7.0,
+      "vtc_ms_per_second": 24.6,
+      "fragment_ms_per_second": 37.3,
+      "chain_wall_ms_per_pass": 1.397291196388262
+    },
+    {
+      "observed_elapsed_seconds": 136.80687928199768,
+      "header_line": 540,
+      "driver_t": 103.3,
+      "passes_per_second": 44.8,
+      "draws_per_pass_rounded": 1.0,
+      "compute_per_pass_rounded": 1.0,
+      "chain_wall_share_percent_rounded": 6.0,
+      "vtc_ms_per_second": 20.8,
+      "fragment_ms_per_second": 34.5,
+      "chain_wall_ms_per_pass": 1.234375
+    },
+    {
+      "observed_elapsed_seconds": 138.82544422149658,
+      "header_line": 553,
+      "driver_t": 105.3,
+      "passes_per_second": 44.8,
+      "draws_per_pass_rounded": 1.0,
+      "compute_per_pass_rounded": 1.0,
+      "chain_wall_share_percent_rounded": 5.0,
+      "vtc_ms_per_second": 16.8,
+      "fragment_ms_per_second": 30.8,
+      "chain_wall_ms_per_pass": 1.0625
+    },
+    {
+      "observed_elapsed_seconds": 140.84111618995667,
+      "header_line": 566,
+      "driver_t": 107.3,
+      "passes_per_second": 54.3,
+      "draws_per_pass_rounded": 1.0,
+      "compute_per_pass_rounded": 1.0,
+      "chain_wall_share_percent_rounded": 8.0,
+      "vtc_ms_per_second": 26.2,
+      "fragment_ms_per_second": 50.7,
+      "chain_wall_ms_per_pass": 1.4162062615101292
+    },
+    {
+      "observed_elapsed_seconds": 142.8559160232544,
+      "header_line": 579,
+      "driver_t": 109.3,
+      "passes_per_second": 53.9,
+      "draws_per_pass_rounded": 1.0,
+      "compute_per_pass_rounded": 1.0,
+      "chain_wall_share_percent_rounded": 9.0,
+      "vtc_ms_per_second": 30.9,
+      "fragment_ms_per_second": 48.8,
+      "chain_wall_ms_per_pass": 1.4786641929499071
+    },
+    {
+      "observed_elapsed_seconds": 144.87165236473083,
+      "header_line": 592,
+      "driver_t": 111.3,
+      "passes_per_second": 42.2,
+      "draws_per_pass_rounded": 1.0,
+      "compute_per_pass_rounded": 1.0,
+      "chain_wall_share_percent_rounded": 10.0,
+      "vtc_ms_per_second": 40.2,
+      "fragment_ms_per_second": 55.6,
+      "chain_wall_ms_per_pass": 2.270142180094787
+    },
+    {
+      "observed_elapsed_seconds": 146.8917112350464,
+      "header_line": 605,
+      "driver_t": 113.3,
+      "passes_per_second": 47.5,
+      "draws_per_pass_rounded": 1.0,
+      "compute_per_pass_rounded": 1.0,
+      "chain_wall_share_percent_rounded": 7.0,
+      "vtc_ms_per_second": 21.8,
+      "fragment_ms_per_second": 43.4,
+      "chain_wall_ms_per_pass": 1.3726315789473684
+    },
+    {
+      "observed_elapsed_seconds": 148.91062879562378,
+      "header_line": 618,
+      "driver_t": 115.3,
+      "passes_per_second": 37.4,
+      "draws_per_pass_rounded": 1.0,
+      "compute_per_pass_rounded": 1.0,
+      "chain_wall_share_percent_rounded": 6.0,
+      "vtc_ms_per_second": 22.9,
+      "fragment_ms_per_second": 32.8,
+      "chain_wall_ms_per_pass": 1.4893048128342246
+    },
+    {
+      "observed_elapsed_seconds": 150.92554688453674,
+      "header_line": 631,
+      "driver_t": 117.4,
+      "passes_per_second": 41.7,
+      "draws_per_pass_rounded": 1.0,
+      "compute_per_pass_rounded": 1.0,
+      "chain_wall_share_percent_rounded": 9.0,
+      "vtc_ms_per_second": 30.0,
+      "fragment_ms_per_second": 48.8,
+      "chain_wall_ms_per_pass": 1.8896882494004794
+    },
+    {
+      "observed_elapsed_seconds": 152.94447445869446,
+      "header_line": 644,
+      "driver_t": 119.4,
+      "passes_per_second": 39.9,
+      "draws_per_pass_rounded": 1.0,
+      "compute_per_pass_rounded": 1.0,
+      "chain_wall_share_percent_rounded": 6.0,
+      "vtc_ms_per_second": 24.4,
+      "fragment_ms_per_second": 28.1,
+      "chain_wall_ms_per_pass": 1.3157894736842106
+    },
+    {
+      "observed_elapsed_seconds": 154.96031856536865,
+      "header_line": 657,
+      "driver_t": 121.4,
+      "passes_per_second": 37.5,
+      "draws_per_pass_rounded": 1.0,
+      "compute_per_pass_rounded": 1.0,
+      "chain_wall_share_percent_rounded": 4.0,
+      "vtc_ms_per_second": 14.2,
+      "fragment_ms_per_second": 26.5,
+      "chain_wall_ms_per_pass": 1.0853333333333335
+    },
+    {
+      "observed_elapsed_seconds": 156.9776816368103,
+      "header_line": 670,
+      "driver_t": 123.4,
+      "passes_per_second": 42.1,
+      "draws_per_pass_rounded": 1.0,
+      "compute_per_pass_rounded": 1.0,
+      "chain_wall_share_percent_rounded": 5.0,
+      "vtc_ms_per_second": 17.3,
+      "fragment_ms_per_second": 30.2,
+      "chain_wall_ms_per_pass": 1.1282660332541568
+    }
+  ],
+  "median_chain_wall_ms_per_pass": 1.3726315789473684,
+  "chain_wall_ms_per_pass_range": [
+    1.0625,
+    2.270142180094787
+  ],
+  "chain_wall_share_percent_range": [
+    4.0,
+    10.0
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "run": "A3",
+  "clip_kill_fpk": 0,
+  "frames": 864,
+  "interval_seconds": 89.955625,
+  "wall_seconds": 90.21884408200276,
+  "fps": 9.604735668280888,
+  "frame_ms_median": 92.531,
+  "frame_ms_p95": 162.774,
+  "draws_min_median_max": [
+    466,
+    466.0,
+    466
+  ],
+  "cpu_clocks_khz": {
+    "0": {
+      "min": 900000,
+      "median": 2000000.0,
+      "max": 2000000
+    },
+    "6": {
+      "min": 1400000,
+      "median": 2200000.0,
+      "max": 2200000
+    }
+  },
+  "csv_sha256": "44455a81d26674f6df1a0c6ea88c33b2c6d2f9ec1fe20f4e4f1bd996b39f519f",
+  "csv_header": "frame, frame_timing(us), submit, draw, draw_indexed, present_timing(us)",
+  "swapchain_sizes": [
+    "640x360"
+  ],
+  "runtime_hashes": {
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/game/NSUNS2.exe": "69748801175096afefb7f00eadba24eb6e6616c44924237f43bb428f0a42150e",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/game/d3dcompiler_47.dll": "e994847e01a6f1e4cbdc5a864616ac262f67ee4f14db194984661a8d927ab7f4",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/prefix/drive_c/windows/system32/d3d11.dll": "b473142528f97a9c3cbad134df0dba083a9f207223803b0b6d34574c0619cf95",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/prefix/drive_c/windows/system32/dxgi.dll": "550745e1ad3d30b6720077eb9fa1124ca77fd811cef5e9a01799eb295f972f51",
+    "<device-home>/panvk-refs/gameplay-2026-10-19/layer/libVkLayer_MESA_overlay.so": "18bc159f5d916fac1616c367acbb12b016aedbb7d88204290ddbd4dd53ad390b",
+    "<device-home>/panvk-refs/gameplay-2026-10-19/layer/VkLayer_MESA_overlay.json": "18f90342e3cfcb6993454ef01e9ad0ab4d02c6837f727e354362a44c4efea645"
+  },
+  "initial_state": {
+    "prefix_sha256": {
+      "userdef.reg": "9e8f914cb3602bd2c91462429a2e464ad7852dbba8d73b286770a0ad5cdc69dc",
+      "system.reg": "0cbddb7bbbf4d893cb7a9aa5e2b1b18f0a9a0416bb477c6df01ea0603b59869f",
+      "user.reg": "889a6ffa5fc012c59b8ef4286e5a502be2fc18066ea9f3122238cfabecd90a55",
+      "drive_c/users/Public/Documents/Steam/<save-profile>/543870/achievements.ini": "bd583fdedda922bfc385b7872db9329d4d61c4548852fa8207ebe72b5af8eb2e",
+      "drive_c/users/Public/Documents/Steam/<save-profile>/543870/leaderboards.ini": "749be0285d916625e06e0b5273889c2ede421b1f16f765cf817870fcec8c2930",
+      "drive_c/users/Public/Documents/Steam/<save-profile>/543870/filemappings.ini": "0df471f2d5d210d0f449c017cf60023a57ffd9ba5f6670fe92442f506300aeaa",
+      "drive_c/users/Public/Documents/Steam/<save-profile>/543870/remote/storm2.s": "617cedd4b9995bbd013f60dd1c283e6b7522ac9a6ee091cec788d02f5b851e58",
+      "drive_c/users/xuser/AppData/Roaming/._Microsoft": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/._Windows": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._SendTo": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Templates": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Start Menu": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Printer Shortcuts": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Network Shortcuts": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Themes": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Recent": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/Start Menu/._Programs": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/._Administrative Tools": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/._StartUp": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468"
+    },
+    "config_sha256": "cf4a34b888a378c3af0c430542a44eebec47e3896f8200523af4f278a24de0d7",
+    "scope": "Interactive pilot end state; no replay/performance validation yet."
+  }
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "lavapipe-primary-positive",
+    "exit_code": 0,
+    "validation_errors": [],
+    "layer_inserted": true,
+    "ok": true
+  },
+  {
+    "name": "lavapipe-primary-early-control",
+    "exit_code": 2,
+    "validation_errors": [],
+    "layer_inserted": true,
+    "ok": true
+  },
+  {
+    "name": "lavapipe-secondary-positive",
+    "exit_code": 0,
+    "validation_errors": [],
+    "layer_inserted": true,
+    "ok": true
+  },
+  {
+    "name": "lavapipe-secondary-early-control",
+    "exit_code": 2,
+    "validation_errors": [],
+    "layer_inserted": true,
+    "ok": true
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "manifest.json": "7bdc5f0be5800f570b09c0962ce90fa714d5825d97209d620f70688f6a4f64e8",
+  "manual-actions.json": "9b9577c1894f1fe13d7dfa66ea5d49a8b933c4f896889fc4e93d8fbba4a120a7",
+  "review.json": "8e9e0e062f0ca4c5008cc2aef668f51a09a1ef9d1b25cae5509114108f5d1cf2",
+  "village-before-input.png": "e2f1f3adbf605648f8f590138e734aaa54738dfbb56bfc49246af1a7eb918829",
+  "village-after-input.png": "3dbf1eee2cfc37dd0827aa8f88236aa2b6008398ffb80b3171db3d7db69bf419",
+  "process.log.gz": "ab2dcb6dce7a5f3653b03a6f7c011e2e0e0b7af0d0efa5f91fa4d9a43570961b",
+  "frames.log.gz": "ac18042333b959805e9ed3d28ec2c78fb9ac5e45de62f584fb496c11b444acc9",
+  "present.csv.gz": "a49a80be8a7fbd2da0bf5cc2f392f25c5ac1e4847b3d550c4ba54da357b31ff3",
+  "pilot.py": "9bfb02ecc2780912d324c0ec46e1d127f01b2b97c4436319ce8314808b5ac754",
+  "input.py": "7dd87d6225df4c6cfa625bd5fd207ae76c48357bbc493a74851213d2a0b6c859",
+  "preservation-summary.json": "34d85ebb98b01831f338434ae0defbabcd83702df3b695207c6ae0513bdc2a4b",
+  "README.md": "442ea3347ab3f1c77c2208d99510367da37e76343f5f30fd504b9aec4ce22df8"
+}

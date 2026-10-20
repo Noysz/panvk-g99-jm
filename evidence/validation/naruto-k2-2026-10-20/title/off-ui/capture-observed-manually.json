@@ -1,0 +1,6 @@
+{
+  "unix": 1792499701.9637485,
+  "completion_line": "# snapshot: 30 chains, 86 maps, 354 MB",
+  "snapshot_bytes": 371255800,
+  "reason": "Runner tail window missed completion marker because subsequent logging exceeded 64 KiB before its next poll. Stop marker requests normal scoped cleanup. Full log and snapshot parser will validate capture."
+}

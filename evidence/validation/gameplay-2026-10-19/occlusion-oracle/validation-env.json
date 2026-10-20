@@ -1,0 +1,8 @@
+{
+  "PANVK_ICD_SO": "libvulkan.so.1",
+  "VK_ICD_FILENAMES": "/usr/share/vulkan/icd.d/lvp_icd.json",
+  "VK_LAYER_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/validation-layer",
+  "VK_INSTANCE_LAYERS": "VK_LAYER_KHRONOS_validation",
+  "VK_LAYER_SETTINGS_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/validation-layer",
+  "VK_LOADER_DEBUG": "layer"
+}

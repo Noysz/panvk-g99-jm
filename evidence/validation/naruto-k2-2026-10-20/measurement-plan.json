@@ -1,0 +1,31 @@
+{
+  "order": [
+    "A1",
+    "B1",
+    "A2",
+    "B2",
+    "A3",
+    "B3"
+  ],
+  "A": 0,
+  "B": 1,
+  "controls": {
+    "GPL": true,
+    "async": false,
+    "UBO_PUSH": 0,
+    "DEFER_OQ": 0
+  },
+  "scene": "initial-village-stationary",
+  "resolution": "640x360",
+  "warmup_seconds": 30,
+  "measurement_seconds": 90,
+  "cooldown_seconds": 30,
+  "gate": "Affected shader/draw-state signature shared across correct-image A/B captures with changed K2 fields; manual before/after screenshot review; same initial save/config",
+  "metric": "complete overlay frame intervals strictly within file-offset bounds; discard first interval",
+  "limitations": [
+    "NPC/idle animations not synchronized",
+    "three pairs cannot establish small general speedup",
+    "frequency/temperature limitations reported",
+    "Free Battle validation handled separately"
+  ]
+}

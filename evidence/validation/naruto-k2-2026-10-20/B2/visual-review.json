@@ -1,0 +1,12 @@
+{
+  "before": "action-1792504310493539728.png",
+  "after": "after.png",
+  "environment_player_and_HUD_present": true,
+  "player_location_unchanged": true,
+  "draws_min_median_max": [
+    466,
+    466,
+    466
+  ],
+  "scope": "Visual check, NPC animation not frame-exact"
+}

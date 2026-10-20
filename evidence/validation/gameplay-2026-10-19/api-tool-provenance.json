@@ -1,0 +1,8 @@
+{
+  "binary": "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/libVkLayer_api_dump.so",
+  "sha256": "65c241ebbcee343598c54905ff6c8a75eb418cfad4c55c4c480e02f97898b215",
+  "reference_header": "https://raw.githubusercontent.com/LunarG/VulkanTools/vulkan-sdk-1.4.313.0/layersvt/api_dump.h",
+  "reference_scope": "Settings reference; binary/source identity has not been established. Runtime must verify settings are honored.",
+  "runner_base_sha256": "380d415b33316cf2f72b4ceeb70a5ac15e5fa58ae7f17613e1038a4a4ea8f301",
+  "runner_sha256": "a9652d117c824046ea478a602be332b66fd394e749e3d0b6fb4c3d22ab8e2a20"
+}

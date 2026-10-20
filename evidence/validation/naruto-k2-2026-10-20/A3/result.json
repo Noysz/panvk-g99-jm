@@ -1,0 +1,724 @@
+{
+  "name": "A3",
+  "mode": "measure",
+  "controls": {
+    "LD_PRELOAD": "<device-home>/panvk-refs/proton/noshm/libnoshm.so",
+    "WINEPREFIX": "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/prefix",
+    "WINEDEBUG": "-all",
+    "DISPLAY": ":0",
+    "LD_LIBRARY_PATH": "<device-home>/hangover/root/data/data/com.termux/files/usr/lib:<device-home>/wltest/imagefs/usr/lib:<device-home>/panvk-refs/proton/p10-4-v14/lib",
+    "VK_ICD_FILENAMES": "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/A3/icd.json",
+    "ADRENOTOOLS_DRIVER_PATH": "<device-home>/wltest/drvB19_cache_compiler/",
+    "ADRENOTOOLS_HOOKS_PATH": "<device-home>/wltest/imagefs/usr/lib/",
+    "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+    "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n;winmm=n,b",
+    "DXVK_LOG_LEVEL": "info",
+    "DXVK_LOG_PATH": "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/A3",
+    "DXVK_STATE_CACHE": "0",
+    "DXVK_HUD": "",
+    "DXVK_CONFIG_FILE": "Z:\\<device-home>\\panvk-refs\\t04-gameplay-k2-89avn17o\\A3\\dxvk.conf",
+    "MESA_SHADER_CACHE_DISABLE": "true",
+    "PANVK_V9_CLIP_KILL_FPK": "0",
+    "PANVK_DEFER_OQ": "0",
+    "PANVK_UBO_PUSH": "0",
+    "VK_LAYER_PATH": "<device-home>/panvk-refs/gameplay-2026-10-19/layer",
+    "VK_INSTANCE_LAYERS": "VK_LAYER_MESA_overlay",
+    "VK_LAYER_MESA_OVERLAY_CONFIG": "no_display=1,device=0,format=0,fps=0,frame=1,frame_timing=1,present_timing=1,submit=1,draw=1,draw_indexed=1,fps_sampling_period=0,output_file=<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/A3/present.csv"
+  },
+  "command": [
+    "<device-home>/panvk-refs/proton/p10-4-v14/bin/wine",
+    "explorer",
+    "/desktop=shell,848x480",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/game/NSUNS2.exe"
+  ],
+  "start_unix": 1792504479.2153437,
+  "pins_before": {
+    "<device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so": "d77c3c46ecd24889b34f1fe1ebd80f284622be729673c568ce1e62c244dbd114",
+    "<device-home>/panvk-refs/proton/noshm/libnoshm.so": "a4b86c51f797695b91d5a870b30e304361aa6a52fff844f478a71c072e6cc424",
+    "<device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+    "<device-home>/panvk-refs/proton/p10-4-v14/bin/wine": "07189f752896d526851599dc4d983ecda0a28f927d615010c032833669b4c24e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/NSUNS2.exe": "69748801175096afefb7f00eadba24eb6e6616c44924237f43bb428f0a42150e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/d3d11.dll": "b473142528f97a9c3cbad134df0dba083a9f207223803b0b6d34574c0619cf95",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/dxgi.dll": "550745e1ad3d30b6720077eb9fa1124ca77fd811cef5e9a01799eb295f972f51",
+    "<device-home>/panvk-refs/naruto-2026-10-19/gpl0b/icd.json": "96f359657df63c4a8cdee17c941e2c455fe19cb1183d629d0beded9368f3d279",
+    "<device-home>/panvk-refs/naruto-2026-10-19/libiolog-color.so": "b239432ca701a6c394e543d18a3f46fa5044c2ae60b8d58d5f429452b85efc04",
+    "<device-home>/panvk-refs/naruto-2026-10-19/iolog-color.c": "37e64b4cce02d2b1245b08bc3a20849f1d5cc3363887e06183db8ce316ed19a5"
+  },
+  "runner_sha256": "7be04b08bbe9772841db5c003b2866c24b483744aa273a0c6b29ec4620c46a84",
+  "runtime_hashes": {
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/game/NSUNS2.exe": "69748801175096afefb7f00eadba24eb6e6616c44924237f43bb428f0a42150e",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/game/d3dcompiler_47.dll": "e994847e01a6f1e4cbdc5a864616ac262f67ee4f14db194984661a8d927ab7f4",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/prefix/drive_c/windows/system32/d3d11.dll": "b473142528f97a9c3cbad134df0dba083a9f207223803b0b6d34574c0619cf95",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/prefix/drive_c/windows/system32/dxgi.dll": "550745e1ad3d30b6720077eb9fa1124ca77fd811cef5e9a01799eb295f972f51",
+    "<device-home>/panvk-refs/gameplay-2026-10-19/layer/libVkLayer_MESA_overlay.so": "18bc159f5d916fac1616c367acbb12b016aedbb7d88204290ddbd4dd53ad390b",
+    "<device-home>/panvk-refs/gameplay-2026-10-19/layer/VkLayer_MESA_overlay.json": "18f90342e3cfcb6993454ef01e9ad0ab4d02c6837f727e354362a44c4efea645"
+  },
+  "restored_state": {
+    "prefix_sha256": {
+      "userdef.reg": "9e8f914cb3602bd2c91462429a2e464ad7852dbba8d73b286770a0ad5cdc69dc",
+      "system.reg": "0cbddb7bbbf4d893cb7a9aa5e2b1b18f0a9a0416bb477c6df01ea0603b59869f",
+      "user.reg": "889a6ffa5fc012c59b8ef4286e5a502be2fc18066ea9f3122238cfabecd90a55",
+      "drive_c/users/Public/Documents/Steam/<save-profile>/543870/achievements.ini": "bd583fdedda922bfc385b7872db9329d4d61c4548852fa8207ebe72b5af8eb2e",
+      "drive_c/users/Public/Documents/Steam/<save-profile>/543870/leaderboards.ini": "749be0285d916625e06e0b5273889c2ede421b1f16f765cf817870fcec8c2930",
+      "drive_c/users/Public/Documents/Steam/<save-profile>/543870/filemappings.ini": "0df471f2d5d210d0f449c017cf60023a57ffd9ba5f6670fe92442f506300aeaa",
+      "drive_c/users/Public/Documents/Steam/<save-profile>/543870/remote/storm2.s": "617cedd4b9995bbd013f60dd1c283e6b7522ac9a6ee091cec788d02f5b851e58",
+      "drive_c/users/xuser/AppData/Roaming/._Microsoft": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/._Windows": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._SendTo": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Templates": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Start Menu": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Printer Shortcuts": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Network Shortcuts": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Themes": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Recent": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/Start Menu/._Programs": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/._Administrative Tools": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/._StartUp": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468"
+    },
+    "config_sha256": "cf4a34b888a378c3af0c430542a44eebec47e3896f8200523af4f278a24de0d7",
+    "scope": "Interactive pilot end state; no replay/performance validation yet."
+  },
+  "original_state_before": {
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/user.reg": "210fa5ae6597490775e956f614f2e4f4efcdb434b6a7c5d666ee62b57ee62266",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/system.reg": "f6e17954eaaa3a5e43e83d1b9e98f753ab545d5b6574ae22463ec23eaea4da4f",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/userdef.reg": "9e8f914cb3602bd2c91462429a2e464ad7852dbba8d73b286770a0ad5cdc69dc",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/users/Public/Documents/Steam/<save-profile>/543870/remote/storm2.s": "617cedd4b9995bbd013f60dd1c283e6b7522ac9a6ee091cec788d02f5b851e58"
+  },
+  "warmup_seconds": 30,
+  "measurement_seconds": 90,
+  "completed": true,
+  "system_samples": [
+    {
+      "monotonic": 197161.035257366,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1200000
+    },
+    {
+      "monotonic": 197166.108376366,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197171.205219751,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197176.284476444,
+      "phase": "navigation",
+      "cpu0_khz": 850000,
+      "cpu6_khz": 1700000
+    },
+    {
+      "monotonic": 197181.583663444,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197186.653101675,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 725000
+    },
+    {
+      "monotonic": 197191.728771214,
+      "phase": "navigation",
+      "cpu0_khz": 800000,
+      "cpu6_khz": 1300000
+    },
+    {
+      "monotonic": 197196.801953291,
+      "phase": "navigation",
+      "cpu0_khz": 1300000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197201.86792283,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1700000
+    },
+    {
+      "monotonic": 197206.947536753,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2000000
+    },
+    {
+      "monotonic": 197211.997504754,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 725000
+    },
+    {
+      "monotonic": 197217.091305985,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197222.173059831,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197227.261235831,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197232.338943447,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197237.398449678,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197242.54372014,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197247.623805679,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197252.701365987,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197257.787412679,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197262.858608064,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197267.930069911,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197273.119323142,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197278.215094604,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197283.296246219,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197288.394743527,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197293.478210297,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197298.567837989,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197303.606935144,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197308.681873682,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197313.774213375,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197318.845464375,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197323.913644068,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197329.009227453,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197334.078279838,
+      "phase": "navigation",
+      "cpu0_khz": 900000,
+      "cpu6_khz": 1700000
+    },
+    {
+      "monotonic": 197339.154831453,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197344.2443383,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197349.335227531,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197354.472776377,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197359.583429993,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1500000
+    },
+    {
+      "monotonic": 197364.66122407,
+      "phase": "navigation",
+      "cpu0_khz": 1900000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197369.735851224,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197374.817716379,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1200000
+    },
+    {
+      "monotonic": 197379.895031148,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197384.973680379,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197390.067975149,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197395.112738611,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197400.250479765,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197405.330826303,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197410.407467535,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197415.486795535,
+      "phase": "navigation",
+      "cpu0_khz": 850000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197420.593684458,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197425.634812382,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197430.753122843,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197435.831661075,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197440.949868459,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197446.072742229,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197451.169802922,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197456.315518614,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1600000
+    },
+    {
+      "monotonic": 197461.445127768,
+      "phase": "warmup",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197466.492701692,
+      "phase": "warmup",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197471.545006,
+      "phase": "warmup",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197476.592709923,
+      "phase": "warmup",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197481.65105177,
+      "phase": "warmup",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197486.720617308,
+      "phase": "warmup",
+      "cpu0_khz": 1600000,
+      "cpu6_khz": 725000
+    },
+    {
+      "monotonic": 197491.812438924,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197496.855936078,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197501.910533617,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1400000
+    },
+    {
+      "monotonic": 197506.97085454,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197512.027786848,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197517.075968156,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1600000
+    },
+    {
+      "monotonic": 197522.132557926,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197527.194759772,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197532.247538542,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197537.309880158,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1400000
+    },
+    {
+      "monotonic": 197542.361179235,
+      "phase": "measurement",
+      "cpu0_khz": 900000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197547.408617004,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197552.490216466,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197557.725647466,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197562.803149082,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197567.866631775,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197572.912761929,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    },
+    {
+      "monotonic": 197577.956581006,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "screen-0020.png",
+      "unix": 1792504499.6241024,
+      "width": 848,
+      "height": 480,
+      "sha256": "ebf53ab23ed46d15e36fd899e9d222c7eae26eed207e48e43e85c9c9c36db6b8"
+    },
+    {
+      "file": "screen-0050.png",
+      "unix": 1792504529.7808783,
+      "width": 848,
+      "height": 480,
+      "sha256": "830f233a099a94402a61a1590c183417b60617c980f9b42d82731bbcdcf3de15"
+    },
+    {
+      "file": "screen-0080.png",
+      "unix": 1792504560.0715184,
+      "width": 848,
+      "height": 480,
+      "sha256": "5a5a7f21cae3890ee3e96f12dafbc0278df3ab6592894956ae83e321569123c7"
+    },
+    {
+      "file": "screen-0110.png",
+      "unix": 1792504590.6482196,
+      "width": 848,
+      "height": 480,
+      "sha256": "3dad1e39a394abc9b18c81808b90d764bd3954c7d4bc477a9862c01f2bd9aba0"
+    },
+    {
+      "file": "screen-0140.png",
+      "unix": 1792504620.6341393,
+      "width": 848,
+      "height": 480,
+      "sha256": "f8ca04df1dd20e8971e7e09805a0e25b66a532af4f2d20d94eaa9c4c7539253e"
+    },
+    {
+      "file": "screen-0170.png",
+      "unix": 1792504651.0989575,
+      "width": 848,
+      "height": 480,
+      "sha256": "d99c1dd3e37daef1f889f1edda9bdb4c6221004f6c8f392d768ca4f05838a445"
+    },
+    {
+      "file": "screen-0200.png",
+      "unix": 1792504680.6606832,
+      "width": 848,
+      "height": 480,
+      "sha256": "de5a7aacae95d738991da581bc096771d120ca55d916943951b368d12d488ed6"
+    },
+    {
+      "file": "screen-0231.png",
+      "unix": 1792504710.843003,
+      "width": 848,
+      "height": 480,
+      "sha256": "8e97ce3e5c24d7afa7e4e7cbcdf97f7c898176c24da6c33bf91935ce0cd72033"
+    },
+    {
+      "file": "screen-0261.png",
+      "unix": 1792504741.1137164,
+      "width": 848,
+      "height": 480,
+      "sha256": "262e57eb62190c229c8c4892a761cd33f09fcabc6af37c50029c682f660eb373"
+    },
+    {
+      "file": "screen-0291.png",
+      "unix": 1792504771.0553389,
+      "width": 848,
+      "height": 480,
+      "sha256": "f9af7393e31f2b9588f8b21ad9d492e391b94778c8dc9dfeae43f444e54e6582"
+    },
+    {
+      "file": "after.png",
+      "unix": 1792504898.4066257,
+      "width": 848,
+      "height": 480,
+      "sha256": "ba93f8f17e978e5ecbc16c47b05f377d6ae023c7011158663da8a6c025913596"
+    }
+  ],
+  "scope": "Initial village scene; image gate required before arming.",
+  "scene_gate": {
+    "unix": 1792504777.0985374,
+    "scene": "initial-village-stationary",
+    "screenshot": "action-1792504762509574140.png",
+    "swapchain_size": "640x360",
+    "sha256": "b1feb438e75071d0f3d5a8db15e109c7da7fd8934d34125a134efd9d5c1f3ae7",
+    "basis": "Screenshot manually viewed: environment, character, NPCs and HUD present; same initial scene. Animation phase may differ."
+  },
+  "swapchain_sizes": [
+    "640x360",
+    "640x360"
+  ],
+  "window_start": {
+    "unix": 1792504807.5606267,
+    "monotonic": 197489.266413616,
+    "offset": 109762
+  },
+  "window_end": {
+    "unix": 1792504897.7794714,
+    "monotonic": 197579.485257698,
+    "offset": 134343
+  },
+  "duration_seconds": 419.0924279480241,
+  "cleanup": {
+    "policy": "prefix-scoped SIGINT then wait; no forced kill",
+    "signal_returncode": 0,
+    "wait_returncode": 0,
+    "launcher_returncode": 1,
+    "remaining": [],
+    "closed": true
+  },
+  "pins_after": {
+    "<device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so": "d77c3c46ecd24889b34f1fe1ebd80f284622be729673c568ce1e62c244dbd114",
+    "<device-home>/panvk-refs/proton/noshm/libnoshm.so": "a4b86c51f797695b91d5a870b30e304361aa6a52fff844f478a71c072e6cc424",
+    "<device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+    "<device-home>/panvk-refs/proton/p10-4-v14/bin/wine": "07189f752896d526851599dc4d983ecda0a28f927d615010c032833669b4c24e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/NSUNS2.exe": "69748801175096afefb7f00eadba24eb6e6616c44924237f43bb428f0a42150e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/d3d11.dll": "b473142528f97a9c3cbad134df0dba083a9f207223803b0b6d34574c0619cf95",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/dxgi.dll": "550745e1ad3d30b6720077eb9fa1124ca77fd811cef5e9a01799eb295f972f51",
+    "<device-home>/panvk-refs/naruto-2026-10-19/gpl0b/icd.json": "96f359657df63c4a8cdee17c941e2c455fe19cb1183d629d0beded9368f3d279",
+    "<device-home>/panvk-refs/naruto-2026-10-19/libiolog-color.so": "b239432ca701a6c394e543d18a3f46fa5044c2ae60b8d58d5f429452b85efc04",
+    "<device-home>/panvk-refs/naruto-2026-10-19/iolog-color.c": "37e64b4cce02d2b1245b08bc3a20849f1d5cc3363887e06183db8ce316ed19a5"
+  },
+  "original_state_after": {
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/user.reg": "210fa5ae6597490775e956f614f2e4f4efcdb434b6a7c5d666ee62b57ee62266",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/system.reg": "f6e17954eaaa3a5e43e83d1b9e98f753ab545d5b6574ae22463ec23eaea4da4f",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/userdef.reg": "9e8f914cb3602bd2c91462429a2e464ad7852dbba8d73b286770a0ad5cdc69dc",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/users/Public/Documents/Steam/<save-profile>/543870/remote/storm2.s": "617cedd4b9995bbd013f60dd1c283e6b7522ac9a6ee091cec788d02f5b851e58"
+  }
+}

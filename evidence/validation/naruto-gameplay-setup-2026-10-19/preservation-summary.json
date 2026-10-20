@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "checked_original_files": 30,
+  "mismatches": 0,
+  "scope": "Original registry/user-state files and game-directory files. The full path/hash mapping remains in the private working artifacts."
+}

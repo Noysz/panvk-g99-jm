@@ -1,0 +1,7 @@
+{
+  "unix": 1792504119.2230108,
+  "decision": "Keep A1/B1 raw timings, exclude pair1 from primary K2 performance inference",
+  "reason": "A1 health HUD disappears before timing and mission HUD differs at end; draw count varies 451-480. B1 and A2 have full HUD and constant 466 draws. Cause not established; no user input confirmation received yet.",
+  "not_evidence_of": "Not sufficient to diagnose driver regression or user input. A2 with same K2 flag has full HUD.",
+  "retest_policy": "Finish scheduled A2/B2 and A3/B3; consider one replacement pair only if all remaining image and timing gates pass."
+}

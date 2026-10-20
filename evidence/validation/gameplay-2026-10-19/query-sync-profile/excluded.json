@@ -1,0 +1,3 @@
+{
+  "reason": "Incomplete synchronous diagnostic; no normal-mode or whole-benchmark performance result. Retain only observed, visually bracketed pass-cost windows."
+}

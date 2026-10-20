@@ -1,0 +1,228 @@
+{
+  "command": [
+    "/data/data/com.termux/files/home/panvk-refs/proton/p10-4-v14/bin/wine",
+    "explorer",
+    "/desktop=shell,848x480",
+    "/data/data/com.termux/files/home/panvk-refs/naruto-2026-10-19/game/NSUNS2.exe"
+  ],
+  "controls": {
+    "LD_PRELOAD": "/data/data/com.termux/files/home/panvk-refs/proton/noshm/libnoshm.so",
+    "WINEPREFIX": "/data/data/com.termux/files/home/panvk-refs/naruto-2026-10-19/prefix",
+    "WINEDEBUG": "-all",
+    "DISPLAY": ":0",
+    "LD_LIBRARY_PATH": "/data/data/com.termux/files/home/hangover/root/data/data/com.termux/files/usr/lib:/data/data/com.termux/files/home/wltest/imagefs/usr/lib:/data/data/com.termux/files/home/panvk-refs/proton/p10-4-v14/lib",
+    "VK_ICD_FILENAMES": "/data/data/com.termux/files/home/panvk-refs/naruto-2026-10-19/pilot1/icd.json",
+    "ADRENOTOOLS_DRIVER_PATH": "/data/data/com.termux/files/home/wltest/drvB19_cache_compiler/",
+    "ADRENOTOOLS_HOOKS_PATH": "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/",
+    "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+    "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n;winmm=n,b",
+    "DXVK_LOG_LEVEL": "info",
+    "DXVK_LOG_PATH": "/data/data/com.termux/files/home/panvk-refs/naruto-2026-10-19/pilot1",
+    "DXVK_STATE_CACHE": "0",
+    "DXVK_HUD": "fps,compiler,pipelines",
+    "MESA_SHADER_CACHE_DISABLE": "true",
+    "PANVK_V9_CLIP_KILL_FPK": "0",
+    "PANVK_DEFER_OQ": "0",
+    "PANVK_UBO_PUSH": "32",
+    "PANVK_FRAME_PROF": "/data/data/com.termux/files/home/panvk-refs/naruto-2026-10-19/pilot1/frames.log",
+    "PANVK_FRAME_PROF_PASSES": "1",
+    "VK_LAYER_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer",
+    "VK_INSTANCE_LAYERS": "VK_LAYER_MESA_overlay",
+    "VK_LAYER_MESA_OVERLAY_CONFIG": "no_display=1,device=0,format=0,fps=0,frame=1,frame_timing=1,present_timing=1,submit=1,draw=1,draw_indexed=1,fps_sampling_period=0,output_file=/data/data/com.termux/files/home/panvk-refs/naruto-2026-10-19/pilot1/present.csv"
+  },
+  "sha256": {
+    "/data/data/com.termux/files/home/wltest/drvB19_cache_compiler/libvulkan_panfrost.so": "d77c3c46ecd24889b34f1fe1ebd80f284622be729673c568ce1e62c244dbd114",
+    "/data/data/com.termux/files/home/panvk-refs/proton/noshm/libnoshm.so": "a4b86c51f797695b91d5a870b30e304361aa6a52fff844f478a71c072e6cc424",
+    "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+    "/data/data/com.termux/files/home/panvk-refs/proton/p10-4-v14/bin/wine": "07189f752896d526851599dc4d983ecda0a28f927d615010c032833669b4c24e",
+    "/data/data/com.termux/files/home/panvk-refs/naruto-2026-10-19/game/NSUNS2.exe": "69748801175096afefb7f00eadba24eb6e6616c44924237f43bb428f0a42150e",
+    "/data/data/com.termux/files/home/panvk-refs/naruto-2026-10-19/game/config.ini": "cf4a34b888a378c3af0c430542a44eebec47e3896f8200523af4f278a24de0d7",
+    "/data/data/com.termux/files/home/panvk-refs/naruto-2026-10-19/pilot.py": "9bfb02ecc2780912d324c0ec46e1d127f01b2b97c4436319ce8314808b5ac754",
+    "/data/data/com.termux/files/home/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/d3d11.dll": "b473142528f97a9c3cbad134df0dba083a9f207223803b0b6d34574c0619cf95",
+    "/data/data/com.termux/files/home/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/dxgi.dll": "550745e1ad3d30b6720077eb9fa1124ca77fd811cef5e9a01799eb295f972f51",
+    "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer/libVkLayer_MESA_overlay.so": "18bc159f5d916fac1616c367acbb12b016aedbb7d88204290ddbd4dd53ad390b",
+    "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/layer/VkLayer_MESA_overlay.json": "18f90342e3cfcb6993454ef01e9ad0ab4d02c6837f727e354362a44c4efea645"
+  },
+  "start_unix": 1792452527.1942427,
+  "screenshots": [
+    {
+      "file": "screen-0015.png",
+      "elapsed_seconds": 15.10851169298985,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0030.png",
+      "elapsed_seconds": 30.102256079000654,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0045.png",
+      "elapsed_seconds": 45.45509169498109,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0060.png",
+      "elapsed_seconds": 60.24026315798983,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0075.png",
+      "elapsed_seconds": 75.09255046598264,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0090.png",
+      "elapsed_seconds": 90.43387054398772,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0105.png",
+      "elapsed_seconds": 105.49034039099934,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0120.png",
+      "elapsed_seconds": 120.28977908397792,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0135.png",
+      "elapsed_seconds": 135.08552223898005,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0150.png",
+      "elapsed_seconds": 150.19817393200356,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0165.png",
+      "elapsed_seconds": 165.00447477897978,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0180.png",
+      "elapsed_seconds": 180.30503262599814,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0195.png",
+      "elapsed_seconds": 195.1606308579794,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0210.png",
+      "elapsed_seconds": 210.40970893600024,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0225.png",
+      "elapsed_seconds": 225.2690702439868,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0240.png",
+      "elapsed_seconds": 240.1572850139928,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0255.png",
+      "elapsed_seconds": 255.03638155400404,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0270.png",
+      "elapsed_seconds": 270.2154530159896,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0285.png",
+      "elapsed_seconds": 285.31168770897784,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0300.png",
+      "elapsed_seconds": 300.14128501797677,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0315.png",
+      "elapsed_seconds": 315.0836624799995,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0330.png",
+      "elapsed_seconds": 330.39277478898293,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0345.png",
+      "elapsed_seconds": 345.03984409797704,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0360.png",
+      "elapsed_seconds": 360.195182483003,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0375.png",
+      "elapsed_seconds": 375.3121536379913,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0390.png",
+      "elapsed_seconds": 390.4272708699864,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0405.png",
+      "elapsed_seconds": 405.09415479400195,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0420.png",
+      "elapsed_seconds": 420.23886717899586,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0435.png",
+      "elapsed_seconds": 435.39453087199945,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0450.png",
+      "elapsed_seconds": 450.0788794120017,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0465.png",
+      "elapsed_seconds": 465.2339794889849,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0480.png",
+      "elapsed_seconds": 480.3396757209848,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0495.png",
+      "elapsed_seconds": 495.05944656798965,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0510.png",
+      "elapsed_seconds": 510.21676256897626,
+      "returncode": 0
+    },
+    {
+      "file": "screen-0525.png",
+      "elapsed_seconds": 525.3712818780041,
+      "returncode": 0
+    }
+  ],
+  "scope": "Interactive gameplay setup pilot; not performance A/B.",
+  "duration_seconds": 534.9490339549957,
+  "launch_returncode": 1,
+  "stopped_by_file": true
+}

@@ -1,0 +1,12 @@
+{
+  "before": "action-1792506058402919448.png",
+  "after": "after.png",
+  "environment_player_and_HUD_present": true,
+  "player_location_unchanged": true,
+  "draws_min_median_max": [
+    451,
+    466,
+    469
+  ],
+  "scope": "Manual endpoint image review only; no images within timing window. Draw counts change during timing; pair excluded from primary comparison."
+}

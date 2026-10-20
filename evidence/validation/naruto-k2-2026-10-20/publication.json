@@ -1,0 +1,964 @@
+{
+  "scope": "Selected existing captures and timing evidence; no new hardware runs.",
+  "normalization": "JSON reformatted; device home and save-profile directory names replaced in metadata/logs. Numeric values, flags, hashes and failure states retained. CSVs, images and analyzer copied byte-for-byte.",
+  "omitted": "Game, driver and wrapper binaries; save/registry contents; raw GPU memory and full IOLOG; navigation images not used in visual reviews.",
+  "files": {
+    "measurement-plan.json": {
+      "source": "t04-gameplay-k2-89avn17o/measurement-plan.json",
+      "source_sha256": "3f74e723122a5a9529c04e7721956efbf6cc9ffd6f89d37cb82d24b7c852b733",
+      "published_sha256": "2dfcf66d60d12cefc7ba0442f70de069d3f785e62d5e58c4279efac6942c0b31",
+      "byte_identical": false
+    },
+    "replacement-plan.json": {
+      "source": "t04-gameplay-k2-89avn17o/replacement-plan.json",
+      "source_sha256": "58bfb3192440ff2c4975f95f3539bd10df8ea31415ccdf303e55626360d8e490",
+      "published_sha256": "486a30833ac6fc55b02f8fd1de6230c5862bc602ca9d451501b10c14c1ee65de",
+      "byte_identical": false
+    },
+    "pair1-exclusion.json": {
+      "source": "t04-gameplay-k2-89avn17o/pair1-exclusion.json",
+      "source_sha256": "dfdcafc7cb5e59d1e1f3ca9e509b56bf37b4a58498aa8b5b1d57f560a0347f91",
+      "published_sha256": "4aeee862df7254015325307f69209c312408510fee612c2ad50a7fe97726970e",
+      "byte_identical": false
+    },
+    "pair4-exclusion.json": {
+      "source": "t04-gameplay-k2-89avn17o/pair4-exclusion.json",
+      "source_sha256": "885b2e6a0b23b108f58d839a9a5172c356a4a059014eff4fb3fa3adfede462fd",
+      "published_sha256": "885b2e6a0b23b108f58d839a9a5172c356a4a059014eff4fb3fa3adfede462fd",
+      "byte_identical": true
+    },
+    "hud-followup.json": {
+      "source": "t04-gameplay-k2-89avn17o/hud-followup.json",
+      "source_sha256": "da804f5df772d7f55a476c80f6fddb97ff6937191e07ee876675d5fe29c8a3b7",
+      "published_sha256": "da804f5df772d7f55a476c80f6fddb97ff6937191e07ee876675d5fe29c8a3b7",
+      "byte_identical": true
+    },
+    "performance-summary.json": {
+      "source": "t04-gameplay-k2-89avn17o/performance-summary.json",
+      "source_sha256": "c73cd6ef75efefb76dcf56774eca667300fdd023f4e8a2c6dd633edea6f0705a",
+      "published_sha256": "b8690ac9c73661add0cefbfd33e46dce24e41becf082cbae28a85e9cd890b063",
+      "byte_identical": false
+    },
+    "k2-descriptor-pair.json": {
+      "source": "t04-gameplay-k2-89avn17o/k2-descriptor-pair.json",
+      "source_sha256": "36e0d875d0ee2d50824d02731c83943fbcdb6e0a75eaa77a229daff66281c574",
+      "published_sha256": "36e0d875d0ee2d50824d02731c83943fbcdb6e0a75eaa77a229daff66281c574",
+      "byte_identical": true
+    },
+    "preservation-final.json": {
+      "source": "t04-gameplay-k2-89avn17o/preservation-final.json",
+      "source_sha256": "7da8d720f2848e4af4afde276b68a995d37daf1b7d95aa3d762d357b9652d933",
+      "published_sha256": "866c4a280d5a6351f29e5bfc28322ff97f3f4d7537c28bb1293014993df60042",
+      "byte_identical": false
+    },
+    "final-audit.json": {
+      "source": "t04-gameplay-k2-89avn17o/final-audit.json",
+      "source_sha256": "be21e765e516450869c52be1056af896d7fe7e51ac4e32735c3a90275cacf600",
+      "published_sha256": "be21e765e516450869c52be1056af896d7fe7e51ac4e32735c3a90275cacf600",
+      "byte_identical": true
+    },
+    "analyze.py": {
+      "source": "t04-gameplay-k2-89avn17o/analyze.py",
+      "source_sha256": "3aec6adede8fab89230e60076fcc3e3505cff5b93f51f8655b66c8ca0966fe9f",
+      "published_sha256": "3aec6adede8fab89230e60076fcc3e3505cff5b93f51f8655b66c8ca0966fe9f",
+      "byte_identical": true
+    },
+    "A1/result.json": {
+      "source": "t04-gameplay-k2-89avn17o/A1/result.json",
+      "source_sha256": "63d304f039c84b65712776cb3263991a5357b1efa165fab06f582aab71f256d3",
+      "published_sha256": "37163e528303e3d666d8610d4778a3a6c2c8fe39690dc0144fdf9ecba73ea0a2",
+      "byte_identical": false
+    },
+    "A1/analysis.json": {
+      "source": "t04-gameplay-k2-89avn17o/A1/analysis.json",
+      "source_sha256": "e4b204be54ddaa25342f7978ca1a79834ce413916d7d896f4d8d648f154a7712",
+      "published_sha256": "7b207ddbf8fbb449542aeeab5b398646eced85be348a3a9f327328878037968e",
+      "byte_identical": false
+    },
+    "A1/visual-review.json": {
+      "source": "t04-gameplay-k2-89avn17o/A1/visual-review.json",
+      "source_sha256": "045ad207d46181f29b6f606d12a53bfa0f83a1436a4d1d64814fba1e6d7159c9",
+      "published_sha256": "045ad207d46181f29b6f606d12a53bfa0f83a1436a4d1d64814fba1e6d7159c9",
+      "byte_identical": true
+    },
+    "A1/ready.json": {
+      "source": "t04-gameplay-k2-89avn17o/A1/ready.json",
+      "source_sha256": "2b83122ce0dc2ac7c904b97074a2c596997e4d9208ceafe7824052d931445e6d",
+      "published_sha256": "537dc83eefdf821a1876b958687c31fb205fab839ad853b9c426cc49a9a86582",
+      "byte_identical": false
+    },
+    "A1/loaded-maps.json": {
+      "source": "t04-gameplay-k2-89avn17o/A1/loaded-maps.json",
+      "source_sha256": "504c9091e34ff70f33aaf3841a9316297397f4c9dbd4530a45722b336a51656e",
+      "published_sha256": "cd21c369bf3c6f132b68dac4110ccfe6d8213addadcca9049c7182a0eeb673b0",
+      "byte_identical": false
+    },
+    "A1/present.csv": {
+      "source": "t04-gameplay-k2-89avn17o/A1/present.csv",
+      "source_sha256": "2b62a8f1985282f6d1000a0fb621a470b7dd309ecfcf4f849125af2128a4089a",
+      "published_sha256": "2b62a8f1985282f6d1000a0fb621a470b7dd309ecfcf4f849125af2128a4089a",
+      "byte_identical": true
+    },
+    "A1/process.log": {
+      "source": "t04-gameplay-k2-89avn17o/A1/process.log",
+      "source_sha256": "cf855c5f17b7bd883bc63579cb71d7970a737a37b060e29a2de5d04db0c2065a",
+      "published_sha256": "3263e2e5e06d62b6cd9b6b478f318e167d5fcc587da0f02bf67805dbd4af39e2",
+      "byte_identical": false
+    },
+    "A1/NSUNS2_d3d11.log": {
+      "source": "t04-gameplay-k2-89avn17o/A1/NSUNS2_d3d11.log",
+      "source_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "published_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "byte_identical": true
+    },
+    "A1/dxvk.conf": {
+      "source": "t04-gameplay-k2-89avn17o/A1/dxvk.conf",
+      "source_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "published_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "byte_identical": true
+    },
+    "A1/after.png": {
+      "source": "t04-gameplay-k2-89avn17o/A1/after.png",
+      "source_sha256": "82fa4d0af98b3992066184d9b9e65a89b639af87c1c5c6d28d04618600e7579b",
+      "published_sha256": "82fa4d0af98b3992066184d9b9e65a89b639af87c1c5c6d28d04618600e7579b",
+      "byte_identical": true
+    },
+    "A1/nav-19.png": {
+      "source": "t04-gameplay-k2-89avn17o/A1/nav-19.png",
+      "source_sha256": "9cd84258cd6835e7d456b83b61094a42032ed2c2fd037e669f6555f304d45ddd",
+      "published_sha256": "9cd84258cd6835e7d456b83b61094a42032ed2c2fd037e669f6555f304d45ddd",
+      "byte_identical": true
+    },
+    "B1/result.json": {
+      "source": "t04-gameplay-k2-89avn17o/B1/result.json",
+      "source_sha256": "8d2bbb4169a67f7c6aff18618f1cc900c2aa194ee5264e2748ad533dcea30c05",
+      "published_sha256": "9e9ccede54c5b3abb64fd1472ae878df29c4c66819183519ab88fa8a9d81f2dc",
+      "byte_identical": false
+    },
+    "B1/analysis.json": {
+      "source": "t04-gameplay-k2-89avn17o/B1/analysis.json",
+      "source_sha256": "efeab8e38e6c69f9fdc87e182798e097aaebb9ddb3d693c836f6fa11dc3f9b1d",
+      "published_sha256": "cf1cb2ba5871465ae52de7b628dd6000cb40bcd35b3b60db12d70f398437abfd",
+      "byte_identical": false
+    },
+    "B1/visual-review.json": {
+      "source": "t04-gameplay-k2-89avn17o/B1/visual-review.json",
+      "source_sha256": "be96d065dc8c75eddbf85e01dd01c060416b931e2c3aebcf1116f337f0d7ef48",
+      "published_sha256": "c05445c5c11e690fd81636ee1ca502608458ec6d7e2667e3ac852cdc94fcb3cd",
+      "byte_identical": false
+    },
+    "B1/ready.json": {
+      "source": "t04-gameplay-k2-89avn17o/B1/ready.json",
+      "source_sha256": "2e30b79dcc5bda81a8e4eb5aefebb06c274b186f6f0dee74b3c8ee50492945a3",
+      "published_sha256": "7fe91396a1ca7c477826de6957fe3f5d2d338a7eed75d19d6b9d04b43ee085ef",
+      "byte_identical": false
+    },
+    "B1/loaded-maps.json": {
+      "source": "t04-gameplay-k2-89avn17o/B1/loaded-maps.json",
+      "source_sha256": "6c17d391d465ddbf0d68d74577b187466239ecf4120bab7230dd424c63053aed",
+      "published_sha256": "b27bc98ecdb66d6d87a9f9a5739365a47c367ad40e3d1aad180ce4da6479fd02",
+      "byte_identical": false
+    },
+    "B1/present.csv": {
+      "source": "t04-gameplay-k2-89avn17o/B1/present.csv",
+      "source_sha256": "07a4916781de30e81d4403101bd66d056a76c2e5037909910e755871430085ad",
+      "published_sha256": "07a4916781de30e81d4403101bd66d056a76c2e5037909910e755871430085ad",
+      "byte_identical": true
+    },
+    "B1/process.log": {
+      "source": "t04-gameplay-k2-89avn17o/B1/process.log",
+      "source_sha256": "4d2cfa971e9bf2829fa58cff5c61cb1f10efe606b14306203b5972299bdc598b",
+      "published_sha256": "33516d86b104433387fdaf76a856976dcdcfc7f1955c2f3acdc292720c156ae6",
+      "byte_identical": false
+    },
+    "B1/NSUNS2_d3d11.log": {
+      "source": "t04-gameplay-k2-89avn17o/B1/NSUNS2_d3d11.log",
+      "source_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "published_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "byte_identical": true
+    },
+    "B1/dxvk.conf": {
+      "source": "t04-gameplay-k2-89avn17o/B1/dxvk.conf",
+      "source_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "published_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "byte_identical": true
+    },
+    "B1/after.png": {
+      "source": "t04-gameplay-k2-89avn17o/B1/after.png",
+      "source_sha256": "614450e995314c6ccf7c14f6d1cc17128304d678162d5b1c3bcf462fc573f076",
+      "published_sha256": "614450e995314c6ccf7c14f6d1cc17128304d678162d5b1c3bcf462fc573f076",
+      "byte_identical": true
+    },
+    "B1/nav-19.png": {
+      "source": "t04-gameplay-k2-89avn17o/B1/nav-19.png",
+      "source_sha256": "4440428eca73f170926ea18a017f60743bbb05729aa7c736a906f82e4ab00660",
+      "published_sha256": "4440428eca73f170926ea18a017f60743bbb05729aa7c736a906f82e4ab00660",
+      "byte_identical": true
+    },
+    "A2/result.json": {
+      "source": "t04-gameplay-k2-89avn17o/A2/result.json",
+      "source_sha256": "30f0eb8c6dc7c5ce3afea8cb720ec3b131deed7e14f05143d7ae5c87d339fa47",
+      "published_sha256": "cab61c9d80b27e5cac91dca6b37f846cade0c8d664cee5e7cbd9d1d0a55f2a01",
+      "byte_identical": false
+    },
+    "A2/analysis.json": {
+      "source": "t04-gameplay-k2-89avn17o/A2/analysis.json",
+      "source_sha256": "2c67954e451a21c3ba193528f097fe9041c63b21131e5f7c239f1cb8b2c8162d",
+      "published_sha256": "832fd759e5168893147c650935234ae0c9b627c7f733ea24dbbbd6efc74737fa",
+      "byte_identical": false
+    },
+    "A2/visual-review.json": {
+      "source": "t04-gameplay-k2-89avn17o/A2/visual-review.json",
+      "source_sha256": "ec786d97f08af608702a440da0adb2cc079bdd9a6cac760428e965208d658d5e",
+      "published_sha256": "e84d17f9e2023d838616ef6f171d1d1e3855e11d303b1d0d67472dfc1f1828fd",
+      "byte_identical": false
+    },
+    "A2/ready.json": {
+      "source": "t04-gameplay-k2-89avn17o/A2/ready.json",
+      "source_sha256": "9a5da1a59fdafb49b72e3844e4f7a89a3a9ae4a5036a834e46318799310e147c",
+      "published_sha256": "67bac897da4e4e6ae5d0b59157752d276ceaf2c413dac1d0a22c692253fb74b2",
+      "byte_identical": false
+    },
+    "A2/loaded-maps.json": {
+      "source": "t04-gameplay-k2-89avn17o/A2/loaded-maps.json",
+      "source_sha256": "503aa66e5dee27733a1e78e6d3fc81143f5a03cc1de341e3e3a9812b372e8d78",
+      "published_sha256": "dee71398bc76e09cf0d1516bd72b40b687396782ddf7fb3d9e0c59d29855d615",
+      "byte_identical": false
+    },
+    "A2/present.csv": {
+      "source": "t04-gameplay-k2-89avn17o/A2/present.csv",
+      "source_sha256": "cbd8dbb269d75f9936226a92b9dd460d7e61b471a8d05cdafd775cfb09c1b7f8",
+      "published_sha256": "cbd8dbb269d75f9936226a92b9dd460d7e61b471a8d05cdafd775cfb09c1b7f8",
+      "byte_identical": true
+    },
+    "A2/process.log": {
+      "source": "t04-gameplay-k2-89avn17o/A2/process.log",
+      "source_sha256": "4662d10f994cee5f6a7762670b922d6c67421a8432d8050b036eb99566e2b1a3",
+      "published_sha256": "44c18c1799e97de44aaf06f2f5903e74194c150676f3818e110dd046935f80b2",
+      "byte_identical": false
+    },
+    "A2/NSUNS2_d3d11.log": {
+      "source": "t04-gameplay-k2-89avn17o/A2/NSUNS2_d3d11.log",
+      "source_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "published_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "byte_identical": true
+    },
+    "A2/dxvk.conf": {
+      "source": "t04-gameplay-k2-89avn17o/A2/dxvk.conf",
+      "source_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "published_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "byte_identical": true
+    },
+    "A2/after.png": {
+      "source": "t04-gameplay-k2-89avn17o/A2/after.png",
+      "source_sha256": "28280924e2be39a2f68b5eb55021398b9b1c4c1bdef30b45e3327d151682c985",
+      "published_sha256": "28280924e2be39a2f68b5eb55021398b9b1c4c1bdef30b45e3327d151682c985",
+      "byte_identical": true
+    },
+    "A2/action-1792503908625147627.png": {
+      "source": "t04-gameplay-k2-89avn17o/A2/action-1792503908625147627.png",
+      "source_sha256": "e1cf5731d05af4aa094a69a2049685e83aa51f34b1cccc397476f41dc8f78979",
+      "published_sha256": "e1cf5731d05af4aa094a69a2049685e83aa51f34b1cccc397476f41dc8f78979",
+      "byte_identical": true
+    },
+    "B2/result.json": {
+      "source": "t04-gameplay-k2-89avn17o/B2/result.json",
+      "source_sha256": "60fccb56427f29641979923866647857561aa04be6ceb861c620249aefb19875",
+      "published_sha256": "baf2a4182e94554a04ffc865e4408de47bbf33fdeaac7946b996c7c9cf039129",
+      "byte_identical": false
+    },
+    "B2/analysis.json": {
+      "source": "t04-gameplay-k2-89avn17o/B2/analysis.json",
+      "source_sha256": "4a46cd29678f3054a1fc76f782c4232984813899a826763c6129c37b216a5b46",
+      "published_sha256": "26e26e0b6d9b9ac22b12ef206e2fc3409cb6976f8b98cf343c019bd8e91bfc7c",
+      "byte_identical": false
+    },
+    "B2/visual-review.json": {
+      "source": "t04-gameplay-k2-89avn17o/B2/visual-review.json",
+      "source_sha256": "879472183c8acfcabd053787f2674dbaa7583aeb8016ff22b3ad4efba6f503a4",
+      "published_sha256": "37c522d81798513da2537ce2877908f2f0ea6b350a60e54bae89cd2e555cdbb0",
+      "byte_identical": false
+    },
+    "B2/ready.json": {
+      "source": "t04-gameplay-k2-89avn17o/B2/ready.json",
+      "source_sha256": "0a15a011abfbc9b73d4358bba7b1d06d1b1cb78290869eda5d127bac280d139d",
+      "published_sha256": "f2da2d4479b81d789d39abae6456c1b0e42c5983aa6ea26b653abdb03ff1b7fc",
+      "byte_identical": false
+    },
+    "B2/loaded-maps.json": {
+      "source": "t04-gameplay-k2-89avn17o/B2/loaded-maps.json",
+      "source_sha256": "fb164e36fb0901021c7483b047054e4ebdf0f6c58a2430c325106aa56351827e",
+      "published_sha256": "6c1e01e8746dbe57890005b2153fb0cd94a8e8ca2f01d6f8d2331179e2603f23",
+      "byte_identical": false
+    },
+    "B2/present.csv": {
+      "source": "t04-gameplay-k2-89avn17o/B2/present.csv",
+      "source_sha256": "458ebce29c06dc5ad4c8eff2de475eaab93f6073e0c0f364c2692eb2eb904312",
+      "published_sha256": "458ebce29c06dc5ad4c8eff2de475eaab93f6073e0c0f364c2692eb2eb904312",
+      "byte_identical": true
+    },
+    "B2/process.log": {
+      "source": "t04-gameplay-k2-89avn17o/B2/process.log",
+      "source_sha256": "736a4a50adebe286f9860ae4ea247063d935a1ae9e6974b675fec7dba69307a8",
+      "published_sha256": "78de19fda3ab1c8f5a338be24e50521ef082486180651daf6e930fdbd42873b4",
+      "byte_identical": false
+    },
+    "B2/NSUNS2_d3d11.log": {
+      "source": "t04-gameplay-k2-89avn17o/B2/NSUNS2_d3d11.log",
+      "source_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "published_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "byte_identical": true
+    },
+    "B2/dxvk.conf": {
+      "source": "t04-gameplay-k2-89avn17o/B2/dxvk.conf",
+      "source_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "published_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "byte_identical": true
+    },
+    "B2/after.png": {
+      "source": "t04-gameplay-k2-89avn17o/B2/after.png",
+      "source_sha256": "d0db909ca705931563bb32178e9ec763e229d777ffa05d5e51deb24a137f8bff",
+      "published_sha256": "d0db909ca705931563bb32178e9ec763e229d777ffa05d5e51deb24a137f8bff",
+      "byte_identical": true
+    },
+    "B2/action-1792504310493539728.png": {
+      "source": "t04-gameplay-k2-89avn17o/B2/action-1792504310493539728.png",
+      "source_sha256": "d1527268eef15b47c173fdc7797b5c9d655261efbd994be7923840638578b075",
+      "published_sha256": "d1527268eef15b47c173fdc7797b5c9d655261efbd994be7923840638578b075",
+      "byte_identical": true
+    },
+    "A3/result.json": {
+      "source": "t04-gameplay-k2-89avn17o/A3/result.json",
+      "source_sha256": "740c801f3b0186fbac23084dbcaf5f24eb83497e78f3ee8a49eaf4ef8b22876f",
+      "published_sha256": "828f4dca5c2e4479651f616e654379149ebb51a68a9d245e47652c8704d62fa4",
+      "byte_identical": false
+    },
+    "A3/analysis.json": {
+      "source": "t04-gameplay-k2-89avn17o/A3/analysis.json",
+      "source_sha256": "4786287e5a1010cc3d833d15f497bcb5871288574915f12b66d08f70c2963c2c",
+      "published_sha256": "d621fde80e3b9e0590a68d82edb8ac72bbfe38165c5fcdc0cd757876b6b8fac7",
+      "byte_identical": false
+    },
+    "A3/visual-review.json": {
+      "source": "t04-gameplay-k2-89avn17o/A3/visual-review.json",
+      "source_sha256": "4ec1c940a72b406e0c677bd7b35aa3f53899ac703bad6b606ec80aa877437578",
+      "published_sha256": "1097e92bbab20fa71b7c3109142d68aba77fb892797a379ff092cb0a690ce876",
+      "byte_identical": false
+    },
+    "A3/ready.json": {
+      "source": "t04-gameplay-k2-89avn17o/A3/ready.json",
+      "source_sha256": "4e5d8856d174fcd31665d1095c48841e4740cc2044ca57b952502e689736ad7c",
+      "published_sha256": "b203ad9a881d0f1d6dbb2bf595b314729cfbf7acc9ddd1dcac6833cd1c53febc",
+      "byte_identical": false
+    },
+    "A3/loaded-maps.json": {
+      "source": "t04-gameplay-k2-89avn17o/A3/loaded-maps.json",
+      "source_sha256": "f12bd40587edfafd31aa1999c04cf983834555c78b232358d838f64b3f4c5e52",
+      "published_sha256": "c6a05189027ca3461040cb159b4d96e747146a86317382dfd38b7f42904cecb1",
+      "byte_identical": false
+    },
+    "A3/present.csv": {
+      "source": "t04-gameplay-k2-89avn17o/A3/present.csv",
+      "source_sha256": "44455a81d26674f6df1a0c6ea88c33b2c6d2f9ec1fe20f4e4f1bd996b39f519f",
+      "published_sha256": "44455a81d26674f6df1a0c6ea88c33b2c6d2f9ec1fe20f4e4f1bd996b39f519f",
+      "byte_identical": true
+    },
+    "A3/process.log": {
+      "source": "t04-gameplay-k2-89avn17o/A3/process.log",
+      "source_sha256": "5f828aa6cd5ea3b478b6341e61a4fc920263e7e9e31c850f9f9bf8d0fd753506",
+      "published_sha256": "dfee49faaa1b581bc585f07d36a063e40a65e1400a2830b26765e51f934bb05a",
+      "byte_identical": false
+    },
+    "A3/NSUNS2_d3d11.log": {
+      "source": "t04-gameplay-k2-89avn17o/A3/NSUNS2_d3d11.log",
+      "source_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "published_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "byte_identical": true
+    },
+    "A3/dxvk.conf": {
+      "source": "t04-gameplay-k2-89avn17o/A3/dxvk.conf",
+      "source_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "published_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "byte_identical": true
+    },
+    "A3/after.png": {
+      "source": "t04-gameplay-k2-89avn17o/A3/after.png",
+      "source_sha256": "ba93f8f17e978e5ecbc16c47b05f377d6ae023c7011158663da8a6c025913596",
+      "published_sha256": "ba93f8f17e978e5ecbc16c47b05f377d6ae023c7011158663da8a6c025913596",
+      "byte_identical": true
+    },
+    "A3/action-1792504762509574140.png": {
+      "source": "t04-gameplay-k2-89avn17o/A3/action-1792504762509574140.png",
+      "source_sha256": "b1feb438e75071d0f3d5a8db15e109c7da7fd8934d34125a134efd9d5c1f3ae7",
+      "published_sha256": "b1feb438e75071d0f3d5a8db15e109c7da7fd8934d34125a134efd9d5c1f3ae7",
+      "byte_identical": true
+    },
+    "B3/result.json": {
+      "source": "t04-gameplay-k2-89avn17o/B3/result.json",
+      "source_sha256": "bbfb890a64689da17eec87801bfe54c9c00897039a9afdf8253aa6dafbed3b38",
+      "published_sha256": "f04f6a49315997c13909cab9f2a884effcdbe902a531505b2735966b3f3667b6",
+      "byte_identical": false
+    },
+    "B3/analysis.json": {
+      "source": "t04-gameplay-k2-89avn17o/B3/analysis.json",
+      "source_sha256": "6869812f953723a53d4f9a827d1121b6269feae7391537fa79e140484d9dcc0e",
+      "published_sha256": "c067924a608e40bfa9ca3d31f42d45896d600a898f302d6d4ed0bc748304a1d2",
+      "byte_identical": false
+    },
+    "B3/visual-review.json": {
+      "source": "t04-gameplay-k2-89avn17o/B3/visual-review.json",
+      "source_sha256": "77087c15a314582086090efbeab4e721971c52a898d957fbc0f103c8c22ac3bb",
+      "published_sha256": "2644957ab216c4d9a9c71142fe2c097b4b863257f41cc3270209042d5555e91a",
+      "byte_identical": false
+    },
+    "B3/ready.json": {
+      "source": "t04-gameplay-k2-89avn17o/B3/ready.json",
+      "source_sha256": "6c04dd04d6e92f8df439dde26ee92e5af19962e752c9adad27e96b243d869401",
+      "published_sha256": "4bfa94a24d7ea966d97b1ffd1caf66991a407e2fee026bfbbc41ef553365a436",
+      "byte_identical": false
+    },
+    "B3/loaded-maps.json": {
+      "source": "t04-gameplay-k2-89avn17o/B3/loaded-maps.json",
+      "source_sha256": "224b1ccc7c1cf211b13d6fac28ef49f023794f17ddd369c640bae35b2ebd07da",
+      "published_sha256": "0a8382be515f6f8e14bcc068244c3088d997461a601ef3d6efdb11a054cb0d8a",
+      "byte_identical": false
+    },
+    "B3/present.csv": {
+      "source": "t04-gameplay-k2-89avn17o/B3/present.csv",
+      "source_sha256": "ad2babb17c01955f9e4d3f54e64d319ed667e30c9ff6441b5dac2a623afbf966",
+      "published_sha256": "ad2babb17c01955f9e4d3f54e64d319ed667e30c9ff6441b5dac2a623afbf966",
+      "byte_identical": true
+    },
+    "B3/process.log": {
+      "source": "t04-gameplay-k2-89avn17o/B3/process.log",
+      "source_sha256": "ef5a5363aaffcd5447b422c6dce5e62279a05beae462af1323a7351c70d63590",
+      "published_sha256": "b20b8610cf0a4e0ecdb621c0addb0a774d471a01e874ff20c7ad578f1d5de10b",
+      "byte_identical": false
+    },
+    "B3/NSUNS2_d3d11.log": {
+      "source": "t04-gameplay-k2-89avn17o/B3/NSUNS2_d3d11.log",
+      "source_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "published_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "byte_identical": true
+    },
+    "B3/dxvk.conf": {
+      "source": "t04-gameplay-k2-89avn17o/B3/dxvk.conf",
+      "source_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "published_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "byte_identical": true
+    },
+    "B3/after.png": {
+      "source": "t04-gameplay-k2-89avn17o/B3/after.png",
+      "source_sha256": "58c729249ac7983249b52f5f4f630cfabf1540bc3e7d6c3426c4133c8ae8d294",
+      "published_sha256": "58c729249ac7983249b52f5f4f630cfabf1540bc3e7d6c3426c4133c8ae8d294",
+      "byte_identical": true
+    },
+    "B3/action-1792505172165292703.png": {
+      "source": "t04-gameplay-k2-89avn17o/B3/action-1792505172165292703.png",
+      "source_sha256": "791e1b92e21b3c97297c6ed04933ec2ea66e9e8c9694c3799778a64af24df571",
+      "published_sha256": "791e1b92e21b3c97297c6ed04933ec2ea66e9e8c9694c3799778a64af24df571",
+      "byte_identical": true
+    },
+    "A4/result.json": {
+      "source": "t04-gameplay-k2-89avn17o/A4/result.json",
+      "source_sha256": "168d4c806a91dc25b0f6582aa73c004f1f0f46b81936ad3539a185658f359e25",
+      "published_sha256": "e0a8606e4578da5c6dec35755cae50b9f4d141c210a8410a8004fe0cb47f768b",
+      "byte_identical": false
+    },
+    "A4/analysis.json": {
+      "source": "t04-gameplay-k2-89avn17o/A4/analysis.json",
+      "source_sha256": "77ab9c775f4fc30d0a8ad5dcfafaece017983e1846645c541d4bf7cc3ea6eae0",
+      "published_sha256": "ab0290c8d812c3aa6fc8094775451877ca8e5c5c422d200c510fe9dd6c116d27",
+      "byte_identical": false
+    },
+    "A4/visual-review.json": {
+      "source": "t04-gameplay-k2-89avn17o/A4/visual-review.json",
+      "source_sha256": "54e1b4cd10341908e40c743da1fd094ea64ffbd5e19d6e49301bc017b44efd6d",
+      "published_sha256": "c0bedb5a829faef8d80c620ad28905d05fc18a0e982ebb8d95bc9bec6965298e",
+      "byte_identical": false
+    },
+    "A4/ready.json": {
+      "source": "t04-gameplay-k2-89avn17o/A4/ready.json",
+      "source_sha256": "08a1d6ea0aa55a65fd2e8fbf91c1205a6d11a7a155b3b0601225307f353f173c",
+      "published_sha256": "4ae191faa693ee083f6d0f684af798859bac0b091806ee9c7ea909d803789aa9",
+      "byte_identical": false
+    },
+    "A4/loaded-maps.json": {
+      "source": "t04-gameplay-k2-89avn17o/A4/loaded-maps.json",
+      "source_sha256": "835eeeceed4ce1217a2c45a46f27184635141ba522673c0198438756f9575190",
+      "published_sha256": "14ef2f7948499922914b636d45c734d7cbbbb39eb803305a9c7d324a4c7e9156",
+      "byte_identical": false
+    },
+    "A4/present.csv": {
+      "source": "t04-gameplay-k2-89avn17o/A4/present.csv",
+      "source_sha256": "a36d0d0958677d1fe3f66ad5d219b518939004ea99b92f28a1f9264ac177860e",
+      "published_sha256": "a36d0d0958677d1fe3f66ad5d219b518939004ea99b92f28a1f9264ac177860e",
+      "byte_identical": true
+    },
+    "A4/process.log": {
+      "source": "t04-gameplay-k2-89avn17o/A4/process.log",
+      "source_sha256": "389ed8be01413fd2fb11993b191bf024f1649693e1324831ab9d737a17026926",
+      "published_sha256": "9ff3785eb2744dc94bf60eb6a111a2736ef877a8ee1971587c13db9524676e9e",
+      "byte_identical": false
+    },
+    "A4/NSUNS2_d3d11.log": {
+      "source": "t04-gameplay-k2-89avn17o/A4/NSUNS2_d3d11.log",
+      "source_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "published_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "byte_identical": true
+    },
+    "A4/dxvk.conf": {
+      "source": "t04-gameplay-k2-89avn17o/A4/dxvk.conf",
+      "source_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "published_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "byte_identical": true
+    },
+    "A4/after.png": {
+      "source": "t04-gameplay-k2-89avn17o/A4/after.png",
+      "source_sha256": "3021d34defeb7044e7dfa59c0cc01cd5d890d6ce304a7e774a5f819d005ec6a0",
+      "published_sha256": "3021d34defeb7044e7dfa59c0cc01cd5d890d6ce304a7e774a5f819d005ec6a0",
+      "byte_identical": true
+    },
+    "A4/action-1792505653770822808.png": {
+      "source": "t04-gameplay-k2-89avn17o/A4/action-1792505653770822808.png",
+      "source_sha256": "68149ae4636bd3b21cc2aee04392b7e5562d70168ee306bce741f169433e419f",
+      "published_sha256": "68149ae4636bd3b21cc2aee04392b7e5562d70168ee306bce741f169433e419f",
+      "byte_identical": true
+    },
+    "B4/result.json": {
+      "source": "t04-gameplay-k2-89avn17o/B4/result.json",
+      "source_sha256": "df97908eaf27ff724e03bd38b4ffd01df980f82a4dce67c64931de54b1fdbbc1",
+      "published_sha256": "863fa9810a123b0c0f212392b6c6a1348a404c5808215ffeabdea06cf5c0bddc",
+      "byte_identical": false
+    },
+    "B4/analysis.json": {
+      "source": "t04-gameplay-k2-89avn17o/B4/analysis.json",
+      "source_sha256": "24ff4b2555d7ffc67c003cf9d57d678367cd28aba23af61a673c13593df38ca8",
+      "published_sha256": "055e7c8353905698dd78cb1686597852604bf10b41ef37396d4c7f0e58db42a1",
+      "byte_identical": false
+    },
+    "B4/visual-review.json": {
+      "source": "t04-gameplay-k2-89avn17o/B4/visual-review.json",
+      "source_sha256": "23b9d9e7bd2d057d1f76ac3d3814d26eca7e8c1a738561cbe956645a3bfca8bf",
+      "published_sha256": "23b9d9e7bd2d057d1f76ac3d3814d26eca7e8c1a738561cbe956645a3bfca8bf",
+      "byte_identical": true
+    },
+    "B4/ready.json": {
+      "source": "t04-gameplay-k2-89avn17o/B4/ready.json",
+      "source_sha256": "6089b2eaa6c9938ab9dfa7cac759abae68c0a9a7db2ecb2c6a44c3bdfe00afcc",
+      "published_sha256": "485b263b21b3d645f53bd5d2e3b18e3a53d751487ec6f4f06fb6ba24ad6c7e56",
+      "byte_identical": false
+    },
+    "B4/loaded-maps.json": {
+      "source": "t04-gameplay-k2-89avn17o/B4/loaded-maps.json",
+      "source_sha256": "0e72f6bcd0247b545337b9b0b2a00109812edf47be539d6c4b1e2cec94c54a8b",
+      "published_sha256": "74071ce97233792abd4fe52bcf27f946efa87ee4081d2f8ba503fbdf604ec933",
+      "byte_identical": false
+    },
+    "B4/present.csv": {
+      "source": "t04-gameplay-k2-89avn17o/B4/present.csv",
+      "source_sha256": "454b5df8735498abe6f913ab1ab24d8624ffa7746c8db0a60506d8679a556a81",
+      "published_sha256": "454b5df8735498abe6f913ab1ab24d8624ffa7746c8db0a60506d8679a556a81",
+      "byte_identical": true
+    },
+    "B4/process.log": {
+      "source": "t04-gameplay-k2-89avn17o/B4/process.log",
+      "source_sha256": "a3312e89e59ed6e1a78e8e293a0b8a6e8839a69d65cf74886bff2d9a4821cc92",
+      "published_sha256": "caea3d56cc7c72d449cfa9180217a980bcb1ec64f23be509a3e5108c62f62ff6",
+      "byte_identical": false
+    },
+    "B4/NSUNS2_d3d11.log": {
+      "source": "t04-gameplay-k2-89avn17o/B4/NSUNS2_d3d11.log",
+      "source_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "published_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "byte_identical": true
+    },
+    "B4/dxvk.conf": {
+      "source": "t04-gameplay-k2-89avn17o/B4/dxvk.conf",
+      "source_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "published_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "byte_identical": true
+    },
+    "B4/after.png": {
+      "source": "t04-gameplay-k2-89avn17o/B4/after.png",
+      "source_sha256": "0afbc180839fc3ec3b766706b1ad28b70b90cbc44e48e9eb6f62a91a3542c25a",
+      "published_sha256": "0afbc180839fc3ec3b766706b1ad28b70b90cbc44e48e9eb6f62a91a3542c25a",
+      "byte_identical": true
+    },
+    "B4/action-1792506058402919448.png": {
+      "source": "t04-gameplay-k2-89avn17o/B4/action-1792506058402919448.png",
+      "source_sha256": "2bc1724fb596bc37e8437ef5db9129bc378c74309ce827896309ab7b032840a9",
+      "published_sha256": "2bc1724fb596bc37e8437ef5db9129bc378c74309ce827896309ab7b032840a9",
+      "byte_identical": true
+    },
+    "draw-A/manifest.json": {
+      "source": "t04-gameplay-k2-89avn17o/draw-A/manifest.json",
+      "source_sha256": "a54384ef622046a33abb69b3d9e90428909e0043b7bc72c2268b68a0859d7563",
+      "published_sha256": "5cb8f34bc23f66e72e9e23cbeffe97bbf98e9dae68876bbf6f322f796ba13d1b",
+      "byte_identical": false
+    },
+    "draw-A/result.json": {
+      "source": "t04-gameplay-k2-89avn17o/draw-A/result.json",
+      "source_sha256": "0127d58148592a0306ee215ff736a23fd2611d176facbd217313f3dfc6b976aa",
+      "published_sha256": "b9273a29ef3c3f42fb468f01dc1234e82811437770d5db0ebada5d51a1909c7b",
+      "byte_identical": false
+    },
+    "draw-A/descriptor-audit.json": {
+      "source": "t04-gameplay-k2-89avn17o/draw-A/descriptor-audit.json",
+      "source_sha256": "0030c04d5251d57f9aadabc9c5444590aa1127731aa5863151df57bc5e69d2f8",
+      "published_sha256": "4d3ce65e99e0a3ab81801861b22c083f6ca630ab6fdc3251f71a2b4266993aee",
+      "byte_identical": false
+    },
+    "draw-A/capture-request.json": {
+      "source": "t04-gameplay-k2-89avn17o/draw-A/capture-request.json",
+      "source_sha256": "48ca7f42a3a6a2e51492716e892eca582a90e3ce765a184e0aa800d32ab431bf",
+      "published_sha256": "48ca7f42a3a6a2e51492716e892eca582a90e3ce765a184e0aa800d32ab431bf",
+      "byte_identical": true
+    },
+    "draw-A/after-capture.png": {
+      "source": "t04-gameplay-k2-89avn17o/draw-A/after-capture.png",
+      "source_sha256": "2a2b56d8c47394888b71c0ea021053afb9caf0d79cf1fcab68c070fce91df50a",
+      "published_sha256": "2a2b56d8c47394888b71c0ea021053afb9caf0d79cf1fcab68c070fce91df50a",
+      "byte_identical": true
+    },
+    "draw-B/manifest.json": {
+      "source": "t04-gameplay-k2-89avn17o/draw-B/manifest.json",
+      "source_sha256": "c807c66abaffa52accea1434d73d8efc51f58bb49a4ce9df8fecb2d100816ecc",
+      "published_sha256": "59903008e83d28e5553a829c9500ddcde1bc1947bcf0016d4da1c576de744546",
+      "byte_identical": false
+    },
+    "draw-B/result.json": {
+      "source": "t04-gameplay-k2-89avn17o/draw-B/result.json",
+      "source_sha256": "6112b4eff035b9a3c9607c09a4f371280d0ed314469a7f12b5e5638c05a6b434",
+      "published_sha256": "138a642da2b4573dedd00dc05e9543936cd6efa2ec9b83ee4053f6bddd575226",
+      "byte_identical": false
+    },
+    "draw-B/descriptor-audit.json": {
+      "source": "t04-gameplay-k2-89avn17o/draw-B/descriptor-audit.json",
+      "source_sha256": "c3875e6ecd5ea83533a79879b351dae1e64423c0c6bcec6d5ec3f061eea942c0",
+      "published_sha256": "5ca12c583da48c608844c68e34fcaedfd474b03d020b9d39f59a3a1066f25bae",
+      "byte_identical": false
+    },
+    "draw-B/capture-request.json": {
+      "source": "t04-gameplay-k2-89avn17o/draw-B/capture-request.json",
+      "source_sha256": "9da7bf830c3b6197ab9c4892c29b09ce9f2d62b3ebd8047467e0755e4570ccc3",
+      "published_sha256": "9da7bf830c3b6197ab9c4892c29b09ce9f2d62b3ebd8047467e0755e4570ccc3",
+      "byte_identical": true
+    },
+    "draw-B/after-capture.png": {
+      "source": "t04-gameplay-k2-89avn17o/draw-B/after-capture.png",
+      "source_sha256": "61eab356dc2c0786ef104a0d07baaae77d7d7b373641efe672755f6ebd6ce56e",
+      "published_sha256": "61eab356dc2c0786ef104a0d07baaae77d7d7b373641efe672755f6ebd6ce56e",
+      "byte_identical": true
+    },
+    "freebattle-A/selection.json": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/selection.json",
+      "source_sha256": "33738a93c8a04783a8bf48d382e4db9ca83cc394ace4bdcc271f5b87212d0ec0",
+      "published_sha256": "33738a93c8a04783a8bf48d382e4db9ca83cc394ace4bdcc271f5b87212d0ec0",
+      "byte_identical": true
+    },
+    "freebattle-A/battle-finished.json": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/battle-finished.json",
+      "source_sha256": "a02999f48baa4cfd248534e3552ded0982a879dafefe990872b62a338cd032cc",
+      "published_sha256": "a02999f48baa4cfd248534e3552ded0982a879dafefe990872b62a338cd032cc",
+      "byte_identical": true
+    },
+    "freebattle-A/visual-review.json": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/visual-review.json",
+      "source_sha256": "0dd213c41e061839c081d84aa79ba92ebbf5cd9b0cb2d06e64175c02faf806dd",
+      "published_sha256": "0dd213c41e061839c081d84aa79ba92ebbf5cd9b0cb2d06e64175c02faf806dd",
+      "byte_identical": true
+    },
+    "freebattle-A/log-review.json": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/log-review.json",
+      "source_sha256": "2aaf3c288c3098b3e185630569f97e5e2c7dfcc9b0a05a52d68ef293badf450d",
+      "published_sha256": "2aaf3c288c3098b3e185630569f97e5e2c7dfcc9b0a05a52d68ef293badf450d",
+      "byte_identical": true
+    },
+    "freebattle-A/scope-correction.json": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/scope-correction.json",
+      "source_sha256": "861db92490e1292823e6c4ed6a903240fc08ad89f474829b2f97fe5d7954c9a3",
+      "published_sha256": "861db92490e1292823e6c4ed6a903240fc08ad89f474829b2f97fe5d7954c9a3",
+      "byte_identical": true
+    },
+    "freebattle-A/combat-review-grid.jpg": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/combat-review-grid.jpg",
+      "source_sha256": "9cfad3f3270a4efe5fa747cdf15922ebd819601a8552175823d0672c963b10dc",
+      "published_sha256": "9cfad3f3270a4efe5fa747cdf15922ebd819601a8552175823d0672c963b10dc",
+      "byte_identical": true
+    },
+    "freebattle-A/present.csv": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/present.csv",
+      "source_sha256": "7525fbdfab2acc7564cea78b778e9a4fe1d9da0a13bee1e8b9c86e4f44fa67c7",
+      "published_sha256": "7525fbdfab2acc7564cea78b778e9a4fe1d9da0a13bee1e8b9c86e4f44fa67c7",
+      "byte_identical": true
+    },
+    "freebattle-A/stutter-initial-1792502595180023934.json": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/stutter-initial-1792502595180023934.json",
+      "source_sha256": "bea4dab275121e7e643541a0d4bbd03d93e3579ec488cc3c1367f8d8bb487608",
+      "published_sha256": "bea4dab275121e7e643541a0d4bbd03d93e3579ec488cc3c1367f8d8bb487608",
+      "byte_identical": true
+    },
+    "freebattle-A/stutter-quiet-1792502683066594016.json": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/stutter-quiet-1792502683066594016.json",
+      "source_sha256": "3c4477ad03d022aff596dd4c8285d21f9eddf2e17463ea78a2bbb8d660291b44",
+      "published_sha256": "3c4477ad03d022aff596dd4c8285d21f9eddf2e17463ea78a2bbb8d660291b44",
+      "byte_identical": true
+    },
+    "freebattle-A/action-1792502394053556229.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/action-1792502394053556229.png",
+      "source_sha256": "8d66a1d0353a43831cc9298ccd1ee48e226f2216eeb9577464431b4c7af779a9",
+      "published_sha256": "8d66a1d0353a43831cc9298ccd1ee48e226f2216eeb9577464431b4c7af779a9",
+      "byte_identical": true
+    },
+    "freebattle-A/action-1792502421215300231.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/action-1792502421215300231.png",
+      "source_sha256": "cfb78354760e8e69ab1f62e04e8d4cc501b86c261aef54e2812f53cdf79ab22f",
+      "published_sha256": "cfb78354760e8e69ab1f62e04e8d4cc501b86c261aef54e2812f53cdf79ab22f",
+      "byte_identical": true
+    },
+    "freebattle-A/action-1792502432629647539.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/action-1792502432629647539.png",
+      "source_sha256": "a4e96556055d06e21a8a5b3d44fcfbab9ec46f3c796d3d8d12d018918ba2c05f",
+      "published_sha256": "a4e96556055d06e21a8a5b3d44fcfbab9ec46f3c796d3d8d12d018918ba2c05f",
+      "byte_identical": true
+    },
+    "freebattle-A/action-1792502452251987233.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/action-1792502452251987233.png",
+      "source_sha256": "41397a37baa6dcf758ecbb0bbf695642579e718e15b79d96b8e20f333b2572b5",
+      "published_sha256": "41397a37baa6dcf758ecbb0bbf695642579e718e15b79d96b8e20f333b2572b5",
+      "byte_identical": true
+    },
+    "freebattle-A/action-1792502468407673464.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/action-1792502468407673464.png",
+      "source_sha256": "7bd47d4deed2d79e4193d86987145e7bd71527d1a87eec93d26cd063d44a8527",
+      "published_sha256": "7bd47d4deed2d79e4193d86987145e7bd71527d1a87eec93d26cd063d44a8527",
+      "byte_identical": true
+    },
+    "freebattle-A/action-1792502489053949158.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/action-1792502489053949158.png",
+      "source_sha256": "737f3e8749eb479d6a40a93b94e6f8fd6bc68f3e8f16d0de4430861c72bf30b8",
+      "published_sha256": "737f3e8749eb479d6a40a93b94e6f8fd6bc68f3e8f16d0de4430861c72bf30b8",
+      "byte_identical": true
+    },
+    "freebattle-A/action-1792502543050430623.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/action-1792502543050430623.png",
+      "source_sha256": "1fe629b07f1a560a296509328ebafd9a96af942e334b24534d7333e189dbe366",
+      "published_sha256": "1fe629b07f1a560a296509328ebafd9a96af942e334b24534d7333e189dbe366",
+      "byte_identical": true
+    },
+    "freebattle-A/action-1792502722745728172.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/action-1792502722745728172.png",
+      "source_sha256": "b072fcc91fc57ba33682666bbe83a9798a3e3d93a806ac3715c62a81ab2fe5d3",
+      "published_sha256": "b072fcc91fc57ba33682666bbe83a9798a3e3d93a806ac3715c62a81ab2fe5d3",
+      "byte_identical": true
+    },
+    "freebattle-A/screen-0411.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/screen-0411.png",
+      "source_sha256": "20bf254a5b822b502e4f5c39b5dc8cd320afd290db107e23b2ae8f419a2eed3b",
+      "published_sha256": "20bf254a5b822b502e4f5c39b5dc8cd320afd290db107e23b2ae8f419a2eed3b",
+      "byte_identical": true
+    },
+    "freebattle-A/screen-0441.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/screen-0441.png",
+      "source_sha256": "3928ac7c7536320fa0705db4c49453505b89d7a5b540378dc8e7e2812c0f235b",
+      "published_sha256": "3928ac7c7536320fa0705db4c49453505b89d7a5b540378dc8e7e2812c0f235b",
+      "byte_identical": true
+    },
+    "freebattle-A/screen-0471.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/screen-0471.png",
+      "source_sha256": "84d0cd633e3141aa3b84365f4219b36564eaad5428c52b540bc8e7378089dbaa",
+      "published_sha256": "84d0cd633e3141aa3b84365f4219b36564eaad5428c52b540bc8e7378089dbaa",
+      "byte_identical": true
+    },
+    "freebattle-A/screen-0502.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/screen-0502.png",
+      "source_sha256": "8277fa583b4a5cd0559ea5df0a258bf051f58169db6eb2d1ea377ec16ad1899e",
+      "published_sha256": "8277fa583b4a5cd0559ea5df0a258bf051f58169db6eb2d1ea377ec16ad1899e",
+      "byte_identical": true
+    },
+    "freebattle-A/screen-0532.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/screen-0532.png",
+      "source_sha256": "9f39341a077ccc68ee6a22eb885db421a8f0537a5d986dcdbcf7d13df7883b90",
+      "published_sha256": "9f39341a077ccc68ee6a22eb885db421a8f0537a5d986dcdbcf7d13df7883b90",
+      "byte_identical": true
+    },
+    "freebattle-A/screen-0562.png": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/screen-0562.png",
+      "source_sha256": "9cf46278ebda12ff1d1427a83b033fc23755b65aee8108ccfc553c100200c7bf",
+      "published_sha256": "9cf46278ebda12ff1d1427a83b033fc23755b65aee8108ccfc553c100200c7bf",
+      "byte_identical": true
+    },
+    "title/dxvk-reference-origin.json": {
+      "source": "t04-title-draw-7od7526e/dxvk-reference-origin.json",
+      "source_sha256": "e40f9ae2327617870f54c5c241e0ec73135ddf4469bf9cef6ec5b849e35efb35",
+      "published_sha256": "4fd9adb278f6eba2398a30d70c35520172e1e5479f098f834f1c89b11b7b386d",
+      "byte_identical": false
+    },
+    "title/noasync-design.json": {
+      "source": "t04-title-draw-7od7526e/noasync-design.json",
+      "source_sha256": "2412d58eacab9d568884d623f78cf72d2ffda5e388046c20ecb42d0afb715dd6",
+      "published_sha256": "6eeaa86f8dcebc4d562a4a815e30b15036746b5f40a2b6b9fe91f3f621102c5b",
+      "byte_identical": false
+    },
+    "title/on-ui/capture-check.json": {
+      "source": "t04-title-draw-7od7526e/on-ui/capture-check.json",
+      "source_sha256": "375abc45de92e4eabd2b8d5608b220c2636517aa849b650132d1fd0b79ee5c6b",
+      "published_sha256": "57a501c8bfe58263b7226487c96b9eecc09bd49e89f11e8e10978da58cdb9152",
+      "byte_identical": false
+    },
+    "title/on-ui/draw-texture-audit.json": {
+      "source": "t04-title-draw-7od7526e/on-ui/draw-texture-audit.json",
+      "source_sha256": "cdae4e86e5b968ce0204852a2c0ce178226de093e08f04e55871a364a1ac4cdb",
+      "published_sha256": "f013887cc4c0f860ed1def9d227dab2afb43241e8f841120726be23060394841",
+      "byte_identical": false
+    },
+    "title/on-ui/shader-draw-map-v9.json": {
+      "source": "t04-title-draw-7od7526e/on-ui/shader-draw-map-v9.json",
+      "source_sha256": "535e151fd542d25c9a062c307f0bb0d511013107be49f9b9783c4ac2798b5314",
+      "published_sha256": "535e151fd542d25c9a062c307f0bb0d511013107be49f9b9783c4ac2798b5314",
+      "byte_identical": true
+    },
+    "title/on-ui/manifest.json": {
+      "source": "t04-title-draw-7od7526e/on-ui/manifest.json",
+      "source_sha256": "07c4e6f2e10c50497aba29de93bfb29a679f43b72dc2bc2dc2149ef130ca2adb",
+      "published_sha256": "dfd42976eda3939afc00084a6cb7f6997dd8a62965d79af211d059f094736540",
+      "byte_identical": false
+    },
+    "title/on-ui/result.json": {
+      "source": "t04-title-draw-7od7526e/on-ui/result.json",
+      "source_sha256": "2786193501c6fac6f700526da8d51b957173ac51ab46fc592cd3190ae26a926e",
+      "published_sha256": "db17c9e255d16afa0cb1bf4c4e05f0596130ae2b90007138b70623bd6c232de9",
+      "byte_identical": false
+    },
+    "title/on-ui/after-capture.png": {
+      "source": "t04-title-draw-7od7526e/on-ui/after-capture.png",
+      "source_sha256": "140779fe8930c90d086321b4e37dc41e39726ef6643cea93faaa1c5ab019d2cf",
+      "published_sha256": "140779fe8930c90d086321b4e37dc41e39726ef6643cea93faaa1c5ab019d2cf",
+      "byte_identical": true
+    },
+    "title/off-ui/capture-check.json": {
+      "source": "t04-title-draw-7od7526e/off-ui/capture-check.json",
+      "source_sha256": "e4ebf379cb5401585534eae785c92b806391199bdc70106debe4bf1db3876b9b",
+      "published_sha256": "c4c49ac0ae4273f755329d4d0ac6c73d86e4dc4b8f1660dd0ac36c2a8b5adbb3",
+      "byte_identical": false
+    },
+    "title/off-ui/draw-texture-audit.json": {
+      "source": "t04-title-draw-7od7526e/off-ui/draw-texture-audit.json",
+      "source_sha256": "e6aa8e2f0f64c78585626c6fd3e8163a057ec3fd2416fd9637f4ef81a1ac17a4",
+      "published_sha256": "8bb488cbee31774c02f29ae36f3f13be2558a28922e112b5eabbec9f16ce7999",
+      "byte_identical": false
+    },
+    "title/off-ui/shader-draw-map-v9.json": {
+      "source": "t04-title-draw-7od7526e/off-ui/shader-draw-map-v9.json",
+      "source_sha256": "498dbff1e367855bbd82f486aa94d4133c1b1d4e8c2d6fc6bb43111eb1508d47",
+      "published_sha256": "498dbff1e367855bbd82f486aa94d4133c1b1d4e8c2d6fc6bb43111eb1508d47",
+      "byte_identical": true
+    },
+    "title/off-ui/manifest.json": {
+      "source": "t04-title-draw-7od7526e/off-ui/manifest.json",
+      "source_sha256": "6d11dafdada041a1040ee6c018d0d41ebcc2cb72cce02fd14949a3ca1d0fd876",
+      "published_sha256": "a3fd25c19bdbcb54840a51ed6b88c33e50781937e41b74a9c54ff5c88979a019",
+      "byte_identical": false
+    },
+    "title/off-ui/result.json": {
+      "source": "t04-title-draw-7od7526e/off-ui/result.json",
+      "source_sha256": "9da2160e3ee7c1394c7cae1709a6de435d0a70397a1e995c78897c6c676cc46c",
+      "published_sha256": "cbd07a9bf6c98b427485335d65a9053cc89065bcde3dc474c68b75ffc82d11ec",
+      "byte_identical": false
+    },
+    "title/off-ui/after-capture-manual.png": {
+      "source": "t04-title-draw-7od7526e/off-ui/after-capture-manual.png",
+      "source_sha256": "15dee7417f402463fe8f068411b0f4f6934f1bc7188273bde1c289df7506edc0",
+      "published_sha256": "15dee7417f402463fe8f068411b0f4f6934f1bc7188273bde1c289df7506edc0",
+      "byte_identical": true
+    },
+    "title/on-noasync/capture-check.json": {
+      "source": "t04-title-draw-7od7526e/on-noasync/capture-check.json",
+      "source_sha256": "2f531f1f12d80bd7d444702b76730540a028ccb411cdca5c2d67b5ec53fc0aa0",
+      "published_sha256": "ee016ac9c11627d9ca23177697d7915f18128988698f6ff4a357b72c439fc7c0",
+      "byte_identical": false
+    },
+    "title/on-noasync/draw-texture-audit.json": {
+      "source": "t04-title-draw-7od7526e/on-noasync/draw-texture-audit.json",
+      "source_sha256": "3230c2f03ac9f86f90831f558f271c61fbfc09fe5aed0c3d5a8ceb1aea196989",
+      "published_sha256": "799d7a536be207ff75b11c31a7c3e6805ff4bd51932172fc946e222a1027b1a4",
+      "byte_identical": false
+    },
+    "title/on-noasync/shader-draw-map-v9.json": {
+      "source": "t04-title-draw-7od7526e/on-noasync/shader-draw-map-v9.json",
+      "source_sha256": "c69fd0655860437e4ae0201584bf07207c8846ef838e4f3da39f56ff8339e039",
+      "published_sha256": "c69fd0655860437e4ae0201584bf07207c8846ef838e4f3da39f56ff8339e039",
+      "byte_identical": true
+    },
+    "title/on-noasync/manifest.json": {
+      "source": "t04-title-draw-7od7526e/on-noasync/manifest.json",
+      "source_sha256": "0ca42075431fe855f19f8a70cd3cf8e538dcfe65a248af1f85be7e693e50da9f",
+      "published_sha256": "9b7b34d306435528c0f1cce0f9394a53cd285b225e09019d8761d3ee02810e27",
+      "byte_identical": false
+    },
+    "title/on-noasync/result.json": {
+      "source": "t04-title-draw-7od7526e/on-noasync/result.json",
+      "source_sha256": "0e6fbc56b0b06f5ded14cf7936dbd24c87c6e467dad78c371d925b397a8cb94a",
+      "published_sha256": "944cd599f756c0812776b1c3201e2c8c2019ba2378a39e5c30383da172bf4792",
+      "byte_identical": false
+    },
+    "title/on-noasync/after-capture.png": {
+      "source": "t04-title-draw-7od7526e/on-noasync/after-capture.png",
+      "source_sha256": "9408a1885f3a10dda429a8401b3f9b9c068f6dbac6761c26953eacec88699058",
+      "published_sha256": "9408a1885f3a10dda429a8401b3f9b9c068f6dbac6761c26953eacec88699058",
+      "byte_identical": true
+    },
+    "title/off-ui/capture-observed-manually.json": {
+      "source": "t04-title-draw-7od7526e/off-ui/capture-observed-manually.json",
+      "source_sha256": "cfd0ca60def8cd881e7ffab5e16d2d88bcc73cc608cf56129de7774984e092bf",
+      "published_sha256": "aa2e2b89f1df1b19e46939a769d6b4af6af409c3d5850ffd25b4a501018f1920",
+      "byte_identical": false
+    },
+    "freebattle-A/manifest.json": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/manifest.json",
+      "source_sha256": "e8ec3b20e0cb523d16279214ccfcefaf8fd86bc8a2e2fbd4a2732894ed6e5c6d",
+      "published_sha256": "7c25358010d3a05196ca7686c2a08903657a07076e9dc0fea835b0f236b88676",
+      "byte_identical": false
+    },
+    "freebattle-A/result.json": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/result.json",
+      "source_sha256": "bc71d171e63df330886fba98a764060cdccc6f8d4b9d6050d669d43b675e5d41",
+      "published_sha256": "eddd2702cf14ccb1f27544e143832692572e2c339e5ca0e948ac8ab7fa559bbf",
+      "byte_identical": false
+    },
+    "freebattle-A/NSUNS2_d3d11.log": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/NSUNS2_d3d11.log",
+      "source_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "published_sha256": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+      "byte_identical": true
+    },
+    "freebattle-A/process.log": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/process.log",
+      "source_sha256": "e44730ef7825404aa3588c22cf162c0cd9fff25af5beec2b86890cbdb49a9917",
+      "published_sha256": "bbf29fcb7ad2dccb5e56de1fec947e72198d4c90d53550cc484bf7f3cdf04905",
+      "byte_identical": false
+    },
+    "freebattle-A/dxvk.conf": {
+      "source": "t04-gameplay-k2-89avn17o/freebattle-A/dxvk.conf",
+      "source_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "published_sha256": "2c7ac2dcdb8c4f22edb43f5281ab32770d200e4cf3d5982e75d260850a39ef64",
+      "byte_identical": true
+    },
+    "draw-A/nav-27.png": {
+      "source": "t04-gameplay-k2-89avn17o/draw-A/nav-27.png",
+      "source_sha256": "895da8023b891ab91c889aab0c1d042b1cf39d61dbef949a88a7d2f0e8b85f3b",
+      "published_sha256": "895da8023b891ab91c889aab0c1d042b1cf39d61dbef949a88a7d2f0e8b85f3b",
+      "byte_identical": true
+    },
+    "draw-B/nav-19.png": {
+      "source": "t04-gameplay-k2-89avn17o/draw-B/nav-19.png",
+      "source_sha256": "7d1f9c988463bbe70efc316c9b6f1951e627557740ee4f003c6f866519e5ba63",
+      "published_sha256": "7d1f9c988463bbe70efc316c9b6f1951e627557740ee4f003c6f866519e5ba63",
+      "byte_identical": true
+    }
+  },
+  "missing_artifacts": [
+    "Free Battle has no loaded-maps record; use its manifest/pins and process/D3D logs for the recorded runtime identity."
+  ]
+}

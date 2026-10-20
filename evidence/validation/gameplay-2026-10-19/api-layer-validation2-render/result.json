@@ -1,0 +1,8 @@
+{
+  "name": "render",
+  "exit_code": 0,
+  "expected_verdict": "PASS",
+  "api_bytes": 709294,
+  "api_present_calls": 2,
+  "ok": true
+}

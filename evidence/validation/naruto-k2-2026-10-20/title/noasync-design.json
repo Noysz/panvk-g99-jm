@@ -1,0 +1,7 @@
+{
+  "comparison": "on-ui vs on-noasync",
+  "single_application_control": "dxvk.enableAsync = False; dxvk.enableGraphicsPipelineLibrary stays True",
+  "driver_controls": "UBO=0, K2=1, deferred OQ=0, caches off; no source/library changes",
+  "reason": "gplasync reference patch defaults enableAsync=true and queues compilation from getPipelineHandle; upstream compilePipeline returns immediately when GPL setting is True. Missing GPU draws motivate this control. Binary provenance for reference source is not established, so run is needed.",
+  "harness_correction": "Read IOLOG sequentially with an offset and boundary carry; tail-only polling missed marker in off-ui. No repeated GPU run just to validate this harness fix."
+}

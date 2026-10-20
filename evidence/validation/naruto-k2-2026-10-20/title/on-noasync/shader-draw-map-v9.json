@@ -1,0 +1,1977 @@
+{
+  "case": "on-noasync",
+  "draw_count": 34,
+  "draws": [
+    {
+      "file": "decoded..ctx-0.0000",
+      "job": "7c1fd20680",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 45,
+          "isa_text_sha256": "f0fd76e17190a70c18b1474fef3cf1d7c1203563aa16542f61dd80b16f7cb673",
+          "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "a362c861a618647272e52f3c633f74448e9d5f9d539a26195fe6d6a95eb1ab09",
+          "machine_sha256": "f8cc01def428e61fd3813b84dbb4f22245739c74c498a18e16d92d7c48d12b01",
+          "old_matches": [
+            {
+              "block": 11,
+              "name": "VS_8755c07dad3e81819dc262509f209d6ce0009a40",
+              "stage": "VERTEX",
+              "source_blake3": "{0x88891633, 0xf522517b, 0xcb6b597d, 0xf862b6cb, 0x469fc246, 0x67ef0243, 0xdb37dec7, 0x4ab2c126}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x1\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd20800\n  Blend count: 1\n  Blend: 0x7c1fd204c0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fd20484\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd200c0\n    FAU: 0x7c1fd20520",
+      "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd20580\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0002",
+      "job": "7c1fd21200",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 171,
+          "isa_text_sha256": "79429f7546d8644826b7899ca128021c49e09f12857d0c75a840ff287536df50",
+          "machine_sha256": "75f27639948f5e32b211f74289f9ebaf49738e1b40f70ba9032f8b336dd0b2f4",
+          "old_matches": [
+            {
+              "block": 555,
+              "name": "FS_8d86583556f17a931aa8784032d9301d5965869f",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xdbf23eb4, 0x17b28812, 0xcbea116d, 0x5c2c78ba, 0x3ff9518d, 0x71d71d10, 0x494710b8, 0xe1b6e101}",
+              "instructions": 171
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 45,
+          "isa_text_sha256": "f0fd76e17190a70c18b1474fef3cf1d7c1203563aa16542f61dd80b16f7cb673",
+          "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 111,
+          "isa_text_sha256": "df612c29a6dc683c361072e938617d29f23c1589bd22358300132910bff2c445",
+          "machine_sha256": "880ce855611037c9d899f388c7e4c468d37a72de7e51b03d9d299b2f220b0e73",
+          "old_matches": [
+            {
+              "block": 542,
+              "name": "VS_ceeac02c81f81343a3f0596f5d31e7724e5769d2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8973242f, 0x2604a1f8, 0x16cf9665, 0xec985485, 0xa8de9dec, 0xf92ff53e, 0xfad1f61e, 0x2383fe3c}",
+              "instructions": 111
+            },
+            {
+              "block": 554,
+              "name": "VS_9e29f9749858ec2852d5a49a061c77851239d273",
+              "stage": "VERTEX",
+              "source_blake3": "{0xca81dd32, 0xf32377ee, 0xdf89ea52, 0xe11b864f, 0xb09723ce, 0x7c4692bf, 0x7a7d7e9a, 0x1f1b0d57}",
+              "instructions": 111
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: false\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x1\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd21380\n  Blend count: 1\n  Blend: 0x7c1fd21000\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 10\n    Resources: 0x7c1fd20fc4\n    Shader: 0x7c23d45800\n    Thread storage: 0x7c1fd20c00\n    FAU: 0x7c1fd21070",
+      "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd21100\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0004",
+      "job": "7c1fd21d80",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 137,
+          "isa_text_sha256": "f281688a8b01f5a44cd126ce96e6542f1af7320cbfa46512476b0da99ef93af3",
+          "machine_sha256": "41d8ff26969bc41464c783a7f9e7ad2454077573b4f02a9f19a8d231ec21346b",
+          "old_matches": [
+            {
+              "block": 530,
+              "name": "FS_a6fd475bd105369c305cca511dfdaefb032b4425",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x53b1424c, 0xd977b0a2, 0xcc4359f5, 0x3b844f4c, 0x881bd78a, 0xfb710849, 0x41e73be2, 0xd1bd6927}",
+              "instructions": 137
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 45,
+          "isa_text_sha256": "f0fd76e17190a70c18b1474fef3cf1d7c1203563aa16542f61dd80b16f7cb673",
+          "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 85,
+          "isa_text_sha256": "030253c4dc347e609c964346951f3600e1c02aac33f80ea82f70a28f14e3a375",
+          "machine_sha256": "cf0191469cdac68c55e6fe4c8b1cd13cbee212a38293d3491777b13588b8d9a0",
+          "old_matches": [
+            {
+              "block": 439,
+              "name": "VS_e4deb276b18ea547094d03c1e1352da9d171e9f9",
+              "stage": "VERTEX",
+              "source_blake3": "{0x53080de9, 0x84a2065a, 0x051429e3, 0x66de3506, 0x3aab76a0, 0x800251c8, 0x8a1da35b, 0x4d4f9c42}",
+              "instructions": 85
+            },
+            {
+              "block": 529,
+              "name": "VS_4a9af879f4018ff39db0ba72b7ea9d5875b53ddb",
+              "stage": "VERTEX",
+              "source_blake3": "{0x18d90ef1, 0xdcadd9b2, 0x9187211e, 0xe778349a, 0x4804892e, 0x52ca649c, 0x35569a7e, 0x32460374}",
+              "instructions": 85
+            },
+            {
+              "block": 532,
+              "name": "VS_dbc64e7c0446e713a9531dda0a5bca778cdbe6ed",
+              "stage": "VERTEX",
+              "source_blake3": "{0x16544879, 0xca7a0c30, 0xcd7eabef, 0xed75a7a7, 0x898fe723, 0xe36b19d3, 0xa4f951d7, 0xe0952900}",
+              "instructions": 85
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: false\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd21f00\n  Blend count: 2\n  Blend: 0x7c1fd21bc0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 6\n    Resources: 0x7c1fd21b84\n    Shader: 0x7c23d44b00\n    Thread storage: 0x7c1fd21800\n    FAU: 0x7c1fd21c28",
+      "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 48\n  Vertex attribute stride: 32\nTiler:\n  Address: 0x7c1fd21c80\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0006",
+      "job": "7c1fd22a00",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 45,
+          "isa_text_sha256": "f0fd76e17190a70c18b1474fef3cf1d7c1203563aa16542f61dd80b16f7cb673",
+          "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "a362c861a618647272e52f3c633f74448e9d5f9d539a26195fe6d6a95eb1ab09",
+          "machine_sha256": "f8cc01def428e61fd3813b84dbb4f22245739c74c498a18e16d92d7c48d12b01",
+          "old_matches": [
+            {
+              "block": 11,
+              "name": "VS_8755c07dad3e81819dc262509f209d6ce0009a40",
+              "stage": "VERTEX",
+              "source_blake3": "{0x88891633, 0xf522517b, 0xcb6b597d, 0xf862b6cb, 0x469fc246, 0x67ef0243, 0xdb37dec7, 0x4ab2c126}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x1\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd22b80\n  Blend count: 1\n  Blend: 0x7c1fd22880\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fd22844\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd22480\n    FAU: 0x7c1fd228e0",
+      "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd22940\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0008",
+      "job": "7c1fd23580",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 160,
+          "isa_text_sha256": "0b69aca1aa61e645be6e3510a07f16d3851df5bf53ad9553afcb96268f54ecfa",
+          "machine_sha256": "f160b5f8be89ac08d3e6e1afefefd3e575d644bbc5178c381a97694c28c9a5e4",
+          "old_matches": [
+            {
+              "block": 571,
+              "name": "FS_3d91b82bf19e218ba8c85d9dd7738f96d5a1581b",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x43a76569, 0x062acd4a, 0x739707b0, 0xf6fcd823, 0x67463c95, 0x726743ae, 0x1ccb7189, 0x493b6c41}",
+              "instructions": 160
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 45,
+          "isa_text_sha256": "f0fd76e17190a70c18b1474fef3cf1d7c1203563aa16542f61dd80b16f7cb673",
+          "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 63,
+          "isa_text_sha256": "462d7c4ae12e7182a1cbeb508e5c0037c57231f6121ba80483886f1065642032",
+          "machine_sha256": "e931b4704b1b145e069bfed7a89fb1074b91c9e02b52de5252b08ac6bc7973f2",
+          "old_matches": [
+            {
+              "block": 570,
+              "name": "VS_c6ab1cf89a1b9a0059c87e18d609887d81f49340",
+              "stage": "VERTEX",
+              "source_blake3": "{0x2f0b20c3, 0x29164100, 0xdfc856a6, 0x176bc629, 0x209cfb5d, 0xac370802, 0x1d9597af, 0x5d6bf814}",
+              "instructions": 63
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: false\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd23700\n  Blend count: 2\n  Blend: 0x7c1fd233c0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 8\n    Resources: 0x7c1fd23384\n    Shader: 0x7c23d45d80\n    Thread storage: 0x7c1fd23000\n    FAU: 0x7c1fd23420",
+      "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 40\n  Vertex attribute stride: 24\nTiler:\n  Address: 0x7c1fd23480\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0010",
+      "job": "7c1fd24200",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 45,
+          "isa_text_sha256": "f0fd76e17190a70c18b1474fef3cf1d7c1203563aa16542f61dd80b16f7cb673",
+          "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "a362c861a618647272e52f3c633f74448e9d5f9d539a26195fe6d6a95eb1ab09",
+          "machine_sha256": "f8cc01def428e61fd3813b84dbb4f22245739c74c498a18e16d92d7c48d12b01",
+          "old_matches": [
+            {
+              "block": 11,
+              "name": "VS_8755c07dad3e81819dc262509f209d6ce0009a40",
+              "stage": "VERTEX",
+              "source_blake3": "{0x88891633, 0xf522517b, 0xcb6b597d, 0xf862b6cb, 0x469fc246, 0x67ef0243, 0xdb37dec7, 0x4ab2c126}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x1\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd24380\n  Blend count: 1\n  Blend: 0x7c1fd24080\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fd24044\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd23c80\n    FAU: 0x7c1fd240e0",
+      "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd24140\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0013",
+      "job": "7c1fd25200",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 45,
+          "isa_text_sha256": "f0fd76e17190a70c18b1474fef3cf1d7c1203563aa16542f61dd80b16f7cb673",
+          "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "a362c861a618647272e52f3c633f74448e9d5f9d539a26195fe6d6a95eb1ab09",
+          "machine_sha256": "f8cc01def428e61fd3813b84dbb4f22245739c74c498a18e16d92d7c48d12b01",
+          "old_matches": [
+            {
+              "block": 11,
+              "name": "VS_8755c07dad3e81819dc262509f209d6ce0009a40",
+              "stage": "VERTEX",
+              "source_blake3": "{0x88891633, 0xf522517b, 0xcb6b597d, 0xf862b6cb, 0x469fc246, 0x67ef0243, 0xdb37dec7, 0x4ab2c126}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x1\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd25380\n  Blend count: 1\n  Blend: 0x7c1fd25080\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fd25044\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd24c80\n    FAU: 0x7c1fd250e0",
+      "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd25140\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0016",
+      "job": "7c1fd26200",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 45,
+          "isa_text_sha256": "f0fd76e17190a70c18b1474fef3cf1d7c1203563aa16542f61dd80b16f7cb673",
+          "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "a362c861a618647272e52f3c633f74448e9d5f9d539a26195fe6d6a95eb1ab09",
+          "machine_sha256": "f8cc01def428e61fd3813b84dbb4f22245739c74c498a18e16d92d7c48d12b01",
+          "old_matches": [
+            {
+              "block": 11,
+              "name": "VS_8755c07dad3e81819dc262509f209d6ce0009a40",
+              "stage": "VERTEX",
+              "source_blake3": "{0x88891633, 0xf522517b, 0xcb6b597d, 0xf862b6cb, 0x469fc246, 0x67ef0243, 0xdb37dec7, 0x4ab2c126}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x1\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd26380\n  Blend count: 1\n  Blend: 0x7c1fd26080\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fd26044\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd25c80\n    FAU: 0x7c1fd260e0",
+      "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd26140\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "7c1fd26e00",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 155,
+          "isa_text_sha256": "748e625490514ea5a5f94d711f6e951416c4ce06a415f2e53c27da6afd657159",
+          "machine_sha256": "edf633b88ff510c7a8065034185ea4ff17035cb21b339dacc56fb9c5dfbf5a38",
+          "old_matches": [
+            {
+              "block": 100,
+              "name": "FS_ef70713d8290de0a34179f3b60a37304b461b742",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xcfa8d48d, 0x197997a6, 0x8bd5acf4, 0x5fc96b1f, 0xc958a0b6, 0xf311ab67, 0x6c66bd9f, 0x1a288001}",
+              "instructions": 155
+            },
+            {
+              "block": 132,
+              "name": "FS_a9fdeb8cd1a732136ab4af6e397e4269ea43ec2e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x7bc4bbcc, 0xe3f1d057, 0xd30cde0d, 0x450b8645, 0x421a1a59, 0x080394d0, 0xa88dd1bc, 0xecfe6244}",
+              "instructions": 155
+            },
+            {
+              "block": 135,
+              "name": "FS_20d9a92c3407b2441566ff578a08f432f4b3fb73",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x6d8a14da, 0x0defaf03, 0x0f3e803d, 0x6184a76b, 0x368a3051, 0xffa22754, 0x797e6a5f, 0xc7833b4b}",
+              "instructions": 155
+            },
+            {
+              "block": 138,
+              "name": "FS_12564e2b4dac0e720eae7a8d1203f622cc03876e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xf1a0e08d, 0x4d2340ba, 0x75125159, 0x5ace427e, 0xa11c262b, 0xb997ff61, 0x93059a7d, 0x29bbdc24}",
+              "instructions": 155
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "f0b9fcfffca7ffab4320dbc4b4761ecf68a72ec5e76fecb3c2923093dcf48a59",
+          "machine_sha256": "f18adad906b20953776283738f3f060fb9b94579fe1f66a2558d7825a023b61e",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 97,
+          "isa_text_sha256": "f168c1f5015739200cc4500140c613bc9e8120cc16184872cb1bfb2f4650e44d",
+          "machine_sha256": "c51ff7080f55642606c1a62b18598e6d40599a7835a68b7f9f0f4d2f2d1dbae5",
+          "old_matches": [
+            {
+              "block": 111,
+              "name": "VS_c02ea3aa3108ec0872302ee8f4143d0ac6af049c",
+              "stage": "VERTEX",
+              "source_blake3": "{0x0ca49144, 0xdb676b6d, 0x1f4e4493, 0xe8e19331, 0xe7785f98, 0x31e17f95, 0xbb943a4d, 0xc96ad3c4}",
+              "instructions": 97
+            },
+            {
+              "block": 131,
+              "name": "VS_77094a1bc63ccc7fea543ec052a7f328c32cc09d",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8761fbb3, 0x200a63c9, 0x20a12c46, 0x94ea656a, 0xfd91a7bd, 0xaa9927b4, 0x095a8f1c, 0xfae3b9e9}",
+              "instructions": 97
+            },
+            {
+              "block": 152,
+              "name": "VS_1f3a4c4d1124d0a36efe69a19df11378d852eae2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8e5d3bb6, 0xdc6788fd, 0x026cd538, 0x7ecf15d0, 0xa324a47f, 0xf6bdadb2, 0xb3ee2f5f, 0xc2802cdc}",
+              "instructions": 97
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: true\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd26f80\n  Blend count: 2\n  Blend: 0x7c1fd26c40\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 9\n    Resources: 0x7c1fd26c04\n    Shader: 0x7caf201b40\n    Thread storage: 0x7c1fd26800\n    FAU: 0x7c1fd26cc0",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: UINT16\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 60\n  Vertex attribute stride: 44\nTiler:\n  Address: 0x7c1fd26d40\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x7af3701300"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "7c1fd27500",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 155,
+          "isa_text_sha256": "748e625490514ea5a5f94d711f6e951416c4ce06a415f2e53c27da6afd657159",
+          "machine_sha256": "edf633b88ff510c7a8065034185ea4ff17035cb21b339dacc56fb9c5dfbf5a38",
+          "old_matches": [
+            {
+              "block": 100,
+              "name": "FS_ef70713d8290de0a34179f3b60a37304b461b742",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xcfa8d48d, 0x197997a6, 0x8bd5acf4, 0x5fc96b1f, 0xc958a0b6, 0xf311ab67, 0x6c66bd9f, 0x1a288001}",
+              "instructions": 155
+            },
+            {
+              "block": 132,
+              "name": "FS_a9fdeb8cd1a732136ab4af6e397e4269ea43ec2e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x7bc4bbcc, 0xe3f1d057, 0xd30cde0d, 0x450b8645, 0x421a1a59, 0x080394d0, 0xa88dd1bc, 0xecfe6244}",
+              "instructions": 155
+            },
+            {
+              "block": 135,
+              "name": "FS_20d9a92c3407b2441566ff578a08f432f4b3fb73",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x6d8a14da, 0x0defaf03, 0x0f3e803d, 0x6184a76b, 0x368a3051, 0xffa22754, 0x797e6a5f, 0xc7833b4b}",
+              "instructions": 155
+            },
+            {
+              "block": 138,
+              "name": "FS_12564e2b4dac0e720eae7a8d1203f622cc03876e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xf1a0e08d, 0x4d2340ba, 0x75125159, 0x5ace427e, 0xa11c262b, 0xb997ff61, 0x93059a7d, 0x29bbdc24}",
+              "instructions": 155
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "f0b9fcfffca7ffab4320dbc4b4761ecf68a72ec5e76fecb3c2923093dcf48a59",
+          "machine_sha256": "f18adad906b20953776283738f3f060fb9b94579fe1f66a2558d7825a023b61e",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 97,
+          "isa_text_sha256": "f168c1f5015739200cc4500140c613bc9e8120cc16184872cb1bfb2f4650e44d",
+          "machine_sha256": "c51ff7080f55642606c1a62b18598e6d40599a7835a68b7f9f0f4d2f2d1dbae5",
+          "old_matches": [
+            {
+              "block": 111,
+              "name": "VS_c02ea3aa3108ec0872302ee8f4143d0ac6af049c",
+              "stage": "VERTEX",
+              "source_blake3": "{0x0ca49144, 0xdb676b6d, 0x1f4e4493, 0xe8e19331, 0xe7785f98, 0x31e17f95, 0xbb943a4d, 0xc96ad3c4}",
+              "instructions": 97
+            },
+            {
+              "block": 131,
+              "name": "VS_77094a1bc63ccc7fea543ec052a7f328c32cc09d",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8761fbb3, 0x200a63c9, 0x20a12c46, 0x94ea656a, 0xfd91a7bd, 0xaa9927b4, 0x095a8f1c, 0xfae3b9e9}",
+              "instructions": 97
+            },
+            {
+              "block": 152,
+              "name": "VS_1f3a4c4d1124d0a36efe69a19df11378d852eae2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8e5d3bb6, 0xdc6788fd, 0x026cd538, 0x7ecf15d0, 0xa324a47f, 0xf6bdadb2, 0xb3ee2f5f, 0xc2802cdc}",
+              "instructions": 97
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: true\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd27680\n  Blend count: 2\n  Blend: 0x7c1fd273c0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 9\n    Resources: 0x7c1fd27384\n    Shader: 0x7caf201b40\n    Thread storage: 0x7c1fd26800\n    FAU: 0x7c1fd27440",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: UINT16\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 60\n  Vertex attribute stride: 44\nTiler:\n  Address: 0x7c1fd26d40\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x7af3702700"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "7c1fd27c00",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 155,
+          "isa_text_sha256": "748e625490514ea5a5f94d711f6e951416c4ce06a415f2e53c27da6afd657159",
+          "machine_sha256": "edf633b88ff510c7a8065034185ea4ff17035cb21b339dacc56fb9c5dfbf5a38",
+          "old_matches": [
+            {
+              "block": 100,
+              "name": "FS_ef70713d8290de0a34179f3b60a37304b461b742",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xcfa8d48d, 0x197997a6, 0x8bd5acf4, 0x5fc96b1f, 0xc958a0b6, 0xf311ab67, 0x6c66bd9f, 0x1a288001}",
+              "instructions": 155
+            },
+            {
+              "block": 132,
+              "name": "FS_a9fdeb8cd1a732136ab4af6e397e4269ea43ec2e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x7bc4bbcc, 0xe3f1d057, 0xd30cde0d, 0x450b8645, 0x421a1a59, 0x080394d0, 0xa88dd1bc, 0xecfe6244}",
+              "instructions": 155
+            },
+            {
+              "block": 135,
+              "name": "FS_20d9a92c3407b2441566ff578a08f432f4b3fb73",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x6d8a14da, 0x0defaf03, 0x0f3e803d, 0x6184a76b, 0x368a3051, 0xffa22754, 0x797e6a5f, 0xc7833b4b}",
+              "instructions": 155
+            },
+            {
+              "block": 138,
+              "name": "FS_12564e2b4dac0e720eae7a8d1203f622cc03876e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xf1a0e08d, 0x4d2340ba, 0x75125159, 0x5ace427e, 0xa11c262b, 0xb997ff61, 0x93059a7d, 0x29bbdc24}",
+              "instructions": 155
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "f0b9fcfffca7ffab4320dbc4b4761ecf68a72ec5e76fecb3c2923093dcf48a59",
+          "machine_sha256": "f18adad906b20953776283738f3f060fb9b94579fe1f66a2558d7825a023b61e",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 97,
+          "isa_text_sha256": "f168c1f5015739200cc4500140c613bc9e8120cc16184872cb1bfb2f4650e44d",
+          "machine_sha256": "c51ff7080f55642606c1a62b18598e6d40599a7835a68b7f9f0f4d2f2d1dbae5",
+          "old_matches": [
+            {
+              "block": 111,
+              "name": "VS_c02ea3aa3108ec0872302ee8f4143d0ac6af049c",
+              "stage": "VERTEX",
+              "source_blake3": "{0x0ca49144, 0xdb676b6d, 0x1f4e4493, 0xe8e19331, 0xe7785f98, 0x31e17f95, 0xbb943a4d, 0xc96ad3c4}",
+              "instructions": 97
+            },
+            {
+              "block": 131,
+              "name": "VS_77094a1bc63ccc7fea543ec052a7f328c32cc09d",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8761fbb3, 0x200a63c9, 0x20a12c46, 0x94ea656a, 0xfd91a7bd, 0xaa9927b4, 0x095a8f1c, 0xfae3b9e9}",
+              "instructions": 97
+            },
+            {
+              "block": 152,
+              "name": "VS_1f3a4c4d1124d0a36efe69a19df11378d852eae2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8e5d3bb6, 0xdc6788fd, 0x026cd538, 0x7ecf15d0, 0xa324a47f, 0xf6bdadb2, 0xb3ee2f5f, 0xc2802cdc}",
+              "instructions": 97
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: true\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd27d80\n  Blend count: 2\n  Blend: 0x7c1fd27ac0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 9\n    Resources: 0x7c1fd27a84\n    Shader: 0x7caf201b40\n    Thread storage: 0x7c1fd26800\n    FAU: 0x7c1fd27b40",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: UINT16\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 60\n  Vertex attribute stride: 44\nTiler:\n  Address: 0x7c1fd26d40\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x7af3700e00"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "7c1fd28300",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 155,
+          "isa_text_sha256": "748e625490514ea5a5f94d711f6e951416c4ce06a415f2e53c27da6afd657159",
+          "machine_sha256": "edf633b88ff510c7a8065034185ea4ff17035cb21b339dacc56fb9c5dfbf5a38",
+          "old_matches": [
+            {
+              "block": 100,
+              "name": "FS_ef70713d8290de0a34179f3b60a37304b461b742",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xcfa8d48d, 0x197997a6, 0x8bd5acf4, 0x5fc96b1f, 0xc958a0b6, 0xf311ab67, 0x6c66bd9f, 0x1a288001}",
+              "instructions": 155
+            },
+            {
+              "block": 132,
+              "name": "FS_a9fdeb8cd1a732136ab4af6e397e4269ea43ec2e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x7bc4bbcc, 0xe3f1d057, 0xd30cde0d, 0x450b8645, 0x421a1a59, 0x080394d0, 0xa88dd1bc, 0xecfe6244}",
+              "instructions": 155
+            },
+            {
+              "block": 135,
+              "name": "FS_20d9a92c3407b2441566ff578a08f432f4b3fb73",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x6d8a14da, 0x0defaf03, 0x0f3e803d, 0x6184a76b, 0x368a3051, 0xffa22754, 0x797e6a5f, 0xc7833b4b}",
+              "instructions": 155
+            },
+            {
+              "block": 138,
+              "name": "FS_12564e2b4dac0e720eae7a8d1203f622cc03876e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xf1a0e08d, 0x4d2340ba, 0x75125159, 0x5ace427e, 0xa11c262b, 0xb997ff61, 0x93059a7d, 0x29bbdc24}",
+              "instructions": 155
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "f0b9fcfffca7ffab4320dbc4b4761ecf68a72ec5e76fecb3c2923093dcf48a59",
+          "machine_sha256": "f18adad906b20953776283738f3f060fb9b94579fe1f66a2558d7825a023b61e",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 97,
+          "isa_text_sha256": "f168c1f5015739200cc4500140c613bc9e8120cc16184872cb1bfb2f4650e44d",
+          "machine_sha256": "c51ff7080f55642606c1a62b18598e6d40599a7835a68b7f9f0f4d2f2d1dbae5",
+          "old_matches": [
+            {
+              "block": 111,
+              "name": "VS_c02ea3aa3108ec0872302ee8f4143d0ac6af049c",
+              "stage": "VERTEX",
+              "source_blake3": "{0x0ca49144, 0xdb676b6d, 0x1f4e4493, 0xe8e19331, 0xe7785f98, 0x31e17f95, 0xbb943a4d, 0xc96ad3c4}",
+              "instructions": 97
+            },
+            {
+              "block": 131,
+              "name": "VS_77094a1bc63ccc7fea543ec052a7f328c32cc09d",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8761fbb3, 0x200a63c9, 0x20a12c46, 0x94ea656a, 0xfd91a7bd, 0xaa9927b4, 0x095a8f1c, 0xfae3b9e9}",
+              "instructions": 97
+            },
+            {
+              "block": 152,
+              "name": "VS_1f3a4c4d1124d0a36efe69a19df11378d852eae2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8e5d3bb6, 0xdc6788fd, 0x026cd538, 0x7ecf15d0, 0xa324a47f, 0xf6bdadb2, 0xb3ee2f5f, 0xc2802cdc}",
+              "instructions": 97
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: true\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd28480\n  Blend count: 2\n  Blend: 0x7c1fd281c0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 9\n    Resources: 0x7c1fd28184\n    Shader: 0x7caf201b40\n    Thread storage: 0x7c1fd26800\n    FAU: 0x7c1fd28240",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: UINT16\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 60\n  Vertex attribute stride: 44\nTiler:\n  Address: 0x7c1fd26d40\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x7af3702200"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "7c1fd28a00",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 155,
+          "isa_text_sha256": "748e625490514ea5a5f94d711f6e951416c4ce06a415f2e53c27da6afd657159",
+          "machine_sha256": "edf633b88ff510c7a8065034185ea4ff17035cb21b339dacc56fb9c5dfbf5a38",
+          "old_matches": [
+            {
+              "block": 100,
+              "name": "FS_ef70713d8290de0a34179f3b60a37304b461b742",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xcfa8d48d, 0x197997a6, 0x8bd5acf4, 0x5fc96b1f, 0xc958a0b6, 0xf311ab67, 0x6c66bd9f, 0x1a288001}",
+              "instructions": 155
+            },
+            {
+              "block": 132,
+              "name": "FS_a9fdeb8cd1a732136ab4af6e397e4269ea43ec2e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x7bc4bbcc, 0xe3f1d057, 0xd30cde0d, 0x450b8645, 0x421a1a59, 0x080394d0, 0xa88dd1bc, 0xecfe6244}",
+              "instructions": 155
+            },
+            {
+              "block": 135,
+              "name": "FS_20d9a92c3407b2441566ff578a08f432f4b3fb73",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x6d8a14da, 0x0defaf03, 0x0f3e803d, 0x6184a76b, 0x368a3051, 0xffa22754, 0x797e6a5f, 0xc7833b4b}",
+              "instructions": 155
+            },
+            {
+              "block": 138,
+              "name": "FS_12564e2b4dac0e720eae7a8d1203f622cc03876e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xf1a0e08d, 0x4d2340ba, 0x75125159, 0x5ace427e, 0xa11c262b, 0xb997ff61, 0x93059a7d, 0x29bbdc24}",
+              "instructions": 155
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "f0b9fcfffca7ffab4320dbc4b4761ecf68a72ec5e76fecb3c2923093dcf48a59",
+          "machine_sha256": "f18adad906b20953776283738f3f060fb9b94579fe1f66a2558d7825a023b61e",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 97,
+          "isa_text_sha256": "f168c1f5015739200cc4500140c613bc9e8120cc16184872cb1bfb2f4650e44d",
+          "machine_sha256": "c51ff7080f55642606c1a62b18598e6d40599a7835a68b7f9f0f4d2f2d1dbae5",
+          "old_matches": [
+            {
+              "block": 111,
+              "name": "VS_c02ea3aa3108ec0872302ee8f4143d0ac6af049c",
+              "stage": "VERTEX",
+              "source_blake3": "{0x0ca49144, 0xdb676b6d, 0x1f4e4493, 0xe8e19331, 0xe7785f98, 0x31e17f95, 0xbb943a4d, 0xc96ad3c4}",
+              "instructions": 97
+            },
+            {
+              "block": 131,
+              "name": "VS_77094a1bc63ccc7fea543ec052a7f328c32cc09d",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8761fbb3, 0x200a63c9, 0x20a12c46, 0x94ea656a, 0xfd91a7bd, 0xaa9927b4, 0x095a8f1c, 0xfae3b9e9}",
+              "instructions": 97
+            },
+            {
+              "block": 152,
+              "name": "VS_1f3a4c4d1124d0a36efe69a19df11378d852eae2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8e5d3bb6, 0xdc6788fd, 0x026cd538, 0x7ecf15d0, 0xa324a47f, 0xf6bdadb2, 0xb3ee2f5f, 0xc2802cdc}",
+              "instructions": 97
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: true\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd28b80\n  Blend count: 2\n  Blend: 0x7c1fd288c0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 9\n    Resources: 0x7c1fd28884\n    Shader: 0x7caf201b40\n    Thread storage: 0x7c1fd26800\n    FAU: 0x7c1fd28940",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: UINT16\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 60\n  Vertex attribute stride: 44\nTiler:\n  Address: 0x7c1fd26d40\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x7af3700900"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "7c1fd29100",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 155,
+          "isa_text_sha256": "748e625490514ea5a5f94d711f6e951416c4ce06a415f2e53c27da6afd657159",
+          "machine_sha256": "edf633b88ff510c7a8065034185ea4ff17035cb21b339dacc56fb9c5dfbf5a38",
+          "old_matches": [
+            {
+              "block": 100,
+              "name": "FS_ef70713d8290de0a34179f3b60a37304b461b742",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xcfa8d48d, 0x197997a6, 0x8bd5acf4, 0x5fc96b1f, 0xc958a0b6, 0xf311ab67, 0x6c66bd9f, 0x1a288001}",
+              "instructions": 155
+            },
+            {
+              "block": 132,
+              "name": "FS_a9fdeb8cd1a732136ab4af6e397e4269ea43ec2e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x7bc4bbcc, 0xe3f1d057, 0xd30cde0d, 0x450b8645, 0x421a1a59, 0x080394d0, 0xa88dd1bc, 0xecfe6244}",
+              "instructions": 155
+            },
+            {
+              "block": 135,
+              "name": "FS_20d9a92c3407b2441566ff578a08f432f4b3fb73",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x6d8a14da, 0x0defaf03, 0x0f3e803d, 0x6184a76b, 0x368a3051, 0xffa22754, 0x797e6a5f, 0xc7833b4b}",
+              "instructions": 155
+            },
+            {
+              "block": 138,
+              "name": "FS_12564e2b4dac0e720eae7a8d1203f622cc03876e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xf1a0e08d, 0x4d2340ba, 0x75125159, 0x5ace427e, 0xa11c262b, 0xb997ff61, 0x93059a7d, 0x29bbdc24}",
+              "instructions": 155
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "f0b9fcfffca7ffab4320dbc4b4761ecf68a72ec5e76fecb3c2923093dcf48a59",
+          "machine_sha256": "f18adad906b20953776283738f3f060fb9b94579fe1f66a2558d7825a023b61e",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 97,
+          "isa_text_sha256": "f168c1f5015739200cc4500140c613bc9e8120cc16184872cb1bfb2f4650e44d",
+          "machine_sha256": "c51ff7080f55642606c1a62b18598e6d40599a7835a68b7f9f0f4d2f2d1dbae5",
+          "old_matches": [
+            {
+              "block": 111,
+              "name": "VS_c02ea3aa3108ec0872302ee8f4143d0ac6af049c",
+              "stage": "VERTEX",
+              "source_blake3": "{0x0ca49144, 0xdb676b6d, 0x1f4e4493, 0xe8e19331, 0xe7785f98, 0x31e17f95, 0xbb943a4d, 0xc96ad3c4}",
+              "instructions": 97
+            },
+            {
+              "block": 131,
+              "name": "VS_77094a1bc63ccc7fea543ec052a7f328c32cc09d",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8761fbb3, 0x200a63c9, 0x20a12c46, 0x94ea656a, 0xfd91a7bd, 0xaa9927b4, 0x095a8f1c, 0xfae3b9e9}",
+              "instructions": 97
+            },
+            {
+              "block": 152,
+              "name": "VS_1f3a4c4d1124d0a36efe69a19df11378d852eae2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8e5d3bb6, 0xdc6788fd, 0x026cd538, 0x7ecf15d0, 0xa324a47f, 0xf6bdadb2, 0xb3ee2f5f, 0xc2802cdc}",
+              "instructions": 97
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: true\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd29280\n  Blend count: 2\n  Blend: 0x7c1fd28fc0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 9\n    Resources: 0x7c1fd28f84\n    Shader: 0x7caf201b40\n    Thread storage: 0x7c1fd26800\n    FAU: 0x7c1fd29040",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: UINT16\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 60\n  Vertex attribute stride: 44\nTiler:\n  Address: 0x7c1fd26d40\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x7af3701d00"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "7c1fd29800",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 155,
+          "isa_text_sha256": "748e625490514ea5a5f94d711f6e951416c4ce06a415f2e53c27da6afd657159",
+          "machine_sha256": "edf633b88ff510c7a8065034185ea4ff17035cb21b339dacc56fb9c5dfbf5a38",
+          "old_matches": [
+            {
+              "block": 100,
+              "name": "FS_ef70713d8290de0a34179f3b60a37304b461b742",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xcfa8d48d, 0x197997a6, 0x8bd5acf4, 0x5fc96b1f, 0xc958a0b6, 0xf311ab67, 0x6c66bd9f, 0x1a288001}",
+              "instructions": 155
+            },
+            {
+              "block": 132,
+              "name": "FS_a9fdeb8cd1a732136ab4af6e397e4269ea43ec2e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x7bc4bbcc, 0xe3f1d057, 0xd30cde0d, 0x450b8645, 0x421a1a59, 0x080394d0, 0xa88dd1bc, 0xecfe6244}",
+              "instructions": 155
+            },
+            {
+              "block": 135,
+              "name": "FS_20d9a92c3407b2441566ff578a08f432f4b3fb73",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x6d8a14da, 0x0defaf03, 0x0f3e803d, 0x6184a76b, 0x368a3051, 0xffa22754, 0x797e6a5f, 0xc7833b4b}",
+              "instructions": 155
+            },
+            {
+              "block": 138,
+              "name": "FS_12564e2b4dac0e720eae7a8d1203f622cc03876e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xf1a0e08d, 0x4d2340ba, 0x75125159, 0x5ace427e, 0xa11c262b, 0xb997ff61, 0x93059a7d, 0x29bbdc24}",
+              "instructions": 155
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "f0b9fcfffca7ffab4320dbc4b4761ecf68a72ec5e76fecb3c2923093dcf48a59",
+          "machine_sha256": "f18adad906b20953776283738f3f060fb9b94579fe1f66a2558d7825a023b61e",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 97,
+          "isa_text_sha256": "f168c1f5015739200cc4500140c613bc9e8120cc16184872cb1bfb2f4650e44d",
+          "machine_sha256": "c51ff7080f55642606c1a62b18598e6d40599a7835a68b7f9f0f4d2f2d1dbae5",
+          "old_matches": [
+            {
+              "block": 111,
+              "name": "VS_c02ea3aa3108ec0872302ee8f4143d0ac6af049c",
+              "stage": "VERTEX",
+              "source_blake3": "{0x0ca49144, 0xdb676b6d, 0x1f4e4493, 0xe8e19331, 0xe7785f98, 0x31e17f95, 0xbb943a4d, 0xc96ad3c4}",
+              "instructions": 97
+            },
+            {
+              "block": 131,
+              "name": "VS_77094a1bc63ccc7fea543ec052a7f328c32cc09d",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8761fbb3, 0x200a63c9, 0x20a12c46, 0x94ea656a, 0xfd91a7bd, 0xaa9927b4, 0x095a8f1c, 0xfae3b9e9}",
+              "instructions": 97
+            },
+            {
+              "block": 152,
+              "name": "VS_1f3a4c4d1124d0a36efe69a19df11378d852eae2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8e5d3bb6, 0xdc6788fd, 0x026cd538, 0x7ecf15d0, 0xa324a47f, 0xf6bdadb2, 0xb3ee2f5f, 0xc2802cdc}",
+              "instructions": 97
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: true\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd29980\n  Blend count: 2\n  Blend: 0x7c1fd296c0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 9\n    Resources: 0x7c1fd29684\n    Shader: 0x7caf201b40\n    Thread storage: 0x7c1fd26800\n    FAU: 0x7c1fd29740",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: UINT16\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 60\n  Vertex attribute stride: 44\nTiler:\n  Address: 0x7c1fd26d40\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x7af3700400"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "7c1fd29f00",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 155,
+          "isa_text_sha256": "748e625490514ea5a5f94d711f6e951416c4ce06a415f2e53c27da6afd657159",
+          "machine_sha256": "edf633b88ff510c7a8065034185ea4ff17035cb21b339dacc56fb9c5dfbf5a38",
+          "old_matches": [
+            {
+              "block": 100,
+              "name": "FS_ef70713d8290de0a34179f3b60a37304b461b742",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xcfa8d48d, 0x197997a6, 0x8bd5acf4, 0x5fc96b1f, 0xc958a0b6, 0xf311ab67, 0x6c66bd9f, 0x1a288001}",
+              "instructions": 155
+            },
+            {
+              "block": 132,
+              "name": "FS_a9fdeb8cd1a732136ab4af6e397e4269ea43ec2e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x7bc4bbcc, 0xe3f1d057, 0xd30cde0d, 0x450b8645, 0x421a1a59, 0x080394d0, 0xa88dd1bc, 0xecfe6244}",
+              "instructions": 155
+            },
+            {
+              "block": 135,
+              "name": "FS_20d9a92c3407b2441566ff578a08f432f4b3fb73",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x6d8a14da, 0x0defaf03, 0x0f3e803d, 0x6184a76b, 0x368a3051, 0xffa22754, 0x797e6a5f, 0xc7833b4b}",
+              "instructions": 155
+            },
+            {
+              "block": 138,
+              "name": "FS_12564e2b4dac0e720eae7a8d1203f622cc03876e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xf1a0e08d, 0x4d2340ba, 0x75125159, 0x5ace427e, 0xa11c262b, 0xb997ff61, 0x93059a7d, 0x29bbdc24}",
+              "instructions": 155
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "f0b9fcfffca7ffab4320dbc4b4761ecf68a72ec5e76fecb3c2923093dcf48a59",
+          "machine_sha256": "f18adad906b20953776283738f3f060fb9b94579fe1f66a2558d7825a023b61e",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 97,
+          "isa_text_sha256": "f168c1f5015739200cc4500140c613bc9e8120cc16184872cb1bfb2f4650e44d",
+          "machine_sha256": "c51ff7080f55642606c1a62b18598e6d40599a7835a68b7f9f0f4d2f2d1dbae5",
+          "old_matches": [
+            {
+              "block": 111,
+              "name": "VS_c02ea3aa3108ec0872302ee8f4143d0ac6af049c",
+              "stage": "VERTEX",
+              "source_blake3": "{0x0ca49144, 0xdb676b6d, 0x1f4e4493, 0xe8e19331, 0xe7785f98, 0x31e17f95, 0xbb943a4d, 0xc96ad3c4}",
+              "instructions": 97
+            },
+            {
+              "block": 131,
+              "name": "VS_77094a1bc63ccc7fea543ec052a7f328c32cc09d",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8761fbb3, 0x200a63c9, 0x20a12c46, 0x94ea656a, 0xfd91a7bd, 0xaa9927b4, 0x095a8f1c, 0xfae3b9e9}",
+              "instructions": 97
+            },
+            {
+              "block": 152,
+              "name": "VS_1f3a4c4d1124d0a36efe69a19df11378d852eae2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8e5d3bb6, 0xdc6788fd, 0x026cd538, 0x7ecf15d0, 0xa324a47f, 0xf6bdadb2, 0xb3ee2f5f, 0xc2802cdc}",
+              "instructions": 97
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: true\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd2a080\n  Blend count: 2\n  Blend: 0x7c1fd29dc0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 9\n    Resources: 0x7c1fd29d84\n    Shader: 0x7caf201b40\n    Thread storage: 0x7c1fd26800\n    FAU: 0x7c1fd29e40",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: UINT16\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 60\n  Vertex attribute stride: 44\nTiler:\n  Address: 0x7c1fd26d40\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x7af3701800"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "7c1fd2a600",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 155,
+          "isa_text_sha256": "748e625490514ea5a5f94d711f6e951416c4ce06a415f2e53c27da6afd657159",
+          "machine_sha256": "edf633b88ff510c7a8065034185ea4ff17035cb21b339dacc56fb9c5dfbf5a38",
+          "old_matches": [
+            {
+              "block": 100,
+              "name": "FS_ef70713d8290de0a34179f3b60a37304b461b742",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xcfa8d48d, 0x197997a6, 0x8bd5acf4, 0x5fc96b1f, 0xc958a0b6, 0xf311ab67, 0x6c66bd9f, 0x1a288001}",
+              "instructions": 155
+            },
+            {
+              "block": 132,
+              "name": "FS_a9fdeb8cd1a732136ab4af6e397e4269ea43ec2e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x7bc4bbcc, 0xe3f1d057, 0xd30cde0d, 0x450b8645, 0x421a1a59, 0x080394d0, 0xa88dd1bc, 0xecfe6244}",
+              "instructions": 155
+            },
+            {
+              "block": 135,
+              "name": "FS_20d9a92c3407b2441566ff578a08f432f4b3fb73",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x6d8a14da, 0x0defaf03, 0x0f3e803d, 0x6184a76b, 0x368a3051, 0xffa22754, 0x797e6a5f, 0xc7833b4b}",
+              "instructions": 155
+            },
+            {
+              "block": 138,
+              "name": "FS_12564e2b4dac0e720eae7a8d1203f622cc03876e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xf1a0e08d, 0x4d2340ba, 0x75125159, 0x5ace427e, 0xa11c262b, 0xb997ff61, 0x93059a7d, 0x29bbdc24}",
+              "instructions": 155
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "f0b9fcfffca7ffab4320dbc4b4761ecf68a72ec5e76fecb3c2923093dcf48a59",
+          "machine_sha256": "f18adad906b20953776283738f3f060fb9b94579fe1f66a2558d7825a023b61e",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 97,
+          "isa_text_sha256": "f168c1f5015739200cc4500140c613bc9e8120cc16184872cb1bfb2f4650e44d",
+          "machine_sha256": "c51ff7080f55642606c1a62b18598e6d40599a7835a68b7f9f0f4d2f2d1dbae5",
+          "old_matches": [
+            {
+              "block": 111,
+              "name": "VS_c02ea3aa3108ec0872302ee8f4143d0ac6af049c",
+              "stage": "VERTEX",
+              "source_blake3": "{0x0ca49144, 0xdb676b6d, 0x1f4e4493, 0xe8e19331, 0xe7785f98, 0x31e17f95, 0xbb943a4d, 0xc96ad3c4}",
+              "instructions": 97
+            },
+            {
+              "block": 131,
+              "name": "VS_77094a1bc63ccc7fea543ec052a7f328c32cc09d",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8761fbb3, 0x200a63c9, 0x20a12c46, 0x94ea656a, 0xfd91a7bd, 0xaa9927b4, 0x095a8f1c, 0xfae3b9e9}",
+              "instructions": 97
+            },
+            {
+              "block": 152,
+              "name": "VS_1f3a4c4d1124d0a36efe69a19df11378d852eae2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8e5d3bb6, 0xdc6788fd, 0x026cd538, 0x7ecf15d0, 0xa324a47f, 0xf6bdadb2, 0xb3ee2f5f, 0xc2802cdc}",
+              "instructions": 97
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Late\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: true\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd2a780\n  Blend count: 2\n  Blend: 0x7c1fd2a4c0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 9\n    Resources: 0x7c1fd2a484\n    Shader: 0x7caf201b40\n    Thread storage: 0x7c1fd26800\n    FAU: 0x7c1fd2a540",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: UINT16\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 60\n  Vertex attribute stride: 44\nTiler:\n  Address: 0x7c1fd26d40\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x7af36fbe00"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "7c1fd2ad00",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 155,
+          "isa_text_sha256": "748e625490514ea5a5f94d711f6e951416c4ce06a415f2e53c27da6afd657159",
+          "machine_sha256": "edf633b88ff510c7a8065034185ea4ff17035cb21b339dacc56fb9c5dfbf5a38",
+          "old_matches": [
+            {
+              "block": 100,
+              "name": "FS_ef70713d8290de0a34179f3b60a37304b461b742",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xcfa8d48d, 0x197997a6, 0x8bd5acf4, 0x5fc96b1f, 0xc958a0b6, 0xf311ab67, 0x6c66bd9f, 0x1a288001}",
+              "instructions": 155
+            },
+            {
+              "block": 132,
+              "name": "FS_a9fdeb8cd1a732136ab4af6e397e4269ea43ec2e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x7bc4bbcc, 0xe3f1d057, 0xd30cde0d, 0x450b8645, 0x421a1a59, 0x080394d0, 0xa88dd1bc, 0xecfe6244}",
+              "instructions": 155
+            },
+            {
+              "block": 135,
+              "name": "FS_20d9a92c3407b2441566ff578a08f432f4b3fb73",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x6d8a14da, 0x0defaf03, 0x0f3e803d, 0x6184a76b, 0x368a3051, 0xffa22754, 0x797e6a5f, 0xc7833b4b}",
+              "instructions": 155
+            },
+            {
+              "block": 138,
+              "name": "FS_12564e2b4dac0e720eae7a8d1203f622cc03876e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xf1a0e08d, 0x4d2340ba, 0x75125159, 0x5ace427e, 0xa11c262b, 0xb997ff61, 0x93059a7d, 0x29bbdc24}",
+              "instructions": 155
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "f0b9fcfffca7ffab4320dbc4b4761ecf68a72ec5e76fecb3c2923093dcf48a59",
+          "machine_sha256": "f18adad906b20953776283738f3f060fb9b94579fe1f66a2558d7825a023b61e",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 97,
+          "isa_text_sha256": "f168c1f5015739200cc4500140c613bc9e8120cc16184872cb1bfb2f4650e44d",
+          "machine_sha256": "c51ff7080f55642606c1a62b18598e6d40599a7835a68b7f9f0f4d2f2d1dbae5",
+          "old_matches": [
+            {
+              "block": 111,
+              "name": "VS_c02ea3aa3108ec0872302ee8f4143d0ac6af049c",
+              "stage": "VERTEX",
+              "source_blake3": "{0x0ca49144, 0xdb676b6d, 0x1f4e4493, 0xe8e19331, 0xe7785f98, 0x31e17f95, 0xbb943a4d, 0xc96ad3c4}",
+              "instructions": 97
+            },
+            {
+              "block": 131,
+              "name": "VS_77094a1bc63ccc7fea543ec052a7f328c32cc09d",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8761fbb3, 0x200a63c9, 0x20a12c46, 0x94ea656a, 0xfd91a7bd, 0xaa9927b4, 0x095a8f1c, 0xfae3b9e9}",
+              "instructions": 97
+            },
+            {
+              "block": 152,
+              "name": "VS_1f3a4c4d1124d0a36efe69a19df11378d852eae2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8e5d3bb6, 0xdc6788fd, 0x026cd538, 0x7ecf15d0, 0xa324a47f, 0xf6bdadb2, 0xb3ee2f5f, 0xc2802cdc}",
+              "instructions": 97
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Late\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: true\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd2ae80\n  Blend count: 2\n  Blend: 0x7c1fd2abc0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 9\n    Resources: 0x7c1fd2ab84\n    Shader: 0x7caf201b40\n    Thread storage: 0x7c1fd26800\n    FAU: 0x7c1fd2ac40",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: UINT16\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 60\n  Vertex attribute stride: 44\nTiler:\n  Address: 0x7c1fd26d40\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x7af36fc300"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "7c1fd2b400",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 155,
+          "isa_text_sha256": "748e625490514ea5a5f94d711f6e951416c4ce06a415f2e53c27da6afd657159",
+          "machine_sha256": "edf633b88ff510c7a8065034185ea4ff17035cb21b339dacc56fb9c5dfbf5a38",
+          "old_matches": [
+            {
+              "block": 100,
+              "name": "FS_ef70713d8290de0a34179f3b60a37304b461b742",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xcfa8d48d, 0x197997a6, 0x8bd5acf4, 0x5fc96b1f, 0xc958a0b6, 0xf311ab67, 0x6c66bd9f, 0x1a288001}",
+              "instructions": 155
+            },
+            {
+              "block": 132,
+              "name": "FS_a9fdeb8cd1a732136ab4af6e397e4269ea43ec2e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x7bc4bbcc, 0xe3f1d057, 0xd30cde0d, 0x450b8645, 0x421a1a59, 0x080394d0, 0xa88dd1bc, 0xecfe6244}",
+              "instructions": 155
+            },
+            {
+              "block": 135,
+              "name": "FS_20d9a92c3407b2441566ff578a08f432f4b3fb73",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x6d8a14da, 0x0defaf03, 0x0f3e803d, 0x6184a76b, 0x368a3051, 0xffa22754, 0x797e6a5f, 0xc7833b4b}",
+              "instructions": 155
+            },
+            {
+              "block": 138,
+              "name": "FS_12564e2b4dac0e720eae7a8d1203f622cc03876e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xf1a0e08d, 0x4d2340ba, 0x75125159, 0x5ace427e, 0xa11c262b, 0xb997ff61, 0x93059a7d, 0x29bbdc24}",
+              "instructions": 155
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "f0b9fcfffca7ffab4320dbc4b4761ecf68a72ec5e76fecb3c2923093dcf48a59",
+          "machine_sha256": "f18adad906b20953776283738f3f060fb9b94579fe1f66a2558d7825a023b61e",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 97,
+          "isa_text_sha256": "f168c1f5015739200cc4500140c613bc9e8120cc16184872cb1bfb2f4650e44d",
+          "machine_sha256": "c51ff7080f55642606c1a62b18598e6d40599a7835a68b7f9f0f4d2f2d1dbae5",
+          "old_matches": [
+            {
+              "block": 111,
+              "name": "VS_c02ea3aa3108ec0872302ee8f4143d0ac6af049c",
+              "stage": "VERTEX",
+              "source_blake3": "{0x0ca49144, 0xdb676b6d, 0x1f4e4493, 0xe8e19331, 0xe7785f98, 0x31e17f95, 0xbb943a4d, 0xc96ad3c4}",
+              "instructions": 97
+            },
+            {
+              "block": 131,
+              "name": "VS_77094a1bc63ccc7fea543ec052a7f328c32cc09d",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8761fbb3, 0x200a63c9, 0x20a12c46, 0x94ea656a, 0xfd91a7bd, 0xaa9927b4, 0x095a8f1c, 0xfae3b9e9}",
+              "instructions": 97
+            },
+            {
+              "block": 152,
+              "name": "VS_1f3a4c4d1124d0a36efe69a19df11378d852eae2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8e5d3bb6, 0xdc6788fd, 0x026cd538, 0x7ecf15d0, 0xa324a47f, 0xf6bdadb2, 0xb3ee2f5f, 0xc2802cdc}",
+              "instructions": 97
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Late\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: true\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd2b580\n  Blend count: 2\n  Blend: 0x7c1fd2b2c0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 9\n    Resources: 0x7c1fd2b284\n    Shader: 0x7caf201b40\n    Thread storage: 0x7c1fd26800\n    FAU: 0x7c1fd2b340",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: UINT16\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 60\n  Vertex attribute stride: 44\nTiler:\n  Address: 0x7c1fd26d40\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x7af3715400"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "7c1fd2bb00",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 155,
+          "isa_text_sha256": "748e625490514ea5a5f94d711f6e951416c4ce06a415f2e53c27da6afd657159",
+          "machine_sha256": "edf633b88ff510c7a8065034185ea4ff17035cb21b339dacc56fb9c5dfbf5a38",
+          "old_matches": [
+            {
+              "block": 100,
+              "name": "FS_ef70713d8290de0a34179f3b60a37304b461b742",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xcfa8d48d, 0x197997a6, 0x8bd5acf4, 0x5fc96b1f, 0xc958a0b6, 0xf311ab67, 0x6c66bd9f, 0x1a288001}",
+              "instructions": 155
+            },
+            {
+              "block": 132,
+              "name": "FS_a9fdeb8cd1a732136ab4af6e397e4269ea43ec2e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x7bc4bbcc, 0xe3f1d057, 0xd30cde0d, 0x450b8645, 0x421a1a59, 0x080394d0, 0xa88dd1bc, 0xecfe6244}",
+              "instructions": 155
+            },
+            {
+              "block": 135,
+              "name": "FS_20d9a92c3407b2441566ff578a08f432f4b3fb73",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x6d8a14da, 0x0defaf03, 0x0f3e803d, 0x6184a76b, 0x368a3051, 0xffa22754, 0x797e6a5f, 0xc7833b4b}",
+              "instructions": 155
+            },
+            {
+              "block": 138,
+              "name": "FS_12564e2b4dac0e720eae7a8d1203f622cc03876e",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0xf1a0e08d, 0x4d2340ba, 0x75125159, 0x5ace427e, 0xa11c262b, 0xb997ff61, 0x93059a7d, 0x29bbdc24}",
+              "instructions": 155
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "f0b9fcfffca7ffab4320dbc4b4761ecf68a72ec5e76fecb3c2923093dcf48a59",
+          "machine_sha256": "f18adad906b20953776283738f3f060fb9b94579fe1f66a2558d7825a023b61e",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 97,
+          "isa_text_sha256": "f168c1f5015739200cc4500140c613bc9e8120cc16184872cb1bfb2f4650e44d",
+          "machine_sha256": "c51ff7080f55642606c1a62b18598e6d40599a7835a68b7f9f0f4d2f2d1dbae5",
+          "old_matches": [
+            {
+              "block": 111,
+              "name": "VS_c02ea3aa3108ec0872302ee8f4143d0ac6af049c",
+              "stage": "VERTEX",
+              "source_blake3": "{0x0ca49144, 0xdb676b6d, 0x1f4e4493, 0xe8e19331, 0xe7785f98, 0x31e17f95, 0xbb943a4d, 0xc96ad3c4}",
+              "instructions": 97
+            },
+            {
+              "block": 131,
+              "name": "VS_77094a1bc63ccc7fea543ec052a7f328c32cc09d",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8761fbb3, 0x200a63c9, 0x20a12c46, 0x94ea656a, 0xfd91a7bd, 0xaa9927b4, 0x095a8f1c, 0xfae3b9e9}",
+              "instructions": 97
+            },
+            {
+              "block": 152,
+              "name": "VS_1f3a4c4d1124d0a36efe69a19df11378d852eae2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x8e5d3bb6, 0xdc6788fd, 0x026cd538, 0x7ecf15d0, 0xa324a47f, 0xf6bdadb2, 0xb3ee2f5f, 0xc2802cdc}",
+              "instructions": 97
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Late\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: true\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd2bc80\n  Blend count: 2\n  Blend: 0x7c1fd2b9c0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 9\n    Resources: 0x7c1fd2b984\n    Shader: 0x7caf201b40\n    Thread storage: 0x7c1fd26800\n    FAU: 0x7c1fd2ba40",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: UINT16\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 60\n  Vertex attribute stride: 44\nTiler:\n  Address: 0x7c1fd26d40\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x7af3715900"
+    },
+    {
+      "file": "decoded..ctx-0.0020",
+      "job": "7c1fd2c780",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 45,
+          "isa_text_sha256": "f0fd76e17190a70c18b1474fef3cf1d7c1203563aa16542f61dd80b16f7cb673",
+          "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "a362c861a618647272e52f3c633f74448e9d5f9d539a26195fe6d6a95eb1ab09",
+          "machine_sha256": "f8cc01def428e61fd3813b84dbb4f22245739c74c498a18e16d92d7c48d12b01",
+          "old_matches": [
+            {
+              "block": 11,
+              "name": "VS_8755c07dad3e81819dc262509f209d6ce0009a40",
+              "stage": "VERTEX",
+              "source_blake3": "{0x88891633, 0xf522517b, 0xcb6b597d, 0xf862b6cb, 0x469fc246, 0x67ef0243, 0xdb37dec7, 0x4ab2c126}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x1\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd2c900\n  Blend count: 1\n  Blend: 0x7c1fd2c600\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fd2c5c4\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd2c200\n    FAU: 0x7c1fd2c660",
+      "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd2c6c0\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "7c1fd2d380",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "e344eab5841f90e9eac6088980d22f9b05ce8e949b43f0eceb75284368fba19b",
+          "machine_sha256": "d9ab247c4420047152ba48ba8c357849bb29f76d7e5f683a0adebbff8724e063",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 83,
+          "isa_text_sha256": "7eec40203f193c7edee1b7b40f8092308e1d37ab07b8ee92bd74f903f3e8cbd4",
+          "machine_sha256": "1b3dc6514eb920d7186da44e2f15a3e157bb603583477ad3e4a68c67fcd386f9",
+          "old_matches": [
+            {
+              "block": 15,
+              "name": "VS_6713cb552af2598a43a9eebe2e2928e1f0ced6e2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x198ade32, 0x713660c0, 0x49fdc33f, 0xf9c34dcb, 0x68760e12, 0x953630de, 0x37921664, 0xb7f4fab5}",
+              "instructions": 83
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd2d500\n  Blend count: 2\n  Blend: 0x7c1fd2d1c0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fd2d184\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd2cd80\n    FAU: 0x7c1fd2d230",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd2d280\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "7c1fd2da00",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "e344eab5841f90e9eac6088980d22f9b05ce8e949b43f0eceb75284368fba19b",
+          "machine_sha256": "d9ab247c4420047152ba48ba8c357849bb29f76d7e5f683a0adebbff8724e063",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 83,
+          "isa_text_sha256": "7eec40203f193c7edee1b7b40f8092308e1d37ab07b8ee92bd74f903f3e8cbd4",
+          "machine_sha256": "1b3dc6514eb920d7186da44e2f15a3e157bb603583477ad3e4a68c67fcd386f9",
+          "old_matches": [
+            {
+              "block": 15,
+              "name": "VS_6713cb552af2598a43a9eebe2e2928e1f0ced6e2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x198ade32, 0x713660c0, 0x49fdc33f, 0xf9c34dcb, 0x68760e12, 0x953630de, 0x37921664, 0xb7f4fab5}",
+              "instructions": 83
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd2db80\n  Blend count: 2\n  Blend: 0x7c1fd2d940\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fd2d904\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd2cd80\n    FAU: 0x7c1fd2d9b0",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd2d280\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "7c1fd2e080",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 46,
+          "isa_text_sha256": "2463d11a5d2d69ebba6b70600a5a846ac17d35439c3b45ccd33e6709a55e71da",
+          "machine_sha256": "52ea83fc11d276268ab9107542074507b5eae42492a7af7220c8cfb5c24381d5",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "4d463aec93942659057db420ef86384134c636045c61114684d0b23691b0cb8e",
+          "machine_sha256": "5883793cc931f2aabbd70c05e2360946c8c74ad93a1dc758b32b71227d8d3f8d",
+          "old_matches": [
+            {
+              "block": 17,
+              "name": "VS_5fdd4a4bf405d1af859ba0955d7d8902099d52fb",
+              "stage": "VERTEX",
+              "source_blake3": "{0xae15e14c, 0x498b0996, 0x5c37e39b, 0xc47d8981, 0xf992e2f9, 0x03e5f134, 0x455feeaa, 0x70bf9f7e}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Late\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd2e200\n  Blend count: 2\n  Blend: 0x7c1fd2dfc0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fd2df84\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd2cd80\n    FAU: 0x7c1fd2e030",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x77\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd2d280\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "7c1fd2e700",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 46,
+          "isa_text_sha256": "2463d11a5d2d69ebba6b70600a5a846ac17d35439c3b45ccd33e6709a55e71da",
+          "machine_sha256": "52ea83fc11d276268ab9107542074507b5eae42492a7af7220c8cfb5c24381d5",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "4d463aec93942659057db420ef86384134c636045c61114684d0b23691b0cb8e",
+          "machine_sha256": "5883793cc931f2aabbd70c05e2360946c8c74ad93a1dc758b32b71227d8d3f8d",
+          "old_matches": [
+            {
+              "block": 17,
+              "name": "VS_5fdd4a4bf405d1af859ba0955d7d8902099d52fb",
+              "stage": "VERTEX",
+              "source_blake3": "{0xae15e14c, 0x498b0996, 0x5c37e39b, 0xc47d8981, 0xf992e2f9, 0x03e5f134, 0x455feeaa, 0x70bf9f7e}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Late\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd2e880\n  Blend count: 2\n  Blend: 0x7c1fd2e640\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fd2e604\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd2cd80\n    FAU: 0x7c1fd2e6b0",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x31\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd2d280\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "7c1fd2ed80",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 46,
+          "isa_text_sha256": "2463d11a5d2d69ebba6b70600a5a846ac17d35439c3b45ccd33e6709a55e71da",
+          "machine_sha256": "52ea83fc11d276268ab9107542074507b5eae42492a7af7220c8cfb5c24381d5",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "4d463aec93942659057db420ef86384134c636045c61114684d0b23691b0cb8e",
+          "machine_sha256": "5883793cc931f2aabbd70c05e2360946c8c74ad93a1dc758b32b71227d8d3f8d",
+          "old_matches": [
+            {
+              "block": 17,
+              "name": "VS_5fdd4a4bf405d1af859ba0955d7d8902099d52fb",
+              "stage": "VERTEX",
+              "source_blake3": "{0xae15e14c, 0x498b0996, 0x5c37e39b, 0xc47d8981, 0xf992e2f9, 0x03e5f134, 0x455feeaa, 0x70bf9f7e}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Late\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd2ef00\n  Blend count: 2\n  Blend: 0x7c1fd2ecc0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fd2ec84\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd2cd80\n    FAU: 0x7c1fd2ed30",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x31\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd2d280\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "7c1fd2f400",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 46,
+          "isa_text_sha256": "2463d11a5d2d69ebba6b70600a5a846ac17d35439c3b45ccd33e6709a55e71da",
+          "machine_sha256": "52ea83fc11d276268ab9107542074507b5eae42492a7af7220c8cfb5c24381d5",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "4d463aec93942659057db420ef86384134c636045c61114684d0b23691b0cb8e",
+          "machine_sha256": "5883793cc931f2aabbd70c05e2360946c8c74ad93a1dc758b32b71227d8d3f8d",
+          "old_matches": [
+            {
+              "block": 17,
+              "name": "VS_5fdd4a4bf405d1af859ba0955d7d8902099d52fb",
+              "stage": "VERTEX",
+              "source_blake3": "{0xae15e14c, 0x498b0996, 0x5c37e39b, 0xc47d8981, 0xf992e2f9, 0x03e5f134, 0x455feeaa, 0x70bf9f7e}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Late\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd2f580\n  Blend count: 2\n  Blend: 0x7c1fd2f340\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fd2f304\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd2cd80\n    FAU: 0x7c1fd2f3b0",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x77\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd2d280\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "7c1fd2fa80",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 46,
+          "isa_text_sha256": "2463d11a5d2d69ebba6b70600a5a846ac17d35439c3b45ccd33e6709a55e71da",
+          "machine_sha256": "52ea83fc11d276268ab9107542074507b5eae42492a7af7220c8cfb5c24381d5",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "4d463aec93942659057db420ef86384134c636045c61114684d0b23691b0cb8e",
+          "machine_sha256": "5883793cc931f2aabbd70c05e2360946c8c74ad93a1dc758b32b71227d8d3f8d",
+          "old_matches": [
+            {
+              "block": 17,
+              "name": "VS_5fdd4a4bf405d1af859ba0955d7d8902099d52fb",
+              "stage": "VERTEX",
+              "source_blake3": "{0xae15e14c, 0x498b0996, 0x5c37e39b, 0xc47d8981, 0xf992e2f9, 0x03e5f134, 0x455feeaa, 0x70bf9f7e}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Late\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fd2fc00\n  Blend count: 2\n  Blend: 0x7c1fd2f9c0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fd2f984\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd2cd80\n    FAU: 0x7c1fd2fa30",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x31\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd2d280\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "7c1fceb100",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 46,
+          "isa_text_sha256": "2463d11a5d2d69ebba6b70600a5a846ac17d35439c3b45ccd33e6709a55e71da",
+          "machine_sha256": "52ea83fc11d276268ab9107542074507b5eae42492a7af7220c8cfb5c24381d5",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "4d463aec93942659057db420ef86384134c636045c61114684d0b23691b0cb8e",
+          "machine_sha256": "5883793cc931f2aabbd70c05e2360946c8c74ad93a1dc758b32b71227d8d3f8d",
+          "old_matches": [
+            {
+              "block": 17,
+              "name": "VS_5fdd4a4bf405d1af859ba0955d7d8902099d52fb",
+              "stage": "VERTEX",
+              "source_blake3": "{0xae15e14c, 0x498b0996, 0x5c37e39b, 0xc47d8981, 0xf992e2f9, 0x03e5f134, 0x455feeaa, 0x70bf9f7e}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Force Early\n    ZS update operation: Force Late\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fceb280\n  Blend count: 2\n  Blend: 0x7c1fceb040\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fceb004\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd2cd80\n    FAU: 0x7c1fceb0b0",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x31\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd2d280\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "7c1fceb780",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "e344eab5841f90e9eac6088980d22f9b05ce8e949b43f0eceb75284368fba19b",
+          "machine_sha256": "d9ab247c4420047152ba48ba8c357849bb29f76d7e5f683a0adebbff8724e063",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 83,
+          "isa_text_sha256": "7eec40203f193c7edee1b7b40f8092308e1d37ab07b8ee92bd74f903f3e8cbd4",
+          "machine_sha256": "1b3dc6514eb920d7186da44e2f15a3e157bb603583477ad3e4a68c67fcd386f9",
+          "old_matches": [
+            {
+              "block": 15,
+              "name": "VS_6713cb552af2598a43a9eebe2e2928e1f0ced6e2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x198ade32, 0x713660c0, 0x49fdc33f, 0xf9c34dcb, 0x68760e12, 0x953630de, 0x37921664, 0xb7f4fab5}",
+              "instructions": 83
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fceb900\n  Blend count: 2\n  Blend: 0x7c1fceb6c0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fceb684\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd2cd80\n    FAU: 0x7c1fceb730",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd2d280\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "7c1fcebe00",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "e344eab5841f90e9eac6088980d22f9b05ce8e949b43f0eceb75284368fba19b",
+          "machine_sha256": "d9ab247c4420047152ba48ba8c357849bb29f76d7e5f683a0adebbff8724e063",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 83,
+          "isa_text_sha256": "7eec40203f193c7edee1b7b40f8092308e1d37ab07b8ee92bd74f903f3e8cbd4",
+          "machine_sha256": "1b3dc6514eb920d7186da44e2f15a3e157bb603583477ad3e4a68c67fcd386f9",
+          "old_matches": [
+            {
+              "block": 15,
+              "name": "VS_6713cb552af2598a43a9eebe2e2928e1f0ced6e2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x198ade32, 0x713660c0, 0x49fdc33f, 0xf9c34dcb, 0x68760e12, 0x953630de, 0x37921664, 0xb7f4fab5}",
+              "instructions": 83
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fcebf80\n  Blend count: 2\n  Blend: 0x7c1fcebd40\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fcebd04\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd2cd80\n    FAU: 0x7c1fcebdb0",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd2d280\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "7c1fcec480",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 48,
+          "isa_text_sha256": "e344eab5841f90e9eac6088980d22f9b05ce8e949b43f0eceb75284368fba19b",
+          "machine_sha256": "d9ab247c4420047152ba48ba8c357849bb29f76d7e5f683a0adebbff8724e063",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 83,
+          "isa_text_sha256": "7eec40203f193c7edee1b7b40f8092308e1d37ab07b8ee92bd74f903f3e8cbd4",
+          "machine_sha256": "1b3dc6514eb920d7186da44e2f15a3e157bb603583477ad3e4a68c67fcd386f9",
+          "old_matches": [
+            {
+              "block": 15,
+              "name": "VS_6713cb552af2598a43a9eebe2e2928e1f0ced6e2",
+              "stage": "VERTEX",
+              "source_blake3": "{0x198ade32, 0x713660c0, 0x49fdc33f, 0xf9c34dcb, 0x68760e12, 0x953630de, 0x37921664, 0xb7f4fab5}",
+              "instructions": 83
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x3\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fcec600\n  Blend count: 2\n  Blend: 0x7c1fcec3c0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fcec384\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fd2cd80\n    FAU: 0x7c1fcec430",
+      "primitive": "\n  Draw mode: Triangle strip\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: true\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x4\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fd2d280\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0024",
+      "job": "7c1fced100",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 45,
+          "isa_text_sha256": "f0fd76e17190a70c18b1474fef3cf1d7c1203563aa16542f61dd80b16f7cb673",
+          "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "a362c861a618647272e52f3c633f74448e9d5f9d539a26195fe6d6a95eb1ab09",
+          "machine_sha256": "f8cc01def428e61fd3813b84dbb4f22245739c74c498a18e16d92d7c48d12b01",
+          "old_matches": [
+            {
+              "block": 11,
+              "name": "VS_8755c07dad3e81819dc262509f209d6ce0009a40",
+              "stage": "VERTEX",
+              "source_blake3": "{0x88891633, 0xf522517b, 0xcb6b597d, 0xf862b6cb, 0x469fc246, 0x67ef0243, 0xdb37dec7, 0x4ab2c126}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x1\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fced280\n  Blend count: 1\n  Blend: 0x7c1fcecf80\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fcecf44\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fcecb80\n    FAU: 0x7c1fcecfe0",
+      "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fced040\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    },
+    {
+      "file": "decoded..ctx-0.0027",
+      "job": "7c1fcee180",
+      "shaders": [
+        {
+          "stage": "Fragment",
+          "instructions": 141,
+          "isa_text_sha256": "7a42af0401ba823c854df88a336baeef78964dbc68e481a51b7129225ab3abff",
+          "machine_sha256": "aefc5223b5816c84dba9419fde113cd8b533b70d2dc2f79f16637bfcf8cd2427",
+          "old_matches": [
+            {
+              "block": 20,
+              "name": "FS_6b4d808a1697f698a94b39ab2bda79b68e984c5d",
+              "stage": "FRAGMENT",
+              "source_blake3": "{0x9b4c229d, 0x7adda37e, 0x14075e73, 0x78bc88fa, 0x9aedff0e, 0x49c76d5c, 0xc36c0a68, 0x17a9242d}",
+              "instructions": 141
+            }
+          ]
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 45,
+          "isa_text_sha256": "f0fd76e17190a70c18b1474fef3cf1d7c1203563aa16542f61dd80b16f7cb673",
+          "machine_sha256": "8d63855922a51ff67b6f235e0f7a6a1e6d72fd700224225a0c3af1e788ccdb21",
+          "old_matches": []
+        },
+        {
+          "stage": "Vertex",
+          "instructions": 81,
+          "isa_text_sha256": "a362c861a618647272e52f3c633f74448e9d5f9d539a26195fe6d6a95eb1ab09",
+          "machine_sha256": "f8cc01def428e61fd3813b84dbb4f22245739c74c498a18e16d92d7c48d12b01",
+          "old_matches": [
+            {
+              "block": 11,
+              "name": "VS_8755c07dad3e81819dc262509f209d6ce0009a40",
+              "stage": "VERTEX",
+              "source_blake3": "{0x88891633, 0xf522517b, 0xcb6b597d, 0xf862b6cb, 0x469fc246, 0x67ef0243, 0xdb37dec7, 0x4ab2c126}",
+              "instructions": 81
+            }
+          ]
+        }
+      ],
+      "draw": "\n  Flags 0:\n    Allow forward pixel to kill: false\n    Allow forward pixel to be killed: true\n    Pixel kill operation: Weak Early\n    ZS update operation: Weak Early\n    Allow primitive reorder: false\n    Overdraw alpha0: false\n    Overdraw alpha1: false\n    Clean Fragment Write: false\n    Primitive Barrier: false\n    Evaluate per-sample: false\n    Aligned line-ends: false\n    Occlusion query: Disabled\n    Front face CCW: false\n    Cull front face: false\n    Cull back face: false\n    Multisample enable: false\n    Shader modifies coverage: true\n    Alpha-to-coverage Invert: false\n    Alpha-to-coverage: false\n    Scissor To Bounding Box: true\n  Flags 1:\n    Sample mask: 0x1\n    Render target mask: 0x1\n  Vertex array:\n    Packet: true\n    Pointer: 0x0\n    Vertex packet stride: 0\n    Vertex attribute stride: 0\n  Minimum Z: 0.000000\n  Maximum Z: 1.000000\n  Depth/stencil: 0x7c1fcee300\n  Blend count: 1\n  Blend: 0x7c1fcedfc0\n  Occlusion: 0x0\n  Shader:\n    Attribute offset: 0x0\n    FAU count: 5\n    Resources: 0x7c1fcedf84\n    Shader: 0x7ebfbbcd40\n    Thread storage: 0x7c1fcedbc0\n    FAU: 0x7c1fcee020",
+      "primitive": "\n  Draw mode: Triangles\n  Index type: None\n  Point size array format: None\n  Primitive Index Enable: false\n  Primitive Index Override: false\n  Allow rotating primitives: true\n  Low Depth Cull: true\n  High Depth Cull: true\n  Secondary Shader: true\n  Primitive restart: false\n  Layer index enable: false\n  Scissor array enable: false\n  Base vertex offset: 0\n  Instance offset: 0x0\n  Index count: 0x6\nInstance count:\n  Count: 0x1\nAllocation:\n  Vertex packet stride: 56\n  Vertex attribute stride: 40\nTiler:\n  Address: 0x7c1fcee080\nScissor:\n  Scissor Minimum X: 0\n  Scissor Minimum Y: 0\n  Scissor Maximum X: 639\n  Scissor Maximum Y: 359\nPrimitive Size:\n  Fixed Sized: 1.000000\n  Size Array: 0x3f800000\nIndices:\n  Address: 0x0"
+    }
+  ]
+}

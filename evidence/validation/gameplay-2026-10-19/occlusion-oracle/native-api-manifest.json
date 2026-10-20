@@ -1,0 +1,12 @@
+{
+  "controls": {
+    "LD_LIBRARY_PATH": "/data/data/com.termux/files/usr/lib",
+    "PANVK_ICD_SO": "/data/data/com.termux/files/home/wltest/imagefs/usr/lib/libvulkan.so.1.4.315",
+    "MESA_SHADER_CACHE_DISABLE": "true",
+    "VK_ICD_FILENAMES": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/native-icd.json",
+    "VK_LAYER_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/api-layer",
+    "VK_INSTANCE_LAYERS": "VK_LAYER_LUNARG_api_dump",
+    "VK_LAYER_SETTINGS_PATH": "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/api-settings"
+  },
+  "exit_code": 0
+}

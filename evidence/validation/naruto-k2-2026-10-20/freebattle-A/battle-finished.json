@@ -1,0 +1,15 @@
+{
+  "validation_scope_completed": true,
+  "match_finished": false,
+  "reason": "User requests about 2-3 minutes rather than waiting for KO; stop after short rendering and frametime validation",
+  "mode": "COM vs COM Single Match",
+  "characters": [
+    "Kakashi",
+    "Shino"
+  ],
+  "first_explicit_combat_image": "action-1792502543050430623.png",
+  "last_image": "action-1792502722745728172.png",
+  "observed_combat_image_span_seconds": 179.6952977180481,
+  "stop_unix": 1792502740.7135534,
+  "preliminary_visual_review": "Characters, arena, HUD, hit effects and moving camera visible; detailed saved-frame review pending"
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "label": "candidate-primary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_ordering_oracle"
+    ],
+    "driver_sha256": "d77c3c46ecd24889b34f1fe1ebd80f284622be729673c568ce1e62c244dbd114",
+    "exit_code": 0,
+    "ok": true,
+    "last_line": "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 failures=0 verdict=PASS"
+  },
+  {
+    "label": "candidate-primary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_ordering_oracle",
+      "--early-copy-control"
+    ],
+    "driver_sha256": "d77c3c46ecd24889b34f1fe1ebd80f284622be729673c568ce1e62c244dbd114",
+    "exit_code": 2,
+    "ok": true,
+    "last_line": "OQ_ORACLE cycles=3 secondary=0 early_copy_control=1 failures=12 verdict=FAIL"
+  },
+  {
+    "label": "candidate-secondary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_ordering_oracle",
+      "--secondary"
+    ],
+    "driver_sha256": "d77c3c46ecd24889b34f1fe1ebd80f284622be729673c568ce1e62c244dbd114",
+    "exit_code": 0,
+    "ok": true,
+    "last_line": "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 failures=0 verdict=PASS"
+  },
+  {
+    "label": "candidate-secondary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_ordering_oracle",
+      "--secondary",
+      "--early-copy-control"
+    ],
+    "driver_sha256": "d77c3c46ecd24889b34f1fe1ebd80f284622be729673c568ce1e62c244dbd114",
+    "exit_code": 2,
+    "ok": true,
+    "last_line": "OQ_ORACLE cycles=3 secondary=1 early_copy_control=1 failures=12 verdict=FAIL"
+  },
+  {
+    "label": "preserved-baseline-primary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_ordering_oracle"
+    ],
+    "driver_sha256": "32a3bb2396b8fcd4477840386afdb3efc39794927ccdfc8ffe82283e40460dca",
+    "exit_code": 0,
+    "ok": true,
+    "last_line": "OQ_ORACLE cycles=3 secondary=0 early_copy_control=0 failures=0 verdict=PASS"
+  },
+  {
+    "label": "preserved-baseline-primary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_ordering_oracle",
+      "--early-copy-control"
+    ],
+    "driver_sha256": "32a3bb2396b8fcd4477840386afdb3efc39794927ccdfc8ffe82283e40460dca",
+    "exit_code": 2,
+    "ok": true,
+    "last_line": "OQ_ORACLE cycles=3 secondary=0 early_copy_control=1 failures=12 verdict=FAIL"
+  },
+  {
+    "label": "preserved-baseline-secondary-positive",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_ordering_oracle",
+      "--secondary"
+    ],
+    "driver_sha256": "32a3bb2396b8fcd4477840386afdb3efc39794927ccdfc8ffe82283e40460dca",
+    "exit_code": 0,
+    "ok": true,
+    "last_line": "OQ_ORACLE cycles=3 secondary=1 early_copy_control=0 failures=0 verdict=PASS"
+  },
+  {
+    "label": "preserved-baseline-secondary-early-copy-control",
+    "command": [
+      "/data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/occlusion-oracle/final/occlusion_ordering_oracle",
+      "--secondary",
+      "--early-copy-control"
+    ],
+    "driver_sha256": "32a3bb2396b8fcd4477840386afdb3efc39794927ccdfc8ffe82283e40460dca",
+    "exit_code": 2,
+    "ok": true,
+    "last_line": "OQ_ORACLE cycles=3 secondary=1 early_copy_control=1 failures=12 verdict=FAIL"
+  }
+]

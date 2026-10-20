@@ -1,0 +1,12 @@
+{
+  "reviewed_unix": 1792453061.0452034,
+  "reached": "Ultimate Adventure, initial village, after introductory dialogue and tutorials",
+  "movement": {
+    "input": "d held for 2 seconds",
+    "image": "action-19.png",
+    "observation": "Character orientation changes after keyboard input; village, characters and minimap render."
+  },
+  "actual_swapchain": "640x480",
+  "planned_config_file": "The copied configuration requests 640x360. DXVK first creates 640x360, then recreates the swapchain at 640x480. Use an explicitly stable resolution before performance comparisons.",
+  "scope": "Interactive setup only, overlapping source verification and repository inspection. HUD FPS is not a benchmark result. No combat or K2 A/B measured."
+}

@@ -1,0 +1,21 @@
+{
+  "reviewed_files": [
+    "screen-0411.png",
+    "screen-0441.png",
+    "screen-0471.png",
+    "screen-0502.png",
+    "screen-0532.png",
+    "screen-0562.png",
+    "action-1792502543050430623.png",
+    "action-1792502722745728172.png"
+  ],
+  "observations": [
+    "Both fighters and arena visible",
+    "HUD and timer update",
+    "Chakra glow, hit counter, substitution log and Hidden Jutsu: Beetle Sphere effects visible",
+    "Camera changes and automatic fight continues"
+  ],
+  "limitation": "Visual spot check at 640x360; no blob/golden pixel reference, no full match or KO validation",
+  "obvious_missing_scene_passes": false,
+  "gpu_failure_lines": []
+}

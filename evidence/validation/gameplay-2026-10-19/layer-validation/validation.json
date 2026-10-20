@@ -1,0 +1,11 @@
+{
+  "render_frames": 180,
+  "pixel_checks": 6,
+  "bad_pixels_checks": 0,
+  "process_exit": 0,
+  "csv_rows": 178,
+  "csv_accounted_presents": 179,
+  "initial_grouped_row_frames": 2,
+  "initial_swapchain_recreated": true,
+  "scope": "Instrumentation counts present intervals above the wrapper and preserves the tested D3D11 readback. It does not establish zero timing overhead."
+}

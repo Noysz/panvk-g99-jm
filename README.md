@@ -10,6 +10,34 @@ Most public PanVK testing/builds so far target **CSF** chips (G610/G615/G710/G72
 
 ---
 
+## Development follow-up (2026-10-20, unreleased)
+
+The current task ledger is [followup-tasks-2026-10-19.md](docs/followup-tasks-2026-10-19.md).
+Compiler/cache candidates pass their targeted build, cache, CTS and DXVK
+readback gates. Six alternating Tomb Raider camera benchmarks establish no
+repeatable UBO-push gain in that workload; the older improvement was in the
+menu. Naruto now has a complete-rendering configuration with GPL enabled and
+async disabled, matched K2 descriptor captures, and a three-minute COM battle
+sample. Two comparable village A/B pairs show no K2 gain; two other pairs are
+excluded because their HUD or draw counts differ. The planned three comparable
+pairs were not obtained. See the [Naruto results](docs/naruto-gpl-k2-2026-10-20.md).
+The earlier Naruto 30 FPS observation covers its intro.
+
+An opt-in deferred-occlusion candidate now passes the documented ordering,
+lifetime, allocation-failure and targeted CTS gates. Six camera benchmarks
+give median 13.4 FPS on / 13.1 off; one on run reaches 16.8 FPS, while the
+other two give 13.3-13.4. A repeatable benefit is not established, so the
+default remains off. See the
+[query follow-up](docs/occlusion-followup-2026-10-19.md) for the implementation,
+negative controls and the two unchanged concurrent-query CTS failures.
+
+These are development candidates, not test9 or a new release. No superiority
+over another driver or the Mali blob is established. Historical snapshots and
+released-build descriptions follow.
+
+The [FristOneRR 3.0 source audit](docs/fristonerr-3.0-audit.md) records the
+current release references and the gap between published source and binaries.
+
 ## Status (2026-10-10): FourFectVK 0.1.0 test builds, new upstream base
 
 **Builds for Winlator: [`docs/test-builds.md`](docs/test-builds.md)**

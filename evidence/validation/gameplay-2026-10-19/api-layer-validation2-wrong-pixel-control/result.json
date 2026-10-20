@@ -1,0 +1,8 @@
+{
+  "name": "wrong-pixel-control",
+  "exit_code": 2,
+  "expected_verdict": "FAIL",
+  "api_bytes": 729015,
+  "api_present_calls": 2,
+  "ok": true
+}

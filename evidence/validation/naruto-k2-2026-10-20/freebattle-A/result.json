@@ -1,0 +1,266 @@
+{
+  "name": "freebattle-A",
+  "mode": "observe",
+  "controls": {
+    "LD_PRELOAD": "<device-home>/panvk-refs/proton/noshm/libnoshm.so",
+    "WINEPREFIX": "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/prefix",
+    "WINEDEBUG": "-all",
+    "DISPLAY": ":0",
+    "LD_LIBRARY_PATH": "<device-home>/hangover/root/data/data/com.termux/files/usr/lib:<device-home>/wltest/imagefs/usr/lib:<device-home>/panvk-refs/proton/p10-4-v14/lib",
+    "VK_ICD_FILENAMES": "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/freebattle-A/icd.json",
+    "ADRENOTOOLS_DRIVER_PATH": "<device-home>/wltest/drvB19_cache_compiler/",
+    "ADRENOTOOLS_HOOKS_PATH": "<device-home>/wltest/imagefs/usr/lib/",
+    "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+    "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n;winmm=n,b",
+    "DXVK_LOG_LEVEL": "info",
+    "DXVK_LOG_PATH": "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/freebattle-A",
+    "DXVK_STATE_CACHE": "0",
+    "DXVK_HUD": "",
+    "DXVK_CONFIG_FILE": "Z:\\<device-home>\\panvk-refs\\t04-gameplay-k2-89avn17o\\freebattle-A\\dxvk.conf",
+    "MESA_SHADER_CACHE_DISABLE": "true",
+    "PANVK_V9_CLIP_KILL_FPK": "0",
+    "PANVK_DEFER_OQ": "0",
+    "PANVK_UBO_PUSH": "0",
+    "VK_LAYER_PATH": "<device-home>/panvk-refs/gameplay-2026-10-19/layer",
+    "VK_INSTANCE_LAYERS": "VK_LAYER_MESA_overlay",
+    "VK_LAYER_MESA_OVERLAY_CONFIG": "no_display=1,device=0,format=0,fps=0,frame=1,frame_timing=1,present_timing=1,submit=1,draw=1,draw_indexed=1,fps_sampling_period=0,output_file=<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/freebattle-A/present.csv"
+  },
+  "command": [
+    "<device-home>/panvk-refs/proton/p10-4-v14/bin/wine",
+    "explorer",
+    "/desktop=shell,848x480",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/game/NSUNS2.exe"
+  ],
+  "start_unix": 1792502128.5605159,
+  "pins_before": {
+    "<device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so": "d77c3c46ecd24889b34f1fe1ebd80f284622be729673c568ce1e62c244dbd114",
+    "<device-home>/panvk-refs/proton/noshm/libnoshm.so": "a4b86c51f797695b91d5a870b30e304361aa6a52fff844f478a71c072e6cc424",
+    "<device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+    "<device-home>/panvk-refs/proton/p10-4-v14/bin/wine": "07189f752896d526851599dc4d983ecda0a28f927d615010c032833669b4c24e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/NSUNS2.exe": "69748801175096afefb7f00eadba24eb6e6616c44924237f43bb428f0a42150e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/d3d11.dll": "b473142528f97a9c3cbad134df0dba083a9f207223803b0b6d34574c0619cf95",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/dxgi.dll": "550745e1ad3d30b6720077eb9fa1124ca77fd811cef5e9a01799eb295f972f51",
+    "<device-home>/panvk-refs/naruto-2026-10-19/gpl0b/icd.json": "96f359657df63c4a8cdee17c941e2c455fe19cb1183d629d0beded9368f3d279",
+    "<device-home>/panvk-refs/naruto-2026-10-19/libiolog-color.so": "b239432ca701a6c394e543d18a3f46fa5044c2ae60b8d58d5f429452b85efc04",
+    "<device-home>/panvk-refs/naruto-2026-10-19/iolog-color.c": "37e64b4cce02d2b1245b08bc3a20849f1d5cc3363887e06183db8ce316ed19a5"
+  },
+  "runner_sha256": "6b9c1116222d7a8459fd28812015a21ea22517a85d09d59e313fb4557fac76f5",
+  "runtime_hashes": {
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/game/NSUNS2.exe": "69748801175096afefb7f00eadba24eb6e6616c44924237f43bb428f0a42150e",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/game/d3dcompiler_47.dll": "e994847e01a6f1e4cbdc5a864616ac262f67ee4f14db194984661a8d927ab7f4",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/prefix/drive_c/windows/system32/d3d11.dll": "b473142528f97a9c3cbad134df0dba083a9f207223803b0b6d34574c0619cf95",
+    "<device-home>/panvk-refs/t04-gameplay-k2-89avn17o/prefix/drive_c/windows/system32/dxgi.dll": "550745e1ad3d30b6720077eb9fa1124ca77fd811cef5e9a01799eb295f972f51",
+    "<device-home>/panvk-refs/gameplay-2026-10-19/layer/libVkLayer_MESA_overlay.so": "18bc159f5d916fac1616c367acbb12b016aedbb7d88204290ddbd4dd53ad390b",
+    "<device-home>/panvk-refs/gameplay-2026-10-19/layer/VkLayer_MESA_overlay.json": "18f90342e3cfcb6993454ef01e9ad0ab4d02c6837f727e354362a44c4efea645"
+  },
+  "restored_state": {
+    "prefix_sha256": {
+      "userdef.reg": "9e8f914cb3602bd2c91462429a2e464ad7852dbba8d73b286770a0ad5cdc69dc",
+      "system.reg": "0cbddb7bbbf4d893cb7a9aa5e2b1b18f0a9a0416bb477c6df01ea0603b59869f",
+      "user.reg": "889a6ffa5fc012c59b8ef4286e5a502be2fc18066ea9f3122238cfabecd90a55",
+      "drive_c/users/Public/Documents/Steam/<save-profile>/543870/achievements.ini": "bd583fdedda922bfc385b7872db9329d4d61c4548852fa8207ebe72b5af8eb2e",
+      "drive_c/users/Public/Documents/Steam/<save-profile>/543870/leaderboards.ini": "749be0285d916625e06e0b5273889c2ede421b1f16f765cf817870fcec8c2930",
+      "drive_c/users/Public/Documents/Steam/<save-profile>/543870/filemappings.ini": "0df471f2d5d210d0f449c017cf60023a57ffd9ba5f6670fe92442f506300aeaa",
+      "drive_c/users/Public/Documents/Steam/<save-profile>/543870/remote/storm2.s": "617cedd4b9995bbd013f60dd1c283e6b7522ac9a6ee091cec788d02f5b851e58",
+      "drive_c/users/xuser/AppData/Roaming/._Microsoft": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/._Windows": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._SendTo": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Templates": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Start Menu": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Printer Shortcuts": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Network Shortcuts": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Themes": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/._Recent": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/Start Menu/._Programs": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/._Administrative Tools": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468",
+      "drive_c/users/xuser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/._StartUp": "eab2025664dc83bac6a67a0a2d422dcc00981daa0a37884029b6829040182468"
+    },
+    "config_sha256": "cf4a34b888a378c3af0c430542a44eebec47e3896f8200523af4f278a24de0d7",
+    "scope": "Interactive pilot end state; no replay/performance validation yet."
+  },
+  "original_state_before": {
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/user.reg": "210fa5ae6597490775e956f614f2e4f4efcdb434b6a7c5d666ee62b57ee62266",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/system.reg": "f6e17954eaaa3a5e43e83d1b9e98f753ab545d5b6574ae22463ec23eaea4da4f",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/userdef.reg": "9e8f914cb3602bd2c91462429a2e464ad7852dbba8d73b286770a0ad5cdc69dc",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/users/Public/Documents/Steam/<save-profile>/543870/remote/storm2.s": "617cedd4b9995bbd013f60dd1c283e6b7522ac9a6ee091cec788d02f5b851e58"
+  },
+  "warmup_seconds": 30,
+  "measurement_seconds": 90,
+  "completed": true,
+  "system_samples": [],
+  "screenshots": [
+    {
+      "file": "screen-0020.png",
+      "unix": 1792502149.122691,
+      "width": 848,
+      "height": 480,
+      "sha256": "ebf53ab23ed46d15e36fd899e9d222c7eae26eed207e48e43e85c9c9c36db6b8"
+    },
+    {
+      "file": "screen-0050.png",
+      "unix": 1792502179.486693,
+      "width": 848,
+      "height": 480,
+      "sha256": "ced42dfbaa5ad5a89823eb7608bf7093ef0c801707aaa8a047aba176982f22b7"
+    },
+    {
+      "file": "screen-0080.png",
+      "unix": 1792502210.391166,
+      "width": 848,
+      "height": 480,
+      "sha256": "3b61e6f1884235727a9fb6951499c9344100a50262b666d5efe6d7128af3a2cf"
+    },
+    {
+      "file": "screen-0110.png",
+      "unix": 1792502240.408391,
+      "width": 848,
+      "height": 480,
+      "sha256": "64a1288221bedc5c17d38131dcfd21d34605916bc08b6065ea0c51ee0aeaa958"
+    },
+    {
+      "file": "screen-0140.png",
+      "unix": 1792502270.289735,
+      "width": 848,
+      "height": 480,
+      "sha256": "cc858bb6b8f3b38798eb35b8a35e9722a6b9ce875909c14656f9d4cddbdec6e6"
+    },
+    {
+      "file": "screen-0170.png",
+      "unix": 1792502300.2859046,
+      "width": 848,
+      "height": 480,
+      "sha256": "98faea2a4120b5783e32629723a747df699f78db054d8f8f881bb4109de83162"
+    },
+    {
+      "file": "screen-0200.png",
+      "unix": 1792502330.3920236,
+      "width": 848,
+      "height": 480,
+      "sha256": "d5f155023e6d1c825f417a05a1df9f84a6746240e0a54a21678adfec93b10b97"
+    },
+    {
+      "file": "screen-0231.png",
+      "unix": 1792502360.5177038,
+      "width": 848,
+      "height": 480,
+      "sha256": "ca30635fea061f70cff09c0528433a800cf817c51762bd72e4ba6d29d98a3956"
+    },
+    {
+      "file": "screen-0261.png",
+      "unix": 1792502390.641088,
+      "width": 848,
+      "height": 480,
+      "sha256": "0ffee4923a4e7e6a60b84349d4229d7b6dd52c4bfc14f77a9b67ed78fd8e9829"
+    },
+    {
+      "file": "screen-0291.png",
+      "unix": 1792502420.580715,
+      "width": 848,
+      "height": 480,
+      "sha256": "cbe53fd4d9717df1730df90d7a42f9e856155ab97f6283b8f94af820151e0ced"
+    },
+    {
+      "file": "screen-0321.png",
+      "unix": 1792502450.6416178,
+      "width": 848,
+      "height": 480,
+      "sha256": "0b146e230b69c8fb6ccdd24816d80f9cd44c5e3f23ee98d9b243a0517e7f2e4b"
+    },
+    {
+      "file": "screen-0351.png",
+      "unix": 1792502480.6977391,
+      "width": 848,
+      "height": 480,
+      "sha256": "96462f940e4cb9fbc74b2cb524a852b0b4635bade9066d9515474ac039d7b6a0"
+    },
+    {
+      "file": "screen-0381.png",
+      "unix": 1792502511.2952976,
+      "width": 848,
+      "height": 480,
+      "sha256": "8ce33d988beeb94756b7037da10239ecc6390c4f85a38c32ecf21e39322a794e"
+    },
+    {
+      "file": "screen-0411.png",
+      "unix": 1792502541.2900956,
+      "width": 848,
+      "height": 480,
+      "sha256": "20bf254a5b822b502e4f5c39b5dc8cd320afd290db107e23b2ae8f419a2eed3b"
+    },
+    {
+      "file": "screen-0441.png",
+      "unix": 1792502571.1640084,
+      "width": 848,
+      "height": 480,
+      "sha256": "3928ac7c7536320fa0705db4c49453505b89d7a5b540378dc8e7e2812c0f235b"
+    },
+    {
+      "file": "screen-0471.png",
+      "unix": 1792502601.780552,
+      "width": 848,
+      "height": 480,
+      "sha256": "84d0cd633e3141aa3b84365f4219b36564eaad5428c52b540bc8e7378089dbaa"
+    },
+    {
+      "file": "screen-0502.png",
+      "unix": 1792502631.6508238,
+      "width": 848,
+      "height": 480,
+      "sha256": "8277fa583b4a5cd0559ea5df0a258bf051f58169db6eb2d1ea377ec16ad1899e"
+    },
+    {
+      "file": "screen-0532.png",
+      "unix": 1792502661.7797368,
+      "width": 848,
+      "height": 480,
+      "sha256": "9f39341a077ccc68ee6a22eb885db421a8f0537a5d986dcdbcf7d13df7883b90"
+    },
+    {
+      "file": "screen-0562.png",
+      "unix": 1792502691.8375657,
+      "width": 848,
+      "height": 480,
+      "sha256": "9cf46278ebda12ff1d1427a83b033fc23755b65aee8108ccfc553c100200c7bf"
+    },
+    {
+      "file": "screen-0592.png",
+      "unix": 1792502721.8989882,
+      "width": 848,
+      "height": 480,
+      "sha256": "8f840e32e8448719bacb0300a5e812feb21be24fad33b8bb8934d8f2489e59b4"
+    }
+  ],
+  "scope": "Initial village scene; image gate required before arming.",
+  "duration_seconds": 612.2747002670076,
+  "cleanup": {
+    "policy": "prefix-scoped SIGINT then wait; no forced kill",
+    "signal_returncode": 0,
+    "wait_returncode": 0,
+    "launcher_returncode": 1,
+    "remaining": [],
+    "closed": true
+  },
+  "pins_after": {
+    "<device-home>/wltest/drvB19_cache_compiler/libvulkan_panfrost.so": "d77c3c46ecd24889b34f1fe1ebd80f284622be729673c568ce1e62c244dbd114",
+    "<device-home>/panvk-refs/proton/noshm/libnoshm.so": "a4b86c51f797695b91d5a870b30e304361aa6a52fff844f478a71c072e6cc424",
+    "<device-home>/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+    "<device-home>/panvk-refs/proton/p10-4-v14/bin/wine": "07189f752896d526851599dc4d983ecda0a28f927d615010c032833669b4c24e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/NSUNS2.exe": "69748801175096afefb7f00eadba24eb6e6616c44924237f43bb428f0a42150e",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/d3d11.dll": "b473142528f97a9c3cbad134df0dba083a9f207223803b0b6d34574c0619cf95",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/windows/system32/dxgi.dll": "550745e1ad3d30b6720077eb9fa1124ca77fd811cef5e9a01799eb295f972f51",
+    "<device-home>/panvk-refs/naruto-2026-10-19/gpl0b/icd.json": "96f359657df63c4a8cdee17c941e2c455fe19cb1183d629d0beded9368f3d279",
+    "<device-home>/panvk-refs/naruto-2026-10-19/libiolog-color.so": "b239432ca701a6c394e543d18a3f46fa5044c2ae60b8d58d5f429452b85efc04",
+    "<device-home>/panvk-refs/naruto-2026-10-19/iolog-color.c": "37e64b4cce02d2b1245b08bc3a20849f1d5cc3363887e06183db8ce316ed19a5"
+  },
+  "original_state_after": {
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/user.reg": "210fa5ae6597490775e956f614f2e4f4efcdb434b6a7c5d666ee62b57ee62266",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/system.reg": "f6e17954eaaa3a5e43e83d1b9e98f753ab545d5b6574ae22463ec23eaea4da4f",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/userdef.reg": "9e8f914cb3602bd2c91462429a2e464ad7852dbba8d73b286770a0ad5cdc69dc",
+    "<device-home>/panvk-refs/naruto-2026-10-19/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "<device-home>/panvk-refs/naruto-2026-10-19/prefix/drive_c/users/Public/Documents/Steam/<save-profile>/543870/remote/storm2.s": "617cedd4b9995bbd013f60dd1c283e6b7522ac9a6ee091cec788d02f5b851e58"
+  }
+}

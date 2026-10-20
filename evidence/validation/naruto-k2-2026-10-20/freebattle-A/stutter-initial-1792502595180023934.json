@@ -1,0 +1,15 @@
+{
+  "unix": 1792502595.1775002,
+  "scope": "Recent complete CSV intervals, approx 30 seconds; ongoing battle observational, not paired K2 result",
+  "frames": 343,
+  "interval_seconds": 30.014625,
+  "fps": 11.427762299212468,
+  "median_ms": 78.817,
+  "p95_ms": 128.319,
+  "max_ms": 851.022,
+  "intervals_over100ms": 33,
+  "intervals_over250ms": 3,
+  "draws_median": 354,
+  "begin_offset": 186064,
+  "begin_monotonic": 195276.885786177
+}

@@ -1,0 +1,9 @@
+lunarg_api_dump.file = true
+lunarg_api_dump.log_filename = /data/data/com.termux/files/home/panvk-refs/gameplay-2026-10-19/api-scene3-trace.txt
+lunarg_api_dump.output_format = text
+lunarg_api_dump.detailed = true
+lunarg_api_dump.show_shader = false
+lunarg_api_dump.show_thread_and_frame = true
+lunarg_api_dump.timestamp = true
+lunarg_api_dump.flush = false
+lunarg_api_dump.output_range = 0-2,1200-2,1500-3,1800-3

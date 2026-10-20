@@ -1,0 +1,5 @@
+{
+  "url": "https://gitlab.com/Ph42oN/dxvk-gplasync/-/raw/main/patches/dxvk-gplasync-2.3.1-1.patch",
+  "sha256": "7d82eaa170e16d26ed653738bb14fcff91b26d3782298299bb55254946d71e72",
+  "scope": "Reference patch only; not applied; runtime DLL source provenance not proven."
+}

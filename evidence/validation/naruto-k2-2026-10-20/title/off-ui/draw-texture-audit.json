@@ -1,0 +1,576 @@
+{
+  "summary": {
+    "case": "off-ui",
+    "draws": 34,
+    "descriptor_varying_draws": 0,
+    "buffer_varying_draws": 34,
+    "texture_96x96_draws": 8,
+    "bottom_panel_draws": 11
+  },
+  "draws": [
+    {
+      "file": "decoded..ctx-0.0000",
+      "job": "76bf933580",
+      "textures": [
+        {
+          "width": "640",
+          "height": "360",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": null,
+          "pointer": "0x76935f8000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0002",
+      "job": "76bf934000",
+      "textures": [
+        {
+          "width": "640",
+          "height": "360",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": null,
+          "pointer": "0x76936ec000"
+        },
+        {
+          "width": "640",
+          "height": "360",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": null,
+          "pointer": "0x76937e0000"
+        },
+        {
+          "width": "640",
+          "height": "360",
+          "format": "Z32 RGBA",
+          "clump": null,
+          "pointer": "0x7692420000"
+        },
+        {
+          "width": "640",
+          "height": "360",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": null,
+          "pointer": "0x76937e0000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0004",
+      "job": "76bf934b00",
+      "textures": [
+        {
+          "width": "640",
+          "height": "360",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": null,
+          "pointer": "0x76938d4000"
+        },
+        {
+          "width": "640",
+          "height": "360",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": null,
+          "pointer": "0x76937e0000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0006",
+      "job": "76bf935700",
+      "textures": [
+        {
+          "width": "640",
+          "height": "360",
+          "format": "Z32 RGBA",
+          "clump": null,
+          "pointer": "0x7692420000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0008",
+      "job": "76bf936200",
+      "textures": [],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0010",
+      "job": "76bf936e00",
+      "textures": [
+        {
+          "width": "640",
+          "height": "360",
+          "format": "Z32 RGBA",
+          "clump": null,
+          "pointer": "0x7692420000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0013",
+      "job": "76bf937d80",
+      "textures": [
+        {
+          "width": "640",
+          "height": "360",
+          "format": "Z32 RGBA",
+          "clump": null,
+          "pointer": "0x7692420000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0016",
+      "job": "76bf938d00",
+      "textures": [
+        {
+          "width": "640",
+          "height": "360",
+          "format": "Z32 RGBA",
+          "clump": null,
+          "pointer": "0x7692420000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "76bf939800",
+      "textures": [
+        {
+          "width": "96",
+          "height": "96",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76884fd000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "76bf939e00",
+      "textures": [
+        {
+          "width": "96",
+          "height": "96",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76884fd000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "76bf93a400",
+      "textures": [
+        {
+          "width": "96",
+          "height": "96",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76884fd000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "76bf93aa00",
+      "textures": [
+        {
+          "width": "96",
+          "height": "96",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76884fd000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "76bf93b000",
+      "textures": [
+        {
+          "width": "96",
+          "height": "96",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76884fd000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "76bf93b600",
+      "textures": [
+        {
+          "width": "96",
+          "height": "96",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76884fd000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "76bf93bc00",
+      "textures": [
+        {
+          "width": "96",
+          "height": "96",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76884fd000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "76bf93c200",
+      "textures": [
+        {
+          "width": "96",
+          "height": "96",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76884fd000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "76bf93c800",
+      "textures": [
+        {
+          "width": "1536",
+          "height": "768",
+          "format": "RGBA8 UNORM BGRA",
+          "clump": null,
+          "pointer": "0x6d129d3000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "true"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "76bf93ce00",
+      "textures": [
+        {
+          "width": "912",
+          "height": "128",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76884de000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "true"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "76bf93d400",
+      "textures": [
+        {
+          "width": "824",
+          "height": "84",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x7688503000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "true"
+    },
+    {
+      "file": "decoded..ctx-0.0018",
+      "job": "76bf93da00",
+      "textures": [
+        {
+          "width": "824",
+          "height": "84",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x7688503000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "true"
+    },
+    {
+      "file": "decoded..ctx-0.0020",
+      "job": "76bf93e600",
+      "textures": [
+        {
+          "width": "640",
+          "height": "360",
+          "format": "Z32 RGBA",
+          "clump": null,
+          "pointer": "0x7692420000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "76bf93f100",
+      "textures": [
+        {
+          "width": "384",
+          "height": "48",
+          "format": "RGBA8 UNORM BGRA",
+          "clump": null,
+          "pointer": "0x7688070000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "76bf93f680",
+      "textures": [
+        {
+          "width": "384",
+          "height": "48",
+          "format": "RGBA8 UNORM BGRA",
+          "clump": null,
+          "pointer": "0x7688070000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "76bf93fc00",
+      "textures": [
+        {
+          "width": "512",
+          "height": "512",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76881ca000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "true"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "76bf940180",
+      "textures": [
+        {
+          "width": "512",
+          "height": "512",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76881ca000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "true"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "76bf940700",
+      "textures": [
+        {
+          "width": "512",
+          "height": "512",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76881ca000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "true"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "76bf940c80",
+      "textures": [
+        {
+          "width": "512",
+          "height": "512",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76881ca000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "true"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "76bf941200",
+      "textures": [
+        {
+          "width": "512",
+          "height": "512",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76881ca000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "true"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "76bf941780",
+      "textures": [
+        {
+          "width": "512",
+          "height": "512",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": "BC3 UNORM",
+          "pointer": "0x76881ca000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "true"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "76bf941d00",
+      "textures": [
+        {
+          "width": "768",
+          "height": "384",
+          "format": "RGBA8 UNORM BGRA",
+          "clump": null,
+          "pointer": "0x6d11b0c000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "76bf942280",
+      "textures": [
+        {
+          "width": "768",
+          "height": "384",
+          "format": "RGBA8 UNORM BGRA",
+          "clump": null,
+          "pointer": "0x6d11b0c000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0022",
+      "job": "76bf942800",
+      "textures": [
+        {
+          "width": "768",
+          "height": "384",
+          "format": "RGBA8 UNORM BGRA",
+          "clump": null,
+          "pointer": "0x6d11b0c000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0024",
+      "job": "76bf943500",
+      "textures": [
+        {
+          "width": "640",
+          "height": "360",
+          "format": "Z32 RGBA",
+          "clump": null,
+          "pointer": "0x7692420000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    },
+    {
+      "file": "decoded..ctx-0.0027",
+      "job": "76bf944480",
+      "textures": [
+        {
+          "width": "640",
+          "height": "360",
+          "format": "RGBA8 UNORM RGBA",
+          "clump": null,
+          "pointer": "0x7692238000"
+        }
+      ],
+      "descriptor_varying": false,
+      "buffer_varying": true,
+      "depth_write": "false"
+    }
+  ]
+}
