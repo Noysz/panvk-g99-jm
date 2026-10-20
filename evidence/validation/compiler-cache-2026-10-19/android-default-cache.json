@@ -1,0 +1,174 @@
+{
+  "ok": true,
+  "expect": "separated",
+  "knob": "PANVK_V9_CLIP_KILL_FPK",
+  "case": "dEQP-VK.draw.renderpass.simple_draw.simple_draw_triangle_list",
+  "driver": "/data/data/com.termux/files/home/panvk-refs/followup-2026-10-19/android-candidate.so",
+  "driver_sha256": "312399a37c7399000d62daa99b3436bd160d10711cbce111832177dea3ea3893",
+  "default_cache": true,
+  "records": [
+    {
+      "name": "1-default-cold",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 0,
+      "misses": 6,
+      "passed": true,
+      "seconds": 0.6910341539914953
+    },
+    {
+      "name": "1-default-warm",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 0.6430252310092328
+    },
+    {
+      "name": "1-control-after-default",
+      "knob": "1",
+      "returncode": 0,
+      "hits": 3,
+      "misses": 3,
+      "passed": true,
+      "seconds": 0.6370526919927215
+    },
+    {
+      "name": "1-control-warm",
+      "knob": "1",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 0.6483288460003678
+    },
+    {
+      "name": "1-default-return",
+      "knob": "false",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 0.6415264620009111
+    },
+    {
+      "name": "1-cache-disabled",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 0,
+      "misses": 0,
+      "passed": true,
+      "seconds": 0.6479386920109391
+    },
+    {
+      "name": "2-default-cold",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 0,
+      "misses": 6,
+      "passed": true,
+      "seconds": 0.6903742310096277
+    },
+    {
+      "name": "2-default-warm",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 0.6410428460076218
+    },
+    {
+      "name": "2-control-after-default",
+      "knob": "1",
+      "returncode": 0,
+      "hits": 3,
+      "misses": 3,
+      "passed": true,
+      "seconds": 0.6455796149966773
+    },
+    {
+      "name": "2-control-warm",
+      "knob": "1",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 0.6378305380058009
+    },
+    {
+      "name": "2-default-return",
+      "knob": "false",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 0.6443464610056253
+    },
+    {
+      "name": "2-cache-disabled",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 0,
+      "misses": 0,
+      "passed": true,
+      "seconds": 0.600035769995884
+    },
+    {
+      "name": "3-default-cold",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 0,
+      "misses": 6,
+      "passed": true,
+      "seconds": 0.6521413080045022
+    },
+    {
+      "name": "3-default-warm",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 0.6414135390077718
+    },
+    {
+      "name": "3-control-after-default",
+      "knob": "1",
+      "returncode": 0,
+      "hits": 3,
+      "misses": 3,
+      "passed": true,
+      "seconds": 0.6438520000083372
+    },
+    {
+      "name": "3-control-warm",
+      "knob": "1",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 0.7067996160039911
+    },
+    {
+      "name": "3-default-return",
+      "knob": "false",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 0.6438732309907209
+    },
+    {
+      "name": "3-cache-disabled",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 0,
+      "misses": 0,
+      "passed": true,
+      "seconds": 0.6546793839952443
+    }
+  ],
+  "failures": []
+}

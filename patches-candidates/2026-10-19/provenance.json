@@ -1,0 +1,62 @@
+{
+  "repo": "zenithblue-oss/panvk-kbase-android",
+  "commit": "5b87b74d3e2580d5816e7f2c629f6f016a462f28",
+  "patches": [
+    {
+      "path": "patches/csf-v11/152-ra-interference-over-live-nodes-and-one-pass-solve.patch",
+      "github_blob_sha": "ce9cfd112fd0649539faa73d6059138dc113bf5d",
+      "upstream_bytes": 7126,
+      "upstream_sha256": "fe6fd7ff69b4146af1639f845b26810b51333dcde154194418ecc5af9b495efd",
+      "imported_blob_sha": "ce9cfd112fd0649539faa73d6059138dc113bf5d",
+      "import_matches_pinned_head": true,
+      "published_bytes": 7114,
+      "published_sha256": "5368e352c6c8a5a2e2932032347c0e3551ad8a380f5ea5ef5bbebc677c082992",
+      "source_diff_sha256": "d5ef388059736be4dd5af20359c55f93a7799ad5d139f68caf6fee3bb94f2dfa"
+    },
+    {
+      "path": "patches/csf-v11/162-repair-ssa-flat-definition-map.patch",
+      "github_blob_sha": "a675d036a98f80e864367c3cbaf937d3b02c9c8d",
+      "upstream_bytes": 5314,
+      "upstream_sha256": "dc31e60d755a655f34a98415865140a3806dbbd86d1120dcab277a51319a6257",
+      "imported_blob_sha": "a675d036a98f80e864367c3cbaf937d3b02c9c8d",
+      "import_matches_pinned_head": true,
+      "published_bytes": 5302,
+      "published_sha256": "d7768024deab17e567616c5ce7adb037500efbf388945d4916a9aec2435f8b20",
+      "source_diff_sha256": "ab312e28658dca726a4510f110767968e3fb1816981e1c3a5d6e1c94722347cc"
+    },
+    {
+      "path": "patches/csf-v11/163-nir-skip-opt-loop-passes-that-cannot-progress.patch",
+      "github_blob_sha": "2b75299defaec2bd1afe524c9605bf25c60909ec",
+      "upstream_bytes": 6216,
+      "upstream_sha256": "df00c2b4d33d3be3ae142ea4a8db95f67a0c2bf2754cbea01733e6389a5dee45",
+      "imported_blob_sha": "2b75299defaec2bd1afe524c9605bf25c60909ec",
+      "import_matches_pinned_head": true,
+      "published_bytes": 6204,
+      "published_sha256": "06163811f5dacdaba5524cc6fe4d7efb95565fc1fc3578f3b14e62d0fe5dc92b",
+      "source_diff_sha256": "df0dd4f93e9bd8de105043bca44b3d1572d3281306a3b95545a5f454f1c8811b"
+    },
+    {
+      "path": "patches/csf-v11/170-keep-the-shader-disk-cache-on-by-default-on-android.patch",
+      "github_blob_sha": "93d6de8f2352517556bfce2b0c68e6c7f9ccb077",
+      "upstream_bytes": 2557,
+      "upstream_sha256": "1caacd03cc4aa00f828e44f788b1bd534222e0b8033d16b6f516b68e52251bf3",
+      "imported_blob_sha": "93d6de8f2352517556bfce2b0c68e6c7f9ccb077",
+      "import_matches_pinned_head": true,
+      "published_bytes": 2545,
+      "published_sha256": "25e40b5ea9f512f76b72190bee578d1cee302094b908b586b1e1e1176792c886",
+      "source_diff_sha256": "05d2755e4fbd550245659032f10462a203b55e5c03ae8c1d79660ab061057889"
+    },
+    {
+      "path": "patches/csf-v11/171-look-each-android-property-option-up-once.patch",
+      "github_blob_sha": "91f760b3bc4c97cb624f320b3b2657e181c8ec80",
+      "upstream_bytes": 2942,
+      "upstream_sha256": "30411e61c50bcbbdd286bd442c70481148673519b9f547c11b377b1f1a86c7f6",
+      "imported_blob_sha": "91f760b3bc4c97cb624f320b3b2657e181c8ec80",
+      "import_matches_pinned_head": true,
+      "published_bytes": 2930,
+      "published_sha256": "0f1ab40c880545ed3cb0f1c876bb5a224901d27c81d92644ce80913c2fcba5a7",
+      "source_diff_sha256": "a474edda5528108527d34242a05936d740fb1fa23d9d1035edb62417045ea3a1"
+    }
+  ],
+  "publication_note": "A trailing subject annotation is omitted in the published copies. Author, date, message body and source hunks are retained. Upstream hashes identify the imported originals; published hashes identify these files."
+}

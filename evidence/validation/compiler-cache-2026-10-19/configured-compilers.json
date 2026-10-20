@@ -1,0 +1,210 @@
+{
+  "buildU": {
+    "host": {
+      "c": {
+        "id": "clang",
+        "exelist": [
+          "cc"
+        ],
+        "linker_exelist": [
+          "cc"
+        ],
+        "file_suffixes": [
+          "c"
+        ],
+        "default_suffix": "c",
+        "version": "21.1.8",
+        "full_version": "clang version 21.1.8",
+        "linker_id": "ld.lld"
+      },
+      "cpp": {
+        "id": "clang",
+        "exelist": [
+          "c++"
+        ],
+        "linker_exelist": [
+          "c++"
+        ],
+        "file_suffixes": [
+          "cpp",
+          "cppm",
+          "cc",
+          "cp",
+          "cxx",
+          "c++",
+          "hh",
+          "hp",
+          "hpp",
+          "ipp",
+          "hxx",
+          "h++",
+          "ino",
+          "ixx",
+          "CPP",
+          "C",
+          "HPP",
+          "H"
+        ],
+        "default_suffix": "cpp",
+        "version": "21.1.8",
+        "full_version": "clang version 21.1.8",
+        "linker_id": "ld.lld"
+      }
+    },
+    "build": {
+      "c": {
+        "id": "clang",
+        "exelist": [
+          "cc"
+        ],
+        "linker_exelist": [
+          "cc"
+        ],
+        "file_suffixes": [
+          "c"
+        ],
+        "default_suffix": "c",
+        "version": "21.1.8",
+        "full_version": "clang version 21.1.8",
+        "linker_id": "ld.lld"
+      },
+      "cpp": {
+        "id": "clang",
+        "exelist": [
+          "c++"
+        ],
+        "linker_exelist": [
+          "c++"
+        ],
+        "file_suffixes": [
+          "cpp",
+          "cppm",
+          "cc",
+          "cp",
+          "cxx",
+          "c++",
+          "hh",
+          "hp",
+          "hpp",
+          "ipp",
+          "hxx",
+          "h++",
+          "ino",
+          "ixx",
+          "CPP",
+          "C",
+          "HPP",
+          "H"
+        ],
+        "default_suffix": "cpp",
+        "version": "21.1.8",
+        "full_version": "clang version 21.1.8",
+        "linker_id": "ld.lld"
+      }
+    }
+  },
+  "build-android": {
+    "host": {
+      "c": {
+        "id": "clang",
+        "exelist": [
+          "cc"
+        ],
+        "linker_exelist": [
+          "cc"
+        ],
+        "file_suffixes": [
+          "c"
+        ],
+        "default_suffix": "c",
+        "version": "21.1.8",
+        "full_version": "clang version 21.1.8",
+        "linker_id": "ld.lld"
+      },
+      "cpp": {
+        "id": "clang",
+        "exelist": [
+          "c++"
+        ],
+        "linker_exelist": [
+          "c++"
+        ],
+        "file_suffixes": [
+          "cpp",
+          "cppm",
+          "cc",
+          "cp",
+          "cxx",
+          "c++",
+          "hh",
+          "hp",
+          "hpp",
+          "ipp",
+          "hxx",
+          "h++",
+          "ino",
+          "ixx",
+          "CPP",
+          "C",
+          "HPP",
+          "H"
+        ],
+        "default_suffix": "cpp",
+        "version": "21.1.8",
+        "full_version": "clang version 21.1.8",
+        "linker_id": "ld.lld"
+      }
+    },
+    "build": {
+      "c": {
+        "id": "clang",
+        "exelist": [
+          "cc"
+        ],
+        "linker_exelist": [
+          "cc"
+        ],
+        "file_suffixes": [
+          "c"
+        ],
+        "default_suffix": "c",
+        "version": "21.1.8",
+        "full_version": "clang version 21.1.8",
+        "linker_id": "ld.lld"
+      },
+      "cpp": {
+        "id": "clang",
+        "exelist": [
+          "c++"
+        ],
+        "linker_exelist": [
+          "c++"
+        ],
+        "file_suffixes": [
+          "cpp",
+          "cppm",
+          "cc",
+          "cp",
+          "cxx",
+          "c++",
+          "hh",
+          "hp",
+          "hpp",
+          "ipp",
+          "hxx",
+          "h++",
+          "ino",
+          "ixx",
+          "CPP",
+          "C",
+          "HPP",
+          "H"
+        ],
+        "default_suffix": "cpp",
+        "version": "21.1.8",
+        "full_version": "clang version 21.1.8",
+        "linker_id": "ld.lld"
+      }
+    }
+  }
+}

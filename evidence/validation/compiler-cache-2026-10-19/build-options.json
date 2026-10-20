@@ -1,0 +1,62 @@
+{
+  "buildU": {
+    "buildtype": "debugoptimized",
+    "b_ndebug": "true",
+    "b_lto": false,
+    "c_args": [],
+    "c_link_args": [],
+    "cpp_args": [],
+    "cpp_link_args": [],
+    "platforms": [],
+    "android-stub": false,
+    "gallium-drivers": [],
+    "vulkan-drivers": [
+      "panfrost"
+    ],
+    "panfrost-kmds": [
+      "kbase",
+      "panthor"
+    ],
+    "shader-cache": "auto",
+    "shader-cache-default": true,
+    "platform-sdk-version": 35,
+    "xmlconfig": "auto",
+    "mesa-clc": "auto",
+    "precomp-compiler": "auto"
+  },
+  "build-android": {
+    "buildtype": "release",
+    "b_lto": false,
+    "b_ndebug": "true",
+    "c_args": [
+      "--target=aarch64-linux-android29"
+    ],
+    "c_link_args": [
+      "--target=aarch64-linux-android29"
+    ],
+    "cpp_args": [
+      "--target=aarch64-linux-android29"
+    ],
+    "cpp_link_args": [
+      "--target=aarch64-linux-android29"
+    ],
+    "platforms": [
+      "android"
+    ],
+    "android-stub": true,
+    "gallium-drivers": [],
+    "vulkan-drivers": [
+      "panfrost"
+    ],
+    "panfrost-kmds": [
+      "kbase",
+      "panthor"
+    ],
+    "shader-cache": "auto",
+    "shader-cache-default": true,
+    "platform-sdk-version": 29,
+    "xmlconfig": "disabled",
+    "mesa-clc": "system",
+    "precomp-compiler": "system"
+  }
+}

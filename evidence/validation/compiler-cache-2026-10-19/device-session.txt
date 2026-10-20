@@ -1,0 +1,8 @@
+#sessionInfo releaseName 31807adf6dc7111b32b1ade990d0d8e552fa1b78
+#sessionInfo releaseId 0x31807adf
+#sessionInfo targetName "Android"
+#sessionInfo logFormatVersion "0.3.4"
+#sessionInfo vendorID 0x13b5
+#sessionInfo deviceID 0x90930010
+#sessionInfo deviceName Mali-G57 MC2
+#sessionInfo commandLineParameters "--deqp-vk-library-path=/data/data/com.termux/files/home/cts/shim/libvkshim.so --deqp-caselist-file=/data/data/com.termux/files/home/cts/runs/rB19_compiler_candidate1/todo_1.txt --deqp-log-filename=/data/data/com.termux/files/home/cts/runs/rB19_compiler_candidate1/run_1.qpa --deqp-log-images=disable --deqp-log-shader-sources=disable --deqp-watchdog=disable"

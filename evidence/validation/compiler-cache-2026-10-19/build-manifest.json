@@ -1,0 +1,47 @@
+{
+  "source_tree": "0db7d21dae3f752b7d9f4288102b40e932f7fc37",
+  "artifacts": {
+    "host-before": {
+      "path": "/data/data/com.termux/files/home/panvk-refs/followup-2026-10-19/host-before.so",
+      "sha256": "2819ca71e0c56544b6756bc3523b46886be07b418924e5be31b324fa5881811d",
+      "build_id": [
+        "Build ID: abf192bd533a49e8a62a6857cc3c9d867735eb79"
+      ]
+    },
+    "android-before": {
+      "path": "/data/data/com.termux/files/home/panvk-refs/followup-2026-10-19/android-before.so",
+      "sha256": "32a3bb2396b8fcd4477840386afdb3efc39794927ccdfc8ffe82283e40460dca",
+      "build_id": [
+        "Build ID: 3ac6cbae554188b93a039ef6ead8f24fde92f40d"
+      ]
+    },
+    "host-cache-key": {
+      "path": "/data/data/com.termux/files/home/panvk-refs/followup-2026-10-19/host-cache-key.so",
+      "sha256": "185aecc1955de52848a3baa7a486145883f42df11d9a8b08c50c07eaf1f2f0a7",
+      "build_id": [
+        "Build ID: 7618ae964738efa5fc61cee6067f5fb527713092"
+      ]
+    },
+    "host-candidate": {
+      "path": "/data/data/com.termux/files/home/panvk-refs/followup-2026-10-19/host-candidate.so",
+      "sha256": "adff593f446b9e280ea32b513d048b2d92a8f952975b479addcb9cc6eeb2632a",
+      "build_id": [
+        "Build ID: 214e810dfc7293ef6064c45e54f1be15282804ac"
+      ]
+    },
+    "android-candidate": {
+      "path": "/data/data/com.termux/files/home/panvk-refs/followup-2026-10-19/android-candidate.so",
+      "sha256": "312399a37c7399000d62daa99b3436bd160d10711cbce111832177dea3ea3893",
+      "build_id": [
+        "Build ID: 0ba47c48e7eaed58d0ceff16127c0e954612ba02"
+      ]
+    },
+    "packaged-candidate": {
+      "path": "/data/data/com.termux/files/home/wltest/drvB19_cache_compiler/libvulkan_panfrost.so",
+      "sha256": "d77c3c46ecd24889b34f1fe1ebd80f284622be729673c568ce1e62c244dbd114",
+      "build_id": [
+        "Build ID: 0ba47c48e7eaed58d0ceff16127c0e954612ba02"
+      ]
+    }
+  }
+}

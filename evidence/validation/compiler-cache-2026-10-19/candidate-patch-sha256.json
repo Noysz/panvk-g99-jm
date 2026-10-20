@@ -1,0 +1,9 @@
+{
+  "0000-local-checkpoint.patch": "0787d787131566e1a7591d713ecff9b9620a7182300b2ceeba33c58a6e6d99b5",
+  "0001-shader-cache-key-controls.patch": "253dddd91cd15f335bf7771ffaaff1e601ac06aeb520cbcb92da30768cbb47b6",
+  "152-ra-interference-over-live-nodes-and-one-pass-solve.patch": "fe6fd7ff69b4146af1639f845b26810b51333dcde154194418ecc5af9b495efd",
+  "162-repair-ssa-flat-definition-map.patch": "dc31e60d755a655f34a98415865140a3806dbbd86d1120dcab277a51319a6257",
+  "163-nir-skip-opt-loop-passes-that-cannot-progress.patch": "df00c2b4d33d3be3ae142ea4a8db95f67a0c2bf2754cbea01733e6389a5dee45",
+  "170-keep-the-shader-disk-cache-on-by-default-on-android.patch": "1caacd03cc4aa00f828e44f788b1bd534222e0b8033d16b6f516b68e52251bf3",
+  "171-look-each-android-property-option-up-once.patch": "30411e61c50bcbbdd286bd442c70481148673519b9f547c11b377b1f1a86c7f6"
+}

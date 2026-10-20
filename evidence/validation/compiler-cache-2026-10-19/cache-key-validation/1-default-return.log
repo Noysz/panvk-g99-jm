@@ -1,0 +1,19 @@
+Writing test log into /data/data/com.termux/files/home/panvk-refs/followup-2026-10-19/cache-key-validation/1-default-return.qpa
+dEQP Core 31807adf6dc7111b32b1ade990d0d8e552fa1b78 (0x31807adf) starting..
+  target implementation = 'Android'
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: info: disk shader cache:  hits = 0, misses = 0
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+
+Test case 'dEQP-VK.draw.renderpass.simple_draw.simple_draw_triangle_list'..
+  Pass (Pass)
+MESA: info: disk shader cache:  hits = 6, misses = 0
+
+DONE!
+
+Test run totals:
+  Passed:        1/1 (100.0%)
+  Failed:        0/1 (0.0%)
+  Not supported: 0/1 (0.0%)
+  Warnings:      0/1 (0.0%)
+  Waived:        0/1 (0.0%)

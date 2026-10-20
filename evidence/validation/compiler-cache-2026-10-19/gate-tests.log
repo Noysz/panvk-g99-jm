@@ -1,0 +1,14 @@
+test_added_source_outside_patch (test_verify_patch_chain.PatchChainTest.test_added_source_outside_patch) ... ok
+test_checkout_line_endings (test_verify_patch_chain.PatchChainTest.test_checkout_line_endings) ... ok
+test_cli_bad_patch_is_error (test_verify_patch_chain.PatchChainTest.test_cli_bad_patch_is_error) ... ok
+test_cli_mismatch_is_failure (test_verify_patch_chain.PatchChainTest.test_cli_mismatch_is_failure) ... ok
+test_deleted_file_reintroduced (test_verify_patch_chain.PatchChainTest.test_deleted_file_reintroduced) ... ok
+test_identical_stack_and_source (test_verify_patch_chain.PatchChainTest.test_identical_stack_and_source) ... ok
+test_missing_expected_file (test_verify_patch_chain.PatchChainTest.test_missing_expected_file) ... ok
+test_mode_and_symlink_changes (test_verify_patch_chain.PatchChainTest.test_mode_and_symlink_changes) ... ok
+test_modified_file_outside_patch (test_verify_patch_chain.PatchChainTest.test_modified_file_outside_patch) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 21.662s
+
+OK

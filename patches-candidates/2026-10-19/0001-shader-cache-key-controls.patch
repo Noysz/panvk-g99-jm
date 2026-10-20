@@ -1,0 +1,55 @@
+diff --git a/src/panfrost/vulkan/panvk_vX_shader.c b/src/panfrost/vulkan/panvk_vX_shader.c
+index 6e929b4..626f0a7 100644
+--- a/src/panfrost/vulkan/panvk_vX_shader.c
++++ b/src/panfrost/vulkan/panvk_vX_shader.c
+@@ -950,6 +950,9 @@ panvk_hash_state(struct vk_physical_device *device,
+    struct mesa_blake3 blake3_ctx;
+    _mesa_blake3_init(&blake3_ctx);
+ 
++   const uint32_t compiler_flags = pan_get_compiler_flags(PAN_ARCH);
++   _mesa_blake3_update(&blake3_ctx, &compiler_flags, sizeof(compiler_flags));
++
+    if (state != NULL) {
+       /* This doesn't impact the shader compile but it does go in the
+        * panvk_shader and gets [de]serialized along with the binary so
+@@ -979,18 +982,32 @@ panvk_hash_state(struct vk_physical_device *device,
+       _mesa_blake3_update(&blake3_ctx, &emu, sizeof(emu));
+    }
+ 
+-   /* PANVK_UBO_PUSH changes the compiled code. Hashed only when it is on,
+-    * so the keys of the default configuration stay the same. */
+    const unsigned ubo_push = panvk_ubo_push_budget();
+-   if (ubo_push)
+-      _mesa_blake3_update(&blake3_ctx, &ubo_push, sizeof(ubo_push));
++   _mesa_blake3_update(&blake3_ctx, &ubo_push, sizeof(ubo_push));
+ 
+-   /* Clip/cull distances off changes the fragment shaders too. Hashed only
+-    * when off, like above. */
+    const bool clip_cull_off =
+       panvk_clip_cull_disabled(to_panvk_instance(device->instance));
+-   if (clip_cull_off)
+-      _mesa_blake3_update(&blake3_ctx, &clip_cull_off, sizeof(clip_cull_off));
++   _mesa_blake3_update(&blake3_ctx, &clip_cull_off, sizeof(clip_cull_off));
++
++   const bool shader_options[] = {
++      panvk_v9_ms_storage_2d(),
++      pan_env_flag("PANVK_V9_HW_LAYER") != NULL,
++      pan_env_flag("PANVK_V9_GS_PRIM_ID_RAW") != NULL,
++      pan_env_flag("PANVK_V9_NO_SFX_FILTER") != NULL,
++      pan_env_flag("PANVK_V9_NO_MINMAX") != NULL,
++      pan_env_flag("PANVK_V9_TEXEL_OOB_HW") != NULL,
++      pan_env_flag("PANVK_V9_TCS_SUBGROUP_BARRIER") != NULL,
++      pan_env_flag("PANVK_V9_GS_SFX_ALL") != NULL,
++      pan_env_flag("PANVK_V9_GS_RAST_BASE0") != NULL,
++      pan_env_flag("PANVK_V9_CLIP_KILL_FPK") != NULL,
++      pan_env_flag("PANVK_V9_ALLOW_TESS_GS") != NULL,
++      pan_env_flag("PANVK_V9_NO_TESS") != NULL,
++      pan_env_flag("PANVK_V9_NO_GS") != NULL,
++      pan_env_flag("PANVK_V9_NO_TES_GS") != NULL,
++      pan_env_flag("PAN_V9_IDVS_STORES_BOTH") != NULL,
++      pan_env_flag("PAN_NO_SHIFT64_SPLIT") != NULL,
++   };
++   _mesa_blake3_update(&blake3_ctx, shader_options, sizeof(shader_options));
+ #endif
+ 
+    _mesa_blake3_final(&blake3_ctx, blake3_out);

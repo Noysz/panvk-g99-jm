@@ -1,0 +1,130 @@
+ninja: Entering directory `build-android'
+[1/138] Generating src/poly/cl/libpoly.spv with a custom command
+[2/138] Generating src/panfrost/libpan/libpan_v7.spv with a custom command
+[3/138] Generating src/panfrost/libpan/libpan_v6.spv with a custom command
+[4/138] Generating src/panfrost/libpan/libpan_v9.spv with a custom command
+[5/138] Generating src/panfrost/libpan/libpan_v10.spv with a custom command
+[6/138] Generating src/panfrost/libpan/libpan_v11.spv with a custom command
+[7/138] Generating src/panfrost/libpan/libpan_v12.spv with a custom command
+[8/138] Generating src/git_sha1.h with a custom command
+[9/129] Generating src/poly/cl/libpoly.cpp with a custom command
+[10/129] Generating src/panfrost/libpan/libpan_v13.spv with a custom command
+[11/129] Generating src/panfrost/libpan/libpan_v6.cpp with a custom command
+[12/129] Generating src/panfrost/libpan/libpan_v14.spv with a custom command
+[13/129] Generating src/panfrost/libpan/libpan_v7.cpp with a custom command
+[14/129] Generating src/panfrost/libpan/libpan_v9.cpp with a custom command
+[15/129] Generating src/panfrost/libpan/libpan_shaders_v6.h with a custom command
+[16/129] Generating src/panfrost/libpan/libpan_shaders_v7.h with a custom command
+[17/129] Generating src/panfrost/libpan/libpan_v10.cpp with a custom command
+[18/129] Generating src/panfrost/libpan/libpan_v11.cpp with a custom command
+[19/129] Generating src/panfrost/libpan/libpan_shaders_v10.h with a custom command
+[20/129] Generating src/panfrost/libpan/libpan_v12.cpp with a custom command
+[21/129] Generating src/panfrost/libpan/libpan_shaders_v11.h with a custom command
+[22/129] Generating src/panfrost/libpan/libpan_v13.cpp with a custom command
+[23/129] Generating src/panfrost/libpan/libpan_shaders_v9.h with a custom command
+[24/129] Generating src/panfrost/libpan/libpan_v14.cpp with a custom command
+[25/129] Generating src/panfrost/libpan/libpan_shaders_v12.h with a custom command
+[26/129] Generating src/panfrost/libpan/libpan_shaders_v13.h with a custom command
+[27/129] Compiling C object src/util/libmesa_util.a.p/disk_cache_os.c.o
+[28/129] Compiling C object src/util/libmesa_util.a.p/os_misc.c.o
+[29/129] Generating src/panfrost/libpan/libpan_shaders_v14.h with a custom command
+[30/129] Compiling C++ object src/poly/nir/liblibpoly_nir.a.p/meson-generated_.._.._cl_libpoly.cpp.o
+[31/129] Compiling C object src/poly/nir/liblibpoly_nir.a.p/poly_nir_lower_sysvals.c.o
+[32/129] Compiling C object src/poly/nir/liblibpoly_nir.a.p/poly_nir_lower_gs.c.o
+[33/129] Compiling C object src/poly/nir/liblibpoly_nir.a.p/poly_nir_lower_vs.c.o
+[34/129] Compiling C object src/poly/nir/liblibpoly_nir.a.p/poly_nir_lower_tess.c.o
+[35/129] Compiling C object src/panfrost/compiler/bifrost/libpanfrost_bifrost.a.p/bi_ra.c.o
+[36/129] Compiling C object src/panfrost/compiler/bifrost/libpanfrost_bifrost.a.p/bi_repair_ssa.c.o
+[37/129] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/meson-generated_.._.._libpan_libpan_shaders_v6.c.o
+[38/129] Compiling C object src/panfrost/compiler/bifrost/libpanfrost_bifrost.a.p/bifrost_nir.c.o
+[39/129] Compiling C++ object src/panfrost/vulkan/libpanvk_v6.a.p/meson-generated_.._.._libpan_libpan_v6.cpp.o
+[40/129] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_device.c.o
+[41/129] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_cmd_meta.c.o
+[42/129] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_precomp_cache.c.o
+[43/129] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_cmd_dispatch.c.o
+[44/129] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/panvk_vX_shader.c.o
+[45/129] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_cmd_draw.c.o
+[46/129] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_cmd_query.c.o
+[47/129] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/meson-generated_.._.._libpan_libpan_shaders_v7.c.o
+[48/129] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_cmd_precomp.c.o
+[49/129] Compiling C object src/panfrost/vulkan/libpanvk_v6.a.p/jm_panvk_vX_cmd_xfb.c.o
+[50/129] Compiling C++ object src/panfrost/vulkan/libpanvk_v7.a.p/meson-generated_.._.._libpan_libpan_v7.cpp.o
+[51/129] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_cmd_meta.c.o
+[52/129] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_device.c.o
+[53/129] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_precomp_cache.c.o
+[54/129] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_cmd_dispatch.c.o
+[55/129] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/panvk_vX_shader.c.o
+[56/129] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_cmd_draw.c.o
+[57/129] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_cmd_query.c.o
+[58/129] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_cmd_precomp.c.o
+[59/129] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/meson-generated_.._.._libpan_libpan_shaders_v9.c.o
+[60/129] Compiling C object src/panfrost/vulkan/libpanvk_v7.a.p/jm_panvk_vX_cmd_xfb.c.o
+[61/129] Compiling C++ object src/panfrost/vulkan/libpanvk_v9.a.p/meson-generated_.._.._libpan_libpan_v9.cpp.o
+[62/129] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_cmd_meta.c.o
+[63/129] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_cmd_push_constant.c.o
+[64/129] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_device.c.o
+[65/129] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_precomp_cache.c.o
+[66/129] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_dispatch.c.o
+[67/129] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/panvk_vX_shader.c.o
+[68/129] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_draw.c.o
+[69/129] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_query.c.o
+[70/129] Compiling C object src/panfrost/vulkan/libpanvk_v10.a.p/meson-generated_.._.._libpan_libpan_shaders_v10.c.o
+[71/129] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_precomp.c.o
+[72/129] Compiling C object src/panfrost/vulkan/libpanvk_v9.a.p/jm_panvk_vX_cmd_xfb.c.o
+[73/129] Compiling C++ object src/panfrost/vulkan/libpanvk_v10.a.p/meson-generated_.._.._libpan_libpan_v10.cpp.o
+[74/129] Compiling C object src/panfrost/vulkan/libpanvk_v10.a.p/panvk_vX_cmd_meta.c.o
+[75/129] Compiling C object src/panfrost/vulkan/libpanvk_v10.a.p/panvk_vX_device.c.o
+[76/129] Compiling C object src/panfrost/vulkan/libpanvk_v10.a.p/panvk_vX_precomp_cache.c.o
+[77/129] Compiling C object src/panfrost/vulkan/libpanvk_v10.a.p/panvk_vX_shader.c.o
+[78/129] Compiling C object src/panfrost/vulkan/libpanvk_v10.a.p/csf_panvk_vX_cmd_query.c.o
+[79/129] Compiling C object src/panfrost/vulkan/libpanvk_v11.a.p/meson-generated_.._.._libpan_libpan_shaders_v11.c.o
+[80/129] Compiling C object src/panfrost/vulkan/libpanvk_v10.a.p/csf_panvk_vX_cmd_precomp.c.o
+[81/129] Compiling C++ object src/panfrost/vulkan/libpanvk_v11.a.p/meson-generated_.._.._libpan_libpan_v11.cpp.o
+[82/129] Compiling C object src/panfrost/vulkan/libpanvk_v11.a.p/panvk_vX_cmd_meta.c.o
+[83/129] Compiling C object src/panfrost/vulkan/libpanvk_v11.a.p/panvk_vX_device.c.o
+[84/129] Compiling C object src/panfrost/vulkan/libpanvk_v10.a.p/csf_panvk_vX_cmd_draw.c.o
+[85/129] Compiling C object src/panfrost/vulkan/libpanvk_v11.a.p/panvk_vX_precomp_cache.c.o
+[86/129] Compiling C object src/panfrost/vulkan/libpanvk_v11.a.p/panvk_vX_shader.c.o
+[87/129] Compiling C object src/panfrost/vulkan/libpanvk_v11.a.p/csf_panvk_vX_cmd_query.c.o
+[88/129] Compiling C object src/panfrost/vulkan/libpanvk_v12.a.p/meson-generated_.._.._libpan_libpan_shaders_v12.c.o
+[89/129] Compiling C object src/panfrost/vulkan/libpanvk_v11.a.p/csf_panvk_vX_cmd_precomp.c.o
+[90/129] Compiling C object src/panfrost/vulkan/libpanvk_v11.a.p/csf_panvk_vX_cmd_draw.c.o
+[91/129] Compiling C++ object src/panfrost/vulkan/libpanvk_v12.a.p/meson-generated_.._.._libpan_libpan_v12.cpp.o
+[92/129] Compiling C object src/panfrost/vulkan/libpanvk_v12.a.p/panvk_vX_cmd_meta.c.o
+[93/129] Compiling C object src/panfrost/vulkan/libpanvk_v12.a.p/panvk_vX_precomp_cache.c.o
+[94/129] Compiling C object src/panfrost/vulkan/libpanvk_v12.a.p/panvk_vX_device.c.o
+[95/129] Compiling C object src/panfrost/vulkan/libpanvk_v12.a.p/panvk_vX_shader.c.o
+[96/129] Compiling C object src/panfrost/vulkan/libpanvk_v12.a.p/csf_panvk_vX_cmd_query.c.o
+[97/129] Compiling C object src/panfrost/vulkan/libpanvk_v13.a.p/meson-generated_.._.._libpan_libpan_shaders_v13.c.o
+[98/129] Compiling C object src/panfrost/vulkan/libpanvk_v12.a.p/csf_panvk_vX_cmd_precomp.c.o
+[99/129] Compiling C++ object src/panfrost/vulkan/libpanvk_v13.a.p/meson-generated_.._.._libpan_libpan_v13.cpp.o
+[100/129] Compiling C object src/panfrost/vulkan/libpanvk_v12.a.p/csf_panvk_vX_cmd_draw.c.o
+[101/129] Compiling C object src/panfrost/vulkan/libpanvk_v13.a.p/panvk_vX_cmd_meta.c.o
+[102/129] Compiling C object src/panfrost/vulkan/libpanvk_v13.a.p/panvk_vX_precomp_cache.c.o
+[103/129] Compiling C object src/panfrost/vulkan/libpanvk_v13.a.p/panvk_vX_device.c.o
+[104/129] Compiling C object src/panfrost/vulkan/libpanvk_v13.a.p/panvk_vX_shader.c.o
+[105/129] Compiling C object src/panfrost/vulkan/libpanvk_v13.a.p/csf_panvk_vX_cmd_query.c.o
+[106/129] Compiling C object src/panfrost/vulkan/libpanvk_v14.a.p/meson-generated_.._.._libpan_libpan_shaders_v14.c.o
+[107/129] Compiling C++ object src/panfrost/vulkan/libpanvk_v14.a.p/meson-generated_.._.._libpan_libpan_v14.cpp.o
+[108/129] Compiling C object src/panfrost/vulkan/libpanvk_v13.a.p/csf_panvk_vX_cmd_precomp.c.o
+[109/129] Compiling C object src/panfrost/vulkan/libpanvk_v13.a.p/csf_panvk_vX_cmd_draw.c.o
+[110/129] Compiling C object src/panfrost/vulkan/libpanvk_v14.a.p/panvk_vX_device.c.o
+[111/129] Compiling C object src/panfrost/vulkan/libpanvk_v14.a.p/panvk_vX_cmd_meta.c.o
+[112/129] Compiling C object src/panfrost/vulkan/libpanvk_v14.a.p/panvk_vX_precomp_cache.c.o
+[113/129] Compiling C object src/panfrost/vulkan/libpanvk_v14.a.p/panvk_vX_shader.c.o
+[114/129] Compiling C object src/panfrost/vulkan/libpanvk_v14.a.p/csf_panvk_vX_cmd_query.c.o
+[115/129] Linking static target src/util/libmesa_util.a
+[116/129] Linking static target src/poly/nir/liblibpoly_nir.a
+[117/129] Linking static target src/panfrost/compiler/bifrost/libpanfrost_bifrost.a
+[118/129] Linking static target src/panfrost/vulkan/libpanvk_v6.a
+[119/129] Linking static target src/panfrost/vulkan/libpanvk_v7.a
+[120/129] Linking static target src/panfrost/vulkan/libpanvk_v9.a
+[121/129] Linking static target src/panfrost/vulkan/libpanvk_v10.a
+[122/129] Compiling C object src/panfrost/vulkan/libpanvk_v14.a.p/csf_panvk_vX_cmd_precomp.c.o
+[123/129] Linking static target src/panfrost/vulkan/libpanvk_v11.a
+[124/129] Linking static target src/panfrost/vulkan/libpanvk_v12.a
+[125/129] Linking static target src/panfrost/vulkan/libpanvk_v13.a
+[126/129] Compiling C object src/panfrost/vulkan/libpanvk_v14.a.p/csf_panvk_vX_cmd_draw.c.o
+[127/129] Linking static target src/panfrost/vulkan/libpanvk_v14.a
+[128/129] Compiling C++ object src/panfrost/vulkan/libvulkan_panfrost.so.p/meson-generated_.._.._.._poly_cl_libpoly.cpp.o
+[129/129] Linking target src/panfrost/vulkan/libvulkan_panfrost.so

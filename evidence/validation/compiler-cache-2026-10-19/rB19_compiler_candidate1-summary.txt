@@ -1,0 +1,5 @@
+group rB19_compiler_candidate1: 2900 cases, 29 process run(s)
+  Pass                   2343
+  Fail                   6
+  NotSupported           551
+  pass rate of supported: 2343/2349 = 99.7%

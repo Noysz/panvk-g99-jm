@@ -1,0 +1,174 @@
+{
+  "ok": true,
+  "expect": "shared",
+  "knob": "PANVK_V9_CLIP_KILL_FPK",
+  "case": "dEQP-VK.draw.renderpass.simple_draw.simple_draw_triangle_list",
+  "driver": "/data/data/com.termux/files/home/panvk-refs/followup-2026-10-19/host-before.so",
+  "driver_sha256": "2819ca71e0c56544b6756bc3523b46886be07b418924e5be31b324fa5881811d",
+  "default_cache": false,
+  "records": [
+    {
+      "name": "1-default-cold",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 0,
+      "misses": 6,
+      "passed": true,
+      "seconds": 2.5456750000012107
+    },
+    {
+      "name": "1-default-warm",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 1.732759384001838
+    },
+    {
+      "name": "1-control-after-default",
+      "knob": "1",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 2.664085538010113
+    },
+    {
+      "name": "1-control-warm",
+      "knob": "1",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 5.743312923994381
+    },
+    {
+      "name": "1-default-return",
+      "knob": "false",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 2.437445461007883
+    },
+    {
+      "name": "1-cache-disabled",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 0,
+      "misses": 0,
+      "passed": true,
+      "seconds": 1.1656624620081857
+    },
+    {
+      "name": "2-default-cold",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 0,
+      "misses": 6,
+      "passed": true,
+      "seconds": 1.9474332309910096
+    },
+    {
+      "name": "2-default-warm",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 1.3668916930037085
+    },
+    {
+      "name": "2-control-after-default",
+      "knob": "1",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 1.3326711539993994
+    },
+    {
+      "name": "2-control-warm",
+      "knob": "1",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 1.9432390769943595
+    },
+    {
+      "name": "2-default-return",
+      "knob": "false",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 1.6247030000085942
+    },
+    {
+      "name": "2-cache-disabled",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 0,
+      "misses": 0,
+      "passed": true,
+      "seconds": 1.874382769994554
+    },
+    {
+      "name": "3-default-cold",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 0,
+      "misses": 6,
+      "passed": true,
+      "seconds": 2.697526154006482
+    },
+    {
+      "name": "3-default-warm",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 2.0129707699961727
+    },
+    {
+      "name": "3-control-after-default",
+      "knob": "1",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 1.1092934610060183
+    },
+    {
+      "name": "3-control-warm",
+      "knob": "1",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 1.4769891540054232
+    },
+    {
+      "name": "3-default-return",
+      "knob": "false",
+      "returncode": 0,
+      "hits": 6,
+      "misses": 0,
+      "passed": true,
+      "seconds": 1.1599203079967992
+    },
+    {
+      "name": "3-cache-disabled",
+      "knob": "0",
+      "returncode": 0,
+      "hits": 0,
+      "misses": 0,
+      "passed": true,
+      "seconds": 1.2664439999934984
+    }
+  ],
+  "failures": []
+}

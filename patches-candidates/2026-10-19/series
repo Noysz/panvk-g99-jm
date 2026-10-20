@@ -1,0 +1,7 @@
+0000-local-checkpoint.patch
+0001-shader-cache-key-controls.patch
+152-ra-interference-over-live-nodes-and-one-pass-solve.patch
+162-repair-ssa-flat-definition-map.patch
+163-nir-skip-opt-loop-passes-that-cannot-progress.patch
+170-keep-the-shader-disk-cache-on-by-default-on-android.patch
+171-look-each-android-property-option-up-once.patch
