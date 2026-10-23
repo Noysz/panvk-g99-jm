@@ -1,0 +1,26 @@
+{
+  "utc_started": "2026-10-22T21:28:33.503660+00:00",
+  "controls": {
+    "PANVK_ICD_SO": "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-t06-v1.so",
+    "PAN_I_WANT_A_BROKEN_VULKAN_DRIVER": "1",
+    "MESA_SHADER_CACHE_DISABLE": "true",
+    "PANVK_UBO_PUSH": "0",
+    "PANVK_DEFER_OQ": "0",
+    "PANVK_TILER_HEAP_INCREMENTAL": "false"
+  },
+  "pins": {
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-t06-v1.so": "292b7c6cf28efa12ec5faacab54e7b59d8adde0fe4c611c1f46ee3872cf8d605",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t07-matrix-timing-0s1_fj32/matrix_timing.c": "bde062bd1173e8591243266323e2080115b75e08fe4d8a7829aec4266eae8a13",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t07-matrix-timing-0s1_fj32/row.comp": "5e9c2e93c411fa629906f95485d3af91918227d53b8f00ee558262bc9e066dd1",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t07-matrix-timing-0s1_fj32/column.comp": "6491ec977d71445db161165ecd7a32eede0b6c3f6aee5d98aebe90599542cb40",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t07-matrix-timing-0s1_fj32/run_timing.py": "3625fb916459360140c037e621e93dff58ef6e8137ebc85505bcff81378eaf4b",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/import_visibility.c": "63b5002d6708b77c9b8b19fe352a7bf0ae070ac0a7516b653482fe6d92b6f259",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t07-matrix-timing-0s1_fj32/measurement-0me_cg87/matrix_timing": "32524d16a314e4703879cb9b052122e85d2cbf928aa469d17c177b1f66dcd66c",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t07-matrix-timing-0s1_fj32/measurement-0me_cg87/row.spv": "2e5831c2bdf62f53b198cf271df527ed452abdcd07fff99dac429d8f8447b41c",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t07-matrix-timing-0s1_fj32/measurement-0me_cg87/column.spv": "1a8c76824e2f3ae7dc689134bca5ff5c0cd3e8f90f0740eefceebf021179080a"
+  },
+  "order": "3 blocks per layout: off,on,on,off; layout order alternates",
+  "clock_thermal_control": "No clock locking; sysfs devfreq/thermal inaccessible",
+  "timing_scope": "Host QueueSubmit-to-fence interval; includes submit/wait overhead",
+  "gameplay_benchmark": false
+}

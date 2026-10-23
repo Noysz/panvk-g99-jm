@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-23T00:20:36.305796+00:00",
+  "probe_compile_and_spirv_checks_passed": true,
+  "runner_syntax_and_cli_checks_passed": true,
+  "repository_python_tests_passed": 28,
+  "recorded_gpu_tests_reused": true,
+  "probe_and_patch_sha256": {
+    "tests/graphics/t07-matrix/README.md": "69db4d8a9f4f94f5566f5d7192b79abfd21d16ab55e07c8cc46f430f2f9f4010",
+    "tests/graphics/t07-matrix/correctness/matrix_probe.c": "e9b86de55d3290c6d049d466b68c854364d6918cc19635218353f1363a528939",
+    "tests/graphics/t07-matrix/correctness/row.comp": "face4025158bd6c0df01ad643522535b2f20051992b11c5d504c5cc619593675",
+    "tests/graphics/t07-matrix/correctness/column.comp": "b6d2ae46af759e5b10bec536c8c8f20952fc4e3c0d44fb1c1a6c2b24fc616519",
+    "tests/graphics/t07-matrix/timing/matrix_timing.c": "bde062bd1173e8591243266323e2080115b75e08fe4d8a7829aec4266eae8a13",
+    "tests/graphics/t07-matrix/timing/row.comp": "5e9c2e93c411fa629906f95485d3af91918227d53b8f00ee558262bc9e066dd1",
+    "tests/graphics/t07-matrix/timing/column.comp": "6491ec977d71445db161165ecd7a32eede0b6c3f6aee5d98aebe90599542cb40",
+    "tests/graphics/t07-matrix/timing/run_timing.py": "93d487f3e962ed48053b0380cc8d6863487f1736ceef7e7114f3dab2a445b928"
+  }
+}

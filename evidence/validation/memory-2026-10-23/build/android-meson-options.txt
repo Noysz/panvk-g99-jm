@@ -1,0 +1,34 @@
+[options]
+buildtype = release
+strip = true
+b_ndebug = true
+platforms = android
+android-stub = true
+platform-sdk-version = 29
+android-libbacktrace = disabled
+vulkan-drivers = panfrost
+gallium-drivers = 
+panfrost-kmds = kbase,panthor
+opengl = false
+egl = disabled
+gles1 = disabled
+gles2 = disabled
+gbm = disabled
+glx = disabled
+zstd = disabled
+xmlconfig = disabled
+zlib = enabled
+libunwind = disabled
+video-codecs = 
+tools = 
+vulkan-layers = 
+mesa-clc = system
+precomp-compiler = system
+c_args = --target=aarch64-linux-android29
+cpp_args = --target=aarch64-linux-android29
+c_link_args = --target=aarch64-linux-android29
+cpp_link_args = --target=aarch64-linux-android29
+android-strict = false
+
+[properties]
+

@@ -1,0 +1,29 @@
+{
+  "finding": "deqp executes selected cases in its test-tree order within chunks; input-list position need not equal execution position. Compare per-case status and actual run order against baseline.",
+  "runs": [
+    {
+      "label": "baseline",
+      "tsv_sha256": "3e72ff05ff6905dd91b00ebee9f8dd7cffa17cf7eb6c2620a169bfb8f64e6519",
+      "same_order_as_baseline": true,
+      "positions_different_from_input": 300
+    },
+    {
+      "label": "on1",
+      "tsv_sha256": "3e72ff05ff6905dd91b00ebee9f8dd7cffa17cf7eb6c2620a169bfb8f64e6519",
+      "same_order_as_baseline": true,
+      "positions_different_from_input": 300
+    },
+    {
+      "label": "on2",
+      "tsv_sha256": "3e72ff05ff6905dd91b00ebee9f8dd7cffa17cf7eb6c2620a169bfb8f64e6519",
+      "same_order_as_baseline": true,
+      "positions_different_from_input": 300
+    },
+    {
+      "label": "on3",
+      "tsv_sha256": "3e72ff05ff6905dd91b00ebee9f8dd7cffa17cf7eb6c2620a169bfb8f64e6519",
+      "same_order_as_baseline": true,
+      "positions_different_from_input": 300
+    }
+  ]
+}

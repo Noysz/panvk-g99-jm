@@ -1,0 +1,34 @@
+{
+  "row": {
+    "false": {
+      "registers": 15,
+      "code_bytes": 896,
+      "stack_bytes": 0,
+      "spills": 0,
+      "fills": 0
+    },
+    "true": {
+      "registers": 17,
+      "code_bytes": 768,
+      "stack_bytes": 0,
+      "spills": 0,
+      "fills": 0
+    }
+  },
+  "column": {
+    "false": {
+      "registers": 29,
+      "code_bytes": 640,
+      "stack_bytes": 0,
+      "spills": 0,
+      "fills": 0
+    },
+    "true": {
+      "registers": 29,
+      "code_bytes": 640,
+      "stack_bytes": 0,
+      "spills": 0,
+      "fills": 0
+    }
+  }
+}

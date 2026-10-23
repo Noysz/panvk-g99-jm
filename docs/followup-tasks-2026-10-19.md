@@ -13,7 +13,7 @@ No task is complete based only on an advertised feature or an FPS claim.
 | T04 | Partial: TR/K4 measured; Naruto descriptors and short battle checked | Establish comparable gameplay baselines and validate K2/K4 | Naruto renders at 640x360 with GPL=True, async=False. K2 changes 17 matched draw instances. Two comparable A/B pairs show no gain; two pairs are excluded for HUD/draw differences. The three-pair target remains unmet. A three-minute COM single battle is visually sampled. |
 | T05 | Candidate evaluated; repeatable performance benefit pending | Profile occlusion splits and implement deferred availability if justified | Ordering/lifetime/allocation controls and three 1,243-case CTS repeats match the baseline. Six camera runs give median 13.4 FPS on / 13.1 off, with one unusually fast on run. Default remains off. |
 | T06 | Candidate validated at targeted scope; long sessions pending | Investigate incremental tiler backing and import coherency | Six 929-case runs: 753 Pass / 174 NS / 2 existing Fail, gain 70 / lost 0. Android visibility, tiler and lifecycle checks pass. Incremental backing stays off; no measured backing reduction. Long-run timeout remains unresolved. |
-| T07 | Pending | Investigate register pressure, dynamic matrix vectorization and compute TLS | G57 reproducer, ISA/spill evidence, bounded memory cost and workload gain |
+| T07 | Matrix path tested; register pressure and game coverage pending | Investigate register pressure, dynamic matrix vectorization and compute TLS | Existing late vectorization passes three enabled 2,900-case repeats against baseline. Row-major submit-to-fence reduction 13.19-18.45% across three ABBA blocks; uncontrolled clocks/temperature, no FPS claim. Default stays off. |
 | T08 | Pending | Evaluate safe overlap between passes | In-flight heap/TLS/WLS/arena ownership, ordering tests, measured overlap, no GPU faults |
 | T09 | Pending | Continue timestamp API, robustness, conditional rendering and opt-in depth bounds | Per-feature implementation and running CTS; capability bits alone do not qualify |
 | T10 | Pending | Produce a release candidate only after the roadmap gates | Reproducible stack/build, regression/control runs, game validation, documented remaining failures |
@@ -76,7 +76,9 @@ Compact evidence: `evidence/validation/compiler-cache-2026-10-19/`.
 T01-T03 are complete at the scope above. T04 has a measured TR/K4 baseline and
 the limited Naruto results described below;
 T05 has an evaluated opt-in deferred candidate. T06 has a tested memory
-candidate with sustained validation pending; T07-T10 remain open. No
+candidate with sustained validation pending. T07 has matrix-path evidence;
+register-pressure work and representative workload checks remain open. T08-T10
+retain their roadmap gates. No
 repeatable gameplay speedup, full CTS conformance, or test9 readiness is
 claimed. See `evidence/validation/gameplay-2026-10-19/README.md` and
 `docs/occlusion-followup-2026-10-19.md` for the new evidence and remaining gates.
@@ -186,3 +188,23 @@ check data, pixels and resource cleanup. No tiler backing saving was observed.
 The frozen build's long cached-import attempt timed out after about 1,110
 seconds and has no final correctness/cleanup verdict. Its cause is unresolved.
 Cache-sync error propagation, sustained graphics and game gates remain open.
+
+## Matrix follow-up (2026-10-23)
+
+T07 evaluates the existing `PAN_LATE_VECTORIZE` option; it adds no driver
+patch. One baseline and three enabled 2,900-case CTS runs each report
+2,343 Pass, 551 NotSupported and six existing Fail, with no per-case changes.
+The Android matrix workload passes its data/guard checks in 24 ordinary
+processes, and its wrong-reference control fails as expected.
+
+Three ABBA blocks measure row-major submit-to-fence reductions of 13.19%,
+15.88% and 18.45%. The column-major control changes by 1.95%, -0.19% and
+2.69%. Clock frequency and temperature are uncontrolled. The row-major shader
+uses fewer code bytes but more work registers; this does not establish reduced
+register pressure or improved gameplay. A separate SSA spill-target experiment
+was rejected and is absent from the patch stack. The option remains off.
+
+See the [matrix evidence](../evidence/validation/matrix-2026-10-23/README.md)
+and [reproducers](../tests/graphics/t07-matrix/README.md). T08 still needs safe
+resource ownership and measured overlap. T09 covers the remaining API features;
+T10 is the release-candidate gate, including full regression and game checks.

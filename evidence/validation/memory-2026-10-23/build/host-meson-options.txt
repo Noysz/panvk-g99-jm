@@ -1,0 +1,17 @@
+[options]
+buildtype = debugoptimized
+vulkan-drivers = panfrost
+gallium-drivers = 
+platforms = 
+build-tests = false
+panfrost-kmds = kbase,panthor
+prefix = /data/data/com.termux/files/usr
+b_ndebug = true
+glx = disabled
+gles2 = disabled
+opengl = false
+egl = disabled
+gbm = disabled
+
+[properties]
+

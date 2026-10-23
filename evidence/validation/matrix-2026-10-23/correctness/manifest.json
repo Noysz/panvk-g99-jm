@@ -1,0 +1,16 @@
+{
+  "pins": {
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/host-t06-v2.so": "b9550b1fc186b715cdf87605cbf7dab5939a3f980240918edc80dc6673db5237",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-t06-v1.so": "292b7c6cf28efa12ec5faacab54e7b59d8adde0fe4c611c1f46ee3872cf8d605",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t07-matrix-xhh2cnze/matrix_probe": "04a30394b1ef288e7f102dcb9beecd60dab2d866fbfc07c02586046041f41aec",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t07-matrix-xhh2cnze/matrix_probe.c": "e9b86de55d3290c6d049d466b68c854364d6918cc19635218353f1363a528939",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t07-matrix-xhh2cnze/row.spv": "5bb311cda8666037d934beede4c13489c234f0018f4fd06eb501887c868b7773",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t07-matrix-xhh2cnze/column.spv": "33bb3b1c8b28bf59bc29af126f96aa2fc0f8052a9d319e88855566c686f4699a"
+  },
+  "controls": {
+    "PAN_I_WANT_A_BROKEN_VULKAN_DRIVER": "1",
+    "MESA_SHADER_CACHE_DISABLE": "true",
+    "PANVK_UBO_PUSH": "0"
+  },
+  "timing_is_benchmark": false
+}

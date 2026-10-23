@@ -1,0 +1,21 @@
+#version 450
+layout(local_size_x = 64) in;
+layout(std430, set = 0, binding = 0) buffer Data { uint words[]; } data;
+struct Transform { mat4 model; mat4 normal; mat4 extra; };
+layout(std140, row_major, set = 0, binding = 1) uniform Matrices {
+   Transform transforms[8];
+} matrices;
+layout(push_constant) uniform Push { uint seed; } p;
+void main()
+{
+   uint x = gl_GlobalInvocationID.x;
+   uint raw = data.words[512 + x] ^ p.seed;
+   uint instance = (raw ^ x) & 7u;
+   uint col = (raw >> 8) & 3u;
+   vec4 v = vec4(1u + (raw & 7u), 1u + ((raw >> 3) & 7u),
+                 1u + ((raw >> 6) & 7u), 1u + ((raw >> 9) & 7u));
+   vec4 result = matrices.transforms[instance].model * v +
+                 matrices.transforms[instance].normal[col] +
+                 matrices.transforms[instance].extra[col];
+   data.words[6144 + x] = uint(dot(result, vec4(1, 3, 5, 7)));
+}

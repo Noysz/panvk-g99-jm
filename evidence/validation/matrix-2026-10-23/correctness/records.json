@@ -1,0 +1,162 @@
+[
+  {
+    "label": "host-r1-true-row",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "host-r1-true-column",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "host-r2-true-row",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "host-r2-true-column",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "host-r3-true-row",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "host-r3-true-column",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "host-negative",
+    "returncode": 2,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=9 input_bad=0 guard_bad=0 verdict=FAIL"
+    ],
+    "passed": true
+  },
+  {
+    "label": "android-r1-false-row",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "android-r1-false-column",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "android-r1-true-row",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "android-r1-true-column",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "android-r2-false-row",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "android-r2-false-column",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "android-r2-true-row",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "android-r2-true-column",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "android-r3-false-row",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "android-r3-false-column",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "android-r3-true-row",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "android-r3-true-column",
+    "returncode": 0,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS"
+    ],
+    "passed": true
+  },
+  {
+    "label": "android-negative",
+    "returncode": 2,
+    "summaries": [
+      "MATRIX values=96 rounds=9 output_bad=9 input_bad=0 guard_bad=0 verdict=FAIL"
+    ],
+    "passed": true
+  }
+]

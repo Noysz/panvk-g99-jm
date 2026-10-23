@@ -1,0 +1,631 @@
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+shader: MESA_SHADER_COMPUTE
+source_blake3: {0x2312b354, 0xcb3cda9d, 0xb2d06fa9, 0x926f1cf9, 0xfc27897f, 0x06755792, 0x82a15238, 0xa0b862bf}
+name: 
+workgroup_size: 64, 1, 1
+num_ubos: 1
+num_ssbos: 1
+system_values_read: 0x00000000'00000000'00011000'00000000
+api_subgroup_size: 16
+max_subgroup_size: 16
+min_subgroup_size: 16
+bit_sizes_float: 0x20
+bit_sizes_int: 0x20
+flrp_lowered: true
+writes_memory: true
+uniforms: 4
+decl_var ubo INTERP_MODE_NONE none Matrices matrices (~0, 0, 1)
+decl_var push_const INTERP_MODE_NONE none Push p
+decl_var ssbo INTERP_MODE_NONE restrict Data data (~0, 0, 0)
+decl_function main () (entrypoint)
+
+impl main {
+    block b0:    // preds:
+    32x3    %0 = @load_global_invocation_id
+    32      %1 = load_const (0x00000000)
+    32      %2 = @load_push_constant (%1 (0x0)) (base=0, access=none, range=0, align_mul=4, align_offset=0)
+    32      %3 = load_const (0x00000006)
+    32      %4 = ishl %2, %3 (0x6)
+    32      %5 = iadd %0.x, %4
+    32      %6 = load_const (0x00000800 = 2048)
+    32      %7 = load_const (0x00000002)
+    32      %8 = ishl %5, %7 (0x2)
+    32      %9 = iadd %8, %6 (0x800)
+    32     %10 = load_const (0x01000000 = 0.000000 = 16777216)
+    32     %11 = @load_ssbo (%10 (0x1000000), %9) (access=none, align_mul=4, align_offset=0, offset_shift=0)
+    32     %12 = load_const (0x00000010 = 16)
+    32     %13 = @load_push_constant (%12 (0x10)) (base=0, access=none, range=0, align_mul=256, align_offset=0)
+    32     %14 = ixor %11, %13
+    32     %15 = ixor %14, %5
+    32     %16 = load_const (0x00000008)
+    32     %17 = ushr %14, %16 (0x8)
+    32     %18 = load_const (0x00000003)
+    32     %19 = iand %17, %18 (0x3)
+    32     %20 = ishl %19, %7 (0x2)
+    32     %21 = load_const (0x00000007)
+    32     %22 = iand %15, %21 (0x7)
+    32     %23 = load_const (0x000000c0 = 192)
+    32     %24 = imul %22, %23 (0xc0)
+    32     %25 = load_const (0x00000040 = 64)
+    32     %26 = iadd %24, %25 (0x40)
+    32     %27 = iadd %26, %20
+    32     %28 = load_const (0x01000001 = 0.000000 = 16777217)
+    32     %29 = @load_ubo (%28 (0x1000001), %27) (access=none, align_mul=4, align_offset=0, range_base=0, range=-1)
+    32     %30 = load_const (0x00000001)
+    32     %31 = load_const (0x0000000c = 12)
+    32     %32 = iadd %24, %31 (0xc)
+    32     %33 = @load_ubo (%28 (0x1000001), %32) (access=none, align_mul=16, align_offset=12, range_base=0, range=-1)
+    32     %34 = load_const (0x00000009)
+    32     %35 = ushr %14, %34 (0x9)
+    32     %36 = iand %35, %21 (0x7)
+    32     %37 = iadd %30 (0x1), %36
+    32     %38 = u2f32 %37
+    32     %39 = ffma %33, %38, %29
+    32     %40 = iadd %24, %16 (0x8)
+    32     %41 = ushr %14, %3 (0x6)
+    32     %42 = iand %41, %21 (0x7)
+    32     %43 = iadd %30 (0x1), %42
+    32     %44 = u2f32 %43
+    32     %45 = @load_ubo (%28 (0x1000001), %40) (access=none, align_mul=16, align_offset=8, range_base=0, range=-1)
+    32     %46 = ffma %45, %44, %39
+    32     %47 = load_const (0x00000004)
+    32     %48 = iadd %24, %47 (0x4)
+    32     %49 = ushr %14, %18 (0x3)
+    32     %50 = iand %49, %21 (0x7)
+    32     %51 = iadd %30 (0x1), %50
+    32     %52 = u2f32 %51
+    32     %53 = @load_ubo (%28 (0x1000001), %48) (access=none, align_mul=16, align_offset=4, range_base=0, range=-1)
+    32     %54 = ffma %53, %52, %46
+    32     %55 = iand %14, %21 (0x7)
+    32     %56 = iadd %30 (0x1), %55
+    32     %57 = u2f32 %56
+    32     %58 = @load_ubo (%28 (0x1000001), %24) (access=none, align_mul=64, align_offset=0, range_base=0, range=-1)
+    32     %59 = ffma %58, %57, %54
+    32     %60 = load_const (0x0000001c = 28)
+    32     %61 = iadd %60 (0x1c), %24
+    32     %62 = @load_ubo (%28 (0x1000001), %61) (access=none, align_mul=16, align_offset=12, range_base=0, range=-1)
+    32     %63 = iadd %27, %12 (0x10)
+    32     %64 = @load_ubo (%28 (0x1000001), %63) (access=none, align_mul=4, align_offset=0, range_base=0, range=-1)
+    32     %65 = ffma %62, %38, %64
+    32     %66 = load_const (0x00000018 = 24)
+    32     %67 = iadd %66 (0x18), %24
+    32     %68 = @load_ubo (%28 (0x1000001), %67) (access=none, align_mul=16, align_offset=8, range_base=0, range=-1)
+    32     %69 = ffma %68, %44, %65
+    32     %70 = load_const (0x00000014 = 20)
+    32     %71 = iadd %70 (0x14), %24
+    32     %72 = @load_ubo (%28 (0x1000001), %71) (access=none, align_mul=16, align_offset=4, range_base=0, range=-1)
+    32     %73 = ffma %72, %52, %69
+    32     %74 = iadd %12 (0x10), %24
+    32     %75 = @load_ubo (%28 (0x1000001), %74) (access=none, align_mul=64, align_offset=16, range_base=0, range=-1)
+    32     %76 = ffma %75, %57, %73
+    32     %77 = load_const (0x00000020 = 32)
+    32     %78 = load_const (0x0000002c = 44)
+    32     %79 = iadd %78 (0x2c), %24
+    32     %80 = @load_ubo (%28 (0x1000001), %79) (access=none, align_mul=16, align_offset=12, range_base=0, range=-1)
+    32     %81 = iadd %27, %77 (0x20)
+    32     %82 = @load_ubo (%28 (0x1000001), %81) (access=none, align_mul=4, align_offset=0, range_base=0, range=-1)
+    32     %83 = ffma %80, %38, %82
+    32     %84 = load_const (0x00000028 = 40)
+    32     %85 = iadd %84 (0x28), %24
+    32     %86 = @load_ubo (%28 (0x1000001), %85) (access=none, align_mul=16, align_offset=8, range_base=0, range=-1)
+    32     %87 = ffma %86, %44, %83
+    32     %88 = load_const (0x00000024 = 36)
+    32     %89 = iadd %88 (0x24), %24
+    32     %90 = @load_ubo (%28 (0x1000001), %89) (access=none, align_mul=16, align_offset=4, range_base=0, range=-1)
+    32     %91 = ffma %90, %52, %87
+    32     %92 = iadd %77 (0x20), %24
+    32     %93 = @load_ubo (%28 (0x1000001), %92) (access=none, align_mul=64, align_offset=32, range_base=0, range=-1)
+    32     %94 = ffma %93, %57, %91
+    32     %95 = load_const (0x00000030 = 48)
+    32     %96 = load_const (0x0000003c = 60)
+    32     %97 = iadd %96 (0x3c), %24
+    32     %98 = @load_ubo (%28 (0x1000001), %97) (access=none, align_mul=16, align_offset=12, range_base=0, range=-1)
+    32     %99 = iadd %27, %95 (0x30)
+    32    %100 = @load_ubo (%28 (0x1000001), %99) (access=none, align_mul=4, align_offset=0, range_base=0, range=-1)
+    32    %101 = ffma %98, %38, %100
+    32    %102 = load_const (0x00000038 = 56)
+    32    %103 = iadd %102 (0x38), %24
+    32    %104 = @load_ubo (%28 (0x1000001), %103) (access=none, align_mul=16, align_offset=8, range_base=0, range=-1)
+    32    %105 = ffma %104, %44, %101
+    32    %106 = load_const (0x00000034 = 52)
+    32    %107 = iadd %106 (0x34), %24
+    32    %108 = @load_ubo (%28 (0x1000001), %107) (access=none, align_mul=16, align_offset=4, range_base=0, range=-1)
+    32    %109 = ffma %108, %52, %105
+    32    %110 = iadd %95 (0x30), %24
+    32    %111 = @load_ubo (%28 (0x1000001), %110) (access=none, align_mul=64, align_offset=48, range_base=0, range=-1)
+    32    %112 = ffma %111, %57, %109
+    32    %113 = load_const (0x00000080 = 128)
+    32    %114 = iadd %24, %113 (0x80)
+    32    %115 = iadd %114, %20
+    32    %116 = @load_ubo (%28 (0x1000001), %115) (access=none, align_mul=4, align_offset=0, range_base=0, range=-1)
+    32    %117 = fadd %59, %116
+    32    %118 = iadd %115, %12 (0x10)
+    32    %119 = @load_ubo (%28 (0x1000001), %118) (access=none, align_mul=4, align_offset=0, range_base=0, range=-1)
+    32    %120 = fadd %76, %119
+    32    %121 = iadd %115, %77 (0x20)
+    32    %122 = @load_ubo (%28 (0x1000001), %121) (access=none, align_mul=4, align_offset=0, range_base=0, range=-1)
+    32    %123 = fadd %94, %122
+    32    %124 = iadd %115, %95 (0x30)
+    32    %125 = @load_ubo (%28 (0x1000001), %124) (access=none, align_mul=4, align_offset=0, range_base=0, range=-1)
+    32    %126 = fadd %112, %125
+    32    %127 = load_const (0x40e00000 = 7.000000)
+    32    %128 = fmul %126, %127 (7.000000)
+    32    %129 = load_const (0x40a00000 = 5.000000)
+    32    %130 = ffma %123, %129 (5.000000), %128
+    32    %131 = load_const (0x40400000 = 3.000000)
+    32    %132 = ffma %120, %131 (3.000000), %130
+    32    %133 = fadd %117, %132
+    32    %134 = load_const (0x00100900 = 1050880)
+    32    %135 = iadd %8, %134 (0x100900)
+    64    %136 = @load_ssbo_address (%10 (0x1000000), %135) (access=none)
+    32    %137 = f2u32 %133
+                 @store_global (%137, %136) (wrmask=x, access=none, align_mul=4, align_offset=0)
+                 // succs: b1
+    block b1:
+}
+
+block0 {
+32      %138 = MOV.i32 r60
+32      %200 = MOV.i32 u260[1]
+32      %4 = LSHIFT_OR.i32 u0, u256, %200.b2
+32      %5 = IADD.s32 %138, %4
+32      %8 = LSHIFT_OR.i32 %5, u256, u260.b2
+32      %9 = IADD_IMM.i32 %8, index:2048
+32      %11 = LD_PKA.i32 %9, u258
+32      %14 = LSHIFT_XOR.i32 %11, u2, u256.b0
+32      %15 = LSHIFT_XOR.i32 %14, %5, u256.b0
+32      %17 = RSHIFT_OR.i32 %14, u256, u261.b0
+32      %19 = LSHIFT_AND.i32 %17, u3, u256.b0
+32      %20 = LSHIFT_OR.i32 %19, u256, u260.b2
+32      %22 = LSHIFT_AND.i32 %15, u3[1], u256.b0
+32      %24 = IMUL.i32 %22, u259[1].b3
+32      %26 = IADD_IMM.i32 %24, index:64
+32      %27 = IADD.s32 %26, %20
+32      %29 = LD_PKA.i32 %27, u4
+32      %32 = IADD_IMM.i32 %24, index:12
+32      %33 = LD_PKA.i32 %32, u4
+32      %35 = RSHIFT_OR.i32 %14, u256, u261.b1
+32      %36 = LSHIFT_AND.i32 %35, u3[1], u256.b0
+32      %37 = IADD_IMM.i32 %36, index:1
+32      %38 = U32_TO_F32 %37
+32      %39 = FMA.f32 %33, %38, %29
+32      %40 = IADD_IMM.i32 %24, index:8
+32      %41 = RSHIFT_OR.i32 %14, u256, u260[1].b2
+32      %42 = LSHIFT_AND.i32 %41, u3[1], u256.b0
+32      %43 = IADD_IMM.i32 %42, index:1
+32      %44 = U32_TO_F32 %43
+32      %45 = LD_PKA.i32 %40, u4
+32      %46 = FMA.f32 %45, %44, %39
+32      %48 = IADD_IMM.i32 %24, index:4
+32      %49 = RSHIFT_OR.i32 %14, u256, u260.b3
+32      %50 = LSHIFT_AND.i32 %49, u3[1], u256.b0
+32      %51 = IADD_IMM.i32 %50, index:1
+32      %52 = U32_TO_F32 %51
+32      %53 = LD_PKA.i32 %48, u4
+32      %54 = FMA.f32 %53, %52, %46
+32      %55 = LSHIFT_AND.i32 %14, u3[1], u256.b0
+32      %56 = IADD_IMM.i32 %55, index:1
+32      %57 = U32_TO_F32 %56
+32      %58 = LD_PKA.i32 %24, u4
+32      %59 = FMA.f32 %58, %57, %54
+32      %61 = IADD_IMM.i32 %24, index:28
+32      %62 = LD_PKA.i32 %61, u4
+32      %63 = IADD_IMM.i32 %27, index:16
+32      %64 = LD_PKA.i32 %63, u4
+32      %65 = FMA.f32 %62, %38, %64
+32      %67 = IADD_IMM.i32 %24, index:24
+32      %68 = LD_PKA.i32 %67, u4
+32      %69 = FMA.f32 %68, %44, %65
+32      %71 = IADD_IMM.i32 %24, index:20
+32      %72 = LD_PKA.i32 %71, u4
+32      %73 = FMA.f32 %72, %52, %69
+32      %74 = IADD_IMM.i32 %24, index:16
+32      %75 = LD_PKA.i32 %74, u4
+32      %76 = FMA.f32 %75, %57, %73
+32      %79 = IADD_IMM.i32 %24, index:44
+32      %80 = LD_PKA.i32 %79, u4
+32      %81 = IADD_IMM.i32 %27, index:32
+32      %82 = LD_PKA.i32 %81, u4
+32      %83 = FMA.f32 %80, %38, %82
+32      %85 = IADD_IMM.i32 %24, index:40
+32      %86 = LD_PKA.i32 %85, u4
+32      %87 = FMA.f32 %86, %44, %83
+32      %89 = IADD_IMM.i32 %24, index:36
+32      %90 = LD_PKA.i32 %89, u4
+32      %91 = FMA.f32 %90, %52, %87
+32      %92 = IADD_IMM.i32 %24, index:32
+32      %93 = LD_PKA.i32 %92, u4
+32      %94 = FMA.f32 %93, %57, %91
+32      %97 = IADD_IMM.i32 %24, index:60
+32      %98 = LD_PKA.i32 %97, u4
+32      %99 = IADD_IMM.i32 %27, index:48
+32      %100 = LD_PKA.i32 %99, u4
+32      %101 = FMA.f32 %98, %38, %100
+32      %103 = IADD_IMM.i32 %24, index:56
+32      %104 = LD_PKA.i32 %103, u4
+32      %105 = FMA.f32 %104, %44, %101
+32      %107 = IADD_IMM.i32 %24, index:52
+32      %108 = LD_PKA.i32 %107, u4
+32      %109 = FMA.f32 %108, %52, %105
+32      %110 = IADD_IMM.i32 %24, index:48
+32      %111 = LD_PKA.i32 %110, u4
+32      %112 = FMA.f32 %111, %57, %109
+32      %114 = IADD_IMM.i32 %24, index:128
+32      %115 = IADD.s32 %114, %20
+32      %116 = LD_PKA.i32 %115, u4
+32      %117 = FADD.f32 %59, %116
+32      %118 = IADD_IMM.i32 %115, index:16
+32      %119 = LD_PKA.i32 %118, u4
+32      %120 = FADD.f32 %76, %119
+32      %121 = IADD_IMM.i32 %115, index:32
+32      %122 = LD_PKA.i32 %121, u4
+32      %123 = FADD.f32 %94, %122
+32      %124 = IADD_IMM.i32 %115, index:48
+32      %125 = LD_PKA.i32 %124, u4
+32      %126 = FADD.f32 %112, %125
+32      %128 = FMA.f32 %126, u4[1], u256.neg
+32      %130 = FMA.f32 %123, u5, %128
+32      %132 = FMA.f32 %120, u5[1], %130
+32      %133 = FADD.f32 %117, %132
+32      %135 = IADD_IMM.i32 %8, index:1050880
+32x2    %136 = LEA_PKA %135, u258
+32      %198, %199 = SPLIT.i32 %136
+32      %137 = F32_TO_U32.rtz %133
+        STORE.i32 %137, %198, %199, byte_offset:0
+}
+
+block0 {
+        r0 = MOV.i32 u260[1]
+        r0 = LSHIFT_OR.i32 u0, u256, r0.b2
+        r0 = IADD.s32 r60, r0
+        r1 = LSHIFT_OR.i32 r0, u256, u260.b2
+        r2 = IADD_IMM.i32 r1, index:2048
+        r2 = LD_PKA.i32 r2, u258
+        r2 = LSHIFT_XOR.i32 r2, u2, u256.b0
+        r0 = LSHIFT_XOR.i32 r2, r0, u256.b0
+        r0 = LSHIFT_AND.i32 r0, u3[1], u256.b0
+        r3 = RSHIFT_OR.i32 r2, u256, u261.b0
+        r3 = LSHIFT_AND.i32 r3, u3, u256.b0
+        r0 = IMUL.i32 r0, u259[1].b3
+        r3 = LSHIFT_OR.i32 r3, u256, u260.b2
+        r4 = IADD_IMM.i32 r0, index:64
+        r4 = IADD.s32 r4, r3
+        r5 = IADD_IMM.i32 r4, index:48
+        r5 = LD_PKA.i32 r5, u4
+        r6 = IADD_IMM.i32 r0, index:60
+        r6 = LD_PKA.i32 r6, u4
+        r7 = IADD_IMM.i32 r4, index:32
+        r7 = LD_PKA.i32 r7, u4
+        r8 = IADD_IMM.i32 r0, index:44
+        r8 = LD_PKA.i32 r8, u4
+        r9 = IADD_IMM.i32 r4, index:16
+        r9 = LD_PKA.i32 r9, u4
+        r10 = IADD_IMM.i32 r0, index:28
+        r10 = LD_PKA.i32 r10, u4
+        r4 = LD_PKA.i32 r4, u4
+        r11 = RSHIFT_OR.i32 r2, u256, u261.b1
+        r11 = LSHIFT_AND.i32 r11, u3[1], u256.b0
+        r11 = IADD_IMM.i32 r11, index:1
+        r11 = U32_TO_F32 r11
+        r5 = FMA.f32 r6, r11, r5
+        r6 = IADD_IMM.i32 r0, index:12
+        r6 = LD_PKA.i32 r6, u4
+        r7 = FMA.f32 r8, r11, r7
+        r8 = IADD_IMM.i32 r0, index:56
+        r8 = LD_PKA.i32 r8, u4
+        r9 = FMA.f32 r10, r11, r9
+        r10 = IADD_IMM.i32 r0, index:40
+        r10 = LD_PKA.i32 r10, u4
+        r4 = FMA.f32 r6, r11, r4
+        r6 = IADD_IMM.i32 r0, index:24
+        r6 = LD_PKA.i32 r6, u4
+        r11 = RSHIFT_OR.i32 r2, u256, u260[1].b2
+        r11 = LSHIFT_AND.i32 r11, u3[1], u256.b0
+        r11 = IADD_IMM.i32 r11, index:1
+        r11 = U32_TO_F32 r11
+        r5 = FMA.f32 r8, r11, r5
+        r8 = IADD_IMM.i32 r0, index:8
+        r8 = LD_PKA.i32 r8, u4
+        r7 = FMA.f32 r10, r11, r7
+        r10 = IADD_IMM.i32 r0, index:52
+        r10 = LD_PKA.i32 r10, u4
+        r6 = FMA.f32 r6, r11, r9
+        r9 = IADD_IMM.i32 r0, index:36
+        r9 = LD_PKA.i32 r9, u4
+        r4 = FMA.f32 r8, r11, r4
+        r8 = IADD_IMM.i32 r0, index:20
+        r8 = LD_PKA.i32 r8, u4
+        r11 = RSHIFT_OR.i32 r2, u256, u260.b3
+        r11 = LSHIFT_AND.i32 r11, u3[1], u256.b0
+        r11 = IADD_IMM.i32 r11, index:1
+        r11 = U32_TO_F32 r11
+        r5 = FMA.f32 r10, r11, r5
+        r10 = IADD_IMM.i32 r0, index:4
+        r10 = LD_PKA.i32 r10, u4
+        r7 = FMA.f32 r9, r11, r7
+        r9 = IADD_IMM.i32 r0, index:48
+        r9 = LD_PKA.i32 r9, u4
+        r6 = FMA.f32 r8, r11, r6
+        r8 = IADD_IMM.i32 r0, index:32
+        r8 = LD_PKA.i32 r8, u4
+        r4 = FMA.f32 r10, r11, r4
+        r10 = IADD_IMM.i32 r0, index:16
+        r10 = LD_PKA.i32 r10, u4
+        r11 = LD_PKA.i32 r0, u4
+        r0 = IADD_IMM.i32 r0, index:128
+        r0 = IADD.s32 r0, r3
+        r3 = IADD_IMM.i32 r0, index:48
+        r3 = LD_PKA.i32 r3, u4
+        r2 = LSHIFT_AND.i32 r2, u3[1], u256.b0
+        r2 = IADD_IMM.i32 r2, index:1
+        r2 = U32_TO_F32 r2
+        r5 = FMA.f32 r9, r2, r5
+        r9 = IADD_IMM.i32 r0, index:32
+        r9 = LD_PKA.i32 r9, u4
+        r7 = FMA.f32 r8, r2, r7
+        r8 = IADD_IMM.i32 r0, index:16
+        r8 = LD_PKA.i32 r8, u4
+        r0 = LD_PKA.i32 r0, u4
+        r6 = FMA.f32 r10, r2, r6
+        r1 = IADD_IMM.i32 r1, index:1050880
+        r12:r13 = LEA_PKA r1, u258
+        r1 = FMA.f32 r11, r2, r4
+        r2 = FADD.f32 r5, r3
+        r3 = FADD.f32 r7, r9
+        r2 = FMA.f32 r2, u4[1], u256.neg
+        r2 = FMA.f32 r3, u5, r2
+        r3 = FADD.f32 r6, r8
+        r2 = FMA.f32 r3, u5[1], r2
+        r0 = FADD.f32 r1, r0
+        r0 = FADD.f32 r0, r2
+        r0 = F32_TO_U32.rtz r0
+        r2 = MOV.i32 r12
+        r3 = MOV.i32 r13
+        STORE.i32 r0, r2, r3, byte_offset:0
+}
+
+block0 {
+        r0 = MOV.i32 u260[1]
+        r0 = LSHIFT_OR.i32 u0, u256, r0^.b2
+        r0 = IADD.s32 r60^, r0^
+        r1 = LSHIFT_OR.i32 r0, u256, u260.b2
+        r2 = IADD_IMM.i32 r1, index:2048
+        r2 = LD_PKA.i32.flow1 r2^, u258
+        r2 = LSHIFT_XOR.i32 r2^, u2, u256.b0
+        r0 = LSHIFT_XOR.i32 r2, r0^, u256.b0
+        r0 = LSHIFT_AND.i32 r0^, u3[1], u256.b0
+        r3 = RSHIFT_OR.i32 r2, u256, u261.b0
+        r3 = LSHIFT_AND.i32 r3^, u3, u256.b0
+        r0 = IMUL.i32 r0^, u259[1].b3
+        r3 = LSHIFT_OR.i32 r3^, u256, u260.b2
+        r4 = IADD_IMM.i32 r0, index:64
+        r4 = IADD.s32 r4^, r3
+        r5 = IADD_IMM.i32 r4, index:48
+        r5 = LD_PKA.i32 r5^, u4
+        r6 = IADD_IMM.i32 r0, index:60
+        r6 = LD_PKA.i32 r6^, u4
+        r7 = IADD_IMM.i32 r4, index:32
+        r7 = LD_PKA.i32 r7^, u4
+        r8 = IADD_IMM.i32 r0, index:44
+        r8 = LD_PKA.i32 r8^, u4
+        r9 = IADD_IMM.i32 r4, index:16
+        r9 = LD_PKA.i32 r9^, u4
+        r10 = IADD_IMM.i32 r0, index:28
+        r10 = LD_PKA.i32 r10^, u4
+        r4 = LD_PKA.i32 r4^, u4
+        r11 = RSHIFT_OR.i32 r2, u256, u261.b1
+        r11 = LSHIFT_AND.i32 r11^, u3[1], u256.b0
+        r11 = IADD_IMM.i32 r11^, index:1
+        r11 = U32_TO_F32.flow6 r11^
+        r5 = FMA.f32 r6^, r11, r5^
+        r6 = IADD_IMM.i32 r0, index:12
+        r6 = LD_PKA.i32.flow1 r6^, u4
+        r7 = FMA.f32 r8^, r11, r7^
+        r8 = IADD_IMM.i32 r0, index:56
+        r8 = LD_PKA.i32 r8^, u4
+        r9 = FMA.f32 r10^, r11, r9^
+        r10 = IADD_IMM.i32 r0, index:40
+        r10 = LD_PKA.i32.flow4 r10^, u4
+        r4 = FMA.f32 r6^, r11^, r4^
+        r6 = IADD_IMM.i32 r0, index:24
+        r6 = LD_PKA.i32 r6^, u4
+        r11 = RSHIFT_OR.i32 r2, u256, u260[1].b2
+        r11 = LSHIFT_AND.i32 r11^, u3[1], u256.b0
+        r11 = IADD_IMM.i32 r11^, index:1
+        r11 = U32_TO_F32.flow1 r11^
+        r5 = FMA.f32 r8^, r11, r5^
+        r8 = IADD_IMM.i32 r0, index:8
+        r8 = LD_PKA.i32.flow2 r8^, u4
+        r7 = FMA.f32 r10^, r11, r7^
+        r10 = IADD_IMM.i32 r0, index:52
+        r10 = LD_PKA.i32.flow4 r10^, u4
+        r6 = FMA.f32 r6^, r11, r9^
+        r9 = IADD_IMM.i32 r0, index:36
+        r9 = LD_PKA.i32.flow1 r9^, u4
+        r4 = FMA.f32 r8^, r11^, r4^
+        r8 = IADD_IMM.i32 r0, index:20
+        r8 = LD_PKA.i32 r8^, u4
+        r11 = RSHIFT_OR.i32 r2, u256, u260.b3
+        r11 = LSHIFT_AND.i32 r11^, u3[1], u256.b0
+        r11 = IADD_IMM.i32 r11^, index:1
+        r11 = U32_TO_F32.flow2 r11^
+        r5 = FMA.f32 r10^, r11, r5^
+        r10 = IADD_IMM.i32 r0, index:4
+        r10 = LD_PKA.i32.flow4 r10^, u4
+        r7 = FMA.f32 r9^, r11, r7^
+        r9 = IADD_IMM.i32 r0, index:48
+        r9 = LD_PKA.i32.flow1 r9^, u4
+        r6 = FMA.f32 r8^, r11, r6^
+        r8 = IADD_IMM.i32 r0, index:32
+        r8 = LD_PKA.i32.flow2 r8^, u4
+        r4 = FMA.f32 r10^, r11^, r4^
+        r10 = IADD_IMM.i32 r0, index:16
+        r10 = LD_PKA.i32 r10^, u4
+        r11 = LD_PKA.i32 r0, u4
+        r0 = IADD_IMM.i32 r0^, index:128
+        r0 = IADD.s32 r0^, r3^
+        r3 = IADD_IMM.i32 r0, index:48
+        r3 = LD_PKA.i32 r3^, u4
+        r2 = LSHIFT_AND.i32 r2^, u3[1], u256.b0
+        r2 = IADD_IMM.i32 r2^, index:1
+        r2 = U32_TO_F32.flow4 r2^
+        r5 = FMA.f32 r9^, r2, r5^
+        r9 = IADD_IMM.i32 r0, index:32
+        r9 = LD_PKA.i32.flow1 r9^, u4
+        r7 = FMA.f32 r8^, r2, r7^
+        r8 = IADD_IMM.i32 r0, index:16
+        r8 = LD_PKA.i32 r8^, u4
+        r0 = LD_PKA.i32.flow2 r0^, u4
+        r6 = FMA.f32 r10^, r2, r6^
+        r1 = IADD_IMM.i32 r1^, index:1050880
+        r12:r13 = LEA_PKA r1^, u258
+        r1 = FMA.f32 r11^, r2^, r4^
+        r2 = FADD.f32 r5^, r3^
+        r3 = FADD.f32 r7^, r9^
+        r2 = FMA.f32 r2^, u4[1], u256.neg
+        r2 = FMA.f32.flow4 r3^, u5, r2^
+        r3 = FADD.f32 r6^, r8^
+        r2 = FMA.f32.flow1 r3^, u5[1], r2^
+        r0 = FADD.f32 r1^, r0^
+        r0 = FADD.f32 r0^, r2^
+        r0 = F32_TO_U32.flow2.rtz r0^
+        r2 = MOV.i32 r12^
+        r3 = MOV.i32 r13^
+        STORE.i32.flow15 r0, r2^, r3^, byte_offset:0
+}
+
+   MOV.i32 r0, 0x7060504
+   LSHIFT_OR.i32 r0, u0.w0, r0^.b22, 0x0
+   IADD.s32 r0, r60^, r0^
+   LSHIFT_OR.i32 r1, r0, 0x3020100.b22, 0x0
+   IADD_IMM.i32 r2, r1, #0x800
+   LD_PKA.i32.unsigned.slot0.wait0 @r2, r2^, 0x1000000
+   LSHIFT_XOR.i32 r2, r2^, 0x0.b00, u2.w0
+   LSHIFT_XOR.i32 r0, r2, 0x0.b00, r0^
+   LSHIFT_AND.i32 r0, r0^, 0x0.b00, u3.w1
+   RSHIFT_OR.i32 r3, r2, 0xB0A0908.b00, 0x0
+   LSHIFT_AND.i32 r3, r3^, 0x0.b00, u3.w0
+   IMUL.i32 r0, r0^, 0xC0B0A090.b3
+   LSHIFT_OR.i32 r3, r3^, 0x3020100.b22, 0x0
+   IADD_IMM.i32 r4, r0, #0x40
+   IADD.s32 r4, r4^, r3
+   IADD_IMM.i32 r5, r4, #0x30
+   LD_PKA.i32.unsigned.slot1 @r5, r5^, u4.w0
+   IADD_IMM.i32 r6, r0, #0x3C
+   LD_PKA.i32.unsigned.slot2 @r6, r6^, u4.w0
+   IADD_IMM.i32 r7, r4, #0x20
+   LD_PKA.i32.unsigned.slot0 @r7, r7^, u4.w0
+   IADD_IMM.i32 r8, r0, #0x2C
+   LD_PKA.i32.unsigned.slot1 @r8, r8^, u4.w0
+   IADD_IMM.i32 r9, r4, #0x10
+   LD_PKA.i32.unsigned.slot2 @r9, r9^, u4.w0
+   IADD_IMM.i32 r10, r0, #0x1C
+   LD_PKA.i32.unsigned.slot0 @r10, r10^, u4.w0
+   LD_PKA.i32.unsigned.slot1 @r4, r4^, u4.w0
+   RSHIFT_OR.i32 r11, r2, 0xB0A0908.b11, 0x0
+   LSHIFT_AND.i32 r11, r11^, 0x0.b00, u3.w1
+   IADD_IMM.i32 r11, r11^, #0x1
+   U32_TO_F32.wait12 r11, r11^
+   FMA.f32 r5, r6^, r11, r5^
+   IADD_IMM.i32 r6, r0, #0xC
+   LD_PKA.i32.unsigned.slot2.wait0 @r6, r6^, u4.w0
+   FMA.f32 r7, r8^, r11, r7^
+   IADD_IMM.i32 r8, r0, #0x38
+   LD_PKA.i32.unsigned.slot0 @r8, r8^, u4.w0
+   FMA.f32 r9, r10^, r11, r9^
+   IADD_IMM.i32 r10, r0, #0x28
+   LD_PKA.i32.unsigned.slot1.wait2 @r10, r10^, u4.w0
+   FMA.f32 r4, r6^, r11^, r4^
+   IADD_IMM.i32 r6, r0, #0x18
+   LD_PKA.i32.unsigned.slot2 @r6, r6^, u4.w0
+   RSHIFT_OR.i32 r11, r2, 0x7060504.b22, 0x0
+   LSHIFT_AND.i32 r11, r11^, 0x0.b00, u3.w1
+   IADD_IMM.i32 r11, r11^, #0x1
+   U32_TO_F32.wait0 r11, r11^
+   FMA.f32 r5, r8^, r11, r5^
+   IADD_IMM.i32 r8, r0, #0x8
+   LD_PKA.i32.unsigned.slot0.wait1 @r8, r8^, u4.w0
+   FMA.f32 r7, r10^, r11, r7^
+   IADD_IMM.i32 r10, r0, #0x34
+   LD_PKA.i32.unsigned.slot1.wait2 @r10, r10^, u4.w0
+   FMA.f32 r6, r6^, r11, r9^
+   IADD_IMM.i32 r9, r0, #0x24
+   LD_PKA.i32.unsigned.slot2.wait0 @r9, r9^, u4.w0
+   FMA.f32 r4, r8^, r11^, r4^
+   IADD_IMM.i32 r8, r0, #0x14
+   LD_PKA.i32.unsigned.slot0 @r8, r8^, u4.w0
+   RSHIFT_OR.i32 r11, r2, 0x3020100.b33, 0x0
+   LSHIFT_AND.i32 r11, r11^, 0x0.b00, u3.w1
+   IADD_IMM.i32 r11, r11^, #0x1
+   U32_TO_F32.wait1 r11, r11^
+   FMA.f32 r5, r10^, r11, r5^
+   IADD_IMM.i32 r10, r0, #0x4
+   LD_PKA.i32.unsigned.slot1.wait2 @r10, r10^, u4.w0
+   FMA.f32 r7, r9^, r11, r7^
+   IADD_IMM.i32 r9, r0, #0x30
+   LD_PKA.i32.unsigned.slot2.wait0 @r9, r9^, u4.w0
+   FMA.f32 r6, r8^, r11, r6^
+   IADD_IMM.i32 r8, r0, #0x20
+   LD_PKA.i32.unsigned.slot0.wait1 @r8, r8^, u4.w0
+   FMA.f32 r4, r10^, r11^, r4^
+   IADD_IMM.i32 r10, r0, #0x10
+   LD_PKA.i32.unsigned.slot1 @r10, r10^, u4.w0
+   LD_PKA.i32.unsigned.slot2 @r11, r0, u4.w0
+   IADD_IMM.i32 r0, r0^, #0x80
+   IADD.s32 r0, r0^, r3^
+   IADD_IMM.i32 r3, r0, #0x30
+   LD_PKA.i32.unsigned.slot0 @r3, r3^, u4.w0
+   LSHIFT_AND.i32 r2, r2^, 0x0.b00, u3.w1
+   IADD_IMM.i32 r2, r2^, #0x1
+   U32_TO_F32.wait2 r2, r2^
+   FMA.f32 r5, r9^, r2, r5^
+   IADD_IMM.i32 r9, r0, #0x20
+   LD_PKA.i32.unsigned.slot1.wait0 @r9, r9^, u4.w0
+   FMA.f32 r7, r8^, r2, r7^
+   IADD_IMM.i32 r8, r0, #0x10
+   LD_PKA.i32.unsigned.slot2 @r8, r8^, u4.w0
+   LD_PKA.i32.unsigned.slot0.wait1 @r0, r0^, u4.w0
+   FMA.f32 r6, r10^, r2, r6^
+   IADD_IMM.i32 r1, r1^, #0x100900
+   LEA_PKA.slot1 @r12:r13, r1^, 0x1000000
+   FMA.f32 r1, r11^, r2^, r4^
+   FADD.f32 r2, r5^, r3^
+   FADD.f32 r3, r7^, r9^
+   FMA.f32 r2, r2^, u4.w1, 0x0.neg
+   FMA.f32.wait2 r2, r3^, u5.w0, r2^
+   FADD.f32 r3, r6^, r8^
+   FMA.f32.wait0 r2, r3^, u5.w1, r2^
+   FADD.f32 r0, r1^, r0^
+   FADD.f32 r0, r0^, r2^
+   F32_TO_U32.rtz.wait1 r0, r0^
+   MOV.i32 r2, r12^
+   MOV.i32 r3, r13^
+   STORE.i32.slot2.end @r0, [r2^:r3^], offset:0
+
+
+Model: Mali-G57
+Shader type: MESA_SHADER_COMPUTE
+Architecture: Valhall
+Work registers:    15 (47% used at 100% occupancy)
+Uniform registers: 6 (5% used)
+Code size:         896 bytes
+Loops:             0
+Spills/fills:      0/0
+Stack size:        0 bytes
+                               A    FMA    CVT    SFU     LS      V      T  Bound
+Total instruction cycles:  2.000  0.750  1.250  2.000 27.000  0.000  0.000     LS
+Shortest path cycles:      2.000  0.750  1.250  2.000 27.000  0.000  0.000     LS
+Longest path cycles:       2.000  0.750  1.250  2.000 27.000  0.000  0.000     LS
+
+A = Arithmetic, FMA = Arith FMA, CVT = Arith CVT, SFU = Arith SFU
+LS = Load/Store, V = Varying, T = Texture
+
+Shader properties
+=================
+Contains barrier: false
+
+DEVICE Mali-G57 MC2 vendor=13b5 device=90930010
+COMPILE values=96 seconds=0.060249
+COMPILE_ONLY values=96 no_dispatch=1

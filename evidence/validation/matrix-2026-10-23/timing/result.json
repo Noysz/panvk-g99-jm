@@ -1,0 +1,65 @@
+{
+  "correctness_passed": true,
+  "positive_processes": 24,
+  "negative_processes": 1,
+  "comparisons": [
+    {
+      "block": 0,
+      "layout": "row",
+      "mean_process_median_us": {
+        "false": 3666.673,
+        "true": 3182.8845
+      },
+      "enabled_reduction_pct": 13.1942090281844
+    },
+    {
+      "block": 0,
+      "layout": "column",
+      "mean_process_median_us": {
+        "false": 2678.5959999999995,
+        "true": 2626.3845
+      },
+      "enabled_reduction_pct": 1.9492114525669235
+    },
+    {
+      "block": 1,
+      "layout": "row",
+      "mean_process_median_us": {
+        "false": 3874.25,
+        "true": 3259.0767499999997
+      },
+      "enabled_reduction_pct": 15.878511970058728
+    },
+    {
+      "block": 1,
+      "layout": "column",
+      "mean_process_median_us": {
+        "false": 2753.19225,
+        "true": 2758.404
+      },
+      "enabled_reduction_pct": -0.18929844074637714
+    },
+    {
+      "block": 2,
+      "layout": "row",
+      "mean_process_median_us": {
+        "false": 3912.36525,
+        "true": 3190.57725
+      },
+      "enabled_reduction_pct": 18.44889098736372
+    },
+    {
+      "block": 2,
+      "layout": "column",
+      "mean_process_median_us": {
+        "false": 2852.51925,
+        "true": 2775.7309999999998
+      },
+      "enabled_reduction_pct": 2.691945023683895
+    }
+  ],
+  "pins_unchanged": true,
+  "default_promoted": false,
+  "gameplay_benchmark": false,
+  "limitation": "Uncontrolled DVFS/temperature and submit overhead; interpret column control and all blocks before claiming improvement."
+}

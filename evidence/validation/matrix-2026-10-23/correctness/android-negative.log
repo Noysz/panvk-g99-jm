@@ -1,0 +1,14 @@
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+DEVICE Mali-G57 MC2 vendor=13b5 device=90930010
+COMPILE values=96 seconds=0.003703
+MISMATCH round=0 x=3 expected=0000170c got=0000170d
+MISMATCH round=1 x=3 expected=00001b16 got=00001b17
+MISMATCH round=2 x=3 expected=00000dc1 got=00000dc0
+MISMATCH round=3 x=3 expected=00001680 got=00001681
+MISMATCH round=4 x=3 expected=00000db7 got=00000db6
+MISMATCH round=5 x=3 expected=00000ed9 got=00000ed8
+MISMATCH round=6 x=3 expected=00001262 got=00001263
+MISMATCH round=7 x=3 expected=00000a21 got=00000a20
+MATRIX values=96 rounds=9 output_bad=9 input_bad=0 guard_bad=0 verdict=FAIL

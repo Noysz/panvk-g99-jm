@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "positive_processes": 18,
+  "negative_processes": 2,
+  "pins_unchanged": true,
+  "timing_is_benchmark": false,
+  "scope": "Dynamic UBO matrices, default remains off; no gameplay claim"
+}

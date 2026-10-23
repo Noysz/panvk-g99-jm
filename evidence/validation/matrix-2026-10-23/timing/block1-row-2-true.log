@@ -1,0 +1,54 @@
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+DEVICE Mali-G57 MC2 vendor=13b5 device=90930010
+COMPILE values=96 seconds=0.004523
+SAMPLE round=0 sample=0 warmup=1 invocations=262144 elapsed_us=5307.308 bad=0
+SAMPLE round=0 sample=1 warmup=1 invocations=262144 elapsed_us=4018.385 bad=0
+SAMPLE round=0 sample=2 warmup=1 invocations=262144 elapsed_us=3776.231 bad=0
+SAMPLE round=0 sample=3 warmup=1 invocations=262144 elapsed_us=3237.769 bad=0
+SAMPLE round=0 sample=4 warmup=0 invocations=262144 elapsed_us=3301.538 bad=0
+SAMPLE round=0 sample=5 warmup=0 invocations=262144 elapsed_us=3117.000 bad=0
+SAMPLE round=0 sample=6 warmup=0 invocations=262144 elapsed_us=3404.615 bad=0
+SAMPLE round=0 sample=7 warmup=0 invocations=262144 elapsed_us=3517.154 bad=0
+SAMPLE round=0 sample=8 warmup=0 invocations=262144 elapsed_us=3164.615 bad=0
+SAMPLE round=0 sample=9 warmup=0 invocations=262144 elapsed_us=4909.770 bad=0
+SAMPLE round=0 sample=10 warmup=0 invocations=262144 elapsed_us=3065.307 bad=0
+SAMPLE round=0 sample=11 warmup=0 invocations=262144 elapsed_us=3376.308 bad=0
+SAMPLE round=0 sample=12 warmup=0 invocations=262144 elapsed_us=3127.385 bad=0
+SAMPLE round=0 sample=13 warmup=0 invocations=262144 elapsed_us=3310.077 bad=0
+SAMPLE round=0 sample=14 warmup=0 invocations=262144 elapsed_us=4875.308 bad=0
+SAMPLE round=0 sample=15 warmup=0 invocations=262144 elapsed_us=3330.462 bad=0
+SAMPLE round=1 sample=0 warmup=1 invocations=262144 elapsed_us=3034.692 bad=0
+SAMPLE round=1 sample=1 warmup=1 invocations=262144 elapsed_us=3368.077 bad=0
+SAMPLE round=1 sample=2 warmup=1 invocations=262144 elapsed_us=2955.384 bad=0
+SAMPLE round=1 sample=3 warmup=1 invocations=262144 elapsed_us=3093.000 bad=0
+SAMPLE round=1 sample=4 warmup=0 invocations=262144 elapsed_us=3273.615 bad=0
+SAMPLE round=1 sample=5 warmup=0 invocations=262144 elapsed_us=3088.923 bad=0
+SAMPLE round=1 sample=6 warmup=0 invocations=262144 elapsed_us=4593.846 bad=0
+SAMPLE round=1 sample=7 warmup=0 invocations=262144 elapsed_us=3130.231 bad=0
+SAMPLE round=1 sample=8 warmup=0 invocations=262144 elapsed_us=3020.923 bad=0
+SAMPLE round=1 sample=9 warmup=0 invocations=262144 elapsed_us=3356.000 bad=0
+SAMPLE round=1 sample=10 warmup=0 invocations=262144 elapsed_us=3317.538 bad=0
+SAMPLE round=1 sample=11 warmup=0 invocations=262144 elapsed_us=3293.923 bad=0
+SAMPLE round=1 sample=12 warmup=0 invocations=262144 elapsed_us=3058.693 bad=0
+SAMPLE round=1 sample=13 warmup=0 invocations=262144 elapsed_us=3186.153 bad=0
+SAMPLE round=1 sample=14 warmup=0 invocations=262144 elapsed_us=3565.231 bad=0
+SAMPLE round=1 sample=15 warmup=0 invocations=262144 elapsed_us=3876.077 bad=0
+SAMPLE round=2 sample=0 warmup=1 invocations=262144 elapsed_us=4526.462 bad=0
+SAMPLE round=2 sample=1 warmup=1 invocations=262144 elapsed_us=3224.000 bad=0
+SAMPLE round=2 sample=2 warmup=1 invocations=262144 elapsed_us=3325.846 bad=0
+SAMPLE round=2 sample=3 warmup=1 invocations=262144 elapsed_us=3018.461 bad=0
+SAMPLE round=2 sample=4 warmup=0 invocations=262144 elapsed_us=3064.307 bad=0
+SAMPLE round=2 sample=5 warmup=0 invocations=262144 elapsed_us=3176.077 bad=0
+SAMPLE round=2 sample=6 warmup=0 invocations=262144 elapsed_us=3206.769 bad=0
+SAMPLE round=2 sample=7 warmup=0 invocations=262144 elapsed_us=3817.923 bad=0
+SAMPLE round=2 sample=8 warmup=0 invocations=262144 elapsed_us=3081.539 bad=0
+SAMPLE round=2 sample=9 warmup=0 invocations=262144 elapsed_us=3044.077 bad=0
+SAMPLE round=2 sample=10 warmup=0 invocations=262144 elapsed_us=3234.154 bad=0
+SAMPLE round=2 sample=11 warmup=0 invocations=262144 elapsed_us=3113.615 bad=0
+SAMPLE round=2 sample=12 warmup=0 invocations=262144 elapsed_us=3235.923 bad=0
+SAMPLE round=2 sample=13 warmup=0 invocations=262144 elapsed_us=3050.385 bad=0
+SAMPLE round=2 sample=14 warmup=0 invocations=262144 elapsed_us=3200.615 bad=0
+SAMPLE round=2 sample=15 warmup=0 invocations=262144 elapsed_us=3296.000 bad=0
+MATRIX values=96 rounds=3 output_bad=0 input_bad=0 guard_bad=0 verdict=PASS

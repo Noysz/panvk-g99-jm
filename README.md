@@ -39,6 +39,14 @@ pixel and lifecycle checks pass. The tested workloads show no tiler backing
 reduction, and an interrupted long-memory run remains unresolved. The tiler
 option stays off; T06 still needs sustained graphics and game validation.
 
+The existing `PAN_LATE_VECTORIZE` option also has
+[dynamic-matrix validation](evidence/validation/matrix-2026-10-23/README.md).
+Three enabled 2,900-case CTS runs match the baseline. In the Android matrix
+workload, row-major submit-to-fence time falls by 13.19-18.45% across three
+ABBA blocks; clock/temperature variation remains uncontrolled. This is not
+a game result or a new compiler patch. The option stays off, and T07 remains
+open for register-pressure work and representative workload validation.
+
 These are development candidates, not test9 or a new release. No superiority
 over another driver or the Mali blob is established. Historical snapshots and
 released-build descriptions follow.
