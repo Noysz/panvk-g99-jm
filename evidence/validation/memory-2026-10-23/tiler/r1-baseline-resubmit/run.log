@@ -1,0 +1,22 @@
+TILERTEST instances=8192 alternate=0
+=== cube: frames=6 step=10.0 dim=64 tiling=optimal band=0.50 resubmit ===
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f
+HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f
+panvk-mem: profiling on (pid 17275)
+panvk-mem t=0.0s | kbase BOs 14 (393.7 MB VA, 0.3 MB committed at alloc, 3 growable) +14/-0 | VkDeviceMemory 0.2 MB (lazy: 0 BOs, 0.0 MB of 0.0 MB backed) | all growable backed 0.0 MB | cmd pool cache 0.0 MB | heaps committed: tiler 0.0, poly 0.0, indirect varyings 0.0 MB | RSS 17.3 MB (anon 2.4, file 14.7, shmem 0.3) | MemAvailable 3716.3 MB
+CUBEFP frame=000 deg=  30.0 bad=0 exact_diff=1 edge=224 edge_diff=158 faces[R C G M B Y]=140 0 0 67 0 458
+CUBEFP frame=001 deg=  30.0 bad=0 exact_diff=1 edge=224 edge_diff=158 faces[R C G M B Y]=140 0 0 67 0 458
+CUBEFP frame=002 deg=  30.0 bad=0 exact_diff=1 edge=224 edge_diff=158 faces[R C G M B Y]=140 0 0 67 0 458
+CUBEFP frame=003 deg=  30.0 bad=0 exact_diff=1 edge=224 edge_diff=158 faces[R C G M B Y]=140 0 0 67 0 458
+CUBEFP frame=004 deg=  30.0 bad=0 exact_diff=1 edge=224 edge_diff=158 faces[R C G M B Y]=140 0 0 67 0 458
+CUBEFP frame=005 deg=  30.0 bad=0 exact_diff=1 edge=224 edge_diff=158 faces[R C G M B Y]=140 0 0 67 0 458
+panvk-mem t=0.1s | kbase BOs 8 (393.4 MB VA, 0.1 MB committed at alloc, 3 growable) +0/-6 | VkDeviceMemory 0.0 MB (lazy: 0 BOs, 0.0 MB of 0.0 MB backed) | all growable backed 10.0 MB | cmd pool cache 0.0 MB | heaps committed: tiler 10.0, poly 0.0, indirect varyings 0.0 MB | RSS 27.1 MB (anon 2.4, file 24.5, shmem 0.3) | MemAvailable 3716.2 MB
+
+--- result ---
+frames=6 bad_frames=0 bad_pixels=0 edge_pixels=1344 edge_diff=948 gpu+wait=13.5 ms/frame wall=16.5 ms/frame
+checked frames=6 of 6
+CUBESUM tiling=optimal frames=6 bad_frames=0 bad=0 exact_diff=6 max_exact_frame=1 verdict=PASS
+DONE

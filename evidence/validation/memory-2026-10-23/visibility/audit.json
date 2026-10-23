@@ -1,0 +1,11 @@
+{
+  "data_pass": 27,
+  "skip": 6,
+  "negative_exit": 2,
+  "negative_summary": [
+    "VISIBILITY mode=system type=cached copy_bad=32 fill_bad=0 tail_bad=0 verdict=FAIL"
+  ],
+  "negative_rejected": true,
+  "hashes_unchanged": true,
+  "scope": "Android direct-driver memory visibility; not full T06"
+}

@@ -1,0 +1,422 @@
+[
+  {
+    "run": "r1-baseline-small",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      0.0,
+      2.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r1-baseline-growth",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      0.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r1-baseline-resubmit",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 6,
+    "tiler_mb": [
+      0.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r1-off-small",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      0.0,
+      2.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r1-off-growth",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      0.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r1-off-resubmit",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 6,
+    "tiler_mb": [
+      0.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r1-on-small",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      2.0,
+      2.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=512 extension=512 flags=0x102a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r1-on-growth",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      2.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=512 extension=512 flags=0x102a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r1-on-resubmit",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 6,
+    "tiler_mb": [
+      2.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=512 extension=512 flags=0x102a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r2-baseline-small",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      0.0,
+      2.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r2-baseline-growth",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      0.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r2-baseline-resubmit",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 6,
+    "tiler_mb": [
+      0.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r2-off-small",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      0.0,
+      2.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r2-off-growth",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      0.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r2-off-resubmit",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 6,
+    "tiler_mb": [
+      0.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r2-on-small",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      2.0,
+      2.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=512 extension=512 flags=0x102a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r2-on-growth",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      2.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=512 extension=512 flags=0x102a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r2-on-resubmit",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 6,
+    "tiler_mb": [
+      2.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=512 extension=512 flags=0x102a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r3-baseline-small",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      0.0,
+      2.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r3-baseline-growth",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      0.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r3-baseline-resubmit",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 6,
+    "tiler_mb": [
+      0.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r3-off-small",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      0.0,
+      2.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r3-off-growth",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      0.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r3-off-resubmit",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 6,
+    "tiler_mb": [
+      0.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r3-on-small",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      2.0,
+      2.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=512 extension=512 flags=0x102a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r3-on-growth",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 7,
+    "tiler_mb": [
+      2.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=512 extension=512 flags=0x102a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "r3-on-resubmit",
+    "bad": 0,
+    "edge_inclusive_exact_diff": 6,
+    "tiler_mb": [
+      2.0,
+      10.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=512 extension=512 flags=0x102a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": false,
+    "hashes_unchanged": true
+  },
+  {
+    "run": "negative-on",
+    "bad": 67,
+    "edge_inclusive_exact_diff": 383,
+    "tiler_mb": [
+      2.0,
+      2.0
+    ],
+    "heap_requests": [
+      "HEAP_ALLOC pages=32768 commit=512 extension=512 flags=0x102a0f",
+      "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+    ],
+    "negative": true,
+    "hashes_unchanged": true
+  }
+]

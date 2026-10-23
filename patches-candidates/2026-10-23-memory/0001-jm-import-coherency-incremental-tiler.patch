@@ -1,0 +1,410 @@
+--- a/src/panfrost/lib/kmod/kbase_kmod.c
++++ b/src/panfrost/lib/kmod/kbase_kmod.c
+@@ -96,6 +96,7 @@
+ 
+    /* Android dma-heap used for BOs which need to be shared with WSI. */
+    int dma_heap_fd;
++   int dma_heap_cached_fd;
+ 
+    /* Set when the CSF notification stream reports a queue-group error.
+     * Vulkan queue status queries use this latch instead of invalidating and
+@@ -125,6 +126,8 @@
+ struct kbase_kmod_bo {
+    struct pan_kmod_bo base;
+ 
++   uint64_t initial_commit;
++
+    /* Counted in kbase_mem_stats (native allocations only). */
+    bool stats_counted;
+    /* Grow-on-fault region: committed size is queried by PANVK_MEM_PROF. */
+@@ -170,7 +173,7 @@
+    const struct kbase_kmod_dev *kbase_dev =
+       container_of(dev, const struct kbase_kmod_dev, base);
+ 
+-   return kbase_dev->dma_heap_fd >= 0;
++   return kbase_dev->dma_heap_fd >= 0 || kbase_dev->dma_heap_cached_fd >= 0;
+ }
+ 
+ /* -------------------------------------------------------------------------
+@@ -399,6 +402,9 @@
+                                 PAN_KMOD_BO_FLAG_GPU_UNCACHED |
+                                 PAN_KMOD_BO_FLAG_CSF_EVENT |
+                                 PAN_KMOD_BO_FLAG_LAZY_COMMIT;
++
++   if (!kbase_dev->is_csf && pan_arch(props->gpu_id) == 9)
++      props->supported_bo_flags |= PAN_KMOD_BO_FLAG_TILER_HEAP;
+ }
+ 
+ /* -------------------------------------------------------------------------
+@@ -1266,6 +1272,7 @@
+    kbase_dev->tracking_page = tracking_page;
+    kbase_dev->next_handle = 1;
+    kbase_dev->dma_heap_fd = -1;
++   kbase_dev->dma_heap_cached_fd = -1;
+    kbase_dev->kcpu.fence_fd = -1;
+    simple_mtx_init(&kbase_dev->kcpu.lock, mtx_plain);
+ 
+@@ -1298,18 +1305,27 @@
+    free(props_buf);
+ 
+    const char *dma_heap = getenv("PANVK_KBASE_DMA_HEAP");
+-   if (!dma_heap || !dma_heap[0])
+-      dma_heap = "/dev/dma_heap/system";
+-
+-   kbase_dev->dma_heap_fd = open(dma_heap, O_RDWR | O_CLOEXEC);
++   const char *cached_heap = dma_heap;
++   const bool jm_v9 = !is_csf && pan_arch(kbase_dev->base.props.gpu_id) == 9;
++   if (!dma_heap || !dma_heap[0]) {
++      dma_heap = jm_v9 ? "/dev/dma_heap/system-uncached"
++                       : "/dev/dma_heap/system";
++      cached_heap = "/dev/dma_heap/system";
++   }
++
++   const int heap_open_flags = (jm_v9 ? O_RDONLY : O_RDWR) | O_CLOEXEC;
++   kbase_dev->dma_heap_fd = open(dma_heap, heap_open_flags);
+    if (kbase_dev->dma_heap_fd < 0)
+       mesa_logd("kbase: dma-heap unavailable at %s: %s", dma_heap,
+                 strerror(errno));
++   kbase_dev->dma_heap_cached_fd = open(cached_heap, heap_open_flags);
+ 
+    if (!kbase_dev->base.props.gpu_id) {
+       mesa_loge("kbase: failed to determine GPU ID from properties");
+       if (kbase_dev->dma_heap_fd >= 0)
+          close(kbase_dev->dma_heap_fd);
++      if (kbase_dev->dma_heap_cached_fd >= 0)
++         close(kbase_dev->dma_heap_cached_fd);
+       munmap(tracking_page, 4096);
+       /* On failure the caller keeps ownership of the fd (it closes it on
+        * NULL return), so don't let pan_kmod_dev_cleanup() close it too. */
+@@ -1374,6 +1390,8 @@
+ 
+    if (kbase_dev->dma_heap_fd >= 0)
+       close(kbase_dev->dma_heap_fd);
++   if (kbase_dev->dma_heap_cached_fd >= 0)
++      close(kbase_dev->dma_heap_cached_fd);
+ 
+    pan_kmod_dev_cleanup(dev);
+    pan_kmod_free(dev->allocator, kbase_dev);
+@@ -1450,6 +1468,35 @@
+    return flags;
+ }
+ 
++static uint32_t
++kbase_dmabuf_mapping_flags(struct pan_kmod_dev *dev, int fd,
++                          uint64_t import_flags)
++{
++   char path[64], line[256], exporter[64];
++   snprintf(path, sizeof(path), "/proc/self/fdinfo/%d", fd);
++   FILE *info = fopen(path, "re");
++   if (!info)
++      return PAN_KMOD_BO_FLAG_NO_MMAP;
++
++   uint32_t flags = PAN_KMOD_BO_FLAG_NO_MMAP;
++   while (fgets(line, sizeof(line), info)) {
++      if (sscanf(line, "exp_name: %63s", exporter) != 1)
++         continue;
++
++      if (!strcmp(exporter, "system-uncached")) {
++         flags = 0;
++      } else if (!strcmp(exporter, "system") &&
++                 pan_kmod_can_sync_bo_map_from_userland(dev)) {
++         flags = PAN_KMOD_BO_FLAG_WB_MMAP;
++         if (import_flags & BASE_MEM_COHERENT_SYSTEM)
++            flags |= PAN_KMOD_BO_FLAG_IO_COHERENT;
++      }
++      break;
++   }
++   fclose(info);
++   return flags;
++}
++
+ static struct pan_kmod_bo *
+ kbase_kmod_import_dmabuf(struct pan_kmod_dev *dev,
+                          struct pan_kmod_vm *exclusive_vm, int fd,
+@@ -1495,6 +1542,11 @@
+    }
+ 
+    const uint64_t bo_size = req.out.va_pages * page_size;
++   if (!kbase_dev->is_csf && pan_arch(dev->props.gpu_id) == 9) {
++      kmod_flags &= ~(PAN_KMOD_BO_FLAG_WB_MMAP | PAN_KMOD_BO_FLAG_IO_COHERENT);
++      kmod_flags |= kbase_dmabuf_mapping_flags(dev, kbase_bo->dmabuf_fd,
++                                             req.out.flags);
++   }
+    kbase_bo->same_va =
+       (req.out.flags & (BASE_MEM_SAME_VA | BASE_MEM_NEED_MMAP)) != 0;
+ 
+@@ -1832,12 +1884,19 @@
+    struct kbase_kmod_dev *kbase_dev =
+       container_of(dev, struct kbase_kmod_dev, base);
+    const uint64_t page_size = 4096;
++   int heap_fd = kmod_flags & PAN_KMOD_BO_FLAG_WB_MMAP
++                    ? kbase_dev->dma_heap_cached_fd
++                    : kbase_dev->dma_heap_fd;
++   if (heap_fd < 0) {
++      errno = ENOTSUP;
++      return NULL;
++   }
+    struct dma_heap_allocation_data alloc = {
+       .len = ALIGN_POT(size, page_size),
+       .fd_flags = O_RDWR | O_CLOEXEC,
+    };
+ 
+-   if (ioctl(kbase_dev->dma_heap_fd, DMA_HEAP_IOCTL_ALLOC, &alloc)) {
++   if (ioctl(heap_fd, DMA_HEAP_IOCTL_ALLOC, &alloc)) {
+       mesa_loge("kbase: DMA_HEAP_IOCTL_ALLOC failed: %s", strerror(errno));
+       return NULL;
+    }
+@@ -1856,7 +1915,9 @@
+    struct kbase_kmod_dev *kbase_dev =
+       container_of(dev, struct kbase_kmod_dev, base);
+ 
+-   if (!exclusive_vm && kbase_dev->dma_heap_fd >= 0 &&
++   if (!exclusive_vm &&
++       (kbase_dev->dma_heap_fd >= 0 ||
++        (!kbase_dev->is_csf && pan_arch(dev->props.gpu_id) == 9)) &&
+        !(kmod_flags & (PAN_KMOD_BO_FLAG_EXECUTABLE |
+                        PAN_KMOD_BO_FLAG_ALLOC_ON_FAULT |
+                        PAN_KMOD_BO_FLAG_CSF_EVENT)))
+@@ -1889,6 +1950,19 @@
+        * increments on GPU page fault (matches panfork's heap setup). */
+       commit_pages = 0;
+       extension = MIN2((2 * 1024 * 1024) / page_size, va_pages);
++   }
++
++   const uint64_t tiler_align_top = UINT64_C(1) << 20;
++   if (kmod_flags & PAN_KMOD_BO_FLAG_TILER_HEAP) {
++      if (kbase_dev->is_csf || pan_arch(dev->props.gpu_id) != 9 ||
++          !(kmod_flags & PAN_KMOD_BO_FLAG_ALLOC_ON_FAULT) ||
++          size < PAN_KMOD_TILER_HEAP_CHUNK_SIZE) {
++         errno = EINVAL;
++         goto err_free_bo;
++      }
++      extension = PAN_KMOD_TILER_HEAP_CHUNK_SIZE / page_size;
++      commit_pages = extension;
++      alloc_flags |= tiler_align_top;
+    }
+ 
+    if (kbase_dev->is_csf &&
+@@ -1925,7 +1999,23 @@
+ 
+       if (pan_v9_trace_enabled())
+          mesa_logi("kbase: MEM_ALLOC req: va_pages=%llu commit_pages=%llu extension=%llu flags=0x%llx kmod_flags=0x%x", (unsigned long long)va_pages, (unsigned long long)commit_pages, (unsigned long long)extension, (unsigned long long)alloc_flags, kmod_flags);
+-      if (ioctl(dev->fd, KBASE_IOCTL_MEM_ALLOC, &req)) {
++      int ret = ioctl(dev->fd, KBASE_IOCTL_MEM_ALLOC, &req);
++      if (ret && errno == EINVAL &&
++          (kmod_flags & PAN_KMOD_BO_FLAG_TILER_HEAP)) {
++         kmod_flags &= ~PAN_KMOD_BO_FLAG_TILER_HEAP;
++         alloc_flags &= ~tiler_align_top;
++         commit_pages = 0;
++         req = (union kbase_ioctl_mem_alloc){
++            .in = {
++               .va_pages = va_pages,
++               .commit_pages = commit_pages,
++               .extension = extension,
++               .flags = alloc_flags,
++            },
++         };
++         ret = ioctl(dev->fd, KBASE_IOCTL_MEM_ALLOC, &req);
++      }
++      if (ret) {
+          mesa_loge("kbase: KBASE_IOCTL_MEM_ALLOC failed: %s (%llu pages, "
+                    "flags 0x%llx%s)", strerror(errno),
+                    (unsigned long long)va_pages,
+@@ -1936,6 +2026,8 @@
+ 
+       alloc_flags = req.out.flags;
+       alloc_gpu_va = req.out.gpu_va;
++      if (!(alloc_flags & tiler_align_top))
++         kmod_flags &= ~PAN_KMOD_BO_FLAG_TILER_HEAP;
+    }
+ 
+    kbase_bo->same_va = (alloc_flags & BASE_MEM_SAME_VA) != 0;
+@@ -1971,10 +2063,11 @@
+    pan_kmod_bo_init(&kbase_bo->base, dev, exclusive_vm,
+                     va_pages * page_size, kmod_flags, handle);
+    kbase_bo->stats_counted = true;
+-   kbase_mem_stats_add(va_pages * page_size, commit_pages * page_size,
+-                       commit_pages == 0, 1);
+-   if (commit_pages == 0) {
+-      kbase_bo->growable = true;
++   kbase_bo->initial_commit = commit_pages * page_size;
++   kbase_bo->growable = extension != 0;
++   kbase_mem_stats_add(va_pages * page_size, kbase_bo->initial_commit,
++                       kbase_bo->growable, 1);
++   if (kbase_bo->growable) {
+       simple_mtx_lock(&kbase_grow_lock);
+       list_addtail(&kbase_bo->grow_link, &kbase_grow_list);
+       simple_mtx_unlock(&kbase_grow_lock);
+@@ -2002,7 +2095,7 @@
+    }
+ 
+    if (kbase_bo->stats_counted)
+-      kbase_mem_stats_add(bo->size, kbase_bo->growable ? 0 : bo->size,
++      kbase_mem_stats_add(bo->size, kbase_bo->initial_commit,
+                           kbase_bo->growable, -1);
+ 
+    if (kbase_bo->diag_tracked) {
+--- a/src/panfrost/lib/kmod/pan_kmod.h
++++ b/src/panfrost/lib/kmod/pan_kmod.h
+@@ -143,7 +143,11 @@
+     * mapping request (pan_kmod_bo_mmap) backs the whole buffer, since a
+     * CPU access to a page without backing is fatal. */
+    PAN_KMOD_BO_FLAG_LAZY_COMMIT = BITFIELD_BIT(9),
+-};
++
++   PAN_KMOD_BO_FLAG_TILER_HEAP = BITFIELD_BIT(10),
++};
++
++#define PAN_KMOD_TILER_HEAP_CHUNK_SIZE (2 * 1024 * 1024)
+ 
+ /* Allowed group priority flags. */
+ enum pan_kmod_group_allow_priority_flags {
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
+@@ -448,6 +448,10 @@
+       cfg.base = dev->tiler_heap->addr.dev;
+       cfg.bottom = dev->tiler_heap->addr.dev;
+       cfg.top = cfg.base + cfg.size;
++#if PAN_ARCH == 9
++      if (dev->tiler_heap->bo->flags & PAN_KMOD_BO_FLAG_TILER_HEAP)
++         cfg.top = cfg.base + MIN2(cfg.size, PAN_KMOD_TILER_HEAP_CHUNK_SIZE);
++#endif
+    }
+ 
+    pan_pack(&batch->tiler.ctx_templ, TILER_CONTEXT, cfg) {
+--- a/src/panfrost/vulkan/panvk_device_memory.c
++++ b/src/panfrost/vulkan/panvk_device_memory.c
+@@ -70,6 +70,23 @@
+       (uintptr_t)(mem), heap_index);
+ }
+ 
++static bool
++panvk_bo_matches_memory_type(const struct pan_kmod_bo *bo,
++                            VkMemoryPropertyFlags properties)
++{
++   if ((properties & VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT) &&
++       (bo->flags & PAN_KMOD_BO_FLAG_NO_MMAP))
++      return false;
++   if ((properties & VK_MEMORY_PROPERTY_HOST_COHERENT_BIT) &&
++       (bo->flags & PAN_KMOD_BO_FLAG_WB_MMAP) &&
++       !(bo->flags & PAN_KMOD_BO_FLAG_IO_COHERENT))
++      return false;
++   if ((properties & VK_MEMORY_PROPERTY_HOST_CACHED_BIT) &&
++       !(bo->flags & PAN_KMOD_BO_FLAG_WB_MMAP))
++      return false;
++   return true;
++}
++
+ VKAPI_ATTR VkResult VKAPI_CALL
+ panvk_AllocateMemory(VkDevice _device,
+                      const VkMemoryAllocateInfo *pAllocateInfo,
+@@ -86,6 +103,8 @@
+       to_panvk_physical_device(device->vk.physical);
+    struct panvk_device_memory *mem;
+    bool can_be_exported = false;
++   const bool kbase_jm_v9 = physical_device->kbase_node_path[0] &&
++      pan_arch(physical_device->kmod.dev->props.gpu_id) == 9;
+    VkResult result;
+ 
+    assert(pAllocateInfo->sType == VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO);
+@@ -129,10 +148,7 @@
+    } else {
+       uint32_t bo_flags = 0;
+ 
+-      /* We don't do cached on exported buffers to keep the pre-WB_MMAP
+-       * behavior.
+-       */
+-      if (!can_be_exported &&
++      if ((!can_be_exported || kbase_jm_v9) &&
+           (type->propertyFlags & VK_MEMORY_PROPERTY_HOST_CACHED_BIT))
+          bo_flags |= PAN_KMOD_BO_FLAG_WB_MMAP;
+ 
+@@ -160,6 +176,13 @@
+          result = panvk_error(device, VK_ERROR_OUT_OF_DEVICE_MEMORY);
+          goto err_destroy_mem;
+       }
++   }
++
++   if (kbase_jm_v9 &&
++       !panvk_bo_matches_memory_type(mem->bo, type->propertyFlags)) {
++      result = panvk_error(device, fd_info ? VK_ERROR_INVALID_EXTERNAL_HANDLE
++                                          : VK_ERROR_OUT_OF_DEVICE_MEMORY);
++      goto err_put_bo;
+    }
+ 
+    /* Always GPU-map at creation time. */
+@@ -447,8 +470,12 @@
+ {
+    VK_FROM_HANDLE(panvk_device, device, _device);
+ 
+-   return sync_memory_ranges(device, memoryRangeCount, pMemoryRanges,
+-                             PAN_KMOD_BO_SYNC_CPU_CACHE_FLUSH);
++   VkResult result =
++      sync_memory_ranges(device, memoryRangeCount, pMemoryRanges,
++                         PAN_KMOD_BO_SYNC_CPU_CACHE_FLUSH);
++   if (result == VK_SUCCESS)
++      pan_kmod_flush_bo_map_syncs(device->kmod.dev);
++   return result;
+ }
+ 
+ VKAPI_ATTR VkResult VKAPI_CALL
+@@ -505,26 +532,9 @@
+       return VK_ERROR_INVALID_EXTERNAL_HANDLE;
+ 
+    pMemoryFdProperties->memoryTypeBits = 0;
+-
+-   /* Keep things simple by only allowing host-visible if the BO doesn't require
+-    * kernel-side synchronization going through the dma-buf exporter, which is
+-    * reflected through the PAN_KMOD_BO_FLAG_FORCE_FULL_KERNEL_SYNC flag.
+-    */
+-   const bool can_do_host_visible = !(bo->flags & PAN_KMOD_BO_FLAG_NO_MMAP);
+-   const bool can_do_host_coherent = !(bo->flags & PAN_KMOD_BO_FLAG_WB_MMAP) ||
+-                                     (bo->flags & PAN_KMOD_BO_FLAG_IO_COHERENT);
+-   const bool can_do_host_cached = (bo->flags & PAN_KMOD_BO_FLAG_WB_MMAP);
+-
+-   pMemoryFdProperties->memoryTypeBits = 0;
+    for (uint32_t i = 0; i < phys_dev->memory.type_count; i++) {
+-      if (!can_do_host_visible && (phys_dev->memory.types[i].propertyFlags &
+-                                   VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT))
+-         continue;
+-      if (!can_do_host_coherent && (phys_dev->memory.types[i].propertyFlags &
+-                                    VK_MEMORY_PROPERTY_HOST_COHERENT_BIT))
+-         continue;
+-      if (!can_do_host_cached && (phys_dev->memory.types[i].propertyFlags &
+-                                  VK_MEMORY_PROPERTY_HOST_CACHED_BIT))
++      if (!panvk_bo_matches_memory_type(
++             bo, phys_dev->memory.types[i].propertyFlags))
+          continue;
+ 
+       pMemoryFdProperties->memoryTypeBits |= BITFIELD_BIT(i);
+--- a/src/panfrost/vulkan/panvk_vX_device.c
++++ b/src/panfrost/vulkan/panvk_vX_device.c
+@@ -40,6 +40,7 @@
+ 
+ #include "kmod/pan_kmod.h"
+ #include "util/os_file.h"
++#include "util/u_debug.h"
+ #include "util/u_printf.h"
+ #include "pan_props.h"
+ #include "pan_samples.h"
+@@ -616,12 +617,19 @@
+ #endif
+ 
+ #if PAN_ARCH <= 9
++   uint32_t tiler_heap_flags = PAN_KMOD_BO_FLAG_ALLOC_ON_FAULT;
++#if PAN_ARCH == 9
++   if ((device->kmod.dev->props.supported_bo_flags &
++        PAN_KMOD_BO_FLAG_TILER_HEAP) &&
++       debug_get_bool_option("PANVK_TILER_HEAP_INCREMENTAL", false))
++      tiler_heap_flags |= PAN_KMOD_BO_FLAG_TILER_HEAP;
++#endif
+    /* PATCH DEBUG v9 (SEMENTARA -- revert setelah investigasi tiler_heap
+     * selesai): buang NO_MMAP biar CPU bisa baca isi tiler_heap langsung
+     * buat diff sebelum/sesudah submit. */
+    result = panvk_priv_bo_create(
+       device, 128 * 1024 * 1024,
+-      PAN_KMOD_BO_FLAG_ALLOC_ON_FAULT,
++      tiler_heap_flags,
+       VK_SYSTEM_ALLOCATION_SCOPE_DEVICE, &device->tiler_heap);
+    if (result != VK_SUCCESS)
+       goto err_free_priv_bos;

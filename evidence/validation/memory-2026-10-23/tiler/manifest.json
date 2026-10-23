@@ -1,0 +1,29 @@
+{
+  "pins": {
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-baseline.so": "3d39f466dcf0aa55a4943217192e635659f1ee19acdbb44327a8ffd47bc73729",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-t06-v1.so": "292b7c6cf28efa12ec5faacab54e7b59d8adde0fe4c611c1f46ee3872cf8d605",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/run_tiler.py": "6716acc6771744d6ba78e5d0117bb581cb9f2197753485f2cfa790a5dfd45e1d",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/tiler_ioctl_probe.c": "4b34be33092e10a98bceec87b6bfb124e6920f4dd096e8b8c6236011a99d96ce",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/tiler_test": "18441ac9b269730e7c9b63b05f3b8122840e8562c805cf4473beb111b53b698d",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/tiler_test.c": "d4662b1d999638053e9adc5a7b7f02b71c00b88951568e02b33f76ab1603fb3f",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/tiler_ioctl_probe.so": "02ba9f95dd2c70c15d2a060b482533ee22b497c02c2cdda90040fbef0a5e5df1",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/cube.vert.spv": "79b3f00e09a6f3f92a7bdd51d036f43056227c830d7c6a3c7f78ccd6c9754c46",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/cube.frag.spv": "212bd8d38caa81c243721ec9a4d030baaa312c40890317f37fb91e0a2e980923",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/pngdump.h": "69cac83d41dc45bb5997f09530bda9abb02e70c961122c2fde923b077d84cd9a"
+  },
+  "interpreter": "/system/bin/linker64",
+  "frames_per_run": 6,
+  "profiles": [
+    "android-baseline/off",
+    "android-candidate/off",
+    "android-candidate/on"
+  ],
+  "cases": [
+    "small",
+    "growth",
+    "resubmit"
+  ],
+  "repeats": 3,
+  "runner_timeout_seconds": 180,
+  "timing_is_benchmark": false
+}

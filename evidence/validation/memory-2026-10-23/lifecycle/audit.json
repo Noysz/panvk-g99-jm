@@ -1,0 +1,146 @@
+{
+  "results": [
+    {
+      "profile": "tiler/false",
+      "cycles": [
+        [
+          "0",
+          "4",
+          "4"
+        ],
+        [
+          "1",
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "4",
+          "4"
+        ]
+      ],
+      "data_ok_cycles": 3,
+      "edge_inclusive_exact_diff": [
+        7,
+        7,
+        7
+      ]
+    },
+    {
+      "profile": "tiler/true",
+      "cycles": [
+        [
+          "0",
+          "4",
+          "4"
+        ],
+        [
+          "1",
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "4",
+          "4"
+        ]
+      ],
+      "data_ok_cycles": 3,
+      "edge_inclusive_exact_diff": [
+        7,
+        7,
+        7
+      ]
+    },
+    {
+      "profile": "export/coherent",
+      "cycles": [
+        [
+          "0",
+          "4",
+          "4"
+        ],
+        [
+          "1",
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "4",
+          "4"
+        ]
+      ],
+      "data_ok_cycles": 3,
+      "edge_inclusive_exact_diff": []
+    },
+    {
+      "profile": "export/cached",
+      "cycles": [
+        [
+          "0",
+          "4",
+          "4"
+        ],
+        [
+          "1",
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "4",
+          "4"
+        ]
+      ],
+      "data_ok_cycles": 3,
+      "edge_inclusive_exact_diff": []
+    },
+    {
+      "profile": "import/coherent",
+      "cycles": [
+        [
+          "0",
+          "4",
+          "4"
+        ],
+        [
+          "1",
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "4",
+          "4"
+        ]
+      ],
+      "data_ok_cycles": 3,
+      "edge_inclusive_exact_diff": []
+    },
+    {
+      "profile": "import/cached",
+      "cycles": [
+        [
+          "0",
+          "4",
+          "4"
+        ],
+        [
+          "1",
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "4",
+          "4"
+        ]
+      ],
+      "data_ok_cycles": 3,
+      "edge_inclusive_exact_diff": []
+    }
+  ],
+  "hashes_unchanged": true,
+  "scope": "18 device cycles; not proof of no memory leaks"
+}

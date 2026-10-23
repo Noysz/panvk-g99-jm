@@ -1,0 +1,27 @@
+{
+  "pins": {
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-t06-v1.so": "292b7c6cf28efa12ec5faacab54e7b59d8adde0fe4c611c1f46ee3872cf8d605",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/import_visibility_v2": "77580a6e37eeb227d9179c0f7af09c7be668d82c23eac4e3c33df8dffd56e3f5",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/run_visibility.py": "d9fc17cbffd6446bcb3259e203eb2f1feba1eefc1fecf693cef91a5b4456c07c",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/import_visibility.c": "63b5002d6708b77c9b8b19fe352a7bf0ae070ac0a7516b653482fe6d92b6f259"
+  },
+  "interpreter": "/system/bin/linker64",
+  "needed": [
+    "libhardware.so",
+    "libnativewindow.so",
+    "libdrm.so",
+    "libm.so",
+    "libz.so.1",
+    "libc++_shared.so",
+    "libdl.so",
+    "libc.so"
+  ],
+  "controls": {
+    "PANVK_ICD_SO": "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-t06-v1.so",
+    "PAN_I_WANT_A_BROKEN_VULKAN_DRIVER": "1",
+    "MESA_SHADER_CACHE_DISABLE": "true"
+  },
+  "tiler_control": "unset; frozen source default false",
+  "direct_driver": true,
+  "timing_is_benchmark": false
+}

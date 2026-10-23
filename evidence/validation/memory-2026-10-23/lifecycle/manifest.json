@@ -1,0 +1,30 @@
+{
+  "pins": {
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-t06-v1.so": "292b7c6cf28efa12ec5faacab54e7b59d8adde0fe4c611c1f46ee3872cf8d605",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/run_lifecycle.py": "831078e496aff75c4e178134cc34fca89604b5dfe5772ce9c38fc4979fade931",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/tiler_recreate.c": "0c0e634a7ed7dde510ea248a1ef7b3e7213401dbcca5732d00987848667ec946",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/visibility_recreate.c": "d7a5f56ac1fa0692301855e4c8cab76a565d12aff22966176adfa17caadc54bc",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/import_visibility.c": "63b5002d6708b77c9b8b19fe352a7bf0ae070ac0a7516b653482fe6d92b6f259",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/tiler_test.c": "d4662b1d999638053e9adc5a7b7f02b71c00b88951568e02b33f76ab1603fb3f",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/tiler_ioctl_probe.so": "02ba9f95dd2c70c15d2a060b482533ee22b497c02c2cdda90040fbef0a5e5df1",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/cube.vert.spv": "79b3f00e09a6f3f92a7bdd51d036f43056227c830d7c6a3c7f78ccd6c9754c46",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/cube.frag.spv": "212bd8d38caa81c243721ec9a4d030baaa312c40890317f37fb91e0a2e980923",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/pngdump.h": "69cac83d41dc45bb5997f09530bda9abb02e70c961122c2fde923b077d84cd9a",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/tiler_recreate": "b8d3e9dda777dcb744ee99e421f73543d067743ee3947fc8d312660c7b0f0469",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/visibility_recreate": "dd818d8674caa3068fa9e7b04ecab6393c800e32bafcf9b3b4131a99ff466c12"
+  },
+  "command": [
+    "/usr/bin/python3",
+    "-E",
+    "-B",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/run_lifecycle.py",
+    "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-t06-v1.so",
+    "t06-android-lifecycle-yq6z7ulc/matrix"
+  ],
+  "profiles": 6,
+  "cycles_per_profile": 3,
+  "driver": "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-t06-v1.so",
+  "direct_driver": true,
+  "timing_is_benchmark": false,
+  "scope": "device recreation and FD count; not a long-session test"
+}

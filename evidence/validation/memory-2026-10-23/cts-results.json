@@ -1,0 +1,122 @@
+[
+  {
+    "run": "off1",
+    "enabled": "false",
+    "group": "t06_gqwskwgx_t06-v2-cts-xrq0uc8j-off1",
+    "exit": 0,
+    "counts": {
+      "Pass": 753,
+      "NotSupported": 174,
+      "Fail": 2
+    },
+    "changes_vs_v1": {},
+    "lost_vs_baseline": 0,
+    "gain_vs_baseline": 70,
+    "qpa_count": 929,
+    "qpa_matches_tsv": true,
+    "qpa_order_match": true,
+    "target_seconds": 3.111071,
+    "hashes_unchanged": true,
+    "matched_reference": true
+  },
+  {
+    "run": "on1",
+    "enabled": "true",
+    "group": "t06_gqwskwgx_t06-v2-cts-xrq0uc8j-on1",
+    "exit": 0,
+    "counts": {
+      "Pass": 753,
+      "NotSupported": 174,
+      "Fail": 2
+    },
+    "changes_vs_v1": {},
+    "lost_vs_baseline": 0,
+    "gain_vs_baseline": 70,
+    "qpa_count": 929,
+    "qpa_matches_tsv": true,
+    "qpa_order_match": true,
+    "target_seconds": 4.683322,
+    "hashes_unchanged": true,
+    "matched_reference": true
+  },
+  {
+    "run": "off2",
+    "enabled": "false",
+    "group": "t06_gqwskwgx_t06-v2-cts-xrq0uc8j-off2",
+    "exit": 0,
+    "counts": {
+      "Pass": 753,
+      "NotSupported": 174,
+      "Fail": 2
+    },
+    "changes_vs_v1": {},
+    "lost_vs_baseline": 0,
+    "gain_vs_baseline": 70,
+    "qpa_count": 929,
+    "qpa_matches_tsv": true,
+    "qpa_order_match": true,
+    "target_seconds": 3.228316,
+    "hashes_unchanged": true,
+    "matched_reference": true
+  },
+  {
+    "run": "on2",
+    "enabled": "true",
+    "group": "t06_gqwskwgx_t06-v2-cts-xrq0uc8j-on2",
+    "exit": 0,
+    "counts": {
+      "Pass": 753,
+      "NotSupported": 174,
+      "Fail": 2
+    },
+    "changes_vs_v1": {},
+    "lost_vs_baseline": 0,
+    "gain_vs_baseline": 70,
+    "qpa_count": 929,
+    "qpa_matches_tsv": true,
+    "qpa_order_match": true,
+    "target_seconds": 2.851668,
+    "hashes_unchanged": true,
+    "matched_reference": true
+  },
+  {
+    "run": "off3",
+    "enabled": "false",
+    "group": "t06_gqwskwgx_t06-v2-cts-xrq0uc8j-off3",
+    "exit": 0,
+    "counts": {
+      "Pass": 753,
+      "NotSupported": 174,
+      "Fail": 2
+    },
+    "changes_vs_v1": {},
+    "lost_vs_baseline": 0,
+    "gain_vs_baseline": 70,
+    "qpa_count": 929,
+    "qpa_matches_tsv": true,
+    "qpa_order_match": true,
+    "target_seconds": 3.301272,
+    "hashes_unchanged": true,
+    "matched_reference": true
+  },
+  {
+    "run": "on3",
+    "enabled": "true",
+    "group": "t06_gqwskwgx_t06-v2-cts-xrq0uc8j-on3",
+    "exit": 0,
+    "counts": {
+      "Pass": 753,
+      "NotSupported": 174,
+      "Fail": 2
+    },
+    "changes_vs_v1": {},
+    "lost_vs_baseline": 0,
+    "gain_vs_baseline": 70,
+    "qpa_count": 929,
+    "qpa_matches_tsv": true,
+    "qpa_order_match": true,
+    "target_seconds": 3.35949,
+    "hashes_unchanged": true,
+    "matched_reference": true
+  }
+]

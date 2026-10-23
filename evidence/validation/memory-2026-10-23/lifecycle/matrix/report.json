@@ -1,0 +1,215 @@
+{
+  "driver": "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-t06-v1.so",
+  "sha256": "292b7c6cf28efa12ec5faacab54e7b59d8adde0fe4c611c1f46ee3872cf8d605",
+  "runs": [
+    {
+      "mode": "tiler",
+      "kind": "false",
+      "returncode": 0,
+      "expected_outcome": true,
+      "cycles": [
+        [
+          "0",
+          "4",
+          "4"
+        ],
+        [
+          "1",
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "4",
+          "4"
+        ]
+      ],
+      "summaries": [
+        "CUBESUM tiling=optimal frames=6 bad_frames=0 bad=0 exact_diff=7 max_exact_frame=6 verdict=PASS",
+        "CUBESUM tiling=optimal frames=6 bad_frames=0 bad=0 exact_diff=7 max_exact_frame=6 verdict=PASS",
+        "CUBESUM tiling=optimal frames=6 bad_frames=0 bad=0 exact_diff=7 max_exact_frame=6 verdict=PASS"
+      ],
+      "heap_mb": [
+        "0.0",
+        "10.0",
+        "0.0",
+        "10.0",
+        "0.0",
+        "10.0"
+      ],
+      "alloc_mb": [
+        "0.3",
+        "0.1",
+        "0.3",
+        "0.1",
+        "0.3",
+        "0.1"
+      ]
+    },
+    {
+      "mode": "tiler",
+      "kind": "true",
+      "returncode": 0,
+      "expected_outcome": true,
+      "cycles": [
+        [
+          "0",
+          "4",
+          "4"
+        ],
+        [
+          "1",
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "4",
+          "4"
+        ]
+      ],
+      "summaries": [
+        "CUBESUM tiling=optimal frames=6 bad_frames=0 bad=0 exact_diff=7 max_exact_frame=6 verdict=PASS",
+        "CUBESUM tiling=optimal frames=6 bad_frames=0 bad=0 exact_diff=7 max_exact_frame=6 verdict=PASS",
+        "CUBESUM tiling=optimal frames=6 bad_frames=0 bad=0 exact_diff=7 max_exact_frame=6 verdict=PASS"
+      ],
+      "heap_mb": [
+        "2.0",
+        "10.0",
+        "2.0",
+        "10.0",
+        "2.0",
+        "10.0"
+      ],
+      "alloc_mb": [
+        "2.3",
+        "2.1",
+        "2.3",
+        "2.1",
+        "2.3",
+        "2.1"
+      ]
+    },
+    {
+      "mode": "export",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_outcome": true,
+      "cycles": [
+        [
+          "0",
+          "4",
+          "4"
+        ],
+        [
+          "1",
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "4",
+          "4"
+        ]
+      ],
+      "summaries": [
+        "VISIBILITY mode=export type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS",
+        "VISIBILITY mode=export type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS",
+        "VISIBILITY mode=export type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "heap_mb": [],
+      "alloc_mb": []
+    },
+    {
+      "mode": "export",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_outcome": true,
+      "cycles": [
+        [
+          "0",
+          "4",
+          "4"
+        ],
+        [
+          "1",
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "4",
+          "4"
+        ]
+      ],
+      "summaries": [
+        "VISIBILITY mode=export type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS",
+        "VISIBILITY mode=export type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS",
+        "VISIBILITY mode=export type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "heap_mb": [],
+      "alloc_mb": []
+    },
+    {
+      "mode": "import",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_outcome": true,
+      "cycles": [
+        [
+          "0",
+          "4",
+          "4"
+        ],
+        [
+          "1",
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "4",
+          "4"
+        ]
+      ],
+      "summaries": [
+        "VISIBILITY mode=import type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS",
+        "VISIBILITY mode=import type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS",
+        "VISIBILITY mode=import type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "heap_mb": [],
+      "alloc_mb": []
+    },
+    {
+      "mode": "import",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_outcome": true,
+      "cycles": [
+        [
+          "0",
+          "4",
+          "4"
+        ],
+        [
+          "1",
+          "4",
+          "4"
+        ],
+        [
+          "2",
+          "4",
+          "4"
+        ]
+      ],
+      "summaries": [
+        "VISIBILITY mode=import type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS",
+        "VISIBILITY mode=import type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS",
+        "VISIBILITY mode=import type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "heap_mb": [],
+      "alloc_mb": []
+    }
+  ],
+  "timing_is_benchmark": false
+}

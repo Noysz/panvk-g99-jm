@@ -1,0 +1,6 @@
+group t06_gqwskwgx_baseline: 929 cases, 79 process run(s)
+  Pass                   683
+  Fail                   2
+  NotSupported           174
+  ResourceError          70
+  pass rate of supported: 683/755 = 90.5%

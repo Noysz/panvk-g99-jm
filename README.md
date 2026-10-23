@@ -10,7 +10,7 @@ Most public PanVK testing/builds so far target **CSF** chips (G610/G615/G710/G72
 
 ---
 
-## Development follow-up (2026-10-20, unreleased)
+## Development follow-up (2026-10-23, unreleased)
 
 The current task ledger is [followup-tasks-2026-10-19.md](docs/followup-tasks-2026-10-19.md).
 Compiler/cache candidates pass their targeted build, cache, CTS and DXVK
@@ -30,6 +30,14 @@ other two give 13.3-13.4. A repeatable benefit is not established, so the
 default remains off. See the
 [query follow-up](docs/occlusion-followup-2026-10-19.md) for the implementation,
 negative controls and the two unchanged concurrent-query CTS failures.
+
+The [JM memory candidate](patches-candidates/2026-10-23-memory/README.md)
+corrects cached dma-buf allocation/import properties and adds opt-in incremental
+tiler backing. Six 929-case CTS runs gain 70 passes against the preserved
+baseline without losing a pass; two existing failures remain. Android data,
+pixel and lifecycle checks pass. The tested workloads show no tiler backing
+reduction, and an interrupted long-memory run remains unresolved. The tiler
+option stays off; T06 still needs sustained graphics and game validation.
 
 These are development candidates, not test9 or a new release. No superiority
 over another driver or the Mali blob is established. Historical snapshots and

@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-23T00:20:36.286796+00:00",
+  "probe_compile_and_spirv_checks_passed": true,
+  "runner_syntax_and_cli_checks_passed": true,
+  "repository_python_tests_passed": 28,
+  "recorded_gpu_tests_reused": true,
+  "probe_and_patch_sha256": {
+    "patches-candidates/2026-10-23-memory/0001-jm-import-coherency-incremental-tiler.patch": "22005b010364d605a50744deedd61e569bdc605b151598e4d715a6166d743e98",
+    "patches-candidates/2026-10-23-memory/series": "740afbdf8bbf7412620ad9d48caeeb8ddfa8dffe650cafda56237438d63f6325",
+    "patches-candidates/2026-10-23-memory/README.md": "010bf07014ca1647baaf064451867676d130ebfbc7173e31869175f7327a488c",
+    "tests/graphics/t06-memory/import_visibility.c": "63b5002d6708b77c9b8b19fe352a7bf0ae070ac0a7516b653482fe6d92b6f259",
+    "tests/graphics/t06-memory/tiler_test.c": "d4662b1d999638053e9adc5a7b7f02b71c00b88951568e02b33f76ab1603fb3f",
+    "tests/graphics/t06-memory/tiler_ioctl_probe.c": "4b34be33092e10a98bceec87b6bfb124e6920f4dd096e8b8c6236011a99d96ce",
+    "tests/graphics/t06-memory/hide_exporter.c": "eb644e1421227effdfb9b5afa525dabc9a9951d3905e3b14ba46f18bd60ec79a",
+    "tests/graphics/t06-memory/pngdump.h": "69cac83d41dc45bb5997f09530bda9abb02e70c961122c2fde923b077d84cd9a",
+    "tests/graphics/t06-memory/cube.vert.spv": "79b3f00e09a6f3f92a7bdd51d036f43056227c830d7c6a3c7f78ccd6c9754c46",
+    "tests/graphics/t06-memory/cube.frag.spv": "212bd8d38caa81c243721ec9a4d030baaa312c40890317f37fb91e0a2e980923",
+    "tests/graphics/t06-memory/run_visibility.py": "d9fc17cbffd6446bcb3259e203eb2f1feba1eefc1fecf693cef91a5b4456c07c",
+    "tests/graphics/t06-memory/run_tiler.py": "6716acc6771744d6ba78e5d0117bb581cb9f2197753485f2cfa790a5dfd45e1d",
+    "tests/graphics/t06-memory/README.md": "ea461b5e85c243e1873c7fa3ecb5f659058c36b772157e7c4d81b051e0ffccad"
+  }
+}

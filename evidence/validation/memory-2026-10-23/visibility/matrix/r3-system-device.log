@@ -1,0 +1,7 @@
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+external features=0x6 compatible=0x201
+fd memoryTypeBits=0x5
+mode=system memory_type=0 flags=0x1 bytes=65536 rounds=32
+VISIBILITY mode=system type=device copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS

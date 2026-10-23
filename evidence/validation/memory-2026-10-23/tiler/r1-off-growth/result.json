@@ -1,0 +1,31 @@
+{
+  "driver": "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-t06-v1.so",
+  "sha256": "292b7c6cf28efa12ec5faacab54e7b59d8adde0fe4c611c1f46ee3872cf8d605",
+  "args": {
+    "driver": "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-t06-v1.so",
+    "label": "t06-android-tiler-levc4ew9/r1-off-growth",
+    "enabled": "false",
+    "instances": 8192,
+    "frames": 6,
+    "alternate": true,
+    "resubmit": false,
+    "negative": false,
+    "inject": null
+  },
+  "returncode": 0,
+  "expected_outcome": true,
+  "summary": [
+    "CUBESUM tiling=optimal frames=6 bad_frames=0 bad=0 exact_diff=7 max_exact_frame=6 verdict=PASS"
+  ],
+  "tiler_mb": [
+    0.0,
+    10.0
+  ],
+  "checked_frames": 6,
+  "wall_seconds": 0.49894984599086456,
+  "timing_is_benchmark": false,
+  "allocations": [
+    "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f",
+    "HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f"
+  ]
+}

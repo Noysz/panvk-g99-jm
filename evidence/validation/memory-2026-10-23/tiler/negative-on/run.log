@@ -1,0 +1,22 @@
+TILERTEST instances=1 alternate=0
+=== cube: frames=6 step=10.0 dim=64 tiling=optimal band=0.50 NEGATIVE CONTROL: model angle +3 ===
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+HEAP_ALLOC pages=32768 commit=512 extension=512 flags=0x102a0f
+HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f
+panvk-mem: profiling on (pid 17436)
+panvk-mem t=0.0s | kbase BOs 14 (393.7 MB VA, 2.3 MB committed at alloc, 3 growable) +14/-0 | VkDeviceMemory 0.2 MB (lazy: 0 BOs, 0.0 MB of 0.0 MB backed) | all growable backed 2.0 MB | cmd pool cache 0.0 MB | heaps committed: tiler 2.0, poly 0.0, indirect varyings 0.0 MB | RSS 18.9 MB (anon 2.2, file 16.3, shmem 0.4) | MemAvailable 3673.7 MB
+CUBEFP frame=000 deg=   0.0 bad=0 exact_diff=45 edge=144 edge_diff=82 faces[R C G M B Y]=0 0 0 0 0 702
+CUBEFP frame=001 deg=  10.0 bad=2 exact_diff=46 edge=152 edge_diff=99 faces[R C G M B Y]=0 0 0 0 0 638 first=(35,19) got=255,255,0 model=32,32,40
+CUBEFP frame=002 deg=  20.0 bad=13 exact_diff=69 edge=222 edge_diff=147 faces[R C G M B Y]=65 0 0 9 0 550 first=(31,21) got=255,255,0 model=255,0,255
+CUBEFP frame=003 deg=  30.0 bad=14 exact_diff=70 edge=219 edge_diff=143 faces[R C G M B Y]=161 0 0 88 0 431 first=(27,23) got=255,255,0 model=255,0,255
+CUBEFP frame=004 deg=  40.0 bad=25 exact_diff=80 edge=226 edge_diff=160 faces[R C G M B Y]=228 0 0 165 0 304 first=(25,25) got=255,255,0 model=255,0,255
+CUBEFP frame=005 deg=  50.0 bad=13 exact_diff=73 edge=228 edge_diff=166 faces[R C G M B Y]=279 0 0 250 0 166 first=(43,25) got=255,0,0 model=255,0,255
+panvk-mem t=0.0s | kbase BOs 8 (393.4 MB VA, 2.1 MB committed at alloc, 3 growable) +0/-6 | VkDeviceMemory 0.0 MB (lazy: 0 BOs, 0.0 MB of 0.0 MB backed) | all growable backed 2.0 MB | cmd pool cache 0.0 MB | heaps committed: tiler 2.0, poly 0.0, indirect varyings 0.0 MB | RSS 18.9 MB (anon 2.3, file 16.2, shmem 0.4) | MemAvailable 3673.7 MB
+
+--- result ---
+frames=6 bad_frames=5 bad_pixels=67 edge_pixels=1191 edge_diff=797 gpu+wait=1.8 ms/frame wall=3.0 ms/frame
+checked frames=6 of 6
+CUBESUM tiling=optimal frames=6 bad_frames=5 bad=67 exact_diff=383 max_exact_frame=80 verdict=FAIL
+DONE

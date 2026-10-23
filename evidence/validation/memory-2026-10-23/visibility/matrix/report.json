@@ -1,0 +1,421 @@
+{
+  "driver": "/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/android-t06-v1.so",
+  "sha256": "292b7c6cf28efa12ec5faacab54e7b59d8adde0fe4c611c1f46ee3872cf8d605",
+  "test_sha256": "77580a6e37eeb227d9179c0f7af09c7be668d82c23eac4e3c33df8dffd56e3f5",
+  "runs": [
+    {
+      "repeat": 1,
+      "mode": "native",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=native type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 1,
+      "mode": "native",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=native type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 1,
+      "mode": "export",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=export type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 1,
+      "mode": "export",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=export type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 1,
+      "mode": "import",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=import type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 1,
+      "mode": "import",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=import type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 1,
+      "mode": "system",
+      "kind": "coherent",
+      "returncode": 77,
+      "expected_returncode": 77,
+      "expected_outcome": true,
+      "summary": [],
+      "fd_bits": [
+        "fd memoryTypeBits=0x5"
+      ]
+    },
+    {
+      "repeat": 1,
+      "mode": "system",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=system type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": [
+        "fd memoryTypeBits=0x5"
+      ]
+    },
+    {
+      "repeat": 1,
+      "mode": "system",
+      "kind": "device",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=system type=device copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": [
+        "fd memoryTypeBits=0x5"
+      ]
+    },
+    {
+      "repeat": 1,
+      "mode": "system-uncached",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=system-uncached type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": [
+        "fd memoryTypeBits=0x3"
+      ]
+    },
+    {
+      "repeat": 1,
+      "mode": "system-uncached",
+      "kind": "cached",
+      "returncode": 77,
+      "expected_returncode": 77,
+      "expected_outcome": true,
+      "summary": [],
+      "fd_bits": [
+        "fd memoryTypeBits=0x3"
+      ]
+    },
+    {
+      "repeat": 2,
+      "mode": "native",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=native type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 2,
+      "mode": "native",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=native type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 2,
+      "mode": "export",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=export type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 2,
+      "mode": "export",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=export type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 2,
+      "mode": "import",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=import type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 2,
+      "mode": "import",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=import type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 2,
+      "mode": "system",
+      "kind": "coherent",
+      "returncode": 77,
+      "expected_returncode": 77,
+      "expected_outcome": true,
+      "summary": [],
+      "fd_bits": [
+        "fd memoryTypeBits=0x5"
+      ]
+    },
+    {
+      "repeat": 2,
+      "mode": "system",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=system type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": [
+        "fd memoryTypeBits=0x5"
+      ]
+    },
+    {
+      "repeat": 2,
+      "mode": "system",
+      "kind": "device",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=system type=device copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": [
+        "fd memoryTypeBits=0x5"
+      ]
+    },
+    {
+      "repeat": 2,
+      "mode": "system-uncached",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=system-uncached type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": [
+        "fd memoryTypeBits=0x3"
+      ]
+    },
+    {
+      "repeat": 2,
+      "mode": "system-uncached",
+      "kind": "cached",
+      "returncode": 77,
+      "expected_returncode": 77,
+      "expected_outcome": true,
+      "summary": [],
+      "fd_bits": [
+        "fd memoryTypeBits=0x3"
+      ]
+    },
+    {
+      "repeat": 3,
+      "mode": "native",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=native type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 3,
+      "mode": "native",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=native type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 3,
+      "mode": "export",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=export type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 3,
+      "mode": "export",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=export type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 3,
+      "mode": "import",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=import type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 3,
+      "mode": "import",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=import type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": []
+    },
+    {
+      "repeat": 3,
+      "mode": "system",
+      "kind": "coherent",
+      "returncode": 77,
+      "expected_returncode": 77,
+      "expected_outcome": true,
+      "summary": [],
+      "fd_bits": [
+        "fd memoryTypeBits=0x5"
+      ]
+    },
+    {
+      "repeat": 3,
+      "mode": "system",
+      "kind": "cached",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=system type=cached copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": [
+        "fd memoryTypeBits=0x5"
+      ]
+    },
+    {
+      "repeat": 3,
+      "mode": "system",
+      "kind": "device",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=system type=device copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": [
+        "fd memoryTypeBits=0x5"
+      ]
+    },
+    {
+      "repeat": 3,
+      "mode": "system-uncached",
+      "kind": "coherent",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "expected_outcome": true,
+      "summary": [
+        "VISIBILITY mode=system-uncached type=coherent copy_bad=0 fill_bad=0 tail_bad=0 verdict=PASS"
+      ],
+      "fd_bits": [
+        "fd memoryTypeBits=0x3"
+      ]
+    },
+    {
+      "repeat": 3,
+      "mode": "system-uncached",
+      "kind": "cached",
+      "returncode": 77,
+      "expected_returncode": 77,
+      "expected_outcome": true,
+      "summary": [],
+      "fd_bits": [
+        "fd memoryTypeBits=0x3"
+      ]
+    }
+  ]
+}

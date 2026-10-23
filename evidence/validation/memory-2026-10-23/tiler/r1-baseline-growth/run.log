@@ -1,0 +1,22 @@
+TILERTEST instances=8192 alternate=1
+=== cube: frames=6 step=10.0 dim=64 tiling=optimal band=0.50 ===
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f
+HEAP_ALLOC pages=32768 commit=0 extension=512 flags=0x2a0f
+panvk-mem: profiling on (pid 17269)
+panvk-mem t=0.0s | kbase BOs 14 (393.7 MB VA, 0.3 MB committed at alloc, 3 growable) +14/-0 | VkDeviceMemory 0.2 MB (lazy: 0 BOs, 0.0 MB of 0.0 MB backed) | all growable backed 0.0 MB | cmd pool cache 0.0 MB | heaps committed: tiler 0.0, poly 0.0, indirect varyings 0.0 MB | RSS 17.6 MB (anon 2.4, file 14.8, shmem 0.4) | MemAvailable 3741.3 MB
+CUBEFP frame=000 deg=   0.0 bad=0 exact_diff=6 edge=138 edge_diff=134 faces[R C G M B Y]=0 0 0 0 0 650
+CUBEFP frame=001 deg=  10.0 bad=0 exact_diff=0 edge=150 edge_diff=87 faces[R C G M B Y]=0 0 0 0 0 650
+CUBEFP frame=002 deg=  20.0 bad=0 exact_diff=0 edge=216 edge_diff=163 faces[R C G M B Y]=44 0 0 0 0 565
+CUBEFP frame=003 deg=  30.0 bad=0 exact_diff=1 edge=224 edge_diff=158 faces[R C G M B Y]=140 0 0 67 0 458
+CUBEFP frame=004 deg=  40.0 bad=0 exact_diff=0 edge=218 edge_diff=159 faces[R C G M B Y]=234 0 0 147 0 317
+CUBEFP frame=005 deg=  50.0 bad=0 exact_diff=0 edge=221 edge_diff=158 faces[R C G M B Y]=274 0 0 232 0 197
+panvk-mem t=0.0s | kbase BOs 8 (393.4 MB VA, 0.1 MB committed at alloc, 3 growable) +0/-6 | VkDeviceMemory 0.0 MB (lazy: 0 BOs, 0.0 MB of 0.0 MB backed) | all growable backed 10.0 MB | cmd pool cache 0.0 MB | heaps committed: tiler 10.0, poly 0.0, indirect varyings 0.0 MB | RSS 27.3 MB (anon 2.4, file 24.5, shmem 0.4) | MemAvailable 3741.3 MB
+
+--- result ---
+frames=6 bad_frames=0 bad_pixels=0 edge_pixels=1167 edge_diff=859 gpu+wait=5.5 ms/frame wall=6.7 ms/frame
+checked frames=6 of 6
+CUBESUM tiling=optimal frames=6 bad_frames=0 bad=0 exact_diff=7 max_exact_frame=6 verdict=PASS
+DONE

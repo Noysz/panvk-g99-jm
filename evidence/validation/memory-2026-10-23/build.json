@@ -1,0 +1,45 @@
+{
+  "source_entries": 12928,
+  "changed": [
+    "src/panfrost/lib/kmod/kbase_kmod.c",
+    "src/panfrost/lib/kmod/pan_kmod.h",
+    "src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c",
+    "src/panfrost/vulkan/panvk_device_memory.c",
+    "src/panfrost/vulkan/panvk_vX_device.c"
+  ],
+  "binaries": {
+    "host-t06-v2.so": {
+      "sha256": "b9550b1fc186b715cdf87605cbf7dab5939a3f980240918edc80dc6673db5237",
+      "bytes": 132506240
+    },
+    "android-t06-v1.so": {
+      "sha256": "292b7c6cf28efa12ec5faacab54e7b59d8adde0fe4c611c1f46ee3872cf8d605",
+      "bytes": 21856032
+    }
+  },
+  "patch_sha256": "22005b010364d605a50744deedd61e569bdc605b151598e4d715a6166d743e98",
+  "preserved_original_entries": 12928,
+  "changed_source_sha256": {
+    "src/panfrost/lib/kmod/kbase_kmod.c": [
+      "file",
+      "680a4fcf632ced1a27879775291449614aa7d20ddac49b9cfedded361bb04632"
+    ],
+    "src/panfrost/lib/kmod/pan_kmod.h": [
+      "file",
+      "045e3bbb5035e04e99b823e48c4d3c5ad6646d99d821c9f06cd57f1b603cba4e"
+    ],
+    "src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c": [
+      "file",
+      "d34a4c20ad024988256f6956a5bc6ee70b73ecbe36f8aab4778227e2220d967e"
+    ],
+    "src/panfrost/vulkan/panvk_device_memory.c": [
+      "file",
+      "bf25222af04ea208b7b702f4c555fdbb08103b187a0f9a6e3332ff918c42dfd9"
+    ],
+    "src/panfrost/vulkan/panvk_vX_device.c": [
+      "file",
+      "6af58d1518ba02514db6b0d1efb8e7a135ebfbf5311d5502722e34ac3181592a"
+    ]
+  },
+  "second_real_ninja_pass_unchanged": true
+}
