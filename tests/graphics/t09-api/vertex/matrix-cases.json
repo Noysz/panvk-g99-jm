@@ -1,0 +1,895 @@
+[
+  {
+    "label": "format-8-f-1",
+    "kind": "f",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "8",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-8-f-2",
+    "kind": "f",
+    "components": 2,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "8",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-8-f-3",
+    "kind": "f",
+    "components": 3,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "8",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-8-f-4",
+    "kind": "f",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "8",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-8-i-1",
+    "kind": "i",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "8",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-8-i-2",
+    "kind": "i",
+    "components": 2,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "8",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-8-i-3",
+    "kind": "i",
+    "components": 3,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "8",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-8-i-4",
+    "kind": "i",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "8",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-8-u-1",
+    "kind": "u",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "8",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-8-u-2",
+    "kind": "u",
+    "components": 2,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "8",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-8-u-3",
+    "kind": "u",
+    "components": 3,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "8",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-8-u-4",
+    "kind": "u",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "8",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-16-f-1",
+    "kind": "f",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-16-f-2",
+    "kind": "f",
+    "components": 2,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-16-f-3",
+    "kind": "f",
+    "components": 3,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-16-f-4",
+    "kind": "f",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-16-i-1",
+    "kind": "i",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-16-i-2",
+    "kind": "i",
+    "components": 2,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-16-i-3",
+    "kind": "i",
+    "components": 3,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-16-i-4",
+    "kind": "i",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-16-u-1",
+    "kind": "u",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-16-u-2",
+    "kind": "u",
+    "components": 2,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-16-u-3",
+    "kind": "u",
+    "components": 3,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-16-u-4",
+    "kind": "u",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-32-f-1",
+    "kind": "f",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "32",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-32-f-2",
+    "kind": "f",
+    "components": 2,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "32",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-32-f-3",
+    "kind": "f",
+    "components": 3,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "32",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-32-f-4",
+    "kind": "f",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "32",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-32-i-1",
+    "kind": "i",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "32",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-32-i-2",
+    "kind": "i",
+    "components": 2,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "32",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-32-i-3",
+    "kind": "i",
+    "components": 3,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "32",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-32-i-4",
+    "kind": "i",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "32",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-32-u-1",
+    "kind": "u",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "32",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-32-u-2",
+    "kind": "u",
+    "components": 2,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "32",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-32-u-3",
+    "kind": "u",
+    "components": 3,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "32",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "format-32-u-4",
+    "kind": "u",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "32",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "index-instance-f-1-1",
+    "kind": "f",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_MODE": "1",
+      "T09_BITS": "32",
+      "T09_DYNAMIC": "1",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "index-instance-f-1-4",
+    "kind": "f",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_MODE": "1",
+      "T09_BITS": "32",
+      "T09_DYNAMIC": "1",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "index-instance-f-2-1",
+    "kind": "f",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_BITS": "32",
+      "T09_DYNAMIC": "1",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "index-instance-f-2-4",
+    "kind": "f",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_BITS": "32",
+      "T09_DYNAMIC": "1",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "divisor-f-0",
+    "kind": "f",
+    "components": 2,
+    "length": 39,
+    "stride": 8,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_DIVISOR": "0",
+      "T09_DYNAMIC": "0"
+    }
+  },
+  {
+    "label": "divisor-f-2",
+    "kind": "f",
+    "components": 2,
+    "length": 39,
+    "stride": 8,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_DIVISOR": "2",
+      "T09_DYNAMIC": "0"
+    }
+  },
+  {
+    "label": "divisor-f-3",
+    "kind": "f",
+    "components": 2,
+    "length": 39,
+    "stride": 8,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_DIVISOR": "3",
+      "T09_DYNAMIC": "1"
+    }
+  },
+  {
+    "label": "divisor-f-7",
+    "kind": "f",
+    "components": 2,
+    "length": 39,
+    "stride": 8,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_DIVISOR": "7",
+      "T09_DYNAMIC": "1"
+    }
+  },
+  {
+    "label": "null-f-1",
+    "kind": "f",
+    "components": 1,
+    "length": 0,
+    "stride": 16,
+    "controls": {
+      "T09_DYNAMIC": "1",
+      "T09_BITS": "16"
+    }
+  },
+  {
+    "label": "io16-f-1",
+    "kind": "f",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_IO16": "1",
+      "T09_DYNAMIC": "1"
+    }
+  },
+  {
+    "label": "null-f-4",
+    "kind": "f",
+    "components": 4,
+    "length": 0,
+    "stride": 16,
+    "controls": {
+      "T09_DYNAMIC": "1",
+      "T09_BITS": "16"
+    }
+  },
+  {
+    "label": "io16-f-4",
+    "kind": "f",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_IO16": "1",
+      "T09_DYNAMIC": "1"
+    }
+  },
+  {
+    "label": "index-instance-i-1-1",
+    "kind": "i",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_MODE": "1",
+      "T09_BITS": "32",
+      "T09_DYNAMIC": "1",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "index-instance-i-1-4",
+    "kind": "i",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_MODE": "1",
+      "T09_BITS": "32",
+      "T09_DYNAMIC": "1",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "index-instance-i-2-1",
+    "kind": "i",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_BITS": "32",
+      "T09_DYNAMIC": "1",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "index-instance-i-2-4",
+    "kind": "i",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_BITS": "32",
+      "T09_DYNAMIC": "1",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "divisor-i-0",
+    "kind": "i",
+    "components": 2,
+    "length": 39,
+    "stride": 8,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_DIVISOR": "0",
+      "T09_DYNAMIC": "0"
+    }
+  },
+  {
+    "label": "divisor-i-2",
+    "kind": "i",
+    "components": 2,
+    "length": 39,
+    "stride": 8,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_DIVISOR": "2",
+      "T09_DYNAMIC": "0"
+    }
+  },
+  {
+    "label": "divisor-i-3",
+    "kind": "i",
+    "components": 2,
+    "length": 39,
+    "stride": 8,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_DIVISOR": "3",
+      "T09_DYNAMIC": "1"
+    }
+  },
+  {
+    "label": "divisor-i-7",
+    "kind": "i",
+    "components": 2,
+    "length": 39,
+    "stride": 8,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_DIVISOR": "7",
+      "T09_DYNAMIC": "1"
+    }
+  },
+  {
+    "label": "null-i-1",
+    "kind": "i",
+    "components": 1,
+    "length": 0,
+    "stride": 16,
+    "controls": {
+      "T09_DYNAMIC": "1",
+      "T09_BITS": "16"
+    }
+  },
+  {
+    "label": "io16-i-1",
+    "kind": "i",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_IO16": "1",
+      "T09_DYNAMIC": "1"
+    }
+  },
+  {
+    "label": "null-i-4",
+    "kind": "i",
+    "components": 4,
+    "length": 0,
+    "stride": 16,
+    "controls": {
+      "T09_DYNAMIC": "1",
+      "T09_BITS": "16"
+    }
+  },
+  {
+    "label": "io16-i-4",
+    "kind": "i",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_IO16": "1",
+      "T09_DYNAMIC": "1"
+    }
+  },
+  {
+    "label": "index-instance-u-1-1",
+    "kind": "u",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_MODE": "1",
+      "T09_BITS": "32",
+      "T09_DYNAMIC": "1",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "index-instance-u-1-4",
+    "kind": "u",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_MODE": "1",
+      "T09_BITS": "32",
+      "T09_DYNAMIC": "1",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "index-instance-u-2-1",
+    "kind": "u",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_BITS": "32",
+      "T09_DYNAMIC": "1",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "index-instance-u-2-4",
+    "kind": "u",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_BITS": "32",
+      "T09_DYNAMIC": "1",
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  },
+  {
+    "label": "divisor-u-0",
+    "kind": "u",
+    "components": 2,
+    "length": 39,
+    "stride": 8,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_DIVISOR": "0",
+      "T09_DYNAMIC": "0"
+    }
+  },
+  {
+    "label": "divisor-u-2",
+    "kind": "u",
+    "components": 2,
+    "length": 39,
+    "stride": 8,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_DIVISOR": "2",
+      "T09_DYNAMIC": "0"
+    }
+  },
+  {
+    "label": "divisor-u-3",
+    "kind": "u",
+    "components": 2,
+    "length": 39,
+    "stride": 8,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_DIVISOR": "3",
+      "T09_DYNAMIC": "1"
+    }
+  },
+  {
+    "label": "divisor-u-7",
+    "kind": "u",
+    "components": 2,
+    "length": 39,
+    "stride": 8,
+    "controls": {
+      "T09_MODE": "2",
+      "T09_DIVISOR": "7",
+      "T09_DYNAMIC": "1"
+    }
+  },
+  {
+    "label": "null-u-1",
+    "kind": "u",
+    "components": 1,
+    "length": 0,
+    "stride": 16,
+    "controls": {
+      "T09_DYNAMIC": "1",
+      "T09_BITS": "16"
+    }
+  },
+  {
+    "label": "io16-u-1",
+    "kind": "u",
+    "components": 1,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_IO16": "1",
+      "T09_DYNAMIC": "1"
+    }
+  },
+  {
+    "label": "null-u-4",
+    "kind": "u",
+    "components": 4,
+    "length": 0,
+    "stride": 16,
+    "controls": {
+      "T09_DYNAMIC": "1",
+      "T09_BITS": "16"
+    }
+  },
+  {
+    "label": "io16-u-4",
+    "kind": "u",
+    "components": 4,
+    "length": 39,
+    "stride": 16,
+    "controls": {
+      "T09_BITS": "16",
+      "T09_IO16": "1",
+      "T09_DYNAMIC": "1"
+    }
+  },
+  {
+    "label": "zero-stride",
+    "kind": "f",
+    "components": 3,
+    "length": 32,
+    "stride": 0,
+    "controls": {
+      "T09_BOUND_OFFSET": "16",
+      "T09_ATTR_OFFSET": "4"
+    }
+  }
+]

@@ -1,0 +1,788 @@
+#sessionInfo releaseName 31807adf6dc7111b32b1ade990d0d8e552fa1b78
+#sessionInfo releaseId 0x31807adf
+#sessionInfo targetName "Android"
+#sessionInfo logFormatVersion "0.3.4"
+#sessionInfo vendorID 0x13b5
+#sessionInfo deviceID 0x90930010
+#sessionInfo deviceName Mali-G57 MC2
+#sessionInfo commandLineParameters "--deqp-vk-library-path=/data/data/com.termux/files/home/cts/shim/libvkshim.so --deqp-caselist-file=/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t10-tracked-wai_b9j4/bounds-v6-host/cases-119.txt --deqp-log-filename=/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t10-tracked-wai_b9j4/bounds-v6-host/run-119.qpa --deqp-log-images=disable --deqp-log-shader-sources=disable --deqp-watchdog=disable"
+
+#beginSession
+
+#beginTestCaseResult dEQP-VK.query_pool.occlusion_query.no_attachments_multisample
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.query_pool.occlusion_query.no_attachments_multisample" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="frag" Description="Program: frag">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">320.263000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.009000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">3.052000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.021000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">333282</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.query_pool.occlusion_query.no_attachments_single_sample
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.query_pool.occlusion_query.no_attachments_single_sample" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="frag" Description="Program: frag">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">2488</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.query_pool.occlusion_query.resolve
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.query_pool.occlusion_query.resolve" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="frag" Description="Program: frag">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">61.830002</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.009000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">79.097000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.008000</Number>
+</Section>
+ <Section Name="OcclusionQueryResults" Description="Occlusion query results">
+  <Text>query[slot == 0] result == 0</Text>
+  <Text>query[slot == 1] result == 3</Text>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">148865</Number>
+ <Result StatusCode="Pass">Query result verification passed</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.query_pool.occlusion_query.stride_max
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.query_pool.occlusion_query.stride_max" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="frag" Description="Program: frag">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="OcclusionQueryResults" Description="Occlusion query results">
+  <Text>query[slot == 0] result == 0</Text>
+  <Text>query[slot == 1] result == 1</Text>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">3725</Number>
+ <Result StatusCode="Pass">Query result verification passed</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.query_pool.occlusion_query.stride_zero
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.query_pool.occlusion_query.stride_zero" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="frag" Description="Program: frag">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="OcclusionQueryResults" Description="Occlusion query results">
+  <Text>query[slot == 0] result == 0</Text>
+  <Text>query[slot == 1] result == 1</Text>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">7385</Number>
+ <Result StatusCode="Pass">Query result verification passed</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.1d.comp
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.1d.comp" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <ComputeShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</ComputeShader>
+</ShaderProgram>
+  <Number Name="ComputeCompileTime" Description="Compute shader compile time" Tag="Time" Unit="ms">2.342000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.033000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">47710</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.1d.frag
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.1d.frag" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">2.477000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.033000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">278.333008</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.012000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">314303</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.1d.vert
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.1d.vert" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">2.191000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.026000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">25857</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.2d.comp
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.2d.comp" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <ComputeShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</ComputeShader>
+</ShaderProgram>
+  <Number Name="ComputeCompileTime" Description="Compute shader compile time" Tag="Time" Unit="ms">5.962000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.035000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">66381</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.2d.frag
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.2d.frag" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">2.925000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.038000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">69849</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.2d.vert
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.2d.vert" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">2.841000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.032000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">62014</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.1d.comp
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.1d.comp" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <ComputeShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</ComputeShader>
+</ShaderProgram>
+  <Number Name="ComputeCompileTime" Description="Compute shader compile time" Tag="Time" Unit="ms">1.917000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.016000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">21304</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.1d.frag
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.1d.frag" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">1.591000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.014000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">21664</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.1d.vert
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.1d.vert" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">1.683000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.014000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">19592</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.2d.comp
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.2d.comp" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <ComputeShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</ComputeShader>
+</ShaderProgram>
+  <Number Name="ComputeCompileTime" Description="Compute shader compile time" Tag="Time" Unit="ms">1.968000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.021000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">30743</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.2d.frag
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.2d.frag" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">2.143000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.022000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">35518</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.2d.vert
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.2d.vert" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">1.933000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.022000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">39663</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.comp
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.comp" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <ComputeShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</ComputeShader>
+</ShaderProgram>
+  <Number Name="ComputeCompileTime" Description="Compute shader compile time" Tag="Time" Unit="ms">5.112000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.023000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">29134</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.frag
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.frag" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">1.659000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.016000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">25109</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.vert
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.vert" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">1.587000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.032000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">32662</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer.no_fmt_qual.null_descriptor.samples_1.1d.comp
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer.no_fmt_qual.null_descriptor.samples_1.1d.comp" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <ComputeShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</ComputeShader>
+</ShaderProgram>
+  <Number Name="ComputeCompileTime" Description="Compute shader compile time" Tag="Time" Unit="ms">1.540000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.013000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">6923</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer.no_fmt_qual.null_descriptor.samples_1.1d.frag
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer.no_fmt_qual.null_descriptor.samples_1.1d.frag" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">3.876000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.018000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">10599</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer.no_fmt_qual.null_descriptor.samples_1.1d.vert
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer.no_fmt_qual.null_descriptor.samples_1.1d.vert" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">1.649000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.016000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">10672</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer_dynamic.no_fmt_qual.null_descriptor.samples_1.1d.comp
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer_dynamic.no_fmt_qual.null_descriptor.samples_1.1d.comp" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <ComputeShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</ComputeShader>
+</ShaderProgram>
+  <Number Name="ComputeCompileTime" Description="Compute shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">6988</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer_dynamic.no_fmt_qual.null_descriptor.samples_1.1d.frag
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer_dynamic.no_fmt_qual.null_descriptor.samples_1.1d.frag" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">6479</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer_dynamic.no_fmt_qual.null_descriptor.samples_1.1d.vert
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer_dynamic.no_fmt_qual.null_descriptor.samples_1.1d.vert" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">5030</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.comp
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.comp" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <ComputeShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</ComputeShader>
+</ShaderProgram>
+  <Number Name="ComputeCompileTime" Description="Compute shader compile time" Tag="Time" Unit="ms">1.640000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.017000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">12451</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.frag
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.frag" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">1.550000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.014000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">15266</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.vert
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.vert" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">2.996000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.018000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">12411</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.vertex_attribute_fetch.no_fmt_qual.null_descriptor.samples_1.1d.vert
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.vertex_attribute_fetch.no_fmt_qual.null_descriptor.samples_1.1d.vert" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="test" Description="Program: test">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">1.551000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.015000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">13637</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.synchronization.basic.binary_semaphore.chain
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.synchronization.basic.binary_semaphore.chain" Version="0.3.4" CaseType="SelfValidate">
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">82905</Number>
+ <Result StatusCode="Pass">Basic semaphore chain test passed</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.synchronization.basic.binary_semaphore.multi_queue
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.synchronization.basic.binary_semaphore.multi_queue" Version="0.3.4" CaseType="SelfValidate">
+ <Text>Queues couldn&apos;t be created at vktSynchronizationBasicSemaphoreTests.cpp:869</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">4708</Number>
+ <Result StatusCode="NotSupported">Queues couldn&apos;t be created at vktSynchronizationBasicSemaphoreTests.cpp:869</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+Run took 1.66 seconds
+
+#endSession

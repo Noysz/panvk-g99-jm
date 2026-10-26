@@ -1,0 +1,513 @@
+diff --git a/src/panfrost/libpan/draw_helper.cl b/src/panfrost/libpan/draw_helper.cl
+index 187b82e..5839e27 100644
+--- a/src/panfrost/libpan/draw_helper.cl
++++ b/src/panfrost/libpan/draw_helper.cl
+@@ -644,6 +644,22 @@ panlib_draw_index_minmax_search_helper(global uint8_t *index_buffer_ptr,
+ #endif
+ 
+ #if PAN_ARCH == 9
++
++KERNEL(1)
++panlib_v9_cond_render(global const uint32_t *pred, uint32_t inverted,
++                      global const uint64_t *list_ptr)
++{
++   const bool run = (*pred != 0) != (inverted != 0);
++   global const uint64_t *list = (global const uint64_t *)*list_ptr;
++   if (!list)
++      return;
++
++   for (uint64_t i = 0; i < list[0]; i++) {
++      global uint32_t *header = (global uint32_t *)list[1 + 2 * i];
++      const uint32_t type = run ? list[2 + 2 * i] : MALI_JOB_TYPE_NULL;
++      header[4] = (header[4] & ~(0x7fu << 1)) | (type << 1);
++   }
++}
+ /* Instance-rate vertex attributes start fetching at firstInstance. The CPU
+  * folds base_instance * stride into each such descriptor's Offset when it knows
+  * firstInstance (emit_vs_attrib, same scheme as the CSF path); for an indirect
+diff --git a/src/panfrost/vulkan/jm/panvk_cmd_buffer.h b/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
+index 91ebaeb..2f85923 100644
+--- a/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
++++ b/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
+@@ -70,6 +70,13 @@ struct panvk_batch {
+    /* PANVK_FRAME_PROF_PASSES: what this batch renders (set at close). */
+    struct panvk_frame_prof_pass prof;
+ #if PAN_ARCH == 9
++   struct util_dynarray vertex_jobs;
++   struct {
++      struct mali_job_header_packed *job;
++      struct mali_job_header_packed *unconditional_job;
++      uint64_t *list;
++      unsigned index;
++   } cond_render;
+    /* PANVK_UBO_PUSH: the panlib_ubo_gather job of this batch (queued before
+     * the first draw that pushes UBO words) and its entries
+     * (struct panlib_ubo_word), uploaded when the batch is closed. */
+@@ -108,6 +115,17 @@ struct panvk_cmd_buffer {
+       /* PATCH v9: the poly heap was reset by this command buffer. */
+       bool uses_poly_heap;
+       uint64_t sync_epoch;
++#if PAN_ARCH == 9
++      struct {
++         uint64_t addr;
++         uint64_t inherited_addr;
++         bool enabled;
++         bool inherited;
++         bool inverted;
++         bool inherited_inverted;
++         bool active;
++      } cond_render;
++#endif
+       /* PATCH v9: active pipeline statistics query (addr 0: none). The
+        * counters are 64-bit, one per enabled statistic in bit order. */
+       struct {
+@@ -183,6 +201,11 @@ panvk_cmd_get_desc_state(struct panvk_cmd_buffer *cmdbuf,
+ 
+ extern const struct vk_command_buffer_ops panvk_per_arch(cmd_buffer_ops);
+ 
++#if PAN_ARCH == 9
++void panvk_per_arch(cmd_cond_render_begin)(struct panvk_cmd_buffer *cmdbuf);
++void panvk_per_arch(cmd_cond_render_end)(struct panvk_cmd_buffer *cmdbuf);
++#endif
++
+ struct panvk_batch *
+    panvk_per_arch(cmd_open_batch)(struct panvk_cmd_buffer *cmdbuf);
+ 
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
+index 1677bb2..e536bd9 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
+@@ -16,6 +16,8 @@
+ #include "panvk_cmd_buffer.h"
+ #if PAN_ARCH == 9
+ #include "libpan_copy.h"
++#include "draw_helper.h"
++#include "panvk_cmd_precomp.h"
+ #endif
+ #include "panvk_cmd_desc_state.h"
+ #include "panvk_cmd_draw.h"
+@@ -127,6 +129,182 @@ panvk_ubo_gather_close(struct panvk_cmd_buffer *cmdbuf,
+       }
+    }
+    util_dynarray_fini(&batch->ubo_gather.words);
++   batch->ubo_gather.hdr = NULL;
++   batch->ubo_gather.job_index = 0;
++}
++
++static struct mali_job_header_packed *
++panvk_cond_job_cpu(struct panvk_cmd_buffer *cmdbuf, uint64_t gpu)
++{
++   struct list_head *lists[] = {&cmdbuf->desc_pool.bos,
++                                &cmdbuf->desc_pool.big_bos};
++   for (unsigned i = 0; i < ARRAY_SIZE(lists); i++) {
++      list_for_each_entry(struct panvk_priv_bo, bo, lists[i], node) {
++         if (gpu >= bo->addr.dev &&
++             gpu - bo->addr.dev <= pan_kmod_bo_size(bo->bo) - pan_size(JOB_HEADER))
++            return (void *)((uint8_t *)bo->addr.host + gpu - bo->addr.dev);
++      }
++   }
++   UNREACHABLE("Conditional job outside descriptor pool");
++}
++
++static void
++panvk_cond_render_dirty(struct panvk_cmd_buffer *cmdbuf)
++{
++   gfx_state_set_dirty(cmdbuf, VS_PUSH_UNIFORMS);
++   gfx_state_set_dirty(cmdbuf, FS_PUSH_UNIFORMS);
++   compute_state_set_dirty(cmdbuf, PUSH_UNIFORMS);
++}
++
++static void
++panvk_cond_render_open(struct panvk_cmd_buffer *cmdbuf)
++{
++   struct panvk_batch *batch = cmdbuf->cur_batch;
++   assert(batch && !batch->cond_render.job);
++
++   struct pan_ptr list =
++      panvk_cmd_alloc_dev_mem(cmdbuf, desc, sizeof(uint64_t), 8);
++   if (!list.gpu)
++      return;
++   *(uint64_t *)list.cpu = 0;
++
++   const unsigned before = batch->vtc_jc.job_index;
++   struct panvk_precomp_ctx ctx = panvk_per_arch(precomp_cs)(cmdbuf);
++   const uint64_t addr = cmdbuf->state.cond_render.enabled
++                            ? cmdbuf->state.cond_render.addr
++                            : cmdbuf->state.cond_render.inherited_addr;
++   const bool inverted = cmdbuf->state.cond_render.enabled
++                            ? cmdbuf->state.cond_render.inverted
++                            : cmdbuf->state.cond_render.inherited_inverted;
++   panlib_v9_cond_render(
++      &ctx, panlib_1d(1),
++      PANLIB_BARRIER_JM_BARRIER | PANLIB_BARRIER_JM_SUPPRESS_PREFETCH,
++      addr, inverted, list.gpu);
++   if (batch->vtc_jc.job_index != before + 1) {
++      vk_command_buffer_set_error(&cmdbuf->vk, VK_ERROR_UNKNOWN);
++      return;
++   }
++   batch->cond_render.job = batch->vtc_jc.prev_job;
++   batch->cond_render.index = batch->vtc_jc.job_index;
++   batch->cond_render.list = list.cpu;
++}
++
++static void
++panvk_cond_render_close(struct panvk_cmd_buffer *cmdbuf)
++{
++   struct panvk_batch *batch = cmdbuf->cur_batch;
++   if (!batch || !batch->cond_render.job)
++      return;
++
++   panvk_ubo_gather_close(cmdbuf, batch);
++   pan_unpack(batch->cond_render.job, JOB_HEADER, pred);
++   const unsigned count = batch->vtc_jc.job_index - pred.index;
++   struct pan_ptr list = panvk_cmd_alloc_dev_mem(
++      cmdbuf, desc, (1 + 2 * count) * sizeof(uint64_t), 8);
++   if (!list.gpu)
++      return;
++   uint64_t *entries = list.cpu;
++   entries[0] = 0;
++   for (uint64_t next = pred.next; next;) {
++      struct mali_job_header_packed *job = panvk_cond_job_cpu(cmdbuf, next);
++      pan_unpack(job, JOB_HEADER, h);
++      if (job != batch->cond_render.unconditional_job) {
++         assert(entries[0] < count);
++         entries[1 + 2 * entries[0]] = next;
++         entries[2 + 2 * entries[0]] = h.type;
++         entries[0]++;
++
++         if (!h.dependency_1)
++            h.dependency_1 = pred.index;
++         else if (!h.dependency_2)
++            h.dependency_2 = pred.index;
++         else if (h.dependency_1 < pred.index && h.dependency_2 < pred.index)
++            h.barrier = true;
++         pan_pack(job, JOB_HEADER, cfg) {
++            cfg = h;
++         }
++      }
++      next = h.next;
++   }
++   *batch->cond_render.list = list.gpu;
++   memset(&batch->cond_render, 0, sizeof(batch->cond_render));
++   panvk_cond_render_dirty(cmdbuf);
++}
++
++void
++panvk_per_arch(cmd_cond_render_begin)(struct panvk_cmd_buffer *cmdbuf)
++{
++   assert(!cmdbuf->state.cond_render.active);
++   if (!cmdbuf->state.cond_render.enabled && !cmdbuf->state.cond_render.inherited)
++      return;
++
++   if (cmdbuf->cur_batch &&
++       cmdbuf->cur_batch->vtc_jc.job_index + 32 >= UINT16_MAX)
++      panvk_per_arch(cmd_close_batch)(cmdbuf);
++   if (cmdbuf->cur_batch)
++      panvk_ubo_gather_close(cmdbuf, cmdbuf->cur_batch);
++   panvk_cond_render_dirty(cmdbuf);
++   cmdbuf->state.cond_render.active = true;
++   if (cmdbuf->cur_batch)
++      panvk_cond_render_open(cmdbuf);
++   else
++      panvk_per_arch(cmd_open_batch)(cmdbuf);
++}
++
++void
++panvk_per_arch(cmd_cond_render_end)(struct panvk_cmd_buffer *cmdbuf)
++{
++   if (!cmdbuf->state.cond_render.active)
++      return;
++   panvk_cond_render_close(cmdbuf);
++   cmdbuf->state.cond_render.active = false;
++}
++
++VKAPI_ATTR void VKAPI_CALL
++panvk_per_arch(CmdBeginConditionalRendering2EXT)(
++   VkCommandBuffer commandBuffer,
++   const VkConditionalRenderingBeginInfo2EXT *pConditionalRenderingBegin)
++{
++   VK_FROM_HANDLE(panvk_cmd_buffer, cmdbuf, commandBuffer);
++   cmdbuf->state.cond_render.enabled = true;
++   cmdbuf->state.cond_render.addr =
++      pConditionalRenderingBegin->addressRange.address;
++   cmdbuf->state.cond_render.inverted =
++      pConditionalRenderingBegin->flags & VK_CONDITIONAL_RENDERING_INVERTED_BIT_EXT;
++}
++
++VKAPI_ATTR void VKAPI_CALL
++panvk_per_arch(CmdEndConditionalRenderingEXT)(VkCommandBuffer commandBuffer)
++{
++   VK_FROM_HANDLE(panvk_cmd_buffer, cmdbuf, commandBuffer);
++   cmdbuf->state.cond_render.enabled = false;
++}
++
++VKAPI_ATTR void VKAPI_CALL
++panvk_per_arch(CmdExecuteCommands)(VkCommandBuffer commandBuffer,
++                                   uint32_t commandBufferCount,
++                                   const VkCommandBuffer *pCommandBuffers)
++{
++   VK_FROM_HANDLE(panvk_cmd_buffer, primary, commandBuffer);
++   const struct vk_device_dispatch_table *disp =
++      primary->vk.base.device->command_dispatch_table;
++   const __typeof__(primary->state.cond_render) saved = primary->state.cond_render;
++   assert(!saved.active);
++
++   for (uint32_t i = 0; i < commandBufferCount; i++) {
++      VK_FROM_HANDLE(panvk_cmd_buffer, secondary, pCommandBuffers[i]);
++
++      primary->state.cond_render.enabled = false;
++      primary->state.cond_render.inherited = saved.enabled || saved.inherited;
++      primary->state.cond_render.inherited_addr =
++         saved.enabled ? saved.addr : saved.inherited_addr;
++      primary->state.cond_render.inherited_inverted =
++         saved.enabled ? saved.inverted : saved.inherited_inverted;
++
++      vk_cmd_queue_execute(&secondary->vk.cmd_queue, commandBuffer, disp);
++      assert(!primary->state.cond_render.active);
++      primary->state.cond_render = saved;
++   }
+ }
+ #endif
+ 
+@@ -139,6 +317,7 @@ panvk_destroy_batch(struct panvk_cmd_buffer *cmdbuf, struct panvk_batch *batch)
+    util_dynarray_fini(&batch->event_ops);
+ #if PAN_ARCH == 9
+    util_dynarray_fini(&batch->ubo_gather.words);
++   util_dynarray_fini(&batch->vertex_jobs);
+ #endif
+    vk_free(&cmdbuf->vk.pool->alloc, batch);
+ }
+@@ -164,6 +343,7 @@ panvk_per_arch(cmd_close_batch)(struct panvk_cmd_buffer *cmdbuf)
+    assert(batch);
+ 
+ #if PAN_ARCH == 9
++   panvk_cond_render_close(cmdbuf);
+    panvk_ubo_gather_close(cmdbuf, batch);
+ #endif
+ 
+@@ -543,6 +723,7 @@ panvk_alloc_batch(struct panvk_cmd_buffer *cmdbuf)
+    batch->sync_epoch = cmdbuf->state.sync_epoch;
+ #if PAN_ARCH == 9
+    batch->ubo_gather.words = UTIL_DYNARRAY_INIT;
++   batch->vertex_jobs = UTIL_DYNARRAY_INIT;
+ #endif
+ #if PAN_ARCH >= 9
+    /* See pan_jc::no_tiler_chain. */
+@@ -559,6 +740,10 @@ panvk_per_arch(cmd_open_batch)(struct panvk_cmd_buffer *cmdbuf)
+ {
+    assert(!cmdbuf->cur_batch);
+    cmdbuf->cur_batch = panvk_alloc_batch(cmdbuf);
++#if PAN_ARCH == 9
++   if (cmdbuf->cur_batch && cmdbuf->state.cond_render.active)
++      panvk_cond_render_open(cmdbuf);
++#endif
+    return cmdbuf->cur_batch;
+ }
+ 
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_dispatch.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_dispatch.c
+index 231316a..eae4bcb 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_dispatch.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_dispatch.c
+@@ -130,7 +130,7 @@ prepare_driver_set(struct panvk_cmd_buffer *cmdbuf)
+ }
+ 
+ static void
+-cmd_dispatch(struct panvk_cmd_buffer *cmdbuf, struct panvk_dispatch_info *info)
++cmd_dispatch_impl(struct panvk_cmd_buffer *cmdbuf, struct panvk_dispatch_info *info)
+ {
+    const struct panvk_shader_variant *cs =
+       panvk_shader_only_variant(cmdbuf->state.compute.shader);
+@@ -144,7 +144,9 @@ cmd_dispatch(struct panvk_cmd_buffer *cmdbuf, struct panvk_dispatch_info *info)
+    bool indirect = info->indirect.buffer_dev_addr != 0;
+ 
+    panvk_per_arch(cmd_close_batch)(cmdbuf);
+-   struct panvk_batch *batch = panvk_per_arch(cmd_open_batch)(cmdbuf);
++   panvk_per_arch(cmd_cond_render_begin)(cmdbuf);
++   struct panvk_batch *batch = cmdbuf->cur_batch
++      ? cmdbuf->cur_batch : panvk_per_arch(cmd_open_batch)(cmdbuf);
+ 
+    const struct panvk_shader_desc_info *cs_desc_info =
+       &cmdbuf->state.compute.shader->desc_info;
+@@ -304,7 +306,7 @@ cmd_dispatch(struct panvk_cmd_buffer *cmdbuf, struct panvk_dispatch_info *info)
+ }
+ #else
+ static void
+-cmd_dispatch(struct panvk_cmd_buffer *cmdbuf, struct panvk_dispatch_info *info)
++cmd_dispatch_impl(struct panvk_cmd_buffer *cmdbuf, struct panvk_dispatch_info *info)
+ {
+    const struct panvk_shader_variant *cs =
+       panvk_shader_only_variant(cmdbuf->state.compute.shader);
+@@ -461,6 +463,15 @@ cmd_dispatch(struct panvk_cmd_buffer *cmdbuf, struct panvk_dispatch_info *info)
+ }
+ #endif
+ 
++static void
++cmd_dispatch(struct panvk_cmd_buffer *cmdbuf, struct panvk_dispatch_info *info)
++{
++   cmd_dispatch_impl(cmdbuf, info);
++#if PAN_ARCH == 9
++   panvk_per_arch(cmd_cond_render_end)(cmdbuf);
++#endif
++}
++
+ VKAPI_ATTR void VKAPI_CALL
+ panvk_per_arch(CmdDispatchBase)(VkCommandBuffer commandBuffer,
+                                 uint32_t baseGroupX, uint32_t baseGroupY,
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+index 5bd5bdb..d9f3cd3 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -2990,6 +2990,7 @@ panvk_draw_prepare_malloc_vertex_job(struct panvk_cmd_buffer *cmdbuf,
+       }
+    }
+ 
++   util_dynarray_append(&batch->vertex_jobs, ptr.cpu);
+    draw->jobs.idvs = ptr;
+    return VK_SUCCESS;
+ }
+@@ -3543,6 +3544,9 @@ reset_poly_heap_once_v9(struct panvk_cmd_buffer *cmdbuf)
+                       dev->poly_heap->addr.dev +
+                          offsetof(struct poly_heap, bottom),
+                       0);
++   if (cmdbuf->state.cond_render.active)
++      cmdbuf->cur_batch->cond_render.unconditional_job =
++         cmdbuf->cur_batch->vtc_jc.prev_job;
+    cmdbuf->state.uses_poly_heap = true;
+ }
+ 
+@@ -4546,7 +4550,7 @@ launch_xfb_only_v9(struct panvk_cmd_buffer *cmdbuf,
+  * through the graphics path) left layers 1..5 unwritten.
+  * PANVK_V9_LAYER0_ONLY=1 restores the old behaviour as a negative control. */
+ static void
+-panvk_cmd_draw_v9(struct panvk_cmd_buffer *cmdbuf,
++panvk_cmd_draw_v9_impl(struct panvk_cmd_buffer *cmdbuf,
+                   struct panvk_draw_data *draw)
+ {
+    /* Test hook: PANVK_V9_FORCE_INDIRECT=1 turns a direct draw that goes
+@@ -4950,6 +4954,15 @@ indirect_chain_done:
+    clear_dirty_after_draw(cmdbuf);
+ }
+ 
++static void
++panvk_cmd_draw_v9(struct panvk_cmd_buffer *cmdbuf,
++                  struct panvk_draw_data *draw)
++{
++   panvk_per_arch(cmd_cond_render_begin)(cmdbuf);
++   panvk_cmd_draw_v9_impl(cmdbuf, draw);
++   panvk_per_arch(cmd_cond_render_end)(cmdbuf);
++}
++
+ VKAPI_ATTR void VKAPI_CALL
+ panvk_per_arch(CmdDraw)(VkCommandBuffer commandBuffer, uint32_t vertexCount,
+                         uint32_t instanceCount, uint32_t firstVertex,
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+index 71d0b7b..66b009f 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+@@ -1647,27 +1647,19 @@ panvk_queue_submit_batch(struct panvk_gpu_queue *queue,
+ 
+       util_dynarray_foreach(&batch->jobs, void *, job) {
+          memset((*job), 0, 4 * 4);
++      }
+ #if PAN_ARCH == 9
+-         /* PATCH v9 (0072): a MALLOC_VERTEX job writes the vertex packet
+-          * pointer and strides into its own Draw.vertex_array (the CPU only
+-          * sets packet). Left in place, the next run of the same command
+-          * buffer starts from that pointer and faults (kbase 0x58
+-          * DATA_INVALID_FAULT on every re-submit, nothing drawn). Put back
+-          * what the CPU wrote. PANVK_V9_NO_REISSUE_VA_RESET=1 skips this
+-          * (control). The clear above covers words 0-3; the job type is in
+-          * word 4. */
+-         const uint32_t *hdr = *job;
+-         if (((hdr[4] >> 1) & 0x7f) == MALI_JOB_TYPE_MALLOC_VERTEX &&
+-             !reissue_no_va_reset()) {
++      if (!reissue_no_va_reset()) {
++         util_dynarray_foreach(&batch->vertex_jobs, void *, job) {
+             uint32_t *va = (uint32_t *)((uint8_t *)(*job) +
+                                         pan_section_offset(MALLOC_VERTEX_JOB,
+                                                            DRAW)) + 2;
+-            va[0] = 1; /* packet = true, pointer = 0 */
++            va[0] = 1;
+             va[1] = 0;
+-            va[2] = 0; /* strides */
++            va[2] = 0;
+          }
+-#endif
+       }
++#endif
+ 
+       /* Reset the tiler before re-issuing the batch */
+       if (batch->tiler.ctx_descs.cpu) {
+diff --git a/src/panfrost/vulkan/panvk_vX_cmd_meta.c b/src/panfrost/vulkan/panvk_vX_cmd_meta.c
+index 3edefbb..facaa91 100644
+--- a/src/panfrost/vulkan/panvk_vX_cmd_meta.c
++++ b/src/panfrost/vulkan/panvk_vX_cmd_meta.c
+@@ -96,7 +96,7 @@ meta_compute_start(struct panvk_cmd_buffer *cmdbuf,
+    save_ctx->push_constants = cmdbuf->state.push_constants;
+    save_ctx->cs.shader = cmdbuf->state.compute.shader;
+    save_ctx->cs.desc = cmdbuf->state.compute.cs.desc;
+-#if PAN_ARCH >= 10
++#if PAN_ARCH >= 9
+    save_ctx->cond_render_enabled = cmdbuf->state.cond_render.enabled;
+    save_ctx->cond_render_inherited = cmdbuf->state.cond_render.inherited;
+    cmdbuf->state.cond_render.enabled = false;
+@@ -141,7 +141,7 @@ meta_compute_end(struct panvk_cmd_buffer *cmdbuf,
+ 
+    cmdbuf->state.compute.shader = save_ctx->cs.shader;
+    cmdbuf->state.compute.cs.desc = save_ctx->cs.desc;
+-#if PAN_ARCH >= 10
++#if PAN_ARCH >= 9
+    cmdbuf->state.cond_render.enabled = save_ctx->cond_render_enabled;
+    cmdbuf->state.cond_render.inherited = save_ctx->cond_render_inherited;
+ #endif
+@@ -191,7 +191,7 @@ meta_gfx_start(struct panvk_cmd_buffer *cmdbuf,
+    gfx_state_set_dirty(cmdbuf, OQ);
+ 
+    cmdbuf->state.gfx.vk_meta = true;
+-#if PAN_ARCH >= 10
++#if PAN_ARCH >= 9
+    save_ctx->cond_render_enabled = cmdbuf->state.cond_render.enabled;
+    save_ctx->cond_render_inherited = cmdbuf->state.cond_render.inherited;
+    cmdbuf->state.cond_render.enabled = false;
+@@ -280,7 +280,7 @@ meta_gfx_end(struct panvk_cmd_buffer *cmdbuf,
+    gfx_state_set_dirty(cmdbuf, RENDER_STATE);
+ 
+    cmdbuf->state.gfx.vk_meta = false;
+-#if PAN_ARCH >= 10
++#if PAN_ARCH >= 9
+    cmdbuf->state.cond_render.enabled = save_ctx->cond_render_enabled;
+    cmdbuf->state.cond_render.inherited = save_ctx->cond_render_inherited;
+ #endif
+@@ -343,7 +343,7 @@ panvk_per_arch(CmdClearAttachments)(VkCommandBuffer commandBuffer,
+    }
+ 
+    meta_gfx_start(cmdbuf, &save);
+-#if PAN_ARCH >= 10
++#if PAN_ARCH >= 9
+    /* CmdClearAttachments IS affected by conditional rendering, so restore
+     * the state that meta_gfx_start disabled.
+     */
+diff --git a/src/panfrost/vulkan/panvk_vX_physical_device.c b/src/panfrost/vulkan/panvk_vX_physical_device.c
+index cf929ef..65f9972 100644
+--- a/src/panfrost/vulkan/panvk_vX_physical_device.c
++++ b/src/panfrost/vulkan/panvk_vX_physical_device.c
+@@ -147,7 +147,7 @@ panvk_per_arch(get_physical_device_extensions)(
+       .EXT_buffer_device_address = true,
+       .EXT_calibrated_timestamps =
+          device->kmod.dev->props.gpu_can_query_timestamp,
+-      .EXT_conditional_rendering = PAN_ARCH >= 10,
++      .EXT_conditional_rendering = PAN_ARCH >= 9,
+       .EXT_color_write_enable = true,
+       .EXT_conservative_rasterization = PAN_ARCH >= 11,
+       .EXT_custom_border_color = true,
+@@ -624,8 +624,8 @@ panvk_per_arch(get_physical_device_features)(
+       .indirectMemoryCopy = PAN_ARCH >= 10,
+ 
+       /* VK_EXT_conditional_rendering */
+-      .conditionalRendering = PAN_ARCH >= 10,
+-      .inheritedConditionalRendering = PAN_ARCH >= 10,
++      .conditionalRendering = PAN_ARCH >= 9,
++      .inheritedConditionalRendering = PAN_ARCH >= 9,
+ 
+       /* VK_EXT_transform_feedback */
+       .transformFeedback = PAN_ARCH >= 9, /* PATCH v9: JM XFB */

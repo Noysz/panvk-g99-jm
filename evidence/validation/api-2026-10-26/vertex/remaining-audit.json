@@ -1,0 +1,75 @@
+{
+  "raw_hashes_features_readbacks_guards_match": true,
+  "reports": [
+    {
+      "folder": "null-host",
+      "processes": 108,
+      "outcomes": {
+        "Pass": 108
+      }
+    },
+    {
+      "folder": "null-android",
+      "processes": 108,
+      "outcomes": {
+        "Pass": 108
+      }
+    },
+    {
+      "folder": "variants-host",
+      "processes": 234,
+      "outcomes": {
+        "Pass": 216,
+        "ExpectedFail": 18
+      }
+    },
+    {
+      "folder": "variants-android",
+      "processes": 234,
+      "outcomes": {
+        "Pass": 216,
+        "ExpectedFail": 18
+      }
+    },
+    {
+      "folder": "matrix-native-v2",
+      "processes": 438,
+      "outcomes": {
+        "Pass": 426,
+        "NotSupported": 12
+      }
+    },
+    {
+      "folder": "cache-host",
+      "processes": 48,
+      "outcomes": {
+        "Pass": 36,
+        "ExpectedFail": 12
+      }
+    },
+    {
+      "folder": "cache-android",
+      "processes": 48,
+      "outcomes": {
+        "Pass": 36,
+        "ExpectedFail": 12
+      }
+    },
+    {
+      "folder": "shaders-host",
+      "processes": 4,
+      "outcomes": {
+        "Pass": 4
+      }
+    },
+    {
+      "folder": "shaders-android",
+      "processes": 4,
+      "outcomes": {
+        "Pass": 4
+      }
+    }
+  ],
+  "checked_pins": 58,
+  "scope": "Targeted vertex variants/features/cache only; no full CTS or performance claim"
+}

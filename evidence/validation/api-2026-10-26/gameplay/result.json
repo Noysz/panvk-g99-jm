@@ -1,0 +1,2013 @@
+{
+  "completed": true,
+  "navigation_complete": true,
+  "system_samples": [
+    {
+      "monotonic": 185357.396340047,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": []
+    },
+    {
+      "monotonic": 185362.500459663,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": []
+    },
+    {
+      "monotonic": 185367.614541278,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": []
+    },
+    {
+      "monotonic": 185372.688420663,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": []
+    },
+    {
+      "monotonic": 185378.887954817,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": []
+    },
+    {
+      "monotonic": 185384.02338651,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 68044,
+          "VmRSS": 67376,
+          "RssAnon": 60952,
+          "RssFile": 6136,
+          "VmSwap": 0,
+          "fds": 10,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185389.179258818,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 89748,
+          "VmRSS": 88888,
+          "RssAnon": 80200,
+          "RssFile": 8400,
+          "VmSwap": 0,
+          "fds": 12,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185394.257347357,
+      "phase": "navigation",
+      "cpu0_khz": 1400000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 89748,
+          "VmRSS": 88888,
+          "RssAnon": 80200,
+          "RssFile": 8400,
+          "VmSwap": 0,
+          "fds": 12,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185399.329821511,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 331460,
+          "VmRSS": 331316,
+          "RssAnon": 108432,
+          "RssFile": 222292,
+          "VmSwap": 0,
+          "fds": 107,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185404.446800588,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 693172,
+          "VmRSS": 684388,
+          "RssAnon": 315244,
+          "RssFile": 368552,
+          "VmSwap": 22144,
+          "fds": 262,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185409.588834819,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 769372,
+          "VmRSS": 769196,
+          "RssAnon": 341820,
+          "RssFile": 426784,
+          "VmSwap": 43108,
+          "fds": 298,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185414.928267666,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 815140,
+          "VmRSS": 812748,
+          "RssAnon": 361192,
+          "RssFile": 450964,
+          "VmSwap": 42852,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185420.055118128,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 815140,
+          "VmRSS": 812748,
+          "RssAnon": 361320,
+          "RssFile": 450836,
+          "VmSwap": 42852,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185425.144518205,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 815140,
+          "VmRSS": 811504,
+          "RssAnon": 360076,
+          "RssFile": 450836,
+          "VmSwap": 42500,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185430.228526513,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 904492,
+          "VmRSS": 904492,
+          "RssAnon": 387328,
+          "RssFile": 516572,
+          "VmSwap": 42088,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185435.322304667,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 904620,
+          "VmRSS": 904620,
+          "RssAnon": 387456,
+          "RssFile": 516572,
+          "VmSwap": 42088,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185440.399587129,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 915508,
+          "VmRSS": 912180,
+          "RssAnon": 398472,
+          "RssFile": 513116,
+          "VmSwap": 42088,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185445.499939129,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1032972,
+          "VmRSS": 1032972,
+          "RssAnon": 449268,
+          "RssFile": 583112,
+          "VmSwap": 41960,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185450.608803437,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1033100,
+          "VmRSS": 1033100,
+          "RssAnon": 449396,
+          "RssFile": 583112,
+          "VmSwap": 41960,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185455.711808668,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1033228,
+          "VmRSS": 1033116,
+          "RssAnon": 449412,
+          "RssFile": 583112,
+          "VmSwap": 41960,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185460.799048976,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1033228,
+          "VmRSS": 1033116,
+          "RssAnon": 449412,
+          "RssFile": 583112,
+          "VmSwap": 41960,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185465.892632592,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1034636,
+          "VmRSS": 1034408,
+          "RssAnon": 450704,
+          "RssFile": 583112,
+          "VmSwap": 41576,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185470.9763009,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1034636,
+          "VmRSS": 1034536,
+          "RssAnon": 450832,
+          "RssFile": 583112,
+          "VmSwap": 41576,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185476.072211669,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1034636,
+          "VmRSS": 1032632,
+          "RssAnon": 449056,
+          "RssFile": 582984,
+          "VmSwap": 41576,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185481.175943054,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1038824,
+          "VmRSS": 1038824,
+          "RssAnon": 452640,
+          "RssFile": 585592,
+          "VmSwap": 41320,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185486.267303055,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1038952,
+          "VmRSS": 1038804,
+          "RssAnon": 452620,
+          "RssFile": 585592,
+          "VmSwap": 41320,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185491.387866209,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1038952,
+          "VmRSS": 1038932,
+          "RssAnon": 452748,
+          "RssFile": 585592,
+          "VmSwap": 41320,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185496.493215055,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1039060,
+          "VmRSS": 1038908,
+          "RssAnon": 452724,
+          "RssFile": 585592,
+          "VmSwap": 41320,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185501.603011363,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1039060,
+          "VmRSS": 1039036,
+          "RssAnon": 452852,
+          "RssFile": 585592,
+          "VmSwap": 41320,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185506.693322133,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1039128,
+          "VmRSS": 1039128,
+          "RssAnon": 452944,
+          "RssFile": 585592,
+          "VmSwap": 41320,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185511.783640056,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1039128,
+          "VmRSS": 1039116,
+          "RssAnon": 452932,
+          "RssFile": 585592,
+          "VmSwap": 41320,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185516.897187672,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1087064,
+          "RssAnon": 455412,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185522.007710518,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1086980,
+          "RssAnon": 455328,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185527.114990442,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1087108,
+          "RssAnon": 455456,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185532.213856903,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1087108,
+          "RssAnon": 455456,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185537.312493211,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1087060,
+          "RssAnon": 455408,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185542.413339058,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1087316,
+          "RssAnon": 455664,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185547.507947674,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1087060,
+          "RssAnon": 455408,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185552.609188289,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1300000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1087156,
+          "RssAnon": 455504,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185557.709029597,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1087156,
+          "RssAnon": 455504,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185562.806113213,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1087284,
+          "RssAnon": 455632,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185567.900640906,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1087372,
+          "RssAnon": 455720,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185573.003227675,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1086552,
+          "RssAnon": 454900,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185578.111564368,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1086396,
+          "RssAnon": 454744,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185583.218838753,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1086336,
+          "RssAnon": 454684,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185588.32159083,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1086420,
+          "RssAnon": 454768,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185593.41265883,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1086396,
+          "RssAnon": 454744,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185598.5744736,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1086396,
+          "RssAnon": 454744,
+          "RssFile": 631060,
+          "VmSwap": 41192,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185603.728696369,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1083132,
+          "RssAnon": 451480,
+          "RssFile": 631060,
+          "VmSwap": 43880,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185608.831859062,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1081444,
+          "RssAnon": 449792,
+          "RssFile": 631060,
+          "VmSwap": 45544,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185613.929048293,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1081208,
+          "RssAnon": 449556,
+          "RssFile": 631060,
+          "VmSwap": 45544,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185619.022787755,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1081580,
+          "RssAnon": 449780,
+          "RssFile": 631208,
+          "VmSwap": 45544,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185624.108392986,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1082132,
+          "RssAnon": 449908,
+          "RssFile": 631632,
+          "VmSwap": 45544,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185629.231356679,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1082132,
+          "RssAnon": 449908,
+          "RssFile": 631632,
+          "VmSwap": 45544,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185634.319520679,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1082132,
+          "RssAnon": 449908,
+          "RssFile": 631632,
+          "VmSwap": 45544,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185639.438904987,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1087476,
+          "VmRSS": 1081996,
+          "RssAnon": 449772,
+          "RssFile": 631632,
+          "VmSwap": 45544,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185644.571194218,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1082076,
+          "VmRSS": 1082076,
+          "RssAnon": 449852,
+          "RssFile": 631632,
+          "VmSwap": 45544,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185649.745391064,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1082076,
+          "VmRSS": 1082076,
+          "RssAnon": 449852,
+          "RssFile": 631632,
+          "VmSwap": 45544,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185654.862114142,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1082204,
+          "VmRSS": 1082204,
+          "RssAnon": 449980,
+          "RssFile": 631632,
+          "VmSwap": 45544,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185659.987017526,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1082204,
+          "VmRSS": 1070332,
+          "RssAnon": 438108,
+          "RssFile": 631632,
+          "VmSwap": 57064,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185665.121559988,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1082204,
+          "VmRSS": 1016056,
+          "RssAnon": 383832,
+          "RssFile": 631632,
+          "VmSwap": 111848,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185670.279587989,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1082204,
+          "VmRSS": 1009708,
+          "RssAnon": 377484,
+          "RssFile": 631632,
+          "VmSwap": 118632,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185675.38044522,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1082204,
+          "VmRSS": 1011884,
+          "RssAnon": 379660,
+          "RssFile": 631632,
+          "VmSwap": 116840,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185680.492927682,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1082204,
+          "VmRSS": 1011884,
+          "RssAnon": 379660,
+          "RssFile": 631632,
+          "VmSwap": 116840,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185685.641388682,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1082204,
+          "VmRSS": 1011884,
+          "RssAnon": 379660,
+          "RssFile": 631632,
+          "VmSwap": 116840,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185690.825646759,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1082204,
+          "VmRSS": 1011856,
+          "RssAnon": 379632,
+          "RssFile": 631632,
+          "VmSwap": 116840,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185695.953507144,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1082204,
+          "VmRSS": 1027444,
+          "RssAnon": 395220,
+          "RssFile": 631632,
+          "VmSwap": 90388,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185701.063612375,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1082204,
+          "VmRSS": 1017436,
+          "RssAnon": 385468,
+          "RssFile": 631376,
+          "VmSwap": 118208,
+          "fds": 298,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185706.196822529,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1082204,
+          "VmRSS": 1082124,
+          "RssAnon": 443544,
+          "RssFile": 637988,
+          "VmSwap": 125632,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185711.29949453,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1088716,
+          "VmRSS": 1088620,
+          "RssAnon": 449224,
+          "RssFile": 638804,
+          "VmSwap": 124480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185716.402919068,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1090224,
+          "VmRSS": 1090224,
+          "RssAnon": 450284,
+          "RssFile": 639348,
+          "VmSwap": 124224,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185721.548556607,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1090876,
+          "VmRSS": 1090696,
+          "RssAnon": 450616,
+          "RssFile": 639488,
+          "VmSwap": 124096,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185726.751074761,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1091540,
+          "VmRSS": 1091540,
+          "RssAnon": 451324,
+          "RssFile": 639624,
+          "VmSwap": 124096,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185731.862203146,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1090404,
+          "RssAnon": 449916,
+          "RssFile": 639896,
+          "VmSwap": 124096,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185736.9858323,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1083868,
+          "RssAnon": 444532,
+          "RssFile": 638744,
+          "VmSwap": 129984,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185742.140410454,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1072280,
+          "RssAnon": 433064,
+          "RssFile": 638624,
+          "VmSwap": 141760,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185747.278664301,
+      "phase": "navigation",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1072500,
+          "RssAnon": 433284,
+          "RssFile": 638624,
+          "VmSwap": 141760,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185752.330606763,
+      "phase": "warmup",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1073012,
+          "RssAnon": 433796,
+          "RssFile": 638624,
+          "VmSwap": 141504,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185757.421583071,
+      "phase": "warmup",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1074036,
+          "RssAnon": 434820,
+          "RssFile": 638624,
+          "VmSwap": 141504,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185762.48251484,
+      "phase": "warmup",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1074676,
+          "RssAnon": 435460,
+          "RssFile": 638624,
+          "VmSwap": 141504,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185767.575209533,
+      "phase": "warmup",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1075420,
+          "RssAnon": 436204,
+          "RssFile": 638624,
+          "VmSwap": 141248,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185772.643653533,
+      "phase": "warmup",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1075932,
+          "RssAnon": 436716,
+          "RssFile": 638624,
+          "VmSwap": 140736,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185777.741498841,
+      "phase": "warmup",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076020,
+          "RssAnon": 436804,
+          "RssFile": 638624,
+          "VmSwap": 140736,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185782.838173842,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076412,
+          "RssAnon": 437060,
+          "RssFile": 638760,
+          "VmSwap": 140736,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185787.916399688,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076396,
+          "RssAnon": 437044,
+          "RssFile": 638760,
+          "VmSwap": 140608,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185793.016922842,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076524,
+          "RssAnon": 437172,
+          "RssFile": 638760,
+          "VmSwap": 140608,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185798.089026227,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076316,
+          "RssAnon": 436964,
+          "RssFile": 638760,
+          "VmSwap": 140608,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185803.171599073,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076572,
+          "RssAnon": 437220,
+          "RssFile": 638760,
+          "VmSwap": 140608,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185808.263688997,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076572,
+          "RssAnon": 437220,
+          "RssFile": 638760,
+          "VmSwap": 140608,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185813.363780074,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076828,
+          "RssAnon": 437476,
+          "RssFile": 638760,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185818.433003074,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076828,
+          "RssAnon": 437476,
+          "RssFile": 638760,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185823.537501844,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076828,
+          "RssAnon": 437476,
+          "RssFile": 638760,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185828.61073846,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076964,
+          "RssAnon": 437604,
+          "RssFile": 638768,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185833.688968921,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 1600000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076964,
+          "RssAnon": 437604,
+          "RssFile": 638768,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185838.775679153,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076964,
+          "RssAnon": 437604,
+          "RssFile": 638768,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185844.04148223,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076964,
+          "RssAnon": 437604,
+          "RssFile": 638768,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185849.123431384,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077068,
+          "RssAnon": 437708,
+          "RssFile": 638768,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185854.207466538,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077068,
+          "RssAnon": 437708,
+          "RssFile": 638768,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185859.287612923,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077044,
+          "RssAnon": 437684,
+          "RssFile": 638768,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185864.367463385,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077000,
+          "RssAnon": 437640,
+          "RssFile": 638768,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185869.47146377,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077000,
+          "RssAnon": 437640,
+          "RssFile": 638768,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185874.568619078,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076980,
+          "RssAnon": 437488,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185879.654005309,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 725000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076980,
+          "RssAnon": 437488,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185884.716804001,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077108,
+          "RssAnon": 437616,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185889.797407694,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076976,
+          "RssAnon": 437484,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185894.881698464,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076976,
+          "RssAnon": 437484,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185899.950860925,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076960,
+          "RssAnon": 437468,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185905.099673541,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077088,
+          "RssAnon": 437596,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185910.168735695,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077172,
+          "RssAnon": 437680,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185915.258637849,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077172,
+          "RssAnon": 437680,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185920.327562773,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077172,
+          "RssAnon": 437680,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185925.394163388,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077172,
+          "RssAnon": 437680,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185930.504682543,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1076988,
+          "RssAnon": 437496,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185935.586753235,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077244,
+          "RssAnon": 437752,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185940.68288162,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077244,
+          "RssAnon": 437752,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185945.767094774,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077244,
+          "RssAnon": 437752,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185950.84979639,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077372,
+          "RssAnon": 437880,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    },
+    {
+      "monotonic": 185955.943064698,
+      "phase": "measurement",
+      "cpu0_khz": 2000000,
+      "cpu6_khz": 2200000,
+      "game_memory_kib": [
+        {
+          "VmHWM": 1092452,
+          "VmRSS": 1077372,
+          "RssAnon": 437880,
+          "RssFile": 638900,
+          "VmSwap": 140480,
+          "fds": 294,
+          "pid": 22178
+        }
+      ]
+    }
+  ],
+  "driver_mappings": [
+    {
+      "pid": 22165,
+      "lines": [
+        "7ad1853000-7ad2316000 r--p 00000000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so",
+        "7ad2319000-7ad2b03000 r-xp 00ac2000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so",
+        "7ad2b06000-7ad2b7c000 r--p 012ab000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so",
+        "7ad2b7f000-7ad2b89000 rw-p 01320000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so"
+      ]
+    },
+    {
+      "pid": 22178,
+      "lines": [
+        "7c5eeb3000-7c5f976000 r--p 00000000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so",
+        "7c5f979000-7c60163000 r-xp 00ac2000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so",
+        "7c60166000-7c601dc000 r--p 012ab000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so",
+        "7c601df000-7c601e9000 rw-p 01320000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so"
+      ]
+    }
+  ],
+  "scene_gate": {
+    "scene": "free-battle-com-single",
+    "screenshot": "action-1793010162268457146.png",
+    "sha256": "58e10ef4048d7e64ffccafb86b762c05bfeef17278e02506a135c9ac19fbb22d",
+    "reviewed": true,
+    "swapchain_size": "640x360",
+    "visual_observation": "Choji and Tenten in wooded arena; combat HUD timer 95, both character models and environment visible; COM vs COM and Single Match verified in earlier menu captures",
+    "review_unix": 1793010192.4673643
+  },
+  "swapchain_sizes": [
+    "640x360",
+    "640x360"
+  ],
+  "window_start": {
+    "monotonic": 185778.79178038,
+    "unix": 1793010222.8172781,
+    "offset": 205055
+  },
+  "window_end": {
+    "monotonic": 185958.997792083,
+    "unix": 1793010403.0232902,
+    "offset": 263677
+  },
+  "duration_seconds": 602.4572233429935,
+  "cleanup": {
+    "signal_returncode": 0,
+    "wait_returncode": 0,
+    "launcher_returncode": 1,
+    "remaining": []
+  },
+  "pins_unchanged": true
+}

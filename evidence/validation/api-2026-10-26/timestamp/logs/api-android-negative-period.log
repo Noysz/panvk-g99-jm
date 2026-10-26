@@ -1,0 +1,6 @@
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+CAPS bits=64 period=76.923080444 compute_graphics=1 frequency=13000000
+PERIOD_CHECK FAIL
+LIFECYCLE initial_fds=4 final_fds=4

@@ -1,0 +1,35 @@
+{
+  "cases": 5658,
+  "counts": {
+    "Pass": 3753,
+    "NotSupported": 1890,
+    "Fail": 15
+  },
+  "raw_matches": true,
+  "historical_changes": [],
+  "lost_historical_pass": [],
+  "new_fail": [],
+  "failures": [
+    "dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.vertex_attribute_fetch.no_fmt_qual.null_descriptor.samples_1.1d.vert",
+    "dEQP-VK.transform_feedback.simple.depth_clip_control_tese",
+    "dEQP-VK.transform_feedback.simple.depth_clip_control_tese_ptsz",
+    "dEQP-VK.transform_feedback.simple.winding_patch_list_10",
+    "dEQP-VK.transform_feedback.simple.winding_patch_list_10_ptsz",
+    "dEQP-VK.transform_feedback.simple.winding_patch_list_12",
+    "dEQP-VK.transform_feedback.simple.winding_patch_list_12_ptsz",
+    "dEQP-VK.transform_feedback.simple.winding_patch_list_6",
+    "dEQP-VK.transform_feedback.simple.winding_patch_list_6_ptsz",
+    "dEQP-VK.transform_feedback.simple.winding_patch_list_8",
+    "dEQP-VK.transform_feedback.simple.winding_patch_list_8_ptsz",
+    "dEQP-VK.transform_feedback.simple_fast_gpl.depth_clip_control_tese",
+    "dEQP-VK.transform_feedback.simple_fast_gpl.depth_clip_control_tese_ptsz",
+    "dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_tese",
+    "dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_tese_ptsz"
+  ],
+  "pins_checked": 460,
+  "main_pins_checked": 71,
+  "public_head": "f9efac061bea8b42b96e631a482d81afe90e5178",
+  "public_clean": true,
+  "release_candidate_ready": false,
+  "scope": "Exact tracked-case execution; existing failures retained"
+}

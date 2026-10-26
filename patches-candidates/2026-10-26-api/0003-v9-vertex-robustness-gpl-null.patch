@@ -1,0 +1,155 @@
+diff --git a/src/panfrost/vulkan/panvk_vX_shader.c b/src/panfrost/vulkan/panvk_vX_shader.c
+index 626f0a7..7d7a8db 100644
+--- a/src/panfrost/vulkan/panvk_vX_shader.c
++++ b/src/panfrost/vulkan/panvk_vX_shader.c
+@@ -968,6 +968,12 @@ panvk_hash_state(struct vk_physical_device *device,
+ 
+       if (state->ial)
+          _mesa_blake3_update(&blake3_ctx, state->ial, sizeof(*state->ial));
++
++#if PAN_ARCH == 9
++      if (stages & VK_SHADER_STAGE_VERTEX_BIT)
++         _mesa_blake3_update(&blake3_ctx, &state->vertex_input_robustness,
++                             sizeof(state->vertex_input_robustness));
++#endif
+    }
+ 
+ #if PAN_ARCH == 9
+@@ -996,6 +1002,7 @@ panvk_hash_state(struct vk_physical_device *device,
+       pan_env_flag("PANVK_V9_NO_SFX_FILTER") != NULL,
+       pan_env_flag("PANVK_V9_NO_MINMAX") != NULL,
+       pan_env_flag("PANVK_V9_TEXEL_OOB_HW") != NULL,
++      pan_env_flag("PANVK_V9_ATTR_OOB_HW") != NULL,
+       pan_env_flag("PANVK_V9_TCS_SUBGROUP_BARRIER") != NULL,
+       pan_env_flag("PANVK_V9_GS_SFX_ALL") != NULL,
+       pan_env_flag("PANVK_V9_GS_RAST_BASE0") != NULL,
+@@ -2249,6 +2256,44 @@ panvk_v9_push_ubo(nir_shader *nir,
+ }
+ #endif
+ 
++#if PAN_ARCH == 9
++static bool
++panvk_v9_lower_robust_attr(nir_builder *b, nir_intrinsic_instr *intr,
++                          UNUSED void *data)
++{
++   if (intr->intrinsic != nir_intrinsic_load_attr_pan ||
++       intr->num_components != 4 ||
++       !(nir_def_components_read(&intr->def) & BITFIELD_BIT(3)))
++      return false;
++
++   b->cursor = nir_after_instr(&intr->instr);
++   const nir_alu_type type = nir_intrinsic_dest_type(intr);
++   const unsigned bits = intr->def.bit_size;
++   nir_def *handle = intr->src[2].ssa;
++   nir_def *address = nir_lea_attr_pan(b, handle, intr->src[0].ssa,
++                                      intr->src[1].ssa, .src_type = type);
++   nir_def *oob = nir_ilt_imm(b, nir_channel(b, address, 1), 0);
++   nir_def *order = nir_iand_imm(b, nir_channel(b, address, 2), 0xff);
++   nir_def *no_alpha = nir_ior(
++      b, nir_ieq_imm(b, nir_iand_imm(b, order, ~6),
++                    MALI_RGB_COMPONENT_ORDER_RGB1),
++      nir_ior(b, nir_ieq_imm(b, order, MALI_RGB_COMPONENT_ORDER_RRR1),
++              nir_ieq_imm(b, order, MALI_RGB_COMPONENT_ORDER_0001)));
++   nir_def *one = nir_alu_type_get_base_type(type) == nir_type_float
++                    ? nir_imm_floatN_t(b, 1.0, bits)
++                    : nir_imm_intN_t(b, 1, bits);
++   nir_def *fallback = nir_bcsel(b, no_alpha,
++                                one, nir_imm_intN_t(b, 0, bits));
++   nir_def *value = nir_vec4(b, nir_channel(b, &intr->def, 0),
++                            nir_channel(b, &intr->def, 1),
++                            nir_channel(b, &intr->def, 2),
++                            nir_bcsel(b, oob, fallback,
++                                      nir_channel(b, &intr->def, 3)));
++   nir_def_rewrite_uses_after(&intr->def, value);
++   return true;
++}
++#endif
++
+ static VkResult
+ panvk_compile_nir(struct panvk_device *dev, nir_shader *nir,
+                   VkShaderCreateFlagsEXT shader_flags,
+@@ -2743,6 +2788,16 @@ panvk_compile_shader(struct panvk_device *dev,
+        info->robustness->storage_buffers ==
+           VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2_EXT) &&
+       !pan_env_flag("PANVK_V9_TEXEL_OOB_HW");
++
++   const bool robust_vertex_inputs =
++      dev->vk.enabled_features.nullDescriptor ||
++      info->robustness->vertex_inputs ==
++         VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2_EXT ||
++      (state &&
++       (state->vertex_input_robustness ==
++           VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DEVICE_DEFAULT_EXT ||
++        state->vertex_input_robustness ==
++           VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2_EXT));
+ #endif
+ 
+    /* lower_layer_writes() removed the gl_Layer store, the variable stays. */
+@@ -2850,6 +2905,21 @@ panvk_compile_shader(struct panvk_device *dev,
+          nir_assign_io_var_locations(nir, nir_var_shader_out);
+          panvk_lower_nir_io(nir);
+ 
++#if PAN_ARCH == 9
++         if (robust_vertex_inputs &&
++             !pan_env_flag("PANVK_V9_ATTR_OOB_HW")) {
++            if (v == PANVK_VS_VARIANT_SW) {
++               NIR_PASS(_, nir, nir_shader_intrinsics_pass,
++                        panvk_lower_vs_input_for_poly,
++                        nir_metadata_control_flow, NULL);
++            } else {
++               NIR_PASS(_, nir, pan_nir_lower_vs_inputs, inputs.gpu_id);
++            }
++            NIR_PASS(_, nir, nir_shader_intrinsics_pass,
++                     panvk_v9_lower_robust_attr, nir_metadata_control_flow, NULL);
++         }
++#endif
++
+          if (v == PANVK_VS_VARIANT_SW) {
+             /* The Vulkan shader preprocessing path can leave
+              * info.outputs_written stale while outputs are still derefs.
+diff --git a/src/vulkan/runtime/vk_graphics_state.c b/src/vulkan/runtime/vk_graphics_state.c
+index c341a60..53b168d 100644
+--- a/src/vulkan/runtime/vk_graphics_state.c
++++ b/src/vulkan/runtime/vk_graphics_state.c
+@@ -1611,6 +1611,10 @@ vk_graphics_pipeline_state_fill(const struct vk_device *device,
+ 
+    enum mesa_vk_graphics_state_groups needs = 0;
+    if (lib & VK_GRAPHICS_PIPELINE_LIBRARY_VERTEX_INPUT_INTERFACE_BIT_EXT) {
++      struct vk_pipeline_robustness_state robustness;
++      vk_pipeline_robustness_state_fill(&device->robustness_state, &robustness,
++                                        info->pNext, NULL);
++      state->vertex_input_robustness = robustness.vertex_inputs;
+       needs |= MESA_VK_GRAPHICS_STATE_VERTEX_INPUT_BIT;
+       needs |= MESA_VK_GRAPHICS_STATE_INPUT_ASSEMBLY_BIT;
+    }
+@@ -1922,6 +1926,9 @@ vk_graphics_pipeline_state_merge(struct vk_graphics_pipeline_state *dst,
+    dst->shader_stages |= src->shader_stages;
+ 
+    dst->pipeline_flags |= src->pipeline_flags;
++   if (dst->vertex_input_robustness ==
++       VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DEVICE_DEFAULT_EXT)
++      dst->vertex_input_robustness = src->vertex_input_robustness;
+    dst->feedback_loop_not_input_only |= src->feedback_loop_not_input_only;
+    dst->rasterization_order_access |= src->rasterization_order_access;
+ 
+@@ -2017,6 +2024,7 @@ vk_graphics_pipeline_state_copy(const struct vk_device *device,
+ #undef COPY_STATE_IF_NEEDED
+ 
+    state->pipeline_flags = old_state->pipeline_flags;
++   state->vertex_input_robustness = old_state->vertex_input_robustness;
+    state->feedback_loop_not_input_only =
+       old_state->feedback_loop_not_input_only;
+    state->rasterization_order_access = old_state->rasterization_order_access;
+diff --git a/src/vulkan/runtime/vk_graphics_state.h b/src/vulkan/runtime/vk_graphics_state.h
+index 1db6dd5..17680fb 100644
+--- a/src/vulkan/runtime/vk_graphics_state.h
++++ b/src/vulkan/runtime/vk_graphics_state.h
+@@ -1023,6 +1023,8 @@ struct vk_graphics_pipeline_state {
+     */
+    VkPipelineCreateFlags2KHR pipeline_flags;
+ 
++   VkPipelineRobustnessBufferBehaviorEXT vertex_input_robustness;
++
+    /* True if there are feedback loops that do not involve input attachments
+     * managed by the driver. This is set to true by the runtime if there
+     * are loops indicated by a pipeline flag (which may involve any image

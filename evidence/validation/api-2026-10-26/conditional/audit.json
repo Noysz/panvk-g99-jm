@@ -1,0 +1,206 @@
+{
+  "conditional_cts": [
+    {
+      "directory": "cts-full-android-0",
+      "cases": 1030,
+      "counts": {
+        "NotSupported": 615,
+        "Pass": 415
+      },
+      "unchanged_from_v2": true
+    },
+    {
+      "directory": "cts-full-android-1",
+      "cases": 1030,
+      "counts": {
+        "NotSupported": 615,
+        "Pass": 415
+      },
+      "unchanged_from_v2": true
+    },
+    {
+      "directory": "cts-full-android-2",
+      "cases": 1030,
+      "counts": {
+        "NotSupported": 615,
+        "Pass": 415
+      },
+      "unchanged_from_v2": true
+    },
+    {
+      "directory": "cts-full-host-0",
+      "cases": 1030,
+      "counts": {
+        "NotSupported": 615,
+        "Pass": 415
+      },
+      "unchanged_from_v2": true
+    },
+    {
+      "directory": "cts-full-host-1",
+      "cases": 1030,
+      "counts": {
+        "NotSupported": 615,
+        "Pass": 415
+      },
+      "unchanged_from_v2": true
+    },
+    {
+      "directory": "cts-full-host-2",
+      "cases": 1030,
+      "counts": {
+        "NotSupported": 615,
+        "Pass": 415
+      },
+      "unchanged_from_v2": true
+    },
+    {
+      "directory": "cts-split-android-0",
+      "cases": 1030,
+      "counts": {
+        "NotSupported": 615,
+        "Pass": 415
+      },
+      "unchanged_from_v2": true
+    },
+    {
+      "directory": "cts-split-host-0",
+      "cases": 1030,
+      "counts": {
+        "NotSupported": 615,
+        "Pass": 415
+      },
+      "unchanged_from_v2": true
+    },
+    {
+      "directory": "cts-ubo-android-0",
+      "cases": 1030,
+      "counts": {
+        "NotSupported": 615,
+        "Pass": 415
+      },
+      "unchanged_from_v2": true
+    },
+    {
+      "directory": "cts-ubo-host-0",
+      "cases": 1030,
+      "counts": {
+        "NotSupported": 615,
+        "Pass": 415
+      },
+      "unchanged_from_v2": true
+    }
+  ],
+  "probes": [
+    {
+      "directory": "local-tests/t09-conditional-shadow-qj7iuk24/shadow-android-l0-n0-s0-r0",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-shadow-qj7iuk24/shadow-android-l0-n0-s0-r1",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-shadow-qj7iuk24/shadow-android-l0-n0-s0-r2",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-shadow-qj7iuk24/shadow-android-l0-n0-s2-r0",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-shadow-qj7iuk24/shadow-android-l0-n1-s0-r0",
+      "submissions": 6,
+      "expected_negative": true,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-shadow-qj7iuk24/shadow-host-l0-n0-s0-r0",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-shadow-qj7iuk24/shadow-host-l0-n0-s0-r1",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-shadow-qj7iuk24/shadow-host-l0-n0-s0-r2",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-shadow-qj7iuk24/shadow-host-l0-n0-s2-r0",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-shadow-qj7iuk24/shadow-host-l0-n1-s0-r0",
+      "submissions": 6,
+      "expected_negative": true,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-shadow-qj7iuk24/shadow-software-l1-n0-s0-r0",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": true
+    },
+    {
+      "directory": "local-tests/t09-conditional-v4-ltr5oit7/inherited-v2-android-l0-b0-s0-r0",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-v4-ltr5oit7/inherited-v2-android-l0-b0-s0-r1",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-v4-ltr5oit7/inherited-v2-android-l0-b0-s0-r2",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-v4-ltr5oit7/inherited-v2-host-l0-b0-s0-r0",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-v4-ltr5oit7/inherited-v2-host-l0-b0-s0-r1",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    },
+    {
+      "directory": "local-tests/t09-conditional-v4-ltr5oit7/inherited-v2-host-l0-b0-s0-r2",
+      "submissions": 48,
+      "expected_negative": false,
+      "local_equivalent": false
+    }
+  ],
+  "checked_unique_files": 820,
+  "main_source_library_pins_checked": 71,
+  "public_head": "f9efac061bea8b42b96e631a482d81afe90e5178",
+  "public_repository_clean": true,
+  "shadow_bug_fixed_at_tested_scope": true,
+  "prior_indirect_xfb_gap_unchanged": true,
+  "depth_bounds_complete": false,
+  "release_candidate_ready": false
+}

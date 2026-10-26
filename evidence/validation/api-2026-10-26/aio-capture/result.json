@@ -1,0 +1,113 @@
+{
+  "completed": true,
+  "driver_mappings": [
+    {
+      "pid": 2079,
+      "lines": [
+        "72b5011000-72b5ad4000 r--p 00000000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so",
+        "72b5ad7000-72b62c1000 r-xp 00ac2000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so",
+        "72b62c4000-72b633a000 r--p 012ab000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so",
+        "72b633d000-72b6347000 rw-p 01320000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so"
+      ]
+    },
+    {
+      "pid": 2002,
+      "lines": [
+        "7ec7893000-7ec789f000 r--p 00004000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so",
+        "7ec7901000-7ec7904000 r--p 0131e000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so",
+        "7ec7904000-7ec7907000 r--p 014df000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so",
+        "7ec7b98000-7ec7b99000 r--p 00000000 fe:53 2302764                        local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so"
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "window": "0x1000001",
+      "title": "AIO Graphics Test  -  D3D11 Tessellation  -  235 FPS",
+      "seconds": 32.196979770989856,
+      "path": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/scene-00.png",
+      "sha256": "6d042e7ed0b69e6b2bb64c914c09e8db31c1ab6fdbc612551b86bd77b8852907",
+      "desktop": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/desktop-00.png",
+      "desktop_sha256": "b8157198a52e963e3a20b1850c171d044fdb0192b585ccfd7353c91c3217d257",
+      "tree": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/tree-00.txt",
+      "tree_sha256": "4f89258aedbd365631062bddb7ca0213a4ff595842f3ae52e629408e9aa45ad9"
+    },
+    {
+      "window": "0x1000001",
+      "title": "AIO Graphics Test  -  D3D11 Tessellation  -  368 FPS",
+      "seconds": 36.45975877100136,
+      "path": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/scene-01.png",
+      "sha256": "b84a67edb4b95ff3d3fdc2e1f2edab8c8683ec51507f1c303e5b0714d8ce8b9a",
+      "desktop": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/desktop-01.png",
+      "desktop_sha256": "f9854f4fa4295e371d8099d7c56c794ee3656ad1732e9a7393e3df2a2f02eb89",
+      "tree": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/tree-01.txt",
+      "tree_sha256": "c3cf9e2cdafa76397f380ed21849b981cf05f7ba5e4879f48024e41c63e19110"
+    },
+    {
+      "window": "0x1000001",
+      "title": "AIO Graphics Test  -  D3D11 Tessellation  -  236 FPS",
+      "seconds": 40.519856386992615,
+      "path": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/scene-02.png",
+      "sha256": "6d78e9a72c44cb4e3acf52bb76c08512befee4a4d11a64e1fc9794610f6f7385",
+      "desktop": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/desktop-02.png",
+      "desktop_sha256": "bfcfd1ca30111953a3ce74b9fdfc07720cd1810962bd1a2f54808b0ef7695bbf",
+      "tree": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/tree-02.txt",
+      "tree_sha256": "0bae6a29fed3630bef6a0e0bcdad9c7da4840f99115f37f241d3cde52edb55aa"
+    },
+    {
+      "window": "0x1000001",
+      "title": "AIO Graphics Test  -  D3D11 Tessellation  -  333 FPS",
+      "seconds": 44.61068554100348,
+      "path": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/scene-03.png",
+      "sha256": "881e9b858f9aab2c9f451fb96c32a84846644cfd016cbcc5a27281de959845ea",
+      "desktop": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/desktop-03.png",
+      "desktop_sha256": "dcdb4d6a49cd284b07899cd875d68d284beee66f5777dcd098e8c197dd35c182",
+      "tree": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/tree-03.txt",
+      "tree_sha256": "f69e0ee5a7de7c8b2615076f7ca4306c33749dff9b4bc4e9ffab8f4454e78e33"
+    },
+    {
+      "window": "0x1000001",
+      "title": "AIO Graphics Test  -  D3D11 Tessellation  -  236 FPS",
+      "seconds": 49.34576430998277,
+      "path": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/scene-04.png",
+      "sha256": "1e1c7d1739d2553a9be5d21e6392eee4bbb6b97ae1648fa2a087ed1062a2056d",
+      "desktop": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/desktop-04.png",
+      "desktop_sha256": "1707b2a53e6aa736c270cbc2d8063654a09ba4d9deb22d4b856587ea0096ffc4",
+      "tree": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/tree-04.txt",
+      "tree_sha256": "0bae6a29fed3630bef6a0e0bcdad9c7da4840f99115f37f241d3cde52edb55aa"
+    },
+    {
+      "window": "0x1000001",
+      "title": "AIO Graphics Test  -  D3D11 Tessellation  -  323 FPS",
+      "seconds": 53.63128900300944,
+      "path": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/scene-05.png",
+      "sha256": "1645072b1e82b0ce6bbf27d1f50348356f47586fe3079f18c66261d4dd0abe14",
+      "desktop": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/desktop-05.png",
+      "desktop_sha256": "6f90577791d2fafa1843f867dea10d04751a41de6dcc43041940bcd235380be9",
+      "tree": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/tree-05.txt",
+      "tree_sha256": "71d1c50ef2e601ca75d23b21ffe574dc5d63ac53098ac1e8144dd8cd62342ccb"
+    },
+    {
+      "window": "0x1000001",
+      "title": "AIO Graphics Test  -  D3D11 Tessellation  -  323 FPS",
+      "seconds": 57.87570377200609,
+      "path": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/scene-06.png",
+      "sha256": "9d210df8968272409c9f8a2559e7f888355c50d6d2a4604ad8c72af47351e2c5",
+      "desktop": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/desktop-06.png",
+      "desktop_sha256": "33216bf0942d3f7d8230ad3588e2ae86d73684801a5785ca5d9accf4507665b4",
+      "tree": "local-tests/t10-runtime-v6-png55hzr/aio-capture-diagnostic-1-10-3-tess/tree-06.txt",
+      "tree_sha256": "52972da763ea16d3845b90a6d249067873b0df6c4b859b959db53e26cf597ebd"
+    }
+  ],
+  "visual_review_required": true,
+  "returncode": 0,
+  "compiler_loads": [
+    "0024:trace:loaddll:build_module Loaded L\"Z:\\\\data\\\\data\\\\com.termux\\\\files\\\\home\\\\panvk-refs\\\\resume-t06-t08-20261020-78jg0uq5\\\\driver-t06-gqwskwgx\\\\tests\\\\t10-runtime-v6-png55hzr\\\\aio-capture-diagnostic-1-10-3-tess\\\\d3dcompiler_47.dll\" at 0000006FFCE30000: native"
+  ],
+  "cleanup": {
+    "stop": 0,
+    "wait": 0,
+    "remaining": []
+  },
+  "pins_unchanged": true
+}

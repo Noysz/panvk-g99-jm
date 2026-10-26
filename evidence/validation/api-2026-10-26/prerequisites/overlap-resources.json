@@ -1,0 +1,1011 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "label": "host-on-1-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-off-1-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-barrier-1-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_SERIAL_BARRIER": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-on-2-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-off-2-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-barrier-2-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_SERIAL_BARRIER": "1",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-on-1-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-off-1-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-barrier-1-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_SERIAL_BARRIER": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-on-2-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-off-2-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-barrier-2-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_SERIAL_BARRIER": "1",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-on-1-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-off-1-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-barrier-1-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_SERIAL_BARRIER": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-on-2-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-off-2-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-barrier-2-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_SERIAL_BARRIER": "1",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-negative",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_WRONG_EXPECTED": "1"
+      },
+      "returncode": 2,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-incremental-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "PANVK_TILER_HEAP_INCREMENTAL": "true"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-allocation-1-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-allocation-2-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "2"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-allocation-3-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "3"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-incremental-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "PANVK_TILER_HEAP_INCREMENTAL": "true"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-allocation-1-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-allocation-2-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "2"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-allocation-3-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "3"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-incremental-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "PANVK_TILER_HEAP_INCREMENTAL": "true"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-allocation-1-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-allocation-2-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "2"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-allocation-3-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "3"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-on-1-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-off-1-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-barrier-1-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_SERIAL_BARRIER": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-on-2-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-off-2-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-barrier-2-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_SERIAL_BARRIER": "1",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-on-1-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-off-1-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-barrier-1-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_SERIAL_BARRIER": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-on-2-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-off-2-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-barrier-2-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_SERIAL_BARRIER": "1",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-on-1-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-off-1-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-barrier-1-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_SERIAL_BARRIER": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-on-2-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-off-2-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-barrier-2-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_SERIAL_BARRIER": "1",
+        "MIXED_TWO_CBS": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 0,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": false,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-negative",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "MIXED_WRONG_EXPECTED": "1"
+      },
+      "returncode": 2,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-incremental-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "PANVK_TILER_HEAP_INCREMENTAL": "true"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-allocation-1-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-allocation-2-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "2"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-allocation-3-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "3"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-incremental-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "PANVK_TILER_HEAP_INCREMENTAL": "true"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-allocation-1-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-allocation-2-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "2"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-allocation-3-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "3"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-incremental-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "PANVK_TILER_HEAP_INCREMENTAL": "true"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-allocation-1-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "1"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-allocation-2-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "2"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-allocation-3-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/resource_probe_v2.so",
+        "OVERLAP_FAIL_ALLOCATION": "3"
+      },
+      "returncode": 0,
+      "graph_forks_per_submit": 2,
+      "terminal_and_fragment_order": true,
+      "distinct_reused_heap_tls_banks": true,
+      "wls_exercised": false,
+      "allocation_failure_serializes_first_submit_then_overlap_resumes": true,
+      "pixel_input_guard_checks": true,
+      "fd_restored": true
+    }
+  ],
+  "pins_unchanged": true,
+  "scope": "Correctness, resource addresses, dependency graph, optional OOM serial fallback and resumed overlap; no performance or live fault recovery claim"
+}

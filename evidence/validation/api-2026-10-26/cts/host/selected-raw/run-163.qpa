@@ -1,0 +1,853 @@
+#sessionInfo releaseName 31807adf6dc7111b32b1ade990d0d8e552fa1b78
+#sessionInfo releaseId 0x31807adf
+#sessionInfo targetName "Android"
+#sessionInfo logFormatVersion "0.3.4"
+#sessionInfo vendorID 0x13b5
+#sessionInfo deviceID 0x90930010
+#sessionInfo deviceName Mali-G57 MC2
+#sessionInfo commandLineParameters "--deqp-vk-library-path=/data/data/com.termux/files/home/cts/shim/libvkshim.so --deqp-caselist-file=/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t10-tracked-wai_b9j4/bounds-v6-host/cases-163.txt --deqp-log-filename=/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t10-tracked-wai_b9j4/bounds-v6-host/run-163.qpa --deqp-log-images=disable --deqp-log-shader-sources=disable --deqp-watchdog=disable"
+
+#beginSession
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_line_strip_6
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_line_strip_6" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">351.067993</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.016000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">360560</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_line_strip_6_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_line_strip_6_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">1.136000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.011000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">6400</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_line_strip_8
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_line_strip_8" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">5562</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_line_strip_8_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_line_strip_8_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">2837</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_10
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_10" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">2507</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_10_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_10_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">3301</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_12
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_12" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">2941</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_12_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_12_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">5926</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_6
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_6" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">2272</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_6_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_6_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">4519</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_8
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_8" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">2998</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_8_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_8_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">5828</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_patch_list_10
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_patch_list_10" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="tesc" Description="Program: tesc">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <TessControlShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessControlShader>
+</ShaderProgram>
+  <Number Name="TessControlCompileTime" Description="Tesselation control shader compile time" Tag="Time" Unit="ms">1.221000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.009000</Number>
+</Section>
+ <Section Name="tese" Description="Program: tese">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <TessEvaluationShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessEvaluationShader>
+</ShaderProgram>
+  <Number Name="TessEvaluationCompileTime" Description="Tesselation evaluation shader compile time" Tag="Time" Unit="ms">1.085000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.008000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">1.103000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.008000</Number>
+</Section>
+ <Text>Primitive 0 failed: expected rotation of [0, 0, 0, 0, 0, 0, 0, 0, 0] but found [0, 1, 2, 3, 4, 5, 0, 0, 0]; threshold: 0</Text>
+ <Text>Primitive 1 failed: expected rotation of [1, 1, 1, 1, 1, 1, 1, 1, 1] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Primitive 2 failed: expected rotation of [2, 2, 2, 2, 2, 2, 2, 2, 2] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">11888</Number>
+ <Result StatusCode="Fail">Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_patch_list_10_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_patch_list_10_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="tesc" Description="Program: tesc">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessControlShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessControlShader>
+</ShaderProgram>
+  <Number Name="TessControlCompileTime" Description="Tesselation control shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="tese" Description="Program: tese">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <TessEvaluationShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessEvaluationShader>
+</ShaderProgram>
+  <Number Name="TessEvaluationCompileTime" Description="Tesselation evaluation shader compile time" Tag="Time" Unit="ms">1.208000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.009000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>Primitive 1 failed: expected rotation of [1, 1, 1, 1, 1, 1, 1, 1, 1] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Primitive 2 failed: expected rotation of [2, 2, 2, 2, 2, 2, 2, 2, 2] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">9304</Number>
+ <Result StatusCode="Fail">Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_patch_list_12
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_patch_list_12" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="tesc" Description="Program: tesc">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessControlShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessControlShader>
+</ShaderProgram>
+  <Number Name="TessControlCompileTime" Description="Tesselation control shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="tese" Description="Program: tese">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessEvaluationShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessEvaluationShader>
+</ShaderProgram>
+  <Number Name="TessEvaluationCompileTime" Description="Tesselation evaluation shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>Primitive 1 failed: expected rotation of [1, 1, 1, 1, 1, 1, 1, 1, 1] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Primitive 2 failed: expected rotation of [2, 2, 2, 2, 2, 2, 2, 2, 2] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Primitive 3 failed: expected rotation of [3, 3, 3, 3, 3, 3, 3, 3, 3] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">6840</Number>
+ <Result StatusCode="Fail">Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_patch_list_12_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_patch_list_12_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="tesc" Description="Program: tesc">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessControlShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessControlShader>
+</ShaderProgram>
+  <Number Name="TessControlCompileTime" Description="Tesselation control shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="tese" Description="Program: tese">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessEvaluationShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessEvaluationShader>
+</ShaderProgram>
+  <Number Name="TessEvaluationCompileTime" Description="Tesselation evaluation shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>Primitive 1 failed: expected rotation of [1, 1, 1, 1, 1, 1, 1, 1, 1] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Primitive 2 failed: expected rotation of [2, 2, 2, 2, 2, 2, 2, 2, 2] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Primitive 3 failed: expected rotation of [3, 3, 3, 3, 3, 3, 3, 3, 3] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">9134</Number>
+ <Result StatusCode="Fail">Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_patch_list_6
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_patch_list_6" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="tesc" Description="Program: tesc">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessControlShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessControlShader>
+</ShaderProgram>
+  <Number Name="TessControlCompileTime" Description="Tesselation control shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="tese" Description="Program: tese">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessEvaluationShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessEvaluationShader>
+</ShaderProgram>
+  <Number Name="TessEvaluationCompileTime" Description="Tesselation evaluation shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>Primitive 1 failed: expected rotation of [1, 1, 1, 1, 1, 1, 1, 1, 1] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">6381</Number>
+ <Result StatusCode="Fail">Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_patch_list_6_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_patch_list_6_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="tesc" Description="Program: tesc">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessControlShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessControlShader>
+</ShaderProgram>
+  <Number Name="TessControlCompileTime" Description="Tesselation control shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="tese" Description="Program: tese">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessEvaluationShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessEvaluationShader>
+</ShaderProgram>
+  <Number Name="TessEvaluationCompileTime" Description="Tesselation evaluation shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>Primitive 1 failed: expected rotation of [1, 1, 1, 1, 1, 1, 1, 1, 1] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">8896</Number>
+ <Result StatusCode="Fail">Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_patch_list_8
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_patch_list_8" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="tesc" Description="Program: tesc">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessControlShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessControlShader>
+</ShaderProgram>
+  <Number Name="TessControlCompileTime" Description="Tesselation control shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="tese" Description="Program: tese">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessEvaluationShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessEvaluationShader>
+</ShaderProgram>
+  <Number Name="TessEvaluationCompileTime" Description="Tesselation evaluation shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>Primitive 1 failed: expected rotation of [1, 1, 1, 1, 1, 1, 1, 1, 1] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">6890</Number>
+ <Result StatusCode="Fail">Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_patch_list_8_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_patch_list_8_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="tesc" Description="Program: tesc">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessControlShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessControlShader>
+</ShaderProgram>
+  <Number Name="TessControlCompileTime" Description="Tesselation control shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="tese" Description="Program: tese">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessEvaluationShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessEvaluationShader>
+</ShaderProgram>
+  <Number Name="TessEvaluationCompileTime" Description="Tesselation evaluation shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>Primitive 1 failed: expected rotation of [1, 1, 1, 1, 1, 1, 1, 1, 1] but found [0, 0, 0, 0, 0, 0, 0, 0, 0]; threshold: 0</Text>
+ <Text>Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">9436</Number>
+ <Result StatusCode="Fail">Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_triangle_fan_10
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_triangle_fan_10" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">4110</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_triangle_fan_10_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_triangle_fan_10_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">3053</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_triangle_fan_12
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_triangle_fan_12" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">6404</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_triangle_fan_12_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_triangle_fan_12_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">2603</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_triangle_fan_6
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_triangle_fan_6" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">2612</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_triangle_fan_6_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_triangle_fan_6_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">2635</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_triangle_fan_8
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_triangle_fan_8" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">2689</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_triangle_fan_8_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_triangle_fan_8_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">5758</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_triangle_list_10
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_triangle_list_10" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">2378</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_triangle_list_10_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_triangle_list_10_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">2739</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_triangle_list_12
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_triangle_list_12" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">4500</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple.winding_triangle_list_12_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple.winding_triangle_list_12_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">4550</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+Run took 0.62 seconds
+
+#endSession

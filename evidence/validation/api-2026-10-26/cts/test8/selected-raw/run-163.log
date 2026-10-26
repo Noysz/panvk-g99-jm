@@ -1,0 +1,112 @@
+Writing test log into /data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t10-tracked-wai_b9j4/released-test8-common-deps-v2/run-163.qpa
+dEQP Core 31807adf6dc7111b32b1ade990d0d8e552fa1b78 (0x31807adf) starting..
+  target implementation = 'Android'
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_line_strip_6'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_line_strip_6_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_line_strip_8'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_line_strip_8_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_10'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_10_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_12'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_12_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_6'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_6_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_8'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_line_strip_with_adjacency_8_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_patch_list_10'..
+  Fail (Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_patch_list_10_ptsz'..
+  Fail (Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_patch_list_12'..
+  Fail (Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_patch_list_12_ptsz'..
+  Fail (Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_patch_list_6'..
+  Fail (Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_patch_list_6_ptsz'..
+  Fail (Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_patch_list_8'..
+  Fail (Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_patch_list_8_ptsz'..
+  Fail (Vertex data verification failed; check log for details at vktTransformFeedbackSimpleTests.cpp:1749)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_triangle_fan_10'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_triangle_fan_10_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_triangle_fan_12'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_triangle_fan_12_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_triangle_fan_6'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_triangle_fan_6_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_triangle_fan_8'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_triangle_fan_8_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_triangle_list_10'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_triangle_list_10_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_triangle_list_12'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.winding_triangle_list_12_ptsz'..
+  Pass (Pass)
+
+DONE!
+
+Test run totals:
+  Passed:        24/32 (75.0%)
+  Failed:        8/32 (25.0%)
+  Not supported: 0/32 (0.0%)
+  Warnings:      0/32 (0.0%)
+  Waived:        0/32 (0.0%)

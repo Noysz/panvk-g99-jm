@@ -1,0 +1,774 @@
+#sessionInfo releaseName 31807adf6dc7111b32b1ade990d0d8e552fa1b78
+#sessionInfo releaseId 0x31807adf
+#sessionInfo targetName "Android"
+#sessionInfo logFormatVersion "0.3.4"
+#sessionInfo vendorID 0x13b5
+#sessionInfo deviceID 0x90930010
+#sessionInfo deviceName Mali-G57 MC2 FourFectVK 0.1.0 Test8
+#sessionInfo commandLineParameters "--deqp-vk-library-path=/data/data/com.termux/files/home/cts/shim/libvkshim.so --deqp-caselist-file=/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t10-tracked-wai_b9j4/released-test8-common-deps-v2/cases-172.txt --deqp-log-filename=/data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t10-tracked-wai_b9j4/released-test8-common-deps-v2/run-172.qpa --deqp-log-images=disable --deqp-log-shader-sources=disable --deqp-watchdog=disable"
+
+#beginSession
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_8_512
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_8_512" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">309.550995</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.012000</Number>
+</Section>
+ <Text>maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">313337</Number>
+ <Result StatusCode="NotSupported">maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_1_131072
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_1_131072" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">1.103000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.008000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">11174</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_1_256
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_1_256" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">6862</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_1_512
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_1_512" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">4624</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_2_131072
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_2_131072" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">1.142000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.009000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">11451</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_2_256
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_2_256" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">4197</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_2_512
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_2_512" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">4588</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_4_131072
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_4_131072" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">2.732000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.012000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">15536</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_4_256
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_4_256" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">8493</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_4_512
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_4_512" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">4935</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_8_131072
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_8_131072" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">1701</Number>
+ <Result StatusCode="NotSupported">maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_8_256
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_8_256" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">1291</Number>
+ <Result StatusCode="NotSupported">maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_8_512
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_beginqueryindexed_streamid_0_8_512" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">1086</Number>
+ <Result StatusCode="NotSupported">maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_1_131072
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_1_131072" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">5330</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_1_256
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_1_256" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">3850</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_1_512
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_1_512" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">7192</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_2_131072
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_2_131072" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">7326</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_2_256
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_2_256" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">4802</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_2_512
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_2_512" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">6319</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_4_131072
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_4_131072" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">8398</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_4_256
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_4_256" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">7564</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_4_512
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_4_512" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">4385</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_8_131072
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_8_131072" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">745</Number>
+ <Result StatusCode="NotSupported">maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_8_256
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_8_256" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">984</Number>
+ <Result StatusCode="NotSupported">maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_8_512
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_fast_gpl.xfb_culldistance_endqueryindexed_streamid_0_8_512" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">1533</Number>
+ <Result StatusCode="NotSupported">maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_geometry
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_geometry" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="geom" Description="Program: geom">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <GeometryShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</GeometryShader>
+</ShaderProgram>
+  <Number Name="GeometryCompileTime" Description="Geometry shader compile time" Tag="Time" Unit="ms">3.563000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.017000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">2.753000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.024000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">37668</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_geometry_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_geometry_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="geom" Description="Program: geom">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <GeometryShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</GeometryShader>
+</ShaderProgram>
+  <Number Name="GeometryCompileTime" Description="Geometry shader compile time" Tag="Time" Unit="ms">1.483000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.011000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">28438</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_tese
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_tese" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="tesc" Description="Program: tesc">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <TessControlShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessControlShader>
+</ShaderProgram>
+  <Number Name="TessControlCompileTime" Description="Tesselation control shader compile time" Tag="Time" Unit="ms">1.204000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.009000</Number>
+</Section>
+ <Section Name="tese" Description="Program: tese">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <TessEvaluationShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessEvaluationShader>
+</ShaderProgram>
+  <Number Name="TessEvaluationCompileTime" Description="Tesselation evaluation shader compile time" Tag="Time" Unit="ms">1.527000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.010000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>Failed at vertex 0 depth. Received:0 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">111785</Number>
+ <Result StatusCode="Fail">Failed at vertex 0 depth. Received:0 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_tese_ptsz
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_tese_ptsz" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="tesc" Description="Program: tesc">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <TessControlShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessControlShader>
+</ShaderProgram>
+  <Number Name="TessControlCompileTime" Description="Tesselation control shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="tese" Description="Program: tese">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <TessEvaluationShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</TessEvaluationShader>
+</ShaderProgram>
+  <Number Name="TessEvaluationCompileTime" Description="Tesselation evaluation shader compile time" Tag="Time" Unit="ms">1.225000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.010000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>Failed at vertex 0 depth. Received:0 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">85491</Number>
+ <Result StatusCode="Fail">Failed at vertex 0 depth. Received:0 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_vertex
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_optimized_gpl.depth_clip_control_vertex" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">1.097000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.009000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">8887</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_optimized_gpl.streams_clipdistance_1
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_optimized_gpl.streams_clipdistance_1" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="frag" Description="Program: frag">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">1.097000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.010000</Number>
+</Section>
+ <Section Name="geom" Description="Program: geom">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <GeometryShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</GeometryShader>
+</ShaderProgram>
+  <Number Name="GeometryCompileTime" Description="Geometry shader compile time" Tag="Time" Unit="ms">1.714000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.018000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">1.761000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.009000</Number>
+</Section>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">53935</Number>
+ <Result StatusCode="Pass">Pass</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+#beginTestCaseResult dEQP-VK.transform_feedback.simple_optimized_gpl.streams_clipdistance_14
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseResult CasePath="dEQP-VK.transform_feedback.simple_optimized_gpl.streams_clipdistance_14" Version="0.3.4" CaseType="SelfValidate">
+ <Section Name="frag" Description="Program: frag">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <FragmentShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</FragmentShader>
+</ShaderProgram>
+  <Number Name="FragmentCompileTime" Description="Fragment shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Section Name="geom" Description="Program: geom">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog></InfoLog>
+   <GeometryShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</GeometryShader>
+</ShaderProgram>
+  <Number Name="GeometryCompileTime" Description="Geometry shader compile time" Tag="Time" Unit="ms">2.882000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.022000</Number>
+</Section>
+ <Section Name="vert" Description="Program: vert">
+  <ShaderProgram LinkStatus="OK">
+   <InfoLog>Loaded from cache</InfoLog>
+   <VertexShader CompileStatus="OK">
+    <ShaderSource></ShaderSource>
+    <InfoLog></InfoLog>
+</VertexShader>
+</ShaderProgram>
+  <Number Name="VertexCompileTime" Description="Vertex shader compile time" Tag="Time" Unit="ms">0.000000</Number>
+  <Number Name="LinkTime" Description="Link time" Tag="Time" Unit="ms">0.000000</Number>
+</Section>
+ <Text>maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481</Text>
+ <Number Name="TestDuration" Description="Test case duration in microseconds" Tag="Time" Unit="us">11059</Number>
+ <Result StatusCode="NotSupported">maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481</Result>
+</TestCaseResult>
+
+#endTestCaseResult
+
+Run took 0.90 seconds
+
+#endSession

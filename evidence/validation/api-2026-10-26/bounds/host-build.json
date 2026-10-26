@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/data/data/com.termux/files/usr/bin/ninja",
+    "-C",
+    "buildU",
+    "-j2",
+    "src/panfrost/vulkan/libvulkan_panfrost.so"
+  ],
+  "returncode": 0,
+  "seconds": 930.6154330550053,
+  "binary": "local-tests/t09-depth-bounds-v6-q2933ekx/host-depth-bounds.so",
+  "sha256": "4cda12f52760b8333d3eefc52cbf91d59edc335ad52340f4556bb1a9beef4b3a",
+  "depth_bounds_exposed": true,
+  "opt_in": "PANVK_V9_DEPTH_BOUNDS"
+}

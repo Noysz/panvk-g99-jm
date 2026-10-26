@@ -1,0 +1,14 @@
+{
+  "completed": true,
+  "new_positive": 550,
+  "new_negative": 6,
+  "compared_to_original_host": 556,
+  "reused_first_host_positive": 110,
+  "reused_host_negative": 6,
+  "host_positive_runs": 3,
+  "android_positive_runs": 3,
+  "positive_cases_per_run": 110,
+  "total_positive_executions_in_six_runs": 660,
+  "initial_two_d16_fix_confirmations_not_counted": true,
+  "scope": "Exact per-case summaries/effects/stencil match initial host run; detailed raw and image audits are separate"
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "run": "freebattle-v6-default-r2",
+    "diagnostic": true,
+    "scene": "free-battle-com-single",
+    "overlap": "false",
+    "vectorize": "false",
+    "frames": 1980,
+    "interval_seconds": 180.079747,
+    "wall_seconds": 180.20601170300506,
+    "fps": 10.995128730384101,
+    "frame_ms_median": 88.0,
+    "frame_ms_p95": 116.728,
+    "draws_min_median_max": [
+      1026,
+      1144.0,
+      1251
+    ],
+    "cpu_clocks_khz": {
+      "0": [
+        2000000,
+        2000000,
+        2000000
+      ],
+      "6": [
+        725000,
+        2200000,
+        2200000
+      ]
+    },
+    "graph_window": {},
+    "possible_fault_lines": [],
+    "csv_sha256": "da1182a478ee5237acb59cc82e490f9c534bcb22375c1912a41d4a3665a8bab5",
+    "scope": "Device GPU with Termux:X11 and Wine desktop; not a Winlator container FPS comparison",
+    "visual_status": "Requires manual before/after review; CSV checks do not prove correct rendering"
+  }
+]

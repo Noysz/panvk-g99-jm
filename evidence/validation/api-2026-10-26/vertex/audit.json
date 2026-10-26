@@ -1,0 +1,155 @@
+{
+  "basic_processes": 72,
+  "positive_processes": 60,
+  "negative_processes": 12,
+  "cts_runs": [
+    {
+      "folder": "cts-fixed-host-0",
+      "counts": {
+        "Pass": 28
+      },
+      "chunks": 1
+    },
+    {
+      "folder": "cts-extended-host-0",
+      "counts": {
+        "Pass": 316,
+        "NotSupported": 83
+      },
+      "chunks": 13
+    },
+    {
+      "folder": "cts-fixed-cache-host-0",
+      "counts": {
+        "Pass": 6
+      },
+      "chunks": 1
+    },
+    {
+      "folder": "cts-fixed-host-1",
+      "counts": {
+        "Pass": 28
+      },
+      "chunks": 1
+    },
+    {
+      "folder": "cts-extended-host-1",
+      "counts": {
+        "Pass": 316,
+        "NotSupported": 83
+      },
+      "chunks": 13
+    },
+    {
+      "folder": "cts-fixed-cache-host-1",
+      "counts": {
+        "Pass": 6
+      },
+      "chunks": 1
+    },
+    {
+      "folder": "cts-fixed-host-2",
+      "counts": {
+        "Pass": 28
+      },
+      "chunks": 1
+    },
+    {
+      "folder": "cts-extended-host-2",
+      "counts": {
+        "Pass": 316,
+        "NotSupported": 83
+      },
+      "chunks": 13
+    },
+    {
+      "folder": "cts-fixed-cache-host-2",
+      "counts": {
+        "Pass": 6
+      },
+      "chunks": 1
+    },
+    {
+      "folder": "cts-hw-host",
+      "counts": {
+        "Fail": 28
+      },
+      "chunks": 1
+    },
+    {
+      "folder": "cts-fixed-android-0",
+      "counts": {
+        "Pass": 28
+      },
+      "chunks": 1
+    },
+    {
+      "folder": "cts-extended-android-0",
+      "counts": {
+        "Pass": 316,
+        "NotSupported": 83
+      },
+      "chunks": 13
+    },
+    {
+      "folder": "cts-fixed-cache-android-0",
+      "counts": {
+        "Pass": 6
+      },
+      "chunks": 1
+    },
+    {
+      "folder": "cts-fixed-android-1",
+      "counts": {
+        "Pass": 28
+      },
+      "chunks": 1
+    },
+    {
+      "folder": "cts-extended-android-1",
+      "counts": {
+        "Pass": 316,
+        "NotSupported": 83
+      },
+      "chunks": 13
+    },
+    {
+      "folder": "cts-fixed-cache-android-1",
+      "counts": {
+        "Pass": 6
+      },
+      "chunks": 1
+    },
+    {
+      "folder": "cts-fixed-android-2",
+      "counts": {
+        "Pass": 28
+      },
+      "chunks": 1
+    },
+    {
+      "folder": "cts-extended-android-2",
+      "counts": {
+        "Pass": 316,
+        "NotSupported": 83
+      },
+      "chunks": 13
+    },
+    {
+      "folder": "cts-fixed-cache-android-2",
+      "counts": {
+        "Pass": 6
+      },
+      "chunks": 1
+    },
+    {
+      "folder": "cts-hw-android",
+      "counts": {
+        "Fail": 28
+      },
+      "chunks": 1
+    }
+  ],
+  "raw_hashes_and_cases_match": true,
+  "scope": "Targeted robustness/GPL/cache gates; null-only results separate"
+}

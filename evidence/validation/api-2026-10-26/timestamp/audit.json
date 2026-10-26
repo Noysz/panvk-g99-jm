@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "api_and_extended_processes": {
+    "api-matrix-result.json": 26,
+    "extended-multiview/result.json": 36,
+    "extended-controls/result.json": 24
+  },
+  "raw_logs_checked": 86,
+  "cts": [
+    {
+      "label": "timestamp-baseline",
+      "counts": {
+        "NotSupported": 278
+      }
+    },
+    {
+      "label": "timestamp-host-0",
+      "counts": {
+        "Pass": 252,
+        "NotSupported": 26
+      }
+    },
+    {
+      "label": "timestamp-host-1",
+      "counts": {
+        "Pass": 252,
+        "NotSupported": 26
+      }
+    },
+    {
+      "label": "timestamp-host-2",
+      "counts": {
+        "Pass": 252,
+        "NotSupported": 26
+      }
+    },
+    {
+      "label": "timestamp-android-0",
+      "counts": {
+        "Pass": 252,
+        "NotSupported": 26
+      }
+    },
+    {
+      "label": "timestamp-android-1",
+      "counts": {
+        "Pass": 252,
+        "NotSupported": 26
+      }
+    },
+    {
+      "label": "timestamp-android-2",
+      "counts": {
+        "Pass": 252,
+        "NotSupported": 26
+      }
+    }
+  ],
+  "candidate_cts_total": 1668,
+  "candidate_passes": 1512,
+  "candidate_not_supported": 156,
+  "candidate_failures": 0,
+  "not_supported_scope": "26 dedicated-transfer-queue cases per candidate run",
+  "source_replay": "local-tests/t10-timestamp-v3-utz0f7ix/source-replay.json",
+  "scope": "Targeted timestamp API, lifetime controls, multiview/suspend/boundary and selected CTS. Not full CTS, gameplay, FPS or release readiness.",
+  "build": {
+    "host-timestamps-v3.so": {
+      "sha256": "08bd50583ac4ccfacd4c64166e24aaae13c3fb1c54bde4066d03709adfecc4bf",
+      "bytes": 132559016,
+      "second_pass_unchanged": true
+    },
+    "android-timestamps-v3.so": {
+      "sha256": "37f5aff177b687c6771a847e3aa947c62990b11e220606c16ae8ea8a203cafc5",
+      "bytes": 21872984,
+      "second_pass_unchanged": true
+    }
+  }
+}

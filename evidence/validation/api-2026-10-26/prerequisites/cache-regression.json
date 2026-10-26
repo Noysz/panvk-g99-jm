@@ -1,0 +1,736 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "label": "baseline-new-0",
+      "returncode": 0,
+      "seconds": 1.4523939230020915,
+      "counts": {
+        "Pass": 38,
+        "NotSupported": 37
+      },
+      "matches_baseline": null
+    },
+    {
+      "label": "baseline-new-75",
+      "returncode": 0,
+      "seconds": 1.3764329229998111,
+      "counts": {
+        "NotSupported": 38,
+        "Pass": 37
+      },
+      "matches_baseline": null
+    },
+    {
+      "label": "baseline-new-150",
+      "returncode": 0,
+      "seconds": 1.0566169999983686,
+      "counts": {
+        "Pass": 1
+      },
+      "matches_baseline": null
+    },
+    {
+      "label": "candidate-0-sync-0",
+      "returncode": 0,
+      "seconds": 110.25596239100196,
+      "counts": {
+        "Pass": 59,
+        "NotSupported": 16
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-sync-75",
+      "returncode": 0,
+      "seconds": 0.3399890000000596,
+      "counts": {
+        "NotSupported": 2,
+        "Pass": 2
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-memory-draw-0",
+      "returncode": 0,
+      "seconds": 14.821659155000816,
+      "counts": {
+        "Pass": 13,
+        "NotSupported": 62
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-memory-draw-75",
+      "returncode": 0,
+      "seconds": 41.94181384799958,
+      "counts": {
+        "NotSupported": 16,
+        "Pass": 59
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-memory-draw-150",
+      "returncode": 0,
+      "seconds": 37.53402769400054,
+      "counts": {
+        "Pass": 63,
+        "NotSupported": 12
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-memory-draw-225",
+      "returncode": 0,
+      "seconds": 2.6134587689994078,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-memory-draw-300",
+      "returncode": 0,
+      "seconds": 2.3233673850008927,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-memory-draw-375",
+      "returncode": 0,
+      "seconds": 2.7790085389970045,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-memory-draw-450",
+      "returncode": 0,
+      "seconds": 3.3559014620004746,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-memory-draw-525",
+      "returncode": 0,
+      "seconds": 2.6894593840006564,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-memory-draw-600",
+      "returncode": 0,
+      "seconds": 0.7467116920015542,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-memory-draw-675",
+      "returncode": 0,
+      "seconds": 0.434776308000437,
+      "counts": {
+        "Pass": 66,
+        "NotSupported": 9
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-memory-draw-750",
+      "returncode": 0,
+      "seconds": 9.952609615997062,
+      "counts": {
+        "NotSupported": 59,
+        "Pass": 16
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-memory-draw-825",
+      "returncode": 0,
+      "seconds": 66.1871860809988,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-memory-draw-900",
+      "returncode": 0,
+      "seconds": 7.714466230998369,
+      "counts": {
+        "Pass": 11,
+        "NotSupported": 16
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-query-0",
+      "returncode": 0,
+      "seconds": 1.41750984600003,
+      "counts": {
+        "Pass": 73,
+        "NotSupported": 2
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-query-75",
+      "returncode": 0,
+      "seconds": 1.310350538999046,
+      "counts": {
+        "Pass": 72,
+        "NotSupported": 3
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-query-150",
+      "returncode": 0,
+      "seconds": 1.1332963070017286,
+      "counts": {
+        "NotSupported": 2,
+        "Pass": 73
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-query-225",
+      "returncode": 0,
+      "seconds": 1.133751076999033,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-query-300",
+      "returncode": 0,
+      "seconds": 1.2908242310004425,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-query-375",
+      "returncode": 0,
+      "seconds": 1.2404156929987948,
+      "counts": {
+        "Pass": 66
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-host-image-0",
+      "returncode": 0,
+      "seconds": 1.161830460998317,
+      "counts": {
+        "NotSupported": 38,
+        "Pass": 37
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-host-image-75",
+      "returncode": 0,
+      "seconds": 1.2313541539988364,
+      "counts": {
+        "Pass": 38,
+        "NotSupported": 37
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-0-host-image-150",
+      "returncode": 0,
+      "seconds": 1.1044427689994336,
+      "counts": {
+        "NotSupported": 5,
+        "Pass": 5
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-sync-0",
+      "returncode": 0,
+      "seconds": 98.48448554400238,
+      "counts": {
+        "Pass": 59,
+        "NotSupported": 16
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-sync-75",
+      "returncode": 0,
+      "seconds": 0.3793131540005561,
+      "counts": {
+        "NotSupported": 2,
+        "Pass": 2
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-memory-draw-0",
+      "returncode": 0,
+      "seconds": 14.605571462001535,
+      "counts": {
+        "Pass": 13,
+        "NotSupported": 62
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-memory-draw-75",
+      "returncode": 0,
+      "seconds": 36.82830515599926,
+      "counts": {
+        "NotSupported": 16,
+        "Pass": 59
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-memory-draw-150",
+      "returncode": 0,
+      "seconds": 48.202000695000606,
+      "counts": {
+        "Pass": 63,
+        "NotSupported": 12
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-memory-draw-225",
+      "returncode": 0,
+      "seconds": 2.668535385000723,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-memory-draw-300",
+      "returncode": 0,
+      "seconds": 2.897807923000073,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-memory-draw-375",
+      "returncode": 0,
+      "seconds": 3.010487691997696,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-memory-draw-450",
+      "returncode": 0,
+      "seconds": 2.947224231000291,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-memory-draw-525",
+      "returncode": 0,
+      "seconds": 2.218853308000689,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-memory-draw-600",
+      "returncode": 0,
+      "seconds": 0.6231710760002898,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-memory-draw-675",
+      "returncode": 0,
+      "seconds": 0.49116215400135843,
+      "counts": {
+        "Pass": 66,
+        "NotSupported": 9
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-memory-draw-750",
+      "returncode": 0,
+      "seconds": 10.376222538998263,
+      "counts": {
+        "NotSupported": 59,
+        "Pass": 16
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-memory-draw-825",
+      "returncode": 0,
+      "seconds": 74.61384792700119,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-memory-draw-900",
+      "returncode": 0,
+      "seconds": 11.439568615998724,
+      "counts": {
+        "Pass": 11,
+        "NotSupported": 16
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-query-0",
+      "returncode": 0,
+      "seconds": 1.3042485389996727,
+      "counts": {
+        "Pass": 73,
+        "NotSupported": 2
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-query-75",
+      "returncode": 0,
+      "seconds": 2.033835923000879,
+      "counts": {
+        "Pass": 72,
+        "NotSupported": 3
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-query-150",
+      "returncode": 0,
+      "seconds": 1.6112719230004586,
+      "counts": {
+        "NotSupported": 2,
+        "Pass": 73
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-query-225",
+      "returncode": 0,
+      "seconds": 1.5688310769983218,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-query-300",
+      "returncode": 0,
+      "seconds": 1.4774842309998348,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-query-375",
+      "returncode": 0,
+      "seconds": 3.028881846999866,
+      "counts": {
+        "Pass": 66
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-host-image-0",
+      "returncode": 0,
+      "seconds": 2.678018693000922,
+      "counts": {
+        "NotSupported": 38,
+        "Pass": 37
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-host-image-75",
+      "returncode": 0,
+      "seconds": 2.4975239999985206,
+      "counts": {
+        "Pass": 38,
+        "NotSupported": 37
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-1-host-image-150",
+      "returncode": 0,
+      "seconds": 1.3516917699998885,
+      "counts": {
+        "NotSupported": 5,
+        "Pass": 5
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-sync-0",
+      "returncode": 0,
+      "seconds": 100.28749815999981,
+      "counts": {
+        "Pass": 59,
+        "NotSupported": 16
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-sync-75",
+      "returncode": 0,
+      "seconds": 0.4899737689993344,
+      "counts": {
+        "NotSupported": 2,
+        "Pass": 2
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-memory-draw-0",
+      "returncode": 0,
+      "seconds": 14.0301864619978,
+      "counts": {
+        "Pass": 13,
+        "NotSupported": 62
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-memory-draw-75",
+      "returncode": 0,
+      "seconds": 39.588661232999584,
+      "counts": {
+        "NotSupported": 16,
+        "Pass": 59
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-memory-draw-150",
+      "returncode": 0,
+      "seconds": 43.35023946399815,
+      "counts": {
+        "Pass": 63,
+        "NotSupported": 12
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-memory-draw-225",
+      "returncode": 0,
+      "seconds": 2.594712845999311,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-memory-draw-300",
+      "returncode": 0,
+      "seconds": 2.869686231002561,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-memory-draw-375",
+      "returncode": 0,
+      "seconds": 3.1858916920027696,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-memory-draw-450",
+      "returncode": 0,
+      "seconds": 2.8211123080000107,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-memory-draw-525",
+      "returncode": 0,
+      "seconds": 2.2667132310016314,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-memory-draw-600",
+      "returncode": 0,
+      "seconds": 0.5399516920006135,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-memory-draw-675",
+      "returncode": 0,
+      "seconds": 0.48891253900001175,
+      "counts": {
+        "Pass": 66,
+        "NotSupported": 9
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-memory-draw-750",
+      "returncode": 0,
+      "seconds": 13.601718385001732,
+      "counts": {
+        "NotSupported": 59,
+        "Pass": 16
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-memory-draw-825",
+      "returncode": 0,
+      "seconds": 68.37552862000302,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-memory-draw-900",
+      "returncode": 0,
+      "seconds": 9.575988386000972,
+      "counts": {
+        "Pass": 11,
+        "NotSupported": 16
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-query-0",
+      "returncode": 0,
+      "seconds": 3.4450602309989335,
+      "counts": {
+        "Pass": 73,
+        "NotSupported": 2
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-query-75",
+      "returncode": 0,
+      "seconds": 1.7210981540010835,
+      "counts": {
+        "Pass": 72,
+        "NotSupported": 3
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-query-150",
+      "returncode": 0,
+      "seconds": 1.6531870769977104,
+      "counts": {
+        "NotSupported": 2,
+        "Pass": 73
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-query-225",
+      "returncode": 0,
+      "seconds": 1.7718631539974012,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-query-300",
+      "returncode": 0,
+      "seconds": 1.7557443080004305,
+      "counts": {
+        "Pass": 75
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-query-375",
+      "returncode": 0,
+      "seconds": 1.8686942310014274,
+      "counts": {
+        "Pass": 66
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-host-image-0",
+      "returncode": 0,
+      "seconds": 1.615229538998392,
+      "counts": {
+        "NotSupported": 38,
+        "Pass": 37
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-host-image-75",
+      "returncode": 0,
+      "seconds": 1.615417539000191,
+      "counts": {
+        "Pass": 38,
+        "NotSupported": 37
+      },
+      "matches_baseline": true
+    },
+    {
+      "label": "candidate-2-host-image-150",
+      "returncode": 0,
+      "seconds": 1.0482091539997782,
+      "counts": {
+        "NotSupported": 5,
+        "Pass": 5
+      },
+      "matches_baseline": true
+    }
+  ],
+  "cases_per_candidate": 1607,
+  "counts": {
+    "Pass": 1328,
+    "NotSupported": 279
+  },
+  "pins_unchanged": true,
+  "full_gate_passed": false,
+  "excluded_old_gpu_faults": [
+    "dEQP-VK.memory.pipeline_barrier.graphics.host_write_index_buffer.1048576",
+    "dEQP-VK.memory.pipeline_barrier.graphics.host_write_vertex_buffer.1048576_vertex_buffer_stride_2"
+  ],
+  "scope": "Three targeted candidate repeats with exact case/status/order baseline comparison; not full CTS, overlap-on, or gameplay coverage"
+}

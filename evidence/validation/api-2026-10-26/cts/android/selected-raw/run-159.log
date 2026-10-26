@@ -1,0 +1,112 @@
+Writing test log into /data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t10-tracked-wai_b9j4/bounds-v6-android/run-159.qpa
+dEQP Core 31807adf6dc7111b32b1ade990d0d8e552fa1b78 (0x31807adf) starting..
+  target implementation = 'Android'
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_1_131072'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_1_256'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_1_512'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_2_131072'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_2_256'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_2_256_device_address'..
+  NotSupported (VK_KHR_device_address_commands is not supported at vktTestCase.cpp:1394)
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_2_512'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_4_131072'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_4_256'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_4_512'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_8_131072'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_8_256'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_8_512'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.basic_triangles'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.depth_clip_control_geometry'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.depth_clip_control_geometry_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.depth_clip_control_tese'..
+  Fail (Failed at vertex 0 depth. Received:1.14822e-41 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039)
+
+Test case 'dEQP-VK.transform_feedback.simple.depth_clip_control_tese_ptsz'..
+  Fail (Failed at vertex 0 depth. Received:0 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039)
+
+Test case 'dEQP-VK.transform_feedback.simple.depth_clip_control_vertex'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.holes_extra_draw_geom'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.holes_extra_draw_vert'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.holes_geom'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.holes_vert'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_1'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_14'..
+  NotSupported (maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:3737)
+
+Test case 'dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_14_ptsz'..
+  NotSupported (maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:3737)
+
+Test case 'dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_1_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_3'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_3_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_6'..
+  NotSupported (maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:3737)
+
+Test case 'dEQP-VK.transform_feedback.simple.lines_or_triangles_line_strip_6_ptsz'..
+  NotSupported (maxTransformFeedbackStreams=4, while test requires 7 at vktTransformFeedbackSimpleTests.cpp:3737)
+
+Test case 'dEQP-VK.transform_feedback.simple.lines_or_triangles_triangle_strip_1'..
+  Pass (Pass)
+
+DONE!
+
+Test run totals:
+  Passed:        25/32 (78.1%)
+  Failed:        2/32 (6.2%)
+  Not supported: 5/32 (15.6%)
+  Warnings:      0/32 (0.0%)
+  Waived:        0/32 (0.0%)

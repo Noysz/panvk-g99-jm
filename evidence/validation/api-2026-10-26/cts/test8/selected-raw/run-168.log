@@ -1,0 +1,112 @@
+Writing test log into /data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t10-tracked-wai_b9j4/released-test8-common-deps-v2/run-168.qpa
+dEQP Core 31807adf6dc7111b32b1ade990d0d8e552fa1b78 (0x31807adf) starting..
+  target implementation = 'Android'
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+MESA: warning: Gralloc doesn't support lock_ycbcr (video buffers won't be supported)
+MESA: info: Using fallback gralloc implementation
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_1_256'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_1_512'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_2_131072'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_2_256'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_2_512'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_4_131072'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_4_256'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_4_512'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_8_131072'..
+  NotSupported (maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_8_256'..
+  NotSupported (maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_culldistance_endqueryindexed_streamid_0_8_512'..
+  NotSupported (maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_pointsize_1_131072'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_pointsize_1_256'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_pointsize_1_512'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_pointsize_2_131072'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_pointsize_2_256'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_pointsize_2_256_device_address'..
+  NotSupported (VK_KHR_device_address_commands is not supported at vktTestCase.cpp:1394)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_pointsize_2_512'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_pointsize_4_131072'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_pointsize_4_256'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_pointsize_4_512'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_pointsize_8_131072'..
+  NotSupported (maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_pointsize_8_256'..
+  NotSupported (maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811)
+
+Test case 'dEQP-VK.transform_feedback.simple.xfb_pointsize_8_512'..
+  NotSupported (maxTransformFeedbackBuffers=4, while test requires 8 at vktTransformFeedbackSimpleTests.cpp:1811)
+
+Test case 'dEQP-VK.transform_feedback.simple_fast_gpl.depth_clip_control_geometry'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple_fast_gpl.depth_clip_control_geometry_ptsz'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple_fast_gpl.depth_clip_control_tese'..
+  Fail (Failed at vertex 0 depth. Received:0 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039)
+
+Test case 'dEQP-VK.transform_feedback.simple_fast_gpl.depth_clip_control_tese_ptsz'..
+  Fail (Failed at vertex 0 depth. Received:0 expected:-1 at vktTransformFeedbackSimpleTests.cpp:2039)
+
+Test case 'dEQP-VK.transform_feedback.simple_fast_gpl.depth_clip_control_vertex'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple_fast_gpl.streams_clipdistance_1'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.transform_feedback.simple_fast_gpl.streams_clipdistance_14'..
+  NotSupported (maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481)
+
+Test case 'dEQP-VK.transform_feedback.simple_fast_gpl.streams_clipdistance_14_ptsz'..
+  NotSupported (maxTransformFeedbackStreams=4, while test requires 15 at vktTransformFeedbackSimpleTests.cpp:2481)
+
+DONE!
+
+Test run totals:
+  Passed:        21/32 (65.6%)
+  Failed:        2/32 (6.2%)
+  Not supported: 9/32 (28.1%)
+  Warnings:      0/32 (0.0%)
+  Waived:        0/32 (0.0%)

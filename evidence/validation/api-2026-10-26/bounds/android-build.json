@@ -1,0 +1,47 @@
+{
+  "completed": true,
+  "commands": [
+    {
+      "platform": "host",
+      "pass_index": 0,
+      "command": [
+        "/data/data/com.termux/files/usr/bin/ninja",
+        "-C",
+        "buildU",
+        "-j2",
+        "src/panfrost/vulkan/libvulkan_panfrost.so"
+      ],
+      "returncode": 0,
+      "seconds": 4.432507693010848
+    },
+    {
+      "platform": "android",
+      "pass_index": 0,
+      "command": [
+        "/data/data/com.termux/files/usr/bin/ninja",
+        "-C",
+        "build-android",
+        "-j2",
+        "src/panfrost/vulkan/libvulkan_panfrost.so"
+      ],
+      "returncode": 0,
+      "seconds": 912.4058229000075
+    },
+    {
+      "platform": "android",
+      "pass_index": 1,
+      "command": [
+        "/data/data/com.termux/files/usr/bin/ninja",
+        "-C",
+        "build-android",
+        "-j2",
+        "src/panfrost/vulkan/libvulkan_panfrost.so"
+      ],
+      "returncode": 0,
+      "seconds": 3.044569539022632
+    }
+  ],
+  "source_pins_unchanged": true,
+  "full_source_replay_after": true,
+  "scope": "Incremental host second-build hash and Android two-build hash, frozen binary; runtime Android tests and release gates still required."
+}

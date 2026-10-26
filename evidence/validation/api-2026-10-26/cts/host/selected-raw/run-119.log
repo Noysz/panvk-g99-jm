@@ -1,0 +1,110 @@
+Writing test log into /data/data/com.termux/files/home/panvk-refs/resume-t06-t08-20261020-78jg0uq5/driver-t06-gqwskwgx/tests/t10-tracked-wai_b9j4/bounds-v6-host/run-119.qpa
+dEQP Core 31807adf6dc7111b32b1ade990d0d8e552fa1b78 (0x31807adf) starting..
+  target implementation = 'Android'
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+
+Test case 'dEQP-VK.query_pool.occlusion_query.no_attachments_multisample'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.query_pool.occlusion_query.no_attachments_single_sample'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.query_pool.occlusion_query.resolve'..
+  Pass (Query result verification passed)
+
+Test case 'dEQP-VK.query_pool.occlusion_query.stride_max'..
+  Pass (Query result verification passed)
+
+Test case 'dEQP-VK.query_pool.occlusion_query.stride_zero'..
+  Pass (Query result verification passed)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.1d.comp'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.1d.frag'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.1d.vert'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.2d.comp'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.2d.frag'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.sampled_image.no_fmt_qual.null_descriptor.samples_1.2d.vert'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.1d.comp'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.1d.frag'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.1d.vert'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.2d.comp'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.2d.frag'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_image.no_fmt_qual.null_descriptor.samples_1.2d.vert'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.comp'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.frag'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.storage_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.vert'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer.no_fmt_qual.null_descriptor.samples_1.1d.comp'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer.no_fmt_qual.null_descriptor.samples_1.1d.frag'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer.no_fmt_qual.null_descriptor.samples_1.1d.vert'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer_dynamic.no_fmt_qual.null_descriptor.samples_1.1d.comp'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer_dynamic.no_fmt_qual.null_descriptor.samples_1.1d.frag'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_buffer_dynamic.no_fmt_qual.null_descriptor.samples_1.1d.vert'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.comp'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.frag'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.uniform_texel_buffer.no_fmt_qual.null_descriptor.samples_1.1d.vert'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.vertex_attribute_fetch.no_fmt_qual.null_descriptor.samples_1.1d.vert'..
+  Pass (Pass)
+
+Test case 'dEQP-VK.synchronization.basic.binary_semaphore.chain'..
+  Pass (Basic semaphore chain test passed)
+
+Test case 'dEQP-VK.synchronization.basic.binary_semaphore.multi_queue'..
+  NotSupported (Queues couldn't be created at vktSynchronizationBasicSemaphoreTests.cpp:869)
+
+DONE!
+
+Test run totals:
+  Passed:        31/32 (96.9%)
+  Failed:        0/32 (0.0%)
+  Not supported: 1/32 (3.1%)
+  Warnings:      0/32 (0.0%)
+  Waived:        0/32 (0.0%)

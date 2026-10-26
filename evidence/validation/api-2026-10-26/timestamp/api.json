@@ -1,0 +1,836 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "label": "api-host-primary-0",
+      "platform": "host",
+      "mode": "primary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042172206636",
+          "2042172207783",
+          "0"
+        ],
+        [
+          "1",
+          "2042172905720",
+          "2042172906827",
+          "0"
+        ],
+        [
+          "2",
+          "2042173591127",
+          "2042173592219",
+          "0"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.3876221539976541,
+      "pins_unchanged": true,
+      "log_sha256": "e8a6521064bdbacd9b6541aa9d9d48cafc76f1d7b32c578a78b9f6637b7ef2c3"
+    },
+    {
+      "label": "api-host-caps-baseline",
+      "platform": "host",
+      "mode": "caps",
+      "enabled": "true",
+      "baseline": true,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 0,
+        "period": 0.0,
+        "compute_graphics": 0
+      },
+      "seconds": 0.23049700001138262,
+      "pins_unchanged": true,
+      "log_sha256": "57f5783869cf1232fd83bffc45f0b04cce165336ada3406b2c4f83649c7409be"
+    },
+    {
+      "label": "api-host-caps-unset",
+      "platform": "host",
+      "mode": "caps",
+      "enabled": null,
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 0,
+        "period": 76.923080444,
+        "compute_graphics": 0
+      },
+      "seconds": 0.17475753799953964,
+      "pins_unchanged": true,
+      "log_sha256": "37c33792c86ebbf77f87dc7a6855cf08b525e16e47fe3faaa71e627b60bde482"
+    },
+    {
+      "label": "api-host-caps-false",
+      "platform": "host",
+      "mode": "caps",
+      "enabled": "false",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 0,
+        "period": 76.923080444,
+        "compute_graphics": 0
+      },
+      "seconds": 0.2797304609994171,
+      "pins_unchanged": true,
+      "log_sha256": "37c33792c86ebbf77f87dc7a6855cf08b525e16e47fe3faaa71e627b60bde482"
+    },
+    {
+      "label": "api-host-caps-zero",
+      "platform": "host",
+      "mode": "caps",
+      "enabled": "0",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 0,
+        "period": 76.923080444,
+        "compute_graphics": 0
+      },
+      "seconds": 0.22458553800242953,
+      "pins_unchanged": true,
+      "log_sha256": "37c33792c86ebbf77f87dc7a6855cf08b525e16e47fe3faaa71e627b60bde482"
+    },
+    {
+      "label": "api-host-timeinfo-failure",
+      "platform": "host",
+      "mode": "caps",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": true,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 0,
+        "period": 0.0,
+        "compute_graphics": 0
+      },
+      "seconds": 0.27826053800527006,
+      "pins_unchanged": true,
+      "log_sha256": "e2ba26e046674bb6d2033302d133d9d273c884dacee1222ae13dd82d9dceac7b"
+    },
+    {
+      "label": "api-host-primary-1",
+      "platform": "host",
+      "mode": "primary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042581971960",
+          "2042581973403",
+          "0"
+        ],
+        [
+          "1",
+          "2042582664543",
+          "2042582665708",
+          "0"
+        ],
+        [
+          "2",
+          "2042583337144",
+          "2042583339312",
+          "0"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.3835667690000264,
+      "pins_unchanged": true,
+      "log_sha256": "01cd10333d5d7a74bc9ac6fdc146e185752dda52586aa148f26e5582a3756ef5"
+    },
+    {
+      "label": "api-host-primary-2",
+      "platform": "host",
+      "mode": "primary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042593608560",
+          "2042593610675",
+          "0"
+        ],
+        [
+          "1",
+          "2042594287019",
+          "2042594289668",
+          "0"
+        ],
+        [
+          "2",
+          "2042594963479",
+          "2042594965267",
+          "0"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.3876222310063895,
+      "pins_unchanged": true,
+      "log_sha256": "1851b7c2d7cc27c3a1d61b1f0082e6d4b5b629c75a0004a2be772644130a6282"
+    },
+    {
+      "label": "api-host-secondary-0",
+      "platform": "host",
+      "mode": "secondary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042606995731",
+          "2042606996663",
+          "0"
+        ],
+        [
+          "1",
+          "2042607689960",
+          "2042607691460",
+          "0"
+        ],
+        [
+          "2",
+          "2042608382424",
+          "2042608383996",
+          "0"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.48658961500041187,
+      "pins_unchanged": true,
+      "log_sha256": "4d285313e2e81ee25c645bda770ad025574c3b9b804026f8316061309f18ba93"
+    },
+    {
+      "label": "api-host-secondary-1",
+      "platform": "host",
+      "mode": "secondary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042619674995",
+          "2042619676335",
+          "0"
+        ],
+        [
+          "1",
+          "2042620361896",
+          "2042620363399",
+          "0"
+        ],
+        [
+          "2",
+          "2042621028580",
+          "2042621030071",
+          "0"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.38570461599738337,
+      "pins_unchanged": true,
+      "log_sha256": "58536d654b43fbc3a299285a80500894437b4dea257b295df48652bddb9cf06a"
+    },
+    {
+      "label": "api-host-secondary-2",
+      "platform": "host",
+      "mode": "secondary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042632570148",
+          "2042632571828",
+          "0"
+        ],
+        [
+          "1",
+          "2042633240304",
+          "2042633242407",
+          "0"
+        ],
+        [
+          "2",
+          "2042633967375",
+          "2042633968052",
+          "0"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.43939938499534037,
+      "pins_unchanged": true,
+      "log_sha256": "95fb98c5efb1b56b9e95f9cc9450733fd1566dfeca5acd36b52ece9399017bfb"
+    },
+    {
+      "label": "api-host-negative-period",
+      "platform": "host",
+      "mode": "primary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": "period",
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 2,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "seconds": 0.22903507700539194,
+      "pins_unchanged": true,
+      "log_sha256": "cc5a096406b33af7d7766e896799ac36c64625eb716e451d4e50538832d5ca44"
+    },
+    {
+      "label": "api-host-negative-fill",
+      "platform": "host",
+      "mode": "primary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": "fill",
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 2,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042655577971",
+          "2042655578980",
+          "16384"
+        ],
+        [
+          "1",
+          "2042656254576",
+          "2042656255528",
+          "32768"
+        ],
+        [
+          "2",
+          "2042656919503",
+          "2042656920839",
+          "49152"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.38697261600464117,
+      "pins_unchanged": true,
+      "log_sha256": "280794691899747f29016023c886d853333bbc26e2b696de6e3e4c30d0520f14"
+    },
+    {
+      "label": "api-android-caps-baseline",
+      "platform": "android",
+      "mode": "caps",
+      "enabled": "true",
+      "baseline": true,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 0,
+        "period": 0.0,
+        "compute_graphics": 0
+      },
+      "seconds": 0.4251225379994139,
+      "pins_unchanged": true,
+      "log_sha256": "9cf2575d99f417afe15eaff60a66e1a3e34c2d9fc079495d9dbd888fc5ff29a6"
+    },
+    {
+      "label": "api-android-caps-unset",
+      "platform": "android",
+      "mode": "caps",
+      "enabled": null,
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 0,
+        "period": 76.923080444,
+        "compute_graphics": 0
+      },
+      "seconds": 0.5397566159954295,
+      "pins_unchanged": true,
+      "log_sha256": "1820071335c34b95b7b51e09e8c06166f754f47b3c3628928690ac1e14cf8255"
+    },
+    {
+      "label": "api-android-caps-false",
+      "platform": "android",
+      "mode": "caps",
+      "enabled": "false",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 0,
+        "period": 76.923080444,
+        "compute_graphics": 0
+      },
+      "seconds": 0.4312911540037021,
+      "pins_unchanged": true,
+      "log_sha256": "1820071335c34b95b7b51e09e8c06166f754f47b3c3628928690ac1e14cf8255"
+    },
+    {
+      "label": "api-android-caps-zero",
+      "platform": "android",
+      "mode": "caps",
+      "enabled": "0",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 0,
+        "period": 76.923080444,
+        "compute_graphics": 0
+      },
+      "seconds": 0.4831182310008444,
+      "pins_unchanged": true,
+      "log_sha256": "1820071335c34b95b7b51e09e8c06166f754f47b3c3628928690ac1e14cf8255"
+    },
+    {
+      "label": "api-android-timeinfo-failure",
+      "platform": "android",
+      "mode": "caps",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": true,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 0,
+        "period": 0.0,
+        "compute_graphics": 0
+      },
+      "seconds": 0.3785174610093236,
+      "pins_unchanged": true,
+      "log_sha256": "295f330e7775b9f4e0d7d3832b60bfb82095871a61cc013ce2ae9ce6d0b03595"
+    },
+    {
+      "label": "api-android-primary-0",
+      "platform": "android",
+      "mode": "primary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042706099171",
+          "2042706100272",
+          "0"
+        ],
+        [
+          "1",
+          "2042706769499",
+          "2042706771091",
+          "0"
+        ],
+        [
+          "2",
+          "2042707446635",
+          "2042707447888",
+          "0"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.5361430760094663,
+      "pins_unchanged": true,
+      "log_sha256": "7a1d54a6d1bd12a5e5560d01c05929aa020897636428f6e2e80b9cc80fe99957"
+    },
+    {
+      "label": "api-android-primary-1",
+      "platform": "android",
+      "mode": "primary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042714029751",
+          "2042714031044",
+          "0"
+        ],
+        [
+          "1",
+          "2042714713879",
+          "2042714715924",
+          "0"
+        ],
+        [
+          "2",
+          "2042715419595",
+          "2042715420959",
+          "0"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.49472277000313625,
+      "pins_unchanged": true,
+      "log_sha256": "02bdc10d155e8b0ff85a13285365efa561129780b867c2a023a106aec9b2a828"
+    },
+    {
+      "label": "api-android-primary-2",
+      "platform": "android",
+      "mode": "primary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042723286840",
+          "2042723288039",
+          "0"
+        ],
+        [
+          "1",
+          "2042723948855",
+          "2042723951292",
+          "0"
+        ],
+        [
+          "2",
+          "2042724675567",
+          "2042724677468",
+          "0"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.5944716149970191,
+      "pins_unchanged": true,
+      "log_sha256": "c121c5d02a003f81b147ae0432b0b115960ca6a18e37fb8f2aef54a25af1473c"
+    },
+    {
+      "label": "api-android-secondary-0",
+      "platform": "android",
+      "mode": "secondary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042733743023",
+          "2042733744083",
+          "0"
+        ],
+        [
+          "1",
+          "2042734437408",
+          "2042734439663",
+          "0"
+        ],
+        [
+          "2",
+          "2042735128212",
+          "2042735129324",
+          "0"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.6915145389939426,
+      "pins_unchanged": true,
+      "log_sha256": "14b0fa93149060d86313420c4153a0625b2faa510c0342fe46945e370fc6b75f"
+    },
+    {
+      "label": "api-android-secondary-1",
+      "platform": "android",
+      "mode": "secondary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042743596627",
+          "2042743597807",
+          "0"
+        ],
+        [
+          "1",
+          "2042744256999",
+          "2042744259456",
+          "0"
+        ],
+        [
+          "2",
+          "2042744923871",
+          "2042744925228",
+          "0"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.5401993080013199,
+      "pins_unchanged": true,
+      "log_sha256": "b6d0ed13a2c51490a132eb021e5560d2e62893b34b1006a52c24c70ab9464818"
+    },
+    {
+      "label": "api-android-secondary-2",
+      "platform": "android",
+      "mode": "secondary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": null,
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 0,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042751643503",
+          "2042751645616",
+          "0"
+        ],
+        [
+          "1",
+          "2042752308315",
+          "2042752310116",
+          "0"
+        ],
+        [
+          "2",
+          "2042752972044",
+          "2042752973796",
+          "0"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.544118460995378,
+      "pins_unchanged": true,
+      "log_sha256": "ca447b2a0550c43a31d827a3f35d48d9a2cb2ef1b4a2aaaaacc6442d7239bef7"
+    },
+    {
+      "label": "api-android-negative-period",
+      "platform": "android",
+      "mode": "primary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": "period",
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 2,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "seconds": 0.38553200000023935,
+      "pins_unchanged": true,
+      "log_sha256": "b1e960072fddad5afaa6d83bd6dae1205d17a982e2ed2eb1cdabfc39e2ac0e59"
+    },
+    {
+      "label": "api-android-negative-fill",
+      "platform": "android",
+      "mode": "primary",
+      "enabled": "true",
+      "baseline": false,
+      "negative": "fill",
+      "timeinfo_fail": false,
+      "passed": true,
+      "returncode": 2,
+      "caps": {
+        "bits": 64,
+        "period": 76.923080444,
+        "compute_graphics": 1
+      },
+      "rounds": [
+        [
+          "0",
+          "2042767419263",
+          "2042767421211",
+          "16384"
+        ],
+        [
+          "1",
+          "2042768082828",
+          "2042768085035",
+          "32768"
+        ],
+        [
+          "2",
+          "2042768787971",
+          "2042768790395",
+          "49152"
+        ]
+      ],
+      "clocks": [
+        "PASS",
+        "PASS"
+      ],
+      "seconds": 0.5910935379943112,
+      "pins_unchanged": true,
+      "log_sha256": "b5342e8c1f758c0dbcb664b2d4fd3a645202f2c1fadba6ebd110de0c662438bc"
+    }
+  ],
+  "scope": "Timestamp exposure, primary/secondary reset/reuse, host/copy32/64 and availability; not full CTS or gameplay"
+}

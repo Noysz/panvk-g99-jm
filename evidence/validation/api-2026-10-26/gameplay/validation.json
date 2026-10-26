@@ -1,0 +1,91 @@
+{
+  "reviewed": true,
+  "scope": "One diagnostic180second COMvsCOM SingleMatch, Choji vs Tenten in random wooded arena, default bounds/overlap/vectorize off; nativeWine/Termux:X11. No controlled performance comparison or30min stability claim.",
+  "images": [
+    "action-1793010162268457146.png",
+    "endurance-00.png",
+    "endurance-01.png",
+    "after.png"
+  ],
+  "observations": [
+    "Before: HUD timer95, both models, wooded arena.",
+    "At60seconds: timer74, Tenten in foreground, Choji across water.",
+    "At120seconds: timer63, projectile/combo effect and changed poses.",
+    "After180seconds: timer52, both combatants active, no victory screen."
+  ],
+  "sampled_combat_continues": true,
+  "pixel_oracle": false,
+  "continuous_video_review": false,
+  "cleanup": {
+    "signal_returncode": 0,
+    "wait_returncode": 0,
+    "launcher_returncode": 1,
+    "remaining": []
+  },
+  "memory_kib_except_fds": {
+    "VmRSS": {
+      "first": 1076412,
+      "last": 1077372,
+      "min": 1076316,
+      "max": 1077372
+    },
+    "VmHWM": {
+      "first": 1092452,
+      "last": 1092452,
+      "min": 1092452,
+      "max": 1092452
+    },
+    "VmSwap": {
+      "first": 140736,
+      "last": 140480,
+      "min": 140480,
+      "max": 140736
+    },
+    "fds": {
+      "first": 294,
+      "last": 294,
+      "min": 294,
+      "max": 294
+    }
+  },
+  "memory_samples": 35,
+  "memory_scope": "Short diagnostic window; RSS or swap alone does not establish a leak or cause of stutter.",
+  "pins_checked": 33,
+  "pins": {
+    "local-tests/t10-runtime-v6-png55hzr/android-depth-bounds.so": "595981cc9ec21f0b667a4127e6b31bb9a03c8d2aa4278b04a7daefff4f3dcf4e",
+    "local-home/panvk-refs/proton/p10-4-v14/bin/wine": "07189f752896d526851599dc4d983ecda0a28f927d615010c032833669b4c24e",
+    "local-home/panvk-refs/proton/p10-4-v14/bin/wineserver": "8f429a8a5a1820f4e1fb4cc0bea4f2d7ed31eb00e6404feb1c3bd64159e5dd52",
+    "local-home/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+    "local-home/panvk-refs/proton/noshm/libnoshm.so": "a4b86c51f797695b91d5a870b30e304361aa6a52fff844f478a71c072e6cc424",
+    "local-home/panvk-refs/gameplay-2026-10-19/layer/libVkLayer_MESA_overlay.so": "18bc159f5d916fac1616c367acbb12b016aedbb7d88204290ddbd4dd53ad390b",
+    "local-home/panvk-refs/gameplay-2026-10-19/layer/VkLayer_MESA_overlay.json": "18f90342e3cfcb6993454ef01e9ad0ab4d02c6837f727e354362a44c4efea645",
+    "local-tests/t10-runtime-v6-png55hzr/run_game.py": "c080456f59335e3b7d8dc57c74a934bf79ddbb73a7145c54376ffa02aa7cff5e",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/game/config.ini": "3334a62c92eaba30ac67086bfaefa52c7307cb87cbe141b0ca7eb8fcc51db0f7",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/game/CrashRpt1403.dll": "3ae5b000d0aa5d205b684af666a697887b4f64109978d28e3056a62c3b9122a0",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/game/CrashRpt1403d.dll": "9396dd6ae91de225eef1ef4a519c7a343c0bf6c5060a15ebdc1c68b37b35eb67",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/game/Language Selector.exe": "68427419310dc53e862f644f8af084ee145ec3904c7e554527e1cb6c970467c4",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/game/NSUNS2.exe": "69748801175096afefb7f00eadba24eb6e6616c44924237f43bb428f0a42150e",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/game/Origins.ini": "39a67d0912874dcd03e6b7318d557d191219430a7f798375505c3a44a1a842fc",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/game/steam_api64.cdx": "fc20547408a7c34f0bd4946a34c21aab48a75e3b98dce9e55969f486d37b212f",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/game/steam_api64.dll": "f9aab811a73cb09be6202f0b995f91a792dbe3fbf9d3168d8e3b1d9f61f97cba",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/game/steam_emu.ini": "a70cd93415634d7549f9a37ba7f363c74c5b68fdb8d06e24298ec52b6c8d4db0",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/game/d3dcompiler_47.dll": "e994847e01a6f1e4cbdc5a864616ac262f67ee4f14db194984661a8d927ab7f4",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/prefix/drive_c/windows/system32/d3d11.dll": "b473142528f97a9c3cbad134df0dba083a9f207223803b0b6d34574c0619cf95",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/prefix/drive_c/windows/system32/dxgi.dll": "550745e1ad3d30b6720077eb9fa1124ca77fd811cef5e9a01799eb295f972f51",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/action-1793010162268457146.png": "58e10ef4048d7e64ffccafb86b762c05bfeef17278e02506a135c9ac19fbb22d",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/endurance-00.png": "621b67501f1cc82b967613633a5f1cf60e8be7df00a2d3737f8effa3430e4c32",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/endurance-01.png": "94ea7cd02261380eae7ba9304a9af27fdd3fea973216adf9d0abd64e6db281ab",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/after.png": "452ab49bdfea6d23e8199da04773b12a3e46f7d650db770cf9573cf958f68bd0",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/manifest.json": "ce5b3310d5fa8322d6042ad012857022c069c10ce1aeb7db4ccbef7540213427",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/result.json": "f3b639b1984a620b7d18d4760836c3d2dc24bbc19e70dce1d698dba445e139dc",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/present.csv": "da1182a478ee5237acb59cc82e490f9c534bcb22375c1912a41d4a3665a8bab5",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/analysis.json": "186d732453de315055889d89a445deb763227da6f13adf3205d0306bf3b00159",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/process.log": "bac40082d162ec217ed5fb105e56ff0c88b4684193e4572df8e8c5b1be0e5c1b",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/NSUNS2_d3d11.log": "8f79f0f60927c2444321f85514f0f676e6d50f18de4a8423a08c8dc9e9cff6ae",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/ready.json": "dacfdc7028b9c3f7661fe109a80636900647d3b7503cc6d21325f618b21577d4",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/endurance-00.json": "bd8ad70efdf5f8597a19c760a6c3ace8194d2e6d8ec7ee822f43ffa240b64fc2",
+    "local-tests/t10-runtime-v6-png55hzr/freebattle-v6-default-r2/endurance-01.json": "605bee6d93556bfab54f244f3e6a64053d11e67d710b233ee7d44fbbff1e0a0c"
+  },
+  "no_detected_fault_lines": true,
+  "release_candidate_ready": false
+}

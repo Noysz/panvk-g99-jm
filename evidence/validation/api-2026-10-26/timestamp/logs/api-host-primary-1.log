@@ -1,0 +1,11 @@
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+CAPS bits=64 period=76.923080444 compute_graphics=1 frequency=13000000
+PERIOD_CHECK PASS
+ROUND index=0 begin=2042581971960 end=2042581973403 cumulative_bad=0
+CLOCK round=1 delta_ns=53275617.823 lower=52495077 upper=54517462 verdict=PASS
+ROUND index=1 begin=2042582664543 end=2042582665708 cumulative_bad=0
+CLOCK round=2 delta_ns=51738540.830 lower=50965923 upper=52487385 verdict=PASS
+ROUND index=2 begin=2042583337144 end=2042583339312 cumulative_bad=0
+RESET result=1 values=11,0,33,0
+API mode=primary bad=0 verdict=PASS
+LIFECYCLE initial_fds=4 final_fds=4

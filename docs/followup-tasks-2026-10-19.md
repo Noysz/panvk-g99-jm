@@ -14,14 +14,17 @@ No task is complete based only on an advertised feature or an FPS claim.
 | T05 | Candidate evaluated; repeatable performance benefit pending | Profile occlusion splits and implement deferred availability if justified | Ordering/lifetime/allocation controls and three 1,243-case CTS repeats match the baseline. Six camera runs give median 13.4 FPS on / 13.1 off, with one unusually fast on run. Default remains off. |
 | T06 | Candidate validated at targeted scope; long sessions pending | Investigate incremental tiler backing and import coherency | Six 929-case runs: 753 Pass / 174 NS / 2 existing Fail, gain 70 / lost 0. Android visibility, tiler and lifecycle checks pass. Incremental backing stays off; no measured backing reduction. Long-run timeout remains unresolved. |
 | T07 | Matrix path tested; register pressure and game coverage pending | Investigate register pressure, dynamic matrix vectorization and compute TLS | Existing late vectorization passes three enabled 2,900-case repeats against baseline. Row-major submit-to-fence reduction 13.19-18.45% across three ABBA blocks; uncontrolled clocks/temperature, no FPS claim. Default stays off. |
-| T08 | Pending | Evaluate safe overlap between passes | In-flight heap/TLS/WLS/arena ownership, ordering tests, measured overlap, no GPU faults |
-| T09 | Pending | Continue timestamp API, robustness, conditional rendering and opt-in depth bounds | Per-feature implementation and running CTS; capability bits alone do not qualify |
-| T10 | Pending | Produce a release candidate only after the roadmap gates | Reproducible stack/build, regression/control runs, game validation, documented remaining failures |
+| T08 | Prototype; live-fault lifetime unresolved | Evaluate safe overlap between passes | Preserved in the combined candidate, default off. Nonfaulting controls do not close live-fault resource lifetime; Android cleanup event remains unexplained. |
+| T09 | Targeted implementation and combined validation complete; broader qualification open | Continue timestamp API, robustness, conditional rendering and opt-in depth bounds | Timestamp, vertex/GPL/null, conditional and depth-bounds controls pass at documented scope. Host/Android feature repeats complete. Bounds stays opt-in. |
+| T10 | Combined candidate tested; packaging and RC gates open | Produce a release candidate only after the roadmap gates | Published source replay passes. Final host/Android tracked regression gains one Pass against test8, loses none; 14 old failures remain. Application checks and one short battle complete. No RC qualification. |
 
 Execution starts with T01-T03. Later tasks remain explicit backlog until their
 dependencies and workload evidence are available. Existing local changes and
 validated driver packages are preserved. Candidate patches do not imply a
 release or a measured performance improvement.
+
+The table includes the October 26 API/combined-build update. Dated sections
+below retain the scope and outstanding work at their original checkpoint.
 
 ## Initial state
 
@@ -208,3 +211,28 @@ See the [matrix evidence](../evidence/validation/matrix-2026-10-23/README.md)
 and [reproducers](../tests/graphics/t07-matrix/README.md). T08 still needs safe
 resource ownership and measured overlap. T09 covers the remaining API features;
 T10 is the release-candidate gate, including full regression and game checks.
+
+## API and combined build (2026-10-26)
+
+The [API candidate](../patches-candidates/2026-10-26-api/README.md) preserves
+the final tested stack, including cache-sync/queue-error prerequisites and
+the disabled overlap prototype. It does not promote incomplete T06-T08 work.
+
+Timestamp API/lifetime, vertex-input robustness and GPL, conditional predicate
+inheritance, and opt-in depth bounds now have targeted hardware tests with
+repeats and negative controls. Final source replay and both builds complete.
+The combined host/Android 5,658-case results match exactly: 3,754 Pass,
+1,890 NotSupported, 14 Fail. The released test8 driver on the same cases and
+native dependencies has one additional failure; no Pass is lost.
+
+Four DXVK versions pass the recorded triangle/readback and AIO checks. AIO's
+black rectangles are reproduced as capture occlusion by separate GDI windows
+in a paired desktop/render-window diagnostic. One 180-second Naruto COM vs COM
+Single Match shows combat throughout the sampled images and no detected
+GPU-fault lines. These are native Wine/Termux:X11 results, not a controlled
+FPS comparison or a 30-minute game matrix.
+
+The [evidence](../evidence/validation/api-2026-10-26/README.md) distinguishes
+earlier feature builds from final combined runs. The
+[test9 checklist](test9-readiness.md) has two remaining package steps.
+The RC/1.0 roadmap remains unmet; T10 is not complete.

@@ -1,0 +1,73 @@
+{
+  "source_entries": 12928,
+  "changed_files": [
+    "src/panfrost/vulkan/jm/panvk_cmd_buffer.h",
+    "src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c",
+    "src/panfrost/vulkan/jm/panvk_vX_cmd_query.c",
+    "src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c"
+  ],
+  "patch_sha256": "c615b2c11f4ee3683c53aa8d40bf88e80c6c94f6c64517c07629ce48a1dd7226",
+  "binaries": {
+    "host-timestamps-v3.so": {
+      "sha256": "08bd50583ac4ccfacd4c64166e24aaae13c3fb1c54bde4066d03709adfecc4bf",
+      "bytes": 132559016,
+      "second_pass_unchanged": true
+    },
+    "android-timestamps-v3.so": {
+      "sha256": "37f5aff177b687c6771a847e3aa947c62990b11e220606c16ae8ea8a203cafc5",
+      "bytes": 21872984,
+      "second_pass_unchanged": true
+    }
+  },
+  "commands": [
+    {
+      "platform": "host",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/ninja",
+        "-C",
+        "buildU",
+        "-j2",
+        "src/panfrost/vulkan/libvulkan_panfrost.so"
+      ],
+      "returncode": 0,
+      "seconds": 209.34747232000518
+    },
+    {
+      "platform": "host",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/ninja",
+        "-C",
+        "buildU",
+        "-j2",
+        "src/panfrost/vulkan/libvulkan_panfrost.so"
+      ],
+      "returncode": 0,
+      "seconds": 4.3438316929969005
+    },
+    {
+      "platform": "android",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/ninja",
+        "-C",
+        "build-android",
+        "-j2",
+        "src/panfrost/vulkan/libvulkan_panfrost.so"
+      ],
+      "returncode": 0,
+      "seconds": 191.3895779339946
+    },
+    {
+      "platform": "android",
+      "command": [
+        "/data/data/com.termux/files/usr/bin/ninja",
+        "-C",
+        "build-android",
+        "-j2",
+        "src/panfrost/vulkan/libvulkan_panfrost.so"
+      ],
+      "returncode": 0,
+      "seconds": 2.401296308002202
+    }
+  ],
+  "previous_candidate_libraries_unchanged": true
+}

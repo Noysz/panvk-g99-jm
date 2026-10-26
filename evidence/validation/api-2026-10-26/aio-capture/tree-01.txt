@@ -1,0 +1,24 @@
+
+xwininfo: Window id: 0x511 (the root window) (has no name)
+
+  Root window id: 0x511 (the root window) (has no name)
+  Parent window id: 0x0 (none)
+     15 children:
+     0x1000004 (has no name): ("aio-64.exe" "aio-64.exe")  274x32+12+38  +12+38
+     0x1000003 (has no name): ("aio-64.exe" "aio-64.exe")  1x1+0+0  +0+0
+     0xe00001 "Input": ("tabtip.exe" "tabtip.exe")  111x1+8+34  +8+34
+     0xe00002 "Default IME": ("tabtip.exe" "tabtip.exe")  1x1+0+0  +0+0
+     0x400008 (has no name): ("explorer.exe" "explorer.exe")  1x1+0+0  +0+0
+     0x1000001 "AIO Graphics Test  -  D3D11 Tessellation  -  368 FPS": ("aio-64.exe" "aio-64.exe")  632x446+4+30  +4+30
+        1 child:
+        0xa00045 (has no name): ()  632x446+0+0  +4+30
+     0x1000002 "Default IME": ("aio-64.exe" "aio-64.exe")  1x1+0+0  +0+0
+     0x400007 (has no name): ("explorer.exe" "explorer.exe")  1x1+0+0  +0+0
+     0x400006 (has no name): ("explorer.exe" "explorer.exe")  1x1+0+0  +0+0
+     0x400005 (has no name): ("explorer.exe" "explorer.exe")  1x1+0+0  +0+0
+     0x400004 (has no name): ("explorer.exe" "explorer.exe")  1x1+0+0  +0+0
+     0x400002 (has no name): ("explorer.exe" "explorer.exe")  160x20+3+29  +3+29
+     0x400003 "Default IME": ("explorer.exe" "explorer.exe")  1x1+0+0  +0+0
+     0x600001 (has no name): ()  1x1+0+0  +0+0
+     0x400001 (has no name): ()  1x1+0+0  +0+0
+

@@ -1,0 +1,49 @@
+{
+  "completed": true,
+  "automatic_retry": false,
+  "returncode": 0,
+  "release_counts": {
+    "Pass": 3753,
+    "NotSupported": 1890,
+    "Fail": 15
+  },
+  "comparisons": {
+    "host": {
+      "counts": {
+        "Pass": 3754,
+        "NotSupported": 1890,
+        "Fail": 14
+      },
+      "changes": [
+        [
+          "dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.vertex_attribute_fetch.no_fmt_qual.null_descriptor.samples_1.1d.vert",
+          "Fail",
+          "Pass"
+        ]
+      ],
+      "lost_pass": [],
+      "new_fail": [],
+      "result_sha256": "bd2ee92b59ea0f3ffbdfbfa2431f39392d3dbb391e88915b90a9eced6b1b2580"
+    },
+    "android": {
+      "counts": {
+        "Pass": 3754,
+        "NotSupported": 1890,
+        "Fail": 14
+      },
+      "changes": [
+        [
+          "dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.vertex_attribute_fetch.no_fmt_qual.null_descriptor.samples_1.1d.vert",
+          "Fail",
+          "Pass"
+        ]
+      ],
+      "lost_pass": [],
+      "new_fail": [],
+      "result_sha256": "64d2e1f7e738882871848a473388f45d9c7f8564b3bc671f99caf0b545a57eaf"
+    }
+  },
+  "no_regression": true,
+  "release_candidate_ready": false,
+  "scope": "One tracked-case run of the unmodified test8 driver with common native CTS dependencies. Not a full packaged-driver or full Vulkan CTS comparison."
+}

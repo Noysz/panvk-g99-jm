@@ -1,0 +1,4 @@
+TIMEINFO_CONTROL failed=1
+WARNING: panvk is not a conformant Vulkan implementation, testing use only.
+CAPS bits=0 period=0.000000000 compute_graphics=0 frequency=13000000
+LIFECYCLE initial_fds=4 final_fds=4

@@ -1,0 +1,1614 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "label": "host-0-flush-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "flush",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-flush-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "flush",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-invalidate-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "invalidate",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-invalidate-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "invalidate",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-threshold-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "threshold",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-threshold-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "threshold",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-query-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-query-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-query-sticky-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-sticky",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-query-sticky-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-sticky",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-query-wait-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-wait",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-submit-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "submit",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-submit-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "submit",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-image-read-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "read",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-image-read-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "read",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-image-copy-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "copy",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-image-copy-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "copy",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-image-cleanup-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "cleanup",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-0-image-cleanup-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "cleanup",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-flush-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "flush",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-flush-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "flush",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-invalidate-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "invalidate",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-invalidate-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "invalidate",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-threshold-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "threshold",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-threshold-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "threshold",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-query-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-query-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-query-sticky-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-sticky",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-query-sticky-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-sticky",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-query-wait-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-wait",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-submit-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "submit",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-submit-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "submit",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-image-read-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "read",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-image-read-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "read",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-image-copy-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "copy",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-image-copy-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "copy",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-image-cleanup-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "cleanup",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-1-image-cleanup-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "cleanup",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-flush-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "flush",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-flush-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "flush",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-invalidate-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "invalidate",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-invalidate-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "invalidate",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-threshold-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "threshold",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-threshold-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "threshold",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-query-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-query-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-query-sticky-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-sticky",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-query-sticky-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-sticky",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-query-wait-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-wait",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-submit-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "submit",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-submit-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "submit",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-image-read-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "read",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-image-read-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "read",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-image-copy-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "copy",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-image-copy-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "copy",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-image-cleanup-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "cleanup",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "host-2-image-cleanup-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "cleanup",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-flush-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "flush",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-flush-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "flush",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-invalidate-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "invalidate",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-invalidate-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "invalidate",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-threshold-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "threshold",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-threshold-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "threshold",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-query-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-query-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-query-sticky-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-sticky",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-query-sticky-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-sticky",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-query-wait-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-wait",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-submit-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "submit",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-submit-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "submit",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-image-read-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "read",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-image-read-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "read",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-image-copy-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "copy",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-image-copy-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "copy",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-image-cleanup-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "cleanup",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-0-image-cleanup-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "cleanup",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-flush-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "flush",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-flush-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "flush",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-invalidate-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "invalidate",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-invalidate-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "invalidate",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-threshold-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "threshold",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-threshold-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "threshold",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-query-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-query-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-query-sticky-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-sticky",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-query-sticky-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-sticky",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-query-wait-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-wait",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-submit-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "submit",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-submit-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "submit",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-image-read-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "read",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-image-read-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "read",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-image-copy-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "copy",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-image-copy-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "copy",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-image-cleanup-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "cleanup",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-1-image-cleanup-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "cleanup",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-flush-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "flush",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-flush-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "flush",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-invalidate-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "invalidate",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-invalidate-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "invalidate",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-threshold-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "threshold",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-threshold-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "threshold",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-query-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-query-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-query-sticky-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-sticky",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-query-sticky-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-sticky",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-query-wait-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "query-wait",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-submit-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "submit",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-submit-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe",
+        "submit",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-image-read-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "read",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-image-read-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "read",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-image-copy-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "copy",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-image-copy-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "copy",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-image-cleanup-0",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "cleanup",
+        "0"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "android-2-image-cleanup-1",
+      "command": [
+        "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe",
+        "cleanup",
+        "1"
+      ],
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so",
+        "LD_PRELOAD": "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so"
+      },
+      "returncode": 0,
+      "passed": true
+    }
+  ],
+  "pins": {
+    "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.c": "ac3823218b2c8cfa33efa41d140f790bd31c8152803bfad08970f5e7d0ae7776",
+    "local-tests/t06-t08-closure-z1ef1mhd/cache_inject.so": "278d51a0c95b853ef4f7e6eca57db9f128d9ab381f9a68052dcfaa6c9c964cdf",
+    "local-tests/t06-t08-closure-z1ef1mhd/cache_probe.c": "846f17e8919ffad2a8d783800867ef7d119bb76b18c6de0df76f2e24ae8d9495",
+    "local-tests/t06-t08-closure-z1ef1mhd/cache_image_probe.c": "8a3e1310e19aa09cc1231d33dd512e1cd648065d3c528b9202d6963f99f0867d",
+    "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_probe": "e7a725bf8e4b2512f8b08c528f400a773eaaf90b4cb99dc7abb29df709bee088",
+    "local-tests/t06-t08-closure-z1ef1mhd/cache-gate-0vf2bym5/cache_image_probe": "5567ae3c164ad40b330d658c9053dcef0dd535cd94a12dee142dbdacbb4027d1",
+    "local-tests/import_visibility.c": "63b5002d6708b77c9b8b19fe352a7bf0ae070ac0a7516b653482fe6d92b6f259",
+    "local-tests/t06-t08-closure-z1ef1mhd/host-cache-errors-v1.so": "f5ba0481506d776510b5387d2c0a420ba344bd9b0a58c67fd93b49486aeb6bba",
+    "local-tests/t06-t08-closure-z1ef1mhd/android-cache-errors-v1.so": "ec8f8dac324e6f97b9d63093e1ce9a309f43a5cb21ea13193525afb2ae7c53c2"
+  },
+  "pins_unchanged": true,
+  "scope": "Cache-error API propagation, stale-read rejection, threshold and destruction cleanup; not a GPU-fault recovery test"
+}

@@ -1,0 +1,817 @@
+diff --git a/src/panfrost/compiler/bifrost/valhall/test/test-validate-fau.cpp b/src/panfrost/compiler/bifrost/valhall/test/test-validate-fau.cpp
+index e4a0945..9c439cf 100644
+--- a/src/panfrost/compiler/bifrost/valhall/test/test-validate-fau.cpp
++++ b/src/panfrost/compiler/bifrost/valhall/test/test-validate-fau.cpp
+@@ -108,3 +108,21 @@ TEST_F(ValidateFau, MessageInstructionConstraints)
+    INVALID(bi_ld_pka_to(b, 32, bi_register(1), bi_register(2), warp_id));
+    INVALID(bi_ld_pka_to(b, 32, bi_register(1), bi_register(2), core_id));
+ }
++
++TEST_F(ValidateFau, BlendCoverageRequiresRegister)
++{
++   for (bi_index coverage : {zero, unif, core_id}) {
++      bi_instr *I = bi_blend_to(b, bi_register(48), bi_register(0), coverage,
++                               bi_register(4), bi_register(5), bi_null(),
++                               BI_REGISTER_FORMAT_F32, 4, 4);
++      INVALID(I);
++      b->cursor = bi_before_instr(I);
++      va_repair_fau(b, I);
++      VALID(I);
++      EXPECT_TRUE(bi_is_ssa(I->src[1]));
++      EXPECT_TRUE(bi_is_equiv(I->src[2], bi_register(4)));
++   }
++
++   VALID(bi_blend_to(b, bi_register(48), bi_register(0), bi_register(60),
++                    unif, unif_hi, bi_null(), BI_REGISTER_FORMAT_F32, 4, 4));
++}
+diff --git a/src/panfrost/compiler/bifrost/valhall/va_validate.c b/src/panfrost/compiler/bifrost/valhall/va_validate.c
+index b597692..698c629 100644
+--- a/src/panfrost/compiler/bifrost/valhall/va_validate.c
++++ b/src/panfrost/compiler/bifrost/valhall/va_validate.c
+@@ -114,11 +114,14 @@ fau_state_special(struct fau_state *fau, bi_index idx, enum bi_opcode op)
+ 
+ static bool
+ valid_src(struct fau_state *fau, unsigned fau_page, bi_index src,
+-          enum bi_opcode op)
++          enum bi_opcode op, unsigned source)
+ {
+    if (src.type != BI_INDEX_FAU)
+       return true;
+ 
++   if (op == BI_OPCODE_BLEND && source == 1)
++      return false;
++
+    if (src.value & BIR_FAU_IMMEDIATE) {
+       /* There are no small constant restrictions in message instructions */
+       if (can_use_two_fau_indices(op))
+@@ -147,7 +150,7 @@ va_validate_fau(bi_instr *I)
+    unsigned fau_page = va_select_fau_page(I);
+ 
+    bi_foreach_src(I, s) {
+-      valid &= valid_src(&fau, fau_page, I->src[s], I->op);
++      valid &= valid_src(&fau, fau_page, I->src[s], I->op, s);
+    }
+ 
+    return valid;
+@@ -163,7 +166,7 @@ va_repair_fau(bi_builder *b, bi_instr *I)
+       struct fau_state push = fau;
+       bi_index src = I->src[s];
+ 
+-      if (!valid_src(&fau, fau_page, src, I->op)) {
++      if (!valid_src(&fau, fau_page, src, I->op, s)) {
+          bi_replace_src(I, s, bi_mov_i32(b, bi_strip_index(src)));
+ 
+          /* Rollback update. Since the replacement move doesn't affect FAU
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+index d9f3cd3..27430c5 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -2195,7 +2195,7 @@ static VkResult
+ prepare_fs_driver_set(struct panvk_cmd_buffer *cmdbuf)
+ {
+    const struct panvk_shader_desc_info *fs_desc_info =
+-      &cmdbuf->state.gfx.fs.shader->desc_info;
++      &get_fs(cmdbuf)->desc_info;
+    struct panvk_shader_desc_state *fs_desc_state = &cmdbuf->state.gfx.fs.desc;
+    const struct panvk_descriptor_state *desc_state =
+       &cmdbuf->state.gfx.desc_state;
+@@ -2272,7 +2272,7 @@ prepare_gfx_desc(struct panvk_cmd_buffer *cmdbuf)
+       return result;
+ 
+    return panvk_per_arch(cmd_prepare_shader_res_table)(
+-      cmdbuf, desc_state, &cmdbuf->state.gfx.fs.shader->desc_info,
++      cmdbuf, desc_state, &get_fs(cmdbuf)->desc_info,
+       fs_desc_state, 1);
+ }
+ 
+@@ -2493,6 +2493,8 @@ panvk_emit_fs_draw_v9(struct panvk_cmd_buffer *cmdbuf,
+             cfg.depth_clamp_mode = MALI_DEPTH_CLAMP_MODE_BOUNDS;
+          if (fs)
+             cfg.depth_source = pan_depth_source(&fs->info);
++         if (fs && fs->fs.early_zs_probe)
++            cfg.depth_source = MALI_DEPTH_SOURCE_FIXED_FUNCTION;
+       }
+ 
+       cfg.stencil_test_enable = test_s;
+@@ -2613,6 +2615,12 @@ panvk_emit_fs_draw_v9(struct panvk_cmd_buffer *cmdbuf,
+                clip_discard || alpha_to_coverage;
+          }
+ 
++         if (fs->fs.early_zs_probe || fs->fs.depth_bounds) {
++            cfg.flags_0.pixel_kill_operation = MALI_PIXEL_KILL_FORCE_LATE;
++            cfg.flags_0.zs_update_operation = MALI_PIXEL_KILL_FORCE_LATE;
++            cfg.flags_0.shader_modifies_coverage = true;
++         }
++
+          /* Forward pixel kill: a later opaque fragment may kill earlier ones
+           * still in flight at the same pixel. Same rule as CSF
+           * build_dcd_flags() and the v6/v7 RENDERER_STATE path above: only
+@@ -2646,11 +2654,12 @@ panvk_emit_fs_draw_v9(struct panvk_cmd_buffer *cmdbuf,
+             }
+ 
+             cfg.flags_0.allow_forward_pixel_to_kill =
+-               fs->info.fs.can_fpk && !clip_discard && !(rt_mask & ~rt_written) &&
++               fs->info.fs.can_fpk && !fs->fs.depth_bounds &&
++               !clip_discard && !(rt_mask & ~rt_written) &&
+                !(rt_read & rt_written) && !alpha_to_coverage &&
+                !cmdbuf->state.gfx.cb.info.any_dest_read && !roa_color;
+             cfg.flags_0.allow_forward_pixel_to_be_killed =
+-               !fs->info.writes_global;
++               !fs->info.writes_global && !fs->fs.depth_bounds;
+          }
+ 
+          /* PATCH v9: per-sample shading was never requested on v9, so the
+@@ -2674,7 +2683,8 @@ panvk_emit_fs_draw_v9(struct panvk_cmd_buffer *cmdbuf,
+           * alpha_invisible / alpha_translucent). CSF sets the same bit.
+           * Covered by the same control. */
+          if (!no_per_sample)
+-            cfg.flags_0.alpha_to_coverage = alpha_to_coverage;
++            cfg.flags_0.alpha_to_coverage =
++               alpha_to_coverage && !fs->fs.early_zs_probe;
+       } else {
+          /* PATCH v9: no fragment shader (no colour attachment written and no
+           * other FS side effect, e.g. depth-only passes). Same as gallium
+@@ -3124,7 +3134,7 @@ prepare_draw_v9(struct panvk_cmd_buffer *cmdbuf, struct panvk_draw_data *draw)
+    const struct panvk_shader_desc_info *vs_desc_info =
+       &cmdbuf->state.gfx.vs.shader->desc_info;
+    const struct panvk_shader_desc_info *fs_desc_info =
+-      fs ? &cmdbuf->state.gfx.fs.shader->desc_info : NULL;
++      fs ? &get_fs(cmdbuf)->desc_info : NULL;
+    uint32_t used_set_mask =
+       vs_desc_info->used_set_mask | (fs ? fs_desc_info->used_set_mask : 0);
+ 
+diff --git a/src/panfrost/vulkan/panvk_cmd_draw.h b/src/panfrost/vulkan/panvk_cmd_draw.h
+index a24df77..10d54ab 100644
+--- a/src/panfrost/vulkan/panvk_cmd_draw.h
++++ b/src/panfrost/vulkan/panvk_cmd_draw.h
+@@ -357,7 +357,16 @@ fs_required(const struct panvk_cmd_graphics_state *state,
+    const struct vk_color_blend_state *cb = &dyn_state->cb;
+    const struct vk_rasterization_state *rs = &dyn_state->rs;
+ 
+-   if (rs->rasterizer_discard_enable || !fs_info)
++   if (rs->rasterizer_discard_enable)
++      return false;
++
++#if PAN_ARCH == 9
++   if (dyn_state->ds.depth.bounds_test.enable &&
++       (state->render.bound_attachments & MESA_VK_RP_ATTACHMENT_DEPTH_BIT))
++      return true;
++#endif
++
++   if (!fs_info)
+       return false;
+ 
+    /* If we generally have side effects */
+@@ -398,12 +407,18 @@ cached_fs_required(ASSERTED const struct panvk_cmd_graphics_state *state,
+    return cached_value;
+ }
+ 
++#if PAN_ARCH == 9
++const struct panvk_shader *
++panvk_per_arch(cmd_get_fs)(const struct panvk_cmd_buffer *cmdbuf);
++#define get_fs(__cmdbuf) panvk_per_arch(cmd_get_fs)(__cmdbuf)
++#else
+ #define get_fs(__cmdbuf)                                                       \
+    (cached_fs_required(&(__cmdbuf)->state.gfx,                                 \
+                        &(__cmdbuf)->vk.dynamic_graphics_state,                 \
+                        (__cmdbuf)->state.gfx.fs.required)                      \
+        ? (__cmdbuf)->state.gfx.fs.shader                                       \
+        : NULL)
++#endif
+ 
+ /* Anything that might change the value returned by get_fs() makes users of the
+  * fragment shader dirty, because not using the fragment shader (when
+@@ -414,6 +429,8 @@ cached_fs_required(ASSERTED const struct panvk_cmd_graphics_state *state,
+ 
+ #define fs_user_dirty(__cmdbuf)                                                \
+    (gfx_state_dirty(cmdbuf, FS) ||                                             \
++    gfx_state_dirty(cmdbuf, RENDER_STATE) ||                                  \
++    dyn_gfx_state_dirty(cmdbuf, DS_DEPTH_BOUNDS_TEST_ENABLE) ||                \
+     dyn_gfx_state_dirty(cmdbuf, RS_RASTERIZER_DISCARD_ENABLE) ||               \
+     dyn_gfx_state_dirty(cmdbuf, CB_ATTACHMENT_COUNT) ||                        \
+     dyn_gfx_state_dirty(cmdbuf, CB_COLOR_WRITE_ENABLES) ||                     \
+@@ -426,7 +443,7 @@ cached_fs_required(ASSERTED const struct panvk_cmd_graphics_state *state,
+ #define clear_dirty_after_draw(__cmdbuf)                                       \
+    do {                                                                        \
+       bool __set_fs_dirty =                                                    \
+-         (__cmdbuf)->state.gfx.fs.shader != get_fs(__cmdbuf);                  \
++         (__cmdbuf)->state.gfx.fs.shader && !get_fs(__cmdbuf);                 \
+       bool __set_fs_push_dirty =                                               \
+          __set_fs_dirty && gfx_state_dirty(__cmdbuf, FS_PUSH_UNIFORMS);        \
+       vk_dynamic_graphics_state_clear_dirty(                                   \
+diff --git a/src/panfrost/vulkan/panvk_device.h b/src/panfrost/vulkan/panvk_device.h
+index 7c4ab06..e80589b 100644
+--- a/src/panfrost/vulkan/panvk_device.h
++++ b/src/panfrost/vulkan/panvk_device.h
+@@ -102,6 +102,8 @@ struct panvk_device {
+ 
+    struct vk_meta_device meta;
+ 
++   struct panvk_shader *depth_bounds_fs;
++
+    struct {
+       struct panvk_pool rw;
+       struct panvk_pool rw_nc;
+diff --git a/src/panfrost/vulkan/panvk_shader.h b/src/panfrost/vulkan/panvk_shader.h
+index de3bf47..7788b5a 100644
+--- a/src/panfrost/vulkan/panvk_shader.h
++++ b/src/panfrost/vulkan/panvk_shader.h
+@@ -212,6 +212,10 @@ struct panvk_graphics_sysvals {
+    /* PATCH v9: clip distance count | cull distance count << 8 of the last
+     * pre-rasterization stage, read by the fragment shader. */
+    uint32_t clip_cull;
++   uint32_t early_alpha_to_coverage;
++   float depth_bounds[2];
++   uint32_t depth_bounds_samples;
++   float depth_bounds_scale;
+ #endif
+ } __attribute__((aligned(FAU_WORD_SIZE)));
+ 
+@@ -458,6 +462,8 @@ struct panvk_shader_variant {
+           * runs (clip_cull set), earlyzs_lut otherwise. */
+          struct pan_earlyzs_lut earlyzs_lut_clip;
+          bool clip_cull;
++         bool early_zs_probe;
++         bool depth_bounds;
+          uint32_t input_attachment_read;
+          uint32_t tile_image_color_read;
+          bool tile_image_z_read;
+@@ -569,6 +575,10 @@ enum panvk_gs_variant {
+ struct panvk_shader {
+    struct vk_shader vk;
+ 
++#if PAN_ARCH == 9
++   struct panvk_shader *bounded;
++#endif
++
+    struct panvk_shader_desc_info desc_info;
+ 
+    struct {
+diff --git a/src/panfrost/vulkan/panvk_v9_coverage.h b/src/panfrost/vulkan/panvk_v9_coverage.h
+new file mode 100644
+index 0000000..330c6ac
+--- /dev/null
++++ b/src/panfrost/vulkan/panvk_v9_coverage.h
+@@ -0,0 +1,69 @@
++/*
++ * Copyright 2023 Alyssa Rosenzweig
++ * Copyright 2021 Intel Corporation
++ * SPDX-License-Identifier: MIT
++ */
++
++static nir_def *
++panvk_v9_alpha_to_coverage(nir_builder *b, nir_def *alpha, bool has_intrinsic)
++{
++   if (has_intrinsic)
++      return nir_alpha_to_coverage(b, alpha);
++
++   /* The following formula is used to compute final sample mask:
++    *  m = int(round(16.0 * clamp(src0_alpha, 0.0, 1.0)))
++    *  dither_mask = 0x1111 * ((0xf7540 >> (m & ~3)) & 0xf) |
++    *     0x0404 * (m & 2) | 0x0080 * (m & 1)
++    *  sample_mask = sample_mask & dither_mask
++    *
++    * It gives a number of ones proportional to the alpha for 2, 4, 8 or 16
++    * least significant bits of the result:
++    *
++    *  0.0000 0000000000000000
++    *  0.0625 0000000010000000
++    *  0.1250 0000100000001000
++    *  0.1875 0000100010001000
++    *  0.2500 0100010001000100
++    *  0.3125 0100010011000100
++    *  0.3750 0100110001001100
++    *  0.4375 0100110011001100
++    *  0.5000 0101010101010101
++    *  0.5625 0101010111010101
++    *  0.6250 0101110101011101
++    *  0.6875 0101110111011101
++    *  0.7500 0111011101110111
++    *  0.8125 0111011111110111
++    *  0.8750 0111111101111111
++    *  0.9375 0111111111111111
++    *  1.0000 1111111111111111
++    *
++    *  We use 16-bit math for the multiplies because the result always fits
++    *  into 16 bits and that is typically way cheaper than full 32-bit
++    *  multiplies.
++    */
++   nir_def *m =
++      nir_f2i32(b, nir_fround_even(b, nir_fmul_imm(b, nir_fsat(b, alpha), 16.0)));
++
++   nir_def *part_a =
++      nir_u2u16(b, nir_iand_imm(b, nir_ushr(b, nir_imm_int(b, 0xf7540),
++                                  nir_iand_imm(b, m, ~3)),
++                                0xf));
++
++   nir_def *part_b = nir_iand_imm(b, nir_u2u16(b, m), 2);
++   nir_def *part_c = nir_iand_imm(b, nir_u2u16(b, m), 1);
++
++   nir_def *mask = nir_ior(b, nir_imul_imm(b, part_a, 0x1111),
++                           nir_ior(b, nir_imul_imm(b, part_b, 0x0404),
++                                   nir_imul_imm(b, part_c, 0x0080)));
++
++   /* Rotate the mask based on (pixel.x % 2) + (pixel.y % 2). This provides
++    * dithering and randomizes the sample locations.
++    */
++   nir_def *pixel = nir_f2u32(b, nir_build_frag_coord(b, 2));
++   nir_def *rotate_amount =
++      nir_iadd(b, nir_iand_imm(b, nir_channel(b, pixel, 0), 0x1),
++                  nir_iand_imm(b, nir_channel(b, pixel, 1), 0x1));
++   mask = nir_ior(b, nir_ushr(b, mask, rotate_amount),
++                  nir_ishl(b, mask, nir_isub_imm(b, 16, rotate_amount)));
++   return nir_u2u32(b, mask);
++}
+diff --git a/src/panfrost/vulkan/panvk_vX_blend.c b/src/panfrost/vulkan/panvk_vX_blend.c
+index 7717997..79d48ac 100644
+--- a/src/panfrost/vulkan/panvk_vX_blend.c
++++ b/src/panfrost/vulkan/panvk_vX_blend.c
+@@ -277,7 +277,7 @@ panvk_per_arch(blend_emit_descs)(struct panvk_cmd_buffer *cmdbuf,
+    const struct vk_color_blend_state *cb = &dyns->cb;
+    const struct vk_color_attachment_location_state *cal = &dyns->cal;
+    const struct panvk_shader_variant *fs =
+-      panvk_shader_only_variant(cmdbuf->state.gfx.fs.shader);
++      panvk_shader_only_variant(get_fs(cmdbuf));
+    const struct pan_shader_info *fs_info = &fs->info;
+    uint64_t fs_code = panvk_shader_variant_get_dev_addr(fs);
+    const struct panvk_rendering_state *render = &cmdbuf->state.gfx.render;
+diff --git a/src/panfrost/vulkan/panvk_vX_cmd_draw.c b/src/panfrost/vulkan/panvk_vX_cmd_draw.c
+index 4b80e9f..f63c930 100644
+--- a/src/panfrost/vulkan/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/panvk_vX_cmd_draw.c
+@@ -17,6 +17,29 @@
+ #include "vk_android.h"
+ #include "vk_render_pass.h"
+ 
++#if PAN_ARCH == 9
++const struct panvk_shader *
++panvk_per_arch(cmd_get_fs)(const struct panvk_cmd_buffer *cmdbuf)
++{
++   const struct panvk_cmd_graphics_state *state = &cmdbuf->state.gfx;
++   const struct vk_dynamic_graphics_state *dyns =
++      &cmdbuf->vk.dynamic_graphics_state;
++   if (!cached_fs_required(state, dyns, state->fs.required))
++      return NULL;
++
++   if (dyns->ds.depth.bounds_test.enable &&
++       (state->render.bound_attachments & MESA_VK_RP_ATTACHMENT_DEPTH_BIT)) {
++      const struct panvk_device *dev = to_panvk_device(cmdbuf->vk.base.device);
++      const struct panvk_shader *shader =
++         state->fs.shader ? state->fs.shader : dev->depth_bounds_fs;
++      assert(shader && shader->bounded);
++      return shader->bounded;
++   }
++
++   return state->fs.shader;
++}
++#endif
++
+ static enum pan_fb_load_op
+ get_att_fb_load_op(const VkRenderingAttachmentInfo *att)
+ {
+@@ -898,6 +921,29 @@ panvk_per_arch(cmd_prepare_draw_sysvals)(struct panvk_cmd_buffer *cmdbuf,
+    set_gfx_sysval(cmdbuf, dirty_sysvals, clip_cull,
+                   last_vtx ? last_vtx->clip_size | (last_vtx->cull_size << 8)
+                            : 0);
++   set_gfx_sysval(cmdbuf, dirty_sysvals, early_alpha_to_coverage,
++                  cmdbuf->vk.dynamic_graphics_state.ms.alpha_to_coverage_enable);
++   set_gfx_sysval(cmdbuf, dirty_sysvals, depth_bounds[0],
++                  cmdbuf->vk.dynamic_graphics_state.ds.depth.bounds_test.min);
++   set_gfx_sysval(cmdbuf, dirty_sysvals, depth_bounds[1],
++                  cmdbuf->vk.dynamic_graphics_state.ds.depth.bounds_test.max);
++   set_gfx_sysval(cmdbuf, dirty_sysvals, depth_bounds_samples,
++                  cmdbuf->state.gfx.render.fb.nr_samples);
++   float depth_bounds_scale = 0.0f;
++   switch (cmdbuf->state.gfx.render.z_attachment.fmt) {
++   case VK_FORMAT_D16_UNORM:
++   case VK_FORMAT_D16_UNORM_S8_UINT:
++      depth_bounds_scale = 65535.0f;
++      break;
++   case VK_FORMAT_X8_D24_UNORM_PACK32:
++   case VK_FORMAT_D24_UNORM_S8_UINT:
++      depth_bounds_scale = 16777215.0f;
++      break;
++   default:
++      break;
++   }
++   set_gfx_sysval(cmdbuf, dirty_sysvals, depth_bounds_scale,
++                  depth_bounds_scale);
+ #endif
+ 
+    if (dyn_gfx_state_dirty(cmdbuf, CB_BLEND_CONSTANTS)) {
+diff --git a/src/panfrost/vulkan/panvk_vX_device.c b/src/panfrost/vulkan/panvk_vX_device.c
+index a3c8c18..33f1a81 100644
+--- a/src/panfrost/vulkan/panvk_vX_device.c
++++ b/src/panfrost/vulkan/panvk_vX_device.c
+@@ -45,6 +45,7 @@
+ #include "pan_props.h"
+ #include "pan_samples.h"
+ #include "poly/geometry.h"
++#include "nir_builder.h"
+ 
+ static void *
+ panvk_kmod_zalloc(const struct pan_kmod_allocator *allocator, size_t size,
+@@ -750,6 +751,24 @@ panvk_per_arch(create_device)(struct panvk_physical_device *physical_device,
+    if (result != VK_SUCCESS)
+       goto err_free_draw_ctx;
+ 
++#if PAN_ARCH == 9
++   if (device->vk.enabled_features.depthBounds) {
++      nir_builder b = nir_builder_init_simple_shader(
++         MESA_SHADER_FRAGMENT,
++         pan_get_nir_shader_compiler_options(PAN_ARCH, MESA_SHADER_FRAGMENT,
++                                             false),
++         "depth_bounds");
++      b.shader->info.fs.early_fragment_tests = true;
++      panvk_per_arch(compiler_lock)();
++      result = panvk_per_arch(create_shader)(device, b.shader,
++                                             &device->depth_bounds_fs);
++      panvk_per_arch(compiler_unlock)();
++      ralloc_free(b.shader);
++      if (result != VK_SUCCESS)
++         goto err_finish_queues;
++   }
++#endif
++
+    for (unsigned i = 0; i < pCreateInfo->queueCreateInfoCount; i++) {
+       const VkDeviceQueueCreateInfo *queue_create =
+          &pCreateInfo->pQueueCreateInfos[i];
+@@ -786,6 +805,8 @@ err_finish_queues:
+    vk_foreach_queue_safe(queue, &device->vk)
+       panvk_queue_destroy(queue);
+ 
++   if (device->depth_bounds_fs)
++      vk_shader_destroy(&device->vk, &device->depth_bounds_fs->vk, NULL);
+    panvk_meta_cleanup(device);
+ 
+ err_free_draw_ctx:
+@@ -840,6 +861,8 @@ panvk_per_arch(destroy_device)(struct panvk_device *device,
+    vk_foreach_queue_safe(queue, &device->vk)
+       panvk_queue_destroy(queue);
+ 
++   if (device->depth_bounds_fs)
++      vk_shader_destroy(&device->vk, &device->depth_bounds_fs->vk, NULL);
+    panvk_precomp_cleanup(device);
+ #if PAN_ARCH >= 10 && PAN_ARCH < 14
+    panvk_per_arch(device_draw_context_cleanup)(device);
+diff --git a/src/panfrost/vulkan/panvk_vX_physical_device.c b/src/panfrost/vulkan/panvk_vX_physical_device.c
+index 65f9972..6a3fa07 100644
+--- a/src/panfrost/vulkan/panvk_vX_physical_device.c
++++ b/src/panfrost/vulkan/panvk_vX_physical_device.c
+@@ -336,7 +336,7 @@ panvk_per_arch(get_physical_device_features)(
+        * handled separately from the native point/line topology path.
+        */
+       .fillModeNonSolid = true,
+-      .depthBounds = false,
++      .depthBounds = PAN_ARCH == 9 && pan_env_flag("PANVK_V9_DEPTH_BOUNDS"),
+       .wideLines = true,
+       .largePoints = true,
+       .alphaToOne = false,
+diff --git a/src/panfrost/vulkan/panvk_vX_shader.c b/src/panfrost/vulkan/panvk_vX_shader.c
+index 7d7a8db..fa87c91 100644
+--- a/src/panfrost/vulkan/panvk_vX_shader.c
++++ b/src/panfrost/vulkan/panvk_vX_shader.c
+@@ -46,6 +46,9 @@
+ #include "compiler/bifrost/bifrost_compile.h"
+ #include "compiler/pan_compiler.h"
+ #include "compiler/pan_nir.h"
++#if PAN_ARCH == 9
++#include "panvk_v9_coverage.h"
++#endif
+ #include "pan_shader.h"
+ #include "poly/nir/poly_nir.h"
+ #include "poly/geometry.h"
+@@ -990,6 +993,8 @@ panvk_hash_state(struct vk_physical_device *device,
+ 
+    const unsigned ubo_push = panvk_ubo_push_budget();
+    _mesa_blake3_update(&blake3_ctx, &ubo_push, sizeof(ubo_push));
++   _mesa_blake3_update(&blake3_ctx, &enabled_features->depthBounds,
++                       sizeof(enabled_features->depthBounds));
+ 
+    const bool clip_cull_off =
+       panvk_clip_cull_disabled(to_panvk_instance(device->instance));
+@@ -1008,6 +1013,7 @@ panvk_hash_state(struct vk_physical_device *device,
+       pan_env_flag("PANVK_V9_GS_RAST_BASE0") != NULL,
+       pan_env_flag("PANVK_V9_CLIP_KILL_FPK") != NULL,
+       pan_env_flag("PANVK_V9_ALLOW_TESS_GS") != NULL,
++      pan_env_flag("PANVK_V9_EARLY_COVERAGE") != NULL,
+       pan_env_flag("PANVK_V9_NO_TESS") != NULL,
+       pan_env_flag("PANVK_V9_NO_GS") != NULL,
+       pan_env_flag("PANVK_V9_NO_TES_GS") != NULL,
+@@ -2294,6 +2300,117 @@ panvk_v9_lower_robust_attr(nir_builder *b, nir_intrinsic_instr *intr,
+ }
+ #endif
+ 
++#if PAN_ARCH == 9
++static nir_def *
++panvk_v9_prepare_early_zs(nir_shader *nir, bool depth_bounds)
++{
++   if (!nir->info.fs.early_fragment_tests ||
++       (!depth_bounds && !pan_env_flag("PANVK_V9_EARLY_COVERAGE")))
++      return NULL;
++
++   nir_function_impl *impl = nir_shader_get_entrypoint(nir);
++   nir_builder b = nir_builder_at(nir_before_impl(impl));
++   nir_def *coverage = nir_load_cumulative_coverage_pan(&b);
++   nir_demote_if(&b, nir_ieq_imm(&b, coverage, 0));
++   nir->info.fs.uses_discard = true;
++   nir_progress(true, impl, nir_metadata_control_flow);
++   return coverage;
++}
++
++static nir_def *
++panvk_v9_depth_bounds_mask(nir_builder *b, nir_def *coverage)
++{
++   nir_def *bounds = load_sysval(b, graphics, 32, depth_bounds);
++   nir_def *samples = load_sysval(b, graphics, 32, depth_bounds_samples);
++   nir_def *scale = load_sysval(b, graphics, 32, depth_bounds_scale);
++   nir_def *fixed_point = nir_fneu_imm(b, scale, 0.0f);
++   bounds = nir_bcsel(b, fixed_point,
++                     nir_fround_even(b, nir_fmul(b, nir_fsat(b, bounds), scale)),
++                     bounds);
++   nir_def *mask = nir_imm_int(b, 0);
++
++   for (unsigned i = 0; i < 16; i++) {
++      nir_def *bit = nir_iand_imm(b, coverage, BITFIELD_BIT(i));
++      nir_push_if(b, nir_iand(b, nir_ult(b, nir_imm_int(b, i), samples),
++                              nir_ine_imm(b, bit, 0)));
++      nir_def *depth = nir_load_tile_pan(
++         b, 1, 32,
++         pan_nir_tile_location_sample(b, FRAG_RESULT_DEPTH, nir_imm_int(b, i)),
++         pan_nir_tile_default_coverage(b), nir_imm_int(b, 0),
++         .dest_type = nir_type_float32,
++         .io_semantics = { .location = FRAG_RESULT_DEPTH, .num_slots = 1 });
++      depth = nir_bcsel(b, fixed_point,
++                       nir_fround_even(b, nir_fmul(b, nir_fsat(b, depth), scale)),
++                       depth);
++      nir_def *pass = nir_iand(b, nir_fge(b, depth, nir_channel(b, bounds, 0)),
++                                 nir_fge(b, nir_channel(b, bounds, 1), depth));
++      nir_def *accepted = nir_bcsel(b, pass, bit, nir_imm_int(b, 0));
++      nir_push_else(b, NULL);
++      nir_def *zero = nir_imm_int(b, 0);
++      nir_pop_if(b, NULL);
++      mask = nir_ior(b, mask, nir_if_phi(b, accepted, zero));
++   }
++
++   return mask;
++}
++
++static bool
++panvk_v9_probe_early_zs(nir_shader *nir, nir_def *entry_coverage,
++                       bool depth_bounds)
++{
++   if (!entry_coverage && !depth_bounds)
++      return false;
++
++   nir_function_impl *impl = nir_shader_get_entrypoint(nir);
++   nir_intrinsic_instr *output_atest = NULL;
++   nir_foreach_block(block, impl) {
++      nir_foreach_instr(instr, block) {
++         if (instr->type == nir_instr_type_intrinsic &&
++             nir_instr_as_intrinsic(instr)->intrinsic == nir_intrinsic_atest_pan) {
++            assert(!output_atest);
++            output_atest = nir_instr_as_intrinsic(instr);
++         }
++      }
++   }
++   assert(output_atest);
++
++   if (!entry_coverage) {
++      nir_builder b = nir_builder_at(nir_before_instr(&output_atest->instr));
++      nir_def *mask = panvk_v9_depth_bounds_mask(&b, output_atest->src[0].ssa);
++      nir_src_rewrite(&output_atest->src[0], mask);
++      nir->info.fs.uses_discard = true;
++      return nir_progress(true, impl, nir_metadata_none);
++   }
++
++   nir_builder b = nir_builder_at(nir_before_def(entry_coverage));
++   nir_def *input_coverage = nir_load_sample_mask(&b);
++   if (depth_bounds)
++      input_coverage = panvk_v9_depth_bounds_mask(&b, input_coverage);
++   nir_def *coverage = nir_atest_pan(
++      &b, input_coverage, nir_imm_float(&b, 1.0));
++   nir_def_replace(entry_coverage, coverage);
++
++   b.cursor = nir_before_instr(&output_atest->instr);
++   nir_def *final_coverage =
++      nir_iand(&b, output_atest->src[0].ssa, coverage);
++   nir_def *alpha_mask = panvk_v9_alpha_to_coverage(
++      &b, nir_f2f32(&b, output_atest->src[1].ssa), false);
++   nir_def *alpha_enabled = nir_ine_imm(
++      &b, load_sysval(&b, graphics, 32, early_alpha_to_coverage), 0);
++   final_coverage = nir_iand(
++      &b, final_coverage,
++      nir_bcsel(&b, alpha_enabled, alpha_mask, nir_imm_int(&b, 0xffff)));
++   nir_def_rewrite_uses(&output_atest->def, final_coverage);
++   nir_instr_remove(&output_atest->instr);
++
++   nir->info.fs.early_fragment_tests = false;
++   nir->info.fs.uses_discard = true;
++   nir->info.outputs_written &= ~(BITFIELD64_BIT(FRAG_RESULT_DEPTH) |
++                                  BITFIELD64_BIT(FRAG_RESULT_STENCIL));
++   return nir_progress(true, impl, nir_metadata_none);
++}
++#endif
++
+ static VkResult
+ panvk_compile_nir(struct panvk_device *dev, nir_shader *nir,
+                   VkShaderCreateFlagsEXT shader_flags,
+@@ -2707,6 +2824,11 @@ panvk_shader_destroy(struct vk_device *vk_dev, struct vk_shader *vk_shader,
+    struct panvk_shader *shader =
+       container_of(vk_shader, struct panvk_shader, vk);
+ 
++#if PAN_ARCH == 9
++   if (shader->bounded)
++      panvk_shader_destroy(vk_dev, &shader->bounded->vk, pAllocator);
++#endif
++
+    panvk_shader_foreach_variant(shader, variant) {
+       panvk_shader_variant_destroy(variant);
+    }
+@@ -2748,7 +2870,7 @@ panvk_compile_shader(struct panvk_device *dev,
+                      const struct pan_varying_layout *vs_varying_layout,
+                      const uint32_t *noperspective_varyings,
+                      const VkAllocationCallbacks *pAllocator,
+-                     struct vk_shader **shader_out)
++                     struct vk_shader **shader_out, bool depth_bounds)
+ {
+    struct panvk_physical_device *phys_dev =
+       to_panvk_physical_device(dev->vk.physical);
+@@ -2764,6 +2886,28 @@ panvk_compile_shader(struct panvk_device *dev,
+    if (shader == NULL)
+       return panvk_error(dev, VK_ERROR_OUT_OF_HOST_MEMORY);
+ 
++#if PAN_ARCH == 9
++   if (info->stage == MESA_SHADER_FRAGMENT &&
++       dev->vk.enabled_features.depthBounds && !depth_bounds) {
++      struct vk_shader_compile_info bounded_info = *info;
++      bounded_info.nir = nir_shader_clone(NULL, info->nir);
++      if (!bounded_info.nir) {
++         panvk_shader_destroy(&dev->vk, &shader->vk, pAllocator);
++         return panvk_error(dev, VK_ERROR_OUT_OF_HOST_MEMORY);
++      }
++      struct vk_shader *bounded;
++      result = panvk_compile_shader(dev, &bounded_info, state,
++                                    vs_varying_layout, noperspective_varyings,
++                                    pAllocator, &bounded, true);
++      ralloc_free(bounded_info.nir);
++      if (result != VK_SUCCESS) {
++         panvk_shader_destroy(&dev->vk, &shader->vk, pAllocator);
++         return result;
++      }
++      shader->bounded = container_of(bounded, struct panvk_shader, vk);
++   }
++#endif
++
+    nir_variable_mode robust_modes = 0;
+    if (info->robustness->uniform_buffers != VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DISABLED_EXT)
+       robust_modes |= nir_var_mem_ubo;
+@@ -3335,6 +3479,7 @@ panvk_compile_shader(struct panvk_device *dev,
+ #if PAN_ARCH == 9
+       const bool api_discard = nir->info.fs.uses_discard;
+       const bool api_writes_mem = nir->info.writes_memory;
++      nir_def *early_coverage = panvk_v9_prepare_early_zs(nir, depth_bounds);
+       variant->fs.clip_cull =
+          panvk_v9_lower_fs_clip_cull(nir, vs_varying_layout,
+                                      panvk_dev_clip_cull_off(dev));
+@@ -3362,6 +3507,13 @@ panvk_compile_shader(struct panvk_device *dev,
+       NIR_PASS(_, nir, pan_nir_lower_fs_outputs, false,
+                0 /* fragcolor_nr_cbufs */);
+ 
++#if PAN_ARCH == 9
++      variant->fs.early_zs_probe = early_coverage != NULL;
++      variant->fs.depth_bounds = depth_bounds;
++      variant->fs.tile_image_z_read |= depth_bounds;
++      NIR_PASS(_, nir, panvk_v9_probe_early_zs, early_coverage, depth_bounds);
++#endif
++
+       variant->own_bin = true;
+ 
+       result = panvk_compile_nir(dev, nir, info->flags, &inputs, state,
+@@ -3392,9 +3544,11 @@ panvk_compile_shader(struct panvk_device *dev,
+          variant->fs.earlyzs_lut_clip =
+             pan_earlyzs_analyze(&clip_info, PAN_ARCH);
+ 
+-         variant->info.fs.can_discard = api_discard;
++         variant->info.fs.can_discard =
++            api_discard || variant->fs.early_zs_probe || depth_bounds;
+          if (!pan_env_flag("PANVK_V9_CLIP_KILL_FPK")) {
+-            variant->info.fs.sidefx = api_writes_mem || api_discard;
++            variant->info.fs.sidefx =
++               api_writes_mem || variant->info.fs.can_discard;
+             variant->info.fs.can_early_z =
+                !variant->info.fs.sidefx && !variant->info.fs.writes_depth &&
+                !variant->info.fs.writes_stencil &&
+@@ -3608,7 +3762,7 @@ compile_shaders(struct vk_device *vk_dev, uint32_t shader_count,
+ 
+       result = panvk_compile_shader(dev, &infos[i], state, vs_varying_layout,
+                                     noperspective_varyings_ptr, pAllocator,
+-                                    &shaders_out[i]);
++                                    &shaders_out[i], false);
+ 
+       if (result != VK_SUCCESS)
+          goto err_cleanup;
+@@ -3759,6 +3913,8 @@ panvk_deserialize_shader_variant(struct vk_device *vk_dev,
+    case MESA_SHADER_FRAGMENT:
+       shader->fs.earlyzs_lut = pan_earlyzs_analyze(&shader->info, PAN_ARCH);
+       shader->fs.clip_cull = blob_read_uint8(blob);
++      shader->fs.early_zs_probe = blob_read_uint8(blob);
++      shader->fs.depth_bounds = blob_read_uint8(blob);
+       if (shader->fs.clip_cull) {
+          struct pan_shader_info clip_info = shader->info;
+          clip_info.fs.can_discard = true;
+@@ -3845,8 +4001,13 @@ panvk_deserialize_shader(struct vk_device *vk_dev, struct blob_reader *blob,
+    struct panvk_shader *shader;
+    VkResult result;
+ 
++#if PAN_ARCH == 9
++   if (blob_read_uint32(blob) != 0x44424e32 || blob->overrun)
++      return vk_error(device, VK_ERROR_INCOMPATIBLE_SHADER_BINARY_EXT);
++#endif
++
+    mesa_shader_stage stage = blob_read_uint8(blob);
+-   if (blob->overrun)
++   if (blob->overrun || stage >= MESA_SHADER_STAGES)
+       return vk_error(device, VK_ERROR_INCOMPATIBLE_SHADER_BINARY_EXT);
+ 
+    size_t size =
+@@ -3885,6 +4046,34 @@ panvk_deserialize_shader(struct vk_device *vk_dev, struct blob_reader *blob,
+       }
+    }
+ 
++#if PAN_ARCH == 9
++   const bool has_bounds = blob_read_uint8(blob);
++   if (blob->overrun || (has_bounds && stage != MESA_SHADER_FRAGMENT)) {
++      panvk_shader_destroy(vk_dev, &shader->vk, pAllocator);
++      return vk_error(device, VK_ERROR_INCOMPATIBLE_SHADER_BINARY_EXT);
++   }
++   if (has_bounds) {
++      shader->bounded = vk_shader_zalloc(vk_dev, &panvk_shader_ops,
++                                         MESA_SHADER_FRAGMENT, pAllocator,
++                                         sizeof(*shader) + sizeof(shader->variants[0]));
++      if (!shader->bounded) {
++         panvk_shader_destroy(vk_dev, &shader->vk, pAllocator);
++         return vk_error(device, VK_ERROR_OUT_OF_HOST_MEMORY);
++      }
++      result = shader_desc_info_deserialize(device, blob, shader->bounded);
++      if (result == VK_SUCCESS)
++         result = panvk_deserialize_shader_variant(
++            vk_dev, blob, pAllocator, &shader->bounded->variants[0]);
++      if (result != VK_SUCCESS || blob->overrun ||
++          shader->bounded->variants[0].info.stage != MESA_SHADER_FRAGMENT ||
++          !shader->bounded->variants[0].fs.depth_bounds) {
++         panvk_shader_destroy(vk_dev, &shader->vk, pAllocator);
++         return result != VK_SUCCESS ? result :
++            vk_error(device, VK_ERROR_INCOMPATIBLE_SHADER_BINARY_EXT);
++      }
++   }
++#endif
++
+    *shader_out = &shader->vk;
+ 
+    return VK_SUCCESS;
+@@ -3943,6 +4132,8 @@ panvk_shader_serialize_variant(struct vk_device *vk_dev,
+ 
+    case MESA_SHADER_FRAGMENT:
+       blob_write_uint8(blob, shader->fs.clip_cull);
++      blob_write_uint8(blob, shader->fs.early_zs_probe);
++      blob_write_uint8(blob, shader->fs.depth_bounds);
+       blob_write_bytes(blob, &shader->fs.input_attachment_read,
+                        sizeof(shader->fs.input_attachment_read));
+       blob_write_bytes(blob, &shader->fs.tile_image_color_read,
+@@ -3983,6 +4174,9 @@ panvk_shader_serialize(struct vk_device *vk_dev,
+    struct panvk_shader *shader =
+       container_of(vk_shader, struct panvk_shader, vk);
+ 
++#if PAN_ARCH == 9
++   blob_write_uint32(blob, 0x44424e32);
++#endif
+    blob_write_uint8(blob, vk_shader->stage);
+ 
+    shader_desc_info_serialize(blob, shader);
+@@ -4000,6 +4194,16 @@ panvk_shader_serialize(struct vk_device *vk_dev,
+       panvk_shader_serialize_variant(vk_dev, variant, blob);
+    }
+ 
++#if PAN_ARCH == 9
++   blob_write_uint8(blob, shader->bounded != NULL);
++   if (shader->bounded) {
++      assert(shader->vk.stage == MESA_SHADER_FRAGMENT);
++      assert(!shader->bounded->bounded);
++      shader_desc_info_serialize(blob, shader->bounded);
++      panvk_shader_serialize_variant(vk_dev, &shader->bounded->variants[0], blob);
++   }
++#endif
++
+    return !blob->out_of_memory;
+ }
+ 
+@@ -4603,7 +4807,7 @@ VkResult panvk_per_arch(create_shader)(
+ 
+    struct vk_shader *vk_shader;
+    VkResult result = panvk_compile_shader(dev, &info, NULL, NULL, NULL, NULL,
+-                                          &vk_shader);
++                                          &vk_shader, false);
+    if (result != VK_SUCCESS)
+       return result;
+ 

@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "copied_files_checked": 158,
+  "public_files_checked": 174,
+  "document_links_checked": 89,
+  "source_replay_compared": 12929,
+  "source_replay_differences": 0,
+  "probe_C_sources_compiled": 8,
+  "shaders_compiled_and_validated": 15,
+  "tracked_raw_results": {
+    "reports": {
+      "host": {
+        "cases": 5658,
+        "counts": {
+          "Pass": 3754,
+          "NotSupported": 1890,
+          "Fail": 14
+        },
+        "raw_case_records_match": true,
+        "selected_raw_files": 10
+      },
+      "android": {
+        "cases": 5658,
+        "counts": {
+          "Pass": 3754,
+          "NotSupported": 1890,
+          "Fail": 14
+        },
+        "raw_case_records_match": true,
+        "selected_raw_files": 10
+      },
+      "test8": {
+        "cases": 5658,
+        "counts": {
+          "Pass": 3753,
+          "NotSupported": 1890,
+          "Fail": 15
+        },
+        "raw_case_records_match": true,
+        "selected_raw_files": 10
+      }
+    },
+    "changes": [
+      [
+        "dEQP-VK.robustness.robustness2.bind.notemplate.r32ui.unroll.nonvolatile.vertex_attribute_fetch.no_fmt_qual.null_descriptor.samples_1.1d.vert",
+        "Fail",
+        "Pass"
+      ]
+    ]
+  },
+  "preservation_pins_checked": 540,
+  "scope": "Publication validation only; no new GPU run. Android ioctl control compiled with its original Bionic ABI after a host compiler mismatch; sources unchanged."
+}

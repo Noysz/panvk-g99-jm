@@ -1,0 +1,445 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "label": "host-False-off",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_DOUBLE_SUBMIT": "1"
+      },
+      "returncode": 0,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-True-off",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1"
+      },
+      "returncode": 0,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-False-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_DOUBLE_SUBMIT": "1"
+      },
+      "returncode": 0,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-True-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-growth-failure-4-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1",
+        "OVERLAP_FAIL_ALLOCATION": "4"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-growth-failure-5-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1",
+        "OVERLAP_FAIL_ALLOCATION": "5"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-False-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_DOUBLE_SUBMIT": "1"
+      },
+      "returncode": 0,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-True-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-growth-failure-4-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1",
+        "OVERLAP_FAIL_ALLOCATION": "4"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-growth-failure-5-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1",
+        "OVERLAP_FAIL_ALLOCATION": "5"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-False-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_DOUBLE_SUBMIT": "1"
+      },
+      "returncode": 0,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-True-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-growth-failure-4-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1",
+        "OVERLAP_FAIL_ALLOCATION": "4"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "host-growth-failure-5-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/host-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1",
+        "OVERLAP_FAIL_ALLOCATION": "5"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-False-off",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_DOUBLE_SUBMIT": "1"
+      },
+      "returncode": 0,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-True-off",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "false",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1"
+      },
+      "returncode": 0,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-False-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_DOUBLE_SUBMIT": "1"
+      },
+      "returncode": 0,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-True-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-growth-failure-4-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1",
+        "OVERLAP_FAIL_ALLOCATION": "4"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-growth-failure-5-0",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1",
+        "OVERLAP_FAIL_ALLOCATION": "5"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-False-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_DOUBLE_SUBMIT": "1"
+      },
+      "returncode": 0,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-True-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-growth-failure-4-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1",
+        "OVERLAP_FAIL_ALLOCATION": "4"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-growth-failure-5-1",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1",
+        "OVERLAP_FAIL_ALLOCATION": "5"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-False-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_DOUBLE_SUBMIT": "1"
+      },
+      "returncode": 0,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-True-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-growth-failure-4-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1",
+        "OVERLAP_FAIL_ALLOCATION": "4"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-growth-failure-5-2",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-boc2wsz6/native-build-_ddvbzmh/allocation_inject.so:local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1",
+        "OVERLAP_FAIL_ALLOCATION": "5"
+      },
+      "returncode": 0,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    },
+    {
+      "label": "android-growth-negative",
+      "controls": {
+        "PANVK_ICD_SO": "local-tests/t08-overlap-v2-_ntn8ft6/android-overlap-v2.so",
+        "PANVK_JM_OVERLAP": "true",
+        "LD_PRELOAD": "local-tests/t08-overlap-v2-_ntn8ft6/lifetime-12iislnn/lifetime_interpose.so",
+        "OVERLAP_GROW": "1",
+        "MIXED_WRONG_EXPECTED": "1"
+      },
+      "returncode": 2,
+      "growth_after_previous_terminal_done": true,
+      "passed": true,
+      "actual_submissions": 18,
+      "pixels_input_guards_correct": true,
+      "fd_restored": true
+    }
+  ],
+  "pins_unchanged": true,
+  "scope": "Normal reissue/growth retirement and OOM fallback; no live GPU-fault cleanup claim"
+}

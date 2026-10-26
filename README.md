@@ -10,7 +10,21 @@ Most public PanVK testing/builds so far target **CSF** chips (G610/G615/G710/G72
 
 ---
 
-## Development follow-up (2026-10-23, unreleased)
+## Development follow-up (2026-10-26, unreleased)
+
+The [JM v9 API candidate](patches-candidates/2026-10-26-api/README.md)
+adds timestamp lifetime handling, vertex-input robustness/GPL fixes,
+conditional rendering and opt-in depth bounds. Host and Android builds are
+complete. On 5,658 tracked CTS cases, each gains one Pass against the unchanged
+test8 driver and loses none; 14 existing failures remain. Feature repeats,
+negative controls, four DXVK versions and a three-minute Naruto COM battle
+are recorded in the [validation evidence](evidence/validation/api-2026-10-26/README.md).
+No gameplay speedup is established. Test9 still needs packaging and checks
+of the extracted package; see [test9 readiness](docs/test9-readiness.md).
+
+The October 23 memory and matrix results below refer to their earlier frozen
+builds. The new stack includes subsequent cache-sync/error handling and the
+unfinished overlap prototype, which stays off by default.
 
 The current task ledger is [followup-tasks-2026-10-19.md](docs/followup-tasks-2026-10-19.md).
 Compiler/cache candidates pass their targeted build, cache, CTS and DXVK

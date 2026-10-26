@@ -1,0 +1,93 @@
+diff --git a/src/panfrost/vulkan/jm/panvk_cmd_buffer.h b/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
+index 8d4a58d..91ebaeb 100644
+--- a/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
++++ b/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
+@@ -64,6 +64,7 @@ struct panvk_batch {
+    uint64_t sync_epoch;
+    uint8_t overlap_bank;
+    bool issued;
++   bool has_timestamp;
+    /* kbase submission that last ran this batch: a re-issue waits for it. */
+    uint64_t kbase_seqno;
+    /* PANVK_FRAME_PROF_PASSES: what this batch renders (set at close). */
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+index 444ec2c..5bd5bdb 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -5175,6 +5175,7 @@ panvk_per_arch(CmdEndRendering)(VkCommandBuffer commandBuffer)
+       panvk_per_arch(cmd_close_batch)(cmdbuf);
+       cmdbuf->cur_batch = NULL;
+       panvk_per_arch(cmd_meta_resolve_attachments)(cmdbuf);
++      cmdbuf->state.gfx.render.view_mask = 0;
+    }
+ }
+ 
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_query.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_query.c
+index cd866ee..41ad148 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_query.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_query.c
+@@ -142,27 +142,33 @@ panvk_per_arch(CmdWriteTimestamp2)(VkCommandBuffer commandBuffer,
+       if (split_batch < 0)
+          split_batch = pan_env_flag("PANVK_V9_TIMESTAMP_SPLIT_BATCH") != NULL;
+ 
+-      /* PATCH v9: close the current batch only when it has fragment/tiler work
+-       * (whose fragment job runs at batch close). When cur_batch only has
+-       * vtc_jc work, the WRITE_VALUE job's barrier bit orders it after prior
+-       * vtc_jc jobs without splitting the batch.
+-       * PANVK_V9_TIMESTAMP_SPLIT_BATCH=1 restores unconditional split. */
++      const uint32_t count =
++         MAX2(util_bitcount(cmd->state.gfx.render.view_mask), 1);
++      assert(query <= pool->vk.query_count &&
++             count <= pool->vk.query_count - query);
++
+       bool end_sync =
+          cmd->cur_batch != NULL &&
+          (split_batch || cmd->cur_batch->fb.desc.gpu ||
+-          cmd->cur_batch->vtc_jc.first_tiler);
++          cmd->cur_batch->vtc_jc.first_tiler ||
++          cmd->cur_batch->vtc_jc.job_index >= UINT16_MAX - 2 * count - 2);
+ 
+       if (end_sync)
+          panvk_per_arch(cmd_close_batch)(cmd);
+ 
+       bool had_batch;
+       struct panvk_batch *batch = open_batch(cmd, &had_batch);
++      if (!batch)
++         return;
+       had_batch |= end_sync;
++      batch->has_timestamp = true;
+ 
+-      panvk_emit_write_job(cmd, batch, MALI_WRITE_VALUE_TYPE_SYSTEM_TIMESTAMP,
+-                           panvk_query_report_dev_addr(pool, query), 0);
+-      panvk_emit_write_job(cmd, batch, MALI_WRITE_VALUE_TYPE_IMMEDIATE_32,
+-                           panvk_query_available_dev_addr(pool, query), 1);
++      for (uint32_t q = query; q < query + count; q++) {
++         panvk_emit_write_job(cmd, batch, MALI_WRITE_VALUE_TYPE_SYSTEM_TIMESTAMP,
++                              panvk_query_report_dev_addr(pool, q), 0);
++         panvk_emit_write_job(cmd, batch, MALI_WRITE_VALUE_TYPE_IMMEDIATE_32,
++                              panvk_query_available_dev_addr(pool, q), 1);
++      }
+ 
+       close_batch(cmd, had_batch);
+       return;
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+index 34e62bb..71d0b7b 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+@@ -344,6 +344,7 @@ panvk_debug_dump_job_status(struct panvk_cmd_buffer *cmdbuf,
+ #define BASE_JD_DEP_TYPE_DATA (1U << 0)
+ #define BASE_JD_DEP_TYPE_ORDER (1U << 1)
+ #define BASE_JD_REQ_DEP 0U
++#define BASE_JD_REQ_PERMON (1U << 7)
+ #define BASE_JD_REQ_SOFT_JOB (1U << 9)
+ #define BASE_JD_REQ_SOFT_FENCE_TRIGGER (BASE_JD_REQ_SOFT_JOB | 0x2)
+ #define BASE_JD_REQ_SOFT_FENCE_WAIT (BASE_JD_REQ_SOFT_JOB | 0x3)
+@@ -1174,6 +1175,8 @@ panvk_kbase_submit_locked(struct panvk_kbase_jm *k,
+     * one before 8.15, too). */
+    for (unsigned i = 0; i < n; i++, a++) {
+       uint32_t core_req = jobs[i].core_req;
++      if (core_req == 0x16 && jobs[i].batch && jobs[i].batch->has_timestamp)
++         core_req |= BASE_JD_REQ_PERMON;
+       k->atom_info[nums[a]] = (struct panvk_kbase_atom_info){
+          .cmdbuf = jobs[i].cmdbuf, .batch = jobs[i].batch,
+          .core_req = jobs[i].core_req, .batch_idx = jobs[i].batch_idx};
