@@ -12,9 +12,9 @@ Most public PanVK testing/builds so far target **CSF** chips (G610/G615/G710/G72
 
 ## Test9 and development follow-up (2026-10-28)
 
-**Test9 is available:** [driver ZIP](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-tests/FourFectVK-G57-v0.1.0-test9.zip),
-[testing README](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-tests/README-v0.1.0-test9.txt)
-and [checksums](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-tests/SHA256SUMS-v0.1.0-test9.txt).
+**Test9 is available:** [driver ZIP](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-test9/FourFectVK-G57-v0.1.0-test9.zip),
+[testing README](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-test9/README-v0.1.0-test9.txt)
+and [checksums](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-test9/SHA256SUMS.txt).
 This is an experimental test build; RC qualification remains open.
 
 The [JM v9 API candidate](patches-candidates/2026-10-26-api/README.md)
@@ -28,8 +28,8 @@ No gameplay speedup is established. Test9 is published with an
 identical README inside and beside the ZIP. Extracted-package loader,
 profile and render/control smoke checks pass at their recorded scope; see
 [test9 readiness](docs/test9-readiness.md). The
-[testing README](docs/test9/README-v0.1.0-test9.txt) gives the T06-T10 test
-sequence, relevant environment settings and issue-report instructions.
+[testing README](docs/test9/README-v0.1.0-test9.txt) gives four short sessions with any game, test9-specific controls
+and issue-report instructions.
 
 The October 23 memory and matrix results below refer to their earlier frozen
 builds. The new stack includes subsequent cache-sync/error handling and the

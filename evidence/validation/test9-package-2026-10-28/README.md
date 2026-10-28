@@ -6,7 +6,7 @@ The dependencies match the October 26 launcher staging, including its
 `libdrm` and `libz` versions. Their hashes differ from those in the test8 ZIP.
 
 `manifest.json` records the package used for the runtime checks.
-`readme-revision.json` records the current ZIP, whose README focuses on
+`readme-revision.json` records the first published ZIP, whose README focuses on
 T06-T10 and the required baseline/logging settings. Only `README.txt`
 changed; the other nine members, including all libraries and metadata, have
 identical hashes. The original archive and runtime evidence are preserved.
@@ -14,8 +14,8 @@ identical hashes. The original archive and runtime evidence are preserved.
 The current archive has ten root files, passes CRC checks and extracts to
 identical input bytes. External `README-v0.1.0-test9.txt` and internal
 `README.txt` match. The old release files and 540 historical preservation
-pins are unchanged. `environment-source-index.json` lists source references
-for the driver variables retained in the testing guide.
+pins are unchanged. `environment-source-index.json` records source references
+for the previous, longer testing guide.
 
 `smoke.json` records checks from the extracted directory:
 
@@ -50,9 +50,9 @@ Wine/Termux:X11 stack. It is not an actual Winlator app installation,
 multi-device qualification, new gameplay benchmark or RC acceptance.
 Fourteen old tracked CTS failures remain.
 
-## Publication (2026-10-28)
+## Initial publication (2026-10-28)
 
-The current ZIP, external README and `SHA256SUMS-v0.1.0-test9.txt` are
+The first published ZIP, external README and `SHA256SUMS-v0.1.0-test9.txt` are
 published on the [shared test-build prerelease](https://github.com/Noysz/panvk-g99-jm/releases/tag/fourfectvk-g57-v0.1.0-tests).
 All three downloaded assets match their prepared SHA-256 values; the ZIP
 passes CRC checks and its internal README matches the external file.
@@ -64,6 +64,15 @@ checksum asset; its contents equal the local test9 `SHA256SUMS.txt`.
 Earlier manifests retain their preparation-time publication status.
 This upload changes neither source/library bytes nor the runtime scope
 described above. It does not close the RC/1.0 gates.
+
+## Concise README revision
+
+The [dedicated test9 release](https://github.com/Noysz/panvk-g99-jm/releases/tag/fourfectvk-g57-v0.1.0-test9)
+contains a 52-line guide: short changelog, four sessions with any game,
+test9-specific controls and reporting. `concise-readme-revision.json` records
+its hashes. Only `README.txt` changes; all nine other members are identical.
+`publication-concise.json` records the download checks. Earlier packages
+and their evidence are preserved; no runtime tests were repeated.
 
 Testing and issue-report instructions:
 [README-v0.1.0-test9.txt](../../../docs/test9/README-v0.1.0-test9.txt).

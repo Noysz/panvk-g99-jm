@@ -7,15 +7,15 @@ Downloads (driver ZIP, separate testing README and checksums):
 
 ## Test9 (2026-10-28)
 
-Latest: [driver ZIP](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-tests/FourFectVK-G57-v0.1.0-test9.zip),
-[testing README](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-tests/README-v0.1.0-test9.txt),
-[SHA256SUMS-v0.1.0-test9.txt](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-tests/SHA256SUMS-v0.1.0-test9.txt).
-The ZIP contains the same guide as `README.txt`. For test9, use the versioned
-checksum file wherever the guide says `SHA256SUMS.txt`; the old checksum
-asset still covers test1-test8. Downloaded assets match the prepared hashes.
+Latest: [driver ZIP](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-test9/FourFectVK-G57-v0.1.0-test9.zip),
+[testing README](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-test9/README-v0.1.0-test9.txt),
+[SHA256SUMS.txt](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-test9/SHA256SUMS.txt).
+The ZIP contains the same guide as `README.txt`. The dedicated
+[test9 release](https://github.com/Noysz/panvk-g99-jm/releases/tag/fourfectvk-g57-v0.1.0-test9)
+has the full changelog. Downloaded assets match the prepared hashes.
 
 ZIP SHA-256:
-`b60c144b9fc6aef8e848f18ca33b589246757ed29484f9f5c86b83656468e9c2`
+`492816fb6872c1ce6916017d9c2793c8bfcc67d71cb23926b2813ad40dd81755`
 
 The [source stack](test9/build-order.md) includes timestamp lifetime,
 vertex-input robustness/GPL, conditional rendering, opt-in depth bounds,
@@ -27,14 +27,13 @@ Wine/Termux:X11 stack, not an actual Winlator app installation. See
 and [combined validation](../evidence/validation/api-2026-10-26/README.md).
 No repeatable gameplay FPS gain or RC qualification is established.
 
-Start with R0 in the [T06-T10 testing guide](test9/README-v0.1.0-test9.txt).
+Start with R0 in the [testing guide](test9/README-v0.1.0-test9.txt).
 UBO push now defaults to 32 words. Depth bounds is opt-in; late vectorization,
 incremental tiler backing and deferred occlusion stay off by default. Leave
 pass overlap off: its fault/lifetime work is unfinished. Use the guide for
 test9's defaults and comparison settings, rather than the historical table.
 
-The shared release tag remains unchanged. Its automatic source archives
-refer to that historical tag; the test9 candidate stack is recorded at
+The dedicated test9 tag identifies the candidate stack at
 [`7f28e47`](https://github.com/Noysz/panvk-g99-jm/commit/7f28e47db6e50215fbe2935cecaf048f23d6dbfb).
 
 ## Earlier builds: test1-test8

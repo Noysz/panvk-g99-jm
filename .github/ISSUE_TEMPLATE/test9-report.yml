@@ -6,8 +6,7 @@ body:
     attributes:
       value: |
         Follow README-v0.1.0-test9.txt supplied with the driver ZIP.
-        Use "unknown" or "not measured" when you do not have a value.
-        Keep screenshots and logs labelled by run. Include unsuccessful runs.
+        Any game is welcome. Include the session ID and settings used.
   - type: input
     id: device
     attributes:
@@ -35,7 +34,7 @@ body:
       label: Game and settings
       placeholder: |
         Game/app version:
-        Scene/save; Naruto mode, characters and arena if applicable:
+        Scene/save:
         Resolution / graphics / FPS limit / VSync:
         Frame generation / post-processing:
         Power mode / charging:
@@ -46,12 +45,10 @@ body:
     attributes:
       label: README test
       options:
-        - R0 - shipped defaults
-        - R1/R2 - test8 versus test9
-        - R3 - T07 late vectorization
-        - R4 - depth bounds compatibility
-        - R5 - shader cache
-        - R6 - longer stability
+        - R0 - default behavior
+        - R1 - clip/FPK comparison
+        - R2 - deferred occlusion queries
+        - R3 - depth bounds
         - Other / not sure
     validations:
       required: true
@@ -71,7 +68,7 @@ body:
         Steps to reproduce:
         Expected behavior/image:
         Actual behavior/image:
-        test8 result (or not tested):
+        R0 result / changed-session result:
         Frequency, e.g. 2 of 3 runs:
         For a hang: image frozen, process exit, or Android closed it?
     validations:

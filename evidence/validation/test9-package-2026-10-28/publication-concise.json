@@ -1,0 +1,48 @@
+{
+  "verified_at": "2026-10-28T07:56:13.468458+00:00",
+  "release_url": "https://github.com/Noysz/panvk-g99-jm/releases/tag/fourfectvk-g57-v0.1.0-test9",
+  "release_id": 426385612,
+  "tag": "fourfectvk-g57-v0.1.0-test9",
+  "prerelease": true,
+  "source_commit": "7f28e47db6e50215fbe2935cecaf048f23d6dbfb",
+  "assets": [
+    {
+      "name": "FourFectVK-G57-v0.1.0-test9.zip",
+      "sha256": "492816fb6872c1ce6916017d9c2793c8bfcc67d71cb23926b2813ad40dd81755",
+      "size": 5642329,
+      "asset_id": 684259316,
+      "url": "https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-test9/FourFectVK-G57-v0.1.0-test9.zip",
+      "download_hash_matches": true,
+      "public_url_http_status": 200
+    },
+    {
+      "name": "README-v0.1.0-test9.txt",
+      "sha256": "9e3ed8d7357f5da3c2164ec8652cdafd121efd08be3f83c566a398c0afb74f76",
+      "size": 2418,
+      "asset_id": 684259317,
+      "url": "https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-test9/README-v0.1.0-test9.txt",
+      "download_hash_matches": true,
+      "public_url_http_status": 200
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "sha256": "2af6996ffac75595f46db06518a8a7f4acb8ab943d0f7628a03ffc9ff75c58d7",
+      "size": 188,
+      "asset_id": 684259318,
+      "url": "https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-test9/SHA256SUMS.txt",
+      "download_hash_matches": true,
+      "public_url_http_status": 200
+    }
+  ],
+  "readme_lines": 52,
+  "readme_bytes": 2418,
+  "previous_shared_release_assets_preserved": 20,
+  "changed_package_members": [
+    "README.txt"
+  ],
+  "unchanged_package_members": 9,
+  "downloaded_zip_crc_pass": true,
+  "internal_external_readme_identical": true,
+  "runtime_rerun": false,
+  "package_revision": "concise-readme-revision.json"
+}

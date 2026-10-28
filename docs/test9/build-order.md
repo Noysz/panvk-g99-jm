@@ -4,10 +4,10 @@ Deliver the same file layout as the earlier test builds: a driver ZIP and
 `README-v0.1.0-test9.txt` beside it. Put identical README bytes inside the
 ZIP as `README.txt`. Publish checksums beside both files.
 
-The [testing README](README-v0.1.0-test9.txt) contains installation, R0-R6
-runs, T06-T10 environment defaults/functions, diagnostics and the issue-report
-template. Existing baseline/logging controls are identified separately.
-Unrelated backend options and deliberate fault-injection controls are omitted.
+The [testing README](README-v0.1.0-test9.txt) contains a short changelog,
+installation and four game-independent sessions: default, clip/FPK,
+deferred queries and depth bounds. It lists only test9-specific controls.
+The complete changelog belongs in the dedicated test9 release notes.
 
 ## 1. Pin the candidate
 
@@ -135,10 +135,10 @@ until the package-specific results exist.
 
 ## 6. Review, then publish separately
 
-Check the testing README against the final source and evidence. It must
-retain the UBO default of 32 words, the presence-based `NO_FPK` behavior,
-app-rule overrides, disabled overlap and opt-in depth bounds. Include the
-known failures and make no gameplay speedup or RC-conformance claim.
+Check the testing README against the final source and evidence. Keep the
+UBO default of 32 words in the changelog, disabled overlap/incremental tiler
+and opt-in depth bounds in the sessions. Do not add unrelated controls or
+claim a gameplay speedup or RC qualification.
 
 Commit/push and GitHub prerelease publication are separate actions. A local
 ZIP is a preparation artifact. Once publication is authorized, attach the
