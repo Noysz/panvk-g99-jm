@@ -1,0 +1,36 @@
+{
+  "revision": "README scope: T06-T10 plus required baseline/logging controls",
+  "source_commit": "7f28e47db6e50215fbe2935cecaf048f23d6dbfb",
+  "assets": {
+    "FourFectVK-G57-v0.1.0-test9.zip": "b60c144b9fc6aef8e848f18ca33b589246757ed29484f9f5c86b83656468e9c2",
+    "README-v0.1.0-test9.txt": "44d8293ea1aff92d805dea72561d949394f707d84ced9ce2c98903757ddb87ef",
+    "SHA256SUMS.txt": "9dde20701f52dc8d2df923d38b0cdd3da3d1d5990fd4a6c5c746daf5d43f9ceb"
+  },
+  "members": {
+    "LICENSE-libc++.txt": "aecb9504bcc76b4ff5e8ff1266344bb607b6bed2bfc3dd8b35233d941401d01e",
+    "LICENSE-libdrm.txt": "9631d4f694952e3e6ae5a05534c2e93e994e47d3413677a3a00e45c8cef6db93",
+    "LICENSE-mesa.txt": "0d1a0472ecc81830e75c20d59b0ea02841e3db21255e0ebad97ab682c54d6615",
+    "LICENSE-zlib.txt": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2",
+    "README.txt": "44d8293ea1aff92d805dea72561d949394f707d84ced9ce2c98903757ddb87ef",
+    "libc++_shared.so": "e09c2f45cf4cf8ae574f94b6c2650d99ead0d332d5396f6613f062a2d2d73540",
+    "libdrm.so": "0e4e8f0bbc6809589206a757759a6506e0aa7c88e0b55de2fe8d54f7ef6a3323",
+    "libvulkan_panfrost.so": "595981cc9ec21f0b667a4127e6b31bb9a03c8d2aa4278b04a7daefff4f3dcf4e",
+    "libz.so.1": "c47748ed4b6ca6a2ecd664bab04795f3493956ab1f5cddc4ba0efa737ef3b711",
+    "meta.json": "b0ca6e4c594cb5b99c165a2af0dec2027b843bc14d6a7bfce0bb48bdd4ce5466"
+  },
+  "changed_members_from_smoke_package": [
+    "README.txt"
+  ],
+  "unchanged_members": 9,
+  "archive_checks_pass": true,
+  "internal_external_readme_identical": true,
+  "smoke_evidence": "smoke.json",
+  "runtime_rerun": false,
+  "runtime_scope": "Existing smoke checks apply to identical libraries and metadata; only README bytes changed. Current archive CRC, extraction and member hashes checked separately.",
+  "previous_assets_preserved": {
+    "FourFectVK-G57-v0.1.0-test9.zip": "d9a7c100ef39411300f5af82893bab0921b0ce0e298206d5692bc082adc2bc75",
+    "README-v0.1.0-test9.txt": "c082fb3d2f6f4ea92c723e8273c49a34d1139e813433d265526ca26c60ea00b7",
+    "SHA256SUMS.txt": "255af4cafbc0e35a461d6d0a6a235776529a4283c264af8fc1da2b62eaf9984a"
+  },
+  "published_release": false
+}

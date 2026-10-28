@@ -1,0 +1,93 @@
+name: Test9 driver report
+description: Report rendering, crashes, performance or a successful test9 run.
+title: "[test9] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Follow README-v0.1.0-test9.txt supplied with the driver ZIP.
+        Use "unknown" or "not measured" when you do not have a value.
+        Keep screenshots and logs labelled by run. Include unsuccessful runs.
+  - type: input
+    id: device
+    attributes:
+      label: Device and Android version
+      placeholder: Phone, SoC/GPU, Android version; kernel if known
+    validations:
+      required: true
+  - type: textarea
+    id: stack
+    attributes:
+      label: Driver and container
+      description: Include the ZIP name/hash and loaded-driver log when available.
+      placeholder: |
+        ZIP filename / SHA256:
+        Selected driver / loaded-driver evidence:
+        Winlator variant and version:
+        Wine/Proton version and architecture:
+        DXVK version/fork:
+        Wrapper / BC setting:
+    validations:
+      required: true
+  - type: textarea
+    id: game
+    attributes:
+      label: Game and settings
+      placeholder: |
+        Game/app version:
+        Scene/save; Naruto mode, characters and arena if applicable:
+        Resolution / graphics / FPS limit / VSync:
+        Frame generation / post-processing:
+        Power mode / charging:
+    validations:
+      required: true
+  - type: dropdown
+    id: run
+    attributes:
+      label: README test
+      options:
+        - R0 - shipped defaults
+        - R1/R2 - test8 versus test9
+        - R3 - T07 late vectorization
+        - R4 - depth bounds compatibility
+        - R5 - shader cache
+        - R6 - longer stability
+        - Other / not sure
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment variables and DXVK configuration
+      description: List all overrides, including disabled values. Write "no overrides" if none.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps and result
+      placeholder: |
+        Steps to reproduce:
+        Expected behavior/image:
+        Actual behavior/image:
+        test8 result (or not tested):
+        Frequency, e.g. 2 of 3 runs:
+        For a hang: image frozen, process exit, or Android closed it?
+    validations:
+      required: true
+  - type: textarea
+    id: measurements
+    attributes:
+      label: Measurements, if collected
+      description: Report each run. A peak FPS screenshot is not an average or a frametime measurement.
+      placeholder: |
+        Warmup / measured duration:
+        Run order / cache cold, warm or disabled:
+        Per-run FPS / median and p95 frametime (or not measured):
+        Temperature, throttling, background activity (or unknown):
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots, video and logs
+      description: Attach the complete relevant text logs and label each run. Remove tokens and personal data; do not upload game files or saves.

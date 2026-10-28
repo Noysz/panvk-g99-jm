@@ -1,0 +1,31 @@
+{
+  "source_commit": "7f28e47db6e50215fbe2935cecaf048f23d6dbfb",
+  "assets": {
+    "FourFectVK-G57-v0.1.0-test9.zip": "d9a7c100ef39411300f5af82893bab0921b0ce0e298206d5692bc082adc2bc75",
+    "README-v0.1.0-test9.txt": "c082fb3d2f6f4ea92c723e8273c49a34d1139e813433d265526ca26c60ea00b7",
+    "SHA256SUMS.txt": "255af4cafbc0e35a461d6d0a6a235776529a4283c264af8fc1da2b62eaf9984a"
+  },
+  "members": {
+    "LICENSE-libc++.txt": "aecb9504bcc76b4ff5e8ff1266344bb607b6bed2bfc3dd8b35233d941401d01e",
+    "LICENSE-libdrm.txt": "9631d4f694952e3e6ae5a05534c2e93e994e47d3413677a3a00e45c8cef6db93",
+    "LICENSE-mesa.txt": "0d1a0472ecc81830e75c20d59b0ea02841e3db21255e0ebad97ab682c54d6615",
+    "LICENSE-zlib.txt": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2",
+    "README.txt": "c082fb3d2f6f4ea92c723e8273c49a34d1139e813433d265526ca26c60ea00b7",
+    "libc++_shared.so": "e09c2f45cf4cf8ae574f94b6c2650d99ead0d332d5396f6613f062a2d2d73540",
+    "libdrm.so": "0e4e8f0bbc6809589206a757759a6506e0aa7c88e0b55de2fe8d54f7ef6a3323",
+    "libvulkan_panfrost.so": "595981cc9ec21f0b667a4127e6b31bb9a03c8d2aa4278b04a7daefff4f3dcf4e",
+    "libz.so.1": "c47748ed4b6ca6a2ecd664bab04795f3493956ab1f5cddc4ba0efa737ef3b711",
+    "meta.json": "b0ca6e4c594cb5b99c165a2af0dec2027b843bc14d6a7bfce0bb48bdd4ce5466"
+  },
+  "archive_checks_pass": true,
+  "runtime_smoke_pass": true,
+  "previous_release_files_unchanged": 21,
+  "historical_preservation_pins_unchanged": 540,
+  "published": false,
+  "rebuilt_or_modified_driver": false,
+  "limitations": [
+    "Reconstructed native Wine/Termux:X11 stack, not an actual Winlator app install",
+    "No new gameplay performance measurement",
+    "Existing 14 tracked failures and RC gates remain open"
+  ]
+}

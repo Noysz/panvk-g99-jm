@@ -10,7 +10,7 @@ Most public PanVK testing/builds so far target **CSF** chips (G610/G615/G710/G72
 
 ---
 
-## Development follow-up (2026-10-26, unreleased)
+## Development follow-up (2026-10-28, unreleased)
 
 The [JM v9 API candidate](patches-candidates/2026-10-26-api/README.md)
 adds timestamp lifetime handling, vertex-input robustness/GPL fixes,
@@ -19,8 +19,12 @@ complete. On 5,658 tracked CTS cases, each gains one Pass against the unchanged
 test8 driver and loses none; 14 existing failures remain. Feature repeats,
 negative controls, four DXVK versions and a three-minute Naruto COM battle
 are recorded in the [validation evidence](evidence/validation/api-2026-10-26/README.md).
-No gameplay speedup is established. Test9 still needs packaging and checks
-of the extracted package; see [test9 readiness](docs/test9-readiness.md).
+No gameplay speedup is established. Test9 is now packaged locally with an
+identical README inside and beside the ZIP. Extracted-package loader,
+profile and render/control smoke checks pass at their recorded scope; see
+[test9 readiness](docs/test9-readiness.md). The
+[testing README](docs/test9/README-v0.1.0-test9.txt) gives the T06-T10 test
+sequence, relevant environment settings and issue-report instructions.
 
 The October 23 memory and matrix results below refer to their earlier frozen
 builds. The new stack includes subsequent cache-sync/error handling and the
@@ -61,9 +65,9 @@ ABBA blocks; clock/temperature variation remains uncontrolled. This is not
 a game result or a new compiler patch. The option stays off, and T07 remains
 open for register-pressure work and representative workload validation.
 
-These are development candidates, not test9 or a new release. No superiority
-over another driver or the Mali blob is established. Historical snapshots and
-released-build descriptions follow.
+The combined test9 package remains local and unpublished. No superiority
+over another driver or the Mali blob is established. Historical snapshots
+and released-build descriptions follow.
 
 ## Status (2026-10-10): FourFectVK 0.1.0 test builds, new upstream base
 

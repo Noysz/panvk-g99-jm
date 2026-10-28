@@ -1,0 +1,492 @@
+{
+  "launcher": {
+    "completed": true,
+    "rows": [
+      {
+        "label": "adrenotools-0",
+        "returncode": 0,
+        "log_sha256": "6da2cf902cd2dfc08ffccaa946ba049315cf458ab5de4c50e05f1b773519b372",
+        "driver_mappings": [
+          "704bdd4000-704bde0000 r--p 00004000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "704d55e000-704d561000 r--p 0131e000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "704d562000-704d565000 r--p 014df000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "704d597000-704d598000 r--p 00000000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so"
+        ],
+        "seconds": 2.604233539022971
+      },
+      {
+        "label": "launcher-0",
+        "returncode": 0,
+        "log_sha256": "fcb8f4ee175b57701e48b580e879c9a18cd7e9d7abb3a86c5041a78002c90a30",
+        "driver_mappings": [
+          "7dafc40000-7dafc4c000 r--p 00004000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "7dafc4c000-7dafc4f000 r--p 0131e000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "7dafe58000-7dafe5b000 r--p 014df000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "7dafe7b000-7dafe7c000 r--p 00000000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so"
+        ],
+        "seconds": 1.0608625389868394
+      },
+      {
+        "label": "probe-off-0",
+        "returncode": 0,
+        "log_sha256": "e68a02b83b349e0086185a7b809411df62aaa82b1734808031c14d430f39d502",
+        "driver_mappings": [
+          "73578d0000-73578dc000 r--p 00004000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "73578dc000-73578df000 r--p 0131e000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "73578df000-73578e2000 r--p 014df000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "73578e6000-73578e7000 r--p 00000000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so"
+        ],
+        "seconds": 0.5270705379662104,
+        "profiles": [
+          "dxvk-1.10.3        D3D11 OK maxFL=b_1 | D3D9 OK",
+          "dxvk-1.11.1-sarek  D3D11 OK maxFL=b_1 | D3D9 OK",
+          "dxvk-1.12.1-sarek  D3D11 OK maxFL=b_1 | D3D9 OK",
+          "dxvk-v2.3.1        D3D11 OK maxFL=b_1"
+        ]
+      },
+      {
+        "label": "wrapper-off-0",
+        "returncode": 0,
+        "log_sha256": "85a019fa512eaf6b7fbc7d2e43dd29c9180a7d34c73bfcb99305d2554d865381",
+        "driver_mappings": [
+          "73c5d5c000-73c5d68000 r--p 00004000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "73c5d68000-73c5d6b000 r--p 0131e000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "73c5d6b000-73c5d6e000 r--p 014df000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "73c5d72000-73c5d73000 r--p 00000000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so"
+        ],
+        "seconds": 0.4808384620118886
+      },
+      {
+        "label": "probe-on-0",
+        "returncode": 0,
+        "log_sha256": "42ec457687ee2e4cfe2a3064c9b3ffe4f541bc9f3fac7b4477ca30e5d21e9d62",
+        "driver_mappings": [
+          "758e638000-758e644000 r--p 00004000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "758e644000-758e647000 r--p 0131e000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "758e647000-758e64a000 r--p 014df000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "758e64e000-758e64f000 r--p 00000000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so"
+        ],
+        "seconds": 0.47907484602183104,
+        "profiles": [
+          "dxvk-1.10.3        D3D11 OK maxFL=b_1 | D3D9 OK",
+          "dxvk-1.11.1-sarek  D3D11 OK maxFL=b_1 | D3D9 OK",
+          "dxvk-1.12.1-sarek  D3D11 OK maxFL=b_1 | D3D9 OK",
+          "dxvk-v2.3.1        D3D11 OK maxFL=b_1"
+        ]
+      },
+      {
+        "label": "wrapper-on-0",
+        "returncode": 0,
+        "log_sha256": "f00ea4d13247991037da43c62188c2cc76bff9ac43c64324d09d7b19b4030b56",
+        "driver_mappings": [
+          "70b007d000-70b0b40000 r--p 00000000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "70b0b43000-70b132d000 r-xp 00ac2000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "70b1330000-70b13a6000 rw-p 012ab000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "70b13a9000-70b13b3000 rw-p 01320000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "734d0e0000-734d0ec000 r--p 00004000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "734d0ec000-734d0ef000 r--p 0131e000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "734d0ef000-734d0f2000 r--p 014df000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "734e606000-734e607000 r--p 00000000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so"
+        ],
+        "seconds": 0.3423606929718517
+      },
+      {
+        "label": "optin-negative",
+        "returncode": 1,
+        "log_sha256": "50ac50512d8f49bb48e89347227dc591f5d16667878c3005588a5a554050443c",
+        "driver_mappings": [
+          "7102bd4000-7102be0000 r--p 00004000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "710497b000-710497e000 r--p 0131e000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "7104b48000-7104b4b000 r--p 014df000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+          "7104b53000-7104b54000 r--p 00000000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so"
+        ],
+        "seconds": 1.7744668470113538
+      }
+    ],
+    "pins_unchanged": true,
+    "scope": "6 package queries/device probes and one opt-in negative control; rendering separate"
+  },
+  "launcher_manifest": {
+    "pins": {
+      "package-check/extracted/LICENSE-libc++.txt": "aecb9504bcc76b4ff5e8ff1266344bb607b6bed2bfc3dd8b35233d941401d01e",
+      "package-check/extracted/LICENSE-libdrm.txt": "9631d4f694952e3e6ae5a05534c2e93e994e47d3413677a3a00e45c8cef6db93",
+      "package-check/extracted/LICENSE-mesa.txt": "0d1a0472ecc81830e75c20d59b0ea02841e3db21255e0ebad97ab682c54d6615",
+      "package-check/extracted/LICENSE-zlib.txt": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2",
+      "package-check/extracted/README.txt": "c082fb3d2f6f4ea92c723e8273c49a34d1139e813433d265526ca26c60ea00b7",
+      "package-check/extracted/libc++_shared.so": "e09c2f45cf4cf8ae574f94b6c2650d99ead0d332d5396f6613f062a2d2d73540",
+      "package-check/extracted/libdrm.so": "0e4e8f0bbc6809589206a757759a6506e0aa7c88e0b55de2fe8d54f7ef6a3323",
+      "package-check/extracted/libvulkan_panfrost.so": "595981cc9ec21f0b667a4127e6b31bb9a03c8d2aa4278b04a7daefff4f3dcf4e",
+      "package-check/extracted/libz.so.1": "c47748ed4b6ca6a2ecd664bab04795f3493956ab1f5cddc4ba0efa737ef3b711",
+      "package-check/extracted/meta.json": "b0ca6e4c594cb5b99c165a2af0dec2027b843bc14d6a7bfce0bb48bdd4ce5466",
+      "package-check/run_launcher.py": "f5ab46b1cc8934dd842a577c199e924d5ceb444203cde12f4085acc0209d9b0f",
+      "local-home/mesa/adrenoload": "1311fe8e416265c8f451612cee44ab5e912df64195a3701157c0a88c8a26bacd",
+      "local-home/mesa/wrapload": "983342be64d044fb8b4cf36ee4c425350b7d0799074a97b52a6222fa6e3f7fda",
+      "local-home/mesa/dxvk_probe": "f2391d8d8dda19ee1e46e09edc648de96163c3ed164b9bf5a3dee6121b1f16a9",
+      "local-home/wltest/at/libadrenotools.so": "1a46ab0ce2f71d405ff74f41dbd22726b21c28c967e7cb009da67759ef2a2a64",
+      "local-home/wltest/apklib/libwinlator.so": "d6ba377dd3d0cd7c7ba900d19f5230df7008718a31609027650faa9ae0f7f2fa",
+      "local-home/wltest/hooks/libhook_impl.so": "1ea116f4d76b93a78625c2755aeb5d508c05afb09477193fe0e6be26c2abcd1a",
+      "local-home/wltest/hooks/libmain_hook.so": "faf49a9cdc698a639d91f1c0cc7bfb866fdf82b18c2dbdbe3bab9e95786146b4",
+      "local-home/wltest/apklib/libhook_impl.so": "1ea116f4d76b93a78625c2755aeb5d508c05afb09477193fe0e6be26c2abcd1a",
+      "local-home/wltest/apklib/libmain_hook.so": "faf49a9cdc698a639d91f1c0cc7bfb866fdf82b18c2dbdbe3bab9e95786146b4",
+      "local-home/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+      "local-home/wltest/imagefs/usr/lib/libhook_impl.so": "83be26b0015f51890d5ab6bfff60c4280381fbf5ee3b8d4bd8d9b61a6cc8cafb",
+      "local-home/wltest/imagefs/usr/lib/libmain_hook.so": "3530cf975b7b3ec9fc75e91df820870530562fca9f20a5d0a601098a9c70207c"
+    },
+    "controls": {
+      "LD_LIBRARY_PATH": "local-home/wltest/imagefs/usr/lib",
+      "ADRENOTOOLS_DRIVER_PATH": "package-check/extracted/",
+      "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+      "ADRENOTOOLS_HOOKS_PATH": "local-home/wltest/imagefs/usr/lib/",
+      "MESA_SHADER_CACHE_DISABLE": "true",
+      "PANVK_JM_OVERLAP": "false",
+      "PAN_LATE_VECTORIZE": "false",
+      "PANVK_TILER_HEAP_INCREMENTAL": "false",
+      "PANVK_DEFER_OQ": "0",
+      "PANVK_UBO_PUSH": "1",
+      "PANVK_V9_TIMESTAMP": "true",
+      "PANVK_V9_ATTR_OOB_HW": "false"
+    },
+    "commands": [
+      [
+        "adrenotools-0",
+        "launcher",
+        [
+          "local-home/mesa/adrenoload",
+          "local-home/wltest/at/libadrenotools.so",
+          "local-home/wltest/hooks/",
+          "package-check/extracted/",
+          "libvulkan_panfrost.so"
+        ],
+        {
+          "ADRENOLOAD_MAPS": "1"
+        }
+      ],
+      [
+        "launcher-0",
+        "launcher",
+        [
+          "local-home/mesa/adrenoload",
+          "local-home/wltest/apklib/libwinlator.so",
+          "local-home/wltest/apklib/",
+          "package-check/extracted/",
+          "libvulkan_panfrost.so"
+        ],
+        {
+          "ADRENOLOAD_MAPS": "1",
+          "LD_LIBRARY_PATH": "local-home/wltest/apklib",
+          "ADRENOLOAD_PRELOAD": "libEGL.so"
+        }
+      ],
+      [
+        "probe-off-0",
+        "probe",
+        [
+          "local-home/mesa/dxvk_probe",
+          "local-home/wltest/imagefs/usr/lib/libvulkan_wrapper.so"
+        ],
+        {
+          "PANVK_V9_DEPTH_BOUNDS": "false"
+        }
+      ],
+      [
+        "wrapper-off-0",
+        "wrapper",
+        [
+          "local-home/mesa/wrapload",
+          "local-home/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+          "1103"
+        ],
+        {
+          "PANVK_V9_DEPTH_BOUNDS": "false"
+        }
+      ],
+      [
+        "probe-on-0",
+        "probe",
+        [
+          "local-home/mesa/dxvk_probe",
+          "local-home/wltest/imagefs/usr/lib/libvulkan_wrapper.so"
+        ],
+        {
+          "PANVK_V9_DEPTH_BOUNDS": "true"
+        }
+      ],
+      [
+        "wrapper-on-0",
+        "wrapper",
+        [
+          "local-home/mesa/wrapload",
+          "local-home/wltest/imagefs/usr/lib/libvulkan_wrapper.so",
+          "1103"
+        ],
+        {
+          "PANVK_V9_DEPTH_BOUNDS": "true"
+        }
+      ],
+      [
+        "optin-negative",
+        "negative",
+        [
+          "local-home/mesa/adrenoload",
+          "local-home/wltest/at/libadrenotools.so",
+          "local-home/wltest/hooks/",
+          "package-check/extracted/",
+          "libvulkan_panfrost.so"
+        ],
+        {
+          "PANVK_V9_REQUIRE_OPTIN": "1",
+          "ADRENOLOAD_MAPS": "1"
+        }
+      ]
+    ],
+    "scope": "Existing launcher libraries, wrapper device creation and dxvk_probe profiles. Bounds off/on. Not actual Winlator app, rendering or BC correctness."
+  },
+  "render": [
+    {
+      "label": "package-dxvk-positive",
+      "result": {
+        "completed": true,
+        "driver_mappings": [
+          {
+            "pid": 11303,
+            "lines": [
+              "77a560d000-77a60d0000 r--p 00000000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "77a60d3000-77a68bd000 r-xp 00ac2000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "77a68c0000-77a6936000 r--p 012ab000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "77a6939000-77a6943000 rw-p 01320000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "77a7805000-77a794a000 r-xp 00000000 fe:53 2255442                        package-check/extracted/libc++_shared.so",
+              "77a794d000-77a7958000 r--p 00144000 fe:53 2255442                        package-check/extracted/libc++_shared.so",
+              "77a795b000-77a795c000 rw-p 0014e000 fe:53 2255442                        package-check/extracted/libc++_shared.so",
+              "77ab291000-77ab2a3000 r-xp 00000000 fe:53 2255657                        package-check/extracted/libdrm.so",
+              "77ab2a6000-77ab2a8000 r--p 00011000 fe:53 2255657                        package-check/extracted/libdrm.so",
+              "77ab2ab000-77ab2ac000 rw-p 00012000 fe:53 2255657                        package-check/extracted/libdrm.so",
+              "77ab2c2000-77ab2d3000 r-xp 00000000 fe:53 2255617                        package-check/extracted/libz.so.1",
+              "77ab2d6000-77ab2d8000 r--p 00010000 fe:53 2255617                        package-check/extracted/libz.so.1",
+              "77afa81000-77afa97000 r--p 00000000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "77afa99000-77afab6000 r-xp 00018000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "77afab9000-77afabc000 r--p 00038000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "77afabd000-77afabe000 rw-p 0003c000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "7a49224000-7a49263000 rw-s 00000000 fe:53 1730310                        package-check/extracted/temp/0_patched.so"
+            ]
+          },
+          {
+            "pid": 11231,
+            "lines": [
+              "7ad3461000-7ad34a0000 rw-s 00000000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "7ad39a6000-7ad39aa000 r--p 00003000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "7ad39aa000-7ad39ac000 r--p 00039000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "7ad39e2000-7ad39e4000 r--p 0003e000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "7ad39e4000-7ad39e5000 r--p 00000000 fe:53 1730310                        package-check/extracted/temp/0_patched.so"
+            ]
+          }
+        ],
+        "returncode": 0,
+        "summary": [
+          "180",
+          "6",
+          "0",
+          "PASS"
+        ],
+        "cleanup": {
+          "stop": 0,
+          "wait": 0,
+          "remaining": []
+        },
+        "pins_unchanged": true
+      },
+      "manifest": {
+        "command": [
+          "local-home/panvk-refs/proton/p10-4-v14/bin/wine",
+          "package-check/package-dxvk-positive/d3d11_tri.exe"
+        ],
+        "controls": {
+          "DISPLAY": ":111",
+          "WINEPREFIX": "package-check/package-dxvk-positive/prefix",
+          "WINEDEBUG": "-all",
+          "LD_PRELOAD": "local-home/panvk-refs/proton/noshm/libnoshm.so",
+          "LD_LIBRARY_PATH": "local-home/hangover/root/data/data/com.termux/files/usr/lib:local-home/wltest/imagefs/usr/lib:local-home/panvk-refs/proton/p10-4-v14/lib",
+          "VK_ICD_FILENAMES": "package-check/package-dxvk-positive/icd.json",
+          "ADRENOTOOLS_DRIVER_PATH": "package-check/extracted/",
+          "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+          "ADRENOTOOLS_HOOKS_PATH": "local-home/wltest/imagefs/usr/lib/",
+          "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n",
+          "DXVK_LOG_LEVEL": "info",
+          "DXVK_LOG_PATH": "package-check/package-dxvk-positive",
+          "DXVK_STATE_CACHE": "0",
+          "DXVK_HUD": "",
+          "MESA_SHADER_CACHE_DISABLE": "true",
+          "PAN_I_WANT_A_BROKEN_VULKAN_DRIVER": "1",
+          "PANVK_JM_OVERLAP": "false",
+          "PANVK_TILER_HEAP_INCREMENTAL": "false",
+          "PAN_LATE_VECTORIZE": "false",
+          "PANVK_DEFER_OQ": "0",
+          "PANVK_UBO_PUSH": "1",
+          "PANVK_V9_TIMESTAMP": "true",
+          "PANVK_V9_ATTR_OOB_HW": "false",
+          "D3D11TRI_FRAMES": "180"
+        },
+        "pins": {
+          "package-check/run_stack.py": "e676864b7f46c6ad2b1ec862f6493edee787fad614186bb338f8e9a2cd3813c0",
+          "package-check/extracted/libvulkan_panfrost.so": "595981cc9ec21f0b667a4127e6b31bb9a03c8d2aa4278b04a7daefff4f3dcf4e",
+          "local-home/panvk-refs/proton/p10-4-v14/bin/wine": "07189f752896d526851599dc4d983ecda0a28f927d615010c032833669b4c24e",
+          "local-home/panvk-refs/proton/p10-4-v14/bin/wineserver": "8f429a8a5a1820f4e1fb4cc0bea4f2d7ed31eb00e6404feb1c3bd64159e5dd52",
+          "package-check/package-dxvk-positive/d3d11_tri.exe": "6b13b557c20a332597dae65ecd9d60fdc625e5ac69688944ab3577e9663e3d6b",
+          "local-home/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+          "local-home/panvk-refs/proton/noshm/libnoshm.so": "a4b86c51f797695b91d5a870b30e304361aa6a52fff844f478a71c072e6cc424",
+          "package-check/package-dxvk-positive/prefix/drive_c/windows/system32/d3d11.dll": "de521a678ee89d9da205a8386aa2017151cf88c6cd7f30c9f2b7e8b98cd2e446",
+          "package-check/package-dxvk-positive/prefix/drive_c/windows/system32/dxgi.dll": "fe5d69ddbac217b77fc0e173da46cc3bf2f3a1d4743c4e32682da00cf5fb875f",
+          "package-check/package-dxvk-positive/prefix/drive_c/windows/system32/d3d9.dll": "60c879adc6c7b8e502e4988b60b21ec8633f0e414b9a3ede3c232e417b0fae12",
+          "package-check/package-dxvk-positive/prefix/drive_c/windows/system32/d3d10core.dll": "0701742a3a1207ee322348acc44953ee8fb3def48c1efc2096fc178020aaf609",
+          "package-check/package-dxvk-positive/prefix/drive_c/windows/system32/d3d8.dll": "1e0096ed7a5c8e19f7840cc8117bc40899300632da077ce66f74ebcd250a5038"
+        },
+        "version": "v2.3.1-stripped",
+        "negative_control": false,
+        "automatic_retry": false,
+        "scope": "DXVK pixel readback; no performance comparison"
+      },
+      "run_log_sha256": "f2571e45ae90e7bef23dc899416137b4aaa1adbcb1c0b555d364a554932bb649",
+      "dxvk_log_sha256": "801f24783d1ce52ff40badb426188f36d1843a91d62af669c2293736aa2c0c78"
+    },
+    {
+      "label": "package-dxvk-negative",
+      "result": {
+        "completed": true,
+        "driver_mappings": [
+          {
+            "pid": 11523,
+            "lines": [
+              "7602647000-7602659000 r-xp 00000000 fe:53 2255657                        package-check/extracted/libdrm.so",
+              "760265c000-760265e000 r--p 00011000 fe:53 2255657                        package-check/extracted/libdrm.so",
+              "7602661000-7602662000 rw-p 00012000 fe:53 2255657                        package-check/extracted/libdrm.so",
+              "76026a8000-760316b000 r--p 00000000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "760316e000-7603958000 r-xp 00ac2000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "760395b000-76039d1000 r--p 012ab000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "76039d4000-76039de000 rw-p 01320000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "760407b000-76041c0000 r-xp 00000000 fe:53 2255442                        package-check/extracted/libc++_shared.so",
+              "76041c3000-76041ce000 r--p 00144000 fe:53 2255442                        package-check/extracted/libc++_shared.so",
+              "76041d1000-76041d2000 rw-p 0014e000 fe:53 2255442                        package-check/extracted/libc++_shared.so",
+              "7606e5f000-7606e70000 r-xp 00000000 fe:53 2255617                        package-check/extracted/libz.so.1",
+              "7606e73000-7606e75000 r--p 00010000 fe:53 2255617                        package-check/extracted/libz.so.1",
+              "760b6c0000-760b6d6000 r--p 00000000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "760b6d8000-760b6f5000 r-xp 00018000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "760b6f8000-760b6fb000 r--p 00038000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "760b6fc000-760b6fd000 rw-p 0003c000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "78b3023000-78b3062000 rw-s 00000000 fe:53 1730310                        package-check/extracted/temp/0_patched.so"
+            ]
+          },
+          {
+            "pid": 11465,
+            "lines": [
+              "7a1a0a8000-7a1ab6b000 r--p 00000000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "7a1ab6e000-7a1b358000 r-xp 00ac2000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "7a1b35b000-7a1b3d1000 r--p 012ab000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "7a1b3d4000-7a1b3de000 rw-p 01320000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "7a1c056000-7a1c068000 r-xp 00000000 fe:53 2255657                        package-check/extracted/libdrm.so",
+              "7a1c06b000-7a1c06d000 rw-p 00011000 fe:53 2255657                        package-check/extracted/libdrm.so",
+              "7a1c070000-7a1c071000 rw-p 00012000 fe:53 2255657                        package-check/extracted/libdrm.so",
+              "7a1c08b000-7a1c09c000 r-xp 00000000 fe:53 2255617                        package-check/extracted/libz.so.1",
+              "7a1c09f000-7a1c0a1000 rw-p 00010000 fe:53 2255617                        package-check/extracted/libz.so.1",
+              "7a1c202000-7a1c347000 r-xp 00000000 fe:53 2255442                        package-check/extracted/libc++_shared.so",
+              "7a1c34a000-7a1c355000 rw-p 00144000 fe:53 2255442                        package-check/extracted/libc++_shared.so",
+              "7a1c358000-7a1c359000 rw-p 0014e000 fe:53 2255442                        package-check/extracted/libc++_shared.so",
+              "7a1f401000-7a1f417000 r--p 00000000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "7a1f419000-7a1f436000 r-xp 00018000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "7a1f439000-7a1f43c000 r--p 00038000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "7a1f43d000-7a1f43e000 rw-p 0003c000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "7ab0894000-7ab08b3000 r--p 00018000 fe:53 2255442                        package-check/extracted/libc++_shared.so",
+              "7cc0c04000-7cc0c43000 rw-s 00000000 fe:53 1730310                        package-check/extracted/temp/0_patched.so",
+              "7cc103b000-7cc103c000 r--p 0014d000 fe:53 2255442                        package-check/extracted/libc++_shared.so",
+              "7cc103c000-7cc103d000 r--p 0014f000 fe:53 2255442                        package-check/extracted/libc++_shared.so",
+              "7cc103d000-7cc103e000 r--p 00000000 fe:53 2255442                        package-check/extracted/libc++_shared.so",
+              "7cc103e000-7cc103f000 r--p 00001000 fe:53 2255617                        package-check/extracted/libz.so.1",
+              "7cc103f000-7cc1040000 r--p 00011000 fe:53 2255617                        package-check/extracted/libz.so.1",
+              "7cc1040000-7cc1042000 r--p 00011000 fe:53 2255617                        package-check/extracted/libz.so.1",
+              "7cc1042000-7cc1043000 r--p 00000000 fe:53 2255617                        package-check/extracted/libz.so.1",
+              "7cc1043000-7cc1045000 r--p 00002000 fe:53 2255657                        package-check/extracted/libdrm.so",
+              "7cc1045000-7cc1047000 r--p 00011000 fe:53 2255657                        package-check/extracted/libdrm.so",
+              "7cc1047000-7cc1048000 r--p 00012000 fe:53 2255657                        package-check/extracted/libdrm.so",
+              "7cc1048000-7cc1049000 r--p 00000000 fe:53 2255657                        package-check/extracted/libdrm.so",
+              "7cc104b000-7cc1057000 r--p 00004000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "7cc105d000-7cc1060000 r--p 0131e000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "7cc1066000-7cc1069000 r--p 014df000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so",
+              "7cc1069000-7cc106a000 r--p 00000000 fe:53 2255494                        package-check/extracted/libvulkan_panfrost.so"
+            ]
+          }
+        ],
+        "returncode": 2,
+        "summary": [
+          "180",
+          "6",
+          "6",
+          "FAIL"
+        ],
+        "cleanup": {
+          "stop": 0,
+          "wait": 0,
+          "remaining": []
+        },
+        "pins_unchanged": true
+      },
+      "manifest": {
+        "command": [
+          "local-home/panvk-refs/proton/p10-4-v14/bin/wine",
+          "package-check/package-dxvk-negative/d3d11_tri.exe"
+        ],
+        "controls": {
+          "DISPLAY": ":111",
+          "WINEPREFIX": "package-check/package-dxvk-negative/prefix",
+          "WINEDEBUG": "-all",
+          "LD_PRELOAD": "local-home/panvk-refs/proton/noshm/libnoshm.so",
+          "LD_LIBRARY_PATH": "local-home/hangover/root/data/data/com.termux/files/usr/lib:local-home/wltest/imagefs/usr/lib:local-home/panvk-refs/proton/p10-4-v14/lib",
+          "VK_ICD_FILENAMES": "package-check/package-dxvk-negative/icd.json",
+          "ADRENOTOOLS_DRIVER_PATH": "package-check/extracted/",
+          "ADRENOTOOLS_DRIVER_NAME": "libvulkan_panfrost.so",
+          "ADRENOTOOLS_HOOKS_PATH": "local-home/wltest/imagefs/usr/lib/",
+          "WINEDLLOVERRIDES": "d3d11,dxgi,d3d9,d3d10core,d3d8=n",
+          "DXVK_LOG_LEVEL": "info",
+          "DXVK_LOG_PATH": "package-check/package-dxvk-negative",
+          "DXVK_STATE_CACHE": "0",
+          "DXVK_HUD": "",
+          "MESA_SHADER_CACHE_DISABLE": "true",
+          "PAN_I_WANT_A_BROKEN_VULKAN_DRIVER": "1",
+          "PANVK_JM_OVERLAP": "false",
+          "PANVK_TILER_HEAP_INCREMENTAL": "false",
+          "PAN_LATE_VECTORIZE": "false",
+          "PANVK_DEFER_OQ": "0",
+          "PANVK_UBO_PUSH": "1",
+          "PANVK_V9_TIMESTAMP": "true",
+          "PANVK_V9_ATTR_OOB_HW": "false",
+          "D3D11TRI_FRAMES": "180",
+          "D3D11TRI_LIE": "1"
+        },
+        "pins": {
+          "package-check/run_stack.py": "e676864b7f46c6ad2b1ec862f6493edee787fad614186bb338f8e9a2cd3813c0",
+          "package-check/extracted/libvulkan_panfrost.so": "595981cc9ec21f0b667a4127e6b31bb9a03c8d2aa4278b04a7daefff4f3dcf4e",
+          "local-home/panvk-refs/proton/p10-4-v14/bin/wine": "07189f752896d526851599dc4d983ecda0a28f927d615010c032833669b4c24e",
+          "local-home/panvk-refs/proton/p10-4-v14/bin/wineserver": "8f429a8a5a1820f4e1fb4cc0bea4f2d7ed31eb00e6404feb1c3bd64159e5dd52",
+          "package-check/package-dxvk-negative/d3d11_tri.exe": "6b13b557c20a332597dae65ecd9d60fdc625e5ac69688944ab3577e9663e3d6b",
+          "local-home/wltest/imagefs/usr/lib/libvulkan_wrapper.so": "3b4c285550847a0caa6d110614298d6c0c57feefd9c96460713ad707a3c8304e",
+          "local-home/panvk-refs/proton/noshm/libnoshm.so": "a4b86c51f797695b91d5a870b30e304361aa6a52fff844f478a71c072e6cc424",
+          "package-check/package-dxvk-negative/prefix/drive_c/windows/system32/d3d11.dll": "de521a678ee89d9da205a8386aa2017151cf88c6cd7f30c9f2b7e8b98cd2e446",
+          "package-check/package-dxvk-negative/prefix/drive_c/windows/system32/dxgi.dll": "fe5d69ddbac217b77fc0e173da46cc3bf2f3a1d4743c4e32682da00cf5fb875f",
+          "package-check/package-dxvk-negative/prefix/drive_c/windows/system32/d3d9.dll": "60c879adc6c7b8e502e4988b60b21ec8633f0e414b9a3ede3c232e417b0fae12",
+          "package-check/package-dxvk-negative/prefix/drive_c/windows/system32/d3d10core.dll": "0701742a3a1207ee322348acc44953ee8fb3def48c1efc2096fc178020aaf609",
+          "package-check/package-dxvk-negative/prefix/drive_c/windows/system32/d3d8.dll": "1e0096ed7a5c8e19f7840cc8117bc40899300632da077ce66f74ebcd250a5038"
+        },
+        "version": "v2.3.1-stripped",
+        "negative_control": true,
+        "automatic_retry": false,
+        "scope": "DXVK pixel readback; no performance comparison"
+      },
+      "run_log_sha256": "75844e767befb83d69f10399e801c5fcc1db9d737e1e26668bb8abca7cd2bfe5",
+      "dxvk_log_sha256": "801f24783d1ce52ff40badb426188f36d1843a91d62af669c2293736aa2c0c78"
+    }
+  ],
+  "display_cleanup": {
+    "pid": 11075,
+    "stopped": true,
+    "local_symlink_removed": true,
+    "native_socket_exists": true,
+    "native_socket_removed": true
+  }
+}

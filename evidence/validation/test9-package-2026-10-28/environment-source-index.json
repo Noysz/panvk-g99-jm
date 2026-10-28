@@ -1,0 +1,124 @@
+{
+  "PANVK_DEFER_OQ": [
+    {
+      "file": "src/panfrost/vulkan/jm/panvk_vX_cmd_query.c",
+      "line": 275
+    }
+  ],
+  "PANVK_FAULT_REPORT": [
+    {
+      "file": "src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c",
+      "line": 2183
+    },
+    {
+      "file": "src/panfrost/lib/kmod/kbase_kmod.c",
+      "line": 1644
+    }
+  ],
+  "PANVK_FRAME_PROF": [
+    {
+      "file": "src/panfrost/vulkan/panvk_frame_prof.c",
+      "line": 49
+    }
+  ],
+  "PANVK_JM_OVERLAP": [
+    {
+      "file": "src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c",
+      "line": 2179
+    }
+  ],
+  "PANVK_KBASE_SYNC_SUBMIT": [
+    {
+      "file": "src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c",
+      "line": 453
+    }
+  ],
+  "PANVK_KBASE_USER_CACHE_SYNC": [
+    {
+      "file": "src/panfrost/lib/kmod/kbase_kmod.c",
+      "line": 1274
+    }
+  ],
+  "PANVK_MEM_PROF": [
+    {
+      "file": "src/panfrost/vulkan/panvk_mem_prof.c",
+      "line": 31
+    }
+  ],
+  "PANVK_TILER_HEAP_INCREMENTAL": [
+    {
+      "file": "src/panfrost/vulkan/panvk_vX_device.c",
+      "line": 625
+    }
+  ],
+  "PANVK_UBO_PUSH": [
+    {
+      "file": "src/panfrost/vulkan/panvk_vX_shader.c",
+      "line": 2126
+    },
+    {
+      "file": "src/panfrost/vulkan/panvk_vX_shader.c",
+      "line": 2132
+    }
+  ],
+  "PANVK_V9_CLIP_KILL_FPK": [
+    {
+      "file": "src/panfrost/vulkan/panvk_vX_shader.c",
+      "line": 1014
+    },
+    {
+      "file": "src/panfrost/vulkan/panvk_vX_shader.c",
+      "line": 3549
+    }
+  ],
+  "PANVK_V9_DEPTH_BOUNDS": [
+    {
+      "file": "src/panfrost/vulkan/panvk_vX_physical_device.c",
+      "line": 339
+    }
+  ],
+  "PANVK_V9_EMULATE_SAMPLER": [
+    {
+      "file": "src/panfrost/vulkan/panvk_physical_device.h",
+      "line": 184
+    }
+  ],
+  "PANVK_V9_NO_CLIP_CULL": [
+    {
+      "file": "src/panfrost/vulkan/panvk_instance.h",
+      "line": 81
+    }
+  ],
+  "PANVK_V9_NO_FPK": [
+    {
+      "file": "src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c",
+      "line": 2634
+    }
+  ],
+  "PANVK_V9_TIMESTAMP": [
+    {
+      "file": "src/panfrost/vulkan/panvk_physical_device.c",
+      "line": 1217
+    },
+    {
+      "file": "src/panfrost/vulkan/panvk_query_pool.h",
+      "line": 36
+    }
+  ],
+  "PAN_I_WANT_A_BROKEN_VULKAN_DRIVER": [
+    {
+      "file": "src/panfrost/vulkan/panvk_physical_device.c",
+      "line": 1284
+    },
+    {
+      "file": "src/panfrost/vulkan/panvk_physical_device.c",
+      "line": 1425
+    }
+  ],
+  "PAN_LATE_VECTORIZE": [
+    {
+      "file": "src/panfrost/compiler/bifrost/bi_debug.c",
+      "line": 41
+    }
+  ]
+}

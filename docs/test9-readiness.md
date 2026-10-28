@@ -1,27 +1,45 @@
-# Test9 readiness - 2026-10-26
+# Test9 readiness - 2026-10-28
 
-Test9 has not been packaged or published. The host and Android candidate
-libraries are already built; their identities and validation are in the
-[combined-build evidence](../evidence/validation/api-2026-10-26/README.md).
+Test9 is packaged locally and its extracted-package smoke checks pass.
+It has not been published. The ZIP contains the unchanged Android candidate
+and the dependencies used in the earlier launcher checks. See the
+[package evidence](../evidence/validation/test9-package-2026-10-28/README.md)
+and [combined-build evidence](../evidence/validation/api-2026-10-26/README.md).
 
-Two steps remain before a test9 package is ready to publish:
+The two package steps are complete at the recorded scope:
 
-1. Freeze the published source stack and package the exact tested Android
-   library in a new test9 ZIP with metadata, dependencies, known limitations
-   and checksums. Verify the archive and extract it to a fresh directory.
-2. Check that the extracted driver and dependencies match the tested hashes,
-   then run the package launcher/probe and render/control smoke checks. Review
-   the release notes against the evidence. A changed library or dependency
-   requires regression testing of that changed configuration.
+1. The ZIP, metadata, dependencies, licenses, README and checksums are checked.
+   Fresh extraction reproduces all ten members. The external README matches
+   the internal `README.txt` byte for byte; old packages remain unchanged.
+2. Six launcher/wrapper/profile checks and one enumeration control give their
+   expected results. DXVK render/readback passes; the wrong-reference control
+   fails as expected. Mapped libraries come from the extracted package.
+   The release instructions match the candidate defaults and validation limits.
+
+The current ZIP is a README-only revision of the smoke-tested package.
+All nine other members are identical; archive extraction and checksums were
+checked again. Runtime results retain their original package identity.
+
+Files follow the earlier test-build layout: `FourFectVK-G57-v0.1.0-test9.zip`,
+`README-v0.1.0-test9.txt`, and `SHA256SUMS.txt`. The
+[testing README](test9/README-v0.1.0-test9.txt) gives R0-R6 runs, T06-T10
+environment settings, existing baseline/logging controls and report
+instructions. The [build/package order](test9/build-order.md)
+records the source stack and package gates. A test9 GitHub issue form is also
+prepared in `.github/ISSUE_TEMPLATE/test9-report.yml`.
 
 Completed feature repeats, tracked regression and application runs do not
 need to be repeated merely to rename a package containing identical bytes.
-The final package smoke check tests packaging and loading, which the current
-loose-library results cannot establish. Publishing the GitHub prerelease is
-a separate action after these steps.
+The package checks use the reconstructed native Wine/Termux:X11 stack, not
+an installation inside the Winlator app. Tester R0 checks are still needed
+on the installed container/device. A changed library or dependency requires
+appropriate regression. Commit/push and GitHub prerelease publication remain
+separate actions.
 
 Test9 keeps depth bounds opt-in and overlap, incremental tiler backing, late
-vectorization and deferred occlusion off. Fourteen pre-existing tracked CTS
+vectorization and deferred occlusion off. UBO push defaults to 32 words in
+this candidate; the testing README corrects the older off-by-default guidance.
+Fourteen pre-existing tracked CTS
 failures are documented; no tracked Pass was lost against the unchanged
 test8 driver. This does not meet the RC/1.0 zero-failure gate.
 

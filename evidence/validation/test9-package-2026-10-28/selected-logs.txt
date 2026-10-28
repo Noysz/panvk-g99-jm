@@ -1,0 +1,169 @@
+File: gate/adrenotools-0.log
+Original SHA256: 6da2cf902cd2dfc08ffccaa946ba049315cf458ab5de4c50e05f1b773519b372
+
+ENUM result=0 devices=1
+RENDERER Mali-G57 MC2 FourFectVK 0.1.0 Test9
+VERSION 1.3.363
+EXTENSIONS 172
+MAP package-check/extracted/libc++_shared.so
+MAP package-check/extracted/libvulkan_panfrost.so
+MAP package-check/extracted/libz.so.1
+MAP package-check/extracted/libdrm.so
+MAP local-home/wltest/imagefs/usr/lib/libz.so.1
+RESULT ok
+
+File: gate/launcher-0.log
+Original SHA256: fcb8f4ee175b57701e48b580e879c9a18cd7e9d7abb3a86c5041a78002c90a30
+
+ENUM result=0 devices=1
+RENDERER Mali-G57 MC2 FourFectVK 0.1.0 Test9
+VERSION 1.3.363
+EXTENSIONS 172
+MAP package-check/extracted/libc++_shared.so
+MAP package-check/extracted/libvulkan_panfrost.so
+MAP package-check/extracted/libz.so.1
+MAP package-check/extracted/libdrm.so
+MAP /system/lib64/libz.so
+RESULT ok
+
+File: gate/optin-negative.log
+Original SHA256: 50ac50512d8f49bb48e89347227dc591f5d16667878c3005588a5a554050443c
+
+ENUM result=0 devices=0
+VERSION Unknown
+EXTENSIONS 0
+RESULT no-device
+
+File: gate/probe-off-0.log
+Original SHA256: e68a02b83b349e0086185a7b809411df62aaa82b1734808031c14d430f39d502
+
+PROFILE dxvk-1.10.3        D3D11 OK maxFL=b_1 | D3D9 OK
+PROFILE dxvk-1.11.1-sarek  D3D11 OK maxFL=b_1 | D3D9 OK
+PROFILE dxvk-1.12.1-sarek  D3D11 OK maxFL=b_1 | D3D9 OK
+PROFILE dxvk-v2.3.1        D3D11 OK maxFL=b_1
+SAREK112_DEGRADED depthBounds
+SUBMIT r=0 WAITIDLE r=0
+RESULT ok usable_profiles=4
+
+File: gate/probe-on-0.log
+Original SHA256: 42ec457687ee2e4cfe2a3064c9b3ffe4f541bc9f3fac7b4477ca30e5d21e9d62
+
+PROFILE dxvk-1.10.3        D3D11 OK maxFL=b_1 | D3D9 OK
+PROFILE dxvk-1.11.1-sarek  D3D11 OK maxFL=b_1 | D3D9 OK
+PROFILE dxvk-1.12.1-sarek  D3D11 OK maxFL=b_1 | D3D9 OK
+PROFILE dxvk-v2.3.1        D3D11 OK maxFL=b_1
+SAREK112_DEGRADED
+SUBMIT r=0 WAITIDLE r=0
+RESULT ok usable_profiles=4
+
+File: gate/wrapper-off-0.log
+Original SHA256: 85a019fa512eaf6b7fbc7d2e43dd29c9180a7d34c73bfcb99305d2554d865381
+
+RENDERER Apex(Mali-G57 MC2 FourFectVK 0.1.0 Test9) vendor=0x13b5 device=0x90930010
+VERSION 1.3.363 driver=0x6802063
+EXTENSIONS 161
+FEAT robustBufferAccess                   yes
+FEAT fullDrawIndexUint32                  yes
+FEAT imageCubeArray                       yes
+FEAT independentBlend                     yes
+FEAT geometryShader                       yes
+FEAT tessellationShader                   yes
+FEAT sampleRateShading                    yes
+FEAT dualSrcBlend                         yes
+FEAT logicOp                              yes
+FEAT multiDrawIndirect                    yes
+FEAT drawIndirectFirstInstance            yes
+FEAT depthClamp                           yes
+FEAT depthBiasClamp                       yes
+FEAT fillModeNonSolid                     yes
+FEAT depthBounds                          no
+FEAT multiViewport                        yes
+FEAT samplerAnisotropy                    yes
+FEAT textureCompressionBC                 yes
+FEAT occlusionQueryPrecise                yes
+FEAT pipelineStatisticsQuery              yes
+FEAT vertexPipelineStoresAndAtomics       yes
+FEAT fragmentStoresAndAtomics             yes
+FEAT shaderImageGatherExtended            yes
+FEAT shaderStorageImageExtendedFormats    yes
+FEAT shaderStorageImageWriteWithoutFormat yes
+FEAT shaderClipDistance                   yes
+FEAT shaderCullDistance                   yes
+FEAT shaderFloat64                        no
+FEAT shaderInt64                          yes
+FEAT variableMultisampleRate              yes
+FEAT shaderResourceMinLod                 no
+FEAT robustBufferAccess2                  yes
+FEAT nullDescriptor                       yes
+SUBMIT r=0 WAITIDLE r=0
+MISSING_REQUIRED 0
+RESULT ok
+
+File: gate/wrapper-on-0.log
+Original SHA256: f00ea4d13247991037da43c62188c2cc76bff9ac43c64324d09d7b19b4030b56
+
+RENDERER Apex(Mali-G57 MC2 FourFectVK 0.1.0 Test9) vendor=0x13b5 device=0x90930010
+VERSION 1.3.363 driver=0x6802063
+EXTENSIONS 161
+FEAT robustBufferAccess                   yes
+FEAT fullDrawIndexUint32                  yes
+FEAT imageCubeArray                       yes
+FEAT independentBlend                     yes
+FEAT geometryShader                       yes
+FEAT tessellationShader                   yes
+FEAT sampleRateShading                    yes
+FEAT dualSrcBlend                         yes
+FEAT logicOp                              yes
+FEAT multiDrawIndirect                    yes
+FEAT drawIndirectFirstInstance            yes
+FEAT depthClamp                           yes
+FEAT depthBiasClamp                       yes
+FEAT fillModeNonSolid                     yes
+FEAT depthBounds                          yes
+FEAT multiViewport                        yes
+FEAT samplerAnisotropy                    yes
+FEAT textureCompressionBC                 yes
+FEAT occlusionQueryPrecise                yes
+FEAT pipelineStatisticsQuery              yes
+FEAT vertexPipelineStoresAndAtomics       yes
+FEAT fragmentStoresAndAtomics             yes
+FEAT shaderImageGatherExtended            yes
+FEAT shaderStorageImageExtendedFormats    yes
+FEAT shaderStorageImageWriteWithoutFormat yes
+FEAT shaderClipDistance                   yes
+FEAT shaderCullDistance                   yes
+FEAT shaderFloat64                        no
+FEAT shaderInt64                          yes
+FEAT variableMultisampleRate              yes
+FEAT shaderResourceMinLod                 no
+FEAT robustBufferAccess2                  yes
+FEAT nullDescriptor                       yes
+SUBMIT r=0 WAITIDLE r=0
+MISSING_REQUIRED 0
+RESULT ok
+
+File: package-dxvk-positive/run.log
+Original SHA256: f2571e45ae90e7bef23dc899416137b4aaa1adbcb1c0b555d364a554932bb649
+
+D3D11 device ok, feature level b_1
+adapter: Apex(Mali-G57 MC2 FourFectVK 0.1.0 Test9) vendor=0x13b5 device=0x90930010 vram=2562MB
+CHECK frame=000 centre=255,0,0 exp=255,0,0 corner=0,64,128 exp=0,64,128 ok
+CHECK frame=030 centre=255,247,0 exp=255,247,0 corner=121,64,128 exp=121,64,128 ok
+CHECK frame=060 centre=255,230,0 exp=255,230,0 corner=243,64,128 exp=243,64,128 ok
+CHECK frame=090 centre=255,214,0 exp=255,214,0 corner=105,64,128 exp=105,64,128 ok
+CHECK frame=120 centre=255,197,0 exp=255,197,0 corner=227,64,128 exp=227,64,128 ok
+CHECK frame=150 centre=255,181,0 exp=255,181,0 corner=89,64,128 exp=89,64,128 ok
+D3D11SUM frames=180 checked=6 bad=0 time=3207ms fps=56.1 verdict=PASS
+
+File: package-dxvk-negative/run.log
+Original SHA256: 75844e767befb83d69f10399e801c5fcc1db9d737e1e26668bb8abca7cd2bfe5
+
+D3D11 device ok, feature level b_1
+adapter: Apex(Mali-G57 MC2 FourFectVK 0.1.0 Test9) vendor=0x13b5 device=0x90930010 vram=2562MB
+CHECK frame=000 centre=255,0,0 exp=255,255,0 corner=0,64,128 exp=0,64,128 BAD
+CHECK frame=030 centre=255,247,0 exp=255,8,0 corner=121,64,128 exp=121,64,128 BAD
+CHECK frame=060 centre=255,230,0 exp=255,25,0 corner=243,64,128 exp=243,64,128 BAD
+CHECK frame=090 centre=255,214,0 exp=255,41,0 corner=105,64,128 exp=105,64,128 BAD
+CHECK frame=120 centre=255,197,0 exp=255,58,0 corner=227,64,128 exp=227,64,128 BAD
+CHECK frame=150 centre=255,181,0 exp=255,74,0 corner=89,64,128 exp=89,64,128 BAD
+D3D11SUM frames=180 checked=6 bad=6 time=3301ms fps=54.5 verdict=FAIL

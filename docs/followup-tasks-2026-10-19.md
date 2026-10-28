@@ -16,14 +16,14 @@ No task is complete based only on an advertised feature or an FPS claim.
 | T07 | Matrix path tested; register pressure and game coverage pending | Investigate register pressure, dynamic matrix vectorization and compute TLS | Existing late vectorization passes three enabled 2,900-case repeats against baseline. Row-major submit-to-fence reduction 13.19-18.45% across three ABBA blocks; uncontrolled clocks/temperature, no FPS claim. Default stays off. |
 | T08 | Prototype; live-fault lifetime unresolved | Evaluate safe overlap between passes | Preserved in the combined candidate, default off. Nonfaulting controls do not close live-fault resource lifetime; Android cleanup event remains unexplained. |
 | T09 | Targeted implementation and combined validation complete; broader qualification open | Continue timestamp API, robustness, conditional rendering and opt-in depth bounds | Timestamp, vertex/GPL/null, conditional and depth-bounds controls pass at documented scope. Host/Android feature repeats complete. Bounds stays opt-in. |
-| T10 | Combined candidate tested; packaging and RC gates open | Produce a release candidate only after the roadmap gates | Published source replay passes. Final host/Android tracked regression gains one Pass against test8, loses none; 14 old failures remain. Application checks and one short battle complete. No RC qualification. |
+| T10 | Combined candidate and local test9 package checked; publication and RC gates open | Produce a release candidate only after the roadmap gates | Published source replay passes. Final host/Android tracked regression gains one Pass against test8, loses none; 14 old failures remain. Extracted-package loader/probe/render controls pass at recorded scope. No RC qualification. |
 
 Execution starts with T01-T03. Later tasks remain explicit backlog until their
 dependencies and workload evidence are available. Existing local changes and
 validated driver packages are preserved. Candidate patches do not imply a
 release or a measured performance improvement.
 
-The table includes the October 26 API/combined-build update. Dated sections
+The table includes the October 28 local test9 package update. Dated sections
 below retain the scope and outstanding work at their original checkpoint.
 
 ## Initial state
@@ -236,3 +236,27 @@ The [evidence](../evidence/validation/api-2026-10-26/README.md) distinguishes
 earlier feature builds from final combined runs. The
 [test9 checklist](test9-readiness.md) has two remaining package steps.
 The RC/1.0 roadmap remains unmet; T10 is not complete.
+
+## Test9 package and instructions (2026-10-28)
+
+The frozen Android library and tested launcher dependencies are packaged in
+a new local test9 ZIP. It follows the earlier release layout with the same
+README inside and beside the ZIP, plus checksums. Ten extracted members
+match their inputs. Six loader/wrapper/profile checks and one enumeration
+control give expected results; DXVK readback passes six checks and the
+wrong-reference control detects all six mismatches. All 540 historical
+preservation pins remain unchanged.
+
+The [testing README](test9/README-v0.1.0-test9.txt) documents R0-R6, T06-T10
+environment settings, the existing baseline/logging controls and issue-report
+fields. Unrelated backend options and fault-injection switches are omitted.
+The [build/package order](test9/build-order.md) preserves the patch order,
+binary/dependency identities and acceptance checks. The environment audit
+corrects the UBO push default and presence-based FPK control instructions.
+The current ZIP changes only the README; all nine other members match the
+smoke-tested package. Its archive checks and hashes are recorded separately.
+
+See [package evidence](../evidence/validation/test9-package-2026-10-28/README.md).
+These are package smoke checks on the reconstructed stack. No new game
+benchmark, actual Winlator app install, source change or release publication
+is claimed. RC qualification and the broader T06-T08 work remain open.
