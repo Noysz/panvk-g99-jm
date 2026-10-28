@@ -1,10 +1,43 @@
-# FourFectVK G57 v0.1.0 test builds (test1-test8)
+# FourFectVK G57 v0.1.0 test builds (test1-test9)
 
 Test builds for Winlator (Ludashi / CMOD, *Graphics Driver: Wrapper*) on the
-**Mali-G57 MC2 (Helio G99)**. Not releases: each one was made to answer one
-question, with an env switch to turn the change off. Downloads (zip + README
-of each build + `SHA256SUMS.txt`):
+**Mali-G57 MC2 (Helio G99)**. Experimental and not Vulkan-conformant.
+Downloads (driver ZIP, separate testing README and checksums):
 **[release `fourfectvk-g57-v0.1.0-tests`](https://github.com/Noysz/panvk-g99-jm/releases/tag/fourfectvk-g57-v0.1.0-tests)**.
+
+## Test9 (2026-10-28)
+
+Latest: [driver ZIP](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-tests/FourFectVK-G57-v0.1.0-test9.zip),
+[testing README](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-tests/README-v0.1.0-test9.txt),
+[SHA256SUMS-v0.1.0-test9.txt](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-tests/SHA256SUMS-v0.1.0-test9.txt).
+The ZIP contains the same guide as `README.txt`. For test9, use the versioned
+checksum file wherever the guide says `SHA256SUMS.txt`; the old checksum
+asset still covers test1-test8. Downloaded assets match the prepared hashes.
+
+ZIP SHA-256:
+`b60c144b9fc6aef8e848f18ca33b589246757ed29484f9f5c86b83656468e9c2`
+
+The [source stack](test9/build-order.md) includes timestamp lifetime,
+vertex-input robustness/GPL, conditional rendering, opt-in depth bounds,
+and cache/coherency fixes. On 5,658 tracked CTS cases per host/Android build,
+the candidate has 3,754 Pass, 1,890 NotSupported and 14 Fail: one gained Pass
+and no lost Pass against test8. Package checks use the reconstructed native
+Wine/Termux:X11 stack, not an actual Winlator app installation. See
+[package checks and publication](../evidence/validation/test9-package-2026-10-28/README.md)
+and [combined validation](../evidence/validation/api-2026-10-26/README.md).
+No repeatable gameplay FPS gain or RC qualification is established.
+
+Start with R0 in the [T06-T10 testing guide](test9/README-v0.1.0-test9.txt).
+UBO push now defaults to 32 words. Depth bounds is opt-in; late vectorization,
+incremental tiler backing and deferred occlusion stay off by default. Leave
+pass overlap off: its fault/lifetime work is unfinished. Use the guide for
+test9's defaults and comparison settings, rather than the historical table.
+
+The shared release tag remains unchanged. Its automatic source archives
+refer to that historical tag; the test9 candidate stack is recorded at
+[`7f28e47`](https://github.com/Noysz/panvk-g99-jm/commit/7f28e47db6e50215fbe2935cecaf048f23d6dbfb).
+
+## Earlier builds: test1-test8
 
 | build | base | what is new | result on the phone |
 |---|---|---|---|
@@ -26,12 +59,15 @@ test3  b1c56c68b1c79638   test7  c93f0b3a98d24edd
 test4  0363c4e21dc06d28   test8  bf1a131e23434c6c
 ```
 
-Every build: CTS regression of 7127 cases with 0 lost against the build
+For test1-test8: CTS regression of 7127 cases with 0 lost against the build
 before, and a Winlator-stack device check (DXVK probe, D3D11 test program on
 four DXVK versions, AIO tess/gs scenes). Evidence: `evidence/cts/phase13b`
 (test1-test2), `phase13c` (test3-test5), `phase14` (test6-test8).
 
-## Switches (0 or unset = off)
+## Historical switches (test1-test8)
+
+This table records the earlier builds. Test9 defaults, value parsing and
+app-rule overrides are documented in its testing guide.
 
 | switch | from | effect |
 |---|---|---|

@@ -1,7 +1,8 @@
 # Test9 readiness - 2026-10-28
 
-Test9 is packaged locally and its extracted-package smoke checks pass.
-It has not been published. The ZIP contains the unchanged Android candidate
+Test9 is [published as a prerelease asset](https://github.com/Noysz/panvk-g99-jm/releases/tag/fourfectvk-g57-v0.1.0-tests)
+and its extracted-package smoke checks pass at the scope recorded below.
+The ZIP contains the unchanged Android candidate
 and the dependencies used in the earlier launcher checks. See the
 [package evidence](../evidence/validation/test9-package-2026-10-28/README.md)
 and [combined-build evidence](../evidence/validation/api-2026-10-26/README.md).
@@ -21,8 +22,14 @@ All nine other members are identical; archive extraction and checksums were
 checked again. Runtime results retain their original package identity.
 
 Files follow the earlier test-build layout: `FourFectVK-G57-v0.1.0-test9.zip`,
-`README-v0.1.0-test9.txt`, and `SHA256SUMS.txt`. The
-[testing README](test9/README-v0.1.0-test9.txt) gives R0-R6 runs, T06-T10
+`README-v0.1.0-test9.txt`, and a checksum file. The release names the latter
+`SHA256SUMS-v0.1.0-test9.txt` to preserve the existing test1-test8 checksum
+asset; use it wherever the testing guide says `SHA256SUMS.txt`. All three
+downloaded assets match their prepared hashes, and the 17 historical assets
+and shared release tag remain unchanged. See
+[publication.json](../evidence/validation/test9-package-2026-10-28/publication.json).
+
+The [testing README](test9/README-v0.1.0-test9.txt) gives R0-R6 runs, T06-T10
 environment settings, existing baseline/logging controls and report
 instructions. The [build/package order](test9/build-order.md)
 records the source stack and package gates. A test9 GitHub issue form is also
@@ -33,8 +40,8 @@ need to be repeated merely to rename a package containing identical bytes.
 The package checks use the reconstructed native Wine/Termux:X11 stack, not
 an installation inside the Winlator app. Tester R0 checks are still needed
 on the installed container/device. A changed library or dependency requires
-appropriate regression. Commit/push and GitHub prerelease publication remain
-separate actions.
+appropriate regression. The source/docs commit and asset publication are
+recorded separately; uploading this package did not rerun runtime tests.
 
 Test9 keeps depth bounds opt-in and overlap, incremental tiler backing, late
 vectorization and deferred occlusion off. UBO push defaults to 32 words in

@@ -16,14 +16,14 @@ No task is complete based only on an advertised feature or an FPS claim.
 | T07 | Matrix path tested; register pressure and game coverage pending | Investigate register pressure, dynamic matrix vectorization and compute TLS | Existing late vectorization passes three enabled 2,900-case repeats against baseline. Row-major submit-to-fence reduction 13.19-18.45% across three ABBA blocks; uncontrolled clocks/temperature, no FPS claim. Default stays off. |
 | T08 | Prototype; live-fault lifetime unresolved | Evaluate safe overlap between passes | Preserved in the combined candidate, default off. Nonfaulting controls do not close live-fault resource lifetime; Android cleanup event remains unexplained. |
 | T09 | Targeted implementation and combined validation complete; broader qualification open | Continue timestamp API, robustness, conditional rendering and opt-in depth bounds | Timestamp, vertex/GPL/null, conditional and depth-bounds controls pass at documented scope. Host/Android feature repeats complete. Bounds stays opt-in. |
-| T10 | Combined candidate and local test9 package checked; publication and RC gates open | Produce a release candidate only after the roadmap gates | Published source replay passes. Final host/Android tracked regression gains one Pass against test8, loses none; 14 old failures remain. Extracted-package loader/probe/render controls pass at recorded scope. No RC qualification. |
+| T10 | Combined candidate checked and test9 published; RC gates open | Produce a release candidate only after the roadmap gates | Published source replay passes. Final host/Android tracked regression gains one Pass against test8, loses none; 14 old failures remain. Extracted-package loader/probe/render controls pass at recorded scope. Downloaded release assets match prepared hashes. No RC qualification. |
 
 Execution starts with T01-T03. Later tasks remain explicit backlog until their
 dependencies and workload evidence are available. Existing local changes and
 validated driver packages are preserved. Candidate patches do not imply a
 release or a measured performance improvement.
 
-The table includes the October 28 local test9 package update. Dated sections
+The table includes the October 28 test9 publication. Dated sections
 below retain the scope and outstanding work at their original checkpoint.
 
 ## Initial state
@@ -260,3 +260,14 @@ See [package evidence](../evidence/validation/test9-package-2026-10-28/README.md
 These are package smoke checks on the reconstructed stack. No new game
 benchmark, actual Winlator app install, source change or release publication
 is claimed. RC qualification and the broader T06-T08 work remain open.
+
+## Test9 publication (2026-10-28)
+
+The prepared test9 ZIP, scoped README and versioned checksum file are now
+attached to the [test-build prerelease](https://github.com/Noysz/panvk-g99-jm/releases/tag/fourfectvk-g57-v0.1.0-tests).
+All three assets were downloaded again and match their prepared hashes.
+The 17 historical assets and shared tag remain unchanged. Publication is
+recorded separately in
+[publication.json](../evidence/validation/test9-package-2026-10-28/publication.json);
+earlier preparation manifests keep their original status. Source, library
+bytes, runtime evidence and the open RC gates are unchanged.

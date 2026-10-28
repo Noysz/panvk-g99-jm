@@ -1,6 +1,6 @@
 # Test9 package checks
 
-The local test9 ZIP packages the Android candidate from source stack
+The test9 ZIP packages the Android candidate from source stack
 `7f28e47db6e50215fbe2935cecaf048f23d6dbfb` without changing its library bytes.
 The dependencies match the October 26 launcher staging, including its
 `libdrm` and `libz` versions. Their hashes differ from those in the test8 ZIP.
@@ -48,7 +48,22 @@ the check. The extracted inputs and archive keep their original hashes.
 This checks packaging and loading on the reconstructed native
 Wine/Termux:X11 stack. It is not an actual Winlator app installation,
 multi-device qualification, new gameplay benchmark or RC acceptance.
-Fourteen old tracked CTS failures remain. No release is published.
+Fourteen old tracked CTS failures remain.
+
+## Publication (2026-10-28)
+
+The current ZIP, external README and `SHA256SUMS-v0.1.0-test9.txt` are
+published on the [shared test-build prerelease](https://github.com/Noysz/panvk-g99-jm/releases/tag/fourfectvk-g57-v0.1.0-tests).
+All three downloaded assets match their prepared SHA-256 values; the ZIP
+passes CRC checks and its internal README matches the external file.
+`publication.json` records asset IDs, URLs and the verification results.
+The 17 historical assets, original checksum file and shared tag remain
+unchanged. The versioned checksum filename avoids replacing the test1-test8
+checksum asset; its contents equal the local test9 `SHA256SUMS.txt`.
+
+Earlier manifests retain their preparation-time publication status.
+This upload changes neither source/library bytes nor the runtime scope
+described above. It does not close the RC/1.0 gates.
 
 Testing and issue-report instructions:
 [README-v0.1.0-test9.txt](../../../docs/test9/README-v0.1.0-test9.txt).

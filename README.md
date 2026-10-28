@@ -10,7 +10,12 @@ Most public PanVK testing/builds so far target **CSF** chips (G610/G615/G710/G72
 
 ---
 
-## Development follow-up (2026-10-28, unreleased)
+## Test9 and development follow-up (2026-10-28)
+
+**Test9 is available:** [driver ZIP](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-tests/FourFectVK-G57-v0.1.0-test9.zip),
+[testing README](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-tests/README-v0.1.0-test9.txt)
+and [checksums](https://github.com/Noysz/panvk-g99-jm/releases/download/fourfectvk-g57-v0.1.0-tests/SHA256SUMS-v0.1.0-test9.txt).
+This is an experimental test build; RC qualification remains open.
 
 The [JM v9 API candidate](patches-candidates/2026-10-26-api/README.md)
 adds timestamp lifetime handling, vertex-input robustness/GPL fixes,
@@ -19,7 +24,7 @@ complete. On 5,658 tracked CTS cases, each gains one Pass against the unchanged
 test8 driver and loses none; 14 existing failures remain. Feature repeats,
 negative controls, four DXVK versions and a three-minute Naruto COM battle
 are recorded in the [validation evidence](evidence/validation/api-2026-10-26/README.md).
-No gameplay speedup is established. Test9 is now packaged locally with an
+No gameplay speedup is established. Test9 is published with an
 identical README inside and beside the ZIP. Extracted-package loader,
 profile and render/control smoke checks pass at their recorded scope; see
 [test9 readiness](docs/test9-readiness.md). The
@@ -65,7 +70,7 @@ ABBA blocks; clock/temperature variation remains uncontrolled. This is not
 a game result or a new compiler patch. The option stays off, and T07 remains
 open for register-pressure work and representative workload validation.
 
-The combined test9 package remains local and unpublished. No superiority
+The downloaded release assets match the prepared package hashes. No superiority
 over another driver or the Mali blob is established. Historical snapshots
 and released-build descriptions follow.
 
@@ -74,7 +79,8 @@ and released-build descriptions follow.
 **Builds for Winlator: [`docs/test-builds.md`](docs/test-builds.md)**
 (test1-test8, what each one changed, results, downloads in the
 [`fourfectvk-g57-v0.1.0-tests`](https://github.com/Noysz/panvk-g99-jm/releases/tag/fourfectvk-g57-v0.1.0-tests)
-pre-release). Latest: **test8**.
+pre-release). Latest in that historical set: **test8**; the current test9
+package is linked above.
 
 * **New base since test6.** FourFectVK now builds on upstream Mesa
   `feeadb5f` (26.3.0-devel) through **hafiz's rebase** of this project, with
@@ -91,7 +97,7 @@ pre-release). Latest: **test8**.
 * **D3D11:** tessellation, geometry shaders and transform feedback stay on
   for v9 (DXVK 1.10.3 / 1.11 / 2.x start); robustBufferAccess2 for DXVK 2.4+
   and 3.x.
-* **Checked for every test build:** VK-GL-CTS regression of 7127 cases with
+* **Checked for the earlier test builds:** VK-GL-CTS regression of 7127 cases with
   0 lost, and a Winlator-stack device check
   ([`evidence/cts/phase14/`](evidence/cts/phase14/) for test6-test7).
 * **Open:** frame rate in heavy games (Tomb Raider about 10 fps at medium
