@@ -1,5 +1,10 @@
 # FourFectVK release roadmap (alpha → beta → 1.0)
 
+Current: [v0.1.0-test9](https://github.com/Noysz/panvk-g99-jm/releases/tag/fourfectvk-g57-v0.1.0-test9)
+is an experimental test build. Publication does not close beta-entry or RC
+requirements. [T06-T08 and T10](followup-tasks-2026-10-19.md) retain their
+open memory, performance and qualification work; 14 tracked CTS failures remain.
+
 Version scheme from `0.0.6` on (`alpha1`-`alpha5` came before it):
 
 | Stage | Versions | Meaning |

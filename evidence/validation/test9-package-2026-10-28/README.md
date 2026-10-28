@@ -52,8 +52,8 @@ Fourteen old tracked CTS failures remain.
 
 ## Initial publication (2026-10-28)
 
-The first published ZIP, external README and `SHA256SUMS-v0.1.0-test9.txt` are
-published on the [shared test-build prerelease](https://github.com/Noysz/panvk-g99-jm/releases/tag/fourfectvk-g57-v0.1.0-tests).
+The first ZIP, external README and `SHA256SUMS-v0.1.0-test9.txt` were
+initially published on the shared test-build prerelease.
 All three downloaded assets match their prepared SHA-256 values; the ZIP
 passes CRC checks and its internal README matches the external file.
 `publication.json` records asset IDs, URLs and the verification results.
@@ -73,6 +73,12 @@ test9-specific controls and reporting. `concise-readme-revision.json` records
 its hashes. Only `README.txt` changes; all nine other members are identical.
 `publication-concise.json` records the download checks. Earlier packages
 and their evidence are preserved; no runtime tests were repeated.
+
+The duplicate initial test9 attachments were later removed from the grouped
+test1-test8 release after preserving and verifying their bytes. Test9 now
+has one download location: the dedicated release linked above. Earlier
+publication manifests retain their original asset IDs, URLs and hashes as
+historical records; those retired asset URLs no longer serve downloads.
 
 Testing and issue-report instructions:
 [README-v0.1.0-test9.txt](../../../docs/test9/README-v0.1.0-test9.txt).

@@ -18,10 +18,10 @@ No task is complete based only on an advertised feature or an FPS claim.
 | T09 | Targeted implementation and combined validation complete; broader qualification open | Continue timestamp API, robustness, conditional rendering and opt-in depth bounds | Timestamp, vertex/GPL/null, conditional and depth-bounds controls pass at documented scope. Host/Android feature repeats complete. Bounds stays opt-in. |
 | T10 | Combined candidate checked and test9 published; RC gates open | Produce a release candidate only after the roadmap gates | Published source replay passes. Final host/Android tracked regression gains one Pass against test8, loses none; 14 old failures remain. Extracted-package loader/probe/render controls pass at recorded scope. Downloaded release assets match prepared hashes. No RC qualification. |
 
-Execution starts with T01-T03. Later tasks remain explicit backlog until their
-dependencies and workload evidence are available. Existing local changes and
-validated driver packages are preserved. Candidate patches do not imply a
-release or a measured performance improvement.
+T01-T03 have completed their recorded gates. T04-T08 remain partial; T09
+has targeted validation and T10 has a published test build with open RC
+requirements. Implementation, measured performance and release qualification
+are tracked separately.
 
 The table includes the October 28 test9 publication. Dated sections
 below retain the scope and outstanding work at their original checkpoint.

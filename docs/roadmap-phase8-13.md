@@ -1,12 +1,18 @@
 # Roadmap after Phase 7 (2026-10-04)
 
+Current update (2026-10-28): test9 is published. Depth bounds (9.1) now has
+opt-in implementation and targeted validation. Native Android surfaces
+(8.5), sustained game memory (8.6/12.5), and further CPU/GPU work (13.2)
+remain open. The [T01-T10 ledger](followup-tasks-2026-10-19.md) records the
+current evidence; dated measurements below retain their original scope.
+
 Order agreed with the project owner: finish the open Phase 4-6 items, then
 everything DXVK 1.10.3 through 2.x needs, then memory, then CPU/GPU cost.
 Same rules as every earlier phase: a phase is done only with a falsifiable
 test, 3 runs and a negative control. Every v9-only emulation is
 🧪 EXPERIMENTAL.
 
-## Where DXVK stands today (VERIFIED-HW, `dxvk_probe` through the Winlator Wrapper)
+## DXVK bring-up history (`dxvk_probe` through the Winlator Wrapper)
 
 | DXVK | D3D11 | D3D9 | missing on this driver |
 |---|---|---|---|
@@ -142,14 +148,12 @@ has a working reference only for tessellation, so the build order is:
 
 ## Phase 9 — small features DXVK asks for
 
-- [ ] 9.1 `depthBounds`: moved out of `0.0.8`, planned as an opt-in
-  emulation (env var, off by default). The v9 genxml has no depth-bounds
-  field. The emulation reads the stored depth from the tile buffer in the
-  fragment shader and discards outside the bounds, which forces late
-  depth/stencil for the draws that run it. Because the test enable is dynamic
-  state, draws with the test enabled get a separate FS variant so the other
-  draws keep early-ZS. Only DXVK-Sarek 1.12 asks for it, as an optional
-  feature it runs without (D3D9 `NVDB` depth-bounds hack).
+- [x] 9.1 `depthBounds`: implemented in test9 as opt-in emulation,
+  `PANVK_V9_DEPTH_BOUNDS=1`, off by default. Stored-depth precision,
+  coverage, early/late tests and stencil interactions have targeted
+  validation. Broader game compatibility remains open; feature reporting
+  does not prove an application uses it. See the
+  [API validation](../evidence/validation/api-2026-10-26/README.md).
 - [x] 9.2 `variableMultisampleRate` (`0066`): without attachments the frame
   takes its sample count from the first draw; a draw with another
   `rasterizationSamples` starts a new batch. CTS
@@ -190,9 +194,11 @@ has a working reference only for tessellation, so the build order is:
   and 3.x refuse a device without it; with `0071` DXVK 3.1.1, gplasync
   2.7.1 and 3.1.1 create FL 11_1 with no env var. Cost: AIO Tessellation
   -5 % on DXVK 2.3.1 (which turns the feature on when it is there), Showcase
-  and Draw 1024 unchanged; `PANVK_V9_NO_RBA2=1` hides it. Still open:
-  out-of-range vertex attribute fetch (28 CTS cases) and null-descriptor
-  sampled images in a vertex shader (25).
+  and Draw 1024 unchanged; `PANVK_V9_NO_RBA2=1` hides it. That build left
+  out-of-range vertex fetch and null-descriptor work open. Test9 adds the
+  vertex-alpha, GPL robustness and independent null-descriptor fixes;
+  [current results](../evidence/validation/api-2026-10-26/README.md) retain
+  the remaining tracked failures.
 
 ## Phase 10 — tessellation on v9
 

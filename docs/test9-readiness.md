@@ -24,7 +24,7 @@ checked again. Runtime results retain their original package identity.
 Release files: `FourFectVK-G57-v0.1.0-test9.zip`,
 `README-v0.1.0-test9.txt` and `SHA256SUMS.txt`. The dedicated test9 release
 contains the concise README revision. Its downloaded assets match the
-prepared hashes; earlier packages remain available in the shared archive.
+prepared hashes. Test1-test8 remain on their grouped release page.
 See [publication-concise.json](../evidence/validation/test9-package-2026-10-28/publication-concise.json).
 
 The [testing README](test9/README-v0.1.0-test9.txt) gives R0-R3 sessions
