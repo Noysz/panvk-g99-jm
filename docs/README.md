@@ -14,6 +14,10 @@
 | Page | Contents |
 |---|---|
 | [Current task ledger](followup-tasks-2026-10-19.md) | T01-T10 progress and evidence. |
+| [November decisions](november-development.md) | Selected, deferred and rejected development work; P0 and release gates. |
+| [November source changelog](november-changelog.md) | Local candidate commits, separate from public releases. |
+| [November build order](november-build.md) | Exact prerequisite and lifecycle series, full build recipes and provenance. |
+| [Lifecycle validation](../evidence/validation/jm-lifecycle-2026-11-13/README.md) | Full builds, CPU tests, targeted CTS, memory and A/A/ABBA results. |
 | [Phase 8-13 roadmap](roadmap-phase8-13.md) | Features, memory and CPU/GPU work. |
 | [Release roadmap](release-roadmap.md) | Beta, RC and 1.0 requirements. |
 | [Test9 build order](test9/build-order.md) | Source baseline, patch stack and package procedure. |

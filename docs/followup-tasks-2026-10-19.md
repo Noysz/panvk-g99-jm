@@ -5,6 +5,14 @@ rendering, sustained memory use, compatibility, and performance on
 comparable workloads.
 No task is complete based only on an advertised feature or an FPS claim.
 
+Current update (13 November 2026): the
+[November decision matrix](november-development.md) records the committed
+candidate source and exact validation scope. T06/P0 and T08/0012 remain
+BLOCKED/REWORK; overlap stays off. T09 has additional scoped correctness
+candidates; T10 remains PRIVATE/NO-GO. Full builds and targeted lifecycle
+qualification do not close the broader release gates.
+The table and dated evidence below retain the October publication snapshot.
+
 | ID | Status | Task | Completion evidence |
 |---|---|---|---|
 | T01 | Done | Preserve the active source and binaries; replace the patch-chain gate | Twelve gate tests pass; final candidate stack matches 12,928 files, with six explicit support-file exclusions and one documented root-pointer mode difference. Source and binaries preserved. |
