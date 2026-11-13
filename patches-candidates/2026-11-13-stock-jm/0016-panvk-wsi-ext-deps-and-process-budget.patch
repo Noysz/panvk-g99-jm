@@ -1,0 +1,78 @@
+--- a/src/panfrost/vulkan/panvk_instance.c
++++ b/src/panfrost/vulkan/panvk_instance.c
+@@ -134,7 +134,9 @@
+ #endif
+    .EXT_debug_report = true,
+    .EXT_debug_utils = true,
+-#ifndef VK_USE_PLATFORM_WIN32_KHR
++   /* Requires VK_KHR_surface, which only the WSI platforms expose. Android
++    * builds get surfaces from the platform loader or a wrapper instead. */
++#if defined(PANVK_USE_WSI_PLATFORM) && !defined(VK_USE_PLATFORM_WIN32_KHR)
+    .EXT_headless_surface = true,
+ #endif
+ };
+--- a/src/panfrost/vulkan/panvk_vX_physical_device.c
++++ b/src/panfrost/vulkan/panvk_vX_physical_device.c
+@@ -172,7 +172,10 @@
+       .EXT_global_priority = true,
+       .EXT_global_priority_query = true,
+       .EXT_graphics_pipeline_library = true,
++#ifdef PANVK_USE_WSI_PLATFORM
++      /* Requires VK_KHR_swapchain. */
+       .EXT_hdr_metadata = true,
++#endif
+       .EXT_host_image_copy = true,
+       .EXT_host_query_reset = true,
+       .EXT_image_2d_view_of_3d = true,
+--- a/src/panfrost/vulkan/panvk_device_memory.c
++++ b/src/panfrost/vulkan/panvk_device_memory.c
+@@ -278,6 +278,7 @@
+ 
+    p_atomic_add(&physical_device->memory.heap_used,
+                 (uint64_t)pan_kmod_bo_size(mem->bo));
++   p_atomic_add(&panvk_process_heap_used, (uint64_t)pan_kmod_bo_size(mem->bo));
+ 
+    *pMem = panvk_device_memory_to_handle(mem);
+ 
+@@ -313,6 +314,7 @@
+ 
+    p_atomic_add(&physical_device->memory.heap_used,
+                 -((int64_t)pan_kmod_bo_size(mem->bo)));
++   p_atomic_add(&panvk_process_heap_used, -((int64_t)pan_kmod_bo_size(mem->bo)));
+ 
+    if (device->debug.decode_ctx) {
+       pandecode_inject_free(device->debug.decode_ctx, mem->addr.dev,
+--- a/src/panfrost/vulkan/panvk_physical_device.c
++++ b/src/panfrost/vulkan/panvk_physical_device.c
+@@ -1740,6 +1740,8 @@
+    return vk_outarray_status(&out);
+ }
+ 
++uint64_t panvk_process_heap_used;
++
+ VKAPI_ATTR void VKAPI_CALL
+ panvk_GetPhysicalDeviceMemoryProperties2(
+    VkPhysicalDevice physicalDevice,
+@@ -1766,7 +1768,8 @@
+       case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT: {
+          VkPhysicalDeviceMemoryBudgetPropertiesEXT *p = ext;
+ 
+-         uint64_t used = p_atomic_read(&physical_device->memory.heap_used);
++         /* heapUsage is per process: count memory of every instance. */
++         uint64_t used = p_atomic_read(&panvk_process_heap_used);
+          uint64_t heap_size = physical_device->memory.heaps[0].size;
+ 
+          /* From the Vulkan 1.3.278 spec:
+--- a/src/panfrost/vulkan/panvk_physical_device.h
++++ b/src/panfrost/vulkan/panvk_physical_device.h
+@@ -26,6 +26,10 @@
+ struct pan_format;
+ struct panvk_instance;
+ 
++/* VkDeviceMemory bytes allocated by this process, across all instances
++ * (VK_EXT_memory_budget heapUsage is per process). */
++extern uint64_t panvk_process_heap_used;
++
+ struct panvk_physical_device {
+    struct vk_physical_device vk;
+ 

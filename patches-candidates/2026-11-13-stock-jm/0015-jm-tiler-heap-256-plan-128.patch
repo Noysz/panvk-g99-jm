@@ -1,0 +1,71 @@
+--- a/src/panfrost/vulkan/panvk_device.h
++++ b/src/panfrost/vulkan/panvk_device.h
+@@ -71,6 +71,17 @@
+ /* Virtual size of the v9 null index buffer region: 16M 32-bit indices. */
+ #define PANVK_V9_NULL_INDEX_BUFFER_SIZE (64ull * 1024 * 1024)
+ 
++/* Tiler heap size the batch budget and the tiler hierarchy are planned for.
++ * The heap VA may be larger: the extra space only absorbs a single draw that
++ * no batch split can shrink, so normal batches keep the same footprint. */
++#define PANVK_JM_TILER_HEAP_PLAN_SIZE (128ull * 1024 * 1024)
++static inline uint64_t
++panvk_tiler_heap_plan_size(uint64_t heap_size)
++{
++   return heap_size < PANVK_JM_TILER_HEAP_PLAN_SIZE ? heap_size
++                                                   : PANVK_JM_TILER_HEAP_PLAN_SIZE;
++}
++
+ struct panvk_device {
+    struct vk_device vk;
+ 
+--- a/src/panfrost/vulkan/panvk_vX_device.c
++++ b/src/panfrost/vulkan/panvk_vX_device.c
+@@ -628,8 +628,23 @@
+    /* PATCH DEBUG v9 (SEMENTARA -- revert setelah investigasi tiler_heap
+     * selesai): buang NO_MMAP biar CPU bisa baca isi tiler_heap langsung
+     * buat diff sebelum/sesudah submit. */
++   /* Tiler heap VA size. Backing is committed in 2 MiB steps on GPU fault,
++    * so this caps the binning memory of one batch (one draw cannot be split)
++    * rather than reserving RAM. PANVK_JM_TILER_HEAP_MB overrides it
++    * (64..1024, rounded to 2 MiB). */
++   /* 256 MiB: the heaviest measured single draw (1.57M triangles) needs
++    * 150 MiB of binning memory; 128 MiB faulted. */
++   uint64_t tiler_heap_size = 256ull * 1024 * 1024;
++   {
++      const char *mb = os_get_option("PANVK_JM_TILER_HEAP_MB");
++      if (mb) {
++         uint64_t v = strtoull(mb, NULL, 10);
++         if (v >= 64 && v <= 1024)
++            tiler_heap_size = ALIGN_POT(v, 2) * 1024 * 1024;
++      }
++   }
+    result = panvk_priv_bo_create(
+-      device, 128 * 1024 * 1024,
++      device, tiler_heap_size,
+       tiler_heap_flags,
+       VK_SYSTEM_ALLOCATION_SCOPE_DEVICE, &device->tiler_heap);
+    if (result != VK_SUCCESS)
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -3152,7 +3152,8 @@
+       return VK_SUCCESS;
+ 
+    struct panvk_device *dev = to_panvk_device(cmdbuf->vk.base.device);
+-   const uint64_t budget = pan_kmod_bo_size(dev->tiler_heap->bo) / 8;
++   const uint64_t budget =
++      panvk_tiler_heap_plan_size(pan_kmod_bo_size(dev->tiler_heap->bo)) / 8;
+    struct panvk_batch *batch = cmdbuf->cur_batch;
+ 
+    if (cmdbuf->state.gfx.tess.tes || cmdbuf->state.gfx.gs.shader ||
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
+@@ -641,7 +641,8 @@
+ 
+    pan_pack(&batch->tiler.ctx_templ, TILER_CONTEXT, cfg) {
+       cfg.hierarchy_mask = panvk_select_tiler_hierarchy_mask(
+-         phys_dev, &cmdbuf->state.gfx, pan_kmod_bo_size(dev->tiler_heap->bo));
++         phys_dev, &cmdbuf->state.gfx,
++         panvk_tiler_heap_plan_size(pan_kmod_bo_size(dev->tiler_heap->bo)));
+ 
+       /* PANVK_TILER_HMASK=<mask>: replace the hierarchy mask (bit n = bins
+        * of 16 << n pixels). G57 reports 8 levels, so we enable all of them

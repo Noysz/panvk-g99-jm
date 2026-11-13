@@ -1,0 +1,93 @@
+--- a/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
++++ b/src/panfrost/vulkan/jm/panvk_cmd_buffer.h
+@@ -85,6 +85,7 @@
+       void *hdr;
+       unsigned job_index;
+    } ubo_gather;
++   uint64_t tiler_vertex_bytes;
+ #endif
+ };
+ 
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -3066,6 +3066,55 @@
+    }
+ }
+ 
++DEBUG_GET_ONCE_BOOL_OPTION(tiler_batch_budget, "PANVK_TILER_BATCH_BUDGET", false)
++
++static VkResult
++panvk_limit_tiler_batch(struct panvk_cmd_buffer *cmdbuf,
++                       const struct panvk_draw_data *draw,
++                       const struct panvk_shader_variant *vs,
++                       const struct panvk_shader_variant *fs)
++{
++   if (!debug_get_option_tiler_batch_budget() ||
++       cmdbuf->vk.dynamic_graphics_state.rs.rasterizer_discard_enable)
++      return VK_SUCCESS;
++
++   struct panvk_device *dev = to_panvk_device(cmdbuf->vk.base.device);
++   const uint64_t budget = pan_kmod_bo_size(dev->tiler_heap->bo) / 8;
++   struct panvk_batch *batch = cmdbuf->cur_batch;
++
++   if (cmdbuf->state.gfx.tess.tes || cmdbuf->state.gfx.gs.shader ||
++       cmdbuf->state.gfx.xfb.enabled || draw->info.indirect.buffer_dev_addr ||
++       cmdbuf->state.gfx.render.layer_count != 1 ||
++       cmdbuf->state.gfx.render.view_mask ||
++       cmdbuf->state.gfx.vs.shader->writes_viewport) {
++      batch->tiler_vertex_bytes = budget;
++      return VK_SUCCESS;
++   }
++
++   const uint64_t vertices =
++      (uint64_t)draw->info.vertex.count * draw->info.instance.count;
++   const unsigned stride =
++      16 + ((fs && panvk_priv_mem_check_alloc(vs->spds.var))
++               ? vs->info.varyings.formats.generic_size_B
++               : 0);
++   const uint64_t bytes =
++      vertices > budget / stride ? budget : vertices * stride;
++
++   if (batch->tiler_vertex_bytes &&
++       bytes > budget - batch->tiler_vertex_bytes) {
++      panvk_per_arch(cmd_close_batch)(cmdbuf);
++      if (vk_command_buffer_has_error(&cmdbuf->vk))
++         return vk_command_buffer_get_record_result(&cmdbuf->vk);
++
++      batch = panvk_per_arch(cmd_open_batch)(cmdbuf);
++      if (!batch || vk_command_buffer_has_error(&cmdbuf->vk))
++         return vk_command_buffer_get_record_result(&cmdbuf->vk);
++   }
++
++   batch->tiler_vertex_bytes += bytes;
++   return VK_SUCCESS;
++}
++
+ static VkResult
+ prepare_draw_v9(struct panvk_cmd_buffer *cmdbuf, struct panvk_draw_data *draw)
+ {
+@@ -3110,6 +3159,11 @@
+        * (cmd_select_tile_size). */
+       cmdbuf->state.gfx.render.fb.layout.sample_count = 0;
+    }
++
++   result = panvk_limit_tiler_batch(cmdbuf, draw, vs, fs);
++   if (result != VK_SUCCESS)
++      return result;
++   batch = cmdbuf->cur_batch;
+ 
+    if (cmdbuf->state.gfx.vk_meta) {
+       /* vk_meta doesn't care about the provoking vertex mode, we should use
+@@ -4756,8 +4810,11 @@
+    cmdbuf->state.gfx.fs.required =
+       fs_required(&cmdbuf->state.gfx, &cmdbuf->vk.dynamic_graphics_state);
+ 
+-   if (prepare_draw_v9(cmdbuf, draw) != VK_SUCCESS)
++   VkResult prepare_result = prepare_draw_v9(cmdbuf, draw);
++   if (prepare_result != VK_SUCCESS) {
++      vk_command_buffer_set_error(&cmdbuf->vk, prepare_result);
+       return;
++   }
+ 
+    /* PATCH v9: prepare_draw_v9() closes the batch and opens a new one when
+     * the 16-bit job index would overflow. The pointer read at the top of this

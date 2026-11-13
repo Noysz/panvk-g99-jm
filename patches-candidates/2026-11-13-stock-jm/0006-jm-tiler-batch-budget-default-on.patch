@@ -1,0 +1,11 @@
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -3095,7 +3095,7 @@
+    }
+ }
+ 
+-DEBUG_GET_ONCE_BOOL_OPTION(tiler_batch_budget, "PANVK_TILER_BATCH_BUDGET", false)
++DEBUG_GET_ONCE_BOOL_OPTION(tiler_batch_budget, "PANVK_TILER_BATCH_BUDGET", true)
+ 
+ static VkResult
+ panvk_limit_tiler_batch(struct panvk_cmd_buffer *cmdbuf,
