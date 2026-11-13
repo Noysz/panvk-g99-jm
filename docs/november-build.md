@@ -1,49 +1,131 @@
-# November candidate reconstruction and build
+# Build from source
 
-The final reviewed composition is Mesa
-`feeadb5f55f4ba14a5c5ddc84ba20177e419cffb`, the 19 Test9 patches, five early
-November correctness patches, 17 stock JM development patches, then four
-CPU-lifetime/fault patches. This is an opt-in source candidate; the
-[Test9 build order](test9/build-order.md) and public binaries are unchanged.
+This repository distributes FourFectVK as patches on Mesa. It is not a full
+Mesa checkout. The November development source is available on `main`;
+[Test 9](test9/build-order.md) remains the latest public binary release.
 
-Use the authorized existing development workspace. Preserve its dirty changes
-and artifacts before applying anything. The lists below are ordered plain
-diffs relative to this repository:
+## Get the November source
 
-- [41-patch baseline](november-baseline.series)
-- [45-patch lifecycle candidate](november-lifecycle.series)
+Requires Git, Python 3.9 or newer, network access and space for Mesa and its
+build outputs. No root access is needed. Run from a development directory:
 
-Check and apply each patch in order with `git apply --check` and `git apply`.
-Do not layer these full lists on top of an already patched tree.
-The source-chain verifier in [tools/](../tools/README.md) can reconstruct
-the expected index without creating another Mesa checkout.
+```sh
+git clone --branch main https://github.com/Noysz/panvk-g99-jm.git
+cd panvk-g99-jm
+git rev-parse HEAD
+python3 tools/prepare_source.py --output ../mesa-fourfectvk
+```
 
-The [source manifest](../evidence/validation/jm-lifecycle-2026-11-13/source.json)
-records exact patch hashes and Git trees. The existing tested source and all
-four frozen binary hashes were checked again during repository preparation.
-No runtime source changed, so the existing complete build/CTS/performance
-qualification is reused. Textual applicability alone was not used as proof.
+Already have this repository? Run only the last command from its root.
+The destination **must not exist**, even as an empty directory. The helper
+fetches the pinned upstream commit, verifies every patch's SHA-256 and order,
+and applies all 45 patches. It checks both the intermediate and final Git
+trees against the [source manifest](../evidence/validation/jm-lifecycle-2026-11-13/source.json).
+It does not build or install a driver, execute source scripts, or create commits.
 
-## Build recipe
+On success, `HEAD` is the upstream base and the patches are staged. Review
+them with `git -C ../mesa-fourfectvk diff --cached`. On any error, stop:
+partial output is preserved for inspection and must not be used as a build.
+The helper never resets, cleans or overwrites an existing checkout.
 
-Use native Termux Clang/LLD 21.1.8, Meson 1.12.0 and Ninja 1.13.2 with the
-exact options in [builds.json](../evidence/validation/jm-lifecycle-2026-11-13/builds.json).
-`${PREFIX}` means the Termux installation prefix. Dependency hashes are
-recorded there; a different dependency set is a new build requiring validation.
+| Source identity | Value |
+|---|---|
+| Mesa base commit | `feeadb5f55f4ba14a5c5ddc84ba20177e419cffb` |
+| Tree after 41 patches | `d2e6775772b381ceec10ef121a854588076733a9` |
+| Tree after all 45 patches | `87622157bda2463dc19cb09becbc067945f2da46` |
 
-1. Select a new build-output directory, disable ccache and use
-   `--wrap-mode=nodownload`.
-2. Build Host first: `src/panfrost/vulkan/libvulkan_panfrost.so`,
-   `src/compiler/clc/mesa_clc`, `src/panfrost/clc/panfrost_compile` and
-   `src/compiler/spirv/vtn_bindgen2`, with Ninja `-j4`.
-3. Expose those three freshly built helper executables on PATH. Configure a
-   separate Android output with the recorded API 29/stub/release options;
-   build `src/panfrost/vulkan/libvulkan_panfrost.so`.
-4. Check compile commands for kbase, JM v6/v7/v9, owner source inclusion and
-   effective Android macros. Record ELF identity, dependencies and SHA-256.
-5. Run the [candidate validation](../evidence/validation/jm-lifecycle-2026-11-13/README.md)
-   for changed bytes. Keep overlap and experimental physical retirement off.
+The [ordered list](november-lifecycle.series) contains 19 Test 9 patches,
+five November correctness patches, 17 driver development patches, then four
+driver stability patches. The [41-patch baseline](november-baseline.series)
+is retained for comparisons. These are plain diffs, not `git am` mailboxes.
+Do not add the older `patches/` series or apply a full list over patched source.
+Copyright, licensing and upstream attribution remain in the patches and source.
 
-This records the full successful build procedure, not a guarantee that a
-new environment produces identical ELF bytes. Do not substitute generated
-shaders or object files from another source composition.
+### Verify without another checkout
+
+For an existing Mesa repository containing the base commit:
+
+```sh
+python3 tools/prepare_source.py --verify-with /path/to/existing/mesa
+```
+
+This uses temporary index/object storage and reads existing Git objects. It
+does not fetch, check out files, or change that workspace's source, index or
+refs. It verifies the reconstruction, not the contents of a dirty workspace.
+For a file-by-file comparison use [verify_patch_chain.py](../tools/verify_patch_chain.py).
+
+**Verification scope:** the real 45-patch stack was replayed in index-only
+mode and matched both recorded trees. Automated tests cover a local Git
+fetch and checkout, binary files, symlinks, dirty-workspace preservation,
+bad hashes/order, unavailable base, patch failure and tree mismatch. The
+helper's fresh Mesa download/checkout path has not been run against the
+upstream server; no extra Mesa workspace was created for this update.
+
+## Build Host, then Android
+
+The recorded full builds use native AArch64 Termux, Clang/LLD 21.1.8,
+Meson 1.12.0 and Ninja 1.13.2. Install the build dependencies first; compiler
+and dependency identities and the exact Meson options are in
+[builds.json](../evidence/validation/jm-lifecycle-2026-11-13/builds.json).
+This recipe assumes that environment is already available. It is not a
+generic desktop cross-compilation recipe or a dependency installer.
+
+Run from the patch repository root after successful preparation. Choose
+unused build-directory names; keep previous binaries and logs.
+
+```sh
+export FOURFECTVK_REPO="$PWD"
+export CC=clang CXX=clang++ AR=llvm-ar CCACHE_DISABLE=1
+cd ../mesa-fourfectvk
+python3 - <<'PY'
+import json
+import os
+from pathlib import Path
+import subprocess
+
+record = Path(os.environ['FOURFECTVK_REPO']) / 'evidence/validation/jm-lifecycle-2026-11-13/builds.json'
+recipes = json.loads(record.read_text())['recipes']
+assert os.environ.get('PREFIX'), 'Run in the recorded Termux environment'
+host = Path('build-november-host')
+android = Path('build-november-android')
+if host.exists() or android.exists():
+    raise SystemExit('Choose unused build directories before continuing')
+
+def setup(directory, variant):
+    options = [os.path.expandvars(x) for x in recipes[variant]['meson_options']]
+    subprocess.run(['meson', 'setup', str(directory), '--wrap-mode=nodownload', *options], check=True)
+
+helpers = ['src/compiler/clc', 'src/panfrost/clc', 'src/compiler/spirv']
+setup(host, 'host')
+subprocess.run(['ninja', '-C', str(host), '-j4',
+                'src/panfrost/vulkan/libvulkan_panfrost.so',
+                'src/compiler/clc/mesa_clc', 'src/panfrost/clc/panfrost_compile',
+                'src/compiler/spirv/vtn_bindgen2'], check=True)
+os.environ['PATH'] = os.pathsep.join(str((host / x).resolve()) for x in helpers) + os.pathsep + os.environ['PATH']
+setup(android, 'android')
+subprocess.run(['ninja', '-C', str(android), '-j4',
+                'src/panfrost/vulkan/libvulkan_panfrost.so'], check=True)
+PY
+sha256sum build-november-host/src/panfrost/vulkan/libvulkan_panfrost.so \
+          build-november-android/src/panfrost/vulkan/libvulkan_panfrost.so
+```
+
+The commands express the recorded build options; they were not used to run
+another build for this documentation update. The unchanged source's
+[complete build and validation results](../evidence/validation/jm-lifecycle-2026-11-13/README.md)
+remain applicable to the recorded binaries. Rebuilding with different tools
+or dependencies may produce different bytes and needs fresh validation.
+
+Before testing a rebuild, check compile commands for kbase/JM source and
+effective Android macros, then record ELF identity, dependencies and SHA-256.
+Use the host helpers from this source composition. A successful source
+reconstruction or compilation alone does not qualify a new driver binary.
+
+## Development limits
+
+The November patches are available for review and development, not a new
+release. CPU lifecycle validation does not prove complete GPU error recovery.
+P0 remains **BLOCKED**, 0012 remains **REWORK / default OFF**, and experimental
+physical retirement stays inactive. Test 10 remains **PRIVATE / NO-GO**.
+See [development decisions](november-development.md) and the
+[release gates](release-roadmap.md) before proposing runtime changes.

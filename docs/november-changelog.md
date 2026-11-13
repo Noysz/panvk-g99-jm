@@ -15,7 +15,10 @@
 - Separate current development decisions from public validation, with a
   focused README and links to the unchanged full roadmap.
 
-These are local source commits and evidence, not a new binary release.
+These source commits and validation records are now published on `main`
+through [PR #13](https://github.com/Noysz/panvk-g99-jm/pull/13). They are not
+a new binary release. [Build from source](november-build.md) provides the
+ordered reconstruction, hash checks and recorded build recipe.
 The [November status](november-development.md) records deferred and rejected
 work. P0 remains BLOCKED; 0012 remains REWORK/default OFF; Test10 is PRIVATE.
 

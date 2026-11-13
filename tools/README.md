@@ -1,6 +1,19 @@
-# tools/ — bring-up scripts
+# Tools
 
-**These are not a supported build path.** Use [`../patches/`](../patches/) to
+## Current source preparation
+
+[prepare_source.py](prepare_source.py) prepares the complete November source
+from the pinned Mesa base, checking all 45 patch hashes, their order and the
+resulting Git trees. Follow [Build from source](../docs/november-build.md)
+for the one-command preparation, read-only verification and build recipe.
+It does not install or qualify a driver.
+
+[verify_patch_chain.py](verify_patch_chain.py) compares a reconstructed tree
+with an existing workspace. Its exclusions must be explicit.
+
+## Historical bring-up scripts
+
+**The historical scripts below are not the current build path.** Use [`../patches/`](../patches/) to
 reproduce the driver state, and [`../docs/reproduction.md`](../docs/reproduction.md)
 for the commands. Everything here is kept for chronology: it records what was
 tried, in the order it was tried.
