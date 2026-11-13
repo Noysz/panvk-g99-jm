@@ -1,0 +1,98 @@
+--- a/src/panfrost/vulkan/panvk_cmd_draw.h
++++ b/src/panfrost/vulkan/panvk_cmd_draw.h
+@@ -274,6 +274,16 @@
+    uint64_t tsd;
+ #endif
+ 
++#if PAN_ARCH == 9
++   struct {
++      bool desc_valid;
++      bool blend_valid;
++      uint32_t base_instance;
++      uint32_t bd_count;
++      struct pan_ptr blend;
++   } v9_reuse;
++#endif
++
+    BITSET_DECLARE(dirty, PANVK_CMD_GRAPHICS_DIRTY_STATE_COUNT);
+ };
+ 
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -2255,6 +2255,8 @@
+  * emit_vs_attrib() folds the base instance into the descriptor offset and the
+  * driver set is rebuilt per draw instead of repeated.
+  */
++DEBUG_GET_ONCE_BOOL_OPTION(v9_desc_reuse, "PANVK_V9_DESC_REUSE", true)
++
+ static VkResult
+ prepare_gfx_desc(struct panvk_cmd_buffer *cmdbuf)
+ {
+@@ -3260,16 +3262,53 @@
+     * driver set is rebuilt on every v9 draw, so no dirty tracking is needed. */
+    cmdbuf->state.gfx.vi.base_instance = draw->info.instance.base;
+ 
+-   result = prepare_gfx_desc(cmdbuf);
+-   if (result != VK_SUCCESS)
+-      return result;
++   struct panvk_cmd_graphics_state *gfx = &cmdbuf->state.gfx;
++   const bool reuse = debug_get_option_v9_desc_reuse();
++   const bool gpu_patched = draw->info.indirect.buffer_dev_addr != 0;
++   const bool desc_dirty =
++      !reuse || gpu_patched || !gfx->v9_reuse.desc_valid ||
++      gfx->v9_reuse.base_instance != draw->info.instance.base ||
++      gfx_state_dirty(cmdbuf, VS) || fs_user_dirty(cmdbuf) ||
++      gfx_state_dirty(cmdbuf, VB) || gfx_state_dirty(cmdbuf, DESC_STATE) ||
++      gfx_state_dirty(cmdbuf, RENDER_STATE) ||
++      dyn_gfx_state_dirty(cmdbuf, VI) ||
++      dyn_gfx_state_dirty(cmdbuf, VI_BINDINGS_VALID) ||
++      dyn_gfx_state_dirty(cmdbuf, VI_BINDING_STRIDES);
++
++   if (desc_dirty) {
++      gfx->v9_reuse.desc_valid = false;
++      result = prepare_gfx_desc(cmdbuf);
++      if (result != VK_SUCCESS)
++         return result;
++      gfx->v9_reuse.desc_valid = reuse && !gpu_patched;
++      gfx->v9_reuse.base_instance = draw->info.instance.base;
++   }
+ 
+    /* PATCH v9: siapin blend descriptor SEBELUM sysvals/push-uniforms,
+     * biar cmdbuf->state.gfx.fs.blend_descs[] yang dibaca set_gfx_sysval()
+     * di bawah ini udah final buat draw ini, bukan nilai draw sebelumnya. */
+    if (fs) {
+       draw->bd_count = cmdbuf->state.gfx.render.fb.layout.rt_count;
+-      if (draw->bd_count > 0) {
++      const bool blend_dirty =
++         !reuse || !gfx->v9_reuse.blend_valid ||
++         gfx->v9_reuse.bd_count != draw->bd_count || fs_user_dirty(cmdbuf) ||
++         gfx_state_dirty(cmdbuf, RENDER_STATE) ||
++         dyn_gfx_state_dirty(cmdbuf, CB_LOGIC_OP_ENABLE) ||
++         dyn_gfx_state_dirty(cmdbuf, CB_LOGIC_OP) ||
++         dyn_gfx_state_dirty(cmdbuf, CB_ATTACHMENT_COUNT) ||
++         dyn_gfx_state_dirty(cmdbuf, CB_COLOR_WRITE_ENABLES) ||
++         dyn_gfx_state_dirty(cmdbuf, CB_BLEND_ENABLES) ||
++         dyn_gfx_state_dirty(cmdbuf, CB_BLEND_EQUATIONS) ||
++         dyn_gfx_state_dirty(cmdbuf, CB_WRITE_MASKS) ||
++         dyn_gfx_state_dirty(cmdbuf, CB_BLEND_CONSTANTS) ||
++         dyn_gfx_state_dirty(cmdbuf, COLOR_ATTACHMENT_MAP) ||
++         dyn_gfx_state_dirty(cmdbuf, MS_ALPHA_TO_ONE_ENABLE) ||
++         dyn_gfx_state_dirty(cmdbuf, MS_ALPHA_TO_COVERAGE_ENABLE) ||
++         dyn_gfx_state_dirty(cmdbuf, MS_RASTERIZATION_SAMPLES);
++      if (draw->bd_count > 0 && !blend_dirty) {
++         draw->blend_ptr = gfx->v9_reuse.blend;
++      } else if (draw->bd_count > 0) {
++         gfx->v9_reuse.blend_valid = false;
+          draw->blend_ptr =
+             panvk_cmd_alloc_desc_array(cmdbuf, draw->bd_count, BLEND);
+          if (!draw->blend_ptr.gpu)
+@@ -3279,6 +3318,9 @@
+             panvk_per_arch(blend_emit_descs)(cmdbuf, draw->blend_ptr.cpu);
+          if (result != VK_SUCCESS)
+             return result;
++         gfx->v9_reuse.blend = draw->blend_ptr;
++         gfx->v9_reuse.bd_count = draw->bd_count;
++         gfx->v9_reuse.blend_valid = reuse;
+ 
+          PAN_V9_TRACE( "[PANVK_DEBUG_BLENDFIX] blend_ptr.gpu=0x%lx bd_count=%u state.blend_descs[0]=0x%lx\n",
+                  (unsigned long)draw->blend_ptr.gpu, draw->bd_count,

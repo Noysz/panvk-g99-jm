@@ -1,0 +1,28 @@
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
+@@ -714,6 +714,10 @@
+    return VK_SUCCESS;
+ }
+ 
++#if PAN_ARCH >= 9
++DEBUG_GET_ONCE_BOOL_OPTION(no_tiler_chain, "PANVK_V9_NO_TILER_CHAIN", true)
++#endif
++
+ static struct panvk_batch *
+ panvk_alloc_batch(struct panvk_cmd_buffer *cmdbuf)
+ {
+@@ -733,13 +737,7 @@
+ #endif
+ #if PAN_ARCH >= 9
+    /* See pan_jc::no_tiler_chain. */
+-   static int cached_no_tiler_chain = -1;
+-   int no_tiler_chain = p_atomic_read_relaxed(&cached_no_tiler_chain);
+-   if (no_tiler_chain < 0) {
+-      no_tiler_chain = pan_env_flag("PANVK_V9_NO_TILER_CHAIN") != NULL;
+-      p_atomic_set(&cached_no_tiler_chain, no_tiler_chain);
+-   }
+-   batch->vtc_jc.no_tiler_chain = no_tiler_chain;
++   batch->vtc_jc.no_tiler_chain = debug_get_option_no_tiler_chain();
+ #endif
+    return batch;
+ }
