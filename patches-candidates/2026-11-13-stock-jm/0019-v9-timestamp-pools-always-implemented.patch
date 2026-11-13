@@ -1,0 +1,62 @@
+--- a/src/panfrost/vulkan/panvk_query_pool.h
++++ b/src/panfrost/vulkan/panvk_query_pool.h
+@@ -22,14 +22,27 @@
+ #if PAN_ARCH == 9
+ #include "panvk_instance.h"
+ 
+-/* PATCH v9: timestamp queries, PANVK_V9_TIMESTAMP=1 or the driconf option
+- * pan_v9_timestamps (default off, on for Naruto Shippuden Storm 2). The
+- * queue reports timestampValidBits = 0, so this only matters for
+- * applications that write timestamps anyway, such as D3D11 games through
+- * DXVK: without it they poll a query that never becomes available. */
++/* PATCH v9: timestamp query pools and writes are always implemented.
++ * Creating a TIMESTAMP pool is valid whatever timestampValidBits says, and
++ * layers (DXVK, wrappers) write timestamps even when the queue reports 0
++ * valid bits. Without an implementation the pool creation reached
++ * UNREACHABLE (undefined behaviour in release builds: hang or crash) and
++ * written queries never became available.
++ *
++ * What PANVK_V9_TIMESTAMP=1 / pan_v9_timestamps select is only the
++ * advertisement (timestampValidBits, timestampComputeAndGraphics), see
++ * panvk_v9_timestamp_queries_enabled(). */
+ static inline bool
+ panvk_v9_timestamps(const struct vk_device *dev)
+ {
++   (void)dev;
++   return true;
++}
++
++/* Timestamps are written but not advertised: log once, for diagnosis. */
++static inline bool
++panvk_v9_timestamps_advertised(const struct vk_device *dev)
++{
+    const struct panvk_instance *instance =
+       to_panvk_instance(dev->physical->instance);
+ 
+--- a/src/panfrost/vulkan/panvk_vX_query_pool.c
++++ b/src/panfrost/vulkan/panvk_vX_query_pool.c
+@@ -85,18 +85,15 @@
+    case VK_QUERY_TYPE_TIMESTAMP: {
+       /* PATCH v9: one GPU system timestamp per query, written by
+        * CmdWriteTimestamp2. */
+-      if (panvk_v9_timestamps(&device->vk)) {
+-         reports_per_query = 1;
+-         break;
+-      }
+       static bool warned;
+-      if (!warned) {
++      if (!panvk_v9_timestamps_advertised(&device->vk) && !warned) {
+          warned = true;
+-         mesa_logw("panvk: timestamp query pool created but timestamps are "
+-                   "not supported (PANVK_V9_TIMESTAMP=1 or pan_v9_timestamps=true "
+-                   "enables them)");
++         mesa_logi("panvk: timestamp query pool created while timestamps "
++                   "are not advertised (timestampValidBits = 0); queries "
++                   "are still written (PANVK_V9_TIMESTAMP=1 advertises them)");
+       }
+-      FALLTHROUGH;
++      reports_per_query = 1;
++      break;
+    }
+ #endif
+    default:

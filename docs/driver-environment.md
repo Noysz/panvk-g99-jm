@@ -251,7 +251,7 @@ These controls bypass fixes or deliberately alter execution for tests. Leave the
 | `PANVK_V9_TEXEL_OOB_HW` | Flag; default off | Keep raw hardware out-of-range texel-buffer behavior instead of software robustness lowering. |
 | `PANVK_V9_TIMESTAMP_SPLIT_BATCH` | Flag; default off | Restore unconditional batch splitting for timestamp writes instead of only the required boundaries. |
 | `PANVK_V9_XFB_NO_ADJ` | Flag; default off | Skip adjacency-topology handling in the vertex transform-feedback path. |
-| `PANVK_V9_XFB_SKIP` | Flag; default off | Skip vertex-path transform-feedback capture. |
+| `PANVK_V9_XFB_SKIP` | Flag; default off | Skip vertex-path transform-feedback capture; also skips the TES path in the November correctness candidate. |
 | `PANVK_V9_ZSD_OLD` | Flag; default off | Restore the old depth/stencil descriptor, omitting corrected depth source, shader stencil, clip/clamp handling. |
 | `PANVK_VARYING_NO_FAU_COUNT` | Flag; default off | Omit the varying shader's FAU count, reproducing the former uniform-read error. |
 | `PAN_NO_SHIFT64_SPLIT` | Flag; default off | Bypass the compiler's constant 64-bit shift split correction. |

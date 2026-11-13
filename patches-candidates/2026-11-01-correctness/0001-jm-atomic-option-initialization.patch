@@ -1,0 +1,533 @@
+diff --git a/src/panfrost/lib/kmod/kbase_kmod.c b/src/panfrost/lib/kmod/kbase_kmod.c
+index 552cbb6..23964b4 100644
+--- a/src/panfrost/lib/kmod/kbase_kmod.c
++++ b/src/panfrost/lib/kmod/kbase_kmod.c
+@@ -34,6 +34,7 @@
+  *    memory management.
+  */
+ 
++#include "c11/threads.h"
+ #include <errno.h>
+ #include <inttypes.h>
+ #include <fcntl.h>
+@@ -1636,19 +1637,29 @@ static struct list_head kbase_quar_list = {&kbase_quar_list, &kbase_quar_list};
+ static int kbase_diag_mode = -1;
+ static uint64_t kbase_free_delay_ns;
+ 
++static once_flag kbase_diag_once = ONCE_FLAG_INIT;
++
++static void
++kbase_diag_init(void)
++{
++   const char *d = getenv("PANVK_DBG_FREE_DELAY_MS");
++   const char *r = getenv("PANVK_FAULT_REPORT");
++   if (!r || !*r || !strcmp(r, "0"))
++      r = getenv("PANVK_FAULT_AUDIT_ALL");
++   kbase_free_delay_ns = d ? strtoull(d, NULL, 10) * 1000000ull : 0;
++   p_atomic_set(&kbase_diag_mode,
++                (kbase_free_delay_ns || (r && *r && strcmp(r, "0"))) ? 1 : 0);
++}
++
+ static bool
+ kbase_diag_tracking(void)
+ {
+-   if (kbase_diag_mode < 0) {
+-      const char *d = getenv("PANVK_DBG_FREE_DELAY_MS");
+-      const char *r = getenv("PANVK_FAULT_REPORT");
+-      if (!r || !*r || !strcmp(r, "0"))
+-         r = getenv("PANVK_FAULT_AUDIT_ALL");
+-      kbase_free_delay_ns = d ? strtoull(d, NULL, 10) * 1000000ull : 0;
+-      kbase_diag_mode =
+-         (kbase_free_delay_ns || (r && *r && strcmp(r, "0"))) ? 1 : 0;
+-   }
+-   return kbase_diag_mode == 1;
++   int mode = p_atomic_read(&kbase_diag_mode);
++   if (mode < 0) {
++      call_once(&kbase_diag_once, kbase_diag_init);
++      mode = p_atomic_read(&kbase_diag_mode);
++   }
++   return mode == 1;
+ }
+ 
+ static void
+diff --git a/src/panfrost/lib/pan_v9_trace.h b/src/panfrost/lib/pan_v9_trace.h
+index 42474ec..a666796 100644
+--- a/src/panfrost/lib/pan_v9_trace.h
++++ b/src/panfrost/lib/pan_v9_trace.h
+@@ -6,6 +6,7 @@
+ #ifndef PAN_V9_TRACE_H
+ #define PAN_V9_TRACE_H
+ 
++#include "util/u_atomic.h"
+ #include <stdbool.h>
+ #include <stdio.h>
+ #include "util/u_debug.h"
+@@ -13,9 +14,12 @@
+ static inline bool
+ pan_v9_trace_enabled(void)
+ {
+-   static int on = -1;
+-   if (on < 0)
++   static int cached_on = -1;
++   int on = p_atomic_read_relaxed(&cached_on);
++   if (on < 0) {
+       on = debug_get_bool_option("PANVK_V9_TRACE", false);
++      p_atomic_set(&cached_on, on);
++   }
+    return on;
+ }
+ 
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
+index e536bd9..beab188 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_buffer.c
+@@ -9,6 +9,7 @@
+  * SPDX-License-Identifier: MIT
+  */
+ 
++#include "util/u_atomic.h"
+ #include "genxml/gen_macros.h"
+ 
+ #include "panvk_buffer.h"
+@@ -100,9 +101,12 @@ panvk_cmd_prepare_fragment_job(struct panvk_cmd_buffer *cmdbuf, uint64_t fbd)
+ static bool
+ tls_per_batch(void)
+ {
+-   static int v = -1;
+-   if (v < 0)
++   static int cached_v = -1;
++   int v = p_atomic_read_relaxed(&cached_v);
++   if (v < 0) {
+       v = pan_env_flag("PANVK_TLS_PER_BATCH") != NULL;
++      p_atomic_set(&cached_v, v);
++   }
+    return v;
+ }
+ 
+@@ -644,10 +648,12 @@ panvk_per_arch(cmd_prepare_tiler_context)(struct panvk_cmd_buffer *cmdbuf,
+        * (0xff); the system driver uses 0xaa (32/128/512/2048) in Tomb
+        * Raider. Off by default (A/B knob). The top bit is always kept so
+        * one level still covers the whole framebuffer. */
+-      static int hmask_override = -1;
++      static int cached_hmask_override = -1;
++      int hmask_override = p_atomic_read_relaxed(&cached_hmask_override);
+       if (hmask_override < 0) {
+          const char *v = pan_env_flag("PANVK_TILER_HMASK");
+          hmask_override = v ? (int)(strtoul(v, NULL, 0) & 0xff) : 0;
++         p_atomic_set(&cached_hmask_override, hmask_override);
+       }
+       if (hmask_override)
+          cfg.hierarchy_mask = hmask_override | 0x80;
+@@ -727,9 +733,12 @@ panvk_alloc_batch(struct panvk_cmd_buffer *cmdbuf)
+ #endif
+ #if PAN_ARCH >= 9
+    /* See pan_jc::no_tiler_chain. */
+-   static int no_tiler_chain = -1;
+-   if (no_tiler_chain < 0)
++   static int cached_no_tiler_chain = -1;
++   int no_tiler_chain = p_atomic_read_relaxed(&cached_no_tiler_chain);
++   if (no_tiler_chain < 0) {
+       no_tiler_chain = pan_env_flag("PANVK_V9_NO_TILER_CHAIN") != NULL;
++      p_atomic_set(&cached_no_tiler_chain, no_tiler_chain);
++   }
+    batch->vtc_jc.no_tiler_chain = no_tiler_chain;
+ #endif
+    return batch;
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+index 27430c5..e08fc14 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -10,6 +10,7 @@
+  * SPDX-License-Identifier: MIT
+  */
+ 
++#include "util/u_atomic.h"
+ #include "genxml/gen_macros.h"
+ #include "pan_v9_trace.h"
+ 
+@@ -2483,9 +2484,12 @@ panvk_emit_fs_draw_v9(struct panvk_cmd_buffer *cmdbuf,
+        * depthClamp / depthClipEnable were ignored. Same fields as CSF
+        * prepare_ds(). PANVK_V9_ZSD_OLD=1 restores the old descriptor
+        * (negative control). */
+-      static int zsd_old = -1;
+-      if (zsd_old < 0)
++      static int cached_zsd_old = -1;
++      int zsd_old = p_atomic_read_relaxed(&cached_zsd_old);
++      if (zsd_old < 0) {
+          zsd_old = pan_env_flag("PANVK_V9_ZSD_OLD") != NULL;
++         p_atomic_set(&cached_zsd_old, zsd_old);
++      }
+       if (!zsd_old) {
+          cfg.stencil_from_shader = fs ? fs->info.fs.writes_stencil : 0;
+          cfg.depth_cull_enable = vk_rasterization_state_depth_clip_enable(rs);
+@@ -2579,9 +2583,12 @@ panvk_emit_fs_draw_v9(struct panvk_cmd_buffer *cmdbuf,
+        * PANVK_V9_DCD_NO_EARLYZS=1 restores the old flags
+        * (negative control). */
+       if (fs) {
+-         static int no_earlyzs = -1;
+-         if (no_earlyzs < 0)
++         static int cached_no_earlyzs = -1;
++         int no_earlyzs = p_atomic_read_relaxed(&cached_no_earlyzs);
++         if (no_earlyzs < 0) {
+             no_earlyzs = pan_env_flag("PANVK_V9_DCD_NO_EARLYZS") != NULL;
++            p_atomic_set(&cached_no_earlyzs, no_earlyzs);
++         }
+ 
+          const struct vk_dynamic_graphics_state *dyns =
+             &cmdbuf->vk.dynamic_graphics_state;
+@@ -2629,9 +2636,12 @@ panvk_emit_fs_draw_v9(struct panvk_cmd_buffer *cmdbuf,
+           * destination (blending), no alpha-to-coverage, no rasterization
+           * order access. PANVK_V9_NO_FPK=1 keeps both bits off (the old,
+           * conservative behaviour; A/B control). */
+-         static int no_fpk = -1;
+-         if (no_fpk < 0)
++         static int cached_no_fpk = -1;
++         int no_fpk = p_atomic_read_relaxed(&cached_no_fpk);
++         if (no_fpk < 0) {
+             no_fpk = getenv("PANVK_V9_NO_FPK") != NULL;
++            p_atomic_set(&cached_no_fpk, no_fpk);
++         }
+          if (!no_earlyzs && !no_fpk) {
+             uint8_t rt_mask = cmdbuf->state.gfx.render.bound_attachments &
+                               MESA_VK_RP_ATTACHMENT_ANY_COLOR_BITS;
+@@ -2669,9 +2679,12 @@ panvk_emit_fs_draw_v9(struct panvk_cmd_buffer *cmdbuf,
+           * Same rule as CSF build_dcd_flags(): also when a blend shader runs
+           * with MSAA (it writes one sample at a time).
+           * PANVK_V9_NO_PER_SAMPLE=1 restores the old behaviour (control). */
+-         static int no_per_sample = -1;
+-         if (no_per_sample < 0)
++         static int cached_no_per_sample = -1;
++         int no_per_sample = p_atomic_read_relaxed(&cached_no_per_sample);
++         if (no_per_sample < 0) {
+             no_per_sample = pan_env_flag("PANVK_V9_NO_PER_SAMPLE") != NULL;
++            p_atomic_set(&cached_no_per_sample, no_per_sample);
++         }
+          if (!no_per_sample)
+             cfg.flags_0.evaluate_per_sample =
+                (fs->info.fs.sample_shading ||
+@@ -3070,9 +3083,12 @@ prepare_draw_v9(struct panvk_cmd_buffer *cmdbuf, struct panvk_draw_data *draw)
+     * PANVK_V9_SPLIT_AT=<n> lowers the limit (test knob: forces batch splits
+     * inside a render pass, so the spill/reload path can be checked with
+     * small tests). */
+-   static int split_at = -1;
+-   if (split_at < 0)
++   static int cached_split_at = -1;
++   int split_at = p_atomic_read_relaxed(&cached_split_at);
++   if (split_at < 0) {
+       split_at = getenv("PANVK_V9_SPLIT_AT") ? atoi(getenv("PANVK_V9_SPLIT_AT")) : UINT16_MAX;
++      p_atomic_set(&cached_split_at, split_at);
++   }
+    if (batch->vtc_jc.job_index + cmdbuf->state.gfx.render.layer_count >=
+        (unsigned)split_at) {
+       panvk_per_arch(cmd_close_batch)(cmdbuf);
+@@ -3252,9 +3268,12 @@ launch_xfb_v9(struct panvk_cmd_buffer *cmdbuf,
+       panvk_shader_xfb_variant(gfx->vs.shader);
+ 
+    /* PANVK_V9_XFB_SKIP=1: no capture (negative control). */
+-   static int xfb_skip = -1;
+-   if (xfb_skip < 0)
++   static int cached_xfb_skip = -1;
++   int xfb_skip = p_atomic_read_relaxed(&cached_xfb_skip);
++   if (xfb_skip < 0) {
+       xfb_skip = pan_env_flag("PANVK_V9_XFB_SKIP") != NULL;
++      p_atomic_set(&cached_xfb_skip, xfb_skip);
++   }
+ 
+    if (xfb_skip || !gfx->xfb.enabled || !xfb || !gfx->xfb.offsets.gpu)
+       return VK_SUCCESS;
+@@ -4745,9 +4764,12 @@ panvk_cmd_draw_v9_layer(struct panvk_cmd_buffer *cmdbuf,
+     * render pass). The Bifrost path reads cur_batch after prepare_draw() for
+     * the same reason. PANVK_V9_STALE_BATCH=1 restores the old behaviour
+     * (negative control). */
+-   static int stale_batch = -1;
+-   if (stale_batch < 0)
++   static int cached_stale_batch = -1;
++   int stale_batch = p_atomic_read_relaxed(&cached_stale_batch);
++   if (stale_batch < 0) {
+       stale_batch = pan_env_flag("PANVK_V9_STALE_BATCH") != NULL;
++      p_atomic_set(&cached_stale_batch, stale_batch);
++   }
+    if (!stale_batch)
+       batch = cmdbuf->cur_batch;
+ 
+@@ -4922,9 +4944,12 @@ panvk_cmd_draw_v9_layer(struct panvk_cmd_buffer *cmdbuf,
+     * pan_jc_add_job() tracks MALLOC_VERTEX: wait on the previous tiler job
+     * (dependency 1, dependency 2 is the helper) and become the new tail.
+     * PANVK_V9_INDIRECT_UNTRACKED=1 restores the old behaviour (control). */
+-   static int indirect_untracked = -1;
+-   if (indirect_untracked < 0)
++   static int cached_indirect_untracked = -1;
++   int indirect_untracked = p_atomic_read_relaxed(&cached_indirect_untracked);
++   if (indirect_untracked < 0) {
+       indirect_untracked = pan_env_flag("PANVK_V9_INDIRECT_UNTRACKED") != NULL;
++      p_atomic_set(&cached_indirect_untracked, indirect_untracked);
++   }
+    const bool track_parked = is_indirect && !indirect_untracked;
+    const unsigned prev_tiler_dep = batch->vtc_jc.tiler_dep;
+ 
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_query.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_query.c
+index 41ad148..0f0b901 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_query.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_query.c
+@@ -3,6 +3,7 @@
+  * SPDX-License-Identifier: MIT
+  */
+ 
++#include "util/u_atomic.h"
+ #include "util/os_time.h"
+ 
+ #include "libpan_dgc.h"
+@@ -138,9 +139,12 @@ panvk_per_arch(CmdWriteTimestamp2)(VkCommandBuffer commandBuffer,
+ 
+ #if PAN_ARCH == 9
+    if (panvk_v9_timestamps(cmd->vk.base.device)) {
+-      static int split_batch = -1;
+-      if (split_batch < 0)
++      static int cached_split_batch = -1;
++      int split_batch = p_atomic_read_relaxed(&cached_split_batch);
++      if (split_batch < 0) {
+          split_batch = pan_env_flag("PANVK_V9_TIMESTAMP_SPLIT_BATCH") != NULL;
++         p_atomic_set(&cached_split_batch, split_batch);
++      }
+ 
+       const uint32_t count =
+          MAX2(util_bitcount(cmd->state.gfx.render.view_mask), 1);
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+index 66b009f..51d9da9 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+@@ -9,6 +9,8 @@
+  * SPDX-License-Identifier: MIT
+  */
+ 
++#include "c11/threads.h"
++#include "util/u_atomic.h"
+ #include "genxml/gen_macros.h"
+ 
+ #include "decode.h"
+@@ -107,32 +109,34 @@ struct panvk_kbase_event_v2 {
+  * of the original patch. The file is opened once, appended to, and line
+  * buffered so a crash mid-run still leaves the lines already written.
+  */
+-static FILE *
+-panvk_debug_log_file(void)
++static once_flag panvk_debug_log_once = ONCE_FLAG_INIT;
++static FILE *panvk_debug_log_stream;
++
++static void
++panvk_debug_log_init(void)
+ {
+-   static FILE *log_file = NULL;
+-   static bool tried = false;
+-
+-   if (!tried) {
+-      tried = true;
+-      const char *path = getenv("PANVK_HEAP_LOG");
+-
+-      if (path && path[0]) {
+-         log_file = fopen(path, "ae");
+-         if (log_file) {
+-            setvbuf(log_file, NULL, _IOLBF, 0);
+-            fprintf(log_file, "[PANVK_DEBUG_HEAP] --- log dibuka, pid=%d ---\n",
+-                    (int)getpid());
+-         } else {
+-            fprintf(stderr,
+-                    "[PANVK_DEBUG_HEAP] gagal membuka PANVK_HEAP_LOG=%s: %s,"
+-                    " jatuh ke stderr\n",
+-                    path, strerror(errno));
+-         }
++   const char *path = getenv("PANVK_HEAP_LOG");
++
++   if (path && path[0]) {
++      panvk_debug_log_stream = fopen(path, "ae");
++      if (panvk_debug_log_stream) {
++         setvbuf(panvk_debug_log_stream, NULL, _IOLBF, 0);
++         fprintf(panvk_debug_log_stream, "[PANVK_DEBUG_HEAP] --- log dibuka, pid=%d ---\n",
++                 (int)getpid());
++      } else {
++         fprintf(stderr,
++                 "[PANVK_DEBUG_HEAP] gagal membuka PANVK_HEAP_LOG=%s: %s,"
++                 " jatuh ke stderr\n",
++                 path, strerror(errno));
+       }
+    }
++}
+ 
+-   return log_file ? log_file : stderr;
++static FILE *
++panvk_debug_log_file(void)
++{
++   call_once(&panvk_debug_log_once, panvk_debug_log_init);
++   return panvk_debug_log_stream ? panvk_debug_log_stream : stderr;
+ }
+ 
+ static void
+@@ -1580,9 +1584,12 @@ panvk_kbase_sync_export_cb(
+ static bool
+ reissue_no_va_reset(void)
+ {
+-   static int v = -1;
+-   if (v < 0)
++   static int cached_v = -1;
++   int v = p_atomic_read_relaxed(&cached_v);
++   if (v < 0) {
+       v = pan_env_flag("PANVK_V9_NO_REISSUE_VA_RESET") != NULL;
++      p_atomic_set(&cached_v, v);
++   }
+    return v;
+ }
+ #endif
+diff --git a/src/panfrost/vulkan/panvk_device_memory.c b/src/panfrost/vulkan/panvk_device_memory.c
+index b1bf2a7..7150a81 100644
+--- a/src/panfrost/vulkan/panvk_device_memory.c
++++ b/src/panfrost/vulkan/panvk_device_memory.c
+@@ -28,12 +28,13 @@
+ static uint64_t
+ panvk_devmem_lazy_min_size(void)
+ {
+-   static int64_t min = -1;
+-
++   static int64_t cached_min = -1;
++   int64_t min = p_atomic_read_relaxed(&cached_min);
+    if (min < 0) {
+       const char *e = getenv("PANVK_KBASE_DEVMEM_LAZY_MIN_KB");
+       min = e && *e ? (int64_t)strtoull(e, NULL, 10) * 1024
+                     : (int64_t)PANVK_DEVMEM_LAZY_MIN_SIZE;
++      p_atomic_set(&cached_min, min);
+    }
+ 
+    return min;
+diff --git a/src/panfrost/vulkan/panvk_mempool.c b/src/panfrost/vulkan/panvk_mempool.c
+index 3a4b803..ac2b92f 100644
+--- a/src/panfrost/vulkan/panvk_mempool.c
++++ b/src/panfrost/vulkan/panvk_mempool.c
+@@ -241,11 +241,12 @@ panvk_pool_init(struct panvk_pool *pool, struct panvk_device *dev,
+ static uint64_t
+ panvk_pool_cache_cap(void)
+ {
+-   static int64_t cap = -1;
+-
++   static int64_t cached_cap = -1;
++   int64_t cap = p_atomic_read_relaxed(&cached_cap);
+    if (cap < 0) {
+       const char *e = getenv("PANVK_POOL_CACHE_MAX_MB");
+       cap = (e && *e) ? (int64_t)(strtoull(e, NULL, 10) << 20) : 48ll << 20;
++      p_atomic_set(&cached_cap, cap);
+    }
+    return cap;
+ }
+diff --git a/src/panfrost/vulkan/panvk_vX_cmd_desc_state.c b/src/panfrost/vulkan/panvk_vX_cmd_desc_state.c
+index 6b9148e..2f8aa9b 100644
+--- a/src/panfrost/vulkan/panvk_vX_cmd_desc_state.c
++++ b/src/panfrost/vulkan/panvk_vX_cmd_desc_state.c
+@@ -9,6 +9,7 @@
+  * SPDX-License-Identifier: MIT
+  */
+ 
++#include "util/u_atomic.h"
+ #include "genxml/gen_macros.h"
+ 
+ #include <stdio.h>
+@@ -276,9 +277,12 @@ panvk_per_arch(cmd_prepare_shader_res_table)(
+    /* PHASE4-RESTAB: observation only, gated on PANVK_DEBUG_RESTAB.
+     * Emits nothing and changes no descriptor when the variable is unset, so
+     * the validated baseline is bit-identical without it. */
+-   static int restab_dbg = -1;
+-   if (restab_dbg < 0)
++   static int cached_restab_dbg = -1;
++   int restab_dbg = p_atomic_read_relaxed(&cached_restab_dbg);
++   if (restab_dbg < 0) {
+       restab_dbg = pan_env_flag("PANVK_DEBUG_RESTAB") ? 1 : 0;
++      p_atomic_set(&cached_restab_dbg, restab_dbg);
++   }
+    if (restab_dbg)
+       PAN_V9_TRACE(
+               "[PANVK_DEBUG_RESTAB] used_set_mask=0x%x first_unused_set=%u "
+diff --git a/src/panfrost/vulkan/panvk_vX_image_view.c b/src/panfrost/vulkan/panvk_vX_image_view.c
+index 877faea..8aca92b 100644
+--- a/src/panfrost/vulkan/panvk_vX_image_view.c
++++ b/src/panfrost/vulkan/panvk_vX_image_view.c
+@@ -11,6 +11,7 @@
+  * SPDX-License-Identifier: MIT
+  */
+ 
++#include "util/u_atomic.h"
+ #include "vk_format.h"
+ #include "vk_log.h"
+ #include "vk_ycbcr_conversion.h"
+@@ -82,9 +83,12 @@ panvk_storage_pview(const struct panvk_image_view *view,
+ static bool
+ panvk_v9_ms_storage_2d(void)
+ {
+-   static int ms_2d = -1;
+-   if (ms_2d < 0)
++   static int cached_ms_2d = -1;
++   int ms_2d = p_atomic_read_relaxed(&cached_ms_2d);
++   if (ms_2d < 0) {
+       ms_2d = getenv("PANVK_V9_MS_STORAGE_2D") != NULL;
++      p_atomic_set(&cached_ms_2d, ms_2d);
++   }
+    return ms_2d;
+ }
+ 
+diff --git a/src/panfrost/vulkan/panvk_vX_shader.c b/src/panfrost/vulkan/panvk_vX_shader.c
+index fa87c91..6985035 100644
+--- a/src/panfrost/vulkan/panvk_vX_shader.c
++++ b/src/panfrost/vulkan/panvk_vX_shader.c
+@@ -9,6 +9,7 @@
+  * SPDX-License-Identifier: MIT
+  */
+ 
++#include "util/u_atomic.h"
+ #include "genxml/gen_macros.h"
+ 
+ #include "panvk_cmd_buffer.h"
+@@ -75,9 +76,12 @@
+ static bool
+ panvk_v9_ms_storage_2d(void)
+ {
+-   static int ms_2d = -1;
+-   if (ms_2d < 0)
++   static int cached_ms_2d = -1;
++   int ms_2d = p_atomic_read_relaxed(&cached_ms_2d);
++   if (ms_2d < 0) {
+       ms_2d = getenv("PANVK_V9_MS_STORAGE_2D") != NULL;
++      p_atomic_set(&cached_ms_2d, ms_2d);
++   }
+    return ms_2d;
+ }
+ 
+@@ -2120,8 +2124,8 @@ panvk_lower_nir_io(nir_shader *nir)
+ static unsigned
+ panvk_ubo_push_budget(void)
+ {
+-   static int budget = -1;
+-
++   static int cached_budget = -1;
++   int budget = p_atomic_read_relaxed(&cached_budget);
+    if (budget < 0) {
+       const char *raw = getenv("PANVK_UBO_PUSH");
+       int v;
+@@ -2135,6 +2139,7 @@ panvk_ubo_push_budget(void)
+             v = 32;
+       }
+       budget = CLAMP(v, 0, PANVK_MAX_UBO_PUSH_WORDS);
++      p_atomic_set(&cached_budget, budget);
+    }
+    return budget;
+ }
+@@ -3688,9 +3693,12 @@ compile_shaders(struct vk_device *vk_dev, uint32_t shader_count,
+     * process. Fail the pipeline instead; DXVK logs it and skips the draw.
+     * PANVK_V9_ALLOW_TESS_GS=1 restores the old behaviour (negative control).
+     */
+-   static int allow_tess_gs = -1;
+-   if (allow_tess_gs < 0)
++   static int cached_allow_tess_gs = -1;
++   int allow_tess_gs = p_atomic_read_relaxed(&cached_allow_tess_gs);
++   if (allow_tess_gs < 0) {
+       allow_tess_gs = pan_env_flag("PANVK_V9_ALLOW_TESS_GS") != NULL;
++      p_atomic_set(&cached_allow_tess_gs, allow_tess_gs);
++   }
+    for (i = 0; !allow_tess_gs && i < shader_count; i++) {
+       mesa_shader_stage s = infos[i].stage;
+       /* PATCH v9: tessellation runs through libpoly now (launch_tess_v9);

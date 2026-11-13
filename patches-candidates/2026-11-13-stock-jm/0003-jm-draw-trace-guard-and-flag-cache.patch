@@ -1,0 +1,118 @@
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -1986,6 +1986,22 @@
+ 
+ #include "pan_encoder.h" /* PATCH: aslinya cuma ke-include dalam blok <9 */
+ 
++DEBUG_GET_ONCE_BOOL_OPTION(cache_draw_flags, "PANVK_CACHE_DRAW_FLAGS", false)
++
++static inline bool
++panvk_draw_env_flag(const char *name, int *cached)
++{
++   if (!debug_get_option_cache_draw_flags())
++      return pan_env_flag(name) != NULL;
++
++   int value = p_atomic_read_relaxed(cached);
++   if (value < 0) {
++      value = pan_env_flag(name) != NULL;
++      p_atomic_set(cached, value);
++   }
++   return value;
++}
++
+ /* PATCH v9 -- BAGIAN 1: disalin verbatim dari csf/panvk_vX_cmd_draw.c
+  * (v10+, production-tested). Dikonfirmasi 100% CPU-only, nol dependensi
+  * cs_* (command-stream builder CSF-only) -- portable ke JM/v9 tanpa
+@@ -2736,7 +2752,7 @@
+       cfg.maximum_z = maxz;
+ 
+       cfg.depth_stencil = ds_ptr.gpu;
+-      {
++      if (pan_v9_trace_enabled()) {
+          PAN_V9_TRACE( "[PANVK_DEBUG_DS] 32 byte Depth/stencil desc:");
+          uint8_t *dsb = (uint8_t *)ds_ptr.cpu;
+          for (int i = 0; i < 32; i++) PAN_V9_TRACE( " %02x", dsb[i]);
+@@ -2861,7 +2877,8 @@
+     * and passed. Which descriptor fields those bytes belong to was not
+     * established. Zero the whole job first. PANVK_MVJ_NO_ZERO=1 is the
+     * control. */
+-   if (!pan_env_flag("PANVK_MVJ_NO_ZERO"))
++   static int no_zero = -1;
++   if (!panvk_draw_env_flag("PANVK_MVJ_NO_ZERO", &no_zero))
+       memset(ptr.cpu, 0, pan_size(MALLOC_VERTEX_JOB));
+ 
+    util_dynarray_append(&batch->jobs, ptr.cpu);
+@@ -2890,7 +2907,8 @@
+        * primitives outside [0, 1] (CTS draw.renderpass.depth_clamp.*_input_*).
+        * Same as the Bifrost tiler descriptor. PANVK_V9_DEPTH_CULL_ALWAYS=1
+        * keeps them on (control). */
+-      if (!pan_env_flag("PANVK_V9_DEPTH_CULL_ALWAYS"))
++      static int depth_cull_always = -1;
++      if (!panvk_draw_env_flag("PANVK_V9_DEPTH_CULL_ALWAYS", &depth_cull_always))
+          cfg.low_depth_cull = cfg.high_depth_cull =
+             vk_rasterization_state_depth_clip_enable(rs);
+       /* PATCH v9: gl_PrimitiveID in the fragment shader. The primitive
+@@ -3008,7 +3026,9 @@
+           * needs was not established. The varying shader shares the position
+           * shader's push-uniform block, so the count is the same.
+           * PANVK_VARYING_NO_FAU_COUNT reproduces the old behaviour. */
+-         if (!pan_env_flag("PANVK_VARYING_NO_FAU_COUNT"))
++         static int no_varying_fau_count = -1;
++         if (!panvk_draw_env_flag("PANVK_VARYING_NO_FAU_COUNT",
++                                  &no_varying_fau_count))
+             cfg.fau_count = vs->fau.total_count;
+       }
+    }
+@@ -3269,12 +3289,14 @@
+       return result;
+    cmdbuf->state.gfx.vs.push_uniforms = vs_push_uniforms.gpu;
+ 
+-   PAN_V9_TRACE( "[PANVK_DEBUG_VSFAU] gpu=0x%llx count=%u bytes=%u:",
+-           (unsigned long long)vs_push_uniforms.gpu,
+-           vs->fau.total_count, vs->fau.total_count * 8);
+-   for (uint32_t i = 0; i < vs->fau.total_count * 8; i++)
+-      PAN_V9_TRACE( " %02x", ((uint8_t *)vs_push_uniforms.cpu)[i]);
+-   PAN_V9_TRACE( "\n");
++   if (pan_v9_trace_enabled()) {
++      PAN_V9_TRACE( "[PANVK_DEBUG_VSFAU] gpu=0x%llx count=%u bytes=%u:",
++              (unsigned long long)vs_push_uniforms.gpu,
++              vs->fau.total_count, vs->fau.total_count * 8);
++      for (uint32_t i = 0; i < vs->fau.total_count * 8; i++)
++         PAN_V9_TRACE( " %02x", ((uint8_t *)vs_push_uniforms.cpu)[i]);
++      PAN_V9_TRACE( "\n");
++   }
+ 
+    if (fs) {
+       struct pan_ptr fs_push_uniforms;
+@@ -3284,12 +3306,14 @@
+          return result;
+       cmdbuf->state.gfx.fs.push_uniforms = fs_push_uniforms.gpu;
+ 
+-      PAN_V9_TRACE( "[PANVK_DEBUG_FSFAU] gpu=0x%llx count=%u bytes=%u:",
+-              (unsigned long long)fs_push_uniforms.gpu,
+-              fs->fau.total_count, fs->fau.total_count * 8);
+-      for (uint32_t i = 0; i < fs->fau.total_count * 8; i++)
+-         PAN_V9_TRACE( " %02x", ((uint8_t *)fs_push_uniforms.cpu)[i]);
+-      PAN_V9_TRACE( "\n");
++      if (pan_v9_trace_enabled()) {
++         PAN_V9_TRACE( "[PANVK_DEBUG_FSFAU] gpu=0x%llx count=%u bytes=%u:",
++                 (unsigned long long)fs_push_uniforms.gpu,
++                 fs->fau.total_count, fs->fau.total_count * 8);
++         for (uint32_t i = 0; i < fs->fau.total_count * 8; i++)
++            PAN_V9_TRACE( " %02x", ((uint8_t *)fs_push_uniforms.cpu)[i]);
++         PAN_V9_TRACE( "\n");
++      }
+    }
+ 
+    /* One tiler context per layer; panvk_cmd_draw_v9() calls this once per
+@@ -4826,8 +4850,9 @@
+     * (Vulkan default layer), so do not replicate the draw. Multiview is
+     * unaffected. PANVK_V9_ALL_LAYERS=1 restores the old replication. */
+    const struct panvk_shader *hw_vs = cmdbuf->state.gfx.vs.shader;
++   static int all_layers = -1;
+    if (!view_mask && hw_vs && !hw_vs->writes_layer &&
+-       !pan_env_flag("PANVK_V9_ALL_LAYERS"))
++       !panvk_draw_env_flag("PANVK_V9_ALL_LAYERS", &all_layers))
+       layer_count = 1;
+ 
+    /* multiViewport: Mali has one viewport per draw. When the last

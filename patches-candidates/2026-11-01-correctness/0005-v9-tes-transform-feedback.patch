@@ -1,0 +1,282 @@
+diff --git a/src/panfrost/libpan/geometry.cl b/src/panfrost/libpan/geometry.cl
+index f76867b..b383c88 100644
+--- a/src/panfrost/libpan/geometry.cl
++++ b/src/panfrost/libpan/geometry.cl
+@@ -319,4 +319,32 @@ panlib_tess_setup_indirect(constant struct panlib_tess_indirect_params *a)
+    panlib_gs_patch_job(a->jobs[PANLIB_TESS_JOB_TCS], in_patches,
+                        instance_count);
+ }
++
++KERNEL(1)
++panlib_tes_xfb_setup(global struct panlib_tes_xfb_params *p)
++{
++   global uint *offsets = (global uint *)p->offsets;
++   uint vpp = p->verts_per_prim;
++   uint count = *(global uint *)p->draw;
++
++   for (uint b = 0; b < 4; b++) {
++      if (!p->stride[b])
++         continue;
++
++      uint avail = p->size[b] > offsets[b] ? p->size[b] - offsets[b] : 0;
++      count = min(count, avail / (p->stride[b] * vpp) * vpp);
++   }
++
++   p->count = count / vpp * vpp;
++   panlib_gs_patch_job(p->job, p->count, 1);
++}
++
++KERNEL(1)
++panlib_tes_xfb_add(global struct panlib_tes_xfb_params *p)
++{
++   global uint *offsets = (global uint *)p->offsets;
++
++   for (uint b = 0; b < 4; b++)
++      offsets[b] += p->count * p->stride[b];
++}
+ #endif
+diff --git a/src/panfrost/libpan/geometry_helper.h b/src/panfrost/libpan/geometry_helper.h
+index fddae4e..991e092 100644
+--- a/src/panfrost/libpan/geometry_helper.h
++++ b/src/panfrost/libpan/geometry_helper.h
+@@ -120,3 +120,13 @@ struct panlib_tess_indirect_params {
+    uint32_t draw_index;
+    uint32_t pad;
+ };
++
++struct panlib_tes_xfb_params {
++   uint64_t draw;
++   uint64_t offsets;
++   uint64_t job;
++   uint32_t stride[4];
++   uint32_t size[4];
++   uint32_t verts_per_prim;
++   uint32_t count;
++};
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+index e08fc14..00c7103 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -4570,6 +4570,84 @@ launch_xfb_only_v9(struct panvk_cmd_buffer *cmdbuf,
+    launch_xfb_v9(cmdbuf, draw);
+ }
+ 
++static VkResult
++launch_tes_xfb_v9(struct panvk_cmd_buffer *cmdbuf,
++                  const struct panvk_draw_data *tess_draw)
++{
++   struct panvk_cmd_graphics_state *gfx = &cmdbuf->state.gfx;
++   const struct panvk_shader *tes = gfx->tess.tes;
++   const struct panvk_shader_variant *xfb =
++      &tes->variants[PANVK_TES_VARIANT_XFB];
++
++   if (!gfx->xfb.enabled || !gfx->xfb.offsets.gpu || !xfb->bin_size ||
++       pan_env_flag("PANVK_V9_XFB_SKIP"))
++      return VK_SUCCESS;
++
++   struct pan_ptr params = panvk_cmd_alloc_dev_mem(
++      cmdbuf, desc, sizeof(struct panlib_tes_xfb_params), 16);
++   if (!params.gpu)
++      return VK_ERROR_OUT_OF_DEVICE_MEMORY;
++
++   struct panlib_tes_xfb_params *p = params.cpu;
++   memset(p, 0, sizeof(*p));
++   p->draw = tess_draw->info.indirect.buffer_dev_addr;
++   p->offsets = gfx->xfb.offsets.gpu;
++   p->verts_per_prim = gfx->tess.prim == MESA_PRIM_POINTS  ? 1
++                       : gfx->tess.prim == MESA_PRIM_LINES ? 2
++                                                           : 3;
++   for (uint32_t i = 0; i < PANVK_MAX_XFB_BUFFERS; i++) {
++      p->stride[i] = tes->tess.xfb_stride[i];
++      p->size[i] = MIN2(gfx->xfb.buffers[i].size, UINT32_MAX);
++      gfx->sysvals.xfb.base[i] = gfx->xfb.buffers[i].address;
++      gfx->sysvals.xfb.offset_ptr[i] =
++         gfx->xfb.offsets.gpu + i * sizeof(uint32_t);
++   }
++   gfx->sysvals.xfb.num_vertices = 0;
++
++   VkResult result = panvk_per_arch(cmd_prepare_push_descs)(
++      cmdbuf, &gfx->desc_state, tes->desc_info.used_set_mask);
++   if (result != VK_SUCCESS)
++      return result;
++
++   result = prepare_vs_driver_set(cmdbuf, tes, &gfx->tess.vs_desc, 1);
++   if (result != VK_SUCCESS)
++      return result;
++
++   result = panvk_per_arch(cmd_prepare_shader_res_table)(
++      cmdbuf, &gfx->desc_state, &tes->desc_info, &gfx->tess.vs_desc, 1);
++   if (result != VK_SUCCESS)
++      return result;
++
++   struct pan_ptr push;
++   result = panvk_per_arch(cmd_prepare_gfx_push_uniforms)(cmdbuf, xfb, &push,
++                                                         1);
++   if (result != VK_SUCCESS)
++      return result;
++
++   struct pan_ptr job;
++   result = prepare_gfx_cs_job_v9(cmdbuf, xfb, &gfx->tess.vs_desc, push.gpu,
++                                  1, 1, 1, true, &job);
++   if (result != VK_SUCCESS)
++      return result;
++   if (!job.gpu)
++      return VK_SUCCESS;
++   p->job = job.gpu;
++
++   struct panvk_precomp_ctx precomp_ctx = panvk_per_arch(precomp_cs)(cmdbuf);
++   panlib_tes_xfb_setup(
++      &precomp_ctx, panlib_1d(1),
++      (enum panlib_barrier)(PANLIB_BARRIER_JM_BARRIER |
++                            PANLIB_BARRIER_JM_SUPPRESS_PREFETCH),
++      params.gpu);
++   queue_gfx_cs_job_v9(cmdbuf, &job, true);
++   panlib_tes_xfb_add(&precomp_ctx, panlib_1d(1), PANLIB_BARRIER_JM_BARRIER,
++                      params.gpu);
++
++   gfx_state_set_dirty(cmdbuf, VS_PUSH_UNIFORMS);
++   gfx_state_set_dirty(cmdbuf, DESC_STATE);
++   return VK_SUCCESS;
++}
++
+ /* Layered rendering and multiview on v9 JM, same scheme as the Bifrost path
+  * (prepare_draw_layer): every draw is recorded once per framebuffer layer (or
+  * per view in the view mask) with its own tiler context and layer_id sysval.
+@@ -4628,6 +4706,9 @@ panvk_cmd_draw_v9_impl(struct panvk_cmd_buffer *cmdbuf,
+          return;
+       draw = &tess_draw;
+       stats_tess = &tess_draw;
++      if (!cmdbuf->state.gfx.gs.shader &&
++          launch_tes_xfb_v9(cmdbuf, &tess_draw) != VK_SUCCESS)
++         return;
+    }
+ 
+    /* PATCH v9: geometry shader prepass, then draw the GS RAST variant. The
+diff --git a/src/panfrost/vulkan/panvk_shader.h b/src/panfrost/vulkan/panvk_shader.h
+index 7788b5a..2f45049 100644
+--- a/src/panfrost/vulkan/panvk_shader.h
++++ b/src/panfrost/vulkan/panvk_shader.h
+@@ -556,6 +556,7 @@ enum panvk_vs_variant {
+ enum panvk_tes_variant {
+    PANVK_TES_VARIANT_HW,
+    PANVK_TES_VARIANT_SW,
++   PANVK_TES_VARIANT_XFB,
+ 
+    PANVK_TES_VARIANTS,
+ };
+@@ -589,6 +590,7 @@ struct panvk_shader {
+       uint32_t tcs_output_stride;
+       uint8_t tcs_output_patch_size;
+       uint8_t tcs_nr_patch_outputs;
++      uint16_t xfb_stride[MAX_XFB_BUFFERS];
+ 
+       struct panvk_tess_info info;
+    } tess;
+@@ -666,7 +668,7 @@ panvk_shader_variant_name(const struct panvk_shader *shader,
+    }
+ 
+    if (shader->vk.stage == MESA_SHADER_TESS_EVAL && i > 0)
+-      return "tes-sw";
++      return i == PANVK_TES_VARIANT_XFB ? "tes-xfb" : "tes-sw";
+ 
+    assert(panvk_shader_num_variants(shader->vk.stage) == 1);
+ 
+diff --git a/src/panfrost/vulkan/panvk_vX_shader.c b/src/panfrost/vulkan/panvk_vX_shader.c
+index 6985035..9480ea2 100644
+--- a/src/panfrost/vulkan/panvk_vX_shader.c
++++ b/src/panfrost/vulkan/panvk_vX_shader.c
+@@ -1922,6 +1922,30 @@ panvk_v9_strip_api_side_effects(nir_builder *b, nir_intrinsic_instr *intr,
+    return true;
+ }
+ 
++static bool
++panvk_v9_tes_xfb_ids(nir_builder *b, nir_intrinsic_instr *intr,
++                     UNUSED void *data)
++{
++   nir_def *repl;
++
++   b->cursor = nir_before_instr(&intr->instr);
++
++   switch (intr->intrinsic) {
++   case nir_intrinsic_load_raw_vertex_id:
++      repl = nir_channel(b, nir_load_global_invocation_id(b, 32), 0);
++      break;
++   case nir_intrinsic_load_instance_id:
++   case nir_intrinsic_load_num_vertices:
++      repl = nir_imm_int(b, 0);
++      break;
++   default:
++      return false;
++   }
++
++   nir_def_replace(&intr->def, repl);
++   return true;
++}
++
+ #endif
+ 
+ /* PATCH v9: transform feedback from a geometry shader. libpoly writes the
+@@ -3281,6 +3305,63 @@ panvk_compile_shader(struct panvk_device *dev,
+       }
+ #endif
+ 
++#if PAN_ARCH == 9
++      if (nir->xfb_info) {
++         struct panvk_shader_variant *xfb_variant =
++            &shader->variants[PANVK_TES_VARIANT_XFB];
++         nir_shader *xfb = nir_shader_clone(NULL, nir);
++
++         for (uint32_t i = 0; i < MAX_XFB_BUFFERS; i++)
++            shader->tess.xfb_stride[i] = xfb->xfb_info->buffers[i].stride;
++
++         if (xfb->info.writes_memory)
++            NIR_PASS(_, xfb, nir_shader_intrinsics_pass,
++                     panvk_v9_strip_api_side_effects,
++                     nir_metadata_control_flow, NULL);
++
++         nir_assign_io_var_locations(xfb, nir_var_shader_in);
++         nir_assign_io_var_locations(xfb, nir_var_shader_out);
++         panvk_lower_nir_io(xfb);
++         NIR_PASS(_, xfb, poly_nir_lower_tes, false);
++         NIR_PASS(_, xfb, poly_nir_lower_sysvals);
++
++         xfb->info.stage = MESA_SHADER_VERTEX;
++         memset(&xfb->info.vs, 0, sizeof(xfb->info.vs));
++         xfb->info.vs.tes_poly = true;
++         panvk_lower_nir(dev, xfb, info->set_layout_count, info->set_layouts,
++                         info->robustness, state, &shader->desc_info, false);
++
++         static const nir_lower_xfb_to_stores_options tes_xfb_options = {
++            .address_format = nir_address_format_64bit_global,
++         };
++         NIR_PASS(_, xfb, nir_opt_constant_folding);
++         NIR_PASS(_, xfb, nir_io_add_intrinsic_xfb_info);
++         NIR_PASS(_, xfb, nir_lower_xfb_to_stores, &tes_xfb_options);
++         NIR_PASS(_, xfb, nir_shader_intrinsics_pass, panvk_v9_tes_xfb_ids,
++                  nir_metadata_control_flow, NULL);
++
++         xfb->info.stage = MESA_SHADER_COMPUTE;
++         memset(&xfb->info.cs, 0, sizeof(xfb->info.cs));
++         xfb->info.workgroup_size[0] = 1;
++         xfb->info.workgroup_size[1] = 1;
++         xfb->info.workgroup_size[2] = 1;
++         xfb->xfb_info = NULL;
++         NIR_PASS(_, xfb, poly_nir_lower_sysvals);
++         nir_shader_gather_info(xfb, nir_shader_get_entrypoint(xfb));
++
++         inputs.varying_layout = NULL;
++         xfb_variant->own_bin = true;
++         result = panvk_compile_nir(dev, xfb, info->flags, &inputs, state,
++                                    noperspective_varyings,
++                                    &shader->desc_info, xfb_variant);
++         ralloc_free(xfb);
++         if (result != VK_SUCCESS) {
++            panvk_shader_destroy(&dev->vk, &shader->vk, pAllocator);
++            return result;
++         }
++      }
++#endif
++
+ #if PAN_ARCH == 9
+       /* Only the SW variant runs when a GS follows (the GS RAST is the
+        * hardware VS). A TES that writes gl_PointSize but not gl_Position

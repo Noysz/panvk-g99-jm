@@ -1,0 +1,13 @@
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+index 4954285..609834b 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -1986,7 +1986,7 @@ panvk_per_arch(CmdEndRendering2KHR)(
+ 
+ #include "pan_encoder.h" /* PATCH: aslinya cuma ke-include dalam blok <9 */
+ 
+-DEBUG_GET_ONCE_BOOL_OPTION(cache_draw_flags, "PANVK_CACHE_DRAW_FLAGS", false)
++DEBUG_GET_ONCE_BOOL_OPTION(cache_draw_flags, "PANVK_CACHE_DRAW_FLAGS", true)
+ 
+ static inline bool
+ panvk_draw_env_flag(const char *name, int *cached)

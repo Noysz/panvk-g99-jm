@@ -1,0 +1,20 @@
+--- a/src/panfrost/vulkan/panvk_vX_device.c
++++ b/src/panfrost/vulkan/panvk_vX_device.c
+@@ -889,12 +889,13 @@
+    if (!device)
+       return;
+ 
++   panvk_per_arch(utrace_context_fini)(device);
++
++   vk_foreach_queue_safe(queue, &device->vk)
++      panvk_queue_destroy(queue);
++
+    panvk_mem_prof_finish(device);
+    panvk_frame_prof_finish(device);
+-   panvk_per_arch(utrace_context_fini)(device);
+-
+-   vk_foreach_queue_safe(queue, &device->vk)
+-      panvk_queue_destroy(queue);
+ 
+    if (device->depth_bounds_fs)
+       vk_shader_destroy(&device->vk, &device->depth_bounds_fs->vk, NULL);

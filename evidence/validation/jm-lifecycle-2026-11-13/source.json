@@ -1,0 +1,198 @@
+{
+  "upstream": "feeadb5f55f4ba14a5c5ddc84ba20177e419cffb",
+  "baseline_tree": "d2e6775772b381ceec10ef121a854588076733a9",
+  "candidate_tree": "87622157bda2463dc19cb09becbc067945f2da46",
+  "baseline_patch_count": 41,
+  "candidate_patch_count": 45,
+  "candidate_matches_frozen_source": true,
+  "build_inputs_per_variant": 12928,
+  "checkout_csv_conversions": 33,
+  "symlinks": "Compared by resolving their targets, as in the frozen build input manifests.",
+  "baseline_unlinked_files": [
+    "src/panfrost/vulkan/panvk_kbase_owner.c",
+    "src/panfrost/vulkan/panvk_kbase_owner.h"
+  ],
+  "combined_lifecycle_sha256": "dc0066b4a0167b1470a4609816e0b2895c4b548126b3d6a2dac17c9aee0188ae",
+  "patches": [
+    {
+      "path": "patches-upstream/0001-base-upstream-rebase-52a7497a.patch",
+      "sha256": "4a83248ada0c4f39f3f4f5174bee011bc1fab5ab34338a1f4563250c405ec23c"
+    },
+    {
+      "path": "patches-upstream/0002-fourfectvk-0060-0077-frame-prof.patch",
+      "sha256": "7f4013d2994653715e46f8670365244d817d650ce50afb99c322030bf9d085dc"
+    },
+    {
+      "path": "patches-upstream/0003-fourfectvk-perf-knobs-2026-10-10.patch",
+      "sha256": "1f0a0c0c92f4e90cbb70120cd9cb791ac23f847ba0a491d6e3f45ab78198a858"
+    },
+    {
+      "path": "patches-upstream/0004-fourfectvk-ubo-push-clip-cull-drirc-exec-va.patch",
+      "sha256": "aa360d0cace26be4d0a81e46105707c7c65ad461dbd5a3f13df577829b7eff29"
+    },
+    {
+      "path": "patches-upstream/0005-fourfectvk-v9-timestamp-queries.patch",
+      "sha256": "249f9d08bd992541956cfd147aa040f989d61a76cb7596bf2f73b0bb910ef2e4"
+    },
+    {
+      "path": "patches-candidates/2026-10-19/0000-local-checkpoint.patch",
+      "sha256": "38018ae74c52c89ec7c5fd6c9693322a4eb5501d6ba67821571c316dccf1a437"
+    },
+    {
+      "path": "patches-candidates/2026-10-19/0001-shader-cache-key-controls.patch",
+      "sha256": "253dddd91cd15f335bf7771ffaaff1e601ac06aeb520cbcb92da30768cbb47b6"
+    },
+    {
+      "path": "patches-candidates/2026-10-19/152-ra-interference-over-live-nodes-and-one-pass-solve.patch",
+      "sha256": "5368e352c6c8a5a2e2932032347c0e3551ad8a380f5ea5ef5bbebc677c082992"
+    },
+    {
+      "path": "patches-candidates/2026-10-19/162-repair-ssa-flat-definition-map.patch",
+      "sha256": "d7768024deab17e567616c5ce7adb037500efbf388945d4916a9aec2435f8b20"
+    },
+    {
+      "path": "patches-candidates/2026-10-19/163-nir-skip-opt-loop-passes-that-cannot-progress.patch",
+      "sha256": "06163811f5dacdaba5524cc6fe4d7efb95565fc1fc3578f3b14e62d0fe5dc92b"
+    },
+    {
+      "path": "patches-candidates/2026-10-19/170-keep-the-shader-disk-cache-on-by-default-on-android.patch",
+      "sha256": "25e40b5ea9f512f76b72190bee578d1cee302094b908b586b1e1e1176792c886"
+    },
+    {
+      "path": "patches-candidates/2026-10-19/171-look-each-android-property-option-up-once.patch",
+      "sha256": "0f1ab40c880545ed3cb0f1c876bb5a224901d27c81d92644ce80913c2fcba5a7"
+    },
+    {
+      "path": "patches-candidates/2026-10-19-deferred-query/0001-defer-occlusion-availability.patch",
+      "sha256": "36679176d49cd5c6f826ae030d9379291d8bc66b269adbc815e0b9396e69028a"
+    },
+    {
+      "path": "patches-candidates/2026-10-23-memory/0001-jm-import-coherency-incremental-tiler.patch",
+      "sha256": "22005b010364d605a50744deedd61e569bdc605b151598e4d715a6166d743e98"
+    },
+    {
+      "path": "patches-candidates/2026-10-26-api/0001-jm-sync-overlap-timestamp-prerequisites.patch",
+      "sha256": "079fa562ac8784711d1d008c5cbb240b7e228230d7761ed2800ea82f007f4b07"
+    },
+    {
+      "path": "patches-candidates/2026-10-26-api/0002-v9-timestamp-lifetime.patch",
+      "sha256": "a029d05a3ae8d4ad6c442bfbc1d1a5a976a44e0635a58fb3235184e08477f650"
+    },
+    {
+      "path": "patches-candidates/2026-10-26-api/0003-v9-vertex-robustness-gpl-null.patch",
+      "sha256": "48d5fc6bbeb803ccad75f745eb3b7399c5af5bf48dac65b8d4e97e2b4297e0c1"
+    },
+    {
+      "path": "patches-candidates/2026-10-26-api/0004-jm-conditional-rendering.patch",
+      "sha256": "c2545e4f71c83a4a803a5d35dc0e090330faf49b7eb979e592dd60f3b0107254"
+    },
+    {
+      "path": "patches-candidates/2026-10-26-api/0005-v9-opt-in-depth-bounds.patch",
+      "sha256": "72cb093a663b3faa23d88407ae4909293c993b81cfe39cc8ac9f55544a7c22da"
+    },
+    {
+      "path": "patches-candidates/2026-11-01-correctness/0001-jm-atomic-option-initialization.patch",
+      "sha256": "a0380c027cba44304f923ccf91f9e2410065bee1f8573fc475e9f00bd6439b44"
+    },
+    {
+      "path": "patches-candidates/2026-11-01-correctness/0002-util-option-cache-allocation-failures.patch",
+      "sha256": "32145395813ec365dc3be979dbde27719eda03c30ad654c7103f4e493d76cdfc"
+    },
+    {
+      "path": "patches-candidates/2026-11-01-correctness/0003-v9-indirect-dispatch-reissue.patch",
+      "sha256": "d4c85d071f8882e965d064f88c66a438938b8c2dda72a3ee400005eacacb9030"
+    },
+    {
+      "path": "patches-candidates/2026-11-01-correctness/0004-jm-compute-job-accounting.patch",
+      "sha256": "e3907646a1cb82f15da7e93609a866a284a7a977070faeb18ef27454c7cfa474"
+    },
+    {
+      "path": "patches-candidates/2026-11-01-correctness/0005-v9-tes-transform-feedback.patch",
+      "sha256": "537b0ad84fc89c8cb987142e3f4ae4612a7f3d3f8fb48a47dbc94e4b637dba14"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0001-jm-tiler-heap-allocation-error.patch",
+      "sha256": "b0329cb6fd8c6685a5c08c7a6495654101b3940fe5ac5e475b219ca2990445f9"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0002-jm-tiler-batch-budget-opt-in.patch",
+      "sha256": "9ba6235e6efc091fe4b81951560648be800d4ccd4baaa52317abaaf45736ccbd"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0003-jm-draw-trace-guard-and-flag-cache.patch",
+      "sha256": "76bfa90a44a6b5ab9e5c26056f196468a9adc621c4bd225862b82ef88221966b"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0004-jm-draw-flag-cache-default-on.patch",
+      "sha256": "4d3ede47dfd099024a0b5197e43c81a65cb6179cec4166765cc091c04c0c78c4"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0005-jm-v9-clip-scissor-to-viewport.patch",
+      "sha256": "63f2945596ca0793b657f7488cb76ed2c34f211d116a598c010acbc8650e6a0e"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0006-jm-tiler-batch-budget-default-on.patch",
+      "sha256": "239744953a79cf695df023476339d3a2f35a34706d270abce1db3cfe70af4edb"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0007-pan-bi-restore-force-for-spills-upstream-33e6787.patch",
+      "sha256": "96ba99be7b41234ad92c4efb988e73f66432ca139f6873edef0c280a86cfd275"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0008-panvk-logic-op-reads-destination.patch",
+      "sha256": "f46c4d1fca5924520f1892c36f853e1b32baa5b5493f2939770a93c21aedaf39"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0009-jm-v9-no-tiler-chain-default-on.patch",
+      "sha256": "ac556b93e3f1a8489bf46443e2d4b31ce4460099c4eb118acaffdca2fb48221e"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0010-jm-v9-reuse-desc-tables-and-blend.patch",
+      "sha256": "27c9f5181ebe5d6729ed90ccdbf7412f2ec94349d358f0ec2a81b30ad7afa6c1"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0011-jm-v9-reuse-draw-descriptor-template.patch",
+      "sha256": "a053fec4db6a158e97509a1ff71866f88d5fb21991fb2710966d347c8478031c"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0013-v9-null-index-buffer.patch",
+      "sha256": "853b96f8078cafc79e12bf507bc63b32545b5988c772c4d0b95e1025cf4452d7"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0015-jm-tiler-heap-256-plan-128.patch",
+      "sha256": "606de15a52fd3fa1e5108cc32eaf95dde744ce724a454adcc7cd0104232ff8a9"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0016-panvk-wsi-ext-deps-and-process-budget.patch",
+      "sha256": "365951e69ac85017b300dcd268b1d59dfb6ff823e38b905edea97c17ff4376f2"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0017-panvk-v9-low-global-priority.patch",
+      "sha256": "786882e6a1c16adc0fcaa39c0a0d4ae338c4721b84e1f17f6f288fd00cfb89dc"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0019-v9-timestamp-pools-always-implemented.patch",
+      "sha256": "7f90af2d02907f973c40f166539988c2745db63b3146b017fd0bc8e1b970fe55"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-stock-jm/0020-jm-precomp-alloc-failure-no-null-write.patch",
+      "sha256": "40643a6e9e6d2e3cdc2c0f43abf0eb2797651dc94577898118ce4b9cd37c1744"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-jm-lifecycle/0001-cpu-lifetime.patch",
+      "sha256": "2b75238fe265ef84302a99d06863c7586e03be7822de4617e6d513f537d61ab7"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-jm-lifecycle/0002-profiler-teardown.patch",
+      "sha256": "a760a83c70b2aca03cf26495867e443b7e7af121ec8b5caa2981a7e91e7719a4"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-jm-lifecycle/0003-failed-event-accounting.patch",
+      "sha256": "7c3be99a10b9d9d00b9249bd0117f98f85f34e24087e95f16c01ad41fdea655d"
+    },
+    {
+      "path": "patches-candidates/2026-11-13-jm-lifecycle/0004-fault-metadata-snapshot.patch",
+      "sha256": "0f7f9470020b793d2888e2784b69d761d727be3b877566a9e02d3f0b51ecb0e5"
+    }
+  ]
+}

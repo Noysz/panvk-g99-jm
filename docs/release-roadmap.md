@@ -5,6 +5,13 @@ is an experimental test build. Publication does not close beta-entry or RC
 requirements. [T06-T08 and T10](followup-tasks-2026-10-19.md) retain their
 open memory, performance and qualification work; 14 tracked CTS failures remain.
 
+November 13: those 14 failures are resolved on the separately tested early
+correctness candidate, not in the published Test9 binary. The later lifecycle
+composition has fresh full builds and targeted tests with two inherited query
+failures. See [November status](november-development.md). P0 remains BLOCKED,
+0012 remains default OFF, and Test10 remains PRIVATE/NO-GO; no release criterion
+is relaxed by local source commits.
+
 Version scheme from `0.0.6` on (`alpha1`-`alpha5` came before it):
 
 | Stage | Versions | Meaning |

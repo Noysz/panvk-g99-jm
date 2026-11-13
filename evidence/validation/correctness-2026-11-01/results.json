@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-01",
+  "source_tree": "ea696dfb5359bcf9055536b782cfa9cc812f476e",
+  "tracked_cases_per_binary": 5658,
+  "host": {
+    "Pass": 3768,
+    "NotSupported": 1890,
+    "Fail": 0
+  },
+  "android": {
+    "Pass": 3768,
+    "NotSupported": 1890,
+    "Fail": 0
+  },
+  "test9": {
+    "Pass": 3754,
+    "NotSupported": 1890,
+    "Fail": 14
+  },
+  "lost_pass": 0,
+  "gained_pass": 14,
+  "tes_xfb": {
+    "cases": 30,
+    "repeat_pass_counts": [
+      30,
+      30,
+      30
+    ],
+    "skip_control_fail": 30,
+    "forced_indirect_pass": 30,
+    "cache_population_and_reload_pass": [
+      30,
+      30
+    ]
+  },
+  "indirect_compute": {
+    "Pass": 32,
+    "NotSupported": 12
+  },
+  "scope": "Historical incremental binaries; not the November 13 combined candidate or a release.",
+  "original_record_sha256": {
+    "cts/host/result.json": "738f0ca78444fb28c1d0a314caf9221df545056ea22769995c541f038d2ed8ca",
+    "cts/android/result.json": "9006953b372f2b4de61ba17607130008041304575f7f76aa2e0f1351adec56e2",
+    "source-replay.json": "e7df693d7bfa0870a59efb1e0468b867520ec922155c6de9879391fb63d02005",
+    "prior-fixes.json": "9ae8ec6a7405813f6368a11f02f1b607fe632e7ef23dfb1f49e73e835c0806ef",
+    "tes-xfb/runs.json": "c97aaa87444590252c48a24711beef672de9a050e634c873f8111fbd8366313e",
+    "compute/cts-44.json": "90b5bb67a5a5b146253afb2e32aa15dd632773e90d695478c0857f4aae3ee7d2"
+  }
+}

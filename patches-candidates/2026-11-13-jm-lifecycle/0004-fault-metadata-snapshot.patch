@@ -1,0 +1,141 @@
+--- a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+@@ -375,11 +375,26 @@
+ 
+ /* PANVK_FAULT_REPORT: what each atom number carries while in flight. */
+ struct panvk_kbase_atom_info {
+-   struct panvk_cmd_buffer *cmdbuf;
+-   struct panvk_batch *batch;
++   uintptr_t cmdbuf_id;
++   uint64_t jc;
+    uint32_t core_req;
+    unsigned batch_idx;
++   unsigned nr_jobs;
+ };
++
++static struct panvk_kbase_atom_info
++panvk_kbase_job_info(const struct panvk_kbase_job *job, bool snapshot)
++{
++   return (struct panvk_kbase_atom_info){
++      .cmdbuf_id = (uintptr_t)job->cmdbuf,
++      .jc = job->jc,
++      .core_req = job->core_req,
++      .batch_idx = job->batch_idx,
++      .nr_jobs = snapshot && job->batch
++                    ? util_dynarray_num_elements(&job->batch->jobs, void *)
++                    : 0,
++   };
++}
+ 
+ /* The job atoms of the vkQueueSubmit being built, not yet in the kernel. */
+ struct panvk_kbase_chain {
+@@ -447,7 +462,7 @@
+    uint64_t t0_ns, fail_print_ns;
+    unsigned errors;
+    bool fault_report, audit_all;
+-   unsigned fault_reports, fault_audits;
++   unsigned fault_reports;
+    unsigned audit_batches, audit_suspect_batches, audit_lines;
+    struct panvk_kbase_atom_info atom_info[256];
+    /* PANVK_FRAME_PROF: end of the GPU busy time counted so far. */
+@@ -899,74 +914,27 @@
+ }
+ 
+ static void
+-panvk_fault_report_batch(struct panvk_kbase_jm *k,
+-                         struct panvk_cmd_buffer *cmdbuf,
+-                         struct panvk_batch *batch, bool frag)
+-{
++panvk_kbase_fault_report(struct panvk_kbase_jm *k, uint8_t atom,
++                         uint64_t seqno, uint32_t event_code)
++{
++   const struct panvk_kbase_atom_info *ai = &k->atom_info[atom];
++   const bool frag = ai->core_req == 0x01;
++
++   mesa_loge("panvk-fault: event 0x%x (%s) atom %u submission %" PRIu64
++             " %s chain 0x%" PRIx64 ", cmdbuf-id 0x%" PRIxPTR " batch %u",
++             event_code,
++             panvk_jd_event_str(event_code), atom, seqno,
++             !ai->jc ? "no job" : frag ? "fragment" : "vertex/tiler/compute",
++             ai->jc, ai->cmdbuf_id, ai->batch_idx);
++   mesa_loge("panvk-fault:   submit snapshot: %u batch jobs; "
++             "live job status unavailable", ai->nr_jobs);
++
+    struct kbase_kmod_mem_stats ms = {0};
+    kbase_kmod_mem_stats(&ms);
+    mesa_loge("panvk-fault:   t=%.1fs since device creation, MemAvailable %"
+              PRIu64 " MB, growable BOs backed %" PRIu64 " MB",
+              (os_time_get_nano() - k->t0_ns) / 1e9,
+              fa_mem_available_mb(), ms.growable_commit_bytes >> 20);
+-
+-   if (!cmdbuf || !batch)
+-      return;
+-
+-   panvk_pool_invalidate_maps(&cmdbuf->desc_pool);
+-
+-   unsigned counts[16] = {0}, done = 0, not_run = 0, shown = 0, idx = 0;
+-   util_dynarray_foreach(&batch->jobs, void *, job) {
+-      const uint8_t *bytes = *job;
+-      uint32_t status, word4;
+-      uint64_t fault_ptr;
+-
+-      memcpy(&status, bytes + 0, sizeof(status));
+-      memcpy(&fault_ptr, bytes + 8, sizeof(fault_ptr));
+-      memcpy(&word4, bytes + 16, sizeof(word4));
+-      unsigned type = (word4 >> 1) & BITFIELD_MASK(7);
+-      counts[type & 15]++;
+-
+-      if ((status & 0xff) == 0x01) {
+-         done++;
+-      } else if ((status & 0xff) == 0) {
+-         not_run++;
+-      } else if (shown++ < 8) {
+-         char what[160];
+-         kbase_kmod_describe_va(fault_ptr, what, sizeof(what));
+-         mesa_loge("panvk-fault:   job[%u] %s status 0x%02x (%s) "
+-                   "first_incomplete_task %u fault_ptr 0x%" PRIx64 " (%s)",
+-                   idx, panvk_job_type_str(type), status & 0xff,
+-                   panvk_jd_event_str(status & 0xff),
+-                   *(const uint32_t *)(bytes + 4), fault_ptr, what);
+-      }
+-      idx++;
+-   }
+-
+-   mesa_loge("panvk-fault:   %u jobs: %u done, %u not run, %u other | "
+-             "compute %u, malloc-vertex %u, indexed-vertex %u, tiler %u, "
+-             "fragment %u, write-value %u, null %u", idx, done, not_run,
+-             idx - done - not_run, counts[4], counts[11], counts[10],
+-             counts[7], counts[9], counts[2], counts[1]);
+-
+-   /* The first fault is the one that matters, the rest are its fallout. */
+-   if (k->fault_audits++ < 3)
+-      panvk_fault_audit(k, batch, frag, false, 12);
+-}
+-
+-static void
+-panvk_kbase_fault_report(struct panvk_kbase_jm *k, uint8_t atom,
+-                         uint64_t seqno, uint32_t event_code)
+-{
+-   const struct panvk_kbase_atom_info *ai = &k->atom_info[atom];
+-   const bool frag = ai->core_req == 0x01;
+-
+-   mesa_loge("panvk-fault: event 0x%x (%s) atom %u submission %" PRIu64
+-             " %s chain, cmdbuf %p batch %u", event_code,
+-             panvk_jd_event_str(event_code), atom, seqno,
+-             !ai->batch ? "no job" : frag ? "fragment" : "vertex/tiler/compute",
+-             (void *)ai->cmdbuf, ai->batch_idx);
+-   panvk_fault_report_batch(k, ai->cmdbuf, ai->batch, frag);
+ }
+ 
+ /* A failed atom. kbase kills every job of the context after an MMU fault,
+@@ -1192,9 +1160,7 @@
+       uint32_t core_req = jobs[i].core_req;
+       if (core_req == 0x16 && jobs[i].batch && jobs[i].batch->has_timestamp)
+          core_req |= BASE_JD_REQ_PERMON;
+-      k->atom_info[nums[a]] = (struct panvk_kbase_atom_info){
+-         .cmdbuf = jobs[i].cmdbuf, .batch = jobs[i].batch,
+-         .core_req = jobs[i].core_req, .batch_idx = jobs[i].batch_idx};
++      k->atom_info[nums[a]] = panvk_kbase_job_info(&jobs[i], k->fault_report);
+       if (i + 1 < n)
+          core_req |= BASE_JD_REQ_EVENT_ONLY_ON_FAILURE;
+       if (i == 0)

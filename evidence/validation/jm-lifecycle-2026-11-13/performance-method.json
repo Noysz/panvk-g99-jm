@@ -1,0 +1,44 @@
+{
+  "performance": {
+    "status": "PASS",
+    "settings": {
+      "seconds": 8.0,
+      "warmup": 2.0,
+      "cooldown": 3.0,
+      "width": 1920,
+      "height": 1080,
+      "timeout": 35.0,
+      "hwcnt": "hwcnt",
+      "ged": "ged-readonly",
+      "vendor": "0x13b5",
+      "device": "0x90930010"
+    },
+    "limits": [
+      "Dynamic clocks; temperature permission may be unavailable",
+      "Headless single frame in flight; no owner-app equivalence",
+      "GPU counters device-wide; no job execution timestamps"
+    ],
+    "pins_unchanged": true
+  },
+  "performance-confirmation": {
+    "status": "PASS",
+    "settings": {
+      "seconds": 20.0,
+      "warmup": 5.0,
+      "cooldown": 10.0,
+      "width": 1920,
+      "height": 1080,
+      "timeout": 50.0,
+      "hwcnt": "hwcnt",
+      "ged": "ged-readonly",
+      "vendor": "0x13b5",
+      "device": "0x90930010"
+    },
+    "limits": [
+      "Dynamic clocks; temperature permission may be unavailable",
+      "Headless single frame in flight; no owner-app equivalence",
+      "GPU counters device-wide; no job execution timestamps"
+    ],
+    "pins_unchanged": true
+  }
+}

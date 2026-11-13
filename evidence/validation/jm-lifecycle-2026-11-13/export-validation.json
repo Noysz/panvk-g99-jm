@@ -1,0 +1,176 @@
+{
+  "host_ubsan": [
+    {
+      "name": "cpu",
+      "phase": "build",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "cpu",
+      "phase": "run",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "adapter",
+      "phase": "build",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "adapter",
+      "phase": "run",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "adapter-negative",
+      "phase": "build",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "adapter-negative",
+      "phase": "run",
+      "rc": -6,
+      "expected_failure": true,
+      "ok": true
+    },
+    {
+      "name": "device",
+      "phase": "build",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "device",
+      "phase": "run",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "device-negative",
+      "phase": "build",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "device-negative",
+      "phase": "run",
+      "rc": -6,
+      "expected_failure": true,
+      "ok": true
+    },
+    {
+      "name": "init",
+      "phase": "build",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "init",
+      "phase": "run",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    }
+  ],
+  "native_android": [
+    {
+      "name": "cpu",
+      "phase": "build",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "cpu",
+      "phase": "run",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "adapter",
+      "phase": "build",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "adapter",
+      "phase": "run",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "adapter-negative",
+      "phase": "build",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "adapter-negative",
+      "phase": "run",
+      "rc": -6,
+      "expected_failure": true,
+      "ok": true
+    },
+    {
+      "name": "device",
+      "phase": "build",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "device",
+      "phase": "run",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "device-negative",
+      "phase": "build",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "device-negative",
+      "phase": "run",
+      "rc": -6,
+      "expected_failure": true,
+      "ok": true
+    },
+    {
+      "name": "init",
+      "phase": "build",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    },
+    {
+      "name": "init",
+      "phase": "run",
+      "rc": 0,
+      "expected_failure": false,
+      "ok": true
+    }
+  ],
+  "scope": "Published frozen fixtures; compiler and source identity checked; no GPU calls.",
+  "runner_sha256": "05314ffe806cfb0c681cfba58d51865bfb0dcc22e440c3777a23f8a5c587b77e"
+}

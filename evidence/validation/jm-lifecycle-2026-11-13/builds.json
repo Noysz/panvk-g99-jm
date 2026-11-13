@@ -1,0 +1,176 @@
+{
+  "toolchain": {
+    "cc": {
+      "version": "clang version 21.1.8",
+      "sha256": "3599a121ecc11b433d23bc43545bc0441f9a8ffcc587ea18e312d88188fcf282"
+    },
+    "c++": {
+      "version": "clang version 21.1.8",
+      "sha256": "3599a121ecc11b433d23bc43545bc0441f9a8ffcc587ea18e312d88188fcf282"
+    },
+    "ld.lld": {
+      "version": "LLD 21.1.8 (compatible with GNU linkers)",
+      "sha256": "7a0e3dad3eaeaf7ec0e85337ab1047470141e95aae11e4b51eb12c749c1a561a"
+    },
+    "meson": {
+      "version": "1.12.0",
+      "sha256": "11d6737f6b76829297160ed670139c57079c8667464858a47555310f3b74184e"
+    },
+    "ninja": {
+      "version": "1.13.2",
+      "sha256": "ad71fefa515777f6331530b12aedeb44acf3f9b9ce56af5ebaafa8fe799a1204"
+    },
+    "llvm-ar": {
+      "version": "LLVM (http://llvm.org/):",
+      "sha256": "a43266eaab0bbd4eabf2127f796015c46897044748bcc50976421fc116f37798"
+    }
+  },
+  "builds": {
+    "baseline-host": {
+      "sha256": "1470b68f67584c5dad5f86b09375ccad8b08d73d74ac0809d7cc6d365c17cacb",
+      "source_inputs": 12928,
+      "command_count": 1109,
+      "owner_linked": false,
+      "experimental_P0_strings_absent": true,
+      "macros_verified": true
+    },
+    "baseline-android": {
+      "sha256": "d4d2bf1153cb8d6acdec877a7376bd792fa1040e5fb210970498e2ebe691dbf2",
+      "source_inputs": 12928,
+      "command_count": 1119,
+      "owner_linked": false,
+      "experimental_P0_strings_absent": true,
+      "macros_verified": true
+    },
+    "candidate-host": {
+      "sha256": "ae73ca4ebfbec16d25ff0fc1e3446cadf7499b3020a7a5857f4cbd2b9b2f6fc9",
+      "source_inputs": 12928,
+      "command_count": 1110,
+      "owner_linked": true,
+      "experimental_P0_strings_absent": true,
+      "macros_verified": true
+    },
+    "candidate-android": {
+      "sha256": "ab208ca58cffa7f2103ecfdd9a14109cb3422635ed51c7a74d37c97ce03611fe",
+      "source_inputs": 12928,
+      "command_count": 1120,
+      "owner_linked": true,
+      "experimental_P0_strings_absent": true,
+      "macros_verified": true
+    }
+  },
+  "recipes": {
+    "host": {
+      "meson_options": [
+        "-Dbuildtype=debugoptimized",
+        "-Dvulkan-drivers=panfrost",
+        "-Dgallium-drivers=",
+        "-Dplatforms=",
+        "-Dbuild-tests=false",
+        "-Dpanfrost-kmds=kbase,panthor",
+        "-Dprefix=${PREFIX}",
+        "-Db_ndebug=true",
+        "-Dglx=disabled",
+        "-Dgles2=disabled",
+        "-Dopengl=false",
+        "-Degl=disabled",
+        "-Dgbm=disabled"
+      ],
+      "wrap_mode": "nodownload"
+    },
+    "android": {
+      "meson_options": [
+        "-Dbuildtype=release",
+        "-Dstrip=true",
+        "-Db_ndebug=true",
+        "-Dplatforms=android",
+        "-Dandroid-stub=true",
+        "-Dplatform-sdk-version=29",
+        "-Dandroid-libbacktrace=disabled",
+        "-Dvulkan-drivers=panfrost",
+        "-Dgallium-drivers=",
+        "-Dpanfrost-kmds=kbase,panthor",
+        "-Dopengl=false",
+        "-Degl=disabled",
+        "-Dgles1=disabled",
+        "-Dgles2=disabled",
+        "-Dgbm=disabled",
+        "-Dglx=disabled",
+        "-Dzstd=disabled",
+        "-Dxmlconfig=disabled",
+        "-Dzlib=enabled",
+        "-Dlibunwind=disabled",
+        "-Dvideo-codecs=",
+        "-Dtools=",
+        "-Dvulkan-layers=",
+        "-Dmesa-clc=system",
+        "-Dprecomp-compiler=system",
+        "-Dc_args=--target=aarch64-linux-android29",
+        "-Dcpp_args=--target=aarch64-linux-android29",
+        "-Dc_link_args=--target=aarch64-linux-android29",
+        "-Dcpp_link_args=--target=aarch64-linux-android29",
+        "-Dandroid-strict=false"
+      ],
+      "wrap_mode": "nodownload"
+    }
+  },
+  "dependencies": {
+    "baseline-host": {
+      "libelf.so": "ff95a1ddd72c13d1c7c1dca3ab71e0697e3484c2ddc4d4267541e1f1d3b46539",
+      "libdrm.so": "0e4e8f0bbc6809589206a757759a6506e0aa7c88e0b55de2fe8d54f7ef6a3323",
+      "libz.so": "c47748ed4b6ca6a2ecd664bab04795f3493956ab1f5cddc4ba0efa737ef3b711",
+      "libzstd.so": "1677d5e828c1839f111f0261697c08f99a5e4e80434659ab88e5ff859a1374f7",
+      "libSPIRV-Tools-opt.a": "2d745c9317542071debba2e8a0d1ac319a5832fbac527f9afedff768b1205659",
+      "libSPIRV-Tools.a": "566305edad5890e14f3130116a73dada079fccc4e89c96a37657d551c068dcea",
+      "libSPIRV-Tools-link.a": "01b3cdea684e92463878d1aec4ff93c9e6a53d19f523586cb5c2555fb0853875",
+      "libexpat.so": "61fde151ffc8880c275b59ef7f519f1bd427a24400b1c3446c8eeaf71134b3f7"
+    },
+    "baseline-android": {
+      "libelf.so": "ff95a1ddd72c13d1c7c1dca3ab71e0697e3484c2ddc4d4267541e1f1d3b46539",
+      "libdrm.so": "0e4e8f0bbc6809589206a757759a6506e0aa7c88e0b55de2fe8d54f7ef6a3323",
+      "libz.so": "c47748ed4b6ca6a2ecd664bab04795f3493956ab1f5cddc4ba0efa737ef3b711",
+      "libSPIRV-Tools-opt.a": "2d745c9317542071debba2e8a0d1ac319a5832fbac527f9afedff768b1205659",
+      "libSPIRV-Tools.a": "566305edad5890e14f3130116a73dada079fccc4e89c96a37657d551c068dcea",
+      "libSPIRV-Tools-link.a": "01b3cdea684e92463878d1aec4ff93c9e6a53d19f523586cb5c2555fb0853875"
+    },
+    "candidate-host": {
+      "libelf.so": "ff95a1ddd72c13d1c7c1dca3ab71e0697e3484c2ddc4d4267541e1f1d3b46539",
+      "libdrm.so": "0e4e8f0bbc6809589206a757759a6506e0aa7c88e0b55de2fe8d54f7ef6a3323",
+      "libz.so": "c47748ed4b6ca6a2ecd664bab04795f3493956ab1f5cddc4ba0efa737ef3b711",
+      "libzstd.so": "1677d5e828c1839f111f0261697c08f99a5e4e80434659ab88e5ff859a1374f7",
+      "libSPIRV-Tools-opt.a": "2d745c9317542071debba2e8a0d1ac319a5832fbac527f9afedff768b1205659",
+      "libSPIRV-Tools.a": "566305edad5890e14f3130116a73dada079fccc4e89c96a37657d551c068dcea",
+      "libSPIRV-Tools-link.a": "01b3cdea684e92463878d1aec4ff93c9e6a53d19f523586cb5c2555fb0853875",
+      "libexpat.so": "61fde151ffc8880c275b59ef7f519f1bd427a24400b1c3446c8eeaf71134b3f7"
+    },
+    "candidate-android": {
+      "libelf.so": "ff95a1ddd72c13d1c7c1dca3ab71e0697e3484c2ddc4d4267541e1f1d3b46539",
+      "libdrm.so": "0e4e8f0bbc6809589206a757759a6506e0aa7c88e0b55de2fe8d54f7ef6a3323",
+      "libz.so": "c47748ed4b6ca6a2ecd664bab04795f3493956ab1f5cddc4ba0efa737ef3b711",
+      "libSPIRV-Tools-opt.a": "2d745c9317542071debba2e8a0d1ac319a5832fbac527f9afedff768b1205659",
+      "libSPIRV-Tools.a": "566305edad5890e14f3130116a73dada079fccc4e89c96a37657d551c068dcea",
+      "libSPIRV-Tools-link.a": "01b3cdea684e92463878d1aec4ff93c9e6a53d19f523586cb5c2555fb0853875"
+    }
+  },
+  "generated_v9_shaders_identical": true,
+  "warnings": {
+    "baseline-host": {
+      "Warning: Per application configuration won't work with your OS version. [-W#pragma-messages]": 1
+    },
+    "baseline-android": {
+      "Warning: Per application configuration won't work with your OS version. [-W#pragma-messages]": 1
+    },
+    "candidate-host": {
+      "Warning: Per application configuration won't work with your OS version. [-W#pragma-messages]": 1
+    },
+    "candidate-android": {
+      "Warning: Per application configuration won't work with your OS version. [-W#pragma-messages]": 1
+    }
+  },
+  "scope": "fresh complete driver dependency closure; Termux host and Android target; no object replay",
+  "android": "AArch64 API 29 platform stubs; __ANDROID__=1; portable DETECT_OS_ANDROID=0 inherited.",
+  "fresh_directories": true,
+  "object_replay": false,
+  "ccache": false,
+  "byte_reproducible_rebuild_claim": false
+}

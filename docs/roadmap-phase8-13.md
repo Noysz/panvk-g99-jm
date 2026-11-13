@@ -1,5 +1,11 @@
 # Roadmap after Phase 7 (2026-10-04)
 
+November 13 update: [candidate progress](november-development.md) adds
+CPU-lifetime/fault handling and preserves the tested stock JM prerequisites.
+Memory recovery and overlap remain BLOCKED/REWORK, default off. Test9 is
+still the public build; Test10 is private. The phase order and completion
+criteria below are unchanged.
+
 Current update (2026-10-28): test9 is published. Depth bounds (9.1) now has
 opt-in implementation and targeted validation. Native Android surfaces
 (8.5), sustained game memory (8.6/12.5), and further CPU/GPU work (13.2)
