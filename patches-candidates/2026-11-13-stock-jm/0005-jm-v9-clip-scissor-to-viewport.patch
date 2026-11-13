@@ -1,0 +1,41 @@
+diff --git a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+index 609834b..6bec821 100644
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -2957,19 +2957,28 @@ panvk_draw_prepare_malloc_vertex_job(struct panvk_cmd_buffer *cmdbuf,
+          /* multiViewport: scissor of the viewport this copy draws. */
+          const VkRect2D *s =
+             &vp->scissors[MIN2(draw->info.viewport_id, vp->scissor_count - 1)];
+-         uint32_t minx = s->offset.x;
+-         uint32_t miny = s->offset.y;
+-         uint32_t maxx = s->offset.x + s->extent.width;
+-         uint32_t maxy = s->offset.y + s->extent.height;
++         int64_t minx = s->offset.x;
++         int64_t miny = s->offset.y;
++         int64_t maxx = (int64_t)s->offset.x + s->extent.width;
++         int64_t maxy = (int64_t)s->offset.y + s->extent.height;
++
++         if (vp->viewport_count > 0) {
++            const VkViewport *v = &vp->viewports[MIN2(
++               draw->info.viewport_id, vp->viewport_count - 1)];
++            minx = MAX2(minx, (int64_t)v->x);
++            maxx = MIN2(maxx, (int64_t)(v->x + v->width));
++            miny = MAX2(miny, (int64_t)MIN2(v->y, v->y + v->height));
++            maxy = MIN2(maxy, (int64_t)MAX2(v->y, v->y + v->height));
++         }
+ 
+          /* Maximum is inclusive. */
+          maxx = maxx > minx ? maxx - 1 : maxx;
+          maxy = maxy > miny ? maxy - 1 : maxy;
+ 
+-         cfg.scissor_minimum_x = MIN2(minx, UINT16_MAX);
+-         cfg.scissor_minimum_y = MIN2(miny, UINT16_MAX);
+-         cfg.scissor_maximum_x = MIN2(maxx, UINT16_MAX);
+-         cfg.scissor_maximum_y = MIN2(maxy, UINT16_MAX);
++         cfg.scissor_minimum_x = CLAMP(minx, 0, UINT16_MAX);
++         cfg.scissor_minimum_y = CLAMP(miny, 0, UINT16_MAX);
++         cfg.scissor_maximum_x = CLAMP(maxx, 0, UINT16_MAX);
++         cfg.scissor_maximum_y = CLAMP(maxy, 0, UINT16_MAX);
+       } else {
+          cfg.scissor_maximum_x = MAX_FRAMEBUFFER_DIMENSION - 1;
+          cfg.scissor_maximum_y = MAX_FRAMEBUFFER_DIMENSION - 1;

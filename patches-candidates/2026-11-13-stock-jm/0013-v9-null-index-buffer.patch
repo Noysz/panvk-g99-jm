@@ -1,0 +1,125 @@
+--- a/src/panfrost/vulkan/panvk_device.h
++++ b/src/panfrost/vulkan/panvk_device.h
+@@ -68,6 +68,9 @@
+    uint64_t end;
+ };
+ 
++/* Virtual size of the v9 null index buffer region: 16M 32-bit indices. */
++#define PANVK_V9_NULL_INDEX_BUFFER_SIZE (64ull * 1024 * 1024)
++
+ struct panvk_device {
+    struct vk_device vk;
+ 
+@@ -87,6 +90,10 @@
+    /* PATCH v9: heap storage, separate from the header so it can grow on GPU
+     * page fault (nothing committed until tessellation runs). */
+    struct panvk_priv_bo *poly_heap_data;
++   /* v9 has no index-buffer size, so a null index buffer (nullDescriptor +
++    * maintenance6) points at this zero-on-fault region instead of address 0.
++    * Only VA is reserved; pages are committed (zeroed) when the GPU reads. */
++   struct panvk_priv_bo *null_index_buffer;
+    struct panvk_priv_bo *indirect_varying_buffer;
+    struct panvk_priv_bo *sample_positions;
+ 
+--- a/src/panfrost/vulkan/panvk_vX_device.c
++++ b/src/panfrost/vulkan/panvk_vX_device.c
+@@ -689,6 +689,15 @@
+       };
+       panvk_priv_bo_flush(device->poly_heap, 0, sizeof(*poly_heap));
+    }
++
++   if (device->vk.enabled_features.nullDescriptor) {
++      result = panvk_priv_bo_create(
++         device, PANVK_V9_NULL_INDEX_BUFFER_SIZE,
++         PAN_KMOD_BO_FLAG_NO_MMAP | PAN_KMOD_BO_FLAG_ALLOC_ON_FAULT,
++         VK_SYSTEM_ALLOCATION_SCOPE_DEVICE, &device->null_index_buffer);
++      if (result != VK_SUCCESS)
++         goto err_free_priv_bos;
++   }
+ #endif
+ 
+ #if PAN_ARCH >= 10
+@@ -825,6 +834,7 @@
+    panvk_priv_bo_unref(device->sample_positions);
+    panvk_priv_bo_unref(device->poly_heap);
+    panvk_priv_bo_unref(device->poly_heap_data);
++   panvk_priv_bo_unref(device->null_index_buffer);
+    panvk_priv_bo_unref(device->indirect_varying_buffer);
+    panvk_priv_bo_unref(device->tiler_heap);
+    panvk_device_cleanup_mempools(device);
+@@ -875,6 +885,7 @@
+    panvk_priv_bo_unref(device->tiler_oom.handlers_bo);
+    panvk_priv_bo_unref(device->poly_heap);
+    panvk_priv_bo_unref(device->poly_heap_data);
++   panvk_priv_bo_unref(device->null_index_buffer);
+    panvk_priv_bo_unref(device->indirect_varying_buffer);
+    panvk_priv_bo_unref(device->tiler_heap);
+    panvk_priv_bo_unref(device->sample_positions);
+--- a/src/panfrost/vulkan/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/panvk_vX_cmd_draw.c
+@@ -1163,6 +1163,14 @@
+        * that this only works for v10+, as v9 does not have a way to specify the
+        * index buffer size. */
+       cmdbuf->state.gfx.ib.dev_addr = PAN_ARCH >= 10 ? 0x1000 : 0;
++#if PAN_ARCH == 9
++      /* v9 reads exactly the indices the draw needs, so point them at a
++       * zero-filled region: every fetched index is 0, as robustness2 requires
++       * for a null index buffer. */
++      struct panvk_device *dev = to_panvk_device(cmdbuf->vk.base.device);
++      if (dev->null_index_buffer)
++         cmdbuf->state.gfx.ib.dev_addr = dev->null_index_buffer->addr.dev;
++#endif
+    }
+    cmdbuf->state.gfx.ib.index_size = vk_index_type_to_bytes(indexType);
+ }
+--- a/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_cmd_draw.c
+@@ -3041,6 +3041,12 @@
+       cfg.address = draw->info.index.buffer_dev_addr +
+                     (uint64_t)draw->info.index.offset *
+                        draw->info.index.index_size;
++      /* Null index buffer: all indices are zero, firstIndex is irrelevant and
++       * must not move the fetch out of the zero region. */
++      const struct panvk_device *ndev = to_panvk_device(cmdbuf->vk.base.device);
++      if (ndev->null_index_buffer &&
++          draw->info.index.buffer_dev_addr == ndev->null_index_buffer->addr.dev)
++         cfg.address = draw->info.index.buffer_dev_addr;
+    }
+ 
+    VkResult result = panvk_emit_fs_draw_v9(
+@@ -5323,6 +5329,17 @@
+    panvk_cmd_draw_v9(cmdbuf, &draw);
+ }
+ 
++/* An indexed indirect draw with an empty index range can only draw nothing,
++ * except for a null index buffer, which reads zero indices (robustness2). */
++static bool
++v9_index_buffer_empty(const struct panvk_cmd_buffer *cmdbuf)
++{
++   const struct panvk_device *dev = to_panvk_device(cmdbuf->vk.base.device);
++   return cmdbuf->state.gfx.ib.size == 0 &&
++          !(dev->null_index_buffer &&
++            cmdbuf->state.gfx.ib.dev_addr == dev->null_index_buffer->addr.dev);
++}
++
+ /* Job Manager hardware has no indirect-draw descriptor, so each draw becomes a
+  * job plus a helper kernel that patches its counts. There is no multi-draw
+  * descriptor either, so drawCount (or maxDrawCount) is unrolled into that many
+@@ -5396,7 +5413,7 @@
+    VK_FROM_HANDLE(panvk_cmd_buffer, cmdbuf, commandBuffer);
+    VK_FROM_HANDLE(panvk_buffer, buffer, _buffer);
+ 
+-   if (drawCount == 0 || cmdbuf->state.gfx.ib.size == 0)
++   if (drawCount == 0 || v9_index_buffer_empty(cmdbuf))
+       return;
+ 
+    draw_indirect_unrolled_v9(cmdbuf, buffer, offset, drawCount, stride, true,
+@@ -5436,7 +5453,7 @@
+    VK_FROM_HANDLE(panvk_buffer, buffer, _buffer);
+    VK_FROM_HANDLE(panvk_buffer, count_buffer, countBuffer);
+ 
+-   if (maxDrawCount == 0 || cmdbuf->state.gfx.ib.size == 0)
++   if (maxDrawCount == 0 || v9_index_buffer_empty(cmdbuf))
+       return;
+ 
+    draw_indirect_unrolled_v9(cmdbuf, buffer, offset, maxDrawCount, stride,

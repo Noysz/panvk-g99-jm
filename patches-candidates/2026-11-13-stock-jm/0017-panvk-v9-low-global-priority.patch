@@ -1,0 +1,51 @@
+--- a/src/panfrost/vulkan/panvk_vX_device.c
++++ b/src/panfrost/vulkan/panvk_vX_device.c
+@@ -215,7 +215,8 @@
+ }
+ 
+ static VkResult
+-check_global_priority(const struct panvk_physical_device *phys_dev,
++check_global_priority(const struct panvk_device *dev,
++                      const struct panvk_physical_device *phys_dev,
+                       const VkDeviceQueueCreateInfo *create_info)
+ {
+    const unsigned arch = pan_arch(phys_dev->kmod.dev->props.gpu_id);
+@@ -243,6 +244,15 @@
+       if (requested_prio & allowed_prio_mask)
+          return VK_SUCCESS;
+ 
++      /* A lower priority than we can schedule is a hint: run the queue at
++       * MEDIUM. Only with globalPriorityQuery enabled does the app promise
++       * to request an advertised priority, so reject it there. Higher
++       * priorities are a privilege we don't have. */
++      if (priority < VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR)
++         return dev->vk.enabled_features.globalPriorityQuery
++                   ? VK_ERROR_INITIALIZATION_FAILED
++                   : VK_SUCCESS;
++
+       return VK_ERROR_NOT_PERMITTED_KHR;
+    }
+ 
+@@ -797,7 +807,7 @@
+       const VkDeviceQueueCreateInfo *queue_create =
+          &pCreateInfo->pQueueCreateInfos[i];
+ 
+-      result = check_global_priority(physical_device, queue_create);
++      result = check_global_priority(device, physical_device, queue_create);
+       if (result != VK_SUCCESS)
+          goto err_finish_queues;
+ 
+--- a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+@@ -2254,8 +2254,9 @@
+       priority_info ? priority_info->globalPriority
+                     : VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR;
+ 
+-   /* XXX: Panfrost kernel module doesn't support priorities so far */
+-   assert(priority == VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR);
++   /* JM has no queue priorities: LOW is accepted and runs at MEDIUM
++    * (check_global_priority). */
++   assert(priority <= VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR);
+ 
+    struct panvk_gpu_queue *queue = vk_zalloc(&device->vk.alloc, sizeof(*queue), 8,
+                                          VK_SYSTEM_ALLOCATION_SCOPE_DEVICE);
