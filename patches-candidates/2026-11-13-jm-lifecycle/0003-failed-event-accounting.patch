@@ -1,0 +1,22 @@
+--- a/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
++++ b/src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c
+@@ -1009,7 +1009,8 @@
+          vk_device_set_lost(&k->dev->vk, "kbase out-fence failed: 0x%x",
+                             ev->event_code);
+       }
+-      panvk_kbase_free_atoms(k, 1, &atom);
++      if (!k->lost)
++         panvk_kbase_free_atoms(k, 1, &atom);
+       return;
+    }
+ 
+@@ -1028,6 +1029,9 @@
+       vk_device_set_lost(&k->dev->vk, "kbase atom %u failed: 0x%x", atom,
+                          ev->event_code);
+    }
++   if (k->lost)
++      return;
++
+    if (atom == sub->last)
+       sub->done = true;
+ 
