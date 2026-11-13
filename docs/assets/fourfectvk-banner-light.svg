@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="280" viewBox="0 0 1120 280" role="img" aria-labelledby="title description">
+  <title id="title">FourFectVK - Vulkan for Mali-G57</title>
+  <desc id="description">Experimental graphics driver built on Mesa PanVK. A geometric GPU and circuit paths accompany the project name.</desc>
+  <defs>
+    <linearGradient id="surface" x2="1" y2="1">
+      <stop stop-color="#f3f8fc"/>
+      <stop offset="1" stop-color="#e5f2f5"/>
+    </linearGradient>
+    <linearGradient id="die" x2="1" y2="1">
+      <stop stop-color="#23465a"/>
+      <stop offset="1" stop-color="#122c43"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#bfdae2" stroke-width=".6"/>
+    </pattern>
+    <clipPath id="frame"><rect width="1120" height="280" rx="16"/></clipPath>
+  </defs>
+  <style>
+    text { font-family: 'Trebuchet MS', Verdana, 'DejaVu Sans', sans-serif; }
+    .compact { display: none; }
+    @media (max-width: 600px) {
+      .wide, .chip { display: none; }
+      .compact { display: inline; }
+      .routes { opacity: .3; }
+    }
+  </style>
+  <g clip-path="url(#frame)">
+    <path fill="url(#surface)" d="M0 0h1120v280H0z"/>
+    <path fill="url(#grid)" d="M696 0h424v280H696z"/>
+    <path d="M0 0h1120" stroke="#24a897" stroke-width="4"/>
+    <g class="routes" fill="none" stroke="#8eb9c7" stroke-width="1.5">
+      <path d="M660 45h89l43 43h42M702 13v36l68 68h64M676 217h63l54-54h41M735 280v-37l70-70h29"/>
+      <path d="M998 108h42l41-41h39M998 129h66l31-31h25M998 151h50l45 45h27M998 172h29l61 61h32"/>
+      <circle cx="660" cy="45" r="3" fill="#f3f8fc"/>
+      <circle cx="676" cy="217" r="3" fill="#f3f8fc"/>
+      <circle cx="702" cy="13" r="3" fill="#f3f8fc"/>
+      <path stroke="#24a897" d="M746 45h3l43 43h42M998 151h50l45 45h27"/>
+    </g>
+    <g class="chip">
+      <g stroke="#688e9f" stroke-width="5">
+        <path d="M858 45v15m22-15v15m22-15v15m22-15v15m22-15v15m22-15v15M858 220v15m22-15v15m22-15v15m22-15v15m22-15v15m22-15v15"/>
+        <path d="M819 84h15m-15 22h15m-15 22h15m-15 22h15m-15 22h15m-15 22h15M998 84h15m-15 22h15m-15 22h15m-15 22h15m-15 22h15m-15 22h15"/>
+      </g>
+      <rect x="834" y="60" width="164" height="160" rx="13" fill="#10283d" stroke="#688e9f"/>
+      <rect x="848" y="74" width="136" height="132" rx="5" fill="url(#die)" stroke="#8eb9c7"/>
+      <g fill="none" stroke="#547f91" stroke-width="1">
+        <path d="M860 86h50v48h-50zM922 86h50v48h-50zM860 146h50v48h-50zM922 146h50v48h-50z"/>
+        <path d="M866 92h38v36h-38zM928 92h38v36h-38zM866 152h38v36h-38zM928 152h38v36h-38z"/>
+      </g>
+      <path d="m874 176 0-72 29 0 0 25 55 0 0 25-55 0 0 22z" fill="#24a897" opacity=".85"/>
+      <path d="M903 104h55v13h-55z" fill="#619de0"/>
+      <circle cx="842" cy="68" r="2" fill="#24a897"/>
+      <text x="916" y="253" fill="#425f74" text-anchor="middle" font-size="12" letter-spacing="3">MALI-G57</text>
+    </g>
+    <g class="wide">
+      <path d="M56 48h28m8 0h12" stroke="#24a897" stroke-width="3"/>
+      <text x="56" y="126" fill="#10283d" font-size="70" font-weight="700" letter-spacing="-2">FourFectVK</text>
+      <text x="59" y="176" fill="#146e70" font-size="30">Vulkan for Mali-G57</text>
+      <text x="59" y="216" fill="#425f74" font-size="20">Experimental graphics driver built on Mesa PanVK</text>
+    </g>
+    <g class="compact">
+      <text x="48" y="100" fill="#10283d" font-size="84" font-weight="700" letter-spacing="-2">FourFectVK</text>
+      <text x="51" y="155" fill="#146e70" font-size="42">Vulkan for Mali-G57</text>
+      <text x="51" y="202" fill="#425f74" font-size="31">Experimental graphics driver</text>
+      <text x="51" y="242" fill="#425f74" font-size="31">built on Mesa PanVK</text>
+    </g>
+    <rect x=".5" y=".5" width="1119" height="279" rx="16" fill="none" stroke="#c9dee6"/>
+  </g>
+</svg>
