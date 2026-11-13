@@ -1,0 +1,521 @@
+{
+  "cts": {
+    "baseline-host": {
+      "counts": {
+        "Pass": 120,
+        "NotSupported": 20,
+        "Fail": 2
+      },
+      "seconds": 127.07875470000727
+    },
+    "candidate-host": {
+      "counts": {
+        "Pass": 120,
+        "NotSupported": 20,
+        "Fail": 2
+      },
+      "seconds": 128.4340366999968
+    },
+    "host-changes": [],
+    "baseline-android": {
+      "counts": {
+        "Pass": 120,
+        "NotSupported": 20,
+        "Fail": 2
+      },
+      "seconds": 125.04074554600811
+    },
+    "candidate-android": {
+      "counts": {
+        "Pass": 120,
+        "NotSupported": 20,
+        "Fail": 2
+      },
+      "seconds": 126.94158923799114
+    },
+    "android-changes": []
+  },
+  "lifecycle": [
+    {
+      "variant": "baseline",
+      "repeat": 0,
+      "seconds": 4.33878561599704,
+      "checks": 1536,
+      "initial": {
+        "phase": "instance",
+        "epoch": 0,
+        "rss": 11424,
+        "precise_rss": 12064,
+        "va": 10967952,
+        "fd": 7
+      },
+      "final": {
+        "phase": "instance_destroyed",
+        "epoch": 8,
+        "rss": 11972,
+        "precise_rss": 12504,
+        "va": 10967948,
+        "fd": 4
+      },
+      "after_device": {
+        "fd": {
+          "values": [
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        },
+        "va": {
+          "values": [
+            10967952,
+            10967952,
+            10967952,
+            10967952,
+            10967952,
+            10967952,
+            10967952,
+            10967952
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        },
+        "rss": {
+          "values": [
+            12088,
+            12244,
+            12004,
+            12112,
+            12256,
+            12184,
+            12200,
+            11972
+          ],
+          "range": 284,
+          "last_minus_first": -116
+        },
+        "precise_rss": {
+          "values": [
+            12504,
+            12504,
+            12504,
+            12504,
+            12504,
+            12504,
+            12504,
+            12504
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        }
+      }
+    },
+    {
+      "variant": "baseline",
+      "repeat": 1,
+      "seconds": 3.9691353849921143,
+      "checks": 1536,
+      "initial": {
+        "phase": "instance",
+        "epoch": 0,
+        "rss": 11640,
+        "precise_rss": 12104,
+        "va": 10947472,
+        "fd": 7
+      },
+      "final": {
+        "phase": "instance_destroyed",
+        "epoch": 8,
+        "rss": 12100,
+        "precise_rss": 12620,
+        "va": 10947468,
+        "fd": 4
+      },
+      "after_device": {
+        "fd": {
+          "values": [
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        },
+        "va": {
+          "values": [
+            10947472,
+            10947472,
+            10947472,
+            10947472,
+            10947472,
+            10947472,
+            10947472,
+            10947472
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        },
+        "rss": {
+          "values": [
+            12136,
+            12220,
+            12116,
+            11912,
+            12124,
+            12200,
+            12168,
+            12100
+          ],
+          "range": 308,
+          "last_minus_first": -36
+        },
+        "precise_rss": {
+          "values": [
+            12620,
+            12620,
+            12620,
+            12620,
+            12620,
+            12620,
+            12620,
+            12620
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        }
+      }
+    },
+    {
+      "variant": "baseline",
+      "repeat": 2,
+      "seconds": 4.0466984619997675,
+      "checks": 1536,
+      "initial": {
+        "phase": "instance",
+        "epoch": 0,
+        "rss": 11088,
+        "precise_rss": 12020,
+        "va": 10855312,
+        "fd": 7
+      },
+      "final": {
+        "phase": "instance_destroyed",
+        "epoch": 8,
+        "rss": 11880,
+        "precise_rss": 12532,
+        "va": 10855308,
+        "fd": 4
+      },
+      "after_device": {
+        "fd": {
+          "values": [
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        },
+        "va": {
+          "values": [
+            10855312,
+            10855312,
+            10855312,
+            10855312,
+            10855312,
+            10855312,
+            10855312,
+            10855312
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        },
+        "rss": {
+          "values": [
+            11816,
+            11916,
+            11772,
+            11856,
+            11888,
+            11740,
+            11784,
+            11880
+          ],
+          "range": 176,
+          "last_minus_first": 64
+        },
+        "precise_rss": {
+          "values": [
+            12532,
+            12532,
+            12532,
+            12532,
+            12532,
+            12532,
+            12532,
+            12532
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        }
+      }
+    },
+    {
+      "variant": "candidate",
+      "repeat": 0,
+      "seconds": 4.1718546920019435,
+      "checks": 1536,
+      "initial": {
+        "phase": "instance",
+        "epoch": 0,
+        "rss": 11448,
+        "precise_rss": 12116,
+        "va": 10828684,
+        "fd": 7
+      },
+      "final": {
+        "phase": "instance_destroyed",
+        "epoch": 8,
+        "rss": 12096,
+        "precise_rss": 12576,
+        "va": 10828680,
+        "fd": 4
+      },
+      "after_device": {
+        "fd": {
+          "values": [
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        },
+        "va": {
+          "values": [
+            10828684,
+            10828684,
+            10828684,
+            10828684,
+            10828684,
+            10828684,
+            10828684,
+            10828684
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        },
+        "rss": {
+          "values": [
+            11960,
+            12180,
+            12048,
+            11940,
+            11996,
+            11944,
+            11996,
+            12096
+          ],
+          "range": 240,
+          "last_minus_first": 136
+        },
+        "precise_rss": {
+          "values": [
+            12576,
+            12576,
+            12576,
+            12576,
+            12576,
+            12576,
+            12576,
+            12576
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        }
+      }
+    },
+    {
+      "variant": "candidate",
+      "repeat": 1,
+      "seconds": 4.088803692997317,
+      "checks": 1536,
+      "initial": {
+        "phase": "instance",
+        "epoch": 0,
+        "rss": 11032,
+        "precise_rss": 11992,
+        "va": 10974092,
+        "fd": 7
+      },
+      "final": {
+        "phase": "instance_destroyed",
+        "epoch": 8,
+        "rss": 11604,
+        "precise_rss": 12508,
+        "va": 10974088,
+        "fd": 4
+      },
+      "after_device": {
+        "fd": {
+          "values": [
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        },
+        "va": {
+          "values": [
+            10974092,
+            10974092,
+            10974092,
+            10974092,
+            10974092,
+            10974092,
+            10974092,
+            10974092
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        },
+        "rss": {
+          "values": [
+            11788,
+            11880,
+            11980,
+            11828,
+            11808,
+            11760,
+            11652,
+            11604
+          ],
+          "range": 376,
+          "last_minus_first": -184
+        },
+        "precise_rss": {
+          "values": [
+            12508,
+            12508,
+            12508,
+            12508,
+            12508,
+            12508,
+            12508,
+            12508
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        }
+      }
+    },
+    {
+      "variant": "candidate",
+      "repeat": 2,
+      "seconds": 4.274244385000202,
+      "checks": 1536,
+      "initial": {
+        "phase": "instance",
+        "epoch": 0,
+        "rss": 11164,
+        "precise_rss": 12112,
+        "va": 11037580,
+        "fd": 7
+      },
+      "final": {
+        "phase": "instance_destroyed",
+        "epoch": 8,
+        "rss": 11656,
+        "precise_rss": 12632,
+        "va": 11037576,
+        "fd": 4
+      },
+      "after_device": {
+        "fd": {
+          "values": [
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        },
+        "va": {
+          "values": [
+            11037580,
+            11037580,
+            11037580,
+            11037580,
+            11037580,
+            11037580,
+            11037580,
+            11037580
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        },
+        "rss": {
+          "values": [
+            11836,
+            11896,
+            11768,
+            11872,
+            11840,
+            11924,
+            11788,
+            11656
+          ],
+          "range": 268,
+          "last_minus_first": -180
+        },
+        "precise_rss": {
+          "values": [
+            12568,
+            12568,
+            12568,
+            12568,
+            12568,
+            12568,
+            12568,
+            12568
+          ],
+          "range": 0,
+          "last_minus_first": 0
+        }
+      }
+    }
+  ],
+  "scope": "Normal lifecycle, targeted CTS and per-process CPU memory/FD observations; no GPU fault injection or terminal recovery proof"
+}

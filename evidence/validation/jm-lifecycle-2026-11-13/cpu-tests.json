@@ -1,0 +1,180 @@
+{
+  "result.json": {
+    "ok": true,
+    "steps": [
+      {
+        "target": "host-ubsan",
+        "phase": "build",
+        "rc": 0,
+        "name": "cpu",
+        "output": ""
+      },
+      {
+        "target": "host-ubsan",
+        "phase": "run",
+        "rc": 0,
+        "name": "cpu",
+        "output": "PASS actual owner/sync/queue callbacks, reader close races=133; payload lifecycle=500 cycles\n"
+      },
+      {
+        "target": "host-ubsan",
+        "phase": "build",
+        "rc": 0,
+        "name": "adapter",
+        "output": ""
+      },
+      {
+        "target": "host-ubsan",
+        "phase": "run",
+        "rc": 0,
+        "name": "adapter",
+        "output": "ADAPTER PASS scenarios=163 grouped=1 partial=1 EFAULT_0_32=1 late_events=1 original_IDs=1 GPU_terminal_not_proven=1\n"
+      },
+      {
+        "target": "host-ubsan",
+        "phase": "build",
+        "rc": 0,
+        "name": "adapter-negative",
+        "output": ""
+      },
+      {
+        "target": "host-ubsan",
+        "phase": "run",
+        "rc": -6,
+        "name": "adapter-negative",
+        "output": "adapter-negative-host-ubsan: adapter-negative.c:626: error_retirement: Assertion `k.lost && k.completed_seqno==0 && k.count==2' failed.\n"
+      },
+      {
+        "target": "host-ubsan",
+        "phase": "build",
+        "rc": 0,
+        "name": "device",
+        "output": ""
+      },
+      {
+        "target": "host-ubsan",
+        "phase": "run",
+        "rc": 0,
+        "name": "device",
+        "output": "DEVICE_TEARDOWN_PASS cycles=64 actual_destroy_device=1 actual_profiler_fini=1 actual_cpu_owner=1 lower_resource_stubs=1 gpu_terminal_not_modeled=1\n"
+      },
+      {
+        "target": "host-ubsan",
+        "phase": "build",
+        "rc": 0,
+        "name": "device-negative",
+        "output": ""
+      },
+      {
+        "target": "host-ubsan",
+        "phase": "run",
+        "rc": -6,
+        "name": "device-negative",
+        "output": "device-negative-host-ubsan: device-negative.c:60: panvk_mem_prof_tick: Assertion `cpu_closed && !backend_closed' failed.\n"
+      },
+      {
+        "target": "android",
+        "phase": "build",
+        "rc": 0,
+        "name": "cpu",
+        "output": ""
+      },
+      {
+        "target": "android",
+        "phase": "run",
+        "rc": 0,
+        "name": "cpu",
+        "output": "PASS actual owner/sync/queue callbacks, reader close races=133; payload lifecycle=500 cycles\n"
+      },
+      {
+        "target": "android",
+        "phase": "build",
+        "rc": 0,
+        "name": "adapter",
+        "output": ""
+      },
+      {
+        "target": "android",
+        "phase": "run",
+        "rc": 0,
+        "name": "adapter",
+        "output": "ADAPTER PASS scenarios=163 grouped=1 partial=1 EFAULT_0_32=1 late_events=1 original_IDs=1 GPU_terminal_not_proven=1\n"
+      },
+      {
+        "target": "android",
+        "phase": "build",
+        "rc": 0,
+        "name": "adapter-negative",
+        "output": ""
+      },
+      {
+        "target": "android",
+        "phase": "run",
+        "rc": -6,
+        "name": "adapter-negative",
+        "output": "adapter-negative.c:626: void error_retirement(void): assertion \"k.lost && k.completed_seqno==0 && k.count==2\" failed\n"
+      },
+      {
+        "target": "android",
+        "phase": "build",
+        "rc": 0,
+        "name": "device",
+        "output": ""
+      },
+      {
+        "target": "android",
+        "phase": "run",
+        "rc": 0,
+        "name": "device",
+        "output": "DEVICE_TEARDOWN_PASS cycles=64 actual_destroy_device=1 actual_profiler_fini=1 actual_cpu_owner=1 lower_resource_stubs=1 gpu_terminal_not_modeled=1\n"
+      },
+      {
+        "target": "android",
+        "phase": "build",
+        "rc": 0,
+        "name": "device-negative",
+        "output": ""
+      },
+      {
+        "target": "android",
+        "phase": "run",
+        "rc": -6,
+        "name": "device-negative",
+        "output": "device-negative.c:60: void panvk_mem_prof_tick(struct panvk_device *): assertion \"cpu_closed && !backend_closed\" failed\n"
+      }
+    ]
+  },
+  "init-result.json": {
+    "ok": true,
+    "steps": [
+      {
+        "target": "host-ubsan",
+        "phase": "build",
+        "rc": 0,
+        "name": "init",
+        "output": ""
+      },
+      {
+        "target": "host-ubsan",
+        "phase": "run",
+        "rc": 0,
+        "name": "init",
+        "output": "INIT PASS 512 cycles actual queue create/destroy + owner; allocation/mutex/condition/eventfd failures; zero live objects\n"
+      },
+      {
+        "target": "android",
+        "phase": "build",
+        "rc": 0,
+        "name": "init",
+        "output": ""
+      },
+      {
+        "target": "android",
+        "phase": "run",
+        "rc": 0,
+        "name": "init",
+        "output": "INIT PASS 512 cycles actual queue create/destroy + owner; allocation/mutex/condition/eventfd failures; zero live objects\n"
+      }
+    ]
+  }
+}

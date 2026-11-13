@@ -1,0 +1,22 @@
+{
+  "fixture_sha256": {
+    "adapter-negative.c": "0c1361ebe4c23a777839d5109d8d0336b294e0505b4f4dc1c772574ba5fd7048",
+    "adapter.c": "015c5dc250176f3aaaa0242416899445c4db70717199cc6b0a339c5aeb976163",
+    "cpu.c": "d82ee85a2cf8530f64c68b56174d88890bddff0f88ae25f7816861b56f31df38",
+    "device-negative.c": "b102ddc4f708665a151475f8d36e7748b92f72643cd14f399a962f2bbcff5721",
+    "device.c": "6db9ceb6473dbc3a8979c34bc58c49d0944b91bf38e297d02bddb498ec5ea18d",
+    "init.c": "10a9e85aea6f8ed36f15d26756ac93d6d88534073edb87066a1ebab796bb49f3",
+    "panvk_kbase_owner.h": "8009fa794fe7085d95aec4bcaf98513fb50a829d50664bcdf5cbab605ccb7928"
+  },
+  "candidate_source_sha256": {
+    "src/panfrost/vulkan/panvk_physical_device.c": "1f244ec903e3e3c2986ab93896104069c010aa97e93fef551f64ed213557d7a7",
+    "src/panfrost/vulkan/panvk_physical_device.h": "1b9e88ff2fa4de8f9371a501dcd2da651e1f1f22622db5487aff57203641e949",
+    "src/panfrost/vulkan/panvk_vX_device.c": "7a73cc836bdb835c023dfcb67525a04e8c17ce1d41dd4a8c4c38159f31322e4c",
+    "src/panfrost/vulkan/meson.build": "dcc2c1dbe20f59ffd11b4f931478b67157f5a6e860455544832d29920ef113e9",
+    "src/panfrost/vulkan/panvk_kbase_owner.c": "2f6ab432ce5c89ad097fa36b02eed0a2cd1ec5d46fc5fbf3910bb33ae6a9302e",
+    "src/panfrost/vulkan/panvk_kbase_owner.h": "8009fa794fe7085d95aec4bcaf98513fb50a829d50664bcdf5cbab605ccb7928",
+    "src/panfrost/vulkan/jm/panvk_vX_gpu_queue.c": "53ca8f5936fed57905d2780316aceb33841d28bbc223d77191c3757addb5d200",
+    "src/panfrost/vulkan/panvk_mem_prof.c": "fc25820ab3bac76867d453642b5e0a0442c1c361d305750f7a86f15809ada412",
+    "src/panfrost/vulkan/panvk_frame_prof.c": "a9970c405a726704b79ba8eb0db4dd45632e28eb661f9a3df8577c32e67b3a67"
+  }
+}

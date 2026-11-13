@@ -1,0 +1,10 @@
+{
+  "records": {
+    "build-verification.json": "9ab6e0936bb9a4a380d5ef4f22215ca10944675ab20519e30d7d9311ff543b5a",
+    "correctness-analysis.json": "7afbe6d0fa4230eaaffc37f9ebcedd28e30ad3b08c2bc931374070ea8323a9f7",
+    "integration-manifest.json": "3095dcf5146984d6c86a8e2c59096884604bfa72644d0d37ee9a4757ef7ea4cc",
+    "performance-analysis.json": "0f7c586e5ed9e3af4b67369bbe2e9feb6fc01382bba48242cfd6b58fa0eb0267",
+    "performance-confirmation-analysis.json": "56b43380450ae231a0f120f97871fd3293cd6978b5d98e5d4f381a65b7d3d6a7"
+  },
+  "note": "Original full logs, binaries and private source archives remain preserved locally. Public records select technical fields; record digests identify original evidence."
+}
