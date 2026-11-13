@@ -1,0 +1,32 @@
+{
+  "host": {
+    "sha256": "726f449093a5c868468fa361fcc75c4333ee12221bd94cf52bcf07cd67aed376",
+    "build_id": "4f2a6aa229687e28bcc057abb57ff197e3492a11",
+    "bytes": 132812104,
+    "commands": [
+      [
+        "ninja",
+        "-C",
+        "build-host",
+        "-j2",
+        "src/panfrost/vulkan/libvulkan_panfrost.so"
+      ]
+    ],
+    "note": "incremental Ninja build in the existing build directory"
+  },
+  "android": {
+    "sha256": "b6f8bfcc159af76cac6623a0474abacd3a12cd326279e7c8d323d3be89efe2bc",
+    "build_id": "1b05bf2bfa575ffaaa6c981a6c892c55dec3efbc",
+    "bytes": 21906504,
+    "commands": [
+      [
+        "ninja",
+        "-C",
+        "build-android",
+        "-j2",
+        "src/panfrost/vulkan/libvulkan_panfrost.so"
+      ]
+    ],
+    "note": "incremental Ninja build in the existing build directory"
+  }
+}

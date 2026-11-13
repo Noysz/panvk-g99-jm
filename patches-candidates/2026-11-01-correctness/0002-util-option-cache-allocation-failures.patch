@@ -1,0 +1,29 @@
+diff --git a/src/util/os_misc.c b/src/util/os_misc.c
+index 853e9e8..50108a8 100644
+--- a/src/util/os_misc.c
++++ b/src/util/os_misc.c
+@@ -365,12 +365,21 @@ os_get_option_cached(const char *name)
+       goto exit_mutex;
+    }
+ 
+-   char *name_dup = ralloc_strdup(options_tbl, name);
++   char *name_dup = ralloc_memdup(options_tbl, name, strlen(name) + 1);
+    if (name_dup == NULL) {
+       goto exit_mutex;
+    }
+-   opt = ralloc_strdup(options_tbl, os_get_option(name));
+-   _mesa_hash_table_insert(options_tbl, name_dup, (void *)opt);
++   const char *value = os_get_option(name);
++   char *value_dup = value
++                        ? ralloc_memdup(options_tbl, value, strlen(value) + 1)
++                        : NULL;
++   if ((value && !value_dup) ||
++       !_mesa_hash_table_insert(options_tbl, name_dup, value_dup)) {
++      ralloc_free(value_dup);
++      ralloc_free(name_dup);
++      goto exit_mutex;
++   }
++   opt = value_dup;
+ exit_mutex:
+    simple_mtx_unlock(&options_tbl_mtx);
+    return opt;
